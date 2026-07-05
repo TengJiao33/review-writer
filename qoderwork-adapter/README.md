@@ -56,3 +56,14 @@ Upstream source remains:
 ```text
 XuehaiWang/review-writer
 ```
+
+## Local-to-public sync
+
+QoderWork runs should happen in a local untracked workspace. Only public-safe
+records should be copied into this directory.
+
+See:
+
+```text
+qoderwork-adapter/docs/workspace-sync.md
+```
