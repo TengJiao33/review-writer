@@ -1,0 +1,32 @@
+{
+  "sample_name": "sample_chem_text_demo",
+  "sample_scope": "text-only QoderWork smoke sample",
+  "paper_count": 5,
+  "papers": [
+    {
+      "paper_id": "P001",
+      "metadata_file": "metadata/P001.metadata.json",
+      "markdown_file": "papers_md/1-s2.0-s004040202400526x-main.md"
+    },
+    {
+      "paper_id": "P002",
+      "metadata_file": "metadata/P002.metadata.json",
+      "markdown_file": "papers_md/1-s2.0-s1001841724001360-main.md"
+    },
+    {
+      "paper_id": "P003",
+      "metadata_file": "metadata/P003.metadata.json",
+      "markdown_file": "papers_md/1-s2.0-s1872206723646248-main.md"
+    },
+    {
+      "paper_id": "P004",
+      "metadata_file": "metadata/P004.metadata.json",
+      "markdown_file": "papers_md/adv-synth-catal-2023-jaravabarrera-enantiospecific-synthesis-of-1-3disubstituted-allenes-from-propargylic.md"
+    },
+    {
+      "paper_id": "P005",
+      "metadata_file": "metadata/P005.metadata.json",
+      "markdown_file": "papers_md/angew-chem-int-ed-2023-chen-asymmetric-rutheniumcatalyzed-c-h-activation-by-a-versatile-chiralamidedirecting.md"
+    }
+  ]
+}

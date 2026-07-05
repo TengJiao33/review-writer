@@ -1,0 +1,23 @@
+# Local QoderWork runtime material
+local/
+runs/
+logs/
+scratch/
+
+# Bulky or private inputs
+*.pdf
+*.docx
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.tif
+*.tiff
+*.log
+
+# Secrets and private links
+*.token
+*.key
+*.secret
+private-*.md
