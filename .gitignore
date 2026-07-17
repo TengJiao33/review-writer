@@ -7,12 +7,16 @@
 !/view/**
 !/review-library/
 !/review-library/**
+!/tests/
+!/tests/**
 
 /.env
 /.env.*
 
 /skills/**/__pycache__/
 /view/**/__pycache__/
+/tests/**/__pycache__/
+/tests/**/*.pyc
 
 !/allene_classification_rules.py
 !/template/

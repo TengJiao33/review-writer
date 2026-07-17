@@ -1,4 +1,4 @@
 interface:
-  display_name: "Figure Style Redraw"
-  short_description: "Redraw source figures into a unified review style while preserving chemistry."
-  default_prompt: "Using approved figure candidates from section drafting, resolve the source figure assets, call the OpenAI image edit API to redraw them in a unified organic review style, and preserve all chemistry and labels exactly."
+  display_name: "Figure Preparation"
+  short_description: "Verify source figures or optionally redraw them."
+  default_prompt: "Use $review-figure-style-redraw to prepare source-verified review figures, using optional redraw only when it adds value."

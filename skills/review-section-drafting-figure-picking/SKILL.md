@@ -1,149 +1,85 @@
 ---
 name: review-section-drafting-figure-picking
-description: Draft each review section from section_blueprint.json, literature matrix, and writing rules; each section is a separate output file and should be written by a separate subagent when possible.
+description: Write an open-form review manuscript using stable paper citations and paragraph-level evidence links, with figures selected only when useful.
 ---
 
-# Review Section Drafting Figure Picking
+# Section Drafting and Figure Picking
 
-Goal: write each section as a separate file, with figures tied to paragraphs.
+Write coherent review prose in the form best suited to the central question. Evidence links preserve traceability without supplying sentence templates.
 
 ## Inputs
 
-```text
-review-projects/<project_id>/01_matrix_outline/selected_outline.md
-review-projects/<project_id>/01_matrix_outline/literature_matrix.json
-review-projects/<project_id>/01_matrix_outline/section_blueprint.json
-review-projects/<project_id>/01_matrix_outline/section_writing_plan.md
-/home/ps/review-writer/skills/review-section-blueprint/references/rule_packs.json
-/home/ps/review-writer/template/综述模板写作方式与风格总结.md
-```
-
-For every assigned paper, reopen:
+Read:
 
 ```text
-metadata JSON
-linked Markdown
-PDF when checking figures/schemes/tables
+00_discovery/topic_contract.json
+01_matrix_outline/literature_matrix.json
+01_matrix_outline/section_blueprint.json
+01_matrix_outline/section_writing_plan.md
+01_matrix_outline/matrix_validation.json
+01_matrix_outline/blueprint_validation.json
 ```
 
-## Writing Rules
+## Citations and evidence links
 
-```text
-Write by section.
-Each section outputs one independent Markdown file.
-Use one subagent per section when parallel execution is available.
-Each paragraph normally corresponds to one paper's work.
-Each paragraph must have one figure/scheme/table tied to that paper.
-If no useful figure exists, write an explicit no_figure_reason.
-Use the literature matrix main_content as the starting evidence, but verify against Markdown/PDF.
-Do not write short examples; write complete review prose.
-```
-
-Follow the template review paragraph mode:
-
-```text
-1. introduce why this paper/method matters in the section
-2. describe the paper's main transformation or principle
-3. attach the corresponding scheme/figure/table
-4. explain what the scheme shows: substrate, product, catalyst, selectivity, mechanism, or limitation
-5. close with a review-level judgment or transition
-```
-
-Each paragraph must carry a stable `paragraph_id` and explicit citation IDs.
-This is the anchor the merge stage uses to bind figures and aggregate citations.
-
-```text
-paragraph_id           e.g. sec3-p2, unique inside section_drafts.json
-paper_id               primary paper for that paragraph
-cited_paper_ids        list of every paper_id the paragraph relies on
-claim or topic sentence
-main work of the paper
-why it matters to the review topic
-figure reference or no_figure_reason
-inline citation callout `[n]` keyed to the section reference list
-```
-
-## Paragraph ID Markers
-
-Every paragraph in `sections/<section_id>.md` must end with an HTML comment
-that exposes its `paragraph_id`, for example:
+Use stable paper IDs in prose; merge assigns numeric references later:
 
 ```markdown
-... last sentence of the paragraph. [3]
-
-<!-- paragraph_id: sec3-p2 -->
+The two approaches differ in their evidentiary basis [@P107; @P022].
 ```
 
-The merge stage uses these markers (not free-text matching) to anchor
-figures. Missing markers will silently fall back to heading-level placement.
+Each cited paragraph lists the evidence anchors used to write it:
 
-## Hard Output Requirements
-
-Every section Markdown file must satisfy all of:
-
-```text
-at least one image reference using ![](...) when figure_need is not explicitly "none"
-every paragraph that cites a paper carries an inline `[n]` callout
-the section file ends with (or is accompanied by) a numbered reference list
-  so that downstream merge can collect callouts and assemble the global
-  References section.
+```json
+{
+  "paragraph_id": "sec2-p1",
+  "markdown": "Complete, freely written paragraph with [@Pxxx] citations.",
+  "cited_paper_ids": ["P001", "P002"],
+  "evidence_ids": ["P001-E01", "P002-E03"],
+  "paragraph_type": "comparison",
+  "figure_candidate_id": null
+}
 ```
 
-Without these the merge stage will produce a draft that fails the final
-audit's hard gate (`draft_has_no_figures`,
-`draft_has_no_citation_callouts`, `missing_references_section`).
+`paragraph_id`, `paragraph_type`, and `figure_candidate_id` are lightweight editorial metadata. `markdown`, inline citations, and `evidence_ids` form the provenance contract. The paragraph may synthesize, compare, narrate, explain one paper deeply, or use another structure appropriate to the section.
 
-## Figure Rules
+## Structured output
 
-Before writing, run:
+Write `section_drafts.json` with `front_matter` and a list of sections. Each section has `section_id`, `title`, and `paragraphs`; `draft_md` may be included as a preview. Keep internal IDs out of manuscript prose.
+
+## Figures
+
+Run the deterministic inventory and selection path rather than writing figure artifacts by hand:
 
 ```bash
-python /home/ps/review-writer/skills/review-section-drafting-figure-picking/scripts/build_paper_figure_inventory.py \
-  --review-root /home/ps/review-writer \
+python skills/review-section-drafting-figure-picking/scripts/build_paper_figure_inventory.py \
+  --review-root . --project-id <project_id>
+python skills/review-section-drafting-figure-picking/scripts/select_initial_figure_candidates.py \
+  --review-root . --project-id <project_id>
+```
+
+The selection command rebuilds the MinerU inventory again before choosing candidates. Write `figure_candidates.json` as a JSON list. When MinerU has split one labeled figure across adjacent image blocks, the inventory exposes the fragment paths but keeps that candidate unresolved; select a complete candidate or reconstruct the complete source figure deliberately. Use `[]` only after inspecting the generated inventory. When resolvable candidates exist but none is suitable, record the actual editorial reason in `03_figure_redraw/skip_reason.md`. Choose figures whose visual content and source context improve the manuscript.
+
+Validate:
+
+```bash
+python skills/review-section-drafting-figure-picking/scripts/validate_section_drafts.py \
+  --review-root . \
   --project-id <project_id>
 ```
 
-Use real source figures/schemes/tables from MinerU/PDF. Do not invent figures.
+The validator checks citation IDs, evidence ownership, paragraph provenance, duplicates, and required structure. It also reports `evidence_usage_by_paper` without turning it into a quota: use the profile to notice when many materially different paragraphs rely on one anchor, then deepen only those sources. It does not compare manuscript wording with evidence wording.
 
 ## Outputs
 
-Write under:
-
 ```text
-review-projects/<project_id>/02_section_drafting/
+02_section_drafting/section_tasks.json
+02_section_drafting/sections/<section_id>.md
+02_section_drafting/section_drafts.json
+02_section_drafting/section_drafts.md
+02_section_drafting/paper_figure_inventory.json
+02_section_drafting/paper_figure_candidates.json
+02_section_drafting/figure_candidates.json
+02_section_drafting/section_drafting_report.md
+02_section_drafting/section_draft_validation.json
 ```
-
-Required files:
-
-```text
-section_tasks.json
-sections/<section_id>.md
-section_drafts.json
-section_drafts.md
-paper_figure_inventory.json
-paper_figure_candidates.json
-figure_candidates.json
-section_drafting_report.md
-```
-
-`section_drafts.json` must contain, for every section, a `paragraphs` list. Each paragraph item carries `paragraph_id`, `paper_id`, `cited_paper_ids`, and (when applicable) `figure_candidate_id`. The aggregated `draft_md` is still kept for preview.
-
-`figure_candidates.json` items must carry `target_paragraph_id` (the paragraph_id this figure should attach to). Free-text `fits_paragraph_or_claim` stays optional and human-readable.
-
-`section_tasks.json` must be a list. Each item must contain:
-
-```text
-section_id
-heading
-core_argument
-allowed_papers
-must_cover_points
-avoid_points
-figure_need
-```
-
-Use `section_blueprint.json.sections[].major_papers` as the source for `allowed_papers`.
-
-`sections/<section_id>.md` is mandatory for every section. `section_drafts.md` concatenates the section files for preview only.
-
-Stop after this stage for human check.

@@ -7,6 +7,7 @@ import json
 import mimetypes
 import os
 import re
+import shutil
 import ssl
 import urllib.error
 import urllib.request
@@ -33,6 +34,15 @@ def normalize_space(text: str) -> str:
 
 def normalize_label(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", normalize_space(text).lower()).strip()
+
+
+def missing_source_note_identifiers(note: str, figure: dict[str, Any]) -> list[str]:
+    normalized_note = normalize_label(note)
+    expected = [
+        normalize_label(figure.get("source_label")),
+        normalize_label(figure.get("source_page_hint")),
+    ]
+    return [item for item in expected if item and item not in normalized_note]
 
 
 def ensure_project_dir(review_root: Path, project_id: str) -> Path:
@@ -63,6 +73,74 @@ def load_metadata(review_root: Path, paper_id: str) -> dict[str, Any] | None:
     return data if isinstance(data, dict) else None
 
 
+def completeness_signals(
+    review_root: Path,
+    figure: dict[str, Any],
+    source_image: Path,
+) -> dict[str, Any]:
+    paper_id = str(figure.get("paper_id") or "")
+    meta = load_metadata(review_root, paper_id) if paper_id else None
+    raw_content_list = figure.get("source_content_list") or (
+        ((meta or {}).get("source_paths") or {}).get("content_list")
+    )
+    signals = {
+        "matched_block_index": None,
+        "same_page_visual_cluster_size": None,
+        "panel_marker_detected": bool(
+            re.match(r"^\s*\(?[A-Ha-h]\)\s*", str(figure.get("source_caption_text") or ""))
+        ),
+        "completeness_review_recommended": False,
+    }
+    if not raw_content_list:
+        return signals
+    content_path = Path(str(raw_content_list)).expanduser()
+    if not content_path.is_absolute():
+        content_path = review_root / content_path
+    if not content_path.exists():
+        return signals
+    try:
+        blocks = read_json(content_path)
+    except Exception:
+        return signals
+    if not isinstance(blocks, list):
+        return signals
+    visual_types = {"image", "chart", "table"}
+    matched_index = None
+    for index, block in enumerate(blocks):
+        if not isinstance(block, dict) or block.get("type") not in visual_types:
+            continue
+        raw_image = str(block.get("img_path") or block.get("image_path") or block.get("path") or "")
+        if raw_image and Path(raw_image).name == source_image.name:
+            matched_index = index
+            break
+    if matched_index is None:
+        return signals
+    signals["matched_block_index"] = matched_index
+    page = blocks[matched_index].get("page_idx")
+    start = matched_index
+    while start > 0:
+        previous = blocks[start - 1]
+        if not isinstance(previous, dict) or previous.get("type") not in visual_types:
+            break
+        if previous.get("page_idx") != page:
+            break
+        start -= 1
+    end = matched_index
+    while end + 1 < len(blocks):
+        following = blocks[end + 1]
+        if not isinstance(following, dict) or following.get("type") not in visual_types:
+            break
+        if following.get("page_idx") != page:
+            break
+        end += 1
+    cluster_size = end - start + 1
+    signals["same_page_visual_cluster_size"] = cluster_size
+    signals["completeness_review_recommended"] = bool(
+        cluster_size > 1 or signals["panel_marker_detected"]
+    )
+    return signals
+
+
 def resolve_source_image(review_root: Path, figure: dict[str, Any]) -> tuple[Path | None, dict[str, Any]]:
     notes: dict[str, Any] = {
         "resolution_method": None,
@@ -70,11 +148,19 @@ def resolve_source_image(review_root: Path, figure: dict[str, Any]) -> tuple[Pat
         "matched_caption": None,
         "matched_img_relpath": None,
     }
+    if figure.get("source_completeness") == "mineru_split":
+        notes["resolution_method"] = "split_mineru_candidate"
+        notes["fragment_paths"] = figure.get("source_fragment_paths") or []
+        return None, notes
     image_path = figure.get("source_image_path")
     if image_path:
-        path = Path(str(image_path)).resolve()
+        path = Path(str(image_path)).expanduser()
+        if not path.is_absolute():
+            path = review_root / path
+        path = path.resolve()
         if path.exists():
             notes["resolution_method"] = "candidate_source_image_path"
+            notes.update(completeness_signals(review_root, figure, path))
             return path, notes
     paper_id = figure.get("paper_id")
     meta = load_metadata(review_root, str(paper_id)) if paper_id else None
@@ -143,6 +229,7 @@ def resolve_source_image(review_root: Path, figure: dict[str, Any]) -> tuple[Pat
     notes["matched_block_page_idx"] = block.get("page_idx")
     notes["matched_caption"] = " ".join(captions)
     notes["matched_img_relpath"] = img_rel
+    notes.update(completeness_signals(review_root, figure, resolved))
     return resolved, notes
 
 
@@ -311,8 +398,9 @@ def save_response_redrawn_image(response: dict[str, Any], out_path: Path) -> Non
 
 def write_report(path: Path, style: dict[str, Any], source_rows: list[dict[str, Any]], redraw_rows: list[dict[str, Any]]) -> None:
     lines = [
-        "# Figure Redraw Report",
+        "# Figure Preparation Report",
         "",
+        f"- Preparation mode: {style['preparation_mode']}",
         f"- Style preset: {style['style_name']}",
         f"- Model: {style['model']}",
         f"- Quality: {style['quality']}",
@@ -321,12 +409,14 @@ def write_report(path: Path, style: dict[str, Any], source_rows: list[dict[str, 
         "",
         f"- Source candidates processed: {len(source_rows)}",
         f"- Source candidates resolved: {sum(1 for r in source_rows if r['status'] == 'resolved')}",
+        f"- Source figures verified: {sum(1 for r in redraw_rows if r['status'] == 'source_verified')}",
         f"- Redraw success: {sum(1 for r in redraw_rows if r['status'] == 'redrawn')}",
-        f"- Redraw skipped/failed: {sum(1 for r in redraw_rows if r['status'] != 'redrawn')}",
+        f"- Unusable or incomplete: {sum(1 for r in redraw_rows if r['status'] not in {'source_verified', 'redrawn'})}",
         "",
-        "## Mandatory Human Check",
+        "## Required Source Check",
         "",
-        "Every redrawn figure must be checked against its source PDF before use.",
+        "Every accepted figure must be checked against its source PDF at readable zoom. "
+        "An unchanged source figure does not require an image-generation API.",
         "",
     ]
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -338,14 +428,17 @@ def run(args: argparse.Namespace) -> int:
     figures_file = load_candidate_file(review_root, args.project_id, args.figures_file)
     out_dir = project / "03_figure_redraw"
     source_dir = out_dir / "source"
+    verified_dir = out_dir / "verified"
     redrawn_dir = out_dir / "redrawn"
     source_dir.mkdir(parents=True, exist_ok=True)
+    verified_dir.mkdir(parents=True, exist_ok=True)
     redrawn_dir.mkdir(parents=True, exist_ok=True)
     data = read_json(figures_file)
     figures = data.get("figures") if isinstance(data, dict) else data
     if not isinstance(figures, list):
         raise SystemExit(f"Invalid figure candidates structure: {figures_file}")
     style = {
+        "preparation_mode": "source_verified" if args.use_source else "api_redraw",
         "style_name": args.style_name,
         "model": args.model,
         "quality": args.quality,
@@ -356,11 +449,12 @@ def run(args: argparse.Namespace) -> int:
         "dry_run": bool(args.dry_run),
     }
     write_json(out_dir / "style_config.json", style)
-    api_key = resolve_api_key(args.api_key)
+    api_key = "" if args.use_source else resolve_api_key(args.api_key)
     source_rows: list[dict[str, Any]] = []
     redraw_rows: list[dict[str, Any]] = []
     limit = args.limit if args.limit and args.limit > 0 else len(figures)
-    for index, figure in enumerate(figures[:limit], start=1):
+    processed_figures = figures[:limit]
+    for index, figure in enumerate(processed_figures, start=1):
         if not isinstance(figure, dict):
             continue
         if figure.get("recommended_action") == "retable":
@@ -370,6 +464,7 @@ def run(args: argparse.Namespace) -> int:
         src_row = {
             "figure_id": figure_id,
             "section_id": figure.get("section_id"),
+            "section_heading": figure.get("section_heading"),
             "paper_id": figure.get("paper_id"),
             "source_label": figure.get("source_label"),
             "source_type": figure.get("source_type"),
@@ -377,6 +472,8 @@ def run(args: argparse.Namespace) -> int:
             "source_pdf": figure.get("source_pdf"),
             "source_page_hint": figure.get("source_page_hint"),
             "source_caption_text": figure.get("source_caption_text") or notes.get("matched_caption"),
+            "source_completeness": figure.get("source_completeness"),
+            "source_page_review_status": figure.get("source_page_review_status"),
             "recommended_action": figure.get("recommended_action"),
             "status": "resolved" if source_image else "unresolved",
             "notes": notes,
@@ -385,18 +482,25 @@ def run(args: argparse.Namespace) -> int:
         redraw_row = {
             "figure_id": figure_id,
             "section_id": figure.get("section_id"),
+            "section_heading": figure.get("section_heading"),
             "paper_id": figure.get("paper_id"),
             "source_label": figure.get("source_label"),
             "source_type": figure.get("source_type"),
             "source_image": str(source_image) if source_image else None,
+            "verified_image": None,
             "redrawn_image": None,
+            "source_pdf": figure.get("source_pdf"),
+            "source_page_hint": figure.get("source_page_hint"),
+            "source_caption_text": figure.get("source_caption_text") or notes.get("matched_caption"),
+            "source_completeness": figure.get("source_completeness"),
+            "source_page_review_status": figure.get("source_page_review_status"),
+            "title": figure.get("title"),
             "prompt": None,
             "model": args.model,
             "quality": args.quality,
             "background": args.background,
             "output_format": args.output_format,
             "status": "skipped",
-            "needs_human_check": True,
             "notes": "",
         }
         if not source_image:
@@ -405,7 +509,47 @@ def run(args: argparse.Namespace) -> int:
             redraw_rows.append(redraw_row)
             continue
         copied_source = source_dir / f"{figure_id}{source_image.suffix.lower() or '.png'}"
-        copied_source.write_bytes(source_image.read_bytes())
+        shutil.copy2(source_image, copied_source)
+        if args.use_source:
+            figure_note = str(figure.get("source_verification_note") or "").strip()
+            if not figure_note and len(processed_figures) == 1:
+                figure_note = args.source_verification_note.strip()
+            page_review_status = str(figure.get("source_page_review_status") or "").strip().lower()
+            completeness = str(figure.get("source_completeness") or "").strip().lower()
+            review_issues = []
+            if not figure_note:
+                review_issues.append("a per-figure source_verification_note")
+            if page_review_status not in {"passed", "verified"}:
+                review_issues.append("source_page_review_status=passed")
+            if completeness not in {"complete", "intentionally_partial"}:
+                review_issues.append("source_completeness=complete or intentionally_partial")
+            if review_issues:
+                redraw_row["status"] = "source_review_incomplete"
+                redraw_row["verification_status"] = "failed"
+                redraw_row["notes"] = "Source review is missing " + ", ".join(review_issues)
+                redraw_rows.append(redraw_row)
+                continue
+            missing_identifiers = missing_source_note_identifiers(
+                figure_note,
+                figure,
+            )
+            if missing_identifiers:
+                redraw_row["status"] = "source_review_incomplete"
+                redraw_row["verification_status"] = "failed"
+                redraw_row["notes"] = (
+                    "Source verification note does not identify the selected source: "
+                    + ", ".join(missing_identifiers)
+                )
+                redraw_rows.append(redraw_row)
+                continue
+            verified_path = verified_dir / copied_source.name
+            shutil.copy2(copied_source, verified_path)
+            redraw_row["verified_image"] = str(verified_path)
+            redraw_row["status"] = "source_verified"
+            redraw_row["verification_status"] = "passed"
+            redraw_row["notes"] = figure_note
+            redraw_rows.append(redraw_row)
+            continue
         prompt = build_prompt(args.style_name, figure)
         redraw_row["prompt"] = prompt
         if args.dry_run:
@@ -452,19 +596,70 @@ def run(args: argparse.Namespace) -> int:
         redraw_rows.append(redraw_row)
     write_json(out_dir / "source_figure_manifest.json", {"project_id": args.project_id, "figures": source_rows})
     write_json(out_dir / "redrawn_figure_manifest.json", {"project_id": args.project_id, "figures": redraw_rows})
-    write_report(out_dir / "figure_redraw_report.md", style, source_rows, redraw_rows)
-    redrawn_count = sum(1 for row in redraw_rows if row.get("status") == "redrawn")
-    if args.require_redrawn and redrawn_count == 0:
-        raise SystemExit(
-            "No figures were redrawn. Fix figure_candidates.json/source_image_path or rerun without --require-redrawn only if figures are explicitly skipped."
+    source_by_id = {row["figure_id"]: row for row in source_rows}
+    figure_by_id = {
+        f"F{index:03d}": figure
+        for index, figure in enumerate(processed_figures, start=1)
+        if isinstance(figure, dict)
+    }
+    fidelity_rows = []
+    for row in redraw_rows:
+        figure = figure_by_id.get(row["figure_id"], {})
+        source_row = source_by_id.get(row["figure_id"], {})
+        fidelity_rows.append(
+            {
+                "figure_id": row["figure_id"],
+                "source_image": row.get("source_image"),
+                "accepted_output": row.get("verified_image") or row.get("redrawn_image"),
+                "source_pdf": row.get("source_pdf"),
+                "source_page": row.get("source_page_hint"),
+                "source_completeness": figure.get("source_completeness"),
+                "source_page_review_status": figure.get("source_page_review_status"),
+                "completeness_signals": {
+                    key: (source_row.get("notes") or {}).get(key)
+                    for key in (
+                        "matched_block_index",
+                        "same_page_visual_cluster_size",
+                        "panel_marker_detected",
+                        "completeness_review_recommended",
+                    )
+                },
+                "applicable_checks": figure.get("fidelity_checks")
+                or [
+                    "source label and page",
+                    "complete intended panel set",
+                    "caption",
+                    "chemistry and arrows",
+                    "reported values",
+                    "legibility",
+                ],
+                "verdict": (
+                    "passed"
+                    if row.get("verification_status") == "passed"
+                    else "pending"
+                    if row.get("status") == "redrawn"
+                    else "failed"
+                ),
+                "notes": row.get("notes") or "",
+            }
         )
-    print(f"Wrote redraw outputs to {out_dir}")
+    write_json(
+        out_dir / "figure_fidelity_review.json",
+        {"project_id": args.project_id, "figures": fidelity_rows},
+    )
+    write_report(out_dir / "figure_redraw_report.md", style, source_rows, redraw_rows)
+    usable_count = sum(1 for row in redraw_rows if row.get("status") in {"source_verified", "redrawn"})
+    if (args.require_usable or args.require_redrawn) and usable_count == 0:
+        raise SystemExit(
+            "No usable figures were prepared. Fix figure_candidates.json/source_image_path or explicitly document a figure skip."
+        )
+    print(f"Wrote figure preparation outputs to {out_dir}")
     return 0
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Redraw review figure candidates into a unified style.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser = argparse.ArgumentParser(description="Prepare verified source figures or redraw candidates into a unified style.")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
     parser.add_argument("--figures-file", default="")
     parser.add_argument("--base-url", default=default_base_url())
@@ -477,8 +672,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--style-name", default="organic-review-clean-v1")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--require-redrawn", action="store_true", help="Fail when no figure is redrawn successfully.")
-    return parser.parse_args()
+    parser.add_argument(
+        "--use-source",
+        action="store_true",
+        help="Use the resolved source image unchanged after source/PDF inspection; no image API key is needed.",
+    )
+    parser.add_argument(
+        "--source-verification-note",
+        default="",
+        help="Concise source/PDF comparison for a single figure. Multi-figure runs require source_verification_note on each candidate.",
+    )
+    parser.add_argument("--require-usable", action="store_true", help="Fail when neither a verified source nor a redrawn figure is prepared.")
+    parser.add_argument("--require-redrawn", action="store_true", help="Deprecated alias for --require-usable.")
+    args = parser.parse_args()
+    if args.use_source and args.dry_run:
+        parser.error("--use-source and --dry-run cannot be combined")
+    return args
 
 
 if __name__ == "__main__":

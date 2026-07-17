@@ -1,108 +1,80 @@
 ---
 name: review-literature-matrix-outline
-description: Read the 20-30 selected papers, build a concise fixed-field literature matrix, and draft review outline options using the writing-rule skill.
+description: Read the screened literature, record source-located evidence anchors, and build a coverage-aware outline for an open-form review manuscript.
 ---
 
-# Review Literature Matrix Outline
+# Literature Matrix and Outline
 
-Goal: read selected papers and create the literature matrix plus outline options.
-
-Boundary: this skill produces high-level structure (sections, purposes,
-assigned papers, expected figures). It does NOT emit per-paragraph or
-per-claim constraints; that is `review-section-blueprint`'s job.
+Create a compact evidence base and one useful manuscript outline.
 
 ## Inputs
 
-```text
-review-projects/<project_id>/00_discovery/selected_discovery_results.json
-review-projects/<project_id>/00_discovery/topic_input.md
-/home/ps/review-writer/skills/review-section-blueprint/SKILL.md
-/home/ps/review-writer/skills/review-section-blueprint/references/rule_packs.json
-/home/ps/review-writer/template/综述模板写作方式与风格总结.md
-```
-
-For each paper, open:
+Read:
 
 ```text
+00_discovery/topic_contract.json
+00_discovery/selected_discovery_results.json
+00_discovery/screening_validation.json
 review-library/metadata/papers/<paper_id>.metadata.json
-linked Markdown
-linked PDF when choosing figures or checking chemistry
+the linked Markdown for each included paper
+the linked PDF when the Markdown does not resolve the needed detail
 ```
 
-## Matrix Rules
+Assign `role_after_reading` as `core`, `supporting`, `background`, or `excluded`. `intended_use` is optional and belongs here, after reading.
 
-For every selected paper, every matrix row must contain all fields:
+Read toward the review argument: identify what the paper changes in the central question, open the passage or figure that establishes it, and note the boundary of that evidence. Let those paper-specific findings determine the anchors instead of beginning from a repeated method/result/mechanism template.
 
-```text
-paper_id
-title
-authors
-keywords
-abstract
-main_content
-most_relevant_figure
+## Evidence anchors
+
+An evidence anchor keeps the reviewer's concise paraphrase separate from a short verifiable source excerpt. It supplies traceability without prescribing manuscript wording.
+
+```json
+{
+  "paper_id": "P001",
+  "title": "...",
+  "role_after_reading": "core",
+  "main_content": "Concise notes useful for synthesis",
+  "intended_use": "optional",
+  "evidence_anchors": [
+    {
+      "evidence_id": "P001-E01",
+      "note": "Source-supported information in review-ready language",
+      "source_excerpt": "Short source wording that preserves material qualifiers",
+      "source_path": "review-root-relative or absolute path",
+      "locator": "page, section, figure, table, or paragraph locator",
+      "source_level": "full_text | abstract | metadata",
+      "evidence_kind": "result, method, mechanism, limitation, context, or another useful label",
+      "certainty": "direct | author_interpretation | review_inference | unclear"
+    }
+  ]
+}
 ```
 
-Field requirements:
+Core and supporting papers receive at least one full-text anchor, but that is an integrity floor rather than a target. Give every core/supporting anchor a short verbatim source excerpt from the identified location; retain qualifiers such as `may`, `might`, `suggest`, and `possible`. Put paraphrase and interpretation in `note`, never in `source_excerpt`. The validator permits harmless whitespace, line-break, Unicode, and ellipsis normalization but blocks an excerpt that cannot be found in the recorded text or PDF. Evidence depth follows intended use: when one paper supports separate claims about scope, mechanism, selectivity, or limitation, capture the distinct source locations instead of reusing one generic anchor. Do not create extra anchors merely to reach a count. Keep a proposal or review inference labeled at its actual certainty.
 
-```text
-keywords: use the 8 structured tag values from metadata.
-abstract: use metadata abstract if reliable; if missing or poor, write "abstract unavailable or unreliable" and continue.
-main_content: around 1000 English words; summarize the paper's actual work, not just the abstract.
-most_relevant_figure: the figure/scheme/table that best reflects the principle or main work of the paper; include source label, caption, page hint, image path if available, and why it is relevant.
+## Outline
+
+Organize the outline around the central question and available evidence. Useful annotations include section question, assigned papers, comparison axes, important coverage, and expected synthesis. Use a single outline unless genuinely different organizations merit a choice.
+
+Validate:
+
+```bash
+python skills/review-literature-matrix-outline/scripts/validate_evidence_matrix.py \
+  --review-root . \
+  --project-id <project_id>
 ```
 
-Do not omit any field. Do not exclude a paper only because its abstract is poor.
-
-External `web_papers` (SciAtlas/Crossref) from discovery are reference-only:
-they may be cited in the manuscript with a reference list entry, but they do
-not get a `paper_id` and do not become matrix rows.
-
-## Outline Rules
-
-After the matrix is complete, use:
-
-```text
-review topic
-literature matrix
-review-section-blueprint writing rules / rule pack
-template review organization summary
-```
-
-Create `2-3` outline options. Each option must include section titles, purpose, assigned papers, and expected figures.
-
-The outline must imitate the template reviews' organization mode. Choose and name one primary structure:
-
-```text
-problem-progressive
-category-coverage
-entry-classified
-reaction-type-classified
-application-oriented
-```
-
-Each major section must have a clear review question, assigned papers, and scheme/figure plan. Do not make a plain title list.
+The validator checks schema, unique IDs, source existence, source depth, provenance structure, and verbatim excerpt presence. It does not infer whether the excerpt semantically proves the reviewer's claim; that remains a reading and audit judgment.
 
 ## Outputs
 
-Write under:
-
 ```text
-review-projects/<project_id>/01_matrix_outline/
-```
-
-Required files:
-
-```text
-paper_reading_notes.json
-literature_matrix.json
-literature_matrix.csv
-outline_options.md
-matrix_outline_report.md
-```
-
-Stop after this stage for human outline selection. The preferred human artifact is:
-
-```text
-selected_outline.md
+01_matrix_outline/paper_reading_notes.json
+01_matrix_outline/literature_matrix.json
+01_matrix_outline/literature_matrix.csv
+01_matrix_outline/outline_options.md (optional)
+01_matrix_outline/selected_outline.md
+01_matrix_outline/matrix_outline_report.md
+01_matrix_outline/matrix_validation.json
+01_matrix_outline/matrix_validation.md
 ```

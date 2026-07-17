@@ -1,15 +1,13 @@
 ---
 name: review-figure-style-redraw
-description: Redraw selected source figures or schemes into a unified organic review style while preserving chemistry and content, using approved figure candidates and a configurable OpenAI-compatible image edit API. Use after section drafting has produced figure_candidates.json and before manuscript merge.
+description: Prepare selected review figures by source-verifying the original extracted image or, when useful, redrawing it into a unified style while preserving chemistry and content. The source-verified path does not require an image API. Use after section drafting has produced figure_candidates.json and before manuscript merge.
 ---
 
-# Review Figure Style Redraw
+# Review Figure Preparation
 
-Use this skill after `figure_candidates.json` has been human-checked.
+Use this skill when `figure_candidates.json` contains a figure worth including.
 
 This stage uses a script because file resolution, API calls, and manifests must be stable.
-
-In the normal full review workflow, do not silently skip this stage. A no-image manuscript is allowed only when the user explicitly says to skip figures or when the section drafting report gives a defensible no-figure reason.
 
 ## Inputs
 
@@ -31,11 +29,20 @@ source_content_list
 source_image_path
 source_caption_text
 recommended_action
+source_completeness: complete | intentionally_partial | uncertain
+source_page_review_status: pending | passed
+source_verification_note
 ```
 
 If `source_image_path` is missing, the script attempts to resolve it from metadata and `content_list.json`.
 
-## Redraw Rule
+## Default Rule
+
+Prefer the original MinerU-extracted figure when it is legible and materially supports the manuscript. Inspect it against the source PDF at readable zoom, then accept it unchanged with source attribution. This is a complete figure path, not a placeholder, and it requires no image-generation credential. Attribution does not replace permission: record the source's reuse basis or choose a newly synthesized/adapted visual when reuse rights are unclear.
+
+Use generative restyling only when the user or manuscript genuinely benefits from it. Image editing is optional, not a workflow preflight dependency.
+
+## Fidelity Rule
 
 Change visual style only.
 
@@ -51,9 +58,26 @@ reaction arrows and panel order
 table values and figure labels
 ```
 
-Every redrawn figure requires human verification against the source.
+Treat chemical schemes, structures, spectra, and data plots as fidelity-critical. A generative image edit is not release evidence by itself. Prefer deterministic vector redraw, retabling, or an appropriately cited source figure. If a generative edit is used for styling, compare the source and output directly at readable zoom and record `verification_status: passed` only after checking connectivity, stereochemistry, labels, conditions, yields, and numeric values. Do not release a chemistry figure whose fidelity cannot be verified.
 
-## API
+## Source-Verified Run
+
+After inspecting the extracted image and its source PDF, update each accepted candidate with `source_page_review_status: passed`, an explicit completeness decision, and a figure-specific verification note. `single_block` is an extraction description, not proof that a labeled multi-panel figure is complete. Treat a panel marker or adjacent same-page visual blocks as a prompt to inspect the PDF, not as an automatic rejection.
+
+For one figure, the note may be passed on the command line:
+
+```bash
+python skills/review-figure-style-redraw/scripts/redraw_figures.py \
+  --review-root . \
+  --project-id <project_id> \
+  --use-source \
+  --source-verification-note "Checked Scheme 5 on page 6 against the source PDF: label, complete panel set, caption, content, and legibility agree." \
+  --require-usable
+```
+
+Name the selected source label and page in the note. For multiple figures, store `source_verification_note` on each candidate rather than combining several checks in one CLI note. This copies the unchanged accepted image to `03_figure_redraw/verified/`, records `status: source_verified` plus `verification_status: passed`, and writes one row per figure to `figure_fidelity_review.json`.
+
+## Optional Redraw API
 
 Default recommendation for this project:
 
@@ -66,16 +90,16 @@ endpoint: /v1/images/edits
 
 Use `wire_api: images` for real source-image editing. Do not use `responses` for chemistry-preserving redraw unless the relay demonstrably supports image input and image editing through `/v1/responses`; otherwise it can generate a new figure without faithfully editing the source.
 
-## Run
+## Optional Redraw Run
 
 ```bash
-python /home/ps/review-writer/skills/review-figure-style-redraw/scripts/redraw_figures.py \
-  --review-root /home/ps/review-writer \
+python skills/review-figure-style-redraw/scripts/redraw_figures.py \
+  --review-root . \
   --project-id <project_id> \
   --base-url https://naiccc.com \
   --wire-api images \
   --api-key <key> \
-  --require-redrawn
+  --require-usable
 ```
 
 Useful options:
@@ -89,16 +113,18 @@ Useful options:
 --style-name
 --limit
 --dry-run
---require-redrawn
+--use-source
+--source-verification-note
+--require-usable
 ```
 
-If `--api-key` is omitted, the script uses `OPENAI_API_KEY`.
+For optional API redraw only, if `--api-key` is omitted, the script uses `OPENAI_API_KEY`.
 
 Validate source resolution first when needed:
 
 ```bash
-python /home/ps/review-writer/skills/review-figure-style-redraw/scripts/redraw_figures.py \
-  --review-root /home/ps/review-writer \
+python skills/review-figure-style-redraw/scripts/redraw_figures.py \
+  --review-root . \
   --project-id <project_id> \
   --dry-run
 ```
@@ -117,26 +143,11 @@ Create:
 style_config.json
 source_figure_manifest.json
 redrawn_figure_manifest.json
+figure_fidelity_review.json
 figure_redraw_report.md
 source/
+verified/
 redrawn/
 ```
 
-`redrawn_figure_manifest.json` must keep `needs_human_check: true` for redrawn images.
-
-If no figure is redrawn successfully, return to `review-section-drafting-figure-picking` and fix `source_image_path`, `source_caption_text`, or the selected candidate list instead of moving to draft merge. To intentionally produce a no-figure manuscript (only when the user explicitly approves), create `03_figure_redraw/skip_reason.md` with a one-line justification. The orchestrator and final audit treat this file as the only valid opt-out; without it, drafts with zero figures fail the hard gate.
-
-## Human Check
-
-The human must compare every redrawn image with the original source and verify:
-
-```text
-all structures, labels, conditions, panels, and table values are unchanged
-no chemistry meaning changed
-```
-
-Suggested continuation message:
-
-```text
-已确认统一重绘图片无内容错误，进入全文合并与统一润色阶段。
-```
+If a selected figure cannot be resolved or verified faithfully, return to figure selection and reconsider it. When the manuscript does not use figures, create `03_figure_redraw/skip_reason.md` with a one-line record of that decision.

@@ -1,6 +1,6 @@
 interface:
   display_name: "Review Export DOCX"
-  short_description: "Convert review Markdown to ACS-style DOCX."
-  default_prompt: "Use $review-export-docx to convert the finalized review Markdown into a Word DOCX with the bundled ACS-style template."
+  short_description: "Export a styled academic DOCX with chemistry formatting."
+  default_prompt: "Use $review-export-docx to convert release-ready review Markdown into a styled and structurally audited academic DOCX."
 policy:
   allow_implicit_invocation: true

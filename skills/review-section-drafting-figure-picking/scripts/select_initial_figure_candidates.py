@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from build_paper_figure_inventory import build_inventory
+
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -62,8 +64,80 @@ def inventory_by_paper(inventory: dict[str, Any]) -> dict[str, dict[str, Any]]:
     }
 
 
+def section_rows(payload: Any) -> list[dict[str, Any]]:
+    if isinstance(payload, list):
+        return [row for row in payload if isinstance(row, dict)]
+    if isinstance(payload, dict) and isinstance(payload.get("sections"), list):
+        return [row for row in payload["sections"] if isinstance(row, dict)]
+    raise ValueError("section_tasks.json must be a list or an object with a sections list")
+
+
+def inferred_figure_need(section: dict[str, Any]) -> str:
+    explicit = lower(section.get("figure_need"))
+    if explicit:
+        return explicit
+    text = lower(
+        " ".join(
+            [
+                section.get("heading", ""),
+                section.get("title", ""),
+                section.get("core_argument", ""),
+            ]
+        )
+    )
+    if any(word in text for word in ("introduction", "conclusion", "outlook")):
+        return "none"
+    if any(word in text for word in ("mechanism", "mechanistic", "pathway", "catalytic cycle")):
+        return "mechanism"
+    if any(word in text for word in ("selectivity", "stereocontrol", "regiocontrol")):
+        return "selectivity comparison"
+    if any(word in text for word in ("substrate scope", "leaving-group", "catalyst")):
+        return "scope comparison"
+    return "optional"
+
+
+def normalized_sections(project: Path, tasks: Any) -> list[dict[str, Any]]:
+    blueprint_path = project / "01_matrix_outline" / "section_blueprint.json"
+    blueprint = read_json(blueprint_path) if blueprint_path.exists() else {}
+    blueprint_by_id = {
+        str(row.get("section_id")): row
+        for row in blueprint.get("sections", [])
+        if isinstance(row, dict) and row.get("section_id")
+    }
+    normalized: list[dict[str, Any]] = []
+    for raw in section_rows(tasks):
+        row = dict(raw)
+        section_id = str(row.get("section_id") or "")
+        source = blueprint_by_id.get(section_id, {})
+        row["heading"] = row.get("heading") or row.get("title") or source.get("title") or section_id
+        row["core_argument"] = (
+            row.get("core_argument")
+            or source.get("section_thesis")
+            or source.get("review_problem")
+            or ""
+        )
+        allowed = list(row.get("allowed_papers") or source.get("major_papers") or [])
+        for subsection in source.get("subsections", []):
+            if isinstance(subsection, dict):
+                allowed.extend(subsection.get("major_papers") or [])
+        row["allowed_papers"] = list(dict.fromkeys(str(pid) for pid in allowed if pid))
+        if not row.get("figure_need"):
+            planned = source.get("figure_or_table_needs") or []
+            planned_types = [
+                norm(item.get("type"))
+                for item in planned
+                if isinstance(item, dict) and item.get("type")
+            ]
+            row["figure_need"] = ", ".join(planned_types) or inferred_figure_need(row)
+        normalized.append(row)
+    return normalized
+
+
 def best_candidate_for_paper(paper: dict[str, Any]) -> dict[str, Any]:
     candidates = [c for c in paper.get("top_candidates", []) if isinstance(c, dict)]
+    resolved = [candidate for candidate in candidates if candidate.get("source_image_path")]
+    if resolved:
+        candidates = resolved
     candidates.sort(key=lambda c: figure_score(c), reverse=True)
     if not candidates:
         return {
@@ -79,13 +153,17 @@ def best_candidate_for_paper(paper: dict[str, Any]) -> dict[str, Any]:
             "why_selected": "Highest-ranked overview, mechanism, scope, or reaction scheme candidate from the MinerU inventory.",
             "manuscript_selected": False,
             "resolution_status": "ready" if best.get("source_image_path") else "needs_source_resolution",
-            "needs_human_check": True,
         }
     )
     return best
 
 
-def build_outputs(project: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def build_outputs(
+    project: Path,
+    *,
+    max_total: int = 4,
+    max_per_section: int = 1,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     inventory = read_json(project / "02_section_drafting" / "paper_figure_inventory.json")
     tasks = read_json(project / "02_section_drafting" / "section_tasks.json")
     by_paper = inventory_by_paper(inventory)
@@ -97,9 +175,7 @@ def build_outputs(project: Path) -> tuple[list[dict[str, Any]], list[dict[str, A
 
     manuscript: list[dict[str, Any]] = []
     used_keys: set[tuple[str, str]] = set()
-    for section in tasks if isinstance(tasks, list) else []:
-        if not isinstance(section, dict):
-            continue
+    for section in normalized_sections(project, tasks):
         figure_need = lower(section.get("figure_need"))
         if figure_need in {"no", "none", "optional"}:
             continue
@@ -110,7 +186,7 @@ def build_outputs(project: Path) -> tuple[list[dict[str, Any]], list[dict[str, A
             if not paper:
                 continue
             for candidate in paper.get("top_candidates", []):
-                if isinstance(candidate, dict):
+                if isinstance(candidate, dict) and candidate.get("source_image_path"):
                     row = dict(candidate)
                     row["_score"] = figure_score(row, section)
                     pool.append(row)
@@ -136,19 +212,24 @@ def build_outputs(project: Path) -> tuple[list[dict[str, Any]], list[dict[str, A
                     "recommended_action": "redraw" if candidate.get("source_type") != "table" else "retable",
                     "manuscript_selected": True,
                     "resolution_status": "ready" if candidate.get("source_image_path") else "needs_source_resolution",
-                    "needs_human_check": True,
+                    "source_page_review_status": "pending",
                 }
             )
             manuscript.append(candidate)
-            if section_selected >= 2:
+            if section_selected >= max(1, max_per_section):
                 break
+        if max_total > 0 and len(manuscript) >= max_total:
+            manuscript = manuscript[:max_total]
+            break
     return paper_level, manuscript
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Select initial paper-level and manuscript figure candidates.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
+    parser.add_argument("--max-total", type=int, default=4)
+    parser.add_argument("--max-per-section", type=int, default=1)
     return parser.parse_args()
 
 
@@ -157,14 +238,43 @@ def main() -> int:
     project = Path(args.review_root).resolve() / "review-projects" / args.project_id
     if not project.exists():
         raise SystemExit(f"Project not found: {project}")
-    paper_level, manuscript = build_outputs(project)
+    # Inventory is a deterministic prerequisite, not an agent-authored
+    # artifact. Rebuild it on every selection run so stale `[]` files or an
+    # invented "MinerU has no images" explanation cannot bypass source data.
+    inventory_path = project / "02_section_drafting" / "paper_figure_inventory.json"
+    inventory = build_inventory(Path(args.review_root).resolve(), args.project_id)
+    write_json(inventory_path, inventory)
+    try:
+        paper_level, manuscript = build_outputs(
+            project,
+            max_total=args.max_total,
+            max_per_section=args.max_per_section,
+        )
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     out_dir = project / "02_section_drafting"
     write_json(out_dir / "paper_figure_candidates.json", paper_level)
     write_json(out_dir / "figure_candidates.json", manuscript)
     print(f"Wrote {out_dir / 'paper_figure_candidates.json'} ({len(paper_level)} records)")
     print(f"Wrote {out_dir / 'figure_candidates.json'} ({len(manuscript)} records)")
     if not manuscript:
-        raise SystemExit("No manuscript figure candidates selected.")
+        source_candidate_count = sum(
+            int(row.get("candidate_count") or 0)
+            for row in inventory.get("papers") or []
+            if isinstance(row, dict)
+        )
+        resolved_candidate_count = sum(
+            bool(candidate.get("source_image_path"))
+            for row in inventory.get("papers") or []
+            if isinstance(row, dict)
+            for candidate in row.get("top_candidates") or []
+            if isinstance(candidate, dict)
+        )
+        raise SystemExit(
+            "No manuscript figure candidates were selected after rebuilding the MinerU inventory "
+            f"({source_candidate_count} candidates; {resolved_candidate_count} resolved top images). "
+            "Select a useful figure or record an explicit text-only editorial decision in skip_reason.md."
+        )
     return 0
 
 

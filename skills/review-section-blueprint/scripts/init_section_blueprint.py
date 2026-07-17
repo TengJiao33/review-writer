@@ -86,7 +86,80 @@ def paper_value(paper: dict[str, Any], key: str) -> str:
         value = structured.get(key)
         if value:
             return str(value)
+    evidence = paper.get("evidence_card")
+    if isinstance(evidence, dict):
+        evidence_aliases = {
+            "product": ["product_classes"],
+            "substrate": ["substrate_classes"],
+            "catalyst_or_method": ["catalyst_system"],
+            "reaction_type": ["reaction_summary"],
+            "limitation": ["scope_boundaries"],
+            "selectivity": ["selectivity"],
+        }
+        for candidate in evidence_aliases.get(key, [key]):
+            value = evidence.get(candidate)
+            if value:
+                return value_text(value)
     return ""
+
+
+def build_coverage_contract(topic: str, papers: list[dict[str, Any]], axes: list[str]) -> dict[str, Any]:
+    topic_low = (topic or "").lower()
+    blobs = {
+        str(paper.get("paper_id")): value_text(paper).lower()
+        for paper in papers
+        if paper.get("paper_id")
+    }
+    term_groups = {
+        "substrate_class": {
+            "propargylic alcohols": ["propargylic alcohol", "alcohols"],
+            "propargylic acetates": ["propargylic acetate", "acetates"],
+            "propargylic carbonates": ["propargylic carbonate", "carbonates"],
+            "propargylic halides": ["propargylic halide", "propargyl halide", "halides"],
+            "propargylic sulfonates": ["mesylate", "sulfonate", "tosylate"],
+            "propargylic amines": ["propargylic amine", "propargyl amine"],
+        },
+        "catalyst_or_method": {
+            "palladium catalysis": ["palladium", "pd-catal"],
+            "copper catalysis": ["copper", "cu-catal"],
+            "nickel catalysis": ["nickel", "ni-catal"],
+            "organocatalysis": ["organocatal", "chiral phosphoric", "brønsted acid"],
+            "photoredox catalysis": ["photoredox", "photocatal"],
+            "electrochemistry": ["electrochemical", "electroreduct", "electrocatal"],
+            "enzymatic catalysis": ["enzyme", "enzymatic", "lipase"],
+        },
+        "review_question": {
+            "regioselectivity": ["regioselect"],
+            "stereoselectivity": ["stereoselect", "enantioselect", "axial chirality"],
+            "mechanistic pathways": ["mechanism", "mechanistic"],
+            "scope and limitations": ["scope", "limitation", "functional-group tolerance"],
+        },
+    }
+    dimensions = []
+    for dimension_name, terms in term_groups.items():
+        items = []
+        for label, signals in terms.items():
+            required = any(signal in topic_low for signal in signals)
+            if dimension_name == "review_question" and label in {
+                "regioselectivity",
+                "stereoselectivity",
+                "mechanistic pathways",
+                "scope and limitations",
+            }:
+                required = required or any(label.split()[0] in str(axis).lower() for axis in axes)
+            covered_by = [
+                paper_id
+                for paper_id, blob in blobs.items()
+                if any(signal in blob for signal in signals)
+            ]
+            if required or covered_by:
+                items.append({"name": label, "required": required, "covered_by": covered_by})
+        if items:
+            dimensions.append({"name": dimension_name, "items": items})
+    return {
+        "suggested_manuscript_words": 5000,
+        "dimensions": dimensions,
+    }
 
 
 def parse_outline_sections(text: str) -> list[dict[str, str]]:
@@ -233,15 +306,15 @@ def infer_logic(title: str) -> str:
     return "reaction_type"
 
 
-def target_depth(title: str, selected_count: int) -> tuple[int, str]:
+def target_depth(title: str, selected_count: int) -> tuple[int, int]:
     low = title.lower()
     if any(word in low for word in ["introduction", "background"]):
-        return 3, "500-800"
+        return 4, 650
     if any(word in low for word in ["conclusion", "outlook", "future"]):
-        return 3, "500-900"
+        return 4, 700
     if selected_count >= 6:
-        return 5, "1000-1500"
-    return 4, "800-1200"
+        return 6, 1250
+    return 5, 1000
 
 
 def infer_claim_type(title: str, index: int) -> str:
@@ -389,6 +462,13 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
         claims.append(claim_from_papers(section["section_id"], title, idx, claim_papers, axes))
     dominant_logic = infer_logic(title)
     target_paragraphs, target_words = target_depth(title, len(selected))
+    title_low = title.lower()
+    substantive = not any(term in title_low for term in ("introduction", "conclusion", "outlook", "abstract"))
+    paragraph_types = ["context", "synthesis"]
+    if substantive:
+        paragraph_types = ["comparison", "mechanism", "limitation_or_gap", "synthesis"]
+    elif "conclusion" in title_low or "outlook" in title_low:
+        paragraph_types = ["synthesis", "limitation_or_gap", "outlook"]
     return {
         "section_id": section["section_id"],
         "title": title,
@@ -399,6 +479,7 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
         "dominant_logic": dominant_logic,
         "major_papers": paper_ids,
         "review_claims": claims,
+        "paragraph_types_suggested": paragraph_types,
         "figure_or_table_needs": [
             {
                 "type": "scheme" if infer_logic(title) != "outlook" else "comparison table",
@@ -407,9 +488,9 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
             }
         ],
         "depth_requirements": [
-            "Draft fully developed review prose, not a compact example or annotated bibliography.",
-            "Use the approved matrix as a guide, but reopen Markdown/PDF evidence for section-level details.",
-            "Each substantive paragraph should contain a claim, source-grounded chemical detail, and a review-level interpretation.",
+            "Use the evidence map as a guide and reopen Markdown/PDF evidence for high-risk details.",
+            "Choose the section depth and paragraph pattern that best serves the argument.",
+            "Do not add prose solely to satisfy a word or paragraph target.",
         ],
         "section_transition": {
             "from_previous": f"Connect from {prev_title}." if prev_title else "Open the review scope and organizing logic.",
@@ -488,6 +569,7 @@ def run(args: argparse.Namespace) -> int:
         "rule_pack_path": rule_pack_path,
         "created_at": utc_now(),
         "status": "draft_initialization_needs_semantic_review",
+        "coverage_contract": build_coverage_contract(topic, papers, axes),
         "sections": blueprint_sections,
     }
     out_json = stage_dir / "section_blueprint.json"
@@ -501,7 +583,7 @@ def run(args: argparse.Namespace) -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Initialize section_blueprint.json from selected outline and literature matrix.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
     return parser.parse_args()
 

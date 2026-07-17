@@ -126,9 +126,6 @@ def validate_one(path: Path, allowed_labels: dict[str, set[str]]) -> dict[str, A
         value = meta.get(key)
         if isinstance(value, dict) and float(value.get("confidence") or 0) < 0.75:
             warnings.append(f"low_confidence_{key}")
-    human_review = meta.get("human_review") or {}
-    if not isinstance(human_review, dict) or human_review.get("status") != "reviewed":
-        warnings.append("not_human_reviewed")
     return {
         "metadata_path": str(path),
         "paper_id": meta.get("paper_id"),
@@ -195,7 +192,7 @@ def run(args: argparse.Namespace) -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate review metadata JSON files.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     return parser.parse_args()
 
 

@@ -1,122 +1,100 @@
 ---
 name: review-export-docx
-description: Convert a finalized review Markdown draft into a Word DOCX that matches the bundled ACS-style review_template.docx. Use after the review writing pipeline has produced a stable first_draft.md or final_draft.md and the user wants a deliverable .docx with proper section styles, captions, tables, and math.
+description: Convert a release-ready review Markdown manuscript into a consistently styled academic DOCX with deterministic chemistry scripts, headings, spacing, tables, figures, references, and structural QA.
 ---
 
-# Review Export DOCX
+# Export Review DOCX
 
-Convert a finalized review Markdown into Word DOCX using the bundled ACS-style template.
+Export only after the final release scan has zero blocking issues.
 
-## When To Use
+## Input Gate
 
-```text
-final delivery of a review draft as .docx
-the source markdown is stable (first_draft.md or final_draft.md)
-the document must match the bundled ACS-style template
-the markdown may contain pipe tables, images, and LaTeX math
-```
-
-Do not use this skill to revise content, fix citations, or validate evidence.
-
-## Inputs
+Read:
 
 ```text
-review-projects/<project_id>/04_first_draft/first_draft.md
-or
-review-projects/<project_id>/05_final_audit/final_draft.md
+05_final_audit/final_draft.md
+05_final_audit/format_scan.json
 ```
 
-## Dependencies
+Stop when `format_scan.json.blocking_issues` is non-empty.
+
+## Markdown Chemistry Conventions
+
+Use explicit script markup when notation is ambiguous:
+
+```markdown
+CO_2_
+H_2_O
+sp^2^
+S_N2_
+10^-3^
+$\ce{PdCl_2}$
+```
+
+The converter also recognizes Unicode subscripts/superscripts and conservatively formats common multi-element formulae such as `CO2`, `H2O`, and `PdCl2`, plus parenthesized coordination formulae such as `Ni(PCy3)2Cl2` and `Ni(cod)2`. Use explicit markup for locants, labels, oxidation states, and ambiguous notation.
+
+## Deterministic Academic Style
+
+The Python converter applies:
+
+```text
+US Letter; 1 inch margins
+Times New Roman throughout
+title 18 pt bold centered
+body 12 pt left-aligned, 1.5 line spacing, 6 pt after
+section heading 14 pt bold
+subsection heading 12 pt bold
+third-level heading 11 pt bold italic
+abstract and keywords 11 pt
+references and captions 10 pt single-spaced
+inline figures with adjacent captions
+fixed-width tables with cell margins
+real Word numbering for lists and references
+right-aligned footer page number
+```
+
+Do not rely on Word defaults or direct formatting as the primary style system.
+
+## Export
+
+Run:
 
 ```bash
-pip install python-docx latex2word
+python skills/review-export-docx/scripts/md2docx.py \
+  --input review-projects/<project_id>/05_final_audit/final_draft.md \
+  --output review-projects/<project_id>/05_final_audit/final_draft.docx
 ```
 
-If `latex2word` is missing, math is rendered as italic plain text and a warning is printed.
+The command fails when stable citation tokens, editor paragraph markers, or missing images remain.
 
-## Run
+## Structural Audit
 
-Default (final draft):
+Run:
 
 ```bash
-python3 /home/ps/review-writer/skills/review-export-docx/scripts/md2docx.py \
-  --input  /home/ps/review-writer/review-projects/<project_id>/05_final_audit/final_draft.md \
-  --output /home/ps/review-writer/review-projects/<project_id>/05_final_audit/final_draft.docx
+python skills/review-export-docx/scripts/audit_docx.py \
+  --input review-projects/<project_id>/05_final_audit/final_draft.docx \
+  --markdown review-projects/<project_id>/05_final_audit/final_draft.md \
+  --output-json review-projects/<project_id>/05_final_audit/docx_audit.json
 ```
 
-First draft:
+Stop on nonzero exit.
 
-```bash
-python3 /home/ps/review-writer/skills/review-export-docx/scripts/md2docx.py \
-  --input  /home/ps/review-writer/review-projects/<project_id>/04_first_draft/first_draft.md \
-  --output /home/ps/review-writer/review-projects/<project_id>/04_first_draft/first_draft.docx
-```
+The structural audit also rejects a figure placed inside the Abstract block; figures belong with the section argument they support.
 
-Custom template:
+## One Visual QA Pass
 
-```bash
-python3 /home/ps/review-writer/skills/review-export-docx/scripts/md2docx.py \
-  --input    /abs/path/review.md \
-  --output   /abs/path/review.docx \
-  --template /abs/path/custom_template.docx
-```
+Perform one visual pass after the structural audit; do not add a second release gate. Render the DOCX to page images and inspect every page for headings, body rhythm, chemical scripts, reference wrapping, figure-caption adjacency, tables, page breaks, and font substitution.
 
-The default template is `/home/ps/review-writer/skills/review-export-docx/review_template.docx`.
+Use LibreOffice when it is available. On Windows, Microsoft Word is also a valid renderer: export the DOCX to PDF through Word automation or Word's Save as PDF command, then rasterize the PDF with `pdftoppm` or the available PDF rendering skill. Absence of LibreOffice alone is not a reason to mark rendering unavailable.
 
-## Style Mapping
+After page inspection, rerun the structural audit with `--render-qa passed`. Use `--render-qa unavailable` only after neither LibreOffice nor Word can render the document. The default `not_run` means the visual pass has not yet been performed; it is never inferred merely from executable discovery.
+
+## Outputs
+
+Write:
 
 ```text
-# Title           -> BA_Title
-## Section        -> TA_Main_Text bold
-### Sub-section   -> TA_Main_Text bold italic
-#### ...          -> TA_Main_Text italic
-body paragraph    -> TA_Main_Text
-## Abstract       -> BD_Abstract
-## Keywords       -> BG_Keywords
-## References     -> TF_References_Section
-## Acknowledgments-> TD_Acknowledgments
-## Supporting Information -> TE_Supporting_Information
-Figure N. ...     -> VA_Figure_Caption
-Table N.  ...     -> VD_Table_Title
-Scheme N. ...     -> VC_Scheme_Title
-Chart N.  ...     -> VB_Chart_Title
-table cell        -> TC_Table_Body
-$...$  / $$...$$  -> OMML via latex2word (or italic plain text fallback)
-```
-
-## Supported Markdown
-
-```text
-ATX headings # .. ######
-bold / italic / bold-italic / inline code
-fenced code blocks
-inline math $...$ and display math $$...$$
-unordered and ordered lists (nested up to 3 levels)
-pipe tables with optional separator row
-standalone image lines ![alt](path) -> picture + auto caption
-horizontal rules (treated as section separators, not visual borders)
-YAML front matter (silently skipped)
-```
-
-## Image Paths
-
-Relative image paths in the Markdown are resolved against the Markdown file's directory. Make sure redrawn or source images are reachable when the script runs.
-
-## Boundary
-
-```text
-use only after review content is stable
-do not rewrite, polish, or revise content
-do not modify or polish manuscript content
-do not run this skill in place of the final audit skill
-```
-
-## Files
-
-```text
-review-export-docx/
-  SKILL.md
-  review_template.docx
-  scripts/
-    md2docx.py
+05_final_audit/final_draft.docx
+05_final_audit/docx_audit.json
 ```

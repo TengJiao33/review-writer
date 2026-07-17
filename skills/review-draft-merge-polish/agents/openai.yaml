@@ -1,4 +1,4 @@
 interface:
   display_name: "Draft Merge Polish"
-  short_description: "Merge section drafts into a unified first draft and write a merge report."
-  default_prompt: "Using the approved outline and section drafting outputs, merge all section drafts into one coherent first review draft, normalize terminology and flow, and write merge and remaining-issues reports for human review."
+  short_description: "Merge review sections and number citations reliably."
+  default_prompt: "Use $review-draft-merge-polish to merge review sections, assign global citation numbers, and generate aligned references."

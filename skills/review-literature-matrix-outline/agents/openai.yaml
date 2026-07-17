@@ -1,4 +1,4 @@
 interface:
   display_name: "Literature Matrix Outline"
-  short_description: "Read selected papers, build a literature matrix, and propose review outlines."
-  default_prompt: "Read the selected discovery-stage papers carefully, extract review-topic-relevant evidence, build a structured literature matrix, and propose 2-3 detailed review outlines before any full drafting."
+  short_description: "Build concise evidence notes and a review outline."
+  default_prompt: "Use $review-literature-matrix-outline to prepare concise evidence notes and an outline centered on the review question."

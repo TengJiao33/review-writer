@@ -1,17 +1,33 @@
 ---
 name: review-topic-paper-discovery
-description: Start a review project from a user topic, expand keywords against the eight LLM allene classification tags, retrieve local candidates from the metadata library, and optionally enrich with the hosted SciAtlas knowledge-graph search; produce 20-30 candidate papers for human check.
+description: Start a review project, retrieve a high-recall candidate pool from the structured local library and optional external sources, and record a topic-driven relevance decision for every candidate.
 ---
 
 # Review Topic Paper Discovery
 
-Goal: from the user review topic, select `20-30` local candidate papers and
-keep an external evidence pool from SciAtlas for the matrix stage.
+Build a broad candidate pool, then produce a screened set that directly serves the review question. The user may screen in the web interface or delegate the decision to the agent.
 
-## Hard Rules
+## Topic contract
+
+Use one topic contract as the source of truth. Do not retype a shortened contract in a run script. Complete `topic_contract.json`, or pass the structured Markdown topic file directly:
+
+```json
+{
+  "topic": "...",
+  "central_question": "...",
+  "important_coverage": ["..."],
+  "inclusion_criteria": ["..."],
+  "exclusion_criteria": ["..."]
+}
+```
+
+The criteria describe the current project. They may concern a material, method, population, outcome, period, evidence type, or any other topic-relevant dimension.
+
+## Retrieval
+
+Local retrieval uses the eight structured tag categories defined in `<review-root>/allene_classification_rules.py`:
 
 ```text
-Use only the 8 LLM structured tag categories for local retrieval:
 product
 substrate
 catalyst_or_method
@@ -22,145 +38,91 @@ reaction_type
 document_scope
 ```
 
-Use `/home/ps/review-writer/allene_classification_rules.py` as the tag
-vocabulary and synonym source. Do not rank local papers by metadata abstract.
-
-External retrieval (both run in parallel when requested):
-
-```text
-SciAtlas /v1/search    enabled by --sciatlas-search (KG-grounded)
-Crossref title search  enabled by --web-search       (open metadata)
-none                   default when no flag is passed
-```
-
-When both flags are set, results are merged per keyword and de-duplicated by
-DOI / URL / normalized title. Each merged record carries `sources` (e.g.
-`['sciatlas']`, `['crossref']`, or `['sciatlas','crossref']`) and `source` is
-the joined label for quick reading.
-
-## Run
-
-Local-only (default):
+Run local retrieval:
 
 ```bash
-python /home/ps/review-writer/skills/review-topic-paper-discovery/scripts/discover.py \
-  --review-root /home/ps/review-writer \
-  --topic "<review topic>" \
-  --keywords "<optional user keywords>" \
+python skills/review-topic-paper-discovery/scripts/discover.py \
+  --review-root . \
+  --topic-contract-file <topic_input.md-or-json> \
   --project-id <project_id>
 ```
 
-Local + SciAtlas KG:
+When invoking `--topic` directly, pass the retrieval query rather than the manuscript title. Explicit CLI values override matching fields loaded from `--topic-contract-file`.
+
+Keyword expansion must follow actual topic signals. Do not add alternative materials, catalysts, populations, or methods merely because they share a generic word such as `catalysis` or `synthesis`. Candidate ranking combines matches across the topic contract and multiple keyword categories; it must not rank by the best single keyword alone.
+
+When the topic contract explicitly excludes records because a named subject is absent, treat that subject as a retrieval prerequisite. The broader per-keyword results remain available for coverage, while screening receives the records that satisfy the stated prerequisite.
+
+Repeat `--important-coverage`, `--inclusion-criterion`, and `--exclusion-criterion` as needed. With no provider flags, the command automatically runs lightweight Semantic Scholar and Crossref coverage. Use `--local-only` only when the task explicitly requires a bounded local/offline run. Provider flags may still select a specific external path:
 
 ```bash
-export SCIATLAS_API_BASE_URL=http://sciatlas.openkg.cn
-export SCIATLAS_API_KEY=sciatlas_xxx     # required for /v1/search
-
-python /home/ps/review-writer/skills/review-topic-paper-discovery/scripts/discover.py \
-  --review-root /home/ps/review-writer \
-  --topic "<review topic>" \
-  --keywords "<optional user keywords>" \
-  --project-id <project_id> \
-  --sciatlas-search \
-  --sciatlas-limit 8 \
-  --sciatlas-time-range 2015-2025 \
-  --sciatlas-domain "organic chemistry"
-```
-
-Both SciAtlas and Crossref together (results merged per keyword):
-
-```bash
-python /home/ps/review-writer/skills/review-topic-paper-discovery/scripts/discover.py \
-  --review-root /home/ps/review-writer \
+python skills/review-topic-paper-discovery/scripts/discover.py \
+  --review-root . \
   --topic "<review topic>" \
   --project-id <project_id> \
-  --sciatlas-search \
+  --semantic-scholar-search \
   --web-search
 ```
 
-Crossref only (no SciAtlas token available):
+Semantic Scholar supplies relevance-ranked metadata and open-access PDF locations; Crossref supplies DOI and publication metadata. Crossref components and supplementary-material records are filtered before ranking, so the paper count refers to article-like records rather than attached files. `--external-query-limit` defaults to six expanded keywords so agent-generated keyword expansion does not become dozens of API calls. `SEMANTIC_SCHOLAR_API_KEY` is optional, while SciAtlas still reads `SCIATLAS_API_BASE_URL` and `SCIATLAS_API_KEY` when `--sciatlas-search` is requested.
+
+Describe provider activity from `web_results_by_keyword.json`: a rate limit remains an error even when another provider returns results. Requested providers, attempted/successful query counts, returned-record counts, retained-record counts, and provider errors remain distinct. A successful query with no retained topical result is `no_retained_results`, not an error, and failure sentinel rows do not enter the candidate set.
+
+Before screening is finalized, use one or two close recent reviews or perspectives to calibrate recall when they are available. Check whether their framing and references expose a missing method family, seminal paper, or search term. Record the useful comparison and any known gap in `coverage_calibration.json`. This is an editorial coverage aid, not a completeness claim or another validator gate. If provider failure leaves the calibration weak, keep field-wide priority, absence, and generality claims explicitly bounded.
+
+External metadata is for coverage discovery, not manuscript evidence. Results are matched against local DOI/title metadata and receive one promotion action in `external_ingest_plan.json`: `use_local`, `download_then_mineru`, or `locate_pdf`.
+
+For selected open-access papers, one command performs the normal promotion path—bounded to three papers by default—without adding another validator:
 
 ```bash
-python /home/ps/review-writer/skills/review-topic-paper-discovery/scripts/discover.py \
-  --review-root /home/ps/review-writer \
-  --topic "<review topic>" \
-  --project-id <project_id> \
-  --web-search
+python skills/review-topic-paper-discovery/scripts/ingest_external_papers.py \
+  --review-root . \
+  --project-id <project_id>
 ```
 
-If the user gives no keywords, Codex must extract concise keywords from the
-topic first. `keyword_set.draft.json` must not introduce extra local-retrieval
-categories. Every keyword category should be one of the eight structured tag
-categories above. If a topic token does not fit cleanly, classify it as
-`reaction_type` and let human check remove it if needed.
+The command downloads only planned OA PDF URLs into `chem_papers/web-imports/`, parses each new PDF through the existing incremental MinerU skill, then appends managed metadata. After a new local `paper_id` is resolved, it is added to `selected_discovery_results.json` with an `uncertain` screening decision and any prior confirmation is reopened. Use repeated `--paper-key` to choose exact records or `--download-only` when parsing should be deferred. Only managed papers with a local `paper_id` and full-text source may support evidence anchors.
 
-## External Source: SciAtlas
+## Screening
 
-SciAtlas is a hosted scientific knowledge graph. The skill calls
-`POST /v1/search` once per expanded keyword with these defaults:
+For every local candidate, record:
 
-```text
-retrieval_mode  hybrid
-top_keywords    0
-max_titles      0
-max_refs        0
-bias_exploration low
-ranking_profile  precision
+```json
+{
+  "paper_id": "P001",
+  "decision": "include | exclude | uncertain",
+  "relevance_summary": "How this paper relates to the central question",
+  "decision_basis": "The source information and project criterion used"
+}
 ```
 
-Per-keyword time range / domain hints come from CLI flags. Returned papers are
-normalized into the same shape as Crossref results so the dashboard can render
-both: `title, authors, year, journal, doi, url, abstract, score (0..1),
-raw_score, source="sciatlas"`.
+Store these rows in `screening_decisions`. Store only `include` papers in `local_papers`. Set `screening.status` to `confirmed` and `screening.decided_by` to `user` or `agent`. A delegated agent screens from the candidate title, abstract, structured tags, and source paths stored in `selected_discovery_results.json`. Open the linked source when the abstract is missing or the decision remains uncertain.
 
-Auth:
-
-```text
-Authorization: Bearer $SCIATLAS_API_KEY
-X-API-Key:     $SCIATLAS_API_KEY
-```
-
-Health check before searching:
+Validate the completed screening:
 
 ```bash
-curl -s http://sciatlas.openkg.cn/healthz
+python skills/review-topic-paper-discovery/scripts/validate_screening.py \
+  --review-root . \
+  --project-id <project_id>
 ```
 
-If SciAtlas health or auth fails, the script records the failure in
-`web_results_by_keyword.json.status` and continues with local-only retrieval.
+## Outputs
 
-## Required Output
-
-Write under:
-
-```text
-review-projects/<project_id>/00_discovery/
-```
-
-Required files:
+Write under `review-projects/<project_id>/00_discovery/`:
 
 ```text
 topic_input.md
+topic_contract.json
 keyword_set.draft.json
 local_results_by_keyword.json
 web_results_by_keyword.json
+external_ingest_plan.json
 combined_results_by_keyword.json
 selected_discovery_results.json
 discovery_report.md
 human_check_state.json
+screening_validation.json
+external_ingest_receipt.json (after promotion is run)
+coverage_calibration.json (when a review or seminal-paper calibration is performed)
 ```
 
-`web_results_by_keyword.json.source` is `sciatlas`, `crossref`, `sciatlas+crossref`, or `none`. Per-result rows carry a `sources` array so you can see which sources contributed.
-`selected_discovery_results.json` should contain `20-30` kept local papers
-when enough matches exist. External (SciAtlas/Crossref) papers go into
-`web_papers`; they are a topic-coverage check pool only. They never enter
-the local `paper_id` registry and the matrix stage may cite them only as
-references without assigning a `paper_id`. If fewer than 20 local papers
-are found, record why in `discovery_report.md`.
-
-## Human Check
-
-Stop after discovery. The human checks `/discovery`, deletes irrelevant
-keywords/papers, and confirms the candidate set. SciAtlas papers are visible
-in the same "external" panel as Crossref papers; deletions take effect for
-both sources.
+Candidate count is adaptive. `--max-local-candidates` applies only when the user requests an explicit cap, and the cap is applied after aggregate topic-contract ranking rather than after a single-keyword match.

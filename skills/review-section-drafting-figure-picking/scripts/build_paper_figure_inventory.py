@@ -108,6 +108,30 @@ def candidate_score(caption: str, source_type: str) -> int:
     return score
 
 
+def split_figure_groups(blocks: list[Any]) -> dict[int, list[int]]:
+    figure_indexes = [
+        index
+        for index, block in enumerate(blocks)
+        if isinstance(block, dict) and block.get("type") in FIGURE_TYPES
+    ]
+    groups: dict[int, list[int]] = {}
+    for left, right in zip(figure_indexes, figure_indexes[1:]):
+        left_block = blocks[left]
+        right_block = blocks[right]
+        if left_block.get("page_idx") != right_block.get("page_idx"):
+            continue
+        continuation = re.match(r"^\(?([A-Z])\)?[.)]\s*", block_caption(right_block))
+        if continuation and re.search(
+            rf"\({re.escape(continuation.group(1))}\)",
+            block_caption(left_block),
+            re.I,
+        ):
+            group = [left, right]
+            groups[left] = group
+            groups[right] = group
+    return groups
+
+
 def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
     project = review_root / "review-projects" / project_id
     ids = selected_paper_ids(project)
@@ -118,17 +142,32 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
             papers.append({"paper_id": paper_id, "status": "missing_metadata", "candidates": []})
             continue
         source_paths = meta.get("source_paths") or {}
-        content_path = Path(str(source_paths.get("content_list") or ""))
-        extracted_dir = Path(str(source_paths.get("extracted_dir") or ""))
+        raw_content_path = str(source_paths.get("content_list") or "").strip()
+        raw_extracted_dir = str(source_paths.get("extracted_dir") or "").strip()
+        content_path = Path(raw_content_path) if raw_content_path else None
+        extracted_dir = Path(raw_extracted_dir) if raw_extracted_dir else None
         candidates = []
-        if content_path.exists():
+        if content_path and content_path.is_file():
             blocks = read_json(content_path)
             if isinstance(blocks, list):
-                for idx, block in enumerate(blocks, start=1):
+                split_groups = split_figure_groups(blocks)
+                for block_index, block in enumerate(blocks):
                     if not isinstance(block, dict) or block.get("type") not in FIGURE_TYPES:
                         continue
+                    idx = block_index + 1
                     img_rel = block.get("img_path") or block.get("image_path") or block.get("path")
-                    source_image_path = str((extracted_dir / str(img_rel)).resolve()) if img_rel and extracted_dir.exists() else ""
+                    source_image_path = str((extracted_dir / str(img_rel)).resolve()) if img_rel and extracted_dir and extracted_dir.is_dir() else ""
+                    fragment_indexes = split_groups.get(block_index, [])
+                    fragment_paths = [
+                        str((extracted_dir / str(fragment_rel)).resolve())
+                        for fragment_index in fragment_indexes
+                        for fragment_rel in [
+                            blocks[fragment_index].get("img_path")
+                            or blocks[fragment_index].get("image_path")
+                            or blocks[fragment_index].get("path")
+                        ]
+                        if fragment_rel and extracted_dir and (extracted_dir / str(fragment_rel)).exists()
+                    ]
                     caption = block_caption(block)
                     source_type = str(block.get("type") or "")
                     candidates.append(
@@ -139,7 +178,13 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                             "source_type": source_type,
                             "source_pdf": source_paths.get("pdf"),
                             "source_content_list": str(content_path),
-                            "source_image_path": source_image_path if source_image_path and Path(source_image_path).exists() else "",
+                            "source_image_path": (
+                                source_image_path
+                                if not fragment_indexes and source_image_path and Path(source_image_path).exists()
+                                else ""
+                            ),
+                            "source_completeness": "mineru_split" if fragment_indexes else "single_block",
+                            "source_fragment_paths": fragment_paths,
                             "source_page_hint": f"page {int(block.get('page_idx', 0)) + 1}" if block.get("page_idx") is not None else "",
                             "source_caption_text": caption,
                             "inventory_score": candidate_score(caption, source_type),
@@ -163,7 +208,7 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build a MinerU figure/table inventory for selected review papers.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
     return parser.parse_args()
 

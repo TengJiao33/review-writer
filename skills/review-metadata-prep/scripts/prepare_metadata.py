@@ -36,6 +36,25 @@ JOURNAL_HINTS = [
     "Chemical Science",
 ]
 
+JOURNAL_FILENAME_ALIASES = [
+    ("angew chem int ed", "Angew. Chem. Int. Ed."),
+    ("j am chem soc", "J. Am. Chem. Soc."),
+    ("journal of organic chemistry", "J. Org. Chem."),
+    ("j org chem", "J. Org. Chem."),
+    ("organic letters", "Org. Lett."),
+    ("org lett", "Org. Lett."),
+    ("european journal of organic chemistry", "Eur. J. Org. Chem."),
+    ("eur j org chem", "Eur. J. Org. Chem."),
+    ("nature communications", "Nat. Commun."),
+    ("nat commun", "Nat. Commun."),
+    ("organic chemistry frontiers", "Org. Chem. Front."),
+    ("org chem front", "Org. Chem. Front."),
+    ("chemical communications", "Chem. Commun."),
+    ("chem commun", "Chem. Commun."),
+    ("green chemistry", "Green Chemistry"),
+    ("chemistry a european journal", "Chem. Eur. J."),
+]
+
 STRUCTURED_TAG_KEYS = [
     "product",
     "substrate",
@@ -499,16 +518,23 @@ def extract_doi(md: str) -> dict[str, Any]:
 
 
 def extract_journal(md: str, pdf_name: str) -> dict[str, Any]:
-    hay = pdf_name + "\n" + md[:8000]
-    for hint in JOURNAL_HINTS:
-        if hint.lower() in hay.lower():
-            return scored(hint, "known_journal_hint", 0.72)
-    cite = re.search(r"Cite this:\s*([^,\n]+)", hay, re.I)
+    front_matter = md[:8000]
+    cite = re.search(r"Cite this:\s*([^,\n]+)", front_matter, re.I)
     if cite:
         return scored(clean_text(cite.group(1)), "cite_this_line", 0.7)
-    how = re.search(r"How to cite:\s*([^,\n]+)", hay, re.I)
+    how = re.search(r"How to cite:\s*([^,\n]+)", front_matter, re.I)
     if how:
         return scored(clean_text(how.group(1)), "how_to_cite_line", 0.7)
+    # Match journal hints only in the filename. Searching arbitrary front-matter
+    # text can mistake an affiliation such as "Laboratory of Green Chemistry"
+    # for the journal title.
+    normalized_filename = re.sub(r"[^a-z0-9]+", " ", pdf_name.lower()).strip()
+    for alias, canonical in JOURNAL_FILENAME_ALIASES:
+        if alias in normalized_filename:
+            return scored(canonical, "known_filename_alias", 0.78)
+    for hint in JOURNAL_HINTS:
+        if hint.lower() in pdf_name.lower():
+            return scored(hint, "known_journal_hint", 0.72)
     filename = Path(pdf_name).stem
     if " - " in filename:
         first = filename.split(" - ")[0].strip()
@@ -858,7 +884,7 @@ def update_quality(meta: dict[str, Any]) -> None:
         "missing_fields": dedupe(missing),
         "warnings": dedupe(warnings),
         "overall_confidence": round(overall, 3),
-        "needs_human_check": bool(missing or warnings or meta.get("human_review", {}).get("status") != "reviewed"),
+        "needs_human_check": bool(missing or warnings),
     }
 
 
@@ -1099,9 +1125,10 @@ def run(args: argparse.Namespace) -> int:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Prepare review paper metadata from MinerU outputs.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
-    parser.add_argument("--mineru-output", default="/home/ps/review-writer/mineru-outputs")
-    parser.add_argument("--pdf-root", default="/home/ps/review-writer/source-paper/Progargylic")
+    default_root = Path(__file__).resolve().parents[3]
+    parser.add_argument("--review-root", default=str(default_root))
+    parser.add_argument("--mineru-output", default=str(default_root / "mineru-outputs"))
+    parser.add_argument("--pdf-root", default=str(default_root / "chem_papers"))
     parser.add_argument(
         "--discover-from-pdf-root",
         action="store_true",

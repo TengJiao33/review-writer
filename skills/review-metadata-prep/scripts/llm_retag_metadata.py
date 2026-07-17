@@ -92,7 +92,7 @@ def retag_one(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Refresh existing metadata with LLM-extracted eight-category tags.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--model", default="")
     parser.add_argument("--base-url", default="")
     parser.add_argument("--api-key", default="")
@@ -113,7 +113,7 @@ def main() -> int:
     model = args.model or os.environ.get("REVIEW_METADATA_MODEL", "gpt-5.4")
     reasoning_effort = args.reasoning_effort or os.environ.get("REVIEW_METADATA_REASONING_EFFORT", "high")
     if not api_key:
-        raise SystemExit("Missing API key. Pass --api-key, set OPENAI_API_KEY, or write it to /home/ps/review-writer/.env.")
+        raise SystemExit(f"Missing API key. Pass --api-key, set OPENAI_API_KEY, or write it to {review_root / '.env'}.")
     skill_root = Path(__file__).resolve().parents[1]
     system_prompt = (skill_root / "references" / "metadata_extraction_system.md").read_text(encoding="utf-8")
     classification_labels = load_classification_rules(review_root / "allene_classification_rules.py")

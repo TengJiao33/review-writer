@@ -28,7 +28,7 @@ def default_review_root() -> Path:
 
 
 REVIEW_ROOT = default_review_root()
-DEFAULT_INPUT_DIR = REVIEW_ROOT / "Progargylic"
+DEFAULT_INPUT_DIR = REVIEW_ROOT / "chem_papers"
 DEFAULT_OUTPUT_DIR = REVIEW_ROOT / "mineru-outputs"
 DEFAULT_TOKEN_FILE = SKILL_ROOT / "config" / "mineru_api_token.txt"
 DEFAULT_TIMEOUT_MINUTES = 30

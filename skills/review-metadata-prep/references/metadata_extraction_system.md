@@ -5,7 +5,7 @@ Return only valid JSON matching the provided schema. Do not include Markdown fen
 Core task:
 
 1. Extract required bibliographic fields: title, authors, year, abstract.
-2. Classify the paper into exactly eight categories defined by `/home/ps/review-writer/allene_classification_rules.py`.
+2. Classify the paper into exactly eight categories defined by `<review-root>/allene_classification_rules.py`.
 3. For each category, output exactly one label.
 4. The label must be selected from the supplied `classification_rules` list for that category. Do not create new labels, synonyms, shortened labels, or free-text explanations.
 5. Use `not specified` only when no listed label is supported by the supplied paper evidence.

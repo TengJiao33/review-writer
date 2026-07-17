@@ -1,11 +1,11 @@
 ---
 name: review-writing-orchestrator
-description: Orchestrate the concise review-writing workflow: discovery, fixed-field literature matrix, outline/blueprint, section-file drafting, figure redraw, merge, and final audit.
+description: Orchestrate an evidence-grounded review-writing workflow with adaptive discovery, lightweight planning, scholarly drafting, stable citations, deterministic merge, semantic audit, and styled DOCX export.
 ---
 
 # Review Writing Orchestrator
 
-Use after the paper library metadata has been prepared.
+Use after the local paper library metadata and MinerU outputs are available.
 
 ## Workflow
 
@@ -20,63 +20,52 @@ Use after the paper library metadata has been prepared.
 8. review-export-docx
 ```
 
-## Core Contract
+## Working Principle
 
 ```text
-Discovery: user topic -> extracted keywords -> search 8 LLM tag categories -> 20-30 papers.
-Matrix: one row per paper with title, authors, keywords, abstract, ~1000-word main_content, most_relevant_figure.
-Outline: use topic + matrix + writing-rule skill to create selected_outline.md.
-Blueprint: convert outline into section_blueprint.json with section, paragraph, paper, and figure mapping.
-Drafting: one section file per section; each paragraph normally maps to one paper and one figure/scheme/table.
-Merge: combine section files into one polished first draft.
+Discovery searches the local library and normally checks lightweight external sources, then records a topic-driven decision for every candidate.
+External metadata remains coverage-only; selected OA PDFs enter the existing MinerU and metadata path before they can become evidence.
+Reading notes and evidence anchors stay as concise as the source and writing task require.
+The outline and blueprint identify the argument, evidence, and important coverage.
+The central question and available evidence determine the manuscript organization.
+Drafting uses stable [@Pxxx] citations in a lightweight structured merge envelope.
+Merge deterministically assigns every [n] and generates References from the same mapping.
+Final audit separates hard integrity failures from optional writing-quality suggestions.
+DOCX export runs only after the release scan passes and applies deterministic academic styles.
 ```
+
+Validators block evidence, citation, artifact, and release-integrity failures. They report length, section balance, comparison density, and figure use as editorial observations.
+
+The Discovery relevance decision may be made by the user or delegated to the agent. Both routes use the topic contract and the same screening record. A local-only run must be explicit in the run record; otherwise use Semantic Scholar plus Crossref coverage. `external_ingest_plan.json` is an action queue, not another audit gate.
+
+## Stage Validators
+
+Run the validator associated with each stage. Revise the current artifact and rerun when it reports a blocker. Warnings do not prevent progression:
+
+```text
+discovery     validate_screening.py
+matrix        validate_evidence_matrix.py
+blueprint     validate_blueprint.py
+drafting      validate_section_drafts.py
+merge         merge_review.py
+preflight     final_audit_scan.py --phase preflight
+release       final_audit_scan.py --phase release
+DOCX          audit_docx.py
+```
+
+Revise prose and structured artifacts directly. Do not create ad hoc project-root repair scripts, edit validator reports to hide failures, or replace missing evidence with filler. Record material iterations in the run record.
+
+Keep `review-projects/<project_id>/run_record.md` as the project-local execution record. Record the actual commands and material decisions, including an explicit local-only choice and a factual figure skip. Do not hand-author empty script outputs or mark later stages complete when an earlier stage is invalid.
+
+Keep the project manifest descriptive rather than aspirational: record the provider response actually received, the files actually generated, and the command actually run. Set a run to `completed` only after the strict status command below exits successfully; do not infer completion from the presence of late-stage files alone.
 
 ## Status
 
 ```bash
-python /home/ps/review-writer/skills/review-writing-orchestrator/scripts/project_status.py \
-  --review-root /home/ps/review-writer \
-  --project-id <project_id>
+python skills/review-writing-orchestrator/scripts/project_status.py \
+  --review-root . \
+  --project-id <project_id> \
+  --require-complete
 ```
 
-## Human Check Points
-
-Pause after:
-
-```text
-00_discovery: confirm 20-30 papers.
-01_matrix_outline: confirm literature matrix and selected_outline.md.
-01_matrix_outline/section_blueprint: confirm section/paragraph/paper/figure mapping.
-02_section_drafting: confirm section files and figure candidates.
-03_figure_redraw: confirm redrawn figures.
-04_first_draft: confirm merged first draft.
-05_final_audit: confirm final draft.
-05_final_audit (docx): download final_draft.docx and verify styling in Word.
-```
-
-Do not skip a human check unless the user explicitly says to continue.
-
-## Hard Gates
-
-The status script will not let `first_draft`, `final_audit`, or
-`docx_export` be marked complete when any of these blockers are present:
-
-```text
-draft_has_no_figures                  draft contains zero ![](...) figures
-                                      and 03_figure_redraw/skip_reason.md is absent.
-draft_has_no_citation_callouts        draft contains zero inline [n] callouts.
-missing_references_section            no References / Reference List / Bibliography /
-                                      Cited Literature / 参考文献 heading.
-empty_references_section              References heading exists but no items follow.
-reference_callouts_missing_from_reference_list
-                                      inline [n] not represented in the list.
-broken_markdown_image_paths           an image path does not resolve.
-source_figure_placeholders_need_redraw_or_permission_check
-                                      source-paper placeholders still in the manuscript.
-final_audit_has_blocking_issues       format_scan.json reports blocking_issues; resolve
-                                      before generating the DOCX.
-```
-
-To intentionally produce a no-figure manuscript, write
-`review-projects/<project_id>/03_figure_redraw/skip_reason.md` with a
-one-line justification before re-running the draft merge.
+Omit `--require-complete` for an ordinary progress report. The strict form returns a non-zero exit code while any stage or the project run record is incomplete. The status script treats validation blockers, citation mismatches, unresolved evidence-integrity issues, unverified figure fidelity, missing DOCX visual QA, and upstream-stage failures as incomplete stages. Editorial warnings remain visible without blocking the workflow.

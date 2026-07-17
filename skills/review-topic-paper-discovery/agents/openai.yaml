@@ -1,4 +1,4 @@
 interface:
   display_name: "Topic Paper Discovery"
-  short_description: "Discover papers by topic keywords."
-  default_prompt: "Create a review topic discovery project, expand keywords, and search local/web papers by keyword. Use /home/ps/review-writer/view/serve_review_dashboard.py only when human check UI is needed."
+  short_description: "Retrieve and screen papers for a review topic."
+  default_prompt: "Use $review-topic-paper-discovery to search the local library, screen candidates against the review question, and record the relevance decision."

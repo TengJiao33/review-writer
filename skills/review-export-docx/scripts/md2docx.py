@@ -32,10 +32,12 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from docx import Document
+from docx.enum.style import WD_STYLE_TYPE
+from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement, parse_xml  # noqa: F401
 from docx.oxml.ns import qn
-from docx.shared import Inches, Pt
+from docx.shared import Inches, Pt, RGBColor
 
 try:
     from latex2word import LatexToWordElement
@@ -48,22 +50,25 @@ except ImportError:
 # ---------------------------------------------------------------------------
 
 _S: Dict[str, str] = {
-    "title":        "BA_Title",
-    "author":       "BB_Author_Name",
-    "address":      "BC_Author_Address",
-    "email":        "BI_Email_Address",
-    "abstract":     "BD_Abstract",
-    "keywords":     "BG_Keywords",
-    "body":         "TA_Main_Text",
-    "figure":       "VA_Figure_Caption",
-    "table_title":  "VD_Table_Title",
-    "table_body":   "TC_Table_Body",
-    "chart":        "VB_Chart_Title",
-    "scheme":       "VC_Scheme_Title",
-    "references":   "TF_References_Section",
-    "acks":         "TD_Acknowledgments",
-    "supporting":   "TE_Supporting_Information",
-    "footnote":     "FA_Corresponding_Author_Footnote",
+    "title":        "Review Title",
+    "author":       "Review Author",
+    "address":      "Review Affiliation",
+    "email":        "Review Affiliation",
+    "abstract":     "Review Abstract",
+    "keywords":     "Review Keywords",
+    "body":         "Review Body",
+    "h1":           "Review Heading 1",
+    "h2":           "Review Heading 2",
+    "h3":           "Review Heading 3",
+    "figure":       "Review Figure Caption",
+    "table_title":  "Review Table Caption",
+    "table_body":   "Review Table Body",
+    "chart":        "Review Figure Caption",
+    "scheme":       "Review Figure Caption",
+    "references":   "Review Reference",
+    "acks":         "Review Body",
+    "supporting":   "Review Body",
+    "footnote":     "Review Reference",
 }
 
 # ---------------------------------------------------------------------------
@@ -71,16 +76,17 @@ _S: Dict[str, str] = {
 # ---------------------------------------------------------------------------
 
 _FONT_SPEC: Dict[str, Dict] = {
-    "title":        {"font": "Times New Roman", "size": 18},
+    "title":        {"font": "Times New Roman", "size": 18, "bold": True},
     "author":       {"font": "Times New Roman", "size": 12},
     "address":      {"font": "Times New Roman", "size": 10.5},
     "email":        {"font": "Times New Roman", "size": 10.5},
-    "abstract":     {"font": "Times New Roman", "size": 12},
-    "keywords":     {"font": "Times New Roman", "size": 12},
+    "abstract":     {"font": "Times New Roman", "size": 11},
+    "keywords":     {"font": "Times New Roman", "size": 11},
     "body":         {"font": "Times New Roman", "size": 12},
-    "h2":           {"font": "Times New Roman", "size": 14,  "bold": True},
-    "h3":           {"font": "Times New Roman", "size": 12,  "bold": True, "italic": True},
-    "h4":           {"font": "Times New Roman", "size": 12,  "italic": True},
+    "h1":           {"font": "Times New Roman", "size": 14,  "bold": True},
+    "h2":           {"font": "Times New Roman", "size": 12,  "bold": True},
+    "h3":           {"font": "Times New Roman", "size": 11,  "bold": True, "italic": True},
+    "h4":           {"font": "Times New Roman", "size": 11,  "italic": True},
     "figure":       {"font": "Times New Roman", "size": 10.5},
     "table_title":  {"font": "Times New Roman", "size": 12},
     "table_body":   {"font": "Times New Roman", "size": 10.5},
@@ -95,9 +101,9 @@ _FONT_SPEC: Dict[str, Dict] = {
 # Heading level -> (para_style_key, font_spec_key)
 _HEADING_FORMAT: Dict[int, Tuple[str, str]] = {
     1: ("title", "title"),
-    2: ("body",  "h2"),
-    3: ("body",  "h3"),
-    4: ("body",  "h4"),
+    2: ("h1",  "h1"),
+    3: ("h2",  "h2"),
+    4: ("h3",  "h3"),
     5: ("body",  "body"),
     6: ("body",  "body"),
 }
@@ -126,6 +132,164 @@ def _usable_page_width_inches(doc: Document) -> float:
     width_emu = section.page_width - section.left_margin - section.right_margin
     # 914400 EMUs per inch. Keep a conservative upper bound for journal templates.
     return max(1.0, min(6.2, width_emu / 914400))
+
+
+def _set_style_font(style, font_name: str, size: float, bold: bool = False, italic: bool = False) -> None:
+    style.font.name = font_name
+    style.font.size = Pt(size)
+    style.font.bold = bold
+    style.font.italic = italic
+    rpr = style.element.get_or_add_rPr()
+    rfonts = rpr.rFonts
+    if rfonts is None:
+        rfonts = OxmlElement("w:rFonts")
+        rpr.insert(0, rfonts)
+    for attr in ("ascii", "hAnsi", "eastAsia", "cs"):
+        rfonts.set(qn(f"w:{attr}"), font_name)
+
+
+def _ensure_style(doc: Document, name: str):
+    try:
+        return doc.styles[name]
+    except KeyError:
+        return doc.styles.add_style(name, WD_STYLE_TYPE.PARAGRAPH)
+
+
+def _set_outline_level(style, level: int | None) -> None:
+    ppr = style.element.get_or_add_pPr()
+    existing = ppr.find(qn("w:outlineLvl"))
+    if existing is not None:
+        ppr.remove(existing)
+    if level is not None:
+        outline = OxmlElement("w:outlineLvl")
+        outline.set(qn("w:val"), str(level))
+        ppr.append(outline)
+
+
+def _configure_style(
+    doc: Document,
+    name: str,
+    *,
+    size: float,
+    bold: bool = False,
+    italic: bool = False,
+    alignment=WD_ALIGN_PARAGRAPH.LEFT,
+    before: float = 0,
+    after: float = 0,
+    line_spacing: float = 1.0,
+    keep_with_next: bool = False,
+    outline_level: int | None = None,
+):
+    style = _ensure_style(doc, name)
+    _set_style_font(style, "Times New Roman", size, bold=bold, italic=italic)
+    paragraph = style.paragraph_format
+    paragraph.alignment = alignment
+    paragraph.space_before = Pt(before)
+    paragraph.space_after = Pt(after)
+    paragraph.line_spacing = line_spacing
+    paragraph.keep_with_next = keep_with_next
+    paragraph.widow_control = True
+    _set_outline_level(style, outline_level)
+    return style
+
+
+def _configure_academic_document(doc: Document) -> None:
+    section = doc.sections[0]
+    section.page_width = Inches(8.5)
+    section.page_height = Inches(11)
+    section.top_margin = Inches(1)
+    section.bottom_margin = Inches(1)
+    section.left_margin = Inches(1)
+    section.right_margin = Inches(1)
+    section.header_distance = Inches(0.49)
+    section.footer_distance = Inches(0.49)
+
+    _configure_style(
+        doc, _S["title"], size=18, bold=True, alignment=WD_ALIGN_PARAGRAPH.CENTER,
+        before=0, after=12, line_spacing=1.15,
+    )
+    _configure_style(
+        doc, _S["author"], size=11.5, alignment=WD_ALIGN_PARAGRAPH.CENTER,
+        before=0, after=3, line_spacing=1.0,
+    )
+    _configure_style(
+        doc, _S["address"], size=10, italic=True, alignment=WD_ALIGN_PARAGRAPH.CENTER,
+        before=0, after=3, line_spacing=1.0,
+    )
+    _configure_style(
+        doc, _S["abstract"], size=11, alignment=WD_ALIGN_PARAGRAPH.JUSTIFY,
+        before=0, after=6, line_spacing=1.15,
+    )
+    _configure_style(
+        doc, _S["keywords"], size=11, alignment=WD_ALIGN_PARAGRAPH.LEFT,
+        before=0, after=8, line_spacing=1.15,
+    )
+    _configure_style(
+        doc, _S["body"], size=12, alignment=WD_ALIGN_PARAGRAPH.LEFT,
+        before=0, after=6, line_spacing=1.5,
+    )
+    _configure_style(
+        doc, _S["h1"], size=14, bold=True, before=12, after=6,
+        line_spacing=1.0, keep_with_next=True, outline_level=0,
+    )
+    _configure_style(
+        doc, _S["h2"], size=12, bold=True, before=10, after=4,
+        line_spacing=1.0, keep_with_next=True, outline_level=1,
+    )
+    _configure_style(
+        doc, _S["h3"], size=11, bold=True, italic=True, before=8, after=3,
+        line_spacing=1.0, keep_with_next=True, outline_level=2,
+    )
+    _configure_style(
+        doc, _S["figure"], size=10, alignment=WD_ALIGN_PARAGRAPH.CENTER,
+        before=0, after=8, line_spacing=1.0,
+    )
+    _configure_style(
+        doc, _S["table_title"], size=10, bold=True, alignment=WD_ALIGN_PARAGRAPH.LEFT,
+        before=6, after=4, line_spacing=1.0, keep_with_next=True,
+    )
+    _configure_style(
+        doc, _S["table_body"], size=9.5, alignment=WD_ALIGN_PARAGRAPH.LEFT,
+        before=0, after=0, line_spacing=1.0,
+    )
+    _configure_style(
+        doc, _S["references"], size=10, alignment=WD_ALIGN_PARAGRAPH.LEFT,
+        before=0, after=3, line_spacing=1.0,
+    )
+
+    normal = doc.styles["Normal"]
+    _set_style_font(normal, "Times New Roman", 12)
+    normal.paragraph_format.space_after = Pt(6)
+    normal.paragraph_format.line_spacing = 1.5
+
+
+def _append_page_number(paragraph) -> None:
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    run = paragraph.add_run()
+    begin = OxmlElement("w:fldChar")
+    begin.set(qn("w:fldCharType"), "begin")
+    instruction = OxmlElement("w:instrText")
+    instruction.set(qn("xml:space"), "preserve")
+    instruction.text = " PAGE "
+    separate = OxmlElement("w:fldChar")
+    separate.set(qn("w:fldCharType"), "separate")
+    text = OxmlElement("w:t")
+    text.text = "1"
+    end = OxmlElement("w:fldChar")
+    end.set(qn("w:fldCharType"), "end")
+    for element in (begin, instruction, separate, text, end):
+        run._r.append(element)
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(9)
+
+
+def _configure_footer(doc: Document) -> None:
+    for section in doc.sections:
+        footer = section.footer
+        paragraph = footer.paragraphs[0]
+        for run in list(paragraph.runs):
+            paragraph._p.remove(run._r)
+        _append_page_number(paragraph)
 
 _UNICODE_SUPERSCRIPT_MAP: Dict[str, str] = {
     "⁰": "0",
@@ -266,8 +430,25 @@ def _apply_math(para, latex: str) -> None:
             return
         except Exception:
             pass
-    run = para.add_run(f"[{latex}]")
-    run.italic = True
+    expression = latex.strip()
+    chemical = re.fullmatch(r"\\ce\{(.+)\}", expression)
+    if chemical:
+        expression = chemical.group(1)
+    expression = re.sub(r"\\(?:mathrm|text)\{([^{}]*)\}", r"\1", expression)
+    pattern = re.compile(r"([_^])(?:\{([^{}]+)\}|([A-Za-z0-9+\-=]+))")
+    position = 0
+    for match in pattern.finditer(expression):
+        if match.start() > position:
+            run = para.add_run(expression[position:match.start()])
+            _set_word_run_font(run, "Times New Roman", 12)
+        run = para.add_run(match.group(2) or match.group(3) or "")
+        _set_word_run_font(run, "Times New Roman", 12)
+        run.font.subscript = match.group(1) == "_"
+        run.font.superscript = match.group(1) == "^"
+        position = match.end()
+    if position < len(expression):
+        run = para.add_run(expression[position:])
+        _set_word_run_font(run, "Times New Roman", 12)
 
 
 def _split_script_segments(text: str) -> List[Tuple[str, str]]:
@@ -317,6 +498,78 @@ def _split_script_segments(text: str) -> List[Tuple[str, str]]:
     return segments or [("normal", text)]
 
 
+def _split_script_segments_v2(text: str) -> List[Tuple[str, str]]:
+    """Apply explicit Unicode scripts and conservative chemistry-aware defaults.
+
+    Explicit Markdown `_sub_` and `^super^` is handled before this function.
+    Automatic conversion is intentionally limited to multi-element formulae,
+    sp2/sp3 hybridization, SN1/SN2 notation, and hapticity labels such as
+    eta1/eta3 (written with the Greek eta character) so years and ordinary
+    alphanumeric labels stay intact.
+    """
+    segments: List[Tuple[str, str]] = []
+
+    def append(mode: str, value: str) -> None:
+        if not value:
+            return
+        if segments and segments[-1][0] == mode:
+            segments[-1] = (mode, segments[-1][1] + value)
+        else:
+            segments.append((mode, value))
+
+    def append_unicode(value: str) -> None:
+        for char in value:
+            if char in _UNICODE_SUPERSCRIPT_MAP:
+                append("superscript", _UNICODE_SUPERSCRIPT_MAP[char])
+            elif char in _UNICODE_SUBSCRIPT_MAP:
+                append("subscript", _UNICODE_SUBSCRIPT_MAP[char])
+            else:
+                append("normal", char)
+
+    parenthesized_complex = (
+        r"(?:[A-Z][a-z]?\d*)+(?:\([A-Za-z][A-Za-z0-9]*\)\d*)+"
+        r"(?:[A-Z][a-z]?\d*)*"
+    )
+    token_re = re.compile(
+        rf"(?<![A-Za-z0-9])(?:η[1-9]|sp[23]|SN[12]|{parenthesized_complex}|"
+        rf"(?:[A-Z][a-z]?\d*){{2,}})(?![A-Za-z0-9])"
+    )
+    position = 0
+    for match in token_re.finditer(text):
+        append_unicode(text[position:match.start()])
+        token = match.group(0)
+        if re.fullmatch(r"η[1-9]", token):
+            append("normal", "η")
+            append("superscript", token[-1])
+        elif re.fullmatch(r"sp[23]", token):
+            append("normal", "sp")
+            append("superscript", token[-1])
+        elif re.fullmatch(r"SN[12]", token):
+            append("normal", "S")
+            append("subscript", token[1:])
+        elif re.fullmatch(parenthesized_complex, token):
+            for piece in re.finditer(r"\d+|[^\d]+", token):
+                append("subscript" if piece.group(0).isdigit() else "normal", piece.group(0))
+        else:
+            for piece in re.finditer(r"[A-Z][a-z]?|\d+", token):
+                append("subscript" if piece.group(0).isdigit() else "normal", piece.group(0))
+        position = match.end()
+    append_unicode(text[position:])
+    return segments or [("normal", text)]
+
+
+def _set_word_run_font(run, font_name: str, size_pt: float) -> None:
+    run.font.name = font_name
+    run.font.size = Pt(size_pt)
+    rpr = run._element.get_or_add_rPr()
+    rfonts = rpr.rFonts
+    if rfonts is None:
+        rfonts = OxmlElement("w:rFonts")
+        rpr.insert(0, rfonts)
+    for attr in ("ascii", "hAnsi", "eastAsia", "cs"):
+        rfonts.set(qn(f"w:{attr}"), font_name)
+
+
 def apply_runs(
     para,
     runs: List[Run],
@@ -334,17 +587,15 @@ def apply_runs(
         if r.math:
             _apply_math(para, r.math)
             continue
-        segments = [("normal", r.text)] if r.code else _split_script_segments(r.text)
+        segments = [("normal", r.text)] if r.code else _split_script_segments_v2(r.text)
         for segment_mode, segment_text in segments:
             if not segment_text:
                 continue
             wr = para.add_run(segment_text)
             if r.code:
-                wr.font.name = "Courier New"
-                wr.font.size = Pt(9)
+                _set_word_run_font(wr, "Courier New", 9)
             else:
-                wr.font.name = font_name
-                wr.font.size = Pt(size_pt)
+                _set_word_run_font(wr, font_name, size_pt)
             wr.bold = (spec_bold or force_bold or r.bold) or None
             wr.italic = (spec_italic or force_italic or r.italic) or None
             if r.superscript or segment_mode == "superscript":
@@ -374,6 +625,75 @@ def _para(
     return p
 
 
+def _next_numbering_id(numbering, tag: str, attribute: str) -> int:
+    values = []
+    for element in numbering.findall(qn(tag)):
+        raw = element.get(qn(attribute))
+        if raw and raw.isdigit():
+            values.append(int(raw))
+    return max(values, default=0) + 1
+
+
+def _create_numbering_definition(doc: Document, ordered: bool, reference: bool = False) -> int:
+    numbering = doc.part.numbering_part.element
+    abstract_id = _next_numbering_id(numbering, "w:abstractNum", "w:abstractNumId")
+    abstract = OxmlElement("w:abstractNum")
+    abstract.set(qn("w:abstractNumId"), str(abstract_id))
+    multi = OxmlElement("w:multiLevelType")
+    multi.set(qn("w:val"), "multilevel")
+    abstract.append(multi)
+    for level in range(3):
+        lvl = OxmlElement("w:lvl")
+        lvl.set(qn("w:ilvl"), str(level))
+        start = OxmlElement("w:start")
+        start.set(qn("w:val"), "1")
+        num_fmt = OxmlElement("w:numFmt")
+        num_fmt.set(qn("w:val"), "decimal" if ordered else "bullet")
+        lvl_text = OxmlElement("w:lvlText")
+        lvl_text.set(qn("w:val"), f"%{level + 1}." if ordered else "•")
+        suffix = OxmlElement("w:suff")
+        suffix.set(qn("w:val"), "tab")
+        justification = OxmlElement("w:lvlJc")
+        justification.set(qn("w:val"), "left")
+        ppr = OxmlElement("w:pPr")
+        tabs = OxmlElement("w:tabs")
+        tab = OxmlElement("w:tab")
+        tab.set(qn("w:val"), "num")
+        left = (720 if reference else 540) + level * 360
+        hanging = 360 if reference else 270
+        tab.set(qn("w:pos"), str(left))
+        tabs.append(tab)
+        indentation = OxmlElement("w:ind")
+        indentation.set(qn("w:left"), str(left))
+        indentation.set(qn("w:hanging"), str(hanging))
+        ppr.extend([tabs, indentation])
+        lvl.extend([start, num_fmt, lvl_text, suffix, justification, ppr])
+        abstract.append(lvl)
+    numbering.append(abstract)
+
+    num_id = _next_numbering_id(numbering, "w:num", "w:numId")
+    num = OxmlElement("w:num")
+    num.set(qn("w:numId"), str(num_id))
+    abstract_ref = OxmlElement("w:abstractNumId")
+    abstract_ref.set(qn("w:val"), str(abstract_id))
+    num.append(abstract_ref)
+    numbering.append(num)
+    return num_id
+
+
+def _apply_numbering(paragraph, num_id: int, level: int = 0) -> None:
+    ppr = paragraph._p.get_or_add_pPr()
+    num_pr = ppr.find(qn("w:numPr"))
+    if num_pr is None:
+        num_pr = OxmlElement("w:numPr")
+        ppr.append(num_pr)
+    ilvl = OxmlElement("w:ilvl")
+    ilvl.set(qn("w:val"), str(max(0, min(level, 2))))
+    num_id_el = OxmlElement("w:numId")
+    num_id_el.set(qn("w:val"), str(num_id))
+    num_pr.extend([ilvl, num_id_el])
+
+
 # ---------------------------------------------------------------------------
 # Table builder
 # ---------------------------------------------------------------------------
@@ -390,25 +710,83 @@ def _set_cell_borders(cell) -> None:
         tcPr.append(elem)
 
 
+def _set_cell_margins(cell, top: int = 80, start: int = 120, bottom: int = 80, end: int = 120) -> None:
+    tc_pr = cell._tc.get_or_add_tcPr()
+    margins = tc_pr.first_child_found_in("w:tcMar")
+    if margins is None:
+        margins = OxmlElement("w:tcMar")
+        tc_pr.append(margins)
+    for edge, value in (("top", top), ("start", start), ("bottom", bottom), ("end", end)):
+        element = margins.find(qn(f"w:{edge}"))
+        if element is None:
+            element = OxmlElement(f"w:{edge}")
+            margins.append(element)
+        element.set(qn("w:w"), str(value))
+        element.set(qn("w:type"), "dxa")
+
+
 def _add_table(doc: Document, header: List[str], rows: List[List[str]]) -> None:
     ncols = max(len(header), max((len(r) for r in rows), default=1))
     table = doc.add_table(rows=1 + len(rows), cols=ncols)
+    table.autofit = False
+    table.alignment = WD_TABLE_ALIGNMENT.LEFT
+    content_rows = [header] + rows
+    weights = []
+    for index in range(ncols):
+        longest = max((len(str(row[index])) if index < len(row) else 0 for row in content_rows), default=1)
+        weights.append(max(8, min(longest, 50)))
+    total_weight = sum(weights) or ncols
+    widths = [max(0.8, 6.5 * weight / total_weight) for weight in weights]
+    scale = 6.5 / sum(widths)
+    widths = [width * scale for width in widths]
+    dxa_widths = [int(round(width * 1440)) for width in widths]
+    dxa_widths[-1] += 9360 - sum(dxa_widths)
+
+    table_pr = table._tbl.tblPr
+    for tag in ("w:tblW", "w:tblInd", "w:tblLayout"):
+        for existing in list(table_pr.findall(qn(tag))):
+            table_pr.remove(existing)
+    table_width = OxmlElement("w:tblW")
+    table_width.set(qn("w:w"), "9360")
+    table_width.set(qn("w:type"), "dxa")
+    table_indent = OxmlElement("w:tblInd")
+    table_indent.set(qn("w:w"), "120")
+    table_indent.set(qn("w:type"), "dxa")
+    layout = OxmlElement("w:tblLayout")
+    layout.set(qn("w:type"), "fixed")
+    table_pr.extend([table_width, table_indent, layout])
+    grid_columns = table._tbl.tblGrid.findall(qn("w:gridCol"))
+    for index, grid_column in enumerate(grid_columns[:ncols]):
+        grid_column.set(qn("w:w"), str(dxa_widths[index]))
     for j, h in enumerate(header):
         cell = table.cell(0, j)
+        cell.width = Inches(widths[j])
+        cell._tc.get_or_add_tcPr().get_or_add_tcW().set(qn("w:w"), str(dxa_widths[j]))
+        cell._tc.get_or_add_tcPr().get_or_add_tcW().set(qn("w:type"), "dxa")
+        cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
         cell.text = ""
         cell.paragraphs[0].style = doc.styles[_S["table_body"]]
         apply_runs(cell.paragraphs[0], parse_inline(h),
                    spec_key="table_body", force_bold=True)
         _set_cell_borders(cell)
+        _set_cell_margins(cell)
+        shading = OxmlElement("w:shd")
+        shading.set(qn("w:fill"), "F4F6F9")
+        cell._tc.get_or_add_tcPr().append(shading)
     for i, row in enumerate(rows):
         for j in range(ncols):
             cell = table.cell(i + 1, j)
+            cell.width = Inches(widths[j])
+            cell._tc.get_or_add_tcPr().get_or_add_tcW().set(qn("w:w"), str(dxa_widths[j]))
+            cell._tc.get_or_add_tcPr().get_or_add_tcW().set(qn("w:type"), "dxa")
+            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
             cell.text = ""
             cell.paragraphs[0].style = doc.styles[_S["table_body"]]
             apply_runs(cell.paragraphs[0],
                        parse_inline(row[j] if j < len(row) else ""),
                        spec_key="table_body")
             _set_cell_borders(cell)
+            _set_cell_margins(cell)
 
 
 # ---------------------------------------------------------------------------
@@ -436,6 +814,7 @@ _HEADING_RE    = re.compile(r"^(#{1,6})\s+(.*)")
 _EMBEDDED_HEADING_PREFIX_RE = re.compile(r"^#{1,6}\s+")
 _NUMBERED_SECTION_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.\s+\S")
 _HTML_ANCHOR_RE = re.compile(r"^<a\s+id=[\"']ref-\d+[\"']\s*>\s*</a>\s*$", re.I)
+_HTML_COMMENT_START_RE = re.compile(r"^\s*<!--")
 _UL_RE         = re.compile(r"^(\s*)[-*+]\s+(.*)")
 _OL_RE         = re.compile(r"^(\s*)\d+[.)]\s+(.*)")
 _FENCE_RE      = re.compile(r"^```(\w*)\s*$")
@@ -454,6 +833,8 @@ def _is_continuation(line: str) -> bool:
     if _REF_ENTRY_RE.match(line):
         return False
     if _AFFIL_START.match(line):
+        return False
+    if _HTML_COMMENT_START_RE.match(line):
         return False
     for pat in (_HEADING_RE, _FENCE_RE, _TABLE_ROW_RE,
                 _UL_RE, _OL_RE, _HR_RE, _IMG_RE):
@@ -476,6 +857,15 @@ def tokenize(md_text: str) -> List[Block]:
             while i < n and lines[i].strip() != "---":
                 i += 1
             i += 1
+            continue
+
+        # Editor-only HTML comments never belong in the exported manuscript.
+        if _HTML_COMMENT_START_RE.match(line):
+            while i < n:
+                current = lines[i]
+                i += 1
+                if "-->" in current:
+                    break
             continue
 
         # Fenced code block
@@ -683,16 +1073,25 @@ def _clear_body(doc: Document) -> None:
 
 def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
     md_text = md_path.read_text(encoding="utf-8")
+    if re.search(r"\[@P\d{3}", md_text):
+        raise SystemExit("[md2docx] ERROR: unresolved stable citation tokens remain in Markdown")
+    if re.search(r"<!--\s*paragraph_id\s*:", md_text, re.I):
+        raise SystemExit("[md2docx] ERROR: editor paragraph markers remain in Markdown")
     blocks  = tokenize(md_text)
     toc_entries = _collect_static_toc_entries(blocks)
     doc     = Document(str(template_path))
     _clear_body(doc)
+    _configure_academic_document(doc)
+    bullet_num_id = _create_numbering_definition(doc, ordered=False)
+    ordered_num_id = _create_numbering_definition(doc, ordered=True)
+    reference_num_id = _create_numbering_definition(doc, ordered=True, reference=True)
 
     ctx: str           = "body"
     front_matter: bool = False
     inserted_toc_heading = False
     saw_toc_heading = False
     skipping_source_toc = False
+    missing_images: List[str] = []
 
     def insert_toc_once() -> None:
         nonlocal inserted_toc_heading
@@ -712,8 +1111,6 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
                 skipping_source_toc = True
                 insert_toc_once()
                 continue
-            elif block.level >= 2 and not inserted_toc_heading:
-                insert_toc_once()
             skipping_source_toc = False
             effective_level = 2 if numbered_h1_section else block.level
             style_key, spec_key = _HEADING_FORMAT.get(effective_level, ("body", "body"))
@@ -728,6 +1125,11 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
         elif block.kind == "paragraph":
             text  = block.text.strip()
             plain = _plain_text(text)
+
+            if re.match(r"^\*\*keywords:?\*\*", text, re.I):
+                ctx = "keywords"
+                _para(doc, "keywords", "keywords", text)
+                continue
 
             # Bold-only section label  e.g. **Abstract**
             new_ctx = _section_ctx(plain)
@@ -777,21 +1179,19 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
         elif block.kind == "list_item":
             if skipping_source_toc:
                 continue
-            indent = "  " * block.depth
-            bullet = (f"{indent}- {block.text}"
-                      if not block.ordered else f"{indent}{block.text}")
             if ctx == "references":
-                _para(doc, "references", "references", bullet)
+                p = _para(doc, "references", "references", block.text)
+                _apply_numbering(p, reference_num_id, block.depth)
             else:
-                _para(doc, "body", "body", bullet)
+                p = _para(doc, "body", "body", block.text)
+                _apply_numbering(p, ordered_num_id if block.ordered else bullet_num_id, block.depth)
 
         elif block.kind == "code_block":
             if skipping_source_toc:
                 continue
             p  = doc.add_paragraph(style=_S["body"])
             wr = p.add_run(block.code)
-            wr.font.name = "Courier New"
-            wr.font.size = Pt(9)
+            _set_word_run_font(wr, "Courier New", 9)
 
         elif block.kind == "math_block":
             if skipping_source_toc:
@@ -813,20 +1213,22 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
             if img_path.exists():
                 p = doc.add_paragraph(style=_S["body"])
                 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                p.paragraph_format.keep_with_next = True
                 p.add_run().add_picture(str(img_path), width=Inches(_usable_page_width_inches(doc)))
                 if block.alt:
-                    _para(doc, "figure", "figure", f"Figure. {block.alt}")
+                    caption_key = _caption_style(block.alt) or "figure"
+                    _para(doc, caption_key, caption_key, block.alt)
             else:
-                continue
+                missing_images.append(str(img_path))
 
         elif block.kind == "hr":
             # Horizontal rules in review Markdown are section separators, not
             # desired visual borders in the final DOCX.
             continue
 
-    if not inserted_toc_heading and not saw_toc_heading:
-        insert_toc_once()
-
+    if missing_images:
+        raise SystemExit("[md2docx] ERROR: missing images: " + ", ".join(missing_images))
+    _configure_footer(doc)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(out_path))
     print(f"[md2docx] Saved -> {out_path}")
@@ -862,9 +1264,7 @@ def main() -> None:
     if not template_path.exists():
         raise SystemExit(f"[md2docx] ERROR: Template not found: {template_path}")
     if not _LATEX_OK:
-        print("[md2docx] WARNING: latex2word not installed -- "
-              "math will render as plain text.\n"
-              "          Fix: pip install latex2word")
+        print("[md2docx] INFO: latex2word unavailable; using built-in deterministic script formatting")
 
     convert(md_path, out_path, template_path)
 

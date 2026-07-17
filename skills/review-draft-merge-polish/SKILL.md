@@ -1,86 +1,75 @@
 ---
 name: review-draft-merge-polish
-description: Merge separately drafted section files into one coherent first review draft and polish transitions, terminology, and figure placement.
+description: Deterministically merge review sections, assign global citation numbers from stable paper IDs, generate references, and polish prose without changing citation identity.
 ---
 
-# Review Draft Merge Polish
+# Draft Merge and Polish
 
-Goal: merge section files into one complete review draft.
+Use a script for fragile assembly. Do not manually concatenate sections or renumber references.
 
 ## Inputs
 
-```text
-review-projects/<project_id>/01_matrix_outline/selected_outline.md
-review-projects/<project_id>/01_matrix_outline/literature_matrix.json
-review-projects/<project_id>/02_section_drafting/sections/*.md
-review-projects/<project_id>/02_section_drafting/figure_candidates.json
-review-projects/<project_id>/02_section_drafting/section_drafting_report.md
-```
-
-If available, also use:
+Read:
 
 ```text
-review-projects/<project_id>/03_figure_redraw/redrawn_figure_manifest.json
+01_matrix_outline/literature_matrix.json
+01_matrix_outline/section_blueprint.json
+02_section_drafting/section_drafts.json
+02_section_drafting/figure_candidates.json
+03_figure_redraw/redrawn_figure_manifest.json (when available)
 ```
 
-## Merge Rules
+## Required Merge
+
+Run:
+
+```bash
+python skills/review-draft-merge-polish/scripts/merge_review.py \
+  --review-root . \
+  --project-id <project_id>
+```
+
+The script treats section and paragraph metadata as a lightweight envelope. It:
 
 ```text
-Keep the selected outline order.
-Merge all section files.
-Polish transitions and terminology.
-Preserve paper-to-paragraph and figure-to-paragraph links.
-Do not delete caveats or no_figure_reason notes silently.
-Do not invent new papers, claims, or figures.
+rejects pre-numbered citations
+rejects Markdown or HTML image embeds in Abstract
+validates paragraph citation IDs against cited_paper_ids when that optional field is present
+orders references by first appearance
+replaces [@Pxxx] with global [n] callouts
+generates References and citations.json from the same mapping
+removes paragraph markers from manuscript prose
+inserts selected prepared figures (`source_verified` or `redrawn`) and copies figure assets into both draft-stage directories
 ```
 
-## Hard Output Requirements
+Do not run a separate hand-written figure insertion step. When `figure_candidates.json` is non-empty, merge fails if no selected image can be inserted. Unverified source candidates remain visible to the final release check; an unchanged MinerU image becomes a formal figure after the figure stage records it as `source_verified`.
 
-`first_draft.md` must satisfy all of:
+Prepared figure rows retain `section_heading`. Figure insertion stops when its target heading is unresolved instead of falling back to Abstract or another convenient heading.
+
+Resolve citation or parse blockers in the structured draft and rerun. Abstract length, keyword count, uncited transitional prose, and paragraph labels are editorial warnings; an image embedded in Abstract is an asset-placement error. Do not write an ad hoc replacement script.
+
+## Polish Pass
+
+After deterministic merge, polish prose, structure, and transitions while preserving citation identity. Typical targets include:
 
 ```text
-at least one ![](...) figure or scheme image,
-  resolved against 04_first_draft/ (use redrawn images when available,
-  or source-figure placeholders during early development; never zero figures
-  unless 03_figure_redraw/skip_reason.md exists);
-inline citation callouts using the `[n]` style for every claim that
-  references a paper;
-a final References section. Heading must be one of
-  References / Reference List / Bibliography / Cited Literature / 参考文献.
-  Items numbered 1., 2., ... or [1], [2], ... and the numbering must align
-  with the inline `[n]` callouts.
+section transitions
+terminology consistency
+redundant sentences
+comparison clarity
+mechanism qualification
 ```
 
-The orchestrator status script will mark this stage incomplete with
-`draft_has_no_figures`, `draft_has_no_citation_callouts`, or
-`missing_references_section` whenever any of these are violated.
+Do not manually edit citation numbers or reorder References. If prose changes citation order or identity, restore stable `[@Pxxx]` tokens in the structured section data and rerun `merge_review.py`.
 
 ## Outputs
 
-Write under:
+Write:
 
 ```text
-review-projects/<project_id>/04_first_draft/
+04_first_draft/first_draft.md
+04_first_draft/citations.json
+04_first_draft/merge_validation.json
+04_first_draft/merge_report.md
+04_first_draft/remaining_issues.md
 ```
-
-Required files:
-
-```text
-first_draft.md
-merge_report.md
-remaining_issues.md
-citations.json
-```
-
-`citations.json` aggregates every paragraph's `cited_paper_ids` into a single
-ordered list per `[n]` slot. It is consumed by the final audit to cross-check
-inline `[n]` callouts and the References section against `literature_matrix.json`.
-
-Figure insertion is paragraph-anchored: read `target_paragraph_id` from
-`02_section_drafting/figure_candidates.json` and insert each figure right after
-its anchor paragraph. Do not fall back to heading-only matching when
-`target_paragraph_id` exists.
-
-`first_draft.md` must be a continuous review manuscript, not a list of section notes.
-
-Stop after this stage for human check.

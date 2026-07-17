@@ -92,7 +92,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Smoke test image generation and edit APIs.")
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--api-key", required=True)
-    parser.add_argument("--output-dir", default="/home/ps/review-writer/tmp/image-smoke-test")
+    parser.add_argument("--output-dir", default=str(Path(__file__).resolve().parents[3] / "tmp" / "image-smoke-test"))
     parser.add_argument("--edit-only", action="store_true")
     parser.add_argument("--source-image", default="")
     return parser.parse_args()

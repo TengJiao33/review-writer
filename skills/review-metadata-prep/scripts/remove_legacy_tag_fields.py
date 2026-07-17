@@ -44,7 +44,7 @@ def clean_quality(meta: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Remove legacy tag fields from review metadata JSON files.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 

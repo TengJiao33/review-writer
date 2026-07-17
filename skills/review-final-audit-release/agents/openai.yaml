@@ -1,4 +1,4 @@
 interface:
   display_name: "Final Audit Release"
-  short_description: "Check content and format, then produce the final review draft."
-  default_prompt: "Using the approved first draft and upstream evidence files, perform final content and format audits, fix manuscript-level issues, and produce final_draft.md with audit and release reports."
+  short_description: "Audit evidence, citations, repetition, and release safety."
+  default_prompt: "Use $review-final-audit-release to check manuscript evidence, citations, repeated filler, and release integrity before finalization."

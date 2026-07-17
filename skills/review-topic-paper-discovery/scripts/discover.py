@@ -44,6 +44,52 @@ def split_keywords(raw: str) -> list[str]:
     return dedupe([x.strip() for x in re.split(r"[,;；\n]+", raw or "") if x.strip()])
 
 
+def _markdown_contract(path: Path) -> dict[str, Any]:
+    sections: dict[str, list[str]] = {}
+    current = ""
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if line.startswith("## "):
+            current = re.sub(r"[^a-z0-9]+", "_", line[3:].strip().lower()).strip("_")
+            sections.setdefault(current, [])
+        elif current and line and not line.startswith("# "):
+            sections[current].append(line)
+
+    def scalar(name: str) -> str:
+        return " ".join(line.lstrip("- ").strip() for line in sections.get(name, [])).strip()
+
+    def items(name: str) -> list[str]:
+        return dedupe(
+            [line[2:].strip() for line in sections.get(name, []) if line.startswith("- ")]
+        )
+
+    return {
+        "manuscript_title": scalar("manuscript_title"),
+        "retrieval_query": scalar("retrieval_query"),
+        "central_question": scalar("central_question"),
+        "important_coverage": items("important_coverage"),
+        "inclusion_criteria": items("inclusion_criteria"),
+        "exclusion_criteria": items("exclusion_criteria"),
+        "suggested_keywords": items("suggested_retrieval_keywords"),
+    }
+
+
+def load_topic_contract_file(raw_path: str) -> dict[str, Any]:
+    if not raw_path:
+        return {}
+    path = Path(raw_path).expanduser().resolve()
+    if not path.exists():
+        raise SystemExit(f"Topic contract file does not exist: {path}")
+    if path.suffix.lower() == ".json":
+        payload = read_json(path)
+        if not isinstance(payload, dict):
+            raise SystemExit(f"Topic contract JSON must contain an object: {path}")
+        return payload
+    if path.suffix.lower() in {".md", ".markdown"}:
+        return _markdown_contract(path)
+    raise SystemExit("--topic-contract-file must be JSON or Markdown")
+
+
 def dedupe(values: list[str]) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
@@ -129,6 +175,7 @@ def tokenize(text: str) -> list[str]:
 def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]:
     text = " ".join([topic] + user_keywords).lower()
     rules = [
+        ("nickel catalysis", "catalyst_or_method", ["nickel", "ni-catalyzed", "ni catalyzed"]),
         ("polysubstituted allenes", "product", ["polysubstituted allene", "substituted allene"]),
         ("allenes", "product", ["allene", "allenes"]),
         ("allene synthesis", "reaction_type", ["allene synthesis", "synthesis of allene"]),
@@ -158,13 +205,12 @@ def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]
     ]
     candidates: list[dict[str, Any]] = []
     for kw, category, needles in rules:
-        if any(n in text for n in needles) or any(n in kw.lower() for n in tokenize(topic)):
+        # Expand only from an actual rule signal.  The previous token-overlap
+        # fallback treated a generic topic token such as "catalysis" as a
+        # reason to add every metal-catalysis rule, which polluted capped
+        # candidate pools before screening could make a relevance decision.
+        if any(n in text for n in needles):
             candidates.append({"keyword": kw, "category": category, "reason": "rule expansion from topic/user keywords"})
-    for token in tokenize(topic):
-        if token in {"propargylic", "allene", "allenes", "synthesis", "derivatives"}:
-            continue
-        if len(token) > 6:
-            candidates.append({"keyword": token, "category": "reaction_type", "reason": "topic token"})
     return unique_keyword_dicts(candidates)
 
 
@@ -206,12 +252,12 @@ def classify_keyword(keyword: str) -> str:
     low = keyword.lower()
     if any(x in low for x in ["alcohol", "acetate", "carbonate", "phosphate", "sulfide", "bromide", "derivative", "dichloride"]):
         return "substrate"
-    if "allene" in low:
-        return "product"
     if any(x in low for x in ["catalysis", "copper", "nickel", "palladium", "photoredox"]):
         return "catalyst_or_method"
     if any(x in low for x in ["sn2", "rearrangement", "allenylation", "synthesis"]):
         return "reaction_type"
+    if "allene" in low:
+        return "product"
     return "reaction_type"
 
 
@@ -311,6 +357,8 @@ def score_local_paper(
         "year": year,
         "journal": field_value(meta.get("journal")),
         "doi": field_value(meta.get("doi")),
+        "abstract": field_value(meta.get("abstract"), ""),
+        "structured_tags": field_value(meta.get("structured_tags"), {}),
         "score": normalized,
         "raw_score": round(raw, 3),
         "direct_raw_score": round(direct_raw, 3),
@@ -342,9 +390,22 @@ def local_search_by_keyword(
     return grouped
 
 
+def is_supplementary_crossref_record(item: dict[str, Any]) -> bool:
+    record_type = str(item.get("type") or "").lower()
+    doi = str(item.get("DOI") or "").lower()
+    title = " ".join(item.get("title") or []).lower()
+    return (
+        record_type == "component"
+        or bool(re.search(r"\.s\d+$", doi))
+        or "supporting information" in title
+        or "supplementary material" in title
+    )
+
+
 def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]:
     query = f"{keyword} {topic} review paper DOI"
-    url = "https://api.crossref.org/works?" + urllib.parse.urlencode({"query.bibliographic": query, "rows": str(limit)})
+    rows = min(max(limit * 4, 20), 100)
+    url = "https://api.crossref.org/works?" + urllib.parse.urlencode({"query.bibliographic": query, "rows": str(rows)})
     req = urllib.request.Request(url, headers={"User-Agent": "review-writer-discovery/0.1 (mailto:example@example.com)"})
     ctx = ssl.create_default_context()
     try:
@@ -355,6 +416,8 @@ def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]
     results = []
     topic_terms = tokenize(topic)
     for item in data.get("message", {}).get("items", []):
+        if is_supplementary_crossref_record(item):
+            continue
         title = " ".join(item.get("title") or []) or "(untitled)"
         container = " ".join(item.get("container-title") or [])
         abstract = re.sub("<[^>]+>", " ", item.get("abstract") or "")
@@ -373,14 +436,37 @@ def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]
                 score += 0.05
         doi = item.get("DOI")
         link = f"https://doi.org/{doi}" if doi else item.get("URL", "")
+        pdf_links = [
+            str(entry.get("URL") or "").strip()
+            for entry in item.get("link") or []
+            if isinstance(entry, dict)
+            and "pdf" in str(entry.get("content-type") or "").lower()
+            and str(entry.get("URL") or "").strip()
+        ]
+        license_urls = [
+            str(entry.get("URL") or "").strip()
+            for entry in item.get("license") or []
+            if isinstance(entry, dict) and str(entry.get("URL") or "").strip()
+        ]
+        has_open_license = any(
+            "creativecommons.org" in license_url.lower() for license_url in license_urls
+        )
         results.append(
             {
+                "external_id": doi or str(item.get("URL") or ""),
                 "title": title,
                 "authors": format_crossref_authors(item.get("author", [])),
                 "year": year,
                 "journal": container,
                 "doi": doi,
                 "url": link,
+                "abstract": re.sub(r"\s+", " ", abstract).strip()[:1200],
+                "citation_count": item.get("is-referenced-by-count"),
+                "record_type": item.get("type"),
+                "publication_types": [item.get("type")] if item.get("type") else [],
+                "open_access_pdf_url": pdf_links[0] if pdf_links and has_open_license else "",
+                "publisher_pdf_url_candidate": pdf_links[0] if pdf_links else "",
+                "license_urls": license_urls,
                 "score": round(min(score, 1.0), 4),
                 "reason": "Crossref title/snippet/topic/DOI overlap score",
                 "keep": score > 0.15,
@@ -388,7 +474,7 @@ def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]
             }
         )
     results.sort(key=lambda r: (r["score"], r.get("year") or 0), reverse=True)
-    return results
+    return results[:limit]
 
 
 def format_crossref_authors(authors: list[dict[str, Any]]) -> list[str]:
@@ -398,6 +484,164 @@ def format_crossref_authors(authors: list[dict[str, Any]]) -> list[str]:
         if name:
             out.append(name)
     return out
+
+
+def semantic_scholar_search(
+    keyword: str,
+    topic: str,
+    limit: int = 8,
+    api_key: str = "",
+) -> list[dict[str, Any]]:
+    """Retrieve relevance-ranked metadata plus legal OA PDF locations.
+
+    The public Academic Graph endpoint works without a key, although the
+    unauthenticated pool is shared and may be throttled.  Search is deliberately
+    metadata-only; downloading and MinerU parsing are a separate explicit action.
+    """
+    query = re.sub(r"[-–—]+", " ", f"{keyword} {topic}")
+    fields = ",".join(
+        [
+            "paperId",
+            "title",
+            "authors",
+            "year",
+            "venue",
+            "abstract",
+            "url",
+            "externalIds",
+            "openAccessPdf",
+            "citationCount",
+            "publicationTypes",
+        ]
+    )
+    url = "https://api.semanticscholar.org/graph/v1/paper/search?" + urllib.parse.urlencode(
+        {"query": query, "limit": str(max(1, min(limit, 100))), "fields": fields}
+    )
+    headers = {"User-Agent": "review-writer-discovery/0.2"}
+    if api_key:
+        headers["x-api-key"] = api_key
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req, context=ssl.create_default_context(), timeout=20) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+    except Exception as exc:
+        return [
+            {
+                "title": f"SEMANTIC_SCHOLAR_SEARCH_FAILED: {type(exc).__name__}",
+                "url": "",
+                "score": 0,
+                "reason": str(exc),
+                "keep": False,
+                "source": "semantic_scholar",
+            }
+        ]
+
+    topic_terms = tokenize(topic)
+    results: list[dict[str, Any]] = []
+    for item in data.get("data") or []:
+        title = re.sub(r"\s+", " ", str(item.get("title") or "(untitled)")).strip()
+        abstract = re.sub(r"\s+", " ", str(item.get("abstract") or "")).strip()
+        venue = str(item.get("venue") or "").strip()
+        haystack = " ".join([title, abstract, venue]).lower()
+        score = 0.18  # The API response is already relevance-ranked.
+        if keyword.lower() in haystack:
+            score += 0.45
+        score += min(sum(1 for term in topic_terms if term in haystack) * 0.035, 0.25)
+        external_ids = item.get("externalIds") or {}
+        doi = str(external_ids.get("DOI") or "").strip()
+        if doi:
+            score += 0.05
+        open_pdf = item.get("openAccessPdf") or {}
+        open_pdf_url = str(open_pdf.get("url") or "").strip() if isinstance(open_pdf, dict) else ""
+        if open_pdf_url:
+            score += 0.07
+        year = item.get("year")
+        if isinstance(year, int) and year >= 2020:
+            score += 0.03
+        authors = [
+            str(author.get("name") or "").strip()
+            for author in item.get("authors") or []
+            if isinstance(author, dict) and str(author.get("name") or "").strip()
+        ]
+        results.append(
+            {
+                "external_id": str(item.get("paperId") or ""),
+                "title": title,
+                "authors": authors,
+                "year": year,
+                "journal": venue,
+                "doi": doi,
+                "url": str(item.get("url") or (f"https://doi.org/{doi}" if doi else "")),
+                "abstract": abstract[:1200],
+                "citation_count": item.get("citationCount"),
+                "publication_types": item.get("publicationTypes") or [],
+                "open_access_pdf_url": open_pdf_url,
+                "open_access_status": open_pdf.get("status") if isinstance(open_pdf, dict) else None,
+                "score": round(min(score, 1.0), 4),
+                "reason": "Semantic Scholar relevance rank plus topic/DOI/OA metadata",
+                "keep": True,
+                "source": "semantic_scholar",
+            }
+        )
+    results.sort(key=lambda row: (row.get("score") or 0, row.get("year") or 0), reverse=True)
+    return results
+
+
+def _normalized_doi(value: Any) -> str:
+    return re.sub(r"^https?://(?:dx\.)?doi\.org/", "", str(value or "").strip(), flags=re.I).lower()
+
+
+def _normalized_title(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def annotate_external_results(
+    rows: list[dict[str, Any]],
+    local_papers: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    doi_to_local: dict[str, str] = {}
+    title_to_local: dict[str, str] = {}
+    for paper_id, meta in local_papers.items():
+        doi = _normalized_doi(field_value(meta.get("doi")))
+        title = _normalized_title(field_value(meta.get("title")))
+        if doi:
+            doi_to_local[doi] = paper_id
+        if title:
+            title_to_local[title] = paper_id
+    annotated: list[dict[str, Any]] = []
+    for row in rows:
+        doi = _normalized_doi(row.get("doi"))
+        title = _normalized_title(row.get("title"))
+        local_paper_id = doi_to_local.get(doi) if doi else None
+        if not local_paper_id and title:
+            local_paper_id = title_to_local.get(title)
+        pdf_url = str(row.get("open_access_pdf_url") or "").strip()
+        if local_paper_id:
+            promotion_status = "already_local"
+        elif pdf_url:
+            promotion_status = "ready_to_download"
+        else:
+            promotion_status = "needs_pdf_location"
+        annotated.append(
+            {
+                **row,
+                "local_paper_id": local_paper_id,
+                "promotion_status": promotion_status,
+                "evidence_status": "full_text_available" if local_paper_id else "coverage_only",
+            }
+        )
+    return annotated
+
+
+def choose_external_groups(
+    local_grouped: list[dict[str, Any]],
+    query_limit: int,
+) -> list[dict[str, Any]]:
+    if query_limit <= 0:
+        return local_grouped
+    # merged_keywords keeps user terms first; the cap prevents a keyword
+    # expansion from silently becoming dozens of remote API calls.
+    return local_grouped[:query_limit]
 
 
 
@@ -519,6 +763,7 @@ def merge_external_results(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             # Promote the higher-scoring record while keeping merged source list.
             sources = existing.get("sources", [])
             merged[key] = {**row, "sources": sources}
+            existing = merged[key]
         if not existing.get("doi") and row.get("doi"):
             existing["doi"] = row.get("doi")
         if not existing.get("url") and row.get("url"):
@@ -535,6 +780,41 @@ def merge_external_results(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         out.append(row)
     out.sort(key=lambda r: (r.get("score") or 0, r.get("year") or 0), reverse=True)
     return out
+
+
+def split_provider_rows(
+    rows: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    records: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for row in rows:
+        title = str(row.get("title") or "") if isinstance(row, dict) else ""
+        if isinstance(row, dict) and "_SEARCH_FAILED:" in title:
+            errors.append(str(row.get("reason") or title))
+        elif isinstance(row, dict):
+            records.append(row)
+    return records, errors
+
+
+def provider_run_status(
+    requested: bool,
+    stats: dict[str, int],
+    errors: list[str],
+    unavailable_status: str = "",
+) -> str:
+    if not requested:
+        return "disabled"
+    if unavailable_status and stats.get("attempted_queries", 0) == 0:
+        return unavailable_status
+    if stats.get("successful_queries", 0) == 0 and errors:
+        return "error"
+    if errors:
+        return "partial_error"
+    if stats.get("returned_records", 0) == 0:
+        return "no_results"
+    if stats.get("retained_records", 0) == 0:
+        return "no_retained_results"
+    return "ok"
 
 def combine_results(local_grouped: list[dict[str, Any]], web_grouped: list[dict[str, Any]]) -> list[dict[str, Any]]:
     web_map = {g["keyword"]: g for g in web_grouped}
@@ -553,8 +833,114 @@ def combine_results(local_grouped: list[dict[str, Any]], web_grouped: list[dict[
     return combined
 
 
-def selected_from_combined(combined: list[dict[str, Any]]) -> dict[str, Any]:
-    selected = {"keywords": [], "local_papers": {}, "web_papers": []}
+RANKING_STOPWORDS = {
+    "about", "across", "after", "available", "between", "central", "directly",
+    "effects", "evidence", "important", "involving", "methods", "paper", "papers",
+    "present", "question", "reaction", "relevant", "scope", "studied", "studies",
+    "their", "through", "transformation", "using", "which", "with",
+}
+
+
+def ranking_signal(entry: dict[str, Any]) -> str:
+    tags = entry.get("structured_tags") or {}
+    if isinstance(tags, dict) and "value" in tags:
+        tags = tags.get("value") or {}
+    tag_text = " ".join(str(value) for value in tags.values()) if isinstance(tags, dict) else str(tags)
+    return " ".join(
+        [
+            str(entry.get("title") or ""),
+            str(entry.get("abstract") or ""),
+            tag_text,
+        ]
+    ).lower()
+
+
+def contract_ranking_terms(topic_contract: dict[str, Any] | None) -> list[str]:
+    if not isinstance(topic_contract, dict):
+        return []
+    values = [
+        topic_contract.get("topic"),
+        topic_contract.get("central_question"),
+        *(topic_contract.get("important_coverage") or []),
+        *(topic_contract.get("inclusion_criteria") or []),
+    ]
+    tokens = tokenize(" ".join(str(value or "") for value in values))
+    return [token for token in tokens if token not in RANKING_STOPWORDS]
+
+
+def required_contract_terms(topic_contract: dict[str, Any] | None) -> list[str]:
+    if not isinstance(topic_contract, dict):
+        return []
+    required: list[str] = []
+    for criterion in topic_contract.get("exclusion_criteria") or []:
+        text = str(criterion or "").lower()
+        for pattern in (r"\b([a-z][a-z0-9-]{2,})\s+is not part\b",):
+            for match in re.finditer(pattern, text):
+                term = match.group(1).removesuffix("-mediated").removesuffix("-catalyzed")
+                if term not in RANKING_STOPWORDS:
+                    required.append(term)
+    return dedupe(required)
+
+
+def required_term_present(term: str, signal: str) -> bool:
+    aliases = {
+        "nickel": ("nickel", "ni-catalyzed", "ni catalyzed", "ni-mediated", "ni mediated"),
+        "copper": ("copper", "cu-catalyzed", "cu catalyzed", "cu-mediated", "cu mediated"),
+        "palladium": ("palladium", "pd-catalyzed", "pd catalyzed", "pd-mediated", "pd mediated"),
+    }
+    return any(alias in signal for alias in aliases.get(term, (term,)))
+
+
+def finalize_local_ranking(
+    entries: list[dict[str, Any]],
+    topic_contract: dict[str, Any] | None,
+) -> None:
+    contract_terms = contract_ranking_terms(topic_contract)
+    required_terms = required_contract_terms(topic_contract)
+    coverage_phrases = (
+        topic_contract.get("important_coverage") or []
+        if isinstance(topic_contract, dict)
+        else []
+    )
+    for entry in entries:
+        scores = sorted(
+            (float(value) for value in (entry.get("keyword_scores") or {}).values()),
+            reverse=True,
+        )
+        aggregate = sum(score * weight for score, weight in zip(scores[:4], (1.0, 0.45, 0.25, 0.15)))
+        signal = ranking_signal(entry)
+        contract_hits = sorted({term for term in contract_terms if term in signal})
+        required_misses = [term for term in required_terms if not required_term_present(term, signal)]
+        coverage_hits = []
+        for phrase in coverage_phrases:
+            phrase_terms = [term for term in tokenize(str(phrase)) if term not in RANKING_STOPWORDS]
+            if phrase_terms and sum(term in signal for term in phrase_terms) >= min(2, len(phrase_terms)):
+                coverage_hits.append(str(phrase))
+        category_count = len(set(entry.get("matched_keyword_categories") or []))
+        ranking_score = (
+            aggregate
+            + min(len(contract_hits) * 0.025, 0.5)
+            + min(category_count * 0.05, 0.2)
+            + min(len(coverage_hits) * 0.04, 0.2)
+            - min(len(required_misses) * 0.8, 1.6)
+        )
+        entry["aggregate_keyword_score"] = round(aggregate, 4)
+        entry["contract_term_hits"] = contract_hits
+        entry["important_coverage_hits"] = coverage_hits
+        entry["required_contract_terms"] = required_terms
+        entry["required_contract_term_misses"] = required_misses
+        entry["ranking_score"] = round(ranking_score, 4)
+        entry["ranking_reason"] = (
+            "aggregate match across topic keywords, topic-contract terms, and coverage signals"
+        )
+
+
+def selected_from_combined(
+    combined: list[dict[str, Any]],
+    max_local_candidates: int = 0,
+    topic_contract: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    selected = {"keywords": [], "local_papers": {}, "web_papers": {}}
     for group in combined:
         if not group.get("keep", True):
             continue
@@ -572,28 +958,119 @@ def selected_from_combined(combined: list[dict[str, Any]]) -> dict[str, Any]:
                     "title": result.get("title"),
                     "year": result.get("year"),
                     "journal": result.get("journal"),
+                    "abstract": result.get("abstract") or "",
+                    "structured_tags": result.get("structured_tags") or {},
+                    "source_paths": result.get("source_paths") or {},
                     "role": result.get("role", "uncertain"),
                     "matched_keywords": [],
+                    "matched_keyword_categories": [],
+                    "keyword_scores": {},
                     "best_score": 0,
                     "keep": True,
                 },
             )
             entry["matched_keywords"].append(group["keyword"])
+            category = str(group.get("category") or "uncategorized")
+            if category not in entry["matched_keyword_categories"]:
+                entry["matched_keyword_categories"].append(category)
+            entry["keyword_scores"][group["keyword"]] = max(
+                float(entry["keyword_scores"].get(group["keyword"], 0)),
+                float(result.get("score", 0)),
+            )
             entry["best_score"] = max(entry["best_score"], result.get("score", 0))
             if role_rank(result.get("role")) < role_rank(entry["role"]):
                 entry["role"] = result.get("role")
         for result in group.get("web_results", []):
             if result.get("keep", True):
-                selected["web_papers"].append({**result, "matched_keyword": group["keyword"]})
+                key = _result_dedupe_key(result)
+                entry = selected["web_papers"].setdefault(
+                    key,
+                    {**result, "matched_keyword": group["keyword"], "matched_keywords": []},
+                )
+                if group["keyword"] not in entry["matched_keywords"]:
+                    entry["matched_keywords"].append(group["keyword"])
     selected["local_papers"] = list(selected["local_papers"].values())
-    selected["local_papers"].sort(key=lambda r: (r["best_score"], r.get("year") or 0), reverse=True)
-    selected["local_papers"] = selected["local_papers"][:30]
+    finalize_local_ranking(selected["local_papers"], topic_contract)
+    required_terms = required_contract_terms(topic_contract)
+    if required_terms:
+        selected["local_papers"] = [
+            row
+            for row in selected["local_papers"]
+            if not row.get("required_contract_term_misses")
+        ]
+    selected["local_papers"].sort(
+        key=lambda r: (r.get("ranking_score") or 0, r["best_score"], r.get("year") or 0),
+        reverse=True,
+    )
+    selected["web_papers"] = list(selected["web_papers"].values())
+    selected["web_papers"].sort(
+        key=lambda row: (row.get("score") or 0, row.get("year") or 0),
+        reverse=True,
+    )
+    if max_local_candidates > 0:
+        selected["local_papers"] = selected["local_papers"][:max_local_candidates]
     return selected
 
 
 def role_rank(role: str | None) -> int:
     order = {"core_candidate": 0, "supporting_candidate": 1, "background": 2, "uncertain": 3, "excluded": 4}
     return order.get(role or "uncertain", 3)
+
+
+def build_external_ingest_plan(
+    project_id: str,
+    web_papers: list[dict[str, Any]],
+    external_requested: bool,
+) -> dict[str, Any]:
+    items: list[dict[str, Any]] = []
+    for row in web_papers:
+        title = str(row.get("title") or "untitled external paper").strip()
+        year = str(row.get("year") or "undated")
+        external_id = str(row.get("external_id") or _normalized_doi(row.get("doi")) or slugify(title))
+        local_paper_id = row.get("local_paper_id")
+        pdf_url = str(row.get("open_access_pdf_url") or "").strip()
+        stable_suffix = slugify(external_id)[-12:]
+        target_relative = f"chem_papers/web-imports/{year}-{slugify(title)[:70]}-{stable_suffix}.pdf"
+        if local_paper_id:
+            action = "use_local"
+            next_step = f"Use managed paper {local_paper_id}; do not download a duplicate."
+        elif pdf_url:
+            action = "download_then_mineru"
+            next_step = "Download the OA PDF, parse that one file with MinerU, then run metadata preparation."
+        else:
+            action = "locate_pdf"
+            next_step = "Locate a lawful full-text PDF before evidence extraction."
+        items.append(
+            {
+                "paper_key": external_id,
+                "source": row.get("source"),
+                "title": title,
+                "year": row.get("year"),
+                "doi": row.get("doi"),
+                "matched_keywords": row.get("matched_keywords") or [row.get("matched_keyword")],
+                "local_paper_id": local_paper_id,
+                "open_access_pdf_url": pdf_url,
+                "action": action,
+                "target_pdf_path": target_relative if action == "download_then_mineru" else None,
+                "next_step": next_step,
+            }
+        )
+    actionable = sum(item["action"] == "download_then_mineru" for item in items)
+    if not external_requested:
+        status = "disabled"
+    elif not items:
+        status = "no_candidates"
+    elif actionable:
+        status = "ready"
+    else:
+        status = "metadata_only"
+    return {
+        "project_id": project_id,
+        "status": status,
+        "candidate_count": len(items),
+        "downloadable_count": actionable,
+        "items": items,
+    }
 
 
 def write_report(out_dir: Path, topic: str, keyword_set: dict[str, Any], combined: list[dict[str, Any]]) -> None:
@@ -636,23 +1113,83 @@ def _load_dotenv_if_present(review_root: Path) -> None:
 def run(args: argparse.Namespace) -> int:
     review_root = Path(args.review_root).resolve()
     _load_dotenv_if_present(review_root)
-    user_keywords = split_keywords(args.keywords)
-    project_id = args.project_id or slugify(args.topic)
+    contract_seed = load_topic_contract_file(args.topic_contract_file)
+    topic = str(
+        args.topic
+        or contract_seed.get("retrieval_query")
+        or contract_seed.get("topic")
+        or contract_seed.get("manuscript_title")
+        or ""
+    ).strip()
+    if not topic:
+        raise SystemExit("Provide --topic or --topic-contract-file with a retrieval query/topic")
+    central_question = str(
+        args.central_question or contract_seed.get("central_question") or topic
+    ).strip()
+    important_coverage = dedupe(
+        args.important_coverage or list(contract_seed.get("important_coverage") or [])
+    )
+    inclusion_criteria = dedupe(
+        args.inclusion_criterion or list(contract_seed.get("inclusion_criteria") or [])
+    )
+    exclusion_criteria = dedupe(
+        args.exclusion_criterion or list(contract_seed.get("exclusion_criteria") or [])
+    )
+    keyword_seed = args.keywords or ", ".join(contract_seed.get("suggested_keywords") or [])
+    user_keywords = split_keywords(keyword_seed)
+    project_id = args.project_id or slugify(topic)
     project = review_root / "review-projects" / project_id
     out_dir = project / "00_discovery"
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "topic_input.md").write_text(
-        f"# {args.topic}\n\nUser keywords:\n\n" + "\n".join(f"- {kw}" for kw in user_keywords) + "\n",
-        encoding="utf-8",
-    )
-    keyword_set = build_keyword_set(args.topic, user_keywords)
+    topic_contract = {
+        "topic": topic,
+        "central_question": central_question,
+        "important_coverage": important_coverage,
+        "inclusion_criteria": inclusion_criteria,
+        "exclusion_criteria": exclusion_criteria,
+    }
+    manuscript_title = str(contract_seed.get("manuscript_title") or "").strip()
+    if manuscript_title:
+        topic_contract["manuscript_title"] = manuscript_title
+    retrieval_query = str(contract_seed.get("retrieval_query") or "").strip()
+    if retrieval_query:
+        topic_contract["retrieval_query"] = retrieval_query
+    write_json(out_dir / "topic_contract.json", topic_contract)
+    topic_lines = [
+        f"# {manuscript_title or topic}",
+        "",
+        "## Central question",
+        "",
+        topic_contract["central_question"],
+        "",
+        "## Important coverage",
+        "",
+    ]
+    topic_lines.extend(f"- {item}" for item in topic_contract["important_coverage"])
+    topic_lines.extend(["", "## Inclusion criteria", ""])
+    topic_lines.extend(f"- {item}" for item in topic_contract["inclusion_criteria"])
+    topic_lines.extend(["", "## Exclusion criteria", ""])
+    topic_lines.extend(f"- {item}" for item in topic_contract["exclusion_criteria"])
+    topic_lines.extend(["", "## User keywords", ""])
+    topic_lines.extend(f"- {kw}" for kw in user_keywords)
+    (out_dir / "topic_input.md").write_text("\n".join(topic_lines).rstrip() + "\n", encoding="utf-8")
+    keyword_set = build_keyword_set(topic, user_keywords)
     write_json(out_dir / "keyword_set.draft.json", keyword_set)
     papers = load_metadata(review_root)
     classification_rules = load_classification_rules(review_root)
-    local_grouped = local_search_by_keyword(papers, keyword_set["merged_keywords"], args.topic, classification_rules)
+    local_grouped = local_search_by_keyword(papers, keyword_set["merged_keywords"], topic, classification_rules)
     write_json(out_dir / "local_results_by_keyword.json", {"project_id": project_id, "results": local_grouped})
-    sciatlas_requested = bool(args.sciatlas_search)
-    crossref_requested = bool(args.web_search)
+    provider_explicit = bool(
+        args.sciatlas_search or args.web_search or args.semantic_scholar_search
+    )
+    if args.local_only and provider_explicit:
+        raise SystemExit("--local-only cannot be combined with external provider flags")
+    sciatlas_requested = bool(args.sciatlas_search) and not args.local_only
+    crossref_requested = (bool(args.web_search) or not provider_explicit) and not args.local_only
+    semantic_scholar_requested = (
+        bool(args.semantic_scholar_search) or not provider_explicit
+    ) and not args.local_only
+    external_requested = sciatlas_requested or crossref_requested or semantic_scholar_requested
     sciatlas_client: SciAtlasClient | None = None
     sciatlas_status = "disabled"
     if sciatlas_requested:
@@ -672,45 +1209,106 @@ def run(args: argparse.Namespace) -> int:
                 sciatlas_status = f"health_failed: {exc}"
                 sciatlas_client = None
 
+    semantic_scholar_api_key = args.semantic_scholar_api_key or os.environ.get(
+        "SEMANTIC_SCHOLAR_API_KEY", ""
+    )
+    semantic_scholar_active = semantic_scholar_requested
     external_grouped: list[dict[str, Any]] = []
     sources_used: list[str] = []
-    for group in local_grouped:
+    provider_errors: dict[str, list[str]] = {
+        "sciatlas": [],
+        "semantic_scholar": [],
+        "crossref": [],
+    }
+    provider_stats: dict[str, dict[str, int]] = {
+        name: {
+            "attempted_queries": 0,
+            "successful_queries": 0,
+            "returned_records": 0,
+            "retained_records": 0,
+        }
+        for name in provider_errors
+    }
+    queried_groups = choose_external_groups(local_grouped, args.external_query_limit)
+    for group in queried_groups:
         rows: list[dict[str, Any]] = []
         if sciatlas_client is not None:
-            sciatlas_rows = sciatlas_search(
+            provider_stats["sciatlas"]["attempted_queries"] += 1
+            raw_sciatlas_rows = sciatlas_search(
                 sciatlas_client,
                 group["keyword"],
-                args.topic,
+                topic,
                 args.sciatlas_limit,
                 args.sciatlas_time_range or None,
                 args.sciatlas_domain or None,
             )
+            sciatlas_rows, sciatlas_errors = split_provider_rows(raw_sciatlas_rows)
             rows.extend(sciatlas_rows)
-            if sciatlas_rows and "sciatlas" not in sources_used:
+            provider_errors["sciatlas"].extend(sciatlas_errors)
+            if not sciatlas_errors:
+                provider_stats["sciatlas"]["successful_queries"] += 1
+            provider_stats["sciatlas"]["returned_records"] += len(sciatlas_rows)
+            provider_stats["sciatlas"]["retained_records"] += sum(
+                bool(row.get("keep", True)) for row in sciatlas_rows
+            )
+            if any(row.get("keep", True) for row in sciatlas_rows) and "sciatlas" not in sources_used:
                 sources_used.append("sciatlas")
             if args.web_delay:
                 time.sleep(args.web_delay)
+        if semantic_scholar_active:
+            provider_stats["semantic_scholar"]["attempted_queries"] += 1
+            raw_semantic_rows = semantic_scholar_search(
+                group["keyword"],
+                topic,
+                args.semantic_scholar_limit,
+                semantic_scholar_api_key,
+            )
+            semantic_rows, semantic_errors = split_provider_rows(raw_semantic_rows)
+            rows.extend(semantic_rows)
+            provider_errors["semantic_scholar"].extend(semantic_errors)
+            if not semantic_errors:
+                provider_stats["semantic_scholar"]["successful_queries"] += 1
+            provider_stats["semantic_scholar"]["returned_records"] += len(semantic_rows)
+            provider_stats["semantic_scholar"]["retained_records"] += sum(
+                bool(row.get("keep", True)) for row in semantic_rows
+            )
+            if any(row.get("keep", True) for row in semantic_rows) and "semantic_scholar" not in sources_used:
+                sources_used.append("semantic_scholar")
+            if semantic_errors:
+                # A shared-pool throttle or provider outage will affect the
+                # remaining keyword calls too. Stop hammering it and let the
+                # independent Crossref path continue.
+                semantic_scholar_active = False
+            if args.web_delay:
+                time.sleep(args.web_delay)
         if crossref_requested:
-            crossref_rows = web_search(group["keyword"], args.topic, args.web_limit)
+            provider_stats["crossref"]["attempted_queries"] += 1
+            raw_crossref_rows = web_search(group["keyword"], topic, args.web_limit)
+            crossref_rows, crossref_errors = split_provider_rows(raw_crossref_rows)
             rows.extend(crossref_rows)
-            if crossref_rows and "crossref" not in sources_used:
+            provider_errors["crossref"].extend(crossref_errors)
+            if not crossref_errors:
+                provider_stats["crossref"]["successful_queries"] += 1
+            provider_stats["crossref"]["returned_records"] += len(crossref_rows)
+            provider_stats["crossref"]["retained_records"] += sum(
+                bool(row.get("keep", True)) for row in crossref_rows
+            )
+            if any(row.get("keep", True) for row in crossref_rows) and "crossref" not in sources_used:
                 sources_used.append("crossref")
             if args.web_delay:
                 time.sleep(args.web_delay)
-        merged = merge_external_results(rows)
+        merged = annotate_external_results(merge_external_results(rows), papers)
         if merged:
             external_grouped.append({"keyword": group["keyword"], "web_results": merged})
 
-    if sciatlas_requested and sciatlas_client is None and not crossref_requested:
+    if sciatlas_requested and sciatlas_client is None and not (crossref_requested or semantic_scholar_requested):
         external_status = sciatlas_status
-    elif sciatlas_requested and crossref_requested and sciatlas_client is None:
-        external_status = f"sciatlas_unavailable({sciatlas_status}); crossref_active"
-    elif sciatlas_client is not None and crossref_requested:
-        external_status = "sciatlas+crossref"
-    elif sciatlas_client is not None:
-        external_status = "sciatlas"
-    elif crossref_requested:
-        external_status = "crossref"
+    elif external_requested and sources_used:
+        external_status = "+".join(sources_used)
+        if sciatlas_requested and sciatlas_client is None:
+            external_status = f"sciatlas_unavailable({sciatlas_status}); {external_status}"
+    elif external_requested:
+        external_status = "requested_but_no_results"
     else:
         external_status = "disabled"
 
@@ -723,44 +1321,138 @@ def run(args: argparse.Namespace) -> int:
 
     write_json(out_dir / "web_results_by_keyword.json", {
         "project_id": project_id,
-        "enabled": bool(external_grouped),
+        "local_only": bool(args.local_only),
+        "enabled": external_requested,
         "source": external_source,
         "status": external_status,
         "sources": sources_used,
+        "queried_keywords": [group["keyword"] for group in queried_groups] if external_requested else [],
+        "external_query_limit": args.external_query_limit,
+        "providers": {
+            "sciatlas": {
+                "requested": sciatlas_requested,
+                "status": provider_run_status(
+                    sciatlas_requested,
+                    provider_stats["sciatlas"],
+                    provider_errors["sciatlas"],
+                    sciatlas_status if sciatlas_client is None else "",
+                ),
+                **provider_stats["sciatlas"],
+            },
+            "semantic_scholar": {
+                "requested": semantic_scholar_requested,
+                "status": provider_run_status(
+                    semantic_scholar_requested,
+                    provider_stats["semantic_scholar"],
+                    provider_errors["semantic_scholar"],
+                ),
+                **provider_stats["semantic_scholar"],
+            },
+            "crossref": {
+                "requested": crossref_requested,
+                "status": provider_run_status(
+                    crossref_requested,
+                    provider_stats["crossref"],
+                    provider_errors["crossref"],
+                ),
+                **provider_stats["crossref"],
+            },
+        },
+        "provider_errors": {key: dedupe(values) for key, values in provider_errors.items() if values},
         "results": external_grouped,
     })
     web_grouped = external_grouped
     combined = combine_results(local_grouped, web_grouped)
-    write_json(out_dir / "combined_results_by_keyword.json", {"project_id": project_id, "topic": args.topic, "results": combined})
-    selected = selected_from_combined(combined)
+    write_json(out_dir / "combined_results_by_keyword.json", {"project_id": project_id, "topic": topic, "results": combined})
+    selected = selected_from_combined(
+        combined,
+        max_local_candidates=args.max_local_candidates,
+        topic_contract=topic_contract,
+    )
     selected["project_id"] = project_id
+    selected["candidate_paper_ids"] = [row["paper_id"] for row in selected.get("local_papers", [])]
+    selected["topic_contract"] = topic_contract
+    selected["screening"] = {
+        "status": "pending",
+        "decided_by": "unreviewed",
+        "criteria_source": "topic_contract.json",
+    }
+    selected["screening_decisions"] = [
+        {
+            "paper_id": row["paper_id"],
+            "decision": "uncertain",
+            "relevance_summary": "",
+            "decision_basis": "",
+        }
+        for row in selected.get("local_papers", [])
+    ]
     selected["human_confirmed"] = False
     write_json(out_dir / "selected_discovery_results.json", selected)
+    write_json(
+        out_dir / "external_ingest_plan.json",
+        build_external_ingest_plan(project_id, selected.get("web_papers", []), external_requested),
+    )
     write_json(
         out_dir / "human_check_state.json",
         {
             "project_id": project_id,
             "status": "pending",
             "confirmed_at": None,
-            "instructions": "Use the dashboard to delete irrelevant keywords/results, then mark discovery confirmed.",
         },
     )
-    write_report(out_dir, args.topic, keyword_set, combined)
+    write_report(out_dir, topic, keyword_set, combined)
     print(f"Discovery project: {project}")
     print(f"Keyword set: {out_dir / 'keyword_set.draft.json'}")
-    print(f"Human dashboard data: {out_dir / 'combined_results_by_keyword.json'}")
+    print(f"Discovery review: http://127.0.0.1:8765/discovery")
     return 0
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Discover local and web papers by expanded topic keywords.")
-    parser.add_argument("--review-root", default="/home/ps/review-writer")
+    parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", default="")
-    parser.add_argument("--topic", required=True)
+    parser.add_argument("--topic", default="")
+    parser.add_argument(
+        "--topic-contract-file",
+        default="",
+        help="JSON or structured Markdown contract; explicit CLI values override matching fields.",
+    )
     parser.add_argument("--keywords", default="")
-    parser.add_argument("--web-search", action="store_true", help="Fallback: query Crossref when SciAtlas is unavailable.")
+    parser.add_argument("--central-question", default="")
+    parser.add_argument("--important-coverage", action="append", default=[])
+    parser.add_argument("--inclusion-criterion", action="append", default=[])
+    parser.add_argument("--exclusion-criterion", action="append", default=[])
+    parser.add_argument(
+        "--max-local-candidates",
+        type=int,
+        default=0,
+        help="Optional explicit cap after scoring; 0 keeps every qualified local candidate.",
+    )
+    parser.add_argument(
+        "--local-only",
+        action="store_true",
+        help="Explicitly disable all external coverage providers.",
+    )
+    parser.add_argument("--web-search", action="store_true", help="Query Crossref explicitly; Crossref and Semantic Scholar are the default when no provider is named.")
     parser.add_argument("--web-limit", type=int, default=8)
     parser.add_argument("--web-delay", type=float, default=0.2)
+    parser.add_argument(
+        "--external-query-limit",
+        type=int,
+        default=6,
+        help="Maximum expanded keywords sent to each external provider; 0 means no cap.",
+    )
+    parser.add_argument(
+        "--semantic-scholar-search",
+        action="store_true",
+        help="Query Semantic Scholar metadata and OA-PDF locations.",
+    )
+    parser.add_argument("--semantic-scholar-limit", type=int, default=8)
+    parser.add_argument(
+        "--semantic-scholar-api-key",
+        default="",
+        help="Optional override for SEMANTIC_SCHOLAR_API_KEY; unauthenticated search is supported.",
+    )
     parser.add_argument("--sciatlas-search", action="store_true", help="Query the hosted SciAtlas KG /v1/search per keyword.")
     parser.add_argument("--sciatlas-limit", type=int, default=8)
     parser.add_argument("--sciatlas-api-key", default="", help="Overrides SCIATLAS_API_KEY env var.")

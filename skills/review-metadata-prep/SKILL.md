@@ -14,10 +14,10 @@ The skill assumes PDFs have already been parsed by MinerU and that a `mineru-out
 1. Build paper metadata:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/prepare_metadata.py \
-  --review-root /home/ps/review-writer \
-  --mineru-output /home/ps/review-writer/mineru-outputs \
-  --pdf-root /home/ps/review-writer/source-paper/<your-subfolder> \
+python skills/review-metadata-prep/scripts/prepare_metadata.py \
+  --review-root . \
+  --mineru-output mineru-outputs \
+  --pdf-root chem_papers \
   --discover-from-pdf-root \
   --append-registry
 ```
@@ -28,23 +28,17 @@ Use `--append-registry` when adding a new source-paper folder to an existing lib
 2. Validate metadata:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/validate_metadata.py \
-  --review-root /home/ps/review-writer
+python skills/review-metadata-prep/scripts/validate_metadata.py \
+  --review-root .
 ```
 
-3. Launch the local review dashboard from the separate view module when human audit is needed:
+3. Remap stored source paths after moving or cloning the repository:
 
 ```bash
-python /home/ps/review-writer/view/serve_review_dashboard.py \
-  --review-root /home/ps/review-writer \
-  --host 127.0.0.1 \
-  --port 8765
-```
-
-Open:
-
-```text
-http://127.0.0.1:8765/library
+python skills/review-metadata-prep/scripts/remap_source_paths.py \
+  --review-root . \
+  --extract-archives \
+  --write
 ```
 
 ## LLM Mode
@@ -64,7 +58,7 @@ reaction_type
 document_scope
 ```
 
-Each tag value must be selected from your project's classification rules file (e.g. `<your-classification-rules>.py`) under the matching category, or `not specified`. This repo ships `/home/ps/review-writer/allene_classification_rules.py` as the default example.
+Each tag value must be selected from your project's classification rules file (e.g. `<your-classification-rules>.py`) under the matching category, or `not specified`. This repo ships `<review-root>/allene_classification_rules.py` as the default example.
 
 To enable LLM enhancement, set:
 
@@ -75,10 +69,10 @@ export OPENAI_API_KEY=...
 Then run:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/prepare_metadata.py \
-  --review-root /home/ps/review-writer \
-  --mineru-output /home/ps/review-writer/mineru-outputs \
-  --pdf-root /home/ps/review-writer/source-paper/<your-subfolder> \
+python skills/review-metadata-prep/scripts/prepare_metadata.py \
+  --review-root . \
+  --mineru-output mineru-outputs \
+  --pdf-root chem_papers \
   --discover-from-pdf-root \
   --append-registry \
   --use-llm \
@@ -92,8 +86,8 @@ LLM extraction is constrained to the first-page blocks, title/author/abstract ca
 To refresh only the eight LLM tags on an existing library without rebuilding paper IDs or paths:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/llm_retag_metadata.py \
-  --review-root /home/ps/review-writer \
+python skills/review-metadata-prep/scripts/llm_retag_metadata.py \
+  --review-root . \
   --model gpt-5.4 \
   --base-url https://naiccc.com \
   --reasoning-effort high \
@@ -103,8 +97,8 @@ python /home/ps/review-writer/skills/review-metadata-prep/scripts/llm_retag_meta
 For a full-library refresh, prefer the resumable batch runner. It processes three papers per round by default, skips already successful LLM-tagged papers, writes progress after every paper, and retries failures:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/batch_llm_retag_metadata.py \
-  --review-root /home/ps/review-writer \
+python skills/review-metadata-prep/scripts/batch_llm_retag_metadata.py \
+  --review-root . \
   --batch-size 3 \
   --max-attempts 5 \
   --retry-delay 30 \
@@ -136,8 +130,8 @@ review-library/metadata/llm_retag_batch_report.md
 If old metadata files need the new `structured_tags` field before LLM retagging:
 
 ```bash
-python /home/ps/review-writer/skills/review-metadata-prep/scripts/backfill_structured_tags.py \
-  --review-root /home/ps/review-writer
+python skills/review-metadata-prep/scripts/backfill_structured_tags.py \
+  --review-root .
 ```
 
 This only writes `not specified` placeholders for schema compatibility. It does not replace LLM tagging.
@@ -175,7 +169,6 @@ abstract
 structured_tags
 source_paths
 extraction
-human_review
 quality
 ```
 
@@ -185,37 +178,13 @@ Every extracted field should carry:
 value
 source
 confidence
-human_checked
 ```
 
-Use `human_review` for audit status and notes. Local paper retrieval uses only the eight values inside `structured_tags`; do not generate or rely on legacy `keywords`, `llm_tags`, `human_tags`, or category compatibility fields.
-
-## Human Audit Dashboard
-
-The dashboard code lives outside this skill:
-
-```text
-/home/ps/review-writer/view/
-```
-
-The dashboard is a local review console, not the source of truth. The source of truth is the JSON file on disk.
-
-The dashboard should support:
-
-```text
-paper list
-PDF preview
-MinerU Markdown preview
-metadata view
-JSON editing
-save metadata
-mark reviewed
-basic search by title, author, keyword, tag
-```
+Local paper retrieval uses only the eight values inside `structured_tags`; do not generate or rely on legacy `keywords`, `llm_tags`, `human_tags`, or category compatibility fields.
 
 ## Validation
 
-Run validation after extraction and after manual edits. Treat these as blocking issues:
+Run validation after extraction and retagging. Treat these as blocking issues:
 
 ```text
 missing paper_id
@@ -240,5 +209,4 @@ missing structured_tags
 structured tag value is not specified
 low confidence title
 low confidence abstract
-not human reviewed
 ```

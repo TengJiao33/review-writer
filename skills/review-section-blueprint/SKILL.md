@@ -1,78 +1,108 @@
 ---
 name: review-section-blueprint
-description: Middle-layer writing-rule skill that converts the selected outline and literature matrix into section_blueprint.json for constrained section writing.
+description: Convert a selected review outline and evidence matrix into a lightweight writing map for a complete review manuscript.
 ---
 
-# Review Section Blueprint
+# Section Blueprint
 
-Goal: create the writing blueprint used by section subagents.
-
-Boundary: this is a pure rule/plan skill. It consumes the outline and
-literature matrix and emits paragraph-level/claim-level constraints; it
-does not re-derive section structure or paper assignments.
+Create a lightweight writing map. Do not write manuscript prose.
 
 ## Inputs
 
-```text
-review-projects/<project_id>/01_matrix_outline/selected_outline.md
-review-projects/<project_id>/01_matrix_outline/literature_matrix.json
-review-projects/<project_id>/01_matrix_outline/paper_reading_notes.json
-/home/ps/review-writer/skills/review-section-blueprint/references/rule_packs.json
-```
-
-Default rule pack:
+Read:
 
 ```text
-references/rule_packs/allenation/
+01_matrix_outline/selected_outline.md
+01_matrix_outline/literature_matrix.json
+01_matrix_outline/paper_reading_notes.json
+01_matrix_outline/matrix_validation.json
+references/rule_packs.json
 ```
 
-Use the rule pack as writing constraints only. Do not import facts from it.
+Proceed when `matrix_validation.json` has zero blocking issues. Warnings may remain when they concern optional detail or note length.
 
-## Required Blueprint
+## Coverage Map
 
-Run initializer if useful:
+Add this top-level object to `section_blueprint.json`:
 
-```bash
-python /home/ps/review-writer/skills/review-section-blueprint/scripts/init_section_blueprint.py \
-  --review-root /home/ps/review-writer \
-  --project-id <project_id>
+```json
+{
+  "coverage_contract": {
+    "suggested_manuscript_words": 5000,
+    "dimensions": [
+      {
+        "name": "major_evidence_dimension",
+        "items": [
+          {
+            "name": "topic-defining comparison or coverage item",
+            "required": true,
+            "covered_by": ["P001", "P052"]
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
-Then edit/complete:
+Derive important items from the manuscript title, retrieval query, central question, and explicitly prioritized scope. If evidence is weak or a topic is intentionally excluded, record the decision and update the title when necessary:
 
-```text
-review-projects/<project_id>/01_matrix_outline/section_blueprint.json
-review-projects/<project_id>/01_matrix_outline/section_writing_plan.md
+```json
+{
+  "scope_decision": "exclude_with_title_scope_update",
+  "reason": "..."
+}
 ```
 
-Each section in `section_blueprint.json` must contain these script-compatible fields:
+Keep title-defining topics visible in the coverage map. Coverage warnings guide revision without dictating section architecture.
+
+## Writing Map
+
+Use only fields that help the manuscript. A minimal section contains:
 
 ```text
 section_id
 title
 section_thesis
 review_problem
-target_paragraphs
-target_words
-dominant_logic
 major_papers
-review_claims
-figure_or_table_needs
-depth_requirements
-section_transition
-avoid_patterns
 ```
 
-`review_claims` must map each major claim to supporting paper IDs and comparison axes. `figure_or_table_needs` must name the scheme/table purpose and candidate papers.
+Optional fields may include suggested claims, comparison axes, figures/tables, transitions, approximate length, or paragraph modes.
 
-## Hard Rules
+Possible paragraph modes include:
 
 ```text
-No section may be only a title.
-Every section must have major_papers.
-Every section must have review_claims.
-Every section must have figure_or_table_needs, or explicitly state no figure/table is useful.
-The blueprint is a plan, not prose. Keep it compact and enforceable.
+comparison
+mechanism
+landmark_example
+limitation_or_gap
+context
+synthesis
+outlook
 ```
 
-Stop after blueprint for human check if interactive.
+Select paragraph modes and approximate length only when they help plan a section.
+
+## Required Validation
+
+Run:
+
+```bash
+python skills/review-section-blueprint/scripts/validate_blueprint.py \
+  --review-root . \
+  --project-id <project_id>
+```
+
+Resolve structural blockers and unknown paper references, then rerun. Treat missing optional planning detail, uncovered secondary topics, and length estimates as warnings.
+
+## Outputs
+
+Write:
+
+```text
+01_matrix_outline/section_blueprint.json
+01_matrix_outline/section_writing_plan.md
+01_matrix_outline/blueprint_validation.json
+01_matrix_outline/blueprint_validation.md
+```

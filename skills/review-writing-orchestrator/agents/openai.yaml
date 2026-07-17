@@ -1,7 +1,4 @@
 interface:
   display_name: "Review Writing Orchestrator"
-  short_description: "串联综述写作阶段并控制人工检查节点"
-  default_prompt: "Use $review-writing-orchestrator to inspect the current review project, identify the next required skill, and pause at the correct human review checkpoint."
-
-policy:
-  allow_implicit_invocation: true
+  short_description: "Coordinate evidence-grounded review writing stages."
+  default_prompt: "Use $review-writing-orchestrator to coordinate the next evidence-grounded review stage and report any integrity blockers."
