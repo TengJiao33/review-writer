@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/17a-adv-synth-catal-2013-wang-optically-active-2-3allenoates-via-palladiumcatalyzed-carbonylation-of-enantioenriched/04e9f44e-2e57-493e-9990-27b7731cac5a_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/17a-adv-synth-catal-2013-wang-optically-active-2-3allenoates-via-palladiumcatalyzed-carbonylation-of-enantioenriched.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/17a-adv-synth-catal-2013-wang-optically-active-2-3allenoates-via-palladiumcatalyzed-carbonylation-of-enantioenriched/04e9f44e-2e57-493e-9990-27b7731cac5a_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/17a-adv-synth-catal-2013-wang-optically-active-2-3allenoates-via-palladiumcatalyzed-carbonylation-of-enantioenriched"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\17a-Adv Synth Catal - 2013 - Wang - Optically Active 2 3‐Allenoates via Palladium‐Catalyzed Carbonylation of Enantioenriched.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\17a-adv-synth-catal-2013-wang-optically-active-2-3allenoates-via-palladiumcatalyzed-carbonylation-of-enantioenriched.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P105\\04e9f44e-2e57-493e-9990-27b7731cac5a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P105"
   },
   "source_file": {
     "pdf_name": "17a-Adv Synth Catal - 2013 - Wang - Optically Active 2 3‐Allenoates via Palladium‐Catalyzed Carbonylation of Enantioenriched.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:23Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 159,
       "markdown_chars_used": 14000
     },

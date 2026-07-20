@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/Angew Chem Int Ed - 2023 - Chen - Asymmetric Ruthenium‐Catalyzed C H Activation by a Versatile Chiral‐Amide‐Directing.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/angew-chem-int-ed-2023-chen-asymmetric-rutheniumcatalyzed-c-h-activation-by-a-versatile-chiralamidedirecting.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/angew-chem-int-ed-2023-chen-asymmetric-rutheniumcatalyzed-c-h-activation-by-a-versatile-chiralamidedirecting/1c7a587e-73b0-4ebb-8455-69e9279e72f6_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/angew-chem-int-ed-2023-chen-asymmetric-rutheniumcatalyzed-c-h-activation-by-a-versatile-chiralamidedirecting"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew Chem Int Ed - 2023 - Chen - Asymmetric Ruthenium‐Catalyzed C H Activation by a Versatile Chiral‐Amide‐Directing.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2023-chen-asymmetric-rutheniumcatalyzed-c-h-activation-by-a-versatile-chiralamidedirecting.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P005\\1c7a587e-73b0-4ebb-8455-69e9279e72f6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P005"
   },
   "source_file": {
     "pdf_name": "Angew Chem Int Ed - 2023 - Chen - Asymmetric Ruthenium‐Catalyzed C H Activation by a Versatile Chiral‐Amide‐Directing.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 155,
       "markdown_chars_used": 14000
     },

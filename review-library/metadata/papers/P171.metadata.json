@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/47e-eur-j-org-chem-2012-ogasawara-effects-of-silyl-substituents-on-the-palladiumcatalyzed-asymmetric-synthesis-of/1f494d7f-0979-4b9c-a8f3-51e9ff9aa508_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/47e-eur-j-org-chem-2012-ogasawara-effects-of-silyl-substituents-on-the-palladiumcatalyzed-asymmetric-synthesis-of.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/47e-eur-j-org-chem-2012-ogasawara-effects-of-silyl-substituents-on-the-palladiumcatalyzed-asymmetric-synthesis-of/1f494d7f-0979-4b9c-a8f3-51e9ff9aa508_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/47e-eur-j-org-chem-2012-ogasawara-effects-of-silyl-substituents-on-the-palladiumcatalyzed-asymmetric-synthesis-of"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\47e-Eur J Org Chem - 2012 - Ogasawara - Effects of Silyl Substituents on the Palladium‐Catalyzed Asymmetric Synthesis of.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\47e-eur-j-org-chem-2012-ogasawara-effects-of-silyl-substituents-on-the-palladiumcatalyzed-asymmetric-synthesis-of.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P171\\1f494d7f-0979-4b9c-a8f3-51e9ff9aa508_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P171"
   },
   "source_file": {
     "pdf_name": "47e-Eur J Org Chem - 2012 - Ogasawara - Effects of Silyl Substituents on the Palladium‐Catalyzed Asymmetric Synthesis of.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 132,
       "markdown_chars_used": 14000
     },

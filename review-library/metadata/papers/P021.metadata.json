@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic/76f7aa40-2782-4e1b-ab01-371b321fd874_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P021\\76f7aa40-2782-4e1b-ab01-371b321fd874_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P021"
   },
   "source_file": {
     "pdf_name": "zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 186,
       "markdown_chars_used": 14000
     },

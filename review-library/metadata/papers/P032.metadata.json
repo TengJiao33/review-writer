@@ -45,10 +45,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/Chinese Journal of Chemistry - 2025 - Zhang - Organocatalytic Access to C1‐Functionalized Indolizines via Remote.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote/0800d675-5c7d-4c42-99c2-312596e40479_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chinese Journal of Chemistry - 2025 - Zhang - Organocatalytic Access to C1‐Functionalized Indolizines via Remote.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P032\\0800d675-5c7d-4c42-99c2-312596e40479_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P032"
   },
   "source_file": {
     "pdf_name": "Chinese Journal of Chemistry - 2025 - Zhang - Organocatalytic Access to C1‐Functionalized Indolizines via Remote.pdf",
@@ -60,7 +60,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 124,
       "markdown_chars_used": 14000
     },

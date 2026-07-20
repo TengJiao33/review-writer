@@ -24,9 +24,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Synthesis",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes/2bb799bf-0cfd-4341-ad58-8dfb8ea9ab33_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes/2bb799bf-0cfd-4341-ad58-8dfb8ea9ab33_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P115\\2bb799bf-0cfd-4341-ad58-8dfb8ea9ab33_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P115"
   },
   "source_file": {
     "pdf_name": "24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 49,
       "markdown_chars_used": 14000
     },

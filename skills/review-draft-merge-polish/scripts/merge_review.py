@@ -308,18 +308,27 @@ def main() -> int:
     write_text(stage4 / "first_draft.md", manuscript)
 
     figure_insertion: dict[str, Any] | None = None
+    figures_requested = False
     figure_path = stage2 / "figure_candidates.json"
     if figure_path.exists():
         figure_payload = read_json(figure_path)
         figure_rows = figure_payload.get("figures") if isinstance(figure_payload, dict) else figure_payload
         if isinstance(figure_rows, list) and figure_rows:
-            try:
-                figure_insertion = insert_figures(project)
-            except ValueError as exc:
-                blockers.append(f"selected figures could not be inserted: {exc}")
-            else:
-                if int(figure_insertion.get("inserted_count") or 0) == 0:
-                    blockers.append("selected figures produced no inserted manuscript images")
+            figures_requested = True
+    visual_manifest_path = project / "03_figure_redraw" / "review_visual_manifest.json"
+    if visual_manifest_path.exists():
+        visual_payload = read_json(visual_manifest_path)
+        visual_rows = visual_payload.get("visuals") if isinstance(visual_payload, dict) else None
+        if isinstance(visual_rows, list) and visual_rows:
+            figures_requested = True
+    if figures_requested:
+        try:
+            figure_insertion = insert_figures(project)
+        except ValueError as exc:
+            blockers.append(f"selected figures could not be inserted: {exc}")
+        else:
+            if int(figure_insertion.get("inserted_count") or 0) == 0:
+                blockers.append("selected figures produced no inserted manuscript images")
     validation["blocking_issues"] = sorted(set(blockers))
     validation["figure_insertion"] = figure_insertion
     write_json(stage4 / "merge_validation.json", validation)

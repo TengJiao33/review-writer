@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral/d5d9b94a-98bd-4c1e-a895-93cea91d3485_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral/d5d9b94a-98bd-4c1e-a895-93cea91d3485_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\27c-Eur J Org Chem - 2013 - Periasamy - Enantioselective Synthesis of Both Enantio mers of Chiral Allenes Using Chiral.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P124\\d5d9b94a-98bd-4c1e-a895-93cea91d3485_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P124"
   },
   "source_file": {
     "pdf_name": "27c-Eur J Org Chem - 2013 - Periasamy - Enantioselective Synthesis of Both Enantio mers of Chiral Allenes Using Chiral.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 206,
       "markdown_chars_used": 14000
     },

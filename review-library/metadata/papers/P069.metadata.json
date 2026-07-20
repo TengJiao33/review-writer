@@ -45,10 +45,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/J. Am. Chem. Soc. 2023, 145, 4613.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/j.-am.-chem.-soc.-2023-145-4613.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/j.-am.-chem.-soc.-2023-145-4613/4077bf88-f67d-41a4-8b7f-999993750ff4_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/j.-am.-chem.-soc.-2023-145-4613"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Am. Chem. Soc. 2023, 145, 4613.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-am.-chem.-soc.-2023-145-4613.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P069\\4077bf88-f67d-41a4-8b7f-999993750ff4_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P069"
   },
   "source_file": {
     "pdf_name": "J. Am. Chem. Soc. 2023, 145, 4613.pdf",
@@ -60,7 +60,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 198,
       "markdown_chars_used": 14000
     },

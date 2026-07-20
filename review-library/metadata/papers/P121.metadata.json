@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/26c-chemistry-a-european-j-2012-ye-tertbutyldimethylsilyldirected-highly-enantioselective-approach-to-axially-chiral/876c7196-c9bd-4639-b320-5742fbfdb166_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/26c-chemistry-a-european-j-2012-ye-tertbutyldimethylsilyldirected-highly-enantioselective-approach-to-axially-chiral.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/26c-chemistry-a-european-j-2012-ye-tertbutyldimethylsilyldirected-highly-enantioselective-approach-to-axially-chiral/876c7196-c9bd-4639-b320-5742fbfdb166_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/26c-chemistry-a-european-j-2012-ye-tertbutyldimethylsilyldirected-highly-enantioselective-approach-to-axially-chiral"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\26c-Chemistry A European J - 2012 - Ye - tert‐Butyldimethylsilyl‐Directed Highly Enantioselective Approach to Axially Chiral.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\26c-chemistry-a-european-j-2012-ye-tertbutyldimethylsilyldirected-highly-enantioselective-approach-to-axially-chiral.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P121\\876c7196-c9bd-4639-b320-5742fbfdb166_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P121"
   },
   "source_file": {
     "pdf_name": "26c-Chemistry A European J - 2012 - Ye - tert‐Butyldimethylsilyl‐Directed Highly Enantioselective Approach to Axially Chiral.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 106,
       "markdown_chars_used": 14000
     },

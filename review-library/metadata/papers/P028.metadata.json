@@ -47,10 +47,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/Angew Chem Int Ed - 2025 - Qian - Chemo‐ and Regiodivergent Allyl‐Propargyl Cross‐Coupling Reactions for the Construction.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/angew-chem-int-ed-2025-qian-chemo-and-regiodivergent-allylpropargyl-crosscoupling-reactions-for-the-construction.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/angew-chem-int-ed-2025-qian-chemo-and-regiodivergent-allylpropargyl-crosscoupling-reactions-for-the-construction/2545f9a1-bd54-4219-a67c-dc2a23830709_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/angew-chem-int-ed-2025-qian-chemo-and-regiodivergent-allylpropargyl-crosscoupling-reactions-for-the-construction"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew Chem Int Ed - 2025 - Qian - Chemo‐ and Regiodivergent Allyl‐Propargyl Cross‐Coupling Reactions for the Construction.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2025-qian-chemo-and-regiodivergent-allylpropargyl-crosscoupling-reactions-for-the-construction.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P028\\2545f9a1-bd54-4219-a67c-dc2a23830709_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P028"
   },
   "source_file": {
     "pdf_name": "Angew Chem Int Ed - 2025 - Qian - Chemo‐ and Regiodivergent Allyl‐Propargyl Cross‐Coupling Reactions for the Construction.pdf",
@@ -62,7 +62,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 151,
       "markdown_chars_used": 14000
     },

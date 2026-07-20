@@ -26,15 +26,15 @@
     "human_checked": false
   },
   "journal": {
-    "value": "2022",
-    "source": "cite_this_line",
-    "confidence": 0.7,
+    "value": "Org. Lett.",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.orglett.1c04086",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   },
   "abstract": {
@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Org. Lett. 2022, 24, 637.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/org.-lett.-2022-24-637.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/org.-lett.-2022-24-637/9dc957ac-6737-4d4d-abfe-317e8f0283d9_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/org.-lett.-2022-24-637"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2022, 24, 637.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2022-24-637.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P084\\9dc957ac-6737-4d4d-abfe-317e8f0283d9_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P084"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2022, 24, 637.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 139,
       "markdown_chars_used": 14000
     },
@@ -77,7 +77,6 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "missing_doi",
       "structured_tag_not_specified_organometallic_partner"
     ],
     "overall_confidence": 0.794,
@@ -96,6 +95,18 @@
     },
     "source": "llm_from_rules_and_paper_evidence",
     "confidence": 0.91,
+    "human_checked": false
+  },
+  "volume": {
+    "value": "24",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "pages": {
+    "value": "637-641",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   }
 }

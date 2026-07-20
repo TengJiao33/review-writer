@@ -46,10 +46,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/Helvetica Chimica Acta - 2025 - Zhao - Regio‐ and Stereospecific Copper‐Catalyzed SN2  Substitution Reaction of Propargyl.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl/4041c5bf-a599-482d-a101-22b230c4036c_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Helvetica Chimica Acta - 2025 - Zhao - Regio‐ and Stereospecific Copper‐Catalyzed SN2  Substitution Reaction of Propargyl.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P036\\4041c5bf-a599-482d-a101-22b230c4036c_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P036"
   },
   "source_file": {
     "pdf_name": "Helvetica Chimica Acta - 2025 - Zhao - Regio‐ and Stereospecific Copper‐Catalyzed SN2  Substitution Reaction of Propargyl.pdf",
@@ -61,7 +61,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 209,
       "markdown_chars_used": 14000
     },

@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/47c-a-new-route-to-methyl-r-e-tetradeca-2-4-5-trienoate-pheromone-of-acanthoscelides-obtectus-utilizing-a-palladium/5cb8d5c8-eae1-4cf3-931e-4f353105d6af_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/47c-a-new-route-to-methyl-r-e-tetradeca-2-4-5-trienoate-pheromone-of-acanthoscelides-obtectus-utilizing-a-palladium.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/47c-a-new-route-to-methyl-r-e-tetradeca-2-4-5-trienoate-pheromone-of-acanthoscelides-obtectus-utilizing-a-palladium/5cb8d5c8-eae1-4cf3-931e-4f353105d6af_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/47c-a-new-route-to-methyl-r-e-tetradeca-2-4-5-trienoate-pheromone-of-acanthoscelides-obtectus-utilizing-a-palladium"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\47c-a-new-route-to-methyl-(r-e)-(-)-tetradeca-2-4-5-trienoate-(pheromone-of-acanthoscelides-obtectus)-utilizing-a-palladium.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\47c-a-new-route-to-methyl-r-e-tetradeca-2-4-5-trienoate-pheromone-of-acanthoscelides-obtectus-utilizing-a-palladium.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P169\\5cb8d5c8-eae1-4cf3-931e-4f353105d6af_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P169"
   },
   "source_file": {
     "pdf_name": "47c-a-new-route-to-methyl-(r-e)-(-)-tetradeca-2-4-5-trienoate-(pheromone-of-acanthoscelides-obtectus)-utilizing-a-palladium.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 70,
       "markdown_chars_used": 14000
     },

@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/RSC Adv., 2023, 13, 3468.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/rsc-adv.-2023-13-3468.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/rsc-adv.-2023-13-3468/02e6bd75-9f1b-4bc4-983f-322af6ea85f7_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/rsc-adv.-2023-13-3468"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\RSC Adv., 2023, 13, 3468.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\rsc-adv.-2023-13-3468.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P091\\02e6bd75-9f1b-4bc4-983f-322af6ea85f7_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P091"
   },
   "source_file": {
     "pdf_name": "RSC Adv., 2023, 13, 3468.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 121,
       "markdown_chars_used": 14000
     },

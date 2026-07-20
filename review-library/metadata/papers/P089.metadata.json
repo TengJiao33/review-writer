@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Org. Lett. 2023, 25, 7263.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/org.-lett.-2023-25-7263.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/org.-lett.-2023-25-7263/05372238-2020-432b-b12a-eaa2b0f8e595_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/org.-lett.-2023-25-7263"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2023, 25, 7263.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2023-25-7263.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P089\\05372238-2020-432b-b12a-eaa2b0f8e595_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P089"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2023, 25, 7263.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 111,
       "markdown_chars_used": 14000
     },

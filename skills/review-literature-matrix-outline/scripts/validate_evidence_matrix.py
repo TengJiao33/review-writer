@@ -86,6 +86,12 @@ def excerpt_matches_source(excerpt: str, text: str) -> bool:
     return True
 
 
+def excerpt_starts_with_paper_title(excerpt: str, title: str) -> bool:
+    normalized_title = normalize_verbatim(title)
+    normalized_excerpt = normalize_verbatim(excerpt).lstrip("# ")
+    return word_count(normalized_title) >= 5 and normalized_excerpt.startswith(normalized_title)
+
+
 def validate_anchor(
     anchor: Any,
     index: int,
@@ -202,6 +208,12 @@ def validate_row(row: dict[str, Any], min_words: int, review_root: Path) -> dict
             review_root,
             require_source_excerpt=evidence_required,
         )
+        if isinstance(anchor, dict) and excerpt_starts_with_paper_title(
+            str(anchor.get("source_excerpt") or ""), str(row.get("title") or "")
+        ):
+            anchor_blockers.append(
+                f"evidence_anchors[{index}].source_excerpt is front matter, not claim-bearing evidence"
+            )
         blockers.extend(anchor_blockers)
         warnings.extend(anchor_warnings)
         verified_excerpt_count += int(excerpt_verified)

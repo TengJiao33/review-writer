@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/kale-et-al-2024-ca(ii)-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/kale-et-al-2024-ca-ii-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/kale-et-al-2024-ca-ii-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring/3700740c-8327-4f09-ba23-ea7fc06693b6_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/kale-et-al-2024-ca-ii-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\kale-et-al-2024-ca(ii)-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\kale-et-al-2024-ca-ii-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P015\\3700740c-8327-4f09-ba23-ea7fc06693b6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P015"
   },
   "source_file": {
     "pdf_name": "kale-et-al-2024-ca(ii)-catalyzed-cascade-reaction-of-tryptamines-with-propargylic-alcohols-temperature-driven-ring.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 116,
       "markdown_chars_used": 14000
     },

@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/34/00e190dc-3db9-4232-8e01-e8aff7a6b6f6_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/34.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/34/00e190dc-3db9-4232-8e01-e8aff7a6b6f6_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/34"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\34.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\34.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P141\\00e190dc-3db9-4232-8e01-e8aff7a6b6f6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P141"
   },
   "source_file": {
     "pdf_name": "34.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 37,
       "markdown_chars_used": 14000
     },

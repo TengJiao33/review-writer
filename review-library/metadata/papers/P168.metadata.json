@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic/4fd4bc84-0de4-4fac-b4d7-4494a76195b4_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic/4fd4bc84-0de4-4fac-b4d7-4494a76195b4_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-(allenylmethyl)silanes-and-chirality-transfer-to-stereogenic.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P168\\4fd4bc84-0de4-4fac-b4d7-4494a76195b4_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P168"
   },
   "source_file": {
     "pdf_name": "47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-(allenylmethyl)silanes-and-chirality-transfer-to-stereogenic.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 50,
       "markdown_chars_used": 14000
     },

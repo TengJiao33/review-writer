@@ -24,9 +24,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": "",
-    "source": "cite_this_line",
-    "confidence": 0.7,
+    "value": "Org. Chem. Front. 2023",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Org. Chem. Front., 2023, 10, 310.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/org.-chem.-front.-2023-10-310.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/org.-chem.-front.-2023-10-310/2af33482-f43e-4432-994c-d6d058f8ea60_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/org.-chem.-front.-2023-10-310"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Chem. Front., 2023, 10, 310.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-chem.-front.-2023-10-310.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P077\\2af33482-f43e-4432-994c-d6d058f8ea60_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P077"
   },
   "source_file": {
     "pdf_name": "Org. Chem. Front., 2023, 10, 310.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 129,
       "markdown_chars_used": 14000
     },

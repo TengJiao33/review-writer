@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3a-angew-chem-int-ed-2004-hoffmannroder-synthesis-and-properties-of-allenic-natural-products-and-pharmaceuticals/33b4b1c4-82af-42af-ae98-e6fd8d62c9da_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3a-angew-chem-int-ed-2004-hoffmannroder-synthesis-and-properties-of-allenic-natural-products-and-pharmaceuticals.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3a-angew-chem-int-ed-2004-hoffmannroder-synthesis-and-properties-of-allenic-natural-products-and-pharmaceuticals/33b4b1c4-82af-42af-ae98-e6fd8d62c9da_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3a-angew-chem-int-ed-2004-hoffmannroder-synthesis-and-properties-of-allenic-natural-products-and-pharmaceuticals"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3a-Angew Chem Int Ed - 2004 - Hoffmann‐Röder - Synthesis and Properties of Allenic Natural Products and Pharmaceuticals.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3a-angew-chem-int-ed-2004-hoffmannroder-synthesis-and-properties-of-allenic-natural-products-and-pharmaceuticals.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P147\\33b4b1c4-82af-42af-ae98-e6fd8d62c9da_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P147"
   },
   "source_file": {
     "pdf_name": "3a-Angew Chem Int Ed - 2004 - Hoffmann‐Röder - Synthesis and Properties of Allenic Natural Products and Pharmaceuticals.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 381,
       "markdown_chars_used": 14000
     },

@@ -1017,6 +1017,31 @@ def role_rank(role: str | None) -> int:
     return order.get(role or "uncertain", 3)
 
 
+def portfolio_intent_hint(row: dict[str, Any]) -> str:
+    return {
+        "core_candidate": "core",
+        "supporting_candidate": "supporting",
+        "background": "background",
+    }.get(str(row.get("role") or "uncertain"), "needs_reading")
+
+
+def citation_role_hints(row: dict[str, Any]) -> list[str]:
+    hints: list[str] = []
+    role = str(row.get("role") or "uncertain")
+    if role == "core_candidate":
+        hints.append("core_evidence")
+    elif role == "supporting_candidate":
+        hints.append("comparative_support")
+    elif role == "background":
+        hints.append("context")
+    categories = {str(value) for value in row.get("matched_keyword_categories") or []}
+    if "document_scope" in categories:
+        hints.append("field_orientation")
+    if "reaction_type" in categories or "catalyst_or_method" in categories:
+        hints.append("method_example")
+    return list(dict.fromkeys(hints))
+
+
 def build_external_ingest_plan(
     project_id: str,
     web_papers: list[dict[str, Any]],
@@ -1383,6 +1408,9 @@ def run(args: argparse.Namespace) -> int:
             "decision": "uncertain",
             "relevance_summary": "",
             "decision_basis": "",
+            "portfolio_intent_hint": portfolio_intent_hint(row),
+            "citation_role_hints": citation_role_hints(row),
+            "coverage_tags": list(row.get("important_coverage_hits") or []),
         }
         for row in selected.get("local_papers", [])
     ]

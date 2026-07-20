@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters/493b342f-0ea7-4da4-a3c2-85f3a1238528_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters/493b342f-0ea7-4da4-a3c2-85f3a1238528_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P102\\493b342f-0ea7-4da4-a3c2-85f3a1238528_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P102"
   },
   "source_file": {
     "pdf_name": "15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:23Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 59,
       "markdown_chars_used": 14000
     },

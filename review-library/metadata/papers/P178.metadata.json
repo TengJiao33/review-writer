@@ -23,9 +23,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Synthesis 2007",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/4d-s-2007-965963/637e3c63-e1f5-4c1e-9e51-0045f0e77102_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/4d-s-2007-965963.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/4d-s-2007-965963/637e3c63-e1f5-4c1e-9e51-0045f0e77102_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/4d-s-2007-965963"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4d-s-2007-965963.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4d-s-2007-965963.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P178\\637e3c63-e1f5-4c1e-9e51-0045f0e77102_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P178"
   },
   "source_file": {
     "pdf_name": "4d-s-2007-965963.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 440,
       "markdown_chars_used": 14000
     },

@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates/8a3bbdd9-252e-4f95-a64b-486917afba63_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates/8a3bbdd9-252e-4f95-a64b-486917afba63_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P162\\8a3bbdd9-252e-4f95-a64b-486917afba63_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P162"
   },
   "source_file": {
     "pdf_name": "43b-palladium-catalyzed-asymmetric-amination-and-imidation-of-2-3-allenyl-phosphates.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 45,
       "markdown_chars_used": 8893
     },

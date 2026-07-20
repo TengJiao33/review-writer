@@ -48,10 +48,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/Adv Synth Catal - 2025 - Liang - Organocatalytic Remote‐Controlled Enantioselective 1 10‐Additions of In Situ Generated.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated/52cb004b-fcdb-49ba-b3d7-41647d043175_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv Synth Catal - 2025 - Liang - Organocatalytic Remote‐Controlled Enantioselective 1 10‐Additions of In Situ Generated.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P025\\52cb004b-fcdb-49ba-b3d7-41647d043175_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P025"
   },
   "source_file": {
     "pdf_name": "Adv Synth Catal - 2025 - Liang - Organocatalytic Remote‐Controlled Enantioselective 1 10‐Additions of In Situ Generated.pdf",
@@ -63,7 +63,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 196,
       "markdown_chars_used": 14000
     },

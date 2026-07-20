@@ -204,13 +204,17 @@ def build_outputs(
                     "section_id": section.get("section_id"),
                     "section_heading": section.get("heading"),
                     "why_selected": (
-                        "Selected as a section-level scheme/figure because it directly supports the section argument "
-                        "and has a resolvable MinerU source image."
+                        "Suggested for editorial review because its caption and paper assignment may support this "
+                        "section and the MinerU source image is resolvable."
                     ),
                     "what_it_shows": candidate.get("source_caption_text") or candidate.get("source_label"),
                     "fits_paragraph_or_claim": section.get("core_argument"),
                     "recommended_action": "redraw" if candidate.get("source_type") != "table" else "retable",
-                    "manuscript_selected": True,
+                    "editorial_status": "suggested",
+                    "manuscript_selected": False,
+                    "reader_job": "",
+                    "placement_rationale": "",
+                    "reuse_basis": "",
                     "resolution_status": "ready" if candidate.get("source_image_path") else "needs_source_resolution",
                     "source_page_review_status": "pending",
                 }
@@ -256,7 +260,10 @@ def main() -> int:
     write_json(out_dir / "paper_figure_candidates.json", paper_level)
     write_json(out_dir / "figure_candidates.json", manuscript)
     print(f"Wrote {out_dir / 'paper_figure_candidates.json'} ({len(paper_level)} records)")
-    print(f"Wrote {out_dir / 'figure_candidates.json'} ({len(manuscript)} records)")
+    print(
+        f"Wrote {out_dir / 'figure_candidates.json'} ({len(manuscript)} editorial suggestions; "
+        "none are manuscript-selected until explicitly reviewed)"
+    )
     if not manuscript:
         source_candidate_count = sum(
             int(row.get("candidate_count") or 0)
@@ -270,10 +277,11 @@ def main() -> int:
             for candidate in row.get("top_candidates") or []
             if isinstance(candidate, dict)
         )
-        raise SystemExit(
-            "No manuscript figure candidates were selected after rebuilding the MinerU inventory "
+        print(
+            "No manuscript source-figure candidates were selected after rebuilding the MinerU inventory "
             f"({source_candidate_count} candidates; {resolved_candidate_count} resolved top images). "
-            "Select a useful figure or record an explicit text-only editorial decision in skip_reason.md."
+            "This is an editorial observation, not a drafting failure; consider the independent review visual plan "
+            "or record a source-reuse skip reason."
         )
     return 0
 

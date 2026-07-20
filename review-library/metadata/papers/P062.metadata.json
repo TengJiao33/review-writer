@@ -46,10 +46,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Chinese Chemical Letters 34 (2023) 107479.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/chinese-chemical-letters-34-2023-107479.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/chinese-chemical-letters-34-2023-107479/789f8938-12e5-4ab9-9925-44a5ac968603_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/chinese-chemical-letters-34-2023-107479"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chinese Chemical Letters 34 (2023) 107479.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chinese-chemical-letters-34-2023-107479.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P062\\789f8938-12e5-4ab9-9925-44a5ac968603_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P062"
   },
   "source_file": {
     "pdf_name": "Chinese Chemical Letters 34 (2023) 107479.pdf",
@@ -61,7 +61,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 82,
       "markdown_chars_used": 14000
     },

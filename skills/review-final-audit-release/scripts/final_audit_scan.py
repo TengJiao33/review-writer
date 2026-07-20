@@ -25,12 +25,29 @@ KEYWORDS_RE = re.compile(r"(?:^\s*#{1,6}\s*keywords\s*$|^\s*\*\*keywords:?\*\*\s
 INTRODUCTION_HEADING_RE = re.compile(r"^\s*#{1,6}\s*(?:\d+[.)]?\s*)?introduction\s*$", re.I | re.M)
 CONCLUSION_HEADING_RE = re.compile(r"^\s*#{1,6}\s*.*(?:conclusion|outlook).*?$", re.I | re.M)
 STABLE_CITATION_RE = re.compile(r"\[((?:@P\d{3})(?:\s*[;,]\s*@P\d{3})*)\]")
-PAPER_ID_LEAK_RE = re.compile(r"\[P\d{3}\]")
+PAPER_ID_LEAK_RE = re.compile(r"(?<![@A-Za-z0-9])P\d{3}(?![A-Za-z0-9])")
 PARAGRAPH_MARKER_RE = re.compile(r"<!--\s*paragraph_id\s*:", re.I)
+RAW_LATEX_COMMAND_RE = re.compile(r"\\(?:mathrm|mathbf|mathsf|ce)\b|_\s*\{|\^\s*\{")
 AUDIT_PLACEHOLDER_RE = re.compile(
     r"representative claim|claim from .{0,80} section|reviewed against evidence",
     re.I,
 )
+DOI_RE = re.compile(r"10\.\d{4,9}/[^\s<>\"']+", re.I)
+AUDIT_RATIONALE_STOPWORDS = {
+    "against",
+    "checked",
+    "claim",
+    "claims",
+    "evidence",
+    "paper",
+    "papers",
+    "source",
+    "sources",
+    "support",
+    "supported",
+    "supports",
+    "verified",
+}
 
 
 def read_text(path: Path) -> str:
@@ -39,6 +56,125 @@ def read_text(path: Path) -> str:
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def resolved_portfolio_editorial_issues(project: Path) -> list[str]:
+    path = project / "01_matrix_outline" / "portfolio_editorial_review.json"
+    if not path.exists():
+        return ["missing_portfolio_editorial_review"]
+    try:
+        payload = read_json(path)
+    except Exception:
+        return ["invalid_portfolio_editorial_review"]
+    if not isinstance(payload, dict):
+        return ["invalid_portfolio_editorial_review"]
+    issues = []
+    decisions = payload.get("decisions")
+    if not isinstance(decisions, list):
+        return ["invalid_portfolio_editorial_review"]
+    for row in decisions:
+        if not isinstance(row, dict):
+            issues.append("invalid_portfolio_editorial_decision")
+            continue
+        decision_id = str(row.get("decision_id") or "unknown")
+        if row.get("status") != "resolved":
+            issues.append(f"portfolio_editorial_decision_pending:{decision_id}")
+        decision = str(row.get("decision") or "")
+        allowed = {str(item) for item in row.get("available_responses") or []}
+        if not decision or (allowed and decision not in allowed):
+            issues.append(f"portfolio_editorial_decision_invalid:{decision_id}")
+        if not str(row.get("rationale") or "").strip():
+            issues.append(f"portfolio_editorial_rationale_missing:{decision_id}")
+    if payload.get("status") != "resolved" or payload.get("pending_decision_ids"):
+        issues.append("portfolio_editorial_review_not_resolved")
+    return issues
+
+
+def resolved_visual_plan_issues(project: Path, manuscript: str) -> list[str]:
+    path = project / "02_section_drafting" / "review_visual_plan.json"
+    if not path.exists():
+        return ["missing_review_visual_plan"]
+    try:
+        payload = read_json(path)
+    except Exception:
+        return ["invalid_review_visual_plan"]
+    rows = payload.get("visuals") if isinstance(payload, dict) else None
+    if not isinstance(rows, list):
+        return ["invalid_review_visual_plan"]
+    issues = []
+    allowed = {"selected", "adapted", "combined", "skipped"}
+    for row in rows:
+        if not isinstance(row, dict):
+            issues.append("invalid_review_visual_decision")
+            continue
+        visual_id = str(row.get("visual_id") or "unknown")
+        status = str(row.get("status") or "")
+        if status not in allowed:
+            issues.append(f"review_visual_decision_pending:{visual_id}")
+            continue
+        if not str(row.get("decision_rationale") or "").strip():
+            issues.append(f"review_visual_rationale_missing:{visual_id}")
+        if status in {"selected", "adapted", "combined"} and row.get("kind") == "markdown_comparison_table":
+            manifest_path = project / "02_section_drafting" / "method_comparison_table_manifest.json"
+            try:
+                manifest = read_json(manifest_path) if manifest_path.exists() else None
+            except Exception:
+                manifest = None
+            if not isinstance(manifest, dict) or manifest.get("status") != "verified":
+                issues.append(f"comparison_table_not_traceable:{visual_id}")
+            if not re.search(r"(?m)^\s*\|.+\|\s*$", manuscript):
+                issues.append(f"selected_comparison_table_missing_from_manuscript:{visual_id}")
+    if isinstance(payload, dict) and (payload.get("status") != "resolved" or payload.get("pending_visual_ids")):
+        issues.append("review_visual_plan_not_resolved")
+    return issues
+
+
+def reader_utility_review_issues(project: Path) -> list[str]:
+    path = project / "05_final_audit" / "reader_utility_review.json"
+    if not path.exists():
+        return ["missing_reader_utility_review"]
+    try:
+        payload = read_json(path)
+    except Exception:
+        return ["invalid_reader_utility_review"]
+    if not isinstance(payload, dict):
+        return ["invalid_reader_utility_review"]
+    issues = []
+    allowed = {"revise", "accept_as_is", "narrow_scope", "not_applicable"}
+    questions = payload.get("questions")
+    if not isinstance(questions, list) or not questions:
+        return ["invalid_reader_utility_review"]
+    for row in questions:
+        if not isinstance(row, dict):
+            issues.append("invalid_reader_utility_question")
+            continue
+        question_id = str(row.get("question_id") or "unknown")
+        if not str(row.get("finding") or "").strip():
+            issues.append(f"reader_utility_finding_missing:{question_id}")
+        decision = str(row.get("decision") or "")
+        if decision not in allowed:
+            issues.append(f"reader_utility_decision_pending:{question_id}")
+        if not str(row.get("rationale") or "").strip():
+            issues.append(f"reader_utility_rationale_missing:{question_id}")
+        actions = row.get("revision_actions")
+        if decision == "revise":
+            if not isinstance(actions, list) or not actions:
+                issues.append(f"reader_utility_revision_action_missing:{question_id}")
+            else:
+                for index, action in enumerate(actions, start=1):
+                    if not isinstance(action, dict) or action.get("status") not in {
+                        "completed",
+                        "accepted_with_reason",
+                        "not_applicable",
+                    }:
+                        issues.append(f"reader_utility_revision_action_open:{question_id}:{index}")
+    if payload.get("status") != "completed" or payload.get("pending_question_ids"):
+        issues.append("reader_utility_review_not_completed")
+    if not str(payload.get("overall_decision") or "").strip():
+        issues.append("reader_utility_overall_decision_missing")
+    if not str(payload.get("summary") or "").strip():
+        issues.append("reader_utility_summary_missing")
+    return issues
 
 
 def upstream_release_issues(project: Path) -> list[str]:
@@ -81,9 +217,47 @@ def upstream_release_issues(project: Path) -> list[str]:
 
     skip_path = project / "03_figure_redraw" / "skip_reason.md"
     skipped = skip_path.exists() and bool(read_text(skip_path).strip())
-    if not figures and not skipped:
-        issues.append("figure_redraw_skip_reason_missing")
-    elif figures and not skipped:
+    original_manifest_path = project / "03_figure_redraw" / "review_visual_manifest.json"
+    original_visuals: list[dict[str, Any]] = []
+    if original_manifest_path.exists():
+        try:
+            original_manifest = read_json(original_manifest_path)
+            raw_visuals = original_manifest.get("visuals") if isinstance(original_manifest, dict) else None
+            if isinstance(raw_visuals, list):
+                original_visuals = [item for item in raw_visuals if isinstance(item, dict)]
+            else:
+                issues.append("invalid_review_visual_manifest")
+        except Exception:
+            issues.append("invalid_review_visual_manifest")
+
+    def original_asset_exists(item: dict[str, Any]) -> bool:
+        raw = item.get("original_image")
+        if not raw:
+            return False
+        path = Path(str(raw))
+        return path.exists() or (project / path).exists()
+
+    usable_originals = [
+        item
+        for item in original_visuals
+        if item.get("status") == "original_verified"
+        and item.get("verification_status") == "passed"
+        and original_asset_exists(item)
+    ]
+    selected_originals = [item for item in original_visuals if item.get("status") not in {"skipped", "suggested"}]
+    if selected_originals and not usable_originals:
+        issues.append("original_visual_preparation_incomplete")
+
+    selected_figures = [
+        item
+        for item in figures or []
+        if isinstance(item, dict)
+        and (
+            item.get("manuscript_selected") is True
+            or str(item.get("editorial_status") or "").lower() in {"selected", "adapted", "combined"}
+        )
+    ]
+    if selected_figures and not skipped:
         manifest_path = project / "03_figure_redraw" / "redrawn_figure_manifest.json"
         try:
             manifest = read_json(manifest_path)
@@ -92,7 +266,7 @@ def upstream_release_issues(project: Path) -> list[str]:
         prepared = manifest.get("figures") if isinstance(manifest, dict) else None
         if not isinstance(prepared, list):
             prepared = manifest.get("redrawn_figures") if isinstance(manifest, dict) else None
-        if not isinstance(prepared, list) or not any(
+        usable_source = isinstance(prepared, list) and any(
             isinstance(item, dict)
             and (
                 item.get("status") == "redrawn"
@@ -101,8 +275,15 @@ def upstream_release_issues(project: Path) -> list[str]:
                     and item.get("verification_status") == "passed"
                 )
             )
+            and bool(str(item.get("reader_job") or "").strip())
+            and bool(str(item.get("placement_rationale") or "").strip())
+            and (
+                item.get("status") == "redrawn"
+                or bool(str(item.get("reuse_basis") or "").strip())
+            )
             for item in prepared
-        ):
+        )
+        if not usable_source and not usable_originals:
             issues.append("figure_preparation_incomplete")
     return issues
 
@@ -214,19 +395,22 @@ def normalized_audit_text(value: str) -> str:
 
 CLAIM_RISK_PATTERNS = {
     "mechanistic_certainty": re.compile(
-        r"\b(prove|confirm|establish|active species|operative pathway|unified mechanis)\w*\b",
+        r"\b(prove|confirm|active species|operative pathway|unified mechanis)\w*\b",
         re.I,
     ),
     "priority_or_absence": re.compile(
-        r"\b(first|only|unprecedented|no (?:general|reported|known))\b",
+        r"\b(first|only|unprecedented|unique|no (?:general|reported|known)|"
+        r"(?:largely|rarely|not yet) (?:reported|known|available))\b",
         re.I,
     ),
     "field_wide_generalization": re.compile(
-        r"\b(universal|generally|consensus|across all|most widely|converge)\w*\b",
+        r"\b(universal|consensus|across all|all conventional|most widely|"
+        r"common (?:intermediate|mechanism))\w*\b",
         re.I,
     ),
     "maturity_or_superlative": re.compile(
-        r"\b(practical maturity|mature platform|single most|most powerful|remarkably broad)\b",
+        r"\b(practical maturity|mature platform|single most|most powerful|remarkably broad|"
+        r"state of the art|superior platform|highest (?:yield|selectivity|efficiency))\b",
         re.I,
     ),
 }
@@ -316,11 +500,20 @@ def semantic_queue(project: Path, limit: int = 6) -> dict[str, Any]:
         key=lambda row: (row["priority_score"], len(row["text_span"])),
         reverse=True,
     )
-    selected = ranked[: max(1, limit)]
+    risk_rows = [row for row in ranked if row["claim_risk_signals"]]
+    risk_ids = {row["queue_id"] for row in risk_rows}
+    selected = list(risk_rows)
+    for row in ranked:
+        if row["queue_id"] in risk_ids:
+            continue
+        if len(selected) >= max(1, limit):
+            break
+        selected.append(row)
     return {
         "project_id": project.name,
-        "selection_rule": "highest-risk cited passages across the manuscript; the reviewer may replace or extend the sample",
+        "selection_rule": "all paragraphs with explicit high-risk language, then highest-risk cited passages until the advisory sample is filled",
         "candidate_count": len(ranked),
+        "required_high_risk_queue_ids": [row["queue_id"] for row in risk_rows],
         "ready_count": sum(item["queue_status"] == "source_check_required" for item in selected),
         "source_check_required_count": sum(
             item["queue_status"] == "source_check_required" for item in selected
@@ -336,6 +529,140 @@ def unwrap(value: Any) -> Any:
     if isinstance(value, dict) and "value" in value:
         return value.get("value")
     return value
+
+
+def normalize_doi(value: Any) -> str:
+    doi = str(value or "").strip().lower()
+    doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi)
+    return doi.rstrip(".,;:)]}")
+
+
+def source_dois(pdf_path: Path) -> set[str]:
+    """Return DOI strings visible in the source PDF front matter or document metadata."""
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(pdf_path))
+        values = [page.extract_text() or "" for page in reader.pages[:2]]
+        metadata = reader.metadata
+        if metadata:
+            values.extend(str(value or "") for value in metadata.values())
+    except Exception:
+        return set()
+    return {
+        normalized
+        for match in DOI_RE.findall("\n".join(values))
+        if (normalized := normalize_doi(match))
+    }
+
+
+def reference_metadata_source_conflicts(
+    review_root: Path,
+    paper_ids: list[str],
+    rows_by_id: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Find cited DOI values that disagree with the linked local source PDF."""
+    conflicts: list[dict[str, Any]] = []
+    for paper_id in paper_ids:
+        metadata_path = (
+            review_root / "review-library" / "metadata" / "papers" / f"{paper_id}.metadata.json"
+        )
+        metadata: dict[str, Any] = {}
+        if metadata_path.exists():
+            try:
+                payload = read_json(metadata_path)
+                if isinstance(payload, dict):
+                    metadata = payload
+            except Exception:
+                pass
+        row = rows_by_id.get(paper_id) or {}
+        recorded_doi = normalize_doi(unwrap(metadata.get("doi")) or row.get("doi"))
+        if not recorded_doi:
+            continue
+        source_paths = metadata.get("source_paths")
+        raw_pdf = source_paths.get("pdf") if isinstance(source_paths, dict) else None
+        if not str(raw_pdf or "").strip():
+            continue
+        pdf_path = Path(str(raw_pdf)).expanduser()
+        if not pdf_path.is_absolute():
+            pdf_path = review_root / pdf_path
+        if not pdf_path.exists():
+            continue
+        visible_dois = source_dois(pdf_path)
+        if visible_dois and recorded_doi not in visible_dois:
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "recorded_doi": recorded_doi,
+                    "source_dois": sorted(visible_dois),
+                    "source_pdf": str(pdf_path),
+                }
+            )
+    return conflicts
+
+
+def manuscript_reference_metadata_conflicts(
+    text: str,
+    review_root: Path,
+    paper_ids: list[str],
+    rows_by_id: dict[str, dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Ensure the delivered reference lines still reflect current verified DOI metadata."""
+    _, tail = references_tail(text)
+    lines_by_number: dict[int, str] = {}
+    for line in tail.splitlines():
+        match = REF_ITEM_RE.match(line)
+        if not match:
+            continue
+        number = int(match.group(1) or match.group(2))
+        lines_by_number[number] = line
+
+    conflicts: list[dict[str, Any]] = []
+    for number, paper_id in enumerate(paper_ids, start=1):
+        metadata_path = (
+            review_root / "review-library" / "metadata" / "papers" / f"{paper_id}.metadata.json"
+        )
+        metadata: dict[str, Any] = {}
+        if metadata_path.exists():
+            try:
+                payload = read_json(metadata_path)
+                if isinstance(payload, dict):
+                    metadata = payload
+            except Exception:
+                pass
+        row = rows_by_id.get(paper_id) or {}
+        expected_doi = normalize_doi(unwrap(metadata.get("doi")) or row.get("doi"))
+        if not expected_doi:
+            continue
+        line = lines_by_number.get(number, "")
+        delivered_dois = {
+            normalized
+            for match in DOI_RE.findall(line)
+            if (normalized := normalize_doi(match))
+        }
+        if delivered_dois != {expected_doi}:
+            conflicts.append(
+                {
+                    "ref_num": number,
+                    "paper_id": paper_id,
+                    "expected_doi": expected_doi,
+                    "delivered_dois": sorted(delivered_dois),
+                }
+            )
+    return conflicts
+
+
+def substantive_audit_comment(value: Any) -> bool:
+    comment = str(value or "").strip()
+    if len(comment) < 30:
+        return False
+    normalized = re.sub(r"\bP\d{3}(?:-E\d+)?\b", " ", comment, flags=re.I)
+    words = [
+        word.lower()
+        for word in re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", normalized)
+        if word.lower() not in AUDIT_RATIONALE_STOPWORDS
+    ]
+    return len(set(words)) >= 4
 
 
 def actual_incomplete_references(
@@ -442,6 +769,8 @@ def semantic_audit_status(
     known_paper_ids: set[str],
     evidence_owners: dict[str, str],
     paragraphs_by_id: dict[str, dict[str, Any]],
+    required_queue_ids: set[str],
+    queue_items_by_id: dict[str, dict[str, Any]],
 ) -> tuple[dict[str, Any], list[str]]:
     if not path.exists():
         return {"present": False}, ["semantic_audit.json is missing"] if required else []
@@ -459,10 +788,28 @@ def semantic_audit_status(
         blockers.append("semantic_audit.checks is missing or empty")
         checks = []
     allowed = {"supported", "needs_revision", "unsupported", "removed"}
+    covered_queue_ids: set[str] = set()
     for index, check in enumerate(checks, start=1):
         if not isinstance(check, dict):
             blockers.append(f"semantic_audit check {index} is not an object")
             continue
+        queue_id = str(check.get("queue_id") or "").strip()
+        if queue_id:
+            covered_queue_ids.add(queue_id)
+            queued = queue_items_by_id.get(queue_id)
+            if queue_items_by_id and queued is None:
+                blockers.append(f"semantic_audit check {index} references unknown queue item {queue_id}")
+            elif queued is not None:
+                queued_paragraph = str(queued.get("paragraph_id") or "").strip()
+                queued_section = str(queued.get("section_id") or "").strip()
+                if queued_paragraph and str(check.get("paragraph_id") or "").strip() != queued_paragraph:
+                    blockers.append(
+                        f"semantic_audit check {index} paragraph does not match queue item {queue_id}"
+                    )
+                if queued_section and str(check.get("section_id") or "").strip() != queued_section:
+                    blockers.append(
+                        f"semantic_audit check {index} section does not match queue item {queue_id}"
+                    )
         verdict = str(check.get("verdict") or "")
         if verdict not in allowed:
             blockers.append(f"semantic_audit check {index} has an invalid verdict")
@@ -477,6 +824,10 @@ def semantic_audit_status(
         if verdict == "supported" and support_scope != "full":
             blockers.append(
                 f"semantic_audit check {index} is marked supported without full claim support"
+            )
+        if verdict == "supported" and not substantive_audit_comment(check.get("comment")):
+            blockers.append(
+                f"semantic_audit check {index} has no claim-specific support rationale"
             )
         text_span = str(check.get("text_span") or "").strip()
         if verdict != "removed" and len(text_span) < 20:
@@ -543,6 +894,12 @@ def semantic_audit_status(
                     f"semantic_audit check {index} uses evidence not linked to paragraph {paragraph_id}: "
                     + ", ".join(extra_evidence)
                 )
+    missing_high_risk = sorted(required_queue_ids - covered_queue_ids)
+    if required and missing_high_risk:
+        blockers.append(
+            "semantic_audit does not disposition high-risk queue items: "
+            + ", ".join(missing_high_risk)
+        )
     unresolved = payload.get("unresolved_blockers")
     if not isinstance(unresolved, list):
         blockers.append("semantic_audit.unresolved_blockers is missing")
@@ -552,6 +909,8 @@ def semantic_audit_status(
         "present": True,
         "valid_json": True,
         "check_count": len(checks),
+        "required_high_risk_queue_ids": sorted(required_queue_ids),
+        "covered_high_risk_queue_ids": sorted(required_queue_ids & covered_queue_ids),
         "unresolved_blockers": unresolved if isinstance(unresolved, list) else None,
     }, blockers
 
@@ -573,6 +932,12 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         {"line": line_no, "text": line.strip()}
         for line_no, line in enumerate(text.splitlines(), start=1)
         if PLACEHOLDER_RE.search(line)
+    ]
+    raw_latex_captions = [
+        {"line": line_no, "text": line.strip()}
+        for line_no, line in enumerate(text.splitlines(), start=1)
+        if re.search(r"(?:\*\*)?\s*(?:figure|scheme|table|chart)\s*\d+", line, re.I)
+        and RAW_LATEX_COMMAND_RE.search(line)
     ]
     called_refs = sorted(expand_ref_callouts(text))
     listed_sequence = reference_numbers(text)
@@ -661,6 +1026,12 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         project.parents[1], citation_paper_ids, matrix_rows
     )
     incomplete_reference_metadata = actual_missing_metadata or declared_incomplete_reference_metadata
+    reference_metadata_conflicts = reference_metadata_source_conflicts(
+        project.parents[1], citation_paper_ids, matrix_rows
+    )
+    manuscript_reference_conflicts = manuscript_reference_metadata_conflicts(
+        text, project.parents[1], citation_paper_ids, matrix_rows
+    )
 
     references_match, _ = references_tail(text)
     manuscript_body = text[: references_match.start()] if references_match else text
@@ -669,6 +1040,18 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     word_target_ratio = round(word_like_count / target_words, 4) if target_words else None
     paragraph_stats = cited_paragraph_stats(text)
     duplicate_paragraphs = duplicated_long_paragraphs(text)
+    queue_path = project / "05_final_audit" / "semantic_audit_queue.json"
+    queue_payload = read_json(queue_path) if queue_path.exists() else {}
+    required_queue_ids = {
+        str(item)
+        for item in (queue_payload.get("required_high_risk_queue_ids") if isinstance(queue_payload, dict) else []) or []
+        if str(item).strip()
+    }
+    queue_items_by_id = {
+        str(item.get("queue_id")): item
+        for item in (queue_payload.get("items") if isinstance(queue_payload, dict) else []) or []
+        if isinstance(item, dict) and str(item.get("queue_id") or "").strip()
+    }
     semantic_status, semantic_blockers = semantic_audit_status(
         project / "05_final_audit" / "semantic_audit.json",
         required=phase == "release",
@@ -677,6 +1060,8 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         paragraphs_by_id=drafted_paragraphs(
             project / "02_section_drafting" / "section_drafts.json"
         ),
+        required_queue_ids=required_queue_ids,
+        queue_items_by_id=queue_items_by_id,
     )
 
     issues: list[str] = []
@@ -692,6 +1077,8 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         add("missing_draft")
     if placeholder_hits:
         add("placeholder_or_verification_notes_present")
+    if raw_latex_captions:
+        add("raw_latex_commands_present_in_caption")
     if PARAGRAPH_MARKER_RE.search(text):
         add("editor_paragraph_markers_present")
     if duplicate_paragraphs:
@@ -732,6 +1119,10 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         add("citations_reference_unknown_papers")
     if incomplete_reference_metadata:
         add("incomplete_reference_metadata")
+    if reference_metadata_conflicts:
+        add("reference_metadata_conflicts_with_source")
+    if manuscript_reference_conflicts:
+        add("reference_list_conflicts_with_verified_metadata")
     if abstract_image_paths:
         add("images_embedded_in_abstract")
     if broken_images:
@@ -749,6 +1140,17 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     for semantic_issue in semantic_blockers:
         add("semantic_audit:" + semantic_issue)
     if phase == "release":
+        if not queue_path.exists():
+            add("missing_semantic_audit_queue")
+        for portfolio_issue in resolved_portfolio_editorial_issues(project):
+            add(portfolio_issue, block=False)
+        for reader_issue in reader_utility_review_issues(project):
+            add(reader_issue, block=False)
+        for visual_issue in resolved_visual_plan_issues(project, manuscript_body):
+            blocks_selected_asset = visual_issue.startswith(
+                ("comparison_table_not_traceable:", "selected_comparison_table_missing_from_manuscript:")
+            )
+            add(visual_issue, block=blocks_selected_asset)
         for upstream_issue in upstream_release_issues(project):
             add(upstream_issue)
 
@@ -766,6 +1168,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "duplicate_headings": duplicate_headings,
         "heading_jumps": heading_jumps,
         "placeholder_hits": placeholder_hits,
+        "raw_latex_captions": raw_latex_captions,
         "reference_callouts": called_refs,
         "reference_list_items": listed_refs,
         "reference_list_sequence": listed_sequence,
@@ -783,6 +1186,8 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "citations_payload_present": isinstance(citations_payload, dict),
         "unknown_cited_papers": unknown_cited_papers,
         "incomplete_reference_metadata": incomplete_reference_metadata,
+        "reference_metadata_source_conflicts": reference_metadata_conflicts,
+        "manuscript_reference_metadata_conflicts": manuscript_reference_conflicts,
         "paragraph_synthesis": paragraph_stats,
         "duplicate_long_paragraphs": duplicate_paragraphs,
         "semantic_audit": semantic_status,

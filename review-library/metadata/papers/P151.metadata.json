@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties/180d800b-57e0-4db9-b25f-0394666fbc11_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties/180d800b-57e0-4db9-b25f-0394666fbc11_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3e-Chemistry A European J - 2010 - Alcaide - Cross‐Coupling Cyclization Reactions of Two Different Allenic Moieties.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P151\\180d800b-57e0-4db9-b25f-0394666fbc11_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P151"
   },
   "source_file": {
     "pdf_name": "3e-Chemistry A European J - 2010 - Alcaide - Cross‐Coupling Cyclization Reactions of Two Different Allenic Moieties.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 131,
       "markdown_chars_used": 14000
     },

@@ -46,10 +46,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/Eur J Org Chem - 2024 - Zhang - Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes/820a9b36-605e-40fc-909f-2bc52528d223_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur J Org Chem - 2024 - Zhang - Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P008\\820a9b36-605e-40fc-909f-2bc52528d223_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P008"
   },
   "source_file": {
     "pdf_name": "Eur J Org Chem - 2024 - Zhang - Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes.pdf",
@@ -61,7 +61,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 97,
       "markdown_chars_used": 14000
     },

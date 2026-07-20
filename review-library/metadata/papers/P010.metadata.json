@@ -46,10 +46,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/almendros-et-al-2024-indium-mediated-preparation-of-bis(α-hydroxyallenes)-or-α-α-dihydroxyallenynes-and-further-gold.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/almendros-et-al-2024-indium-mediated-preparation-of-bis-hydroxyallenes-or-dihydroxyallenynes-and-further-gold.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/almendros-et-al-2024-indium-mediated-preparation-of-bis-hydroxyallenes-or-dihydroxyallenynes-and-further-gold/61ea0d41-a18e-4158-bc29-37ae6dbe47e3_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/almendros-et-al-2024-indium-mediated-preparation-of-bis-hydroxyallenes-or-dihydroxyallenynes-and-further-gold"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\almendros-et-al-2024-indium-mediated-preparation-of-bis(α-hydroxyallenes)-or-α-α-dihydroxyallenynes-and-further-gold.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\almendros-et-al-2024-indium-mediated-preparation-of-bis-hydroxyallenes-or-dihydroxyallenynes-and-further-gold.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P010\\61ea0d41-a18e-4158-bc29-37ae6dbe47e3_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P010"
   },
   "source_file": {
     "pdf_name": "almendros-et-al-2024-indium-mediated-preparation-of-bis(α-hydroxyallenes)-or-α-α-dihydroxyallenynes-and-further-gold.pdf",
@@ -61,7 +61,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 123,
       "markdown_chars_used": 14000
     },

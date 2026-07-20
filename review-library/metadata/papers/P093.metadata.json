@@ -25,9 +25,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Chem. Lett.",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/cl.210803.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/cl.210803.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/cl.210803/1259c657-efbb-4d97-9d9f-580e035880cf_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/cl.210803"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\cl.210803.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\cl.210803.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P093\\1259c657-efbb-4d97-9d9f-580e035880cf_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P093"
   },
   "source_file": {
     "pdf_name": "cl.210803.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 52,
       "markdown_chars_used": 14000
     },

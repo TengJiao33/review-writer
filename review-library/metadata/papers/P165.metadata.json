@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral/80366f6b-7b1b-4cc3-bd36-c70a835ba937_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral/80366f6b-7b1b-4cc3-bd36-c70a835ba937_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\45-Adv Synth Catal - 2009 - Nemoto - Palladium‐Catalyzed Asymmetric Allylic Alkylation of 2 3‐Allenyl Acetates Using a Chiral.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P165\\80366f6b-7b1b-4cc3-bd36-c70a835ba937_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P165"
   },
   "source_file": {
     "pdf_name": "45-Adv Synth Catal - 2009 - Nemoto - Palladium‐Catalyzed Asymmetric Allylic Alkylation of 2 3‐Allenyl Acetates Using a Chiral.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 90,
       "markdown_chars_used": 14000
     },

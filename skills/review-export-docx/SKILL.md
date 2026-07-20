@@ -49,8 +49,10 @@ abstract and keywords 11 pt
 references and captions 10 pt single-spaced
 inline figures with adjacent captions
 fixed-width tables with cell margins
+wide-table continuation blocks that repeat the identifying column
 real Word numbering for lists and references
 right-aligned footer page number
+clean document metadata rather than inherited template metadata
 ```
 
 Do not rely on Word defaults or direct formatting as the primary style system.
@@ -62,7 +64,10 @@ Run:
 ```bash
 python skills/review-export-docx/scripts/md2docx.py \
   --input review-projects/<project_id>/05_final_audit/final_draft.md \
-  --output review-projects/<project_id>/05_final_audit/final_draft.docx
+  --output review-projects/<project_id>/05_final_audit/final_draft.docx \
+  --author "<author when known>" \
+  --subject "Scholarly review manuscript" \
+  --keywords "<topic keywords>"
 ```
 
 The command fails when stable citation tokens, editor paragraph markers, or missing images remain.
@@ -86,9 +91,19 @@ The structural audit also rejects a figure placed inside the Abstract block; fig
 
 Perform one visual pass after the structural audit; do not add a second release gate. Render the DOCX to page images and inspect every page for headings, body rhythm, chemical scripts, reference wrapping, figure-caption adjacency, tables, page breaks, and font substitution.
 
-Use LibreOffice when it is available. On Windows, Microsoft Word is also a valid renderer: export the DOCX to PDF through Word automation or Word's Save as PDF command, then rasterize the PDF with `pdftoppm` or the available PDF rendering skill. Absence of LibreOffice alone is not a reason to mark rendering unavailable.
+Use the renderer, which tries LibreOffice and then Microsoft Word on Windows, exports a PDF, rasterizes every page, and writes the renderer identity and inspection record:
 
-After page inspection, rerun the structural audit with `--render-qa passed`. Use `--render-qa unavailable` only after neither LibreOffice nor Word can render the document. The default `not_run` means the visual pass has not yet been performed; it is never inferred merely from executable discovery.
+```bash
+python skills/review-export-docx/scripts/render_docx.py \
+  --input review-projects/<project_id>/05_final_audit/final_draft.docx \
+  --output-pdf review-projects/<project_id>/05_final_audit/final_draft.rendered.pdf \
+  --pages-dir review-projects/<project_id>/05_final_audit/rendered_pages \
+  --report review-projects/<project_id>/05_final_audit/render_qa_report.json
+```
+
+Inspect every rendered page. Then rerun the renderer with `--inspection-status passed --inspected-pages all --inspection-note "..."` to preserve the visual decision in the report. Use `failed` when an observed defect remains.
+
+After page inspection, rerun the structural audit with `--render-qa passed`. Use `--render-qa unavailable` only after neither LibreOffice nor Word can render the document. The default `not_run` means the visual pass has not yet been performed; it is never inferred merely from executable discovery. Completion requires a successful renderer report with `inspection_status: passed`, not only the audit flag.
 
 ## Outputs
 
@@ -97,4 +112,7 @@ Write:
 ```text
 05_final_audit/final_draft.docx
 05_final_audit/docx_audit.json
+05_final_audit/final_draft.rendered.pdf
+05_final_audit/rendered_pages/
+05_final_audit/render_qa_report.json
 ```

@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1/08b24cc3-81b7-43b1-8ac8-7a59286fb397_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1/08b24cc3-81b7-43b1-8ac8-7a59286fb397_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P188\\08b24cc3-81b7-43b1-8ac8-7a59286fb397_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P188"
   },
   "source_file": {
     "pdf_name": "50g-observation-of-the-first-heck-type-cross-coupling-reaction-of-allenes-with-aryl-halides-synthesis-of-polysubstituted-1.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 59,
       "markdown_chars_used": 12092
     },

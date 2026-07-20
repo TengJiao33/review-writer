@@ -46,10 +46,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Tetrahedron 104 (2022) 132606.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/tetrahedron-104-2022-132606.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/tetrahedron-104-2022-132606/4d1281be-e512-43ae-a2a3-623fcd3e1380_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/tetrahedron-104-2022-132606"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Tetrahedron 104 (2022) 132606.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\tetrahedron-104-2022-132606.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P092\\4d1281be-e512-43ae-a2a3-623fcd3e1380_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P092"
   },
   "source_file": {
     "pdf_name": "Tetrahedron 104 (2022) 132606.pdf",
@@ -61,7 +61,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 191,
       "markdown_chars_used": 14000
     },

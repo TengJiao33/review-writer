@@ -2,102 +2,94 @@
   "total": 205,
   "ok": 196,
   "failed": 9,
-  "warning_count": 945,
+  "warning_count": 740,
   "reports": [
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P001.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P001.metadata.json",
       "paper_id": "P001",
       "title": "Highly efficient synthesis of di-substituted allenes via copper-catalyzed SN2′ substitution reaction of organotitanium reagents with propargyl bromides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "missing_or_empty_journal",
-        "not_human_reviewed"
+        "missing_or_empty_journal"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P002.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P002.metadata.json",
       "paper_id": "P002",
       "title": "Cu-catalyzed three-component C–S–P coupling for the synthesis of trisubstituted allenyl phosphorothioates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P003.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P003.metadata.json",
       "paper_id": "P003",
       "title": "Cobalt‐catalyzed dehalogenative deuterations with D2O",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P004.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P004.metadata.json",
       "paper_id": "P004",
       "title": "Enantiospecific Synthesis of 1,3-Disubstituted Allenes from Propargylic Carbonates through a Borylation-1,2-Elimination Process",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P005.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P005.metadata.json",
       "paper_id": "P005",
       "title": "Asymmetric Ruthenium-Catalyzed C-H Activation by a Versatile Chiral-Amide-Directing Strategy",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P006.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P006.metadata.json",
       "paper_id": "P006",
       "title": "Nickel-Catalyzed Asymmetric Propargyl-Aryl Cross-Electrophile Coupling",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P007.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P007.metadata.json",
       "paper_id": "P007",
       "title": "Organocatalytic Enantioselective 1,12-Addition of Alkynyl Biphenyl Quinone Methides Formed In Situ",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P008.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P008.metadata.json",
       "paper_id": "P008",
       "title": "Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -107,83 +99,75 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P009.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P009.metadata.json",
       "paper_id": "P009",
       "title": "Synthesis of allenones via nickel-catalyzed reductive coupling of propargyl esters with acyl chlorides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P010.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P010.metadata.json",
       "paper_id": "P010",
       "title": "Indium-Mediated Preparation of Bis(α-hydroxyallenes) or α,α′-Dihydroxyallenynes and Further Gold-Catalyzed Cyclizations",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P011.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P011.metadata.json",
       "paper_id": "P011",
       "title": "Copper-catalyzed perfluoroalkylation of propargyl gem-dichlorides†",
       "blocking_issues": [],
-      "warnings": [
-        "not_human_reviewed"
-      ],
+      "warnings": [],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P012.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P012.metadata.json",
       "paper_id": "P012",
       "title": "Synthesis of vinylidenecyclopropanes via gold(I)-catalyzed cyclopropanation of vinyl arenes with γ-stannylated propargyl esters",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P013.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P013.metadata.json",
       "paper_id": "P013",
       "title": "Hydride-free reduction of propargyl electrophiles: a nickel-catalyzed photoredox strategy for allene synthesis",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P014.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P014.metadata.json",
       "paper_id": "P014",
       "title": "Nickel-Catalyzed Photoredox Allenylation of Alkyl Halides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P015.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P015.metadata.json",
       "paper_id": "P015",
       "title": "Ca(II)-Catalyzed Cascade Reaction of Tryptamines with Propargylic Alcohols: Temperature-Driven Ring Opening and Closing via the Allene Migration Pathway for the Synthesis of Pyrrolo[1,2-a]indoles",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -191,26 +175,24 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P016.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P016.metadata.json",
       "paper_id": "P016",
       "title": "Total Synthesis of the Allenic Macrolide (+)-Archangiumide",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P017.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P017.metadata.json",
       "paper_id": "P017",
       "title": "Photoredox/Copper Dual-Catalyzed Phosphorothiolation of Propargylic Derivatives for the Switchable Synthesis of S‑Alkyl, S‑Vinyl and S‑Allenyl Phosphorothioates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -218,141 +200,128 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P018.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P018.metadata.json",
       "paper_id": "P018",
       "title": "Diversity-Oriented Synthesis of Indole-Fused Polycyclic Scaffolds via Rhodium-Catalyzed NH-Indole-Directed C−H Coupling of 2‑Phenyl‑1H‑indoles with Propargylic Alcohol Derivatives",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P019.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P019.metadata.json",
       "paper_id": "P019",
       "title": "Nickel-Catalyzed Reductive Cross-Coupling of Propargylic Acetates with Chloro(vinyl)silanes: Access to Silylallenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P020.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P020.metadata.json",
       "paper_id": "P020",
       "title": "Copper Difluorocarbene Enables Catalytic Difluoromethylation",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P021.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P021.metadata.json",
       "paper_id": "P021",
       "title": "Synthesis of Multisubstituted 2,3-Allenamides via Palladium-Catalyzed Carbonylation of Propargylic Esters",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P022.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P022.metadata.json",
       "paper_id": "P022",
       "title": "Nickel-catalyzed electrochemical carboxylation of propargylic esters with CO2 to 2,3-allenoic acids",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P023.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P023.metadata.json",
       "paper_id": "P023",
       "title": "Regiodivergent Reactions of 2-Alkynyl Aziridines with Grignard Reagents",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_substrate"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P024.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P024.metadata.json",
       "paper_id": "P024",
       "title": "Organocatalytic Dearomatization of β-Naphthols through a 1,6-Conjugated Addition of Alkynyl 7-Methylene-7H-indoles Formed In Situ",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P025.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P025.metadata.json",
       "paper_id": "P025",
       "title": "Organocatalytic Remote-Controlled Enantioselective 1,10-Additions of In Situ Generated Alkynyl 2,4'-Biphenyl Quinone Methides",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P026.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P026.metadata.json",
       "paper_id": "P026",
       "title": "Remote Enantioselective ε-Alkylation of Copper Ethynylallenylidenes: Precise Control of Central and Axial Chirality",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P027.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P027.metadata.json",
       "paper_id": "P027",
       "title": "Reductive Cross-Coupling of Alcohol Derivatives with Chlorosilanes via Pyridines-Promoted Si─Cl Activation",
       "blocking_issues": [],
-      "warnings": [
-        "not_human_reviewed"
-      ],
+      "warnings": [],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P028.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P028.metadata.json",
       "paper_id": "P028",
       "title": "Chemo- and Regiodivergent Allyl-Propargyl Cross-Coupling Reactions for the Construction of 1,4-Enallenes and 1,5-Enynes",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P029.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P029.metadata.json",
       "paper_id": "P029",
       "title": "Mechanochemical Aerobic Activation of Metallic Copper for the Synthesis of 1,4-Allenynes",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -360,26 +329,24 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P030.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P030.metadata.json",
       "paper_id": "P030",
       "title": "Cobalt-Catalyzed Reduction of Propargyl Alcohols for the Synthesis of 1,3-Diarylallenes Under N,N-Ligand and Hydride-free Conditions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P031.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P031.metadata.json",
       "paper_id": "P031",
       "title": "Dual Photoredox and Titanium Catalyzed Regioselective Allenylation of Aldehydes via Reductive Radical-Polar Crossover",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -387,62 +354,57 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P032.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P032.metadata.json",
       "paper_id": "P032",
       "title": "Organocatalytic Access to C1-Functionalized Indolizines via Remote Stereocontrolled Construction of Axially Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P033.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P033.metadata.json",
       "paper_id": "P033",
       "title": "Palladium-Catalyzed Intermolecular [5 + 2] Cycloaddition: Highly Regioselective Synthesis of Allene-Containing 2-Benzoxepines",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P034.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P034.metadata.json",
       "paper_id": "P034",
       "title": "Ni-Catalyzed Synthesis of Multisubstituted Allenes via Reductive Cross-Coupling of Propargylic Acetates with Chlorohydrosilanes",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P035.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P035.metadata.json",
       "paper_id": "P035",
       "title": "Ligand-Free Copper-Catalyzed Allenylative C–P Coupling of Propargylic Acetates with H-Phosphine Oxides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P036.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P036.metadata.json",
       "paper_id": "P036",
       "title": "Regio- and Stereospecific Copper-Catalyzed SN2′ Substitution Reaction of Propargyl Esters with Polyfluoroaryl Zinc Reagents",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_substrate"
@@ -450,49 +412,45 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P037.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P037.metadata.json",
       "paper_id": "P037",
       "title": "Preparation of 3-Allenyl-4-methylenetetrahydrofurans",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P038.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P038.metadata.json",
       "paper_id": "P038",
       "title": "Assembly of Diverse Allenes via Activator-Free Palladium-Catalyzed Regioselective γ‑Arylation of Propargylamines with Boronic Acids",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P039.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P039.metadata.json",
       "paper_id": "P039",
       "title": "Cascade Grignard Addition: Propargyl Claisen Rearrangement for the Stereoselective Synthesis of α‑Allene Quaternary Centers in Cyclohexanones",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_reaction_type"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P040.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P040.metadata.json",
       "paper_id": "P040",
       "title": "Condition-Controlled Divergent Selective Synthesis of (Z)-N-Vinyl and N-Allenyl Benzimidazoles by Pd- or Bi-Catalyzed Direct N-Alkenylation Reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -500,49 +458,45 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P041.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P041.metadata.json",
       "paper_id": "P041",
       "title": "Palladium-catalysed alleneamination of γ,δ-unsaturated hydrazones with propargylic acetates: access to tetrahydropyridazines bearing allenes",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P042.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P042.metadata.json",
       "paper_id": "P042",
       "title": "Palladium-catalyzed aminoalkynylation/alleneamination of urea-tethered alkenes: access to imidazolidinones bearing alkynes and allenes",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P043.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P043.metadata.json",
       "paper_id": "P043",
       "title": "Palladium-catalyzed asymmetric propargylic sulfonylation of propargyl esters with sulfonyl hydrazides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P044.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P044.metadata.json",
       "paper_id": "P044",
       "title": "DACH-ZYC-Phos/Pd-Catalyzed Enantioselective Allenylation of Secondary Phosphine Oxides via Ligand Relay",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -550,25 +504,23 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P045.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P045.metadata.json",
       "paper_id": "P045",
       "title": "De Novo Synthesis of Oligofurans via Copper-Catalyzed Dimerization of Ethynylethylene Carbonates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P046.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P046.metadata.json",
       "paper_id": "P046",
       "title": "HFIP-Promoted Friedel−Crafts Allenylation of Imidazopyridines with Propargyl Alcohols at Room Temperature",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -577,25 +529,23 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P047.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P047.metadata.json",
       "paper_id": "P047",
       "title": "Ligand-Controlled Preparation of Aryl-Substituted Allenes Enabled by Nickel-Catalyzed Reductive Coupling of Secondary Propargylic Carbonates with Aryl Halides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P048.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P048.metadata.json",
       "paper_id": "P048",
       "title": "Pd/Brønsted Acid Co-catalyzed Dehydrative Coupling of Propargylic Alcohols with Diarylphosphine Oxides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -603,171 +553,155 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P049.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P049.metadata.json",
       "paper_id": "P049",
       "title": "Pd-Catalyzed Asymmetric Allenylation of Secondary Phosphine Oxides with Enyne-Type Propargylic Carbamates for the Construction of Chiral Allenyl Phosphine Oxides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P050.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P050.metadata.json",
       "paper_id": "P050",
       "title": "Deoxygenative Silylation of C(sp3)-O Bonds with Hydrosilane by Cooperative Catalysis of Gold Nanoparticles and Solid Acids",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P051.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P051.metadata.json",
       "paper_id": "P051",
       "title": "Rh(I)-Catalyzed Decarboxylative Arylation of Alkynyl Cyclic Carbonates: Divergent Access to Substituted α-Allenols and 1,3-Butadienes",
       "blocking_issues": [],
-      "warnings": [
-        "not_human_reviewed"
-      ],
+      "warnings": [],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P052.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P052.metadata.json",
       "paper_id": "P052",
       "title": "Catalytic Enantioconvergent Allenylation of Aldehydes with Propargyl Halides",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P053.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P053.metadata.json",
       "paper_id": "P053",
       "title": "Kinetic Resolution of Azaarylethynyl Tertiary Alcohols by Chiral Brønsted Acid Catalysed Phosphine-Mediated Deoxygenation",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P054.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P054.metadata.json",
       "paper_id": "P054",
       "title": "Copper-Catalysed Rearrangement of Cyclic Ethynylethylene Carbonates: Synthetic Applications and Mechanistic Studies",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P055.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P055.metadata.json",
       "paper_id": "P055",
       "title": "Enantioselective Synthesis of Dihydropyrazoles by Palladium/Xu-Phos-Catalyzed Alleneamination of β,γ-Unsaturated Hydrazones with Propargylic Acetates",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P056.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P056.metadata.json",
       "paper_id": "P056",
       "title": "Organocatalytic Enantioselective Construction of Axially Chiral Tetrasubstituted Allenes via 1,6-Addition of Alkynyl Indole Imine Methides with 2-Substituted Indoles",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P057.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P057.metadata.json",
       "paper_id": "P057",
       "title": "Organocatalytic Asymmetric 3-Allenylation of Indoles via Remote Stereocontrolled 1,10-Additions of Alkynyl Indole Imine Methides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P058.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P058.metadata.json",
       "paper_id": "P058",
       "title": "Cu-catalyzed, Mn-mediated propargylation and allenylation of aldehydes with propargyl bromides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P059.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P059.metadata.json",
       "paper_id": "P059",
       "title": "Tethered photocatalyst-directed palladium-catalysed C–H allenylation of N-aryl tetrahydroisoquinolines",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P060.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P060.metadata.json",
       "paper_id": "P060",
       "title": "Iron-Catalyzed Borylation of Propargylic Acetates for the Synthesis of Multisubstituted Allenylboronates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "missing_or_empty_journal",
-        "not_human_reviewed"
+        "missing_or_empty_journal"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P061.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P061.metadata.json",
       "paper_id": "P061",
       "title": "A Pd-catalyzed highly selective three-component protocol for trisubstituted allenes†",
       "blocking_issues": [],
-      "warnings": [
-        "not_human_reviewed"
-      ],
+      "warnings": [],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P062.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P062.metadata.json",
       "paper_id": "P062",
       "title": "Synthesis of allenyl-B(MIDA) via hydrazination/fragmentation reaction of B(MIDA)-propargylic alcohol",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -776,13 +710,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P063.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P063.metadata.json",
       "paper_id": "P063",
       "title": "Brønsted Acid Promoted Sulfonylation of Propargylic Alcohols: Synthesis of Triaryl Allenyl Sulfones under Mild Conditions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -791,13 +724,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P064.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P064.metadata.json",
       "paper_id": "P064",
       "title": "PCCP-Catalyzed Synthesis of Tetrasubstituted Allenes Bearing Heteroaromatic Sulfenyl Group",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -806,26 +738,24 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P065.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P065.metadata.json",
       "paper_id": "P065",
       "title": "Formal Addition of β-Acylalkenyl Anions to Ketones Utilizing [1,2]-Phospha-Brook Rearrangement under Brønsted Base Catalysis",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P066.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P066.metadata.json",
       "paper_id": "P066",
       "title": "Catalytic Asymmetric Axially Chiral Allenyl C−P Bond Formation",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -834,13 +764,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P067.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P067.metadata.json",
       "paper_id": "P067",
       "title": "Copper-Catalyzed Coupling of Alkyl Vicinal Bis(boronic Esters) to an Array of Electrophiles",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_product",
         "structured_tag_not_specified_reaction_type",
@@ -849,50 +778,46 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P068.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P068.metadata.json",
       "paper_id": "P068",
       "title": "Nickel-Catalyzed Asymmetric Propargylation for the Synthesis of Axially Chiral 1,3-Disubstituted Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P069.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P069.metadata.json",
       "paper_id": "P069",
       "title": "Diverse Alkyl-Silyl Cross-Coupling via Homolysis of Unactivated C(sp3)-O Bonds with the Cooperation of Gold Nanoparticles and Amphoteric Zirconium Oxides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P070.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P070.metadata.json",
       "paper_id": "P070",
       "title": "One-Pot Assembly and Synthetic Applications of Geminal Acyl/Alkoxy Tetrasubstituted Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P071.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P071.metadata.json",
       "paper_id": "P071",
       "title": "Sulfonylation of Propargyl Alcohols with Sulfinamides for the Synthesis of Allenyl Sulfones",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -901,13 +826,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P072.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P072.metadata.json",
       "paper_id": "P072",
       "title": "Divergent Cyclizative Approaches of In Situ Formed β‑Keto-Allenes: Chemo- and Regioselective Synthesis of Bicyclic Furans, and Pyrroles",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -915,26 +839,24 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P073.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P073.metadata.json",
       "paper_id": "P073",
       "title": "Enyne diketones as substrate in asymmetric Nazarov cyclization for construction of chiral allene cyclopentenones",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P074.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P074.metadata.json",
       "paper_id": "P074",
       "title": "Photo and copper dual catalysis for allene syntheses from propargylic derivatives via one-electron process",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -942,154 +864,142 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P075.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P075.metadata.json",
       "paper_id": "P075",
       "title": "Carbodefluorination of fluoroalkyl ketones via a carbene-initiated rearrangement strategy",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P076.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P076.metadata.json",
       "paper_id": "P076",
       "title": "Photo-induced nickel-mediated cross-electrophile coupling for alkylated allenes via electron donor–acceptor complexes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P077.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P077.metadata.json",
       "paper_id": "P077",
       "title": "Cr-catalyzed chiral allenone synthesis via sequential radical–polar crossover and Oppenauer oxidation†",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P078.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P078.metadata.json",
       "paper_id": "P078",
       "title": "Organocatalytic enantioselective reaction of tertiary α-(7-indolyl)methanols with tryptamines",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P079.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P079.metadata.json",
       "paper_id": "P079",
       "title": "Cooperative Palladium/Brønsted Acid Catalysis toward the Highly Enantioselective Allenylation of β‑Keto Esters",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P080.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P080.metadata.json",
       "paper_id": "P080",
       "title": "Synthesis of Allenyl-Bdan via Cu(I)-Catalyzed Borylation of Propargyl Dichlorides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P081.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P081.metadata.json",
       "paper_id": "P081",
       "title": "Iridium(III)-Catalyzed Regioselective B(4)−H Allenylation of o-Carboranes by Ball Milling",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P082.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P082.metadata.json",
       "paper_id": "P082",
       "title": "Regioselective Cycloaddition and Substitution Reaction of Tertiary Propargylic Alcohols and Heteroareneboronic Acids via Acid Catalysis",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P083.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P083.metadata.json",
       "paper_id": "P083",
       "title": "Organocatalytic Enantioselective 1,10-Addition of Alkynyl Indole Imine Methides with Thiazolones: An Access to Axially Chiral Tetrasubstituted Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P084.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P084.metadata.json",
       "paper_id": "P084",
       "title": "Ni-Catalyzed Decarboxylative Silylation of Alkynyl Carbonates: Access to Chiral Allenes via Enantiospecific Conversions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P085.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P085.metadata.json",
       "paper_id": "P085",
       "title": "Catalyst-Controlled Divergent Reactions of 2,3-Disubstituted Indoles with Propargylic Alcohols: Synthesis of 3H‑Benzo[b]azepines and Axially Chiral Tetrasubstituted Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P086.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P086.metadata.json",
       "paper_id": "P086",
       "title": "Modular and Selective Access to Functionalized Alkynes and Allenes via the Intermediacy of Propargylic Acetates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1097,51 +1007,47 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P087.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P087.metadata.json",
       "paper_id": "P087",
       "title": "Synthesis of Multisubstituted Allenes by Palladium-Catalyzed Carboetherification of β,γ-Unsaturated Ketoximes with Propargylic Acetates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P088.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P088.metadata.json",
       "paper_id": "P088",
       "title": "Organocatalytic Tandem Synthesis of Chiral Hexacyclic Bisindoles from Propargylic 3‑Methyleneindoles with 2‑Indolylmethanols",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P089.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P089.metadata.json",
       "paper_id": "P089",
       "title": "Cobalt-Promoted Electroreductive Cross-Coupling of Prop-2-yn-1-yl Acetates with Chloro(vinyl)silanes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P090.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P090.metadata.json",
       "paper_id": "P090",
       "title": "Electroreductive Carboxylation of Propargylic Acetates with CO2: Access to Tetrasubstituted 2,3-Allenoates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1149,102 +1055,94 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P091.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P091.metadata.json",
       "paper_id": "P091",
       "title": "Zinc-mediated carboxylations of allylic and propargylic halides in flow: synthesis of γ-lactones via subsequent bromolactonization",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P092.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P092.metadata.json",
       "paper_id": "P092",
       "title": "CuI-catalyzed decarboxylative highly regioselective phosphonylation of terminal alkyne-substituted cyclic carbonates/carbamates to access 4-phosphonyl 2,3-allenols/2,3-allenamines",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P093.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P093.metadata.json",
       "paper_id": "P093",
       "title": "Chiral Brønsted Acid Catalyzed Enantioconvergent Synthesis of Chiral Tetrahydrocarbazoles with Allenylsilanes from Racemic Indolylmethanols",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P094.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P094.metadata.json",
       "paper_id": "P094",
       "title": "Nickel-catalyzed switchable 1,3-dienylation and enantioselective allenylation of phosphine oxides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P095.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P095.metadata.json",
       "paper_id": "P095",
       "title": "General Approach to Allenes through Copper-Catalyzed γ-Selective and Stereospecific Coupling between Propargylic Phosphates and Alkylboranes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P096.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P096.metadata.json",
       "paper_id": "P096",
       "title": "Synthesis of Conjugated Allenes through Copper-Catalyzed γ-Selective and Stereospecific Coupling between Propargylic Phosphates and Aryl- or Alkenylboronates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P097.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P097.metadata.json",
       "paper_id": "P097",
       "title": "Asymmetric Synthesis of Trisubstituted Allenes: Copper-Catalyzed Alkylation and Arylation of Propargylic Phosphates",
       "blocking_issues": [],
       "warnings": [
-        "missing_or_empty_doi",
-        "not_human_reviewed"
+        "missing_or_empty_doi"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P098.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P098.metadata.json",
       "paper_id": "P098",
       "title": "Reactions of 2,3-Allenols and Their Derivatives",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1252,112 +1150,102 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P099.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P099.metadata.json",
       "paper_id": "P099",
       "title": "Organozinc Reagents in DMSO Solvent: Remarkable Promotion of SN2′ Reaction for Allene Synthesis",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P100.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P100.metadata.json",
       "paper_id": "P100",
       "title": "Copper-Catalyzed Enantioselective Synthesis of Axially Chiral Allenes",
       "blocking_issues": [],
-      "warnings": [
-        "not_human_reviewed"
-      ],
+      "warnings": [],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P101.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P101.metadata.json",
       "paper_id": "P101",
       "title": "Synthesis of optically active allenes using tandem enzyme and palladium-catalysed reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "missing_or_empty_journal",
-        "not_human_reviewed"
+        "missing_or_empty_journal"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P102.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P102.metadata.json",
       "paper_id": "P102",
       "title": "Palladium-Catalyzed Cross-Coupling Reaction of Triorganoindium Reagents with Propargylic Esters",
       "blocking_issues": [],
       "warnings": [
-        "missing_or_empty_doi",
-        "not_human_reviewed"
+        "missing_or_empty_doi"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P103.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P103.metadata.json",
       "paper_id": "P103",
       "title": "Enantiospecific synthesis of 1,3-disubstituted allenes by palladium-catalyzed coupling of propargylic compounds with arylboronic acids",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "missing_or_empty_journal",
-        "not_human_reviewed"
+        "missing_or_empty_journal"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P104.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P104.metadata.json",
       "paper_id": "P104",
       "title": "Synthetic Routes to Allenic Acids and Esters and Their Stereospecific Conversion to Butenolides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P105.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P105.metadata.json",
       "paper_id": "P105",
       "title": "Optically Active 2,3-Allenoates via Palladium-Catalyzed Carbonylation of Enantioenriched Propargylic Mesylates",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P106.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P106.metadata.json",
       "paper_id": "P106",
       "title": "Identifying a non-chiral ligand for the efficient chirality transfer in carbonylation of propargylic mesylates†",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P107.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P107.metadata.json",
       "paper_id": "P107",
       "title": "A Room-Temperature Catalytic Asymmetric Synthesis of Allenes with ECNU-Phos",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P108.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P108.metadata.json",
       "paper_id": "P108",
       "title": "Dynamic Kinetic Protonation of Racemic Allenylmetal Species for the Asymmetric Synthesis of Allenic Esters",
       "blocking_issues": [
@@ -1366,20 +1254,18 @@
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P109.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P109.metadata.json",
       "paper_id": "P109",
       "title": "New and Stereospecific Synthesis of Allenes in a Single Step from Propargylic Alcohols",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1387,7 +1273,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P110.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P110.metadata.json",
       "paper_id": "P110",
       "title": "Direct and Stereospecific Synthesis of Allenes via Reduction of Propargylic Alcohols with Cp2Zr(H)Cl",
       "blocking_issues": [],
@@ -1395,7 +1281,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -1404,13 +1289,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P111.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P111.metadata.json",
       "paper_id": "P111",
       "title": "Efficient Homologation of Acetylenes to Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1418,13 +1302,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P112.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P112.metadata.json",
       "paper_id": "P112",
       "title": "An Efficient Synthesis of Terminal Allenes from Terminal 1-Alkynes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1432,14 +1315,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P113.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P113.metadata.json",
       "paper_id": "P113",
       "title": "One-Pot Synthesis of 1,3-Disubstituted Allenes from 1-Alkynes, Aldehydes, and Morpholine",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1447,13 +1329,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P114.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P114.metadata.json",
       "paper_id": "P114",
       "title": "Cadmium iodide-mediated allenylation of terminal alkynes with ketones",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1461,26 +1342,24 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P115.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P115.metadata.json",
       "paper_id": "P115",
       "title": "Gold-Catalyzed Highly Enantioselective Synthesis of Axially Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P116.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P116.metadata.json",
       "paper_id": "P116",
       "title": "Silver(I)-mediated highly enantioselective synthesis of axially chiral allenes under thermal and microwave-assisted conditions",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1488,14 +1367,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P117.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P117.metadata.json",
       "paper_id": "P117",
       "title": "Gold(III) Salen Complex-Catalyzed Synthesis of Propargylamines via a Three-Component Coupling Reaction",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product",
@@ -1504,91 +1382,84 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P118.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P118.metadata.json",
       "paper_id": "P118",
       "title": "Catalytic Asymmetric Synthesis of Optically Active Allenes from Terminal Alkynes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P119.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P119.metadata.json",
       "paper_id": "P119",
       "title": "Studies on ZnBr2-mediated synthesis of axially chiral aryl-substituted allenes from terminal alkynes, aromatic aldehydes and (S)-a,a-diphenylprolinol",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P120.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P120.metadata.json",
       "paper_id": "P120",
       "title": "Bimetallic Enantioselective Approach to Axially Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P121.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P121.metadata.json",
       "paper_id": "P121",
       "title": "tert-Butyldimethylsilyl-Directed Highly Enantioselective Approach to Axially Chiral α-Allenols",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P122.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P122.metadata.json",
       "paper_id": "P122",
       "title": "Highly Enantioselective Synthesis of Chiral Allenes by Sequential Creation of Stereogenic Center and Chirality Transfer in a Single Pot Operation",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P123.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P123.metadata.json",
       "paper_id": "P123",
       "title": "Copper(I) Halide Promoted Diastereoselective Synthesis of Chiral Propargylamines and Chiral Allenes using 2-Dialkylaminomethylpyrrolidine, Aldehydes, and 1-Alkynes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P124.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P124.metadata.json",
       "paper_id": "P124",
       "title": "Enantioselective Synthesis of Both Enantiomers of Chiral Allenes Using Chiral N-Methylcamphanyl Piperazine Templates",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1596,79 +1467,73 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P125.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P125.metadata.json",
       "paper_id": "P125",
       "title": "Axially Chiral Allenylboranes: Catalytic Asymmetric Synthesis by Palladium-catalysed Hydroboration of But-1-en-3-ynes and their Reaction with an Aldehyde",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P126.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P126.metadata.json",
       "paper_id": "P126",
       "title": "Palladium-Catalyzed Asymmetric Hydrosilylation of 4-Substituted 1-Buten-3-ynes. Catalytic Asymmetric Synthesis of Axially Chiral Allenylsilanes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P127.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P127.metadata.json",
       "paper_id": "P127",
       "title": "Synthesis of 2,5-Bis(binaphthyl)phospholes and Phosphametallocene Derivatives and Their Application in Palladium-Catalyzed Asymmetric Hydrosilylation",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P128.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P128.metadata.json",
       "paper_id": "P128",
       "title": "Rhodium-Catalyzed Asymmetric 1,6-Addition of Aryltitanates to Enynones Giving Axially Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P129.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P129.metadata.json",
       "paper_id": "P129",
       "title": "Rhodium-Catalyzed Enantioselective 1,6-Addition of Arylboronic Acids to Enynamides: Asymmetric Synthesis of Axially Chiral Allenylsilanes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P130.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P130.metadata.json",
       "paper_id": "P130",
       "title": "PARTIELLE ASYMETRISCHE SYNTHESSE UND ABSOLUTE KONFIGURATION VON ALLENCARBONSAUREN",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -1678,7 +1543,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P131.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P131.metadata.json",
       "paper_id": "P131",
       "title": "Stereochemistry of P-Chiral Phosphinylacetic Acid Esters I. Asymmetric Synthesis of Substituted Alkadiene-1,2-carboxylic-1 and γ-Chiral α,β-Unsaturated Carboxylic Acid Esters",
       "blocking_issues": [
@@ -1687,7 +1552,6 @@
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1696,14 +1560,13 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P132.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P132.metadata.json",
       "paper_id": "P132",
       "title": "A SUGGESTION LOOKING TO THE EXTENSION INTO SPACE OF THE STRUCTURAL FORMULAS AT PRESENT USED IN CHEMISTRY. AND A NOTE UPON THE RELATION BETWEEN THE OPTICAL ACTIVITY AND THE CHEMICAL CONSTITUTION OF ORGANIC COMPOUNDS.",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1715,7 +1578,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P133.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P133.metadata.json",
       "paper_id": "P133",
       "title": "Sur les relations qui existent entre les formules atomiques des corps organiques et le pouvoir rotatoire de leurs dissolutions",
       "blocking_issues": [],
@@ -1723,7 +1586,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1735,14 +1597,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P134.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P134.metadata.json",
       "paper_id": "P134",
       "title": "Enantioselective synthesis of allenecarboxylates from phenyl acetates through C–C bond forming reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1750,7 +1611,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P135.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P135.metadata.json",
       "paper_id": "P135",
       "title": "Iron Porphyrin-Catalyzed Olefination of Ketenes with Diazoacetate for the Enantioselective Synthesis of Allenes",
       "blocking_issues": [],
@@ -1758,7 +1619,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1766,13 +1626,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P136.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P136.metadata.json",
       "paper_id": "P136",
       "title": "Enantioselective synthesis of allenic esters via an ylide route",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1781,14 +1640,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P137.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P137.metadata.json",
       "paper_id": "P137",
       "title": "Olefination of ketenes for the enantioselective synthesis of allenes via an ylide route",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1797,14 +1655,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P138.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P138.metadata.json",
       "paper_id": "P138",
       "title": "Arylallenes. II. Synthesis of Diarylallenes. Partial Asymmetric Synthesis of Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -1812,7 +1669,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P139.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P139.metadata.json",
       "paper_id": "P139",
       "title": "Synthesis of 1,3,4,6-Heptatetraene (Divinylallene)",
       "blocking_issues": [
@@ -1821,7 +1678,6 @@
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source"
@@ -1829,13 +1685,12 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P140.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P140.metadata.json",
       "paper_id": "P140",
       "title": "Catalytic Synthesis of Allenes via Isomerization of Alkynes under Phase-Transfer Catalyzed Conditions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -1843,7 +1698,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P141.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P141.metadata.json",
       "paper_id": "P141",
       "title": "Enantioselective Synthesis of Chiral Allenoates by Guanidine-Catalyzed Isomerization of 3-Alkynoates",
       "blocking_issues": [],
@@ -1851,7 +1706,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
@@ -1860,40 +1714,37 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P142.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P142.metadata.json",
       "paper_id": "P142",
       "title": "Organocatalytic Enantioselective Synthesis of 2,3-Allenoates by Intermolecular Addition of Nitroalkanes to Activated Enynes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P143.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P143.metadata.json",
       "paper_id": "P143",
       "title": "Phase-transfer-catalysed asymmetric synthesis of tetrasubstituted allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P144.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P144.metadata.json",
       "paper_id": "P144",
       "title": "Enantiomerically Selective Pig Liver Esterase-catalysed Hydrolyses of Racemic Allenic Esters",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1901,13 +1752,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P145.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P145.metadata.json",
       "paper_id": "P145",
       "title": "Enzymatic kinetic resolution of primary allenic alcohols. Application to the total synthesis and stereochemical assignment of striatisporolide A",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -1915,13 +1765,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P146.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P146.metadata.json",
       "paper_id": "P146",
       "title": "Chemoenzymatic Dynamic Kinetic Resolution of Axially Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type"
@@ -1929,13 +1778,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P147.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P147.metadata.json",
       "paper_id": "P147",
       "title": "Synthesis and Properties of Allenic Natural Products and Pharmaceuticals",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1946,7 +1794,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P148.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P148.metadata.json",
       "paper_id": "P148",
       "title": "Some Typical Advances in the Synthetic Applications of Allenes",
       "blocking_issues": [],
@@ -1954,7 +1802,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1964,28 +1811,26 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P149.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P149.metadata.json",
       "paper_id": "P149",
       "title": "Sugars, Alkaloids, and Heteroaromatics: Exploring Heterocyclic Chemistry with Alkoxyallenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P150.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P150.metadata.json",
       "paper_id": "P150",
       "title": "Electrophilic Addition and Cyclization Reactions of Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -1994,13 +1839,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P151.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P151.metadata.json",
       "paper_id": "P151",
       "title": "Cross-Coupling/Cyclization Reactions of Two Different Allenic Moieties",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -2009,14 +1853,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P152.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P152.metadata.json",
       "paper_id": "P152",
       "title": "Transition Metal Catalyzed Cycloisomerizations of 1,n-Allenynes and -Allenenes",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2026,14 +1869,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P153.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P153.metadata.json",
       "paper_id": "P153",
       "title": "Gold-Catalyzed Nucleophilic Cyclization of Functionalized Allenes: A Powerful Access to Carbo- and Heterocycles",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -2042,13 +1884,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P154.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P154.metadata.json",
       "paper_id": "P154",
       "title": "Allenes as Three-Carbon Units in Catalytic Cycloadditions: New Opportunities with Transition-Metal Catalysts",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2058,12 +1899,11 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P155.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P155.metadata.json",
       "paper_id": "P155",
       "title": "Allenes in Catalytic Asymmetric Synthesis and Natural Product Syntheses",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2074,14 +1914,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P156.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P156.metadata.json",
       "paper_id": "P156",
       "title": "Palladium-Catalyzed Cyclization Reactions of Allenes in the Presence of Unsaturated Carbon-Carbon Bonds",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -2089,14 +1928,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P157.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P157.metadata.json",
       "paper_id": "P157",
       "title": "Enantioselective Enzymatic Desymmetrization of Prochiral Allenic Diols",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -2104,14 +1942,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P158.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P158.metadata.json",
       "paper_id": "P158",
       "title": "Enantioselective Synthesis of Axially Chiral Tetrasubstituted Allenes via Lipase-Catalyzed Desymmetrization",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
@@ -2119,116 +1956,107 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P159.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P159.metadata.json",
       "paper_id": "P159",
       "title": "Novel CuX2-mediated cyclization of acid–base salts of (L)-cinchonidine or (D)-/(L)-α-methylbenzylamine and 2,3-allenoic acids in an aqueous medium. An efficient entry to optically active β-halobutenolides",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P160.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P160.metadata.json",
       "paper_id": "P160",
       "title": "Kinetic Resolution of Racemic 2,3-Allenoates by Organocatalytic Asymmetric 1,3-Dipolar Cycloaddition",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P161.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P161.metadata.json",
       "paper_id": "P161",
       "title": "Palladium-Catalyzed Asymmetric Alkylation of 2,3-Alkadienyl Phosphates. Synthesis of Optically Active 2-(2,3-Alkadienyl)malonates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P162.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P162.metadata.json",
       "paper_id": "P162",
       "title": "Palladium-Catalyzed Asymmetric Amination and Imidation of 2,3-Allenyl Phosphates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P163.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P163.metadata.json",
       "paper_id": "P163",
       "title": "Sequential asymmetric homoallenylation of primary amines with a palladium catalyst",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P164.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P164.metadata.json",
       "paper_id": "P164",
       "title": "Dynamic Kinetic Asymmetric Allylic Alkylations of Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P165.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P165.metadata.json",
       "paper_id": "P165",
       "title": "Palladium-Catalyzed Asymmetric Allylic Alkylation of 2,3-Allenyl Acetates Using a Chiral Diaminophosphine Oxide",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P166.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P166.metadata.json",
       "paper_id": "P166",
       "title": "Enantioselective Decarboxylative Amination: Synthesis of Axially Chiral Allenyl Amines",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P167.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P167.metadata.json",
       "paper_id": "P167",
       "title": "Palladium-Catalyzed Asymmetric Synthesis of Axially Chiral Allenes: A Synergistic Effect of Dibenzalacetone on High Enantioselectivity",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type",
         "structured_tag_not_specified_substrate"
@@ -2236,27 +2064,25 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P168.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P168.metadata.json",
       "paper_id": "P168",
       "title": "Palladium-Catalyzed Asymmetric Synthesis of Axially Chiral (Allenylmethyl)silanes and Chirality Transfer to Stereogenic Carbon Centers in SE′ Reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P169.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P169.metadata.json",
       "paper_id": "P169",
       "title": "A New Route to Methyl (R,E)-(-)-Tetradeca-2,4,5-trienoate (Pheromone of Acanthoscelides obtectus) Utilizing a Palladium-Catalyzed Asymmetric Allene Formation Reaction",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type",
         "structured_tag_not_specified_substrate"
@@ -2264,31 +2090,29 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P170.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P170.metadata.json",
       "paper_id": "P170",
       "title": "Applications of 4,4′-(Me3Si)2-BINAP in Transition-Metal-Catalyzed Asymmetric Carbon-Carbon Bond-Forming Reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P171.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P171.metadata.json",
       "paper_id": "P171",
       "title": "Effects of Silyl Substituents on the Palladium-Catalyzed Asymmetric Synthesis of Axially Chiral (Allenylmethyl)silanes and Their SE2′ Chirality Transfer Reactions",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P172.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P172.metadata.json",
       "paper_id": "P172",
       "title": "Cyclic Carbopalladation. A Versatile Synthetic Methodology for the Construction of Cyclic Organic Compounds",
       "blocking_issues": [
@@ -2298,7 +2122,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -2307,14 +2130,13 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P173.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P173.metadata.json",
       "paper_id": "P173",
       "title": "Palladium-Catalyzed Reaction of Aryl Bromides with Dialkylacetylenes to Produce Allenic Compounds",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type",
         "structured_tag_not_specified_substrate"
@@ -2322,13 +2144,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P174.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P174.metadata.json",
       "paper_id": "P174",
       "title": "A Novel Palladium-Catalyzed Synthesis of Phenanthrenes from ortho-Substituted Aryl Iodides and Diphenyl- or Alkylphenylacetylenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type",
@@ -2337,13 +2158,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P175.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P175.metadata.json",
       "paper_id": "P175",
       "title": "Enantioselective Synthesis of and with Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2354,7 +2174,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P176.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P176.metadata.json",
       "paper_id": "P176",
       "title": "Modern Allene Chemistry",
       "blocking_issues": [
@@ -2363,7 +2183,6 @@
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2374,14 +2193,13 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P177.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P177.metadata.json",
       "paper_id": "P177",
       "title": "Synthesis of allenes with organometallic reagents",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner",
@@ -2390,14 +2208,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P178.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P178.metadata.json",
       "paper_id": "P178",
       "title": "Synthesizing Allenes Today (1982–2006)",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2408,13 +2225,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P179.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P179.metadata.json",
       "paper_id": "P179",
       "title": "Catalytic enantioselective synthesis of axially chiral allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2425,12 +2241,11 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P180.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P180.metadata.json",
       "paper_id": "P180",
       "title": "How easy are the syntheses of allenes?",
       "blocking_issues": [],
       "warnings": [
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2441,14 +2256,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P181.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P181.metadata.json",
       "paper_id": "P181",
       "title": "Recent Advances in the Catalytic Syntheses of Allenes: A Critical Assessment",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
@@ -2459,27 +2273,25 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P182.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P182.metadata.json",
       "paper_id": "P182",
       "title": "A Novel Palladium-Catalyzed Rearrangement of Acetylenic Ketones to Furans",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P183.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P183.metadata.json",
       "paper_id": "P183",
       "title": "A Simple Synthesis of Dienones via Isomerization of Alkynones Effected by Palladium Catalysts",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_product",
         "structured_tag_not_specified_reaction_type"
@@ -2487,13 +2299,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P184.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P184.metadata.json",
       "paper_id": "P184",
       "title": "Facile Synthesis of 1,4-Diketones via Palladium Complex Catalyzed Isomerization of Alkynediols",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product",
@@ -2502,14 +2313,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P185.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P185.metadata.json",
       "paper_id": "P185",
       "title": "Palladium/Acetic Acid Catalyzed Allylation of Some Pronucleophiles with Simple Alkynes",
       "blocking_issues": [],
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product",
@@ -2519,7 +2329,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P186.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P186.metadata.json",
       "paper_id": "P186",
       "title": "Palladium/Benzoic Acid Catalyzed Hydroamination of Alkynes",
       "blocking_issues": [
@@ -2529,7 +2339,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product",
@@ -2538,7 +2347,7 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P187.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P187.metadata.json",
       "paper_id": "P187",
       "title": "Palladium-Catalyzed Intramolecular Asymmetric Hydroamination of Alkynes",
       "blocking_issues": [],
@@ -2546,7 +2355,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
@@ -2554,27 +2362,25 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P188.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P188.metadata.json",
       "paper_id": "P188",
       "title": "Observation of the First Heck-Type Cross-Coupling Reaction of Allenes with Aryl Halides. Synthesis of Polysubstituted 1,2-Allenyl Sulfones",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_substrate"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P189.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P189.metadata.json",
       "paper_id": "P189",
       "title": "Pd-Catalyzed Asymmetric β‑Hydride Elimination en Route to Chiral Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_reaction_type",
         "structured_tag_not_specified_substrate"
@@ -2582,13 +2388,12 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P190.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P190.metadata.json",
       "paper_id": "P190",
       "title": "Palladium-Catalyzed Elimination/Isomerization of Enol Triflates into 1,3-Dienes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_organometallic_partner",
         "structured_tag_not_specified_product",
         "structured_tag_not_specified_reaction_type",
@@ -2597,7 +2402,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P191.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P191.metadata.json",
       "paper_id": "P191",
       "title": "Experimental Demonstration of the Allene Asymmetry",
       "blocking_issues": [
@@ -2607,7 +2412,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
@@ -2616,7 +2420,7 @@
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P192.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P192.metadata.json",
       "paper_id": "P192",
       "title": "Resolution of an Allene Hydrocarbon into Optical Antipodes by Asymmetric Catalysis.",
       "blocking_issues": [],
@@ -2624,7 +2428,6 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_catalyst_or_method",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_organometallic_partner",
@@ -2634,7 +2437,7 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P193.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P193.metadata.json",
       "paper_id": "P193",
       "title": "A Novel Allene Synthesis",
       "blocking_issues": [
@@ -2644,26 +2447,24 @@
         "low_confidence_abstract",
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P194.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P194.metadata.json",
       "paper_id": "P194",
       "title": "A Novel Synthesis of Substituted Allenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P195.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P195.metadata.json",
       "paper_id": "P195",
       "title": "Formation of Allenes by Reaction of Lithium Diorganocuprates on Propargylic Acetates - A Mechanistic Approach",
       "blocking_issues": [
@@ -2672,33 +2473,30 @@
       "warnings": [
         "low_confidence_abstract",
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "failed"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P196.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P196.metadata.json",
       "paper_id": "P196",
       "title": "Synthetic Use of an Unusual Organocuprate Intermediate",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P197.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P197.metadata.json",
       "paper_id": "P197",
       "title": "Allenes and Acetylenes. XXI. Leaving-group Effects on the Stereochemistry of Allene-forming Organocuprate Reactions",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_substrate"
@@ -2706,91 +2504,84 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P198.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P198.metadata.json",
       "paper_id": "P198",
       "title": "Synthesis and Absolute Configurations of Halogenoallenes",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P199.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P199.metadata.json",
       "paper_id": "P199",
       "title": "Highly Stereoselective Synthesis of Chiral Alkylallenes by Organocopper(I)-Induced Anti 1,3-Substitution of Chiral Propynyl Esters",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P200.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P200.metadata.json",
       "paper_id": "P200",
       "title": "ARE ALLENES FORMED FROM PROPARGYLIC ETHERS THROUGH A SYN OR ANTI DISPLACEMENT?",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P201.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P201.metadata.json",
       "paper_id": "P201",
       "title": "Mechanistic Aspects on the Formation of Chiral Allenes from Propargylic Ethers and Organocopper Reagents",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P202.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P202.metadata.json",
       "paper_id": "P202",
       "title": "Diastereoselective syn or anti opening of propargylic epoxides. Synthesis of α-allenic alcohols",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "missing_or_empty_journal",
-        "not_human_reviewed"
+        "missing_or_empty_journal"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P203.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P203.metadata.json",
       "paper_id": "P203",
       "title": "Enantioselective Formation of Functionalized 1,3-Disubstituted Allenes: Synthesis of α-Allenic ω-Carbomethoxy Alcohols of High Optical Purity",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_organometallic_partner"
       ],
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P204.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P204.metadata.json",
       "paper_id": "P204",
       "title": "Chiral Allenes are Racemised by Organocuprates",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_substrate"
@@ -2798,14 +2589,13 @@
       "status": "ok"
     },
     {
-      "metadata_path": "/home/ps/review-writer/review-library/metadata/papers/P205.metadata.json",
+      "metadata_path": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\review-library\\metadata\\papers\\P205.metadata.json",
       "paper_id": "P205",
       "title": "On the configurational stability of allenes and butatrienes in the presence of organocopper(I) species",
       "blocking_issues": [],
       "warnings": [
         "missing_or_empty_doi",
         "missing_or_empty_journal",
-        "not_human_reviewed",
         "structured_tag_not_specified_leaving_group",
         "structured_tag_not_specified_ligand_or_chiral_source",
         "structured_tag_not_specified_substrate"

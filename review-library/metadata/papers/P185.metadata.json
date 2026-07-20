@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes/190ed6e3-fa5a-43e3-b5e7-75ecff23e2dc_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes/190ed6e3-fa5a-43e3-b5e7-75ecff23e2dc_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P185\\190ed6e3-fa5a-43e3-b5e7-75ecff23e2dc_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P185"
   },
   "source_file": {
     "pdf_name": "50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 45,
       "markdown_chars_used": 13185
     },

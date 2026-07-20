@@ -23,9 +23,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "J. Am. Chem. Soc.",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/8c/7bb054b5-ba89-4b9a-9479-f2ce71e8a4be_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/8c.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/8c/7bb054b5-ba89-4b9a-9479-f2ce71e8a4be_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/8c"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\8c.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\8c.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P197\\7bb054b5-ba89-4b9a-9479-f2ce71e8a4be_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P197"
   },
   "source_file": {
     "pdf_name": "8c.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T20:56:27Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 73,
       "markdown_chars_used": 14000
     },

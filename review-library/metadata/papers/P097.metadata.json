@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates/dde23cd2-eff9-47d8-9db2-b559edb1c659_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates/dde23cd2-eff9-47d8-9db2-b559edb1c659_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P097\\dde23cd2-eff9-47d8-9db2-b559edb1c659_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P097"
   },
   "source_file": {
     "pdf_name": "11-asymmetric-synthesis-of-tr-isubstituted-allenes-copper-catalyzed-alkylation-and-arylation-of-propargylic-phosphates.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:23Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 63,
       "markdown_chars_used": 14000
     },

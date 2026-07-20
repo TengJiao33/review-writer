@@ -26,9 +26,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Synthesis",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer/9945c8e4-ca15-4553-a184-bd5530cda7af_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer/9945c8e4-ca15-4553-a184-bd5530cda7af_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P122\\9945c8e4-ca15-4553-a184-bd5530cda7af_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P122"
   },
   "source_file": {
     "pdf_name": "27a-highly-enantioselective-synthesis-of-chiral-allenes-by-sequential-creation-of-stereogenic-center-and-chirality-transfer.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 57,
       "markdown_chars_used": 14000
     },

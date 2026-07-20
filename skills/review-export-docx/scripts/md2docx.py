@@ -40,6 +40,11 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 
 try:
+    from PIL import Image as PILImage
+except ImportError:
+    PILImage = None
+
+try:
     from latex2word import LatexToWordElement
     _LATEX_OK = True
 except ImportError:
@@ -132,6 +137,22 @@ def _usable_page_width_inches(doc: Document) -> float:
     width_emu = section.page_width - section.left_margin - section.right_margin
     # 914400 EMUs per inch. Keep a conservative upper bound for journal templates.
     return max(1.0, min(6.2, width_emu / 914400))
+
+
+def _bounded_figure_size(path: Path, max_width: float, max_height: float = 5.9) -> Tuple[float, Optional[float]]:
+    """Bound figure height so Word can keep its caption on the same page."""
+    if PILImage is None:
+        return max_width, None
+    try:
+        with PILImage.open(path) as image:
+            width_px, height_px = image.size
+    except Exception:
+        return max_width, None
+    if width_px <= 0 or height_px <= 0:
+        return max_width, None
+    ratio = width_px / height_px
+    width = min(max_width, max_height * ratio)
+    return width, width / ratio
 
 
 def _set_style_font(style, font_name: str, size: float, bold: bool = False, italic: bool = False) -> None:
@@ -725,7 +746,7 @@ def _set_cell_margins(cell, top: int = 80, start: int = 120, bottom: int = 80, e
         element.set(qn("w:type"), "dxa")
 
 
-def _add_table(doc: Document, header: List[str], rows: List[List[str]]) -> None:
+def _add_table_single(doc: Document, header: List[str], rows: List[List[str]]) -> None:
     ncols = max(len(header), max((len(r) for r in rows), default=1))
     table = doc.add_table(rows=1 + len(rows), cols=ncols)
     table.autofit = False
@@ -787,6 +808,31 @@ def _add_table(doc: Document, header: List[str], rows: List[List[str]]) -> None:
                        spec_key="table_body")
             _set_cell_borders(cell)
             _set_cell_margins(cell)
+
+
+def _add_table(doc: Document, header: List[str], rows: List[List[str]]) -> None:
+    """Add a readable table, splitting overly wide comparison grids.
+
+    A method table with seven or eight narrow columns is technically inside
+    the page but practically unreadable.  Repeat the identifying first column
+    and split the remaining fields into compact continuation tables instead of
+    shrinking words into vertical fragments.
+    """
+    ncols = max(len(header), max((len(row) for row in rows), default=1))
+    if ncols <= 6:
+        _add_table_single(doc, header, rows)
+        return
+    padded_header = header + [""] * (ncols - len(header))
+    padded_rows = [row + [""] * (ncols - len(row)) for row in rows]
+    for chunk_index, start in enumerate(range(1, ncols, 4)):
+        indices = [0] + list(range(start, min(start + 4, ncols)))
+        if chunk_index:
+            _para(doc, "table_title", "table_title", "Table continued", force_bold=True)
+        _add_table_single(
+            doc,
+            [padded_header[index] for index in indices],
+            [[row[index] for index in indices] for row in padded_rows],
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -1071,7 +1117,14 @@ def _clear_body(doc: Document) -> None:
 # Main converter
 # ---------------------------------------------------------------------------
 
-def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
+def convert(
+    md_path: Path,
+    out_path: Path,
+    template_path: Path,
+    author: str = "",
+    subject: str = "Scholarly review manuscript",
+    keywords: str = "",
+) -> None:
     md_text = md_path.read_text(encoding="utf-8")
     if re.search(r"\[@P\d{3}", md_text):
         raise SystemExit("[md2docx] ERROR: unresolved stable citation tokens remain in Markdown")
@@ -1082,6 +1135,23 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
     doc     = Document(str(template_path))
     _clear_body(doc)
     _configure_academic_document(doc)
+    document_title = next(
+        (
+            block.text.strip()
+            for block in blocks
+            if block.kind == "heading"
+            and block.level == 1
+            and not _NUMBERED_SECTION_HEADING_RE.match(block.text.strip())
+        ),
+        md_path.stem,
+    )
+    properties = doc.core_properties
+    properties.title = document_title
+    properties.subject = subject.strip()
+    properties.author = author.strip()
+    properties.last_modified_by = author.strip()
+    properties.keywords = keywords.strip()
+    properties.comments = "Generated from the release-audited Markdown manuscript."
     bullet_num_id = _create_numbering_definition(doc, ordered=False)
     ordered_num_id = _create_numbering_definition(doc, ordered=True)
     reference_num_id = _create_numbering_definition(doc, ordered=True, reference=True)
@@ -1214,7 +1284,13 @@ def convert(md_path: Path, out_path: Path, template_path: Path) -> None:
                 p = doc.add_paragraph(style=_S["body"])
                 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 p.paragraph_format.keep_with_next = True
-                p.add_run().add_picture(str(img_path), width=Inches(_usable_page_width_inches(doc)))
+                figure_width, figure_height = _bounded_figure_size(
+                    img_path, _usable_page_width_inches(doc)
+                )
+                picture_kwargs = {"width": Inches(figure_width)}
+                if figure_height is not None:
+                    picture_kwargs["height"] = Inches(figure_height)
+                p.add_run().add_picture(str(img_path), **picture_kwargs)
                 if block.alt:
                     caption_key = _caption_style(block.alt) or "figure"
                     _para(doc, caption_key, caption_key, block.alt)
@@ -1250,6 +1326,9 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--output",   required=True, metavar="DOCX", help="Output .docx file")
     p.add_argument("--template", default=str(_DEFAULT_TEMPLATE), metavar="DOCX",
                    help=f"Word template (default: {_DEFAULT_TEMPLATE})")
+    p.add_argument("--author", default="", help="Document author metadata; empty removes stale template authors")
+    p.add_argument("--subject", default="Scholarly review manuscript", help="Document subject metadata")
+    p.add_argument("--keywords", default="", help="Comma- or semicolon-separated document keywords")
     return p
 
 
@@ -1266,7 +1345,14 @@ def main() -> None:
     if not _LATEX_OK:
         print("[md2docx] INFO: latex2word unavailable; using built-in deterministic script formatting")
 
-    convert(md_path, out_path, template_path)
+    convert(
+        md_path,
+        out_path,
+        template_path,
+        author=args.author,
+        subject=args.subject,
+        keywords=args.keywords,
+    )
 
 
 if __name__ == "__main__":

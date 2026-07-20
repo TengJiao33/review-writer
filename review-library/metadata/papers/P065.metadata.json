@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Eur. J. Org. Chem. 2023, 26, e202300425.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/eur.-j.-org.-chem.-2023-26-e202300425.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/eur.-j.-org.-chem.-2023-26-e202300425/84008282-da0b-4a86-9043-1d0b9734a738_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/eur.-j.-org.-chem.-2023-26-e202300425"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur. J. Org. Chem. 2023, 26, e202300425.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur.-j.-org.-chem.-2023-26-e202300425.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P065\\84008282-da0b-4a86-9043-1d0b9734a738_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P065"
   },
   "source_file": {
     "pdf_name": "Eur. J. Org. Chem. 2023, 26, e202300425.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 114,
       "markdown_chars_used": 14000
     },

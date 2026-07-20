@@ -16,7 +16,9 @@ Read:
 01_matrix_outline/section_blueprint.json
 02_section_drafting/section_drafts.json
 02_section_drafting/figure_candidates.json
+02_section_drafting/method_comparison_table_manifest.json (when its Markdown table is selected)
 03_figure_redraw/redrawn_figure_manifest.json (when available)
+03_figure_redraw/review_visual_manifest.json (when an original review visual is prepared)
 ```
 
 ## Required Merge
@@ -39,10 +41,10 @@ orders references by first appearance
 replaces [@Pxxx] with global [n] callouts
 generates References and citations.json from the same mapping
 removes paragraph markers from manuscript prose
-inserts selected prepared figures (`source_verified` or `redrawn`) and copies figure assets into both draft-stage directories
+inserts selected prepared figures (`source_verified`, `redrawn`, or `original_verified`) and copies figure assets into both draft-stage directories
 ```
 
-Do not run a separate hand-written figure insertion step. When `figure_candidates.json` is non-empty, merge fails if no selected image can be inserted. Unverified source candidates remain visible to the final release check; an unchanged MinerU image becomes a formal figure after the figure stage records it as `source_verified`.
+Do not run a separate hand-written figure insertion step. When source candidates or original visuals are selected, merge fails if no selected image can be inserted. Unverified source candidates remain visible to the final release check; an unchanged MinerU image becomes a formal figure after the figure stage records it as `source_verified`, while an original synthesis requires `original_verified` plus a passed verification status. If the generated comparison table is used, retain its verified manifest and its visible method labels; do not reduce the table to opaque internal paper IDs.
 
 Prepared figure rows retain `section_heading`. Figure insertion stops when its target heading is unresolved instead of falling back to Abstract or another convenient heading.
 

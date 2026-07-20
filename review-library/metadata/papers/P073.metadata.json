@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/NATURE COMMUNICATIONS  (2022) 13 3146.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/nature-communications-2022-13-3146.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/nature-communications-2022-13-3146/311369a1-c574-4332-a6a2-548d81c21ea8_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/nature-communications-2022-13-3146"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\NATURE COMMUNICATIONS  (2022) 13 3146.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nature-communications-2022-13-3146.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P073\\311369a1-c574-4332-a6a2-548d81c21ea8_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P073"
   },
   "source_file": {
     "pdf_name": "NATURE COMMUNICATIONS  (2022) 13 3146.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 149,
       "markdown_chars_used": 14000
     },

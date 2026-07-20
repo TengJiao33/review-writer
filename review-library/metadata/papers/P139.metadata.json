@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/32b-angew-chem-int-ed-engl-july-1975-modlhammer-synthesis-of-1-3-4-6heptatetraene-divinylallene/e276b688-52ed-4923-a27b-3e037c74891a_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/32b-angew-chem-int-ed-engl-july-1975-modlhammer-synthesis-of-1-3-4-6heptatetraene-divinylallene.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/32b-angew-chem-int-ed-engl-july-1975-modlhammer-synthesis-of-1-3-4-6heptatetraene-divinylallene/e276b688-52ed-4923-a27b-3e037c74891a_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/32b-angew-chem-int-ed-engl-july-1975-modlhammer-synthesis-of-1-3-4-6heptatetraene-divinylallene"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\32b-Angew  Chem  Int  Ed  Engl - July 1975 - Mödlhammer - Synthesis of 1 3 4 6‐Heptatetraene  Divinylallene.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\32b-angew-chem-int-ed-engl-july-1975-modlhammer-synthesis-of-1-3-4-6heptatetraene-divinylallene.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P139\\e276b688-52ed-4923-a27b-3e037c74891a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P139"
   },
   "source_file": {
     "pdf_name": "32b-Angew  Chem  Int  Ed  Engl - July 1975 - Mödlhammer - Synthesis of 1 3 4 6‐Heptatetraene  Divinylallene.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 46,
       "markdown_chars_used": 11681
     },

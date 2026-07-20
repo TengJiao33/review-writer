@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes/3306fa5a-b16e-4a79-9560-ca26365e2547_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes/3306fa5a-b16e-4a79-9560-ca26365e2547_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P149\\3306fa5a-b16e-4a79-9560-ca26365e2547_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P149"
   },
   "source_file": {
     "pdf_name": "3c-sugars-alkaloids-and-heteroaromatics-exploring-heterocyclic-chemistry-with-alkoxyallenes.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 148,
       "markdown_chars_used": 14000
     },

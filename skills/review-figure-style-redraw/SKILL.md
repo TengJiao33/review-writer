@@ -5,7 +5,7 @@ description: Prepare selected review figures by source-verifying the original ex
 
 # Review Figure Preparation
 
-Use this skill when `figure_candidates.json` contains a figure worth including.
+Use this skill when a source figure or an original review synthesis visual is worth including. Source reuse and original synthesis are independent paths.
 
 This stage uses a script because file resolution, API calls, and manifests must be stable.
 
@@ -15,6 +15,7 @@ Read:
 
 ```text
 review-projects/<project_id>/02_section_drafting/figure_candidates.json
+review-projects/<project_id>/02_section_drafting/review_visual_plan.json
 review-projects/<project_id>/02_section_drafting/section_drafting_report.md
 ```
 
@@ -34,6 +35,8 @@ source_page_review_status: pending | passed
 source_verification_note
 ```
 
+The inventory output is advisory. The preparation script processes only candidates explicitly marked `manuscript_selected: true` or with editorial status `selected`, `adapted`, or `combined`. Every selected figure states its `reader_job` and `placement_rationale`; unchanged source reuse also states its `reuse_basis`. This makes selection a deliberate manuscript decision without requiring any figure.
+
 If `source_image_path` is missing, the script attempts to resolve it from metadata and `content_list.json`.
 
 ## Default Rule
@@ -41,6 +44,36 @@ If `source_image_path` is missing, the script attempts to resolve it from metada
 Prefer the original MinerU-extracted figure when it is legible and materially supports the manuscript. Inspect it against the source PDF at readable zoom, then accept it unchanged with source attribution. This is a complete figure path, not a placeholder, and it requires no image-generation credential. Attribution does not replace permission: record the source's reuse basis or choose a newly synthesized/adapted visual when reuse rights are unclear.
 
 Use generative restyling only when the user or manuscript genuinely benefits from it. Image editing is optional, not a workflow preflight dependency.
+
+## Original review synthesis path
+
+An overview taxonomy, comparison landscape, decision map, or evidence-boundary figure may be created from the review's verified method cards and anchors without copying a source layout. This often serves readers better than reproducing a paper-level scheme. It is not a shortcut around scientific checking: verify every chemical structure, relationship, label, condition, and inference against the recorded evidence, and distinguish corpus coverage from field-wide absence or confidence.
+
+Record a completed image in `review_visual_manifest.json`:
+
+```json
+{
+  "visuals": [
+    {
+      "visual_id": "RV-01",
+      "status": "original_verified",
+      "verification_status": "passed",
+      "original_image": "absolute or project-relative image path",
+      "section_id": "sec1",
+      "section_heading": "Introduction",
+      "title": "Field map and organizing logic",
+      "caption": "Original synthesis of ...",
+      "reader_job": "What becomes faster or clearer for the reader",
+      "placement_rationale": "Why this section is the right location",
+      "source_paper_ids": ["P001", "P014"],
+      "evidence_ids": ["P001-E01", "P014-E02"],
+      "verification_note": "What was checked, against which sources, and what the visual does not claim."
+    }
+  ]
+}
+```
+
+Use `status: draft` until the actual rendered asset has been inspected at readable zoom. Original visuals may coexist with source-verified or redrawn figures. A Markdown comparison table stays in the section draft and does not need this manifest.
 
 ## Fidelity Rule
 
@@ -143,6 +176,7 @@ Create:
 style_config.json
 source_figure_manifest.json
 redrawn_figure_manifest.json
+review_visual_manifest.json (when an original synthesis image is prepared)
 figure_fidelity_review.json
 figure_redraw_report.md
 source/
@@ -150,4 +184,4 @@ verified/
 redrawn/
 ```
 
-If a selected figure cannot be resolved or verified faithfully, return to figure selection and reconsider it. When the manuscript does not use figures, create `03_figure_redraw/skip_reason.md` with a one-line record of that decision.
+If a selected figure cannot be resolved or verified faithfully, return to figure selection and reconsider it. When the manuscript uses neither source figures nor original synthesis images, create `03_figure_redraw/skip_reason.md` with a one-line record of that decision. Asset absence is an editorial fact, not a reason to invent or force a figure.

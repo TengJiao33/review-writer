@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes/be832ead-884f-4e44-bd79-dabea86316e6_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes/be832ead-884f-4e44-bd79-dabea86316e6_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P152\\be832ead-884f-4e44-bd79-dabea86316e6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P152"
   },
   "source_file": {
     "pdf_name": "3f-transition-metal-catalyzed-cycloisomerizations-of-1-n-allenynes-and-allenenes.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 559,
       "markdown_chars_used": 14000
     },

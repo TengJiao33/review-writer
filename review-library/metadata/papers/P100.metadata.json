@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes/ba835362-91c6-4fc5-9afd-986dc9844385_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes/ba835362-91c6-4fc5-9afd-986dc9844385_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P100\\ba835362-91c6-4fc5-9afd-986dc9844385_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P100"
   },
   "source_file": {
     "pdf_name": "14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:23Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 58,
       "markdown_chars_used": 14000
     },

@@ -16,10 +16,14 @@ Read:
 01_matrix_outline/literature_matrix.json
 01_matrix_outline/paper_reading_notes.json
 01_matrix_outline/matrix_validation.json
+01_matrix_outline/literature_portfolio.json
+01_matrix_outline/method_cards.json
+01_matrix_outline/coverage_ledger.json
+01_matrix_outline/portfolio_editorial_review.json
 references/rule_packs.json
 ```
 
-Proceed when `matrix_validation.json` has zero blocking issues. Warnings may remain when they concern optional detail or note length.
+Proceed when `matrix_validation.json` has zero blocking issues. Use `portfolio_editorial_review.json` as optional context: its prompts may suggest adding evidence, reusing current sources more effectively, narrowing scope, or accepting the observed condition. Unresolved prompts do not prevent drafting and do not prescribe a corpus size or section structure.
 
 ## Coverage Map
 
@@ -55,6 +59,12 @@ Derive important items from the manuscript title, retrieval query, central quest
 ```
 
 Keep title-defining topics visible in the coverage map. Coverage warnings guide revision without dictating section architecture.
+
+## Editorial brief
+
+Use the portfolio, method cards, and coverage ledger to add an `editorial_brief`. It may include a broad content range, reader questions, thin coverage items, and promising original review assets. These are planning signals, not acceptance thresholds. Do not pad to a number, require every method-card field, or force the same internal pattern on every section.
+
+For substantive sections, make enough material visible for the writer to choose among orientation, representative method depth, cross-method comparison, practical or scope boundaries, and a section-level takeaway. This is a menu, not a paragraph template. A short section can still be right when the evidence or argument warrants it.
 
 ## Writing Map
 

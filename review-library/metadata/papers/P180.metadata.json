@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/4f-how-easy-are-the-syntheses-of-allenes/ba013aa3-70e5-4a07-9a6f-9c28d527520b_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/4f-how-easy-are-the-syntheses-of-allenes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/4f-how-easy-are-the-syntheses-of-allenes/ba013aa3-70e5-4a07-9a6f-9c28d527520b_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/4f-how-easy-are-the-syntheses-of-allenes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4f-How easy are the syntheses of allenes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4f-how-easy-are-the-syntheses-of-allenes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P180\\ba013aa3-70e5-4a07-9a6f-9c28d527520b_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P180"
   },
   "source_file": {
     "pdf_name": "4f-How easy are the syntheses of allenes.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 646,
       "markdown_chars_used": 14000
     },

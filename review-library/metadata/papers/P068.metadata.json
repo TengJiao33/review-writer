@@ -31,9 +31,9 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/jacs.2c10863",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   },
   "abstract": {
@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/J. Am. Chem. Soc. 2022, 144, 21022.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/j.-am.-chem.-soc.-2022-144-21022.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/j.-am.-chem.-soc.-2022-144-21022/a62f2671-085d-47e7-be45-f2e3c6f03e25_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/j.-am.-chem.-soc.-2022-144-21022"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Am. Chem. Soc. 2022, 144, 21022.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-am.-chem.-soc.-2022-144-21022.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P068\\a62f2671-085d-47e7-be45-f2e3c6f03e25_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P068"
   },
   "source_file": {
     "pdf_name": "J. Am. Chem. Soc. 2022, 144, 21022.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 174,
       "markdown_chars_used": 14000
     },
@@ -76,7 +76,6 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "missing_doi",
       "structured_tag_not_specified_limitation_or_scope_boundary",
       "structured_tag_not_specified_organometallic_partner"
     ],
@@ -96,6 +95,18 @@
     },
     "source": "llm_from_rules_and_paper_evidence",
     "confidence": 0.96,
+    "human_checked": false
+  },
+  "volume": {
+    "value": "144",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "pages": {
+    "value": "21022-21029",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   }
 }

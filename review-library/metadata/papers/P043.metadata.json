@@ -26,9 +26,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": "",
-    "source": "cite_this_line",
-    "confidence": 0.7,
+    "value": "Org. Biomol. Chem.",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/d5ob01408e.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/d5ob01408e.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/d5ob01408e/b00cdf1b-7895-4090-9737-72d1622f85a2_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/d5ob01408e"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\d5ob01408e.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\d5ob01408e.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P043\\b00cdf1b-7895-4090-9737-72d1622f85a2_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P043"
   },
   "source_file": {
     "pdf_name": "d5ob01408e.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 135,
       "markdown_chars_used": 14000
     },

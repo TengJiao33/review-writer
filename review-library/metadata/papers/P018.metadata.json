@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole/ffd1a02c-64cd-4f87-95ed-c6f2d2d81143_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P018\\ffd1a02c-64cd-4f87-95ed-c6f2d2d81143_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P018"
   },
   "source_file": {
     "pdf_name": "xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 290,
       "markdown_chars_used": 14000
     },

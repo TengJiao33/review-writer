@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds/de81dd16-3427-4e98-bdb5-ac9077d4e29d_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds/de81dd16-3427-4e98-bdb5-ac9077d4e29d_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P172\\de81dd16-3427-4e98-bdb5-ac9077d4e29d_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P172"
   },
   "source_file": {
     "pdf_name": "48b-cyclic-carbopalladation-a-versatile-synthetic-methodology-for-the-construction-of-cyclic-organic-compounds.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 421,
       "markdown_chars_used": 14000
     },

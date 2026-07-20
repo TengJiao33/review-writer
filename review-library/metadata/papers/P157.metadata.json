@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/40a-angew-chem-int-ed-2011-manzuna-sapu-enantioselective-enzymatic-desymmetrization-of-prochiral-allenic-diols/14d81937-0c20-4d7f-9254-425ce9e853e7_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/40a-angew-chem-int-ed-2011-manzuna-sapu-enantioselective-enzymatic-desymmetrization-of-prochiral-allenic-diols.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/40a-angew-chem-int-ed-2011-manzuna-sapu-enantioselective-enzymatic-desymmetrization-of-prochiral-allenic-diols/14d81937-0c20-4d7f-9254-425ce9e853e7_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/40a-angew-chem-int-ed-2011-manzuna-sapu-enantioselective-enzymatic-desymmetrization-of-prochiral-allenic-diols"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\40a-Angew Chem Int Ed - 2011 - Manzuna Sapu - Enantioselective Enzymatic Desymmetrization of Prochiral Allenic Diols.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\40a-angew-chem-int-ed-2011-manzuna-sapu-enantioselective-enzymatic-desymmetrization-of-prochiral-allenic-diols.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P157\\14d81937-0c20-4d7f-9254-425ce9e853e7_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P157"
   },
   "source_file": {
     "pdf_name": "40a-Angew Chem Int Ed - 2011 - Manzuna Sapu - Enantioselective Enzymatic Desymmetrization of Prochiral Allenic Diols.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 67,
       "markdown_chars_used": 14000
     },

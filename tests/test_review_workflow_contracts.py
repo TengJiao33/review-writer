@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 
 from docx import Document
+from pypdf import PdfWriter
 
 
 REPO = Path(__file__).resolve().parents[1]
@@ -488,6 +489,27 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("source_excerpt is not found in the recorded source", result.stdout)
 
+    def test_matrix_blocks_paper_title_used_as_full_text_evidence(self) -> None:
+        matrix_path = self.project / "01_matrix_outline" / "literature_matrix.json"
+        matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+        paper = matrix["papers"][0]
+        source_path = self.root / "review-library" / "sources" / "P001.md"
+        source_path.write_text(
+            f"# {paper['title']}\n\nThe transformation and representative scope are reported.\n",
+            encoding="utf-8",
+        )
+        paper["evidence_anchors"][0]["source_excerpt"] = paper["title"]
+        write_json(matrix_path, matrix)
+        result = run(
+            MATRIX_VALIDATOR,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("source_excerpt is front matter", result.stdout)
+
     def test_draft_validator_rejects_invalid_figure_candidates_shape(self) -> None:
         write_json(
             self.project / "01_matrix_outline" / "section_blueprint.json",
@@ -612,6 +634,10 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         candidate = {
             "paper_id": "P001",
             "section_id": "sec1",
+            "manuscript_selected": True,
+            "reader_job": "Show the proposed pathway that the surrounding comparison discusses.",
+            "placement_rationale": "Place beside the mechanism discussion where its labels are explained.",
+            "reuse_basis": "Source figure reused unchanged for internal research review with attribution.",
             "source_label": "Scheme 1",
             "source_page_hint": "page 4",
             "source_caption_text": "(A) Proposed pathway",
@@ -699,6 +725,42 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         metadata["article_number"] = {"value": "104321"}
         write_json(metadata_path, metadata)
         self.assertEqual(module.actual_incomplete_references(self.root, ["P001"], rows), [])
+
+    def test_reference_doi_must_match_linked_source_pdf(self) -> None:
+        spec = importlib.util.spec_from_file_location("review_final_audit", AUDIT)
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        pdf_path = self.root / "review-library" / "sources" / "P001.pdf"
+        pdf_path.parent.mkdir(parents=True, exist_ok=True)
+        writer = PdfWriter()
+        writer.add_blank_page(width=72, height=72)
+        writer.add_metadata({"/Subject": "Article DOI 10.1000/source-doi"})
+        with pdf_path.open("wb") as stream:
+            writer.write(stream)
+
+        metadata_path = self.root / "review-library" / "metadata" / "papers" / "P001.metadata.json"
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata["doi"] = {"value": "10.1000/wrong-doi"}
+        metadata["source_paths"] = {"pdf": str(pdf_path)}
+        write_json(metadata_path, metadata)
+        rows = {"P001": {"paper_id": "P001"}}
+        conflicts = module.reference_metadata_source_conflicts(self.root, ["P001"], rows)
+        self.assertEqual(conflicts[0]["source_dois"], ["10.1000/source-doi"])
+
+        metadata["doi"] = {"value": "https://doi.org/10.1000/source-doi"}
+        write_json(metadata_path, metadata)
+        self.assertEqual(module.reference_metadata_source_conflicts(self.root, ["P001"], rows), [])
+        manuscript = (
+            "# Review\n\n## References\n\n"
+            "1. Ada Chemist. Example paper. https://doi.org/10.1000/stale-doi\n"
+        )
+        delivered = module.manuscript_reference_metadata_conflicts(
+            manuscript, self.root, ["P001"], rows
+        )
+        self.assertEqual(delivered[0]["expected_doi"], "10.1000/source-doi")
 
     def test_stable_citations_audit_and_docx_chemistry(self) -> None:
         payload = {
@@ -824,7 +886,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "source_checked": True,
                         "support_scope": "full",
                         "verdict": "supported",
-                        "comment": "Fixture claim is supported.",
+                        "comment": "The source reports both transformations and supports the stated comparison.",
                     },
                     {
                         "check_id": "A002",
@@ -836,7 +898,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "source_checked": True,
                         "support_scope": "full",
                         "verdict": "supported",
-                        "comment": "Fixture claim is supported.",
+                        "comment": "The source describes the stated limitation and its mechanistic boundary.",
                     },
                 ],
                 "section_checks": [
@@ -896,7 +958,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "cited_paper_ids": ["P001", "P002"],
                         "evidence_ids": ["P001-E01", "P002-E01"],
                         "verdict": "supported",
-                        "comment": "Fixture claim is supported.",
+                        "comment": "The source describes the stated limitation and its mechanistic boundary.",
                     },
                 ],
                 "section_checks": [
@@ -935,7 +997,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "cited_paper_ids": ["P001", "P002"],
                         "evidence_ids": ["P001-E01", "P002-E01"],
                         "verdict": "supported",
-                        "comment": "Fixture claim is supported.",
+                        "comment": "The source reports both transformations and supports the stated comparison.",
                     },
                     {
                         "check_id": "A002",
@@ -945,7 +1007,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "cited_paper_ids": ["P001", "P002"],
                         "evidence_ids": ["P001-E01", "P002-E01"],
                         "verdict": "supported",
-                        "comment": "Fixture claim is supported.",
+                        "comment": "The source describes the stated limitation and its mechanistic boundary.",
                     },
                 ],
                 "section_checks": [

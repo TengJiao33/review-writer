@@ -32,9 +32,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Nat. Commun. 2022",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -50,10 +50,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Nature Communications  ( 2022) 13 4280.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/nature-communications-2022-13-4280.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/nature-communications-2022-13-4280/3be48e1a-3c8a-4861-afcb-aad337fe8a7d_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/nature-communications-2022-13-4280"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Nature Communications  ( 2022) 13 4280.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nature-communications-2022-13-4280.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P075\\3be48e1a-3c8a-4861-afcb-aad337fe8a7d_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P075"
   },
   "source_file": {
     "pdf_name": "Nature Communications  ( 2022) 13 4280.pdf",
@@ -65,7 +65,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 143,
       "markdown_chars_used": 14000
     },

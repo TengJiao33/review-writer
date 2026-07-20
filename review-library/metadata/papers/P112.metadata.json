@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes/c3ccc195-f313-44b1-831c-e2f53c41fb09_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes/c3ccc195-f313-44b1-831c-e2f53c41fb09_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P112\\c3ccc195-f313-44b1-831c-e2f53c41fb09_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P112"
   },
   "source_file": {
     "pdf_name": "23a-an-efficient-synthesis-of-terminal-allenes-from-terminal-1-alkynes.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 50,
       "markdown_chars_used": 13599
     },

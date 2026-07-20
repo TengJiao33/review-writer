@@ -29,9 +29,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Chin. Chem. Lett. 2024",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -47,10 +47,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/1-s2.0-S1001841724001360-main.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/1-s2.0-s1001841724001360-main.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/1-s2.0-s1001841724001360-main/a0986d91-b38e-45bd-a2a1-175ac36f1505_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/1-s2.0-s1001841724001360-main"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\1-s2.0-S1001841724001360-main.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\1-s2.0-s1001841724001360-main.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P002\\a0986d91-b38e-45bd-a2a1-175ac36f1505_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P002"
   },
   "source_file": {
     "pdf_name": "1-s2.0-S1001841724001360-main.pdf",
@@ -62,7 +62,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 83,
       "markdown_chars_used": 14000
     },

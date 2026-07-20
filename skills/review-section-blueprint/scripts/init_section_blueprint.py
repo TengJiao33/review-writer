@@ -451,7 +451,15 @@ def claim_from_papers(section_id: str, title: str, idx: int, papers: list[dict[s
     }
 
 
-def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: list[str], notes: dict[str, dict[str, Any]], prev_title: str, next_title: str) -> dict[str, Any]:
+def build_section(
+    section: dict[str, str],
+    papers: list[dict[str, Any]],
+    axes: list[str],
+    notes: dict[str, dict[str, Any]],
+    method_cards: dict[str, dict[str, Any]],
+    prev_title: str,
+    next_title: str,
+) -> dict[str, Any]:
     title = section["title"]
     selected = select_papers(title, papers, notes)
     paper_ids = [str(p.get("paper_id")) for p in selected if p.get("paper_id")]
@@ -478,6 +486,7 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
         "target_words": target_words,
         "dominant_logic": dominant_logic,
         "major_papers": paper_ids,
+        "method_card_ids": [paper_id for paper_id in paper_ids if paper_id in method_cards],
         "review_claims": claims,
         "paragraph_types_suggested": paragraph_types,
         "figure_or_table_needs": [
@@ -492,6 +501,12 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
             "Choose the section depth and paragraph pattern that best serves the argument.",
             "Do not add prose solely to satisfy a word or paragraph target.",
         ],
+        "editorial_payload": [
+            "Orient the reader to why this family or problem matters before cataloguing examples.",
+            "Use representative methods deeply enough to expose conditions, scope, selectivity, and limitations when the evidence supports them.",
+            "Include a cross-method comparison or method-choice takeaway where the assigned material permits one.",
+            "Name a boundary, failed generalization, evidence limitation, or unresolved question instead of ending with praise alone.",
+        ],
         "section_transition": {
             "from_previous": f"Connect from {prev_title}." if prev_title else "Open the review scope and organizing logic.",
             "to_next": f"Set up {next_title}." if next_title else "Close with unresolved limitations and future directions.",
@@ -504,7 +519,66 @@ def build_section(section: dict[str, str], papers: list[dict[str, Any]], axes: l
     }
 
 
+def optional_rows(path: Path, key: str) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    data = read_json(path)
+    if isinstance(data, dict):
+        data = data.get(key)
+    return [row for row in data or [] if isinstance(row, dict)] if isinstance(data, list) else []
+
+
+def editorial_brief(
+    papers: list[dict[str, Any]],
+    sections: list[dict[str, Any]],
+    portfolio: dict[str, Any],
+    method_cards: list[dict[str, Any]],
+    coverage_items: list[dict[str, Any]],
+) -> dict[str, Any]:
+    usable_papers = [
+        paper for paper in papers if str(paper.get("role_after_reading") or "").lower() != "excluded"
+    ]
+    substantive = [
+        section
+        for section in sections
+        if not any(
+            word in str(section.get("title") or "").lower()
+            for word in ("abstract", "introduction", "conclusion", "outlook")
+        )
+    ]
+    # This is intentionally a wide editorial range, not a validator threshold.
+    range_low = max(5000, 850 * max(3, len(substantive)) + 60 * min(len(usable_papers), 40))
+    range_high = range_low + max(3000, 500 * max(3, len(substantive)))
+    attention = [item for item in coverage_items if str(item.get("status")) in {"thin", "unmapped"}]
+    return {
+        "status": "advisory_not_a_gate",
+        "portfolio_role_counts": portfolio.get("role_counts") if isinstance(portfolio, dict) else {},
+        "usable_paper_count": len(usable_papers),
+        "method_card_count": len(method_cards),
+        "coverage_items_needing_editorial_attention": [item.get("coverage_id") for item in attention],
+        "suggested_content_range": {
+            "lower_words": range_low,
+            "upper_words": range_high,
+            "note": "A planning signal only. Let argument, evidence, tables, and reader needs determine the final length.",
+        },
+        "reader_questions": [
+            "What are the main method or precursor families, and why is this organization useful?",
+            "What variables actually distinguish representative methods?",
+            "Which methods are comparable, and where would comparison be misleading?",
+            "What is directly observed, author-proposed, or inferred by the review?",
+            "What scope, selectivity, operational, or evidence limitations recur?",
+            "What should a reader choose, avoid, or investigate next?",
+        ],
+        "recommended_review_assets": [
+            {"kind": "original_overview_map", "required": False},
+            {"kind": "method_comparison_table", "required": False},
+            {"kind": "evidence_or_boundary_map", "required": False},
+        ],
+    }
+
+
 def write_plan(path: Path, blueprint: dict[str, Any]) -> None:
+    content_range = blueprint.get("editorial_brief", {}).get("suggested_content_range", {})
     lines = [
         "# Section Writing Plan",
         "",
@@ -512,6 +586,7 @@ def write_plan(path: Path, blueprint: dict[str, Any]) -> None:
         f"- Review topic: {blueprint.get('review_topic') or ''}",
         f"- Rule pack: `{blueprint.get('rule_pack')}` ({blueprint.get('rule_pack_path')})",
         f"- Created at: {blueprint.get('created_at')}",
+        f"- Advisory content range: {content_range.get('lower_words', 'open')}-{content_range.get('upper_words', 'open')} words (not a gate)",
         "",
     ]
     for section in blueprint["sections"]:
@@ -554,11 +629,20 @@ def run(args: argparse.Namespace) -> int:
     topic, papers, axes = load_matrix(matrix_path)
     rule_pack, rule_pack_path = select_rule_pack(skill_root, topic or outline_text)
     notes = load_notes(notes_path)
+    portfolio_path = stage_dir / "literature_portfolio.json"
+    portfolio = read_json(portfolio_path) if portfolio_path.exists() else {}
+    method_card_rows = optional_rows(stage_dir / "method_cards.json", "method_cards")
+    method_cards = {
+        str(row.get("paper_id")): row for row in method_card_rows if row.get("paper_id")
+    }
+    coverage_items = optional_rows(stage_dir / "coverage_ledger.json", "coverage_items")
     blueprint_sections = []
     for idx, section in enumerate(sections):
         prev_title = sections[idx - 1]["title"] if idx > 0 else ""
         next_title = sections[idx + 1]["title"] if idx + 1 < len(sections) else ""
-        blueprint_sections.append(build_section(section, papers, axes, notes, prev_title, next_title))
+        blueprint_sections.append(
+            build_section(section, papers, axes, notes, method_cards, prev_title, next_title)
+        )
 
     blueprint = {
         "project_id": args.project_id,
@@ -570,6 +654,13 @@ def run(args: argparse.Namespace) -> int:
         "created_at": utc_now(),
         "status": "draft_initialization_needs_semantic_review",
         "coverage_contract": build_coverage_contract(topic, papers, axes),
+        "editorial_brief": editorial_brief(
+            papers,
+            blueprint_sections,
+            portfolio if isinstance(portfolio, dict) else {},
+            method_card_rows,
+            coverage_items,
+        ),
         "sections": blueprint_sections,
     }
     out_json = stage_dir / "section_blueprint.json"

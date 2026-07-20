@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles/6b088a33-876b-4578-858d-cfacfbc17ff9_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles/6b088a33-876b-4578-858d-cfacfbc17ff9_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P153\\6b088a33-876b-4578-858d-cfacfbc17ff9_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P153"
   },
   "source_file": {
     "pdf_name": "3g-gold-catalyzed-nucleophilic-cyclization-of-functionalized-allenes-a-powerful-access-to-carbo-and-heterocycles.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 235,
       "markdown_chars_used": 14000
     },

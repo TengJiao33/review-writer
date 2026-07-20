@@ -32,9 +32,9 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.orglett.5c01235",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   },
   "abstract": {
@@ -44,10 +44,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Alkynol/ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary/927a8074-62ac-44bb-93ff-80c1317e1122_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P047\\927a8074-62ac-44bb-93ff-80c1317e1122_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P047"
   },
   "source_file": {
     "pdf_name": "ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.pdf",
@@ -59,7 +59,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:29Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 148,
       "markdown_chars_used": 14000
     },
@@ -77,7 +77,6 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "missing_doi",
       "structured_tag_not_specified_organometallic_partner"
     ],
     "overall_confidence": 0.801,
@@ -96,6 +95,18 @@
     },
     "source": "llm_from_rules_and_paper_evidence",
     "confidence": 0.95,
+    "human_checked": false
+  },
+  "volume": {
+    "value": "27",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "pages": {
+    "value": "4396-4403",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   }
 }

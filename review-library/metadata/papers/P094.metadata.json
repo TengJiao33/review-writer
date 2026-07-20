@@ -27,15 +27,15 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Nat. Commun. 2022",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1038/s41467-022-34764-x",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   },
   "abstract": {
@@ -45,10 +45,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/s41467-022-34764-x (1).pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/s41467-022-34764-x-1.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/s41467-022-34764-x-1/953f18db-eca3-413e-a0ea-b52e71662c20_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/s41467-022-34764-x-1"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\s41467-022-34764-x (1).pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\s41467-022-34764-x-1.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P094\\953f18db-eca3-413e-a0ea-b52e71662c20_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P094"
   },
   "source_file": {
     "pdf_name": "s41467-022-34764-x (1).pdf",
@@ -60,7 +60,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 171,
       "markdown_chars_used": 14000
     },
@@ -103,6 +103,18 @@
     },
     "source": "llm_from_rules_and_paper_evidence",
     "confidence": 0.84,
+    "human_checked": false
+  },
+  "volume": {
+    "value": "13",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "article_number": {
+    "value": "7049",
+    "source": "source_front_matter_verified",
+    "confidence": 0.99,
     "human_checked": false
   }
 }

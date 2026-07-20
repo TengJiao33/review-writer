@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Angew. Chem. Int. Ed. 2022, 61, e202117114.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/angew.-chem.-int.-ed.-2022-61-e202117114.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/angew.-chem.-int.-ed.-2022-61-e202117114/e4f0b185-8084-4080-bb77-26527f4e5f10_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/angew.-chem.-int.-ed.-2022-61-e202117114"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew. Chem. Int. Ed. 2022, 61, e202117114.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew.-chem.-int.-ed.-2022-61-e202117114.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P052\\e4f0b185-8084-4080-bb77-26527f4e5f10_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P052"
   },
   "source_file": {
     "pdf_name": "Angew. Chem. Int. Ed. 2022, 61, e202117114.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 141,
       "markdown_chars_used": 14000
     },

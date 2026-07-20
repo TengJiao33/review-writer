@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with/2c66c6d0-46b1-457c-a73b-54c8158f79dd_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with/2c66c6d0-46b1-457c-a73b-54c8158f79dd_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3h-Chemistry A European J - 2010 - López - Allenes as Three‐Carbon Units in Catalytic Cycloadditions  New Opportunities with.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P154\\2c66c6d0-46b1-457c-a73b-54c8158f79dd_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P154"
   },
   "source_file": {
     "pdf_name": "3h-Chemistry A European J - 2010 - López - Allenes as Three‐Carbon Units in Catalytic Cycloadditions  New Opportunities with.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 205,
       "markdown_chars_used": 14000
     },

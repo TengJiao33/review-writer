@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/3i-angew-chem-int-ed-2012-yu-allenes-in-catalytic-asymmetric-synthesis-and-natural-product-syntheses/6c830634-968b-4daf-8e15-0ed7563abce4_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/3i-angew-chem-int-ed-2012-yu-allenes-in-catalytic-asymmetric-synthesis-and-natural-product-syntheses.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/3i-angew-chem-int-ed-2012-yu-allenes-in-catalytic-asymmetric-synthesis-and-natural-product-syntheses/6c830634-968b-4daf-8e15-0ed7563abce4_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/3i-angew-chem-int-ed-2012-yu-allenes-in-catalytic-asymmetric-synthesis-and-natural-product-syntheses"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3i-Angew Chem Int Ed - 2012 - Yu - Allenes in Catalytic Asymmetric Synthesis and Natural Product Syntheses.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3i-angew-chem-int-ed-2012-yu-allenes-in-catalytic-asymmetric-synthesis-and-natural-product-syntheses.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P155\\6c830634-968b-4daf-8e15-0ed7563abce4_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P155"
   },
   "source_file": {
     "pdf_name": "3i-Angew Chem Int Ed - 2012 - Yu - Allenes in Catalytic Asymmetric Synthesis and Natural Product Syntheses.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 632,
       "markdown_chars_used": 14000
     },

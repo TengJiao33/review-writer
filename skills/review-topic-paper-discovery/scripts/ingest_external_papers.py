@@ -138,6 +138,9 @@ def reopen_screening_for_promotions(
                     "decision": "uncertain",
                     "relevance_summary": "",
                     "decision_basis": "Promoted from external coverage; topic screening required.",
+                    "portfolio_intent_hint": "needs_reading",
+                    "citation_role_hints": ["coverage_candidate"],
+                    "coverage_tags": [],
                 }
             )
             decision_ids.add(paper_id)

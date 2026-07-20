@@ -7,6 +7,8 @@ description: Start a review project, retrieve a high-recall candidate pool from 
 
 Build a broad candidate pool, then produce a screened set that directly serves the review question. The user may screen in the web interface or delegate the decision to the agent.
 
+Treat screening as construction of a literature portfolio, not a contest for a small core set. A paper may merit inclusion because it supplies direct evidence, a representative method, a comparison or limitation, a historical bridge, field orientation, or a declared coverage dimension. Exclude genuinely out-of-scope, duplicate, unusable, or misleading records; do not exclude a useful background paper merely because it cannot support the review's highest-risk claim.
+
 ## Topic contract
 
 Use one topic contract as the source of truth. Do not retype a shortened contract in a run script. Complete `topic_contract.json`, or pass the structured Markdown topic file directly:
@@ -72,7 +74,7 @@ Before screening is finalized, use one or two close recent reviews or perspectiv
 
 External metadata is for coverage discovery, not manuscript evidence. Results are matched against local DOI/title metadata and receive one promotion action in `external_ingest_plan.json`: `use_local`, `download_then_mineru`, or `locate_pdf`.
 
-For selected open-access papers, one command performs the normal promotion path—bounded to three papers by default—without adding another validator:
+For selected open-access papers, one command performs the normal promotion path—bounded to three papers per run by default—without adding another validator. Repeat selectively when the coverage portfolio exposes a consequential gap; do not ingest papers merely to inflate a count:
 
 ```bash
 python skills/review-topic-paper-discovery/scripts/ingest_external_papers.py \
@@ -91,9 +93,14 @@ For every local candidate, record:
   "paper_id": "P001",
   "decision": "include | exclude | uncertain",
   "relevance_summary": "How this paper relates to the central question",
-  "decision_basis": "The source information and project criterion used"
+  "decision_basis": "The source information and project criterion used",
+  "portfolio_intent_hint": "core | supporting | background | needs_reading",
+  "citation_role_hints": ["method_example", "comparative_support", "context"],
+  "coverage_tags": ["a declared topic dimension"]
 }
 ```
+
+The intent and citation-role fields are reading prompts and may change in the matrix stage. They keep useful context and comparison literature visible without lowering evidence depth for key claims. There is no target proportion or minimum reference count. After screening, inspect the retained role mix and important-coverage tags: if the set answers only the central mechanism or result question but cannot orient readers, compare methods, or show boundaries, reopen the most relevant candidates before shrinking the scope.
 
 Store these rows in `screening_decisions`. Store only `include` papers in `local_papers`. Set `screening.status` to `confirmed` and `screening.decided_by` to `user` or `agent`. A delegated agent screens from the candidate title, abstract, structured tags, and source paths stored in `selected_discovery_results.json`. Open the linked source when the abstract is missing or the decision remains uncertain.
 

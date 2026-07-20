@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines/d04d12cd-44b4-4523-abb0-00b24bf761dc_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines/d04d12cd-44b4-4523-abb0-00b24bf761dc_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\46-Angew Chem Int Ed - 2012 - Wan - Enantioselective Decarboxylative Amination  Synthesis of Axially Chiral Allenyl Amines.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P166\\d04d12cd-44b4-4523-abb0-00b24bf761dc_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P166"
   },
   "source_file": {
     "pdf_name": "46-Angew Chem Int Ed - 2012 - Wan - Enantioselective Decarboxylative Amination  Synthesis of Axially Chiral Allenyl Amines.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 79,
       "markdown_chars_used": 14000
     },

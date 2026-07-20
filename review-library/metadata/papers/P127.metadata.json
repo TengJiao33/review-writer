@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/28c-synthesis-of-2-5-bis-binaphthyl-phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium/05b18c7f-e264-4d0b-9ec9-52f3bfc6fd8f_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/28c-synthesis-of-2-5-bis-binaphthyl-phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/28c-synthesis-of-2-5-bis-binaphthyl-phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium/05b18c7f-e264-4d0b-9ec9-52f3bfc6fd8f_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/28c-synthesis-of-2-5-bis-binaphthyl-phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\28c-synthesis-of-2-5-bis(binaphthyl)phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\28c-synthesis-of-2-5-bis-binaphthyl-phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P127\\05b18c7f-e264-4d0b-9ec9-52f3bfc6fd8f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P127"
   },
   "source_file": {
     "pdf_name": "28c-synthesis-of-2-5-bis(binaphthyl)phospholes-and-phosphametallocene-derivatives-and-their-application-in-palladium.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 64,
       "markdown_chars_used": 14000
     },

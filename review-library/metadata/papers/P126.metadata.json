@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of/a0b044fd-0d64-452f-ba5d-6efbc0a242e5_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of/a0b044fd-0d64-452f-ba5d-6efbc0a242e5_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P126\\a0b044fd-0d64-452f-ba5d-6efbc0a242e5_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P126"
   },
   "source_file": {
     "pdf_name": "28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 34,
       "markdown_chars_used": 14000
     },

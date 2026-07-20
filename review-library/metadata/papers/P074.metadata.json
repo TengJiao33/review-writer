@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Nat. Commun. 2022, 13, 3302..pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/nat.-commun.-2022-13-3302.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/nat.-commun.-2022-13-3302/08a4af78-cc5f-4f48-9d66-d448dc1c5a19_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/nat.-commun.-2022-13-3302"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Nat. Commun. 2022, 13, 3302..pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nat.-commun.-2022-13-3302.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P074\\08a4af78-cc5f-4f48-9d66-d448dc1c5a19_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P074"
   },
   "source_file": {
     "pdf_name": "Nat. Commun. 2022, 13, 3302..pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:40Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 110,
       "markdown_chars_used": 14000
     },

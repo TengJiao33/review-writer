@@ -23,9 +23,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Chem. Rev.",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -41,10 +41,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment/b24e9f4f-c21b-4e2a-b2dc-1f821bd7fcda_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment/b24e9f4f-c21b-4e2a-b2dc-1f821bd7fcda_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P181\\b24e9f4f-c21b-4e2a-b2dc-1f821bd7fcda_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P181"
   },
   "source_file": {
     "pdf_name": "4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.pdf",
@@ -56,7 +56,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 145,
       "markdown_chars_used": 14000
     },

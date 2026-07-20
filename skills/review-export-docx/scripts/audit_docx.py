@@ -50,6 +50,14 @@ def markdown_image_count(path: Path | None) -> int | None:
     return len(re.findall(r"!\[[^\]]*\]\([^)]+\)", text))
 
 
+def markdown_title(path: Path | None) -> str | None:
+    if not path:
+        return None
+    text = path.read_text(encoding="utf-8")
+    match = re.search(r"(?m)^#\s+(.+?)\s*$", text)
+    return match.group(1).strip() if match else None
+
+
 def unformatted_formula_tokens(document: Document) -> list[dict[str, object]]:
     issues: list[dict[str, object]] = []
     for paragraph_index, paragraph in enumerate(document.paragraphs, start=1):
@@ -78,6 +86,21 @@ def audit(docx_path: Path, markdown_path: Path | None, render_qa: str = "not_run
     blockers: list[str] = []
     warnings: list[str] = []
     text = "\n".join(paragraph.text for paragraph in document.paragraphs)
+    properties = document.core_properties
+    expected_title = markdown_title(markdown_path)
+    stale_template_titles = {"template for electronic submission to acs journals"}
+    if not str(properties.title or "").strip():
+        blockers.append("document title metadata is empty")
+    elif str(properties.title).strip().lower() in stale_template_titles:
+        blockers.append("document title metadata still contains the template title")
+    elif expected_title and str(properties.title).strip() != expected_title:
+        blockers.append("document title metadata does not match the Markdown title")
+    if not str(properties.subject or "").strip():
+        blockers.append("document subject metadata is empty")
+    if str(properties.author or "").strip().lower() == "jiangzhen fu":
+        blockers.append("document author metadata still contains the template author")
+    if str(properties.last_modified_by or "").strip().lower() == "jiangzhen fu":
+        blockers.append("document last-modified-by metadata still contains the template author")
 
     if "<!-- paragraph_id:" in text:
         blockers.append("editor paragraph markers are visible")
@@ -85,6 +108,8 @@ def audit(docx_path: Path, markdown_path: Path | None, render_qa: str = "not_run
         blockers.append("stable citation tokens are visible")
     if re.search(r"\[P\d{3}\]", text):
         blockers.append("internal paper IDs are visible")
+    if re.search(r"\\(?:mathrm|mathbf|mathsf|ce)\b|_\s*\{|\^\s*\{", text):
+        blockers.append("raw LaTeX commands are visible")
 
     for name, expected in REQUIRED_STYLES.items():
         try:
@@ -152,6 +177,16 @@ def audit(docx_path: Path, markdown_path: Path | None, render_qa: str = "not_run
     ):
         blockers.append("a figure appears inside the Abstract block")
 
+    for paragraph_index, paragraph in enumerate(document.paragraphs):
+        if not paragraph._p.xpath(".//w:drawing"):
+            continue
+        keep_next = paragraph._p.pPr is not None and paragraph._p.pPr.keepNext is not None
+        if not keep_next:
+            blockers.append(f"figure paragraph {paragraph_index + 1} is not kept with its caption")
+        next_paragraph = document.paragraphs[paragraph_index + 1] if paragraph_index + 1 < len(document.paragraphs) else None
+        if next_paragraph is None or next_paragraph.style.name != "Review Figure Caption":
+            blockers.append(f"figure paragraph {paragraph_index + 1} is not followed by a figure caption")
+
     for table_index, table in enumerate(document.tables, start=1):
         widths = table._tbl.tblPr.findall(qn("w:tblW"))
         if len(widths) != 1 or widths[0].get(qn("w:w")) != "9360" or widths[0].get(qn("w:type")) != "dxa":
@@ -212,6 +247,13 @@ def audit(docx_path: Path, markdown_path: Path | None, render_qa: str = "not_run
         "table_count": len(document.tables),
         "inline_image_count": drawing_count,
         "markdown_image_count": expected_images,
+        "metadata": {
+            "title": properties.title,
+            "subject": properties.subject,
+            "author": properties.author,
+            "last_modified_by": properties.last_modified_by,
+            "keywords": properties.keywords,
+        },
         "numbered_paragraph_count": numbered_paragraphs,
         "subscript_run_count": subscript_runs,
         "superscript_run_count": superscript_runs,

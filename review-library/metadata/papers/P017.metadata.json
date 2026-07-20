@@ -49,10 +49,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/Progargylic/wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable/44b11e86-5587-48db-b863-123349f66040_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P017\\44b11e86-5587-48db-b863-123349f66040_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P017"
   },
   "source_file": {
     "pdf_name": "wang-et-al-2024-photoredox-copper-dual-catalyzed-phosphorothiolation-of-propargylic-derivatives-for-the-switchable.pdf",
@@ -64,7 +64,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-16T11:15:55Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 122,
       "markdown_chars_used": 14000
     },

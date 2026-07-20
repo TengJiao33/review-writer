@@ -23,12 +23,13 @@ def write_text(path: Path, text: str) -> None:
 
 
 def load_available_figures(project: Path) -> tuple[str, list[dict[str, Any]]]:
+    prepared: list[dict[str, Any]] = []
     redrawn_path = project / "03_figure_redraw" / "redrawn_figure_manifest.json"
     if redrawn_path.exists():
         data = read_json(redrawn_path)
         figures = data.get("figures") if isinstance(data, dict) else None
         if isinstance(figures, list):
-            usable = [
+            prepared.extend(
                 f
                 for f in figures
                 if isinstance(f, dict)
@@ -40,15 +41,30 @@ def load_available_figures(project: Path) -> tuple[str, list[dict[str, Any]]]:
                         and (f.get("verified_image") or f.get("source_image"))
                     )
                 )
-            ]
-            if usable:
-                statuses = {str(f.get("status")) for f in usable}
-                mode = statuses.pop() if len(statuses) == 1 else "prepared"
-                return mode, usable
+            )
+    original_path = project / "03_figure_redraw" / "review_visual_manifest.json"
+    if original_path.exists():
+        data = read_json(original_path)
+        visuals = data.get("visuals") if isinstance(data, dict) else None
+        if isinstance(visuals, list):
+            prepared.extend(
+                visual
+                for visual in visuals
+                if isinstance(visual, dict)
+                and visual.get("status") == "original_verified"
+                and visual.get("verification_status") == "passed"
+                and visual.get("original_image")
+            )
+    if prepared:
+        statuses = {str(figure.get("status")) for figure in prepared}
+        mode = statuses.pop() if len(statuses) == 1 else "prepared_mixed"
+        return mode, prepared
     candidates_path = project / "02_section_drafting" / "figure_candidates.json"
+    if not candidates_path.exists():
+        return "none", []
     data = read_json(candidates_path)
     figures = data.get("figures") if isinstance(data, dict) else data
-    source = [f for f in figures if isinstance(f, dict) and f.get("source_image_path")]
+    source = [f for f in figures or [] if isinstance(f, dict) and f.get("source_image_path")]
     return "source_candidates", source
 
 
@@ -63,11 +79,15 @@ def copy_figure(project: Path, figure: dict[str, Any], index: int, mode: str) ->
         src = figure.get("redrawn_image")
     elif status == "source_verified":
         src = figure.get("verified_image") or figure.get("source_image")
+    elif status == "original_verified":
+        src = figure.get("original_image")
     else:
         src = figure.get("source_image_path")
     if not src:
         return None
     src_path = Path(str(src))
+    if not src_path.exists():
+        src_path = project / src_path
     if not src_path.exists():
         return None
     suffix = src_path.suffix.lower() or ".png"
@@ -82,19 +102,24 @@ def copy_figure(project: Path, figure: dict[str, Any], index: int, mode: str) ->
 
 
 def figure_markdown(figure: dict[str, Any], rel_path: str, index: int, mode: str) -> str:
-    label = figure.get("source_label") or f"Figure {index}"
-    caption = figure.get("source_caption_text") or figure.get("what_it_shows") or ""
+    label = figure.get("source_label") or figure.get("visual_id") or f"Figure {index}"
+    caption = figure.get("caption") or figure.get("source_caption_text") or figure.get("what_it_shows") or ""
     source_title = figure.get("title") or "the cited source paper"
     status = figure.get("status")
     if status == "redrawn":
         note = "Redrawn figure verified against the source"
     elif status == "source_verified":
         note = "Source figure reproduced unchanged with attribution"
+    elif status == "original_verified":
+        basis = ", ".join(str(pid) for pid in figure.get("source_paper_ids") or [] if pid)
+        note = f"Original review synthesis based on the cited studies{f' ({basis})' if basis else ''}"
+        source_title = ""
     else:
         note = "Unverified source figure candidate"
+    source_clause = f" Source: {source_title}, {label}." if source_title else ""
     return (
         f"\n\n![{label}]({rel_path})\n\n"
-        f"**Figure {index}.** {caption} Source: {source_title}, {label}. {note}.\n\n"
+        f"**Figure {index}.** {caption}{source_clause} {note}.\n\n"
     )
 
 
@@ -206,7 +231,7 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
                 "figure_number": index,
                 "section_id": figure.get("section_id"),
                 "paper_id": figure.get("paper_id"),
-                "source_label": figure.get("source_label"),
+                "source_label": figure.get("source_label") or figure.get("visual_id"),
                 "inserted_path": rel,
                 "mode": figure.get("status") or mode,
                 "anchor_mode": anchor_mode,
@@ -224,7 +249,7 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
         "target_drafts": [path.parent.name for path in draft_paths],
         "inserted": inserted,
         "note": (
-            "source_verified figures are unchanged, source-checked figures. "
+            "source_verified figures are unchanged, source-checked figures; original_verified assets are independently checked review syntheses. "
             "source_candidates mode remains unverified and is blocked from final release."
         ),
     }

@@ -25,9 +25,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Synthesis",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis/5644c7c5-1067-4c15-8efe-3128d4776362_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis/5644c7c5-1067-4c15-8efe-3128d4776362_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P099\\5644c7c5-1067-4c15-8efe-3128d4776362_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P099"
   },
   "source_file": {
     "pdf_name": "13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:23Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 62,
       "markdown_chars_used": 12418
     },

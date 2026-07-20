@@ -27,9 +27,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Chem. Eur. J. 2023",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -45,10 +45,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Chem. Eur. J. 2023, 29, e202203130.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/chem.-eur.-j.-2023-29-e202203130.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/chem.-eur.-j.-2023-29-e202203130/dad95547-a9da-4a7d-9953-f9adba78d6ef_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/chem.-eur.-j.-2023-29-e202203130"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chem. Eur. J. 2023, 29, e202203130.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chem.-eur.-j.-2023-29-e202203130.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P060\\dad95547-a9da-4a7d-9953-f9adba78d6ef_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P060"
   },
   "source_file": {
     "pdf_name": "Chem. Eur. J. 2023, 29, e202203130.pdf",
@@ -60,7 +60,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 103,
       "markdown_chars_used": 14000
     },

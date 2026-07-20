@@ -42,10 +42,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Adv. Synth. Catal. 2022, 364, 565.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/adv.-synth.-catal.-2022-364-565.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/adv.-synth.-catal.-2022-364-565/a5531771-227d-498e-bdf4-69753efe98ca_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/adv.-synth.-catal.-2022-364-565"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv. Synth. Catal. 2022, 364, 565.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv.-synth.-catal.-2022-364-565.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P051\\a5531771-227d-498e-bdf4-69753efe98ca_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P051"
   },
   "source_file": {
     "pdf_name": "Adv. Synth. Catal. 2022, 364, 565.pdf",
@@ -57,7 +57,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 136,
       "markdown_chars_used": 14000
     },

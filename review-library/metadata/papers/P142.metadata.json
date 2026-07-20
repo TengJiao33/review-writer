@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated/9fda3bb0-8a3a-4339-a565-5c43950f951f_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated/9fda3bb0-8a3a-4339-a565-5c43950f951f_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P142\\9fda3bb0-8a3a-4339-a565-5c43950f951f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P142"
   },
   "source_file": {
     "pdf_name": "35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 84,
       "markdown_chars_used": 14000
     },

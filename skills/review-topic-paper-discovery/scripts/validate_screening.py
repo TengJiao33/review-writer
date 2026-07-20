@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -43,6 +44,8 @@ def validate(project: Path) -> dict[str, Any]:
         rows = []
 
     decisions: dict[str, str] = {}
+    intent_by_paper: dict[str, str] = {}
+    citation_hints_by_paper: dict[str, list[str]] = {}
     for index, row in enumerate(rows, start=1):
         if not isinstance(row, dict):
             blockers.append(f"screening_decisions[{index}] is not an object")
@@ -55,6 +58,13 @@ def validate(project: Path) -> dict[str, Any]:
         if paper_id in decisions:
             blockers.append(f"duplicate screening decision for {paper_id}")
         decisions[paper_id] = decision
+        intent_by_paper[paper_id] = str(row.get("portfolio_intent_hint") or "unrecorded")
+        raw_hints = row.get("citation_role_hints")
+        citation_hints_by_paper[paper_id] = (
+            [str(value) for value in raw_hints if str(value).strip()]
+            if isinstance(raw_hints, list)
+            else []
+        )
         if decision not in ALLOWED_DECISIONS:
             blockers.append(f"{paper_id}: decision must be include, exclude, or uncertain")
         if not str(row.get("relevance_summary") or "").strip():
@@ -82,13 +92,23 @@ def validate(project: Path) -> dict[str, Any]:
         blockers.append("local_papers must contain exactly the papers marked include")
 
     counts = {decision: sum(value == decision for value in decisions.values()) for decision in sorted(ALLOWED_DECISIONS)}
+    portfolio_counts = Counter(intent_by_paper.get(paper_id, "unrecorded") for paper_id in included)
+    citation_role_counts = Counter(
+        role for paper_id in included for role in citation_hints_by_paper.get(paper_id, [])
+    )
     if status == "confirmed" and not included:
         warnings.append("screening confirmed with no included papers")
+    if included and not any(role in portfolio_counts for role in ("supporting", "background")):
+        warnings.append(
+            "retained portfolio has no supporting/background intent recorded; inspect whether readers still have enough comparison and orientation material"
+        )
     return {
         "project_id": project.name,
         "screening_status": status,
         "decided_by": decided_by,
         "decision_counts": counts,
+        "portfolio_intent_counts": dict(portfolio_counts),
+        "citation_role_hint_counts": dict(citation_role_counts),
         "blocking_issues": sorted(set(blockers)),
         "warnings": warnings,
     }

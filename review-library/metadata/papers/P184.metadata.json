@@ -43,10 +43,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/mineru-outputs/extracted/50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols/8e7086e7-e5e0-409e-a4d2-5f010ea87b76_origin.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols/8e7086e7-e5e0-409e-a4d2-5f010ea87b76_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P184\\8e7086e7-e5e0-409e-a4d2-5f010ea87b76_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P184"
   },
   "source_file": {
     "pdf_name": "50c-facile-synthesis-of-1-4-diketones-via-palladium-complex-catalyzed-isomerization-of-alkynediols.pdf",
@@ -58,7 +58,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T19:32:24Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 126,
       "markdown_chars_used": 14000
     },

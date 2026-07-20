@@ -27,9 +27,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Asian J. Org. Chem. 2022",
+    "source": "filename_inferred",
+    "confidence": 0.6,
     "human_checked": false
   },
   "doi": {
@@ -45,10 +45,10 @@
     "human_checked": false
   },
   "source_paths": {
-    "pdf": "/home/ps/review-writer/source-paper/APA/Asian J. Org. Chem. 2022, 11, e202200399.pdf",
-    "markdown": "/home/ps/review-writer/mineru-outputs/markdown/asian-j.-org.-chem.-2022-11-e202200399.md",
-    "content_list": "/home/ps/review-writer/mineru-outputs/extracted/asian-j.-org.-chem.-2022-11-e202200399/0d9e4089-aced-44db-89aa-b5248675827a_content_list.json",
-    "extracted_dir": "/home/ps/review-writer/mineru-outputs/extracted/asian-j.-org.-chem.-2022-11-e202200399"
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Asian J. Org. Chem. 2022, 11, e202200399.pdf",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\asian-j.-org.-chem.-2022-11-e202200399.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P057\\0d9e4089-aced-44db-89aa-b5248675827a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P057"
   },
   "source_file": {
     "pdf_name": "Asian J. Org. Chem. 2022, 11, e202200399.pdf",
@@ -60,7 +60,7 @@
     "model": "gpt-5.4",
     "created_at": "2026-06-17T11:51:39Z",
     "inputs": {
-      "manifest": "/home/ps/review-writer/mineru-outputs/manifest.json",
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 98,
       "markdown_chars_used": 14000
     },

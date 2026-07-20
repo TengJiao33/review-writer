@@ -452,8 +452,31 @@ def run(args: argparse.Namespace) -> int:
     api_key = "" if args.use_source else resolve_api_key(args.api_key)
     source_rows: list[dict[str, Any]] = []
     redraw_rows: list[dict[str, Any]] = []
-    limit = args.limit if args.limit and args.limit > 0 else len(figures)
-    processed_figures = figures[:limit]
+    selected_figures = [
+        figure
+        for figure in figures
+        if isinstance(figure, dict)
+        and (
+            figure.get("manuscript_selected") is True
+            or str(figure.get("editorial_status") or "").lower() in {"selected", "adapted", "combined"}
+        )
+    ]
+    limit = args.limit if args.limit and args.limit > 0 else len(selected_figures)
+    processed_figures = selected_figures[:limit]
+    selection_issues = []
+    for figure in processed_figures:
+        label = str(figure.get("source_label") or figure.get("paper_id") or "figure")
+        if not str(figure.get("reader_job") or "").strip():
+            selection_issues.append(f"{label}: reader_job is missing")
+        if not str(figure.get("placement_rationale") or "").strip():
+            selection_issues.append(f"{label}: placement_rationale is missing")
+        if args.use_source and not str(figure.get("reuse_basis") or "").strip():
+            selection_issues.append(f"{label}: reuse_basis is missing")
+    if selection_issues:
+        raise SystemExit(
+            "Selected figures need an explicit reader job, placement decision, and reuse basis:\n- "
+            + "\n- ".join(selection_issues)
+        )
     for index, figure in enumerate(processed_figures, start=1):
         if not isinstance(figure, dict):
             continue
@@ -475,6 +498,9 @@ def run(args: argparse.Namespace) -> int:
             "source_completeness": figure.get("source_completeness"),
             "source_page_review_status": figure.get("source_page_review_status"),
             "recommended_action": figure.get("recommended_action"),
+            "reader_job": figure.get("reader_job"),
+            "placement_rationale": figure.get("placement_rationale"),
+            "reuse_basis": figure.get("reuse_basis"),
             "status": "resolved" if source_image else "unresolved",
             "notes": notes,
         }
@@ -495,8 +521,11 @@ def run(args: argparse.Namespace) -> int:
             "source_completeness": figure.get("source_completeness"),
             "source_page_review_status": figure.get("source_page_review_status"),
             "title": figure.get("title"),
+            "reader_job": figure.get("reader_job"),
+            "placement_rationale": figure.get("placement_rationale"),
+            "reuse_basis": figure.get("reuse_basis"),
             "prompt": None,
-            "model": args.model,
+            "model": None if args.use_source else args.model,
             "quality": args.quality,
             "background": args.background,
             "output_format": args.output_format,

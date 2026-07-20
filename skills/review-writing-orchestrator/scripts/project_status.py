@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -36,6 +37,10 @@ STAGES: list[dict[str, Any]] = [
             "matrix_outline_report.md",
             "matrix_validation.json",
             "matrix_validation.md",
+            "literature_portfolio.json",
+            "method_cards.json",
+            "coverage_ledger.json",
+            "portfolio_report.md",
         ],
     },
     {
@@ -101,6 +106,7 @@ STAGES: list[dict[str, Any]] = [
             "format_scan.json",
             "format_scan.md",
             "semantic_audit.json",
+            "semantic_audit_queue.json",
             "content_audit_report.md",
             "format_audit_report.md",
             "final_draft.md",
@@ -116,6 +122,7 @@ STAGES: list[dict[str, Any]] = [
         "required": [
             "final_draft.docx",
             "docx_audit.json",
+            "render_qa_report.json",
         ],
     },
 ]
@@ -133,6 +140,69 @@ def discover_projects(review_root: Path) -> list[str]:
     if not root.exists():
         return []
     return sorted(p.name for p in root.iterdir() if p.is_dir())
+
+
+def run_record_issues(project: Path, stages: list[dict[str, Any]]) -> list[str]:
+    record_path = project / "run_record.md"
+    events_path = project / "run_events.jsonl"
+    issues = []
+    if not record_path.exists():
+        issues.append("project_run_record_missing")
+    elif "Generated from `run_events.jsonl`" not in record_path.read_text(encoding="utf-8", errors="ignore"):
+        issues.append("project_run_record_not_generated_from_events")
+    if not events_path.exists():
+        return issues + ["project_run_events_missing"]
+    events = []
+    for line_no, line in enumerate(events_path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
+        if not line.strip():
+            continue
+        try:
+            event = json.loads(line)
+        except Exception:
+            issues.append(f"invalid_run_event_json:{line_no}")
+            continue
+        if not isinstance(event, dict):
+            issues.append(f"invalid_run_event:{line_no}")
+            continue
+        if str(event.get("project_id") or "") != project.name:
+            issues.append(f"run_event_project_mismatch:{line_no}")
+        if str(event.get("stage") or "") not in {stage["id"] for stage in STAGES} | {"status"}:
+            issues.append(f"invalid_run_event_stage:{line_no}")
+        parsed_times: dict[str, datetime] = {}
+        for key in ("started_at", "finished_at"):
+            value = str(event.get(key) or "")
+            try:
+                parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+                if "T" not in value or parsed.tzinfo is None:
+                    raise ValueError("timestamp must include time and timezone")
+                parsed_times[key] = parsed
+            except Exception:
+                issues.append(f"invalid_run_event_timestamp:{line_no}:{key}")
+        if (
+            "started_at" in parsed_times
+            and "finished_at" in parsed_times
+            and parsed_times["finished_at"] < parsed_times["started_at"]
+        ):
+            issues.append(f"run_event_time_order_invalid:{line_no}")
+        if not str(event.get("cwd") or "").strip():
+            issues.append(f"run_event_cwd_missing:{line_no}")
+        if not isinstance(event.get("command"), list) or not event.get("command"):
+            issues.append(f"run_event_command_missing:{line_no}")
+        if not isinstance(event.get("exit_code"), int):
+            issues.append(f"run_event_exit_code_missing:{line_no}")
+        events.append(event)
+    by_stage: dict[str, list[dict[str, Any]]] = {}
+    for event in events:
+        by_stage.setdefault(str(event.get("stage") or ""), []).append(event)
+    for stage in stages:
+        if not stage.get("complete"):
+            continue
+        stage_events = by_stage.get(stage["id"], [])
+        if not stage_events:
+            issues.append(f"run_event_missing_for_completed_stage:{stage['id']}")
+        elif stage_events[-1].get("exit_code") != 0:
+            issues.append(f"last_run_event_failed_for_stage:{stage['id']}")
+    return list(dict.fromkeys(issues))
 
 
 def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
@@ -166,8 +236,50 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
     if stage["id"] == "figure_redraw":
         skip_anchor = stage_dir / stage.get("skip_anchor", "skip_reason.md")
         skip_active = skip_anchor.exists() and bool(skip_anchor.read_text(encoding="utf-8", errors="ignore").strip())
-        if skip_active:
-            # A documented text-first decision completes this optional stage.
+        candidate_payload = read_json(project / "02_section_drafting" / "figure_candidates.json")
+        candidate_rows = candidate_payload.get("figures") if isinstance(candidate_payload, dict) else candidate_payload
+        source_selected = isinstance(candidate_rows, list) and any(
+            isinstance(row, dict)
+            and (
+                row.get("manuscript_selected") is True
+                or str(row.get("editorial_status") or "").lower() in {"selected", "adapted", "combined"}
+            )
+            for row in candidate_rows
+        )
+        visual_manifest_path = stage_dir / "review_visual_manifest.json"
+        visual_manifest = read_json(visual_manifest_path) if visual_manifest_path.exists() else None
+        visual_rows = visual_manifest.get("visuals") if isinstance(visual_manifest, dict) else []
+        if visual_manifest_path.exists() and not isinstance(visual_rows, list):
+            semantic_issues.append("invalid_review_visual_manifest")
+            visual_rows = []
+        selected_visuals = [
+            visual
+            for visual in visual_rows
+            if isinstance(visual, dict) and visual.get("status") not in {"suggested", "skipped"}
+        ]
+        usable_originals = []
+        for visual in selected_visuals:
+            raw_path = visual.get("original_image")
+            image_path = Path(str(raw_path)) if raw_path else None
+            asset_exists = bool(
+                image_path and (image_path.exists() or (project / image_path).exists())
+            )
+            if (
+                visual.get("status") == "original_verified"
+                and visual.get("verification_status") == "passed"
+                and asset_exists
+            ):
+                usable_originals.append(visual)
+        if selected_visuals and not usable_originals:
+            semantic_issues.append("original_visual_preparation_incomplete")
+
+        if skip_active or (not source_selected and not selected_visuals):
+            # Figure count is editorial. No selected asset means there is no
+            # preparation sub-workflow to complete.
+            missing = []
+        elif usable_originals:
+            # Original synthesis has its own evidence and rendered-asset check;
+            # source-redraw artifacts are not prerequisites for this path.
             missing = []
         else:
             manifest = read_json(stage_dir / "redrawn_figure_manifest.json")
@@ -276,6 +388,16 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                 semantic_issues.append("docx_audit_has_blocking_issues")
             if docx_audit.get("render_qa") != "passed":
                 semantic_issues.append("docx_visual_qa_not_passed")
+        render_report = read_json(project / "05_final_audit" / "render_qa_report.json")
+        if isinstance(render_report, dict):
+            if render_report.get("render_status") != "passed":
+                semantic_issues.append("docx_render_not_passed")
+            if render_report.get("inspection_status") != "passed":
+                semantic_issues.append("docx_page_inspection_not_passed")
+            if not render_report.get("renderer"):
+                semantic_issues.append("docx_renderer_identity_missing")
+        elif "render_qa_report.json" not in missing:
+            semantic_issues.append("invalid_render_qa_report")
     if stage["id"] in {"first_draft", "final_audit"}:
         draft_path = stage_dir / ("first_draft.md" if stage["id"] == "first_draft" else "final_draft.md")
         if draft_path.exists():
@@ -342,9 +464,7 @@ def summarize(review_root: Path, project_id: str) -> dict[str, Any]:
     completed = [s for s in stages if s["complete"]]
     # Skip stages explicitly opted out by the user (skip_reason.md present).
     next_stage = next((s for s in stages if not s["complete"] and not s.get("skipped_by_user")), None)
-    workflow_issues = []
-    if not (project / "run_record.md").exists():
-        workflow_issues.append("project_run_record_missing")
+    workflow_issues = run_record_issues(project, stages)
     return {
         "project_id": project_id,
         "exists": True,
