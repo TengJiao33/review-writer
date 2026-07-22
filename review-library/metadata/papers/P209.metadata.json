@@ -1,0 +1,112 @@
+{
+  "paper_id": "P209",
+  "slug": "web-imports-2020-efficient-electron-transmission-in-c-019-14237-4",
+  "title": {
+    "value": "Efficient electron transmission in covalent organic framework nanosheets for highly active electrocatalytic carbon dioxide reduction",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Hong-Jing Zhu<sup>",
+      "</sup>",
+      "Meng Lu <sup>",
+      "Yi-Rong Wang<sup></sup>",
+      "Su-Juan Yao<sup></sup>",
+      "Mi Zhang<sup></sup>",
+      "Yu-He Kan <sup></sup>",
+      "Jiang Liu <sup></sup>",
+      "Yifa Chen<sup></sup>",
+      "Shun-Li Li<sup></sup> & Ya-Qian Lan <sup></sup>"
+    ],
+    "source": "content_list_after_title",
+    "confidence": 0.74,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2020,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-019-14237-4",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Efficient conversion of carbon dioxide $( \\mathsf { C O } _ { 2 } )$ into value-added products is essential for clean energy research. Design of stable, selective, and powerful electrocatalysts for ${ \\mathsf { C O } } _ { 2 }$ reduction reaction $( \\mathsf { C O } _ { 2 } \\mathsf { R R } )$ is highly desirable yet largely unmet. In this work, a series of metalloporphyrin-tetrathiafulvalene based covalent organic frameworks (M-TTCOFs) are designed. Tetrathiafulvalene, serving as electron donator or carrier, can construct an oriented electron transmission pathway with metalloporphyrin. Thus-obtained M-TTCOFs can serve as electrocatalysts with high $\\mathsf { F E } _ { \\mathsf { C O } }$ (91.3%, −0.7 V) and possess high cycling stability (>40 h). In addition, after exfoliation, the $\\mathsf { F E } _ { \\mathsf { C O } }$ value of Co-TTCOF nanosheets (\\~5 nm) is higher than 90% in a wide potential range from −0.6 to −0.9 V and the maximum $\\mathsf { F E } _ { \\mathsf { C O } }$ can reach up to almost 100% (99.7%, −0.8 V). The electrocatalytic $C O _ { 2 } { \\mathsf { R R } }$ mechanisms are discussed and revealed by density functional theory calculations. This work paves a new way in exploring porous crystalline materials in electrocatalytic $C O _ { 2 } { \\mathsf { R R } }$",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2020-efficient-electron-transmission-in-c--019-14237-4.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2020-efficient-electron-transmission-in-c-019-14237-4.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2020-efficient-electron-transmission-in-c-019-14237-4\\35f98d44-dd06-4efe-bd02-5707cabcdcf9_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2020-efficient-electron-transmission-in-c-019-14237-4"
+  },
+  "source_file": {
+    "pdf_name": "2020-efficient-electron-transmission-in-c--019-14237-4.pdf",
+    "relative_pdf_path": "web-imports\\2020-efficient-electron-transmission-in-c--019-14237-4.pdf",
+    "sha256": "c6c1ab54efeda7bd2b54c283cd5fdc868e29392aef86150f71530fd10c8cebe9"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 190,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "missing_journal",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.597,
+    "needs_human_check": true
+  }
+}

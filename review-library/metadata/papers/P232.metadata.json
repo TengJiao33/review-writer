@@ -1,0 +1,106 @@
+{
+  "paper_id": "P232",
+  "slug": "web-imports-2020-morphology-and-mechanical-properties-mp-20-3-5397",
+  "title": {
+    "value": "Morphology and Mechanical Properties of Polyethylene Terephthalate/Ethylene Propylene Diene Monomer (PET/EPDM) in the Presence of Nanoclay",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Baifen Liu",
+      "Mohammad Mirjalili",
+      "Peiman Valipour",
+      "Sajad Porzal",
+      "shirin Nourbakhsh"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2020,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Materiale Plastice",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.37358/mp.20.3.5397",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "This research deals with the mechanical properties, microstructure, and interrelations of triple nanocomposite based on PET/EPDM/Nanoclay. These properties were examined in different percentages of PET/EPDM blend with compatibilizer (Styrene-Ethylene/Butylene-Styrene)-G-(Maleic anhydrate) (SEBS-g-MAH). Results showed that the addition of 15% SEBS-g-MAH improved the toughness and impact strength of this nanocomposite. SEM micrographs indicated the most stable fuzzy microstructure in a 50/50 mixture of scattered phases of EPDM/SEBS-g-MAH. The effects of percentages of 1, 3, 5, 7 nanoclay Cloisite 30B (C30B) on the improvement of the properties were evaluated. With the addition of nano clay, the toughness and impact strength was reduced. Thermal destruction of nanoclay in processing temperature led to the decreasing dispersion of clay plates in the matrix and a reduction in the distances of nano clay plates in the composite compared to pure nano clay. XRD and TEM analysis was used to demonstrate the results. By adding 1% of nanoclay to the optimal sample, maximum stiffness, and Impact strength, among other nanocomposites, was achieved.",
+    "source": "content_list_inline_abstract",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2020-morphology-and-mechanical-properties-mp-20-3-5397.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2020-morphology-and-mechanical-properties-mp-20-3-5397.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-morphology-and-mechanical-properties-mp-20-3-5397\\79f06ea5-defb-4233-aa8e-7448fc1b46cb_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-morphology-and-mechanical-properties-mp-20-3-5397"
+  },
+  "source_file": {
+    "pdf_name": "2020-morphology-and-mechanical-properties-mp-20-3-5397.pdf",
+    "relative_pdf_path": "web-imports\\2020-morphology-and-mechanical-properties-mp-20-3-5397.pdf",
+    "sha256": "7914ef854ed2ee6673426b862feb9f796f15d1829840a0ba882a4926bade3941"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 176,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:doi,authors,journal"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.831,
+    "needs_human_check": true
+  }
+}

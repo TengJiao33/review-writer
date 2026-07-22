@@ -2,68 +2,78 @@
   "paper_id": "P204",
   "slug": "9a",
   "title": {
-    "value": "Chiral Allenes are Racemised by Organocuprates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Chiral Allenes are Racemised by Organocuprates†",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Alf Claesson",
-      "Lars-Inge Olsson"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 1979,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Tetrahedron Letters",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2024,
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of Organic Chemistry",
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.joc.4c00123",
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "The chiral allenes (1) and (2) are racemised in the presence of various organocuprates, or, in the case of the alcohol (2), by methylmagnesium iodide alone; the racemisations probably proceed via an anion radical.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\9a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\9a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P204\\987c1b42-56d9-4323-b362-edfdd30cea93_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P204"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\9a"
   },
   "source_file": {
     "pdf_name": "9a.pdf",
     "relative_pdf_path": "9a.pdf",
-    "sha256": "9ae8ed7014937de36ea69524fe9e0223d027ce22e74c1bd4eca039c433d441be"
+    "sha256": "6f08ec173e64b7606add061f36e321cd197190702f6968fa0659c5a896fd6bb5"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 31,
+      "content_blocks": 0,
       "markdown_chars_used": 7884
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,34 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
       "empty_authors",
-      "missing_year",
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "The paper concerns stoichiometric organocuprate-mediated racemization rather than true catalysis; the closest allowed catalyst/method label is 'copper catalysis'.",
-      "The studied starting materials are general chiral allenes, but the allowed substrate labels do not include a generic allene class, so 'not specified' was used for substrate.",
       "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.776,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "mechanistic study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "Grignard reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "radical transformations of allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.76,
-    "human_checked": false
   }
 }

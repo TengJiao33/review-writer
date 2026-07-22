@@ -2,35 +2,27 @@
   "paper_id": "P026",
   "slug": "angew-chem-int-ed-2024-wen-remote-enantioselective-alkylation-of-copper-ethynylallenylidenes-precise-control-of",
   "title": {
-    "value": "Remote Enantioselective ε-Alkylation of Copper Ethynylallenylidenes: Precise Control of Central and Axial Chirality",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Cooperative Catalysis",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yu-Hua Wen",
-      "Minghao Liu",
-      "Yu-Hao Wang",
-      "Qian-Wei Gong",
-      "Shuai Li",
-      "Jin Song",
-      "Liu-Zhu Gong"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Angew. Chem. Int. Ed.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed. 2025",
+    "source": "how_to_cite_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -40,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Chiral tetrasubstituted allenes have emerged as important architectures for engineering biologically active compounds. The construction of unique tetrasubstituted allene scaffolds with precise control of continuous central and axial chirality remains yet to be developed. Here, we report a remote enantioselective ε-alkylation of yne-propargylic acetates with enals enabled by NHC and copper cooperative catalysis, leading to a series of tetrasubstituted allenes with excellent enantioselectivities (up to >99% ee) and diastereoselectivities (up to >95:5 dr). This method features high regioselectivity and simultaneous control of axial and central chirality. Mechanistic studies suggest a cooperative activation mode and synergistic control of distal chirality created from the copper ethynylallenylidenes.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Chiral tetrasubstituted allenes have emerged as important architectures for engineering biologically active compounds. The construction of unique tetrasubstituted allene scaffolds with precise control of continuous central and axial chirality remains yet to be developed. Here, we report a remote enantioselective ɛ- alkylation of yne-propargylic acetates with enals enabled by NHC and copper cooperative catalysis, leading to a series of tetrasubstituted allenes with excellent enantioselectivities (up to > 99 % ee) and diastereoselectivities (up to >95 :5 dr). This method features high regioselectivity and simultaneous control of axial and central chirality. Mechanistic studies suggest a cooperative activation mode and synergistic control of distal chirality created from the copper ethynylallenylidenes.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew Chem Int Ed - 2024 - Wen - Remote Enantioselective  ‐Alkylation of Copper Ethynylallenylidenes  Precise Control of.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2024-wen-remote-enantioselective-alkylation-of-copper-ethynylallenylidenes-precise-control-of.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P026\\00783a11-e5ab-4b6d-8401-f8fc9a6f5c79_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P026"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew-chem-int-ed-2024-wen-remote-enantioselective-alkylation-of-copper-ethynylallenylidenes-precise-control-of"
   },
   "source_file": {
     "pdf_name": "Angew Chem Int Ed - 2024 - Wen - Remote Enantioselective  ‐Alkylation of Copper Ethynylallenylidenes  Precise Control of.pdf",
@@ -57,18 +65,15 @@
     "sha256": "636c4176fef1ce64ca6e7112aa5309bce8e479a0347f7d1c558da1ec93e14548"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 151,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,29 +84,13 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Front matter shows citation year 2025, while the footer shows © 2024 Wiley-VCH; year assigned from the citation/front matter.",
-      "The first markdown heading \"Cooperative Catalysis\" is a section/banner heading, not the article title.",
-      "The paper uses cooperative NHC/copper catalysis, but the controlled vocabulary for catalyst_or_method permits only one label; classified under copper catalysis as the central metal-mediated activation.",
-      "The stereocontrolling system includes both a chiral Pybox ligand and a chiral NHC catalyst, but the controlled vocabulary permits only one ligand_or_chiral_source label; classified as non-phosphorus metal-coordination ligands based on the explicitly named Pybox ligand.",
-      "The transformation is described as remote ε-alkylation/allenylation of yne-propargylic acetates with enals; the closest available reaction_type label is propargylic substitution and cross-coupling.",
-      "structured_tag_not_specified_organometallic_partner"
+      "empty_authors",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.926,
+    "overall_confidence": 0.633,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.91,
-    "human_checked": false
   }
 }

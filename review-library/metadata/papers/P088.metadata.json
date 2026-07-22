@@ -3,25 +3,20 @@
   "slug": "org.-lett.-2023-25-6654",
   "title": {
     "value": "Organocatalytic Tandem Synthesis of Chiral Hexacyclic Bisindoles from Propargylic 3‑Methyleneindoles with 2‑Indolylmethanols",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Kanghua Rui",
-      "Haorui Gu",
-      "Alemayehu Gashaw Woldegiorgis",
-      "Xufeng Lin"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A novel chiral phosphoric acid-catalyzed tandem regioselective 1,6-addition/double intramolecular nucleophilic addition annulation of the propargylic 3-methyleneindoles in situ generated from α-indolyl propargylic alcohols with 2-indolylmethanols has been developed. The methodology afforded the new chiral trifluoromethyl pentalenobisindoles bearing an all-carbon quaternary stereogenic center in generally good yields with excellent enantioselectivities.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "A novel chiral phosphoric acid-catalyzed tandem regioselective 1,6-addition/double intramolecular nucleophilic addition annulation of the propargylic 3-methyleneindoles in situ generated from α-indolyl propargylic alcohols with 2-indolylmethanols has been developed. The methodology afforded the new chiral trifluoromethyl pentalenobisindoles bearing an all-carbon quaternary stereogenic center in generally good yields with excellent enantioselectivities. ![](../extracted/org.-lett.-2023-25-6654/images/0a71faea0849bae99c1ac3046a81c63f4d94fd59f30a6e3af17e8e8392b41305.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing synthesis of a substituted tetrahydroquinoline derivative using hexafluorobenzene under CPA conditions </details> B isindole scaffolds are commonly found in various natural1 products that exhibit intriguing biological activities, in which two indole units can be incorporated into fused or open systems. Bisindole alkaloids, in particular, have been a subject of significant attention due to their highly potent biological properties in comparison to monoindole alkaloids.2 On the other hand, pentaleno bisindole compounds have great potential in the field of materials chemistry, especially as liquid crystalline indole materials.3 However, to date, the methods of constructing the pentaleno bisindole skeletons are rather limited, which was prepared by a 2-fold Fischer indole cyclization process that demands the use of stoichiometric amounts of Lewis acid.4 Therefore, it has become an important task to design energy-efficient and “green” catalytic methods that employ easily accessible substrates to synthesize these complex polycyclic bisindole structures. The 2-indolylmethanols have proven to be highly versatile platform molecules in the construction of chiral indole-based scaffolds. These molecules have been effectively employed in catalytic asymmetric C3-electrophilic substitutions, C3-nucleophilicity, and cycloadditions.5 At the same time, the versatility of propargylic alcohols in constructing polycyclic compounds is undeniable.6 However, the majority of reactions result in racemic products due to the difficulty in controlling the stereochemistry of propargylic carbocation species formed in situ from propargylic alcohols. To overcome this challenge, researchers have installed directing groups on propargylic alcohols to generate new reactive intermediates through efficient dehydration. Recent studies have reported the successful construction of axially chiral tetrasubstituted allenes and enantioenriched polycyclic compounds using propargylic (aza)-p-quinone methides7 and propargylic N-acyl imines8 (Scheme 1a). Moreover, propargylic 3-methyleneindoles have been widely used in asymmetric conjugate addition with diverse nucleophiles to construct axially chiral tetrasubstituted allenes due to their excellent electrophilicity (Scheme 1b).9",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2023, 25, 6654.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2023-25-6654.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P088\\0552653a-216f-4466-b4b7-bff57fbb25ee_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P088"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2023-25-6654"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2023, 25, 6654.pdf",
@@ -54,18 +65,15 @@
     "sha256": "bb9e38059c12447254685af1fcd27db9c393555c0e0a56c31ce09ec954a1f47b"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 118,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,27 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Paper also reports a secondary CPA-catalyzed 1,6-addition to form axially chiral allenes; structured tags reflect the main bisindole annulation.",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.79,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "conjugate 1,6-addition to enynes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

@@ -3,24 +3,20 @@
   "slug": "hfip-promoted-friedel-crafts-allenylation-of-imidazopyridines-with-propargyl-alcohols-at-room-temperature",
   "title": {
     "value": "HFIP-Promoted Friedel−Crafts Allenylation of Imidazopyridines with Propargyl Alcohols at Room Temperature",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Srinivasarao Yaragorla",
-      "Aayesha Shaik",
-      "Dandugula Sneha Latha"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,15 +33,31 @@
   },
   "abstract": {
     "value": "Herein, we report an efficient synthetic protocol for the Friedel−Crafts reaction of imidazo[1,2-a]pyridines with propargyl alcohols in HFIP. Notably, this FC allenylation works without any additional solvent or catalyst and requires neither inert conditions nor heating. In this method, HFIP, besides offering hydrogen bonding with propargyl alcohol, also stabilizes the resultant carbocation, thus forming the product. This method also enables the straightforward synthesis of 1,3-enynes. The current method offers a large substrate diversity with good to excellent yields. We also demonstrated gram-scale synthesis and synthetic modifications.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\hfip-promoted-friedel-crafts-allenylation-of-imidazopyridines-with-propargyl-alcohols-at-room-temperature.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\hfip-promoted-friedel-crafts-allenylation-of-imidazopyridines-with-propargyl-alcohols-at-room-temperature.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P046\\a8c1d963-80e7-410d-854a-9bbfd1004f13_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P046"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\hfip-promoted-friedel-crafts-allenylation-of-imidazopyridines-with-propargyl-alcohols-at-room-temperature"
   },
   "source_file": {
     "pdf_name": "hfip-promoted-friedel-crafts-allenylation-of-imidazopyridines-with-propargyl-alcohols-at-room-temperature.pdf",
@@ -53,18 +65,15 @@
     "sha256": "bf2eaa2ed70e0b57e814368eae55954198e671e8c0c197713a2a1d42c6612b1c"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 241,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,32 +84,17 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Paper also reports 1,3-enyne and benzylation outcomes for vinyl and secondary propargyl alcohols; tags reflect the main allenylation manifold.",
-      "The allowed taxonomy has no dedicated label for HFIP-promoted metal-free activation of propargylic alcohols, so `catalyst_or_method` is recorded as `not specified`.",
-      "The allowed leaving-group taxonomy does not include hydroxy/propargyl alcohol departure, so `leaving_group` is recorded as `not specified`.",
-      "The paper also reports formation of 1,3-enynes from vinyl propargyl alcohols, but the main allene-focused product classification is based on the title, abstract, and principal scope of allenylation products.",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.784,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

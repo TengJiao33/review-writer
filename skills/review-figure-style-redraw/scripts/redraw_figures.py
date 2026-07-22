@@ -470,8 +470,28 @@ def run(args: argparse.Namespace) -> int:
             selection_issues.append(f"{label}: reader_job is missing")
         if not str(figure.get("placement_rationale") or "").strip():
             selection_issues.append(f"{label}: placement_rationale is missing")
-        if args.use_source and not str(figure.get("reuse_basis") or "").strip():
+        if not str(figure.get("reuse_basis") or "").strip():
             selection_issues.append(f"{label}: reuse_basis is missing")
+        rights = figure.get("reuse_rights")
+        missing_rights = []
+        if not isinstance(rights, dict) or rights.get("status") != "verified":
+            missing_rights.append("status=verified")
+            rights = rights if isinstance(rights, dict) else {}
+        for key in (
+            "basis",
+            "license_url_or_permission_record",
+            "source_locator",
+            "adaptation",
+            "attribution_text",
+        ):
+            if not str(rights.get(key) or "").strip():
+                missing_rights.append(key)
+        if rights.get("third_party_material_checked") is not True:
+            missing_rights.append("third_party_material_checked=true")
+        if missing_rights:
+            selection_issues.append(
+                f"{label}: reuse_rights is not verified ({', '.join(missing_rights)})"
+            )
     if selection_issues:
         raise SystemExit(
             "Selected figures need an explicit reader job, placement decision, and reuse basis:\n- "
@@ -501,6 +521,7 @@ def run(args: argparse.Namespace) -> int:
             "reader_job": figure.get("reader_job"),
             "placement_rationale": figure.get("placement_rationale"),
             "reuse_basis": figure.get("reuse_basis"),
+            "reuse_rights": figure.get("reuse_rights"),
             "status": "resolved" if source_image else "unresolved",
             "notes": notes,
         }
@@ -524,6 +545,7 @@ def run(args: argparse.Namespace) -> int:
             "reader_job": figure.get("reader_job"),
             "placement_rationale": figure.get("placement_rationale"),
             "reuse_basis": figure.get("reuse_basis"),
+            "reuse_rights": figure.get("reuse_rights"),
             "prompt": None,
             "model": None if args.use_source else args.model,
             "quality": args.quality,

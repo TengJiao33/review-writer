@@ -1,25 +1,26 @@
 ---
 name: review-figure-style-redraw
-description: Prepare selected review figures by source-verifying the original extracted image or, when useful, redrawing it into a unified style while preserving chemistry and content. The source-verified path does not require an image API. Use after section drafting has produced figure_candidates.json and before manuscript merge.
+description: Verify selected source figures, prepare evidence-linked original review visuals, or redraw useful figures while preserving scientific content.
 ---
 
 # Review Figure Preparation
 
-Use this skill when a source figure or an original review synthesis visual is worth including. Source reuse and original synthesis are independent paths.
-
-This stage uses a script because file resolution, API calls, and manifests must be stable.
+Prepare only figures selected for a defined reader need. The extraction inventory
+is not a checklist: inspect promising candidates, and fully verify only assets
+selected for the manuscript. Available paths are unchanged source reuse,
+original review synthesis, and verified redraw.
 
 ## Inputs
 
 Read:
 
 ```text
-review-projects/<project_id>/02_section_drafting/figure_candidates.json
-review-projects/<project_id>/02_section_drafting/review_visual_plan.json
-review-projects/<project_id>/02_section_drafting/section_drafting_report.md
+02_section_drafting/figure_candidates.json
+02_section_drafting/review_visual_plan.json
+02_section_drafting/section_drafting_report.md
 ```
 
-Each useful candidate should include:
+A selected source candidate records:
 
 ```text
 paper_id
@@ -29,27 +30,46 @@ source_pdf
 source_content_list
 source_image_path
 source_caption_text
-recommended_action
 source_completeness: complete | intentionally_partial | uncertain
 source_page_review_status: pending | passed
 source_verification_note
+reader_job
+placement_rationale
+reuse_basis
+reuse_rights:
+  status: verified
+  basis: CC BY 4.0 | CC BY-NC 4.0 | public domain | publisher permission | other verified basis
+  license_url_or_permission_record
+  source_locator
+  third_party_material_checked: true
+  adaptation: unchanged | adapted
+  attribution_text
 ```
 
-The inventory output is advisory. The preparation script processes only candidates explicitly marked `manuscript_selected: true` or with editorial status `selected`, `adapted`, or `combined`. Every selected figure states its `reader_job` and `placement_rationale`; unchanged source reuse also states its `reuse_basis`. This makes selection a deliberate manuscript decision without requiring any figure.
+The script processes rows marked `manuscript_selected: true` or with editorial status `selected`, `adapted`, or `combined`. It resolves a missing `source_image_path` from paper metadata and `content_list.json` when possible.
 
-If `source_image_path` is missing, the script attempts to resolve it from metadata and `content_list.json`.
+## Source reuse
 
-## Default Rule
+Prefer the MinerU-extracted source figure when it is complete, legible, relevant, and legally reusable. Compare it with the source PDF at readable zoom. Record the source label, page, completeness, content check, and structured reuse rights. A general article licence is not enough when the figure credit line excludes third-party material. Attribution and reuse permission are separate requirements. Use `adaptation: adapted` only when the verified licence or permission allows derivatives.
 
-Prefer the original MinerU-extracted figure when it is legible and materially supports the manuscript. Inspect it against the source PDF at readable zoom, then accept it unchanged with source attribution. This is a complete figure path, not a placeholder, and it requires no image-generation credential. Attribution does not replace permission: record the source's reuse basis or choose a newly synthesized/adapted visual when reuse rights are unclear.
+Run:
 
-Use generative restyling only when the user or manuscript genuinely benefits from it. Image editing is optional, not a workflow preflight dependency.
+```bash
+python skills/review-figure-style-redraw/scripts/redraw_figures.py \
+  --review-root . \
+  --project-id <project_id> \
+  --use-source \
+  --source-verification-note "Checked Scheme 5 on page 6: label, panel set, caption, content, and legibility agree." \
+  --require-usable
+```
 
-## Original review synthesis path
+For multiple figures, store `source_verification_note` on each candidate. Accepted files are copied to `03_figure_redraw/verified/` and recorded as `source_verified` with `verification_status: passed`.
 
-An overview taxonomy, comparison landscape, decision map, or evidence-boundary figure may be created from the review's verified method cards and anchors without copying a source layout. This often serves readers better than reproducing a paper-level scheme. It is not a shortcut around scientific checking: verify every chemical structure, relationship, label, condition, and inference against the recorded evidence, and distinguish corpus coverage from field-wide absence or confidence.
+## Original review synthesis
 
-Record a completed image in `review_visual_manifest.json`:
+An overview, taxonomy, comparison landscape, decision map, or evidence-boundary figure may be built from verified method cards and anchors. Check every relationship, label, structure, condition, and inference against the recorded evidence.
+
+Record a completed visual in `review_visual_manifest.json`:
 
 ```json
 {
@@ -58,61 +78,40 @@ Record a completed image in `review_visual_manifest.json`:
       "visual_id": "RV-01",
       "status": "original_verified",
       "verification_status": "passed",
-      "original_image": "absolute or project-relative image path",
+      "original_image": "absolute or project-relative path",
       "section_id": "sec1",
       "section_heading": "Introduction",
       "title": "Field map and organizing logic",
       "caption": "Original synthesis of ...",
-      "reader_job": "What becomes faster or clearer for the reader",
-      "placement_rationale": "Why this section is the right location",
+      "reader_job": "What becomes clearer for the reader",
+      "placement_rationale": "Why it belongs here",
       "source_paper_ids": ["P001", "P014"],
       "evidence_ids": ["P001-E01", "P014-E02"],
-      "verification_note": "What was checked, against which sources, and what the visual does not claim."
+      "verification_note": "Sources and scientific content checked"
     }
   ]
 }
 ```
 
-Use `status: draft` until the actual rendered asset has been inspected at readable zoom. Original visuals may coexist with source-verified or redrawn figures. A Markdown comparison table stays in the section draft and does not need this manifest.
+Keep `status: draft` until the rendered asset has been inspected at readable zoom.
 
-## Fidelity Rule
+## Fidelity
 
-Change visual style only.
-
-Preserve:
+Styling may change; scientific content may not. Preserve:
 
 ```text
-chemical structures
-bond connectivity
-stereochemistry
-atom and substituent labels
+chemical structures, connectivity, stereochemistry, atoms and substituents
 reagents, catalysts, solvents, temperatures, times, yields
-reaction arrows and panel order
-table values and figure labels
+reaction arrows, panel order, table values, plot values, and labels
 ```
 
-Treat chemical schemes, structures, spectra, and data plots as fidelity-critical. A generative image edit is not release evidence by itself. Prefer deterministic vector redraw, retabling, or an appropriately cited source figure. If a generative edit is used for styling, compare the source and output directly at readable zoom and record `verification_status: passed` only after checking connectivity, stereochemistry, labels, conditions, yields, and numeric values. Do not release a chemistry figure whose fidelity cannot be verified.
+Use deterministic vector redraw or retabling for fidelity-critical chemistry, spectra, and data plots when practical. Compare every generative edit directly with the source before setting `verification_status: passed`.
 
-## Source-Verified Run
+MinerU's `single_block` describes extraction, not figure completeness. Panel labels or adjacent visual blocks require inspection of the source page.
 
-After inspecting the extracted image and its source PDF, update each accepted candidate with `source_page_review_status: passed`, an explicit completeness decision, and a figure-specific verification note. `single_block` is an extraction description, not proof that a labeled multi-panel figure is complete. Treat a panel marker or adjacent same-page visual blocks as a prompt to inspect the PDF, not as an automatic rejection.
+## Optional redraw API
 
-For one figure, the note may be passed on the command line:
-
-```bash
-python skills/review-figure-style-redraw/scripts/redraw_figures.py \
-  --review-root . \
-  --project-id <project_id> \
-  --use-source \
-  --source-verification-note "Checked Scheme 5 on page 6 against the source PDF: label, complete panel set, caption, content, and legibility agree." \
-  --require-usable
-```
-
-Name the selected source label and page in the note. For multiple figures, store `source_verification_note` on each candidate rather than combining several checks in one CLI note. This copies the unchanged accepted image to `03_figure_redraw/verified/`, records `status: source_verified` plus `verification_status: passed`, and writes one row per figure to `figure_fidelity_review.json`.
-
-## Optional Redraw API
-
-Default recommendation for this project:
+Project default:
 
 ```text
 base_url: https://naiccc.com
@@ -121,9 +120,7 @@ model: gpt-image-2
 endpoint: /v1/images/edits
 ```
 
-Use `wire_api: images` for real source-image editing. Do not use `responses` for chemistry-preserving redraw unless the relay demonstrably supports image input and image editing through `/v1/responses`; otherwise it can generate a new figure without faithfully editing the source.
-
-## Optional Redraw Run
+Use the image-editing endpoint for source-image restyling:
 
 ```bash
 python skills/review-figure-style-redraw/scripts/redraw_figures.py \
@@ -135,7 +132,7 @@ python skills/review-figure-style-redraw/scripts/redraw_figures.py \
   --require-usable
 ```
 
-Useful options:
+Validate source resolution first with `--dry-run`. Other options include:
 
 ```text
 --figures-file
@@ -145,38 +142,21 @@ Useful options:
 --output-format
 --style-name
 --limit
---dry-run
 --use-source
 --source-verification-note
---require-usable
 ```
 
-For optional API redraw only, if `--api-key` is omitted, the script uses `OPENAI_API_KEY`.
-
-Validate source resolution first when needed:
-
-```bash
-python skills/review-figure-style-redraw/scripts/redraw_figures.py \
-  --review-root . \
-  --project-id <project_id> \
-  --dry-run
-```
+If `--api-key` is omitted, the optional redraw path reads `OPENAI_API_KEY`.
 
 ## Outputs
 
-Write under:
-
-```text
-review-projects/<project_id>/03_figure_redraw/
-```
-
-Create:
+Write under `review-projects/<project_id>/03_figure_redraw/`:
 
 ```text
 style_config.json
 source_figure_manifest.json
 redrawn_figure_manifest.json
-review_visual_manifest.json (when an original synthesis image is prepared)
+review_visual_manifest.json
 figure_fidelity_review.json
 figure_redraw_report.md
 source/
@@ -184,4 +164,4 @@ verified/
 redrawn/
 ```
 
-If a selected figure cannot be resolved or verified faithfully, return to figure selection and reconsider it. When the manuscript uses neither source figures nor original synthesis images, create `03_figure_redraw/skip_reason.md` with a one-line record of that decision. Asset absence is an editorial fact, not a reason to invent or force a figure.
+When a selected figure cannot be resolved or verified, return it to selection. When the manuscript uses no image, create `skip_reason.md` with the editorial reason.

@@ -3,28 +3,20 @@
   "slug": "hu-et-al-2024-nickel-catalyzed-photoredox-allenylation-of-alkyl-halides",
   "title": {
     "value": "Nickel-Catalyzed Photoredox Allenylation of Alkyl Halides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Tingjun Hu",
-      "Camille Beluze",
-      "Vincent Fagué",
-      "Oho Eliantine Kambire",
-      "Didier Bouyssi",
-      "Nuno Monteiro",
-      "Abderrahmane Amgoune"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,21 +27,37 @@
   },
   "doi": {
     "value": "10.1021/acs.orglett.4c03512",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "We report a dual Ni/photoredox-catalyzed cross-coupling method for propargyl carbonates and nonactivated alkyl bromides, facilitating the synthesis of a variety of substituted allenes under mild and practical conditions. Mechanistically, the reaction integrates Ni-catalyzed activation of the propargyl electrophile via SN2′ oxidative addition at Ni(I) with silyl radical-induced activation of the alkyl halide through halogen-atom transfer. This methodology provides a gentle approach for introducing allenyl groups into complex halogenated aliphatic molecules, offering further opportunities for derivatization.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\hu-et-al-2024-nickel-catalyzed-photoredox-allenylation-of-alkyl-halides.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\hu-et-al-2024-nickel-catalyzed-photoredox-allenylation-of-alkyl-halides.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P014\\c633c078-4b4d-41de-8437-ec420f6bd71a_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P014"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\hu-et-al-2024-nickel-catalyzed-photoredox-allenylation-of-alkyl-halides"
   },
   "source_file": {
     "pdf_name": "hu-et-al-2024-nickel-catalyzed-photoredox-allenylation-of-alkyl-halides.pdf",
@@ -57,18 +65,15 @@
     "sha256": "1f7dd3e1898d51c6e55de4e592292a3ad8ec9fbdc9e56d06bc09caaf8698e674"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 124,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,40 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "Author footnote symbols (§, *) were removed from the extracted author list.",
-      "Abstract text was lightly normalized for OCR spacing and hyphenation.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.79,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.387,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "26",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "pages": {
-    "value": "9519-9524",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

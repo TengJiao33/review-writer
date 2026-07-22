@@ -1,0 +1,109 @@
+{
+  "paper_id": "P233",
+  "slug": "web-imports-2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689",
+  "title": {
+    "value": "UV Pretreatment Impairs the Enzymatic Degradation of Polyethylene Terephthalate",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Patricia Falkenstein",
+      "Daniel Gräsing",
+      "Pavlo Bielytskyi",
+      "Wolfgang Zimmermann",
+      "Jörg Matysik",
+      "Ren Wei",
+      "Chen Song"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2020,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Frontiers in Microbiology",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fmicb.2020.00689",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The biocatalytic degradation of polyethylene terephthalate (PET) emerged recently as a promising alternative plastic recycling method. However, limited activity of previously known enzymes against post-consumer PET materials still prevents the application on an industrial scale. In this study, the influence of ultraviolet (UV) irradiation as a potential pretreatment method for the enzymatic degradation of PET was investigated. Attenuated total reflection Fourier transform infrared (ATR-FTIR) and <sup>1</sup>H solution nuclear magnetic resonance (NMR) analysis indicated a shortening of the polymer chains of UV-treated PET due to intra-chain scissions. The degradation of UV-treated PET films by a polyester hydrolase resulted in significantly lower weight losses compared to the untreated sample. We also examined site-specific and segmental chain dynamics over a time scale of sub-microseconds to seconds using centerband-only detection of exchange, rotating-frame spin-lattice relaxation $( T _ { 1 \\rho } ) _ { : }$ and dipolar chemical shift correlation experiments which revealed an overall increase in the chain rigidity of the UV-treated sample. The observed dynamic changes are most likely associated with the increased crystallinity of the surface, where a decreased accessibility for the enzymecatalyzed hydrolysis was found. Moreover, our NMR study provided further knowledge on how polymer chain conformation and dynamics of PET can mechanistically influence the enzymatic degradation.",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689\\732dc76b-13c6-44fb-bcd5-2a2de462aeb6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689"
+  },
+  "source_file": {
+    "pdf_name": "2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689.pdf",
+    "relative_pdf_path": "web-imports\\2020-uv-pretreatment-impairs-the-enzymati-b-2020-00689.pdf",
+    "sha256": "a6940f62cb0f6fdfbca91afdefa82c16992f00e5481eb6000b847daaf09070e6"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 225,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.796,
+    "needs_human_check": true
+  }
+}

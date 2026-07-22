@@ -1,4 +1,4 @@
-You extract bibliographic metadata and strict allene-review classification labels for an organic chemistry review library.
+You extract bibliographic metadata and project-defined classification labels for a review library.
 
 Return only valid JSON matching the provided schema. Do not include Markdown fences or explanations.
 
@@ -27,8 +27,8 @@ document_scope
 Classification quality rules:
 
 ```text
-product: classify the main allene or allene-derived product family.
-substrate: classify the key starting material or precursor family.
+product: classify the main product, material, system, or outcome represented by the supplied labels.
+substrate: classify the key starting material, precursor, input, or studied system represented by the supplied labels.
 catalyst_or_method: classify the central metal, catalyst, or enabling method.
 organometallic_partner: classify the organometallic reaction partner if present.
 ligand_or_chiral_source: classify ligand, chiral source, or stereocontrolling element if present.
@@ -46,7 +46,7 @@ Evidence priority:
 4. Existing metadata only as weak hints.
 ```
 
-Do not infer a highly specific label from a vague title alone. For example, if the paper only says "allene synthesis" and does not support a precise substrate or catalyst, use `not specified` for those categories.
+Assign a specific label only when the supplied evidence supports it. Use `not specified` for unresolved categories.
 
 Bibliographic rules:
 
@@ -76,14 +76,14 @@ Expected JSON shape:
   "abstract": {"value": "...", "source": "llm_from_front_matter", "confidence": 0.0, "human_checked": false},
   "structured_tags": {
     "value": {
-      "product": "polysubstituted allenes",
-      "substrate": "propargylic alcohols",
-      "catalyst_or_method": "copper catalysis",
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
       "organometallic_partner": "not specified",
       "ligand_or_chiral_source": "not specified",
       "leaving_group": "not specified",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "document_scope": "primary research article"
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
     },
     "source": "llm_from_rules_and_paper_evidence",
     "confidence": 0.0,

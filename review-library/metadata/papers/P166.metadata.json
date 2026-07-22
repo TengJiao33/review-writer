@@ -2,30 +2,27 @@
   "paper_id": "P166",
   "slug": "46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines",
   "title": {
-    "value": "Enantioselective Decarboxylative Amination: Synthesis of Axially Chiral Allenyl Amines",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Enantioselective Decarboxylative Amination: Synthesis of Axially Chiral Allenyl Amines\\*\\*",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Baoqiang Wan",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 2012,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "46-Angew Chem Int Ed",
-    "source": "filename_prefix",
-    "confidence": 0.55,
+    "value": "Angew. Chem. Int. Ed.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Naturally occurring biomolecules that display chirality are enantiomerically enriched and different enantiomers show different biological activities. Thus, the development of new enantioselective approaches for chiral compounds are still of great interest. Allenes are now an important class of compounds and versatile intermediates in organic synthesis. Thus, efficient methodologies for synthesizing allenes is of current interest for organic chemists. The synthesis of axially chiral allenes are particularly important because of their efficient chirality transfer and their existence as core structures in natural products and pharmaceuticals. Typically, the synthesis of axially chiral allenes relies on the resolution of racemic allenic precursors and the chirality transfer of chiral propargyl alcohols or propargyl amine derivatives. However, most of these procedures require stoichiometric amounts of enantiomerically enriched chiral compounds, and are thus inefficient. Recently, asymmetric catalysis for the synthesis of chiral allenes has attracted much attention. Trost et al. and Imada et al. have independently reported the asymmetric synthesis of allenyl amines with 76–91% ee by using intermolecular reactions. Interestingly, in two reported examples, 95 or 97% of ee has been realized. Herein, we disclose a different protocol for the construction of axially chiral allenyl amines, bearing an extra hydroxy group or C=C bond, by the decarboxylative amination of allenyl N-tosylcarbamates; the products are obtained in 91–99% ee.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.86,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\46-Angew Chem Int Ed - 2012 - Wan - Enantioselective Decarboxylative Amination  Synthesis of Axially Chiral Allenyl Amines.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P166\\d04d12cd-44b4-4523-abb0-00b24bf761dc_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P166"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\46-angew-chem-int-ed-2012-wan-enantioselective-decarboxylative-amination-synthesis-of-axially-chiral-allenyl-amines"
   },
   "source_file": {
     "pdf_name": "46-Angew Chem Int Ed - 2012 - Wan - Enantioselective Decarboxylative Amination  Synthesis of Axially Chiral Allenyl Amines.pdf",
@@ -52,18 +65,15 @@
     "sha256": "33897f8659b0862c4c65b1981ae2cac60c52d5a84c96bdfd3bce111701988840"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 79,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,32 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "low_confidence_abstract",
-      "No formal abstract was visible in the provided snippets; the abstract field uses the opening summary paragraph from the article.",
-      "Year evidence is split between 2012 (online publication/path hint) and 2013 (journal issue footer); using 2013 as the journal publication year.",
-      "No distinct abstract section is visible; the abstract field uses the opening summary paragraph from the first page.",
-      "The paper was published online in 2012, but the journal issue citation on the article front matter gives publication year 2013.",
-      "The substrate is described as N-tosylcarbamates/allenyl N-tosylcarbamates; it was mapped to the closest allowed substrate label, propargylic carbamates.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.886,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.527,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbamate leaving groups",
-      "ligand_or_chiral_source": "chiral biaryl bisphosphine ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenyl amines",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbamates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

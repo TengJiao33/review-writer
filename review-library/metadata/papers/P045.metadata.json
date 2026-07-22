@@ -3,30 +3,20 @@
   "slug": "de-novo-synthesis-of-oligofurans-via-copper-catalyzed-dimerization-of-ethynylethylene-carbonates",
   "title": {
     "value": "De Novo Synthesis of Oligofurans via Copper-Catalyzed Dimerization of Ethynylethylene Carbonates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Zhengyu Han",
-      "Biao Zhu",
-      "Yuxuan Liu",
-      "Luyao Wei",
-      "Lixia Xu",
-      "Xiaolin Zhu",
-      "Jingrui Ye",
-      "Jianwei Sun",
-      "Hai Huang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -42,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Disclosed here is an efficient Cu-catalyzed de novo synthesis of oligofurans, a type of valuable core unit in organic materials. From the readily available ethynylethylene carbonates, the dimerization process allowed convenient access to differently substituted oligofurans that could not have been easily synthesized before. In contrast to the conventional strategies, this protocol does not rely on preinstallation of cross-coupling functionalities or presynthesis of advanced enyne precursors. Brief studies of their photophysical properties also indicated the great potential of our protocol in tuning these properties for applications. Mechanistic studies not only provided important insights into the reaction pathway but also allowed the identification of another protocol for the synthesis of furan-substituted allenylic alcohols.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\de-novo-synthesis-of-oligofurans-via-copper-catalyzed-dimerization-of-ethynylethylene-carbonates.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\de-novo-synthesis-of-oligofurans-via-copper-catalyzed-dimerization-of-ethynylethylene-carbonates.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P045\\1c0240af-d9bd-47f3-9f1e-40e2c921e2f0_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P045"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\de-novo-synthesis-of-oligofurans-via-copper-catalyzed-dimerization-of-ethynylethylene-carbonates"
   },
   "source_file": {
     "pdf_name": "de-novo-synthesis-of-oligofurans-via-copper-catalyzed-dimerization-of-ethynylethylene-carbonates.pdf",
@@ -59,18 +65,15 @@
     "sha256": "8cd439cc4f491d9931521e612b5619f04bd2751f6cbe65583e7a9cdeed0575fb"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 131,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,28 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "Paper primarily focuses on oligofuran formation; allene classification is based on the secondary furyl allenylic alcohol protocol and mechanistic sections rather than the main title product class.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.77,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.387,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "alpha-allenic alcohols",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.73,
-    "human_checked": false
   }
 }

@@ -3,23 +3,20 @@
   "slug": "29a",
   "title": {
     "value": "PARTIELLE ASYMETRISCHE SYNTHESSE UND ABSOLUTE KONFIGURATION VON ALLENCARBONSAUREN",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "I. Tömösközi",
-      "H. J. Bestmann"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1964,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Aus Säurechloriden III und Triphenylphosphin-(2-methyl-1-carboäthoxy)-methylen (II, M=H, I=C₂H₅) erhält man Allencarbonsäureäthylester (VI, R=C₂H₅). Wir haben nun Ylide II, die mit optisch aktiven Alkoholen [(-)-Menthol und (-)-sec. Octanol] verestert waren, mit Hexanoylchlorid (III, R=C₄H₉) und Önanthsäurechlorid (III, R=C₅H₁₁) umgesetzt. Nach Verseifung der gebildeten Allencarbonsäureester VI waren die freien Allencarbonsäuren (VI, R=H) optisch aktiv.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.76,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\29a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\29a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P130\\10d85bcb-0f43-4b48-bd53-eeefe56bdf77_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P130"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\29a"
   },
   "source_file": {
     "pdf_name": "29a.pdf",
@@ -52,18 +65,15 @@
     "sha256": "11f0651667f3dc5a99eb3a9e34030c37d91e6219f0808608a1bb1142cb343345"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 31,
+      "content_blocks": 0,
       "markdown_chars_used": 4052
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,37 +82,23 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract section is present; the abstract field is compiled from opening summary paragraphs.",
-      "No formal abstract was visible; the abstract field is taken from the introductory summary paragraphs on the first page.",
-      "This acid-chloride/phosphonium-ylide allene synthesis does not map cleanly onto the available reaction-type and substrate label set, so those fields are marked as not specified.",
+      "structured_tag_not_specified_product",
       "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.629,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "stereochemical study",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenic carboxylic acids",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.68,
-    "human_checked": false
   }
 }

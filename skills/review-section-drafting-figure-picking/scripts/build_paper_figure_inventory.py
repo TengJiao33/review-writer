@@ -9,6 +9,14 @@ from typing import Any
 
 
 FIGURE_TYPES = {"image", "chart", "table"}
+LICENSE_URL_RE = re.compile(
+    r"https?://creativecommons\.org/licenses/[A-Za-z0-9_-]+(?:/[0-9.]+)?/?",
+    re.I,
+)
+LICENSE_LINE_RE = re.compile(
+    r"(?:creative commons|\bcc[- ]by\b|open access article|licensed under|copyright|©)",
+    re.I,
+)
 
 
 def read_json(path: Path) -> Any:
@@ -66,6 +74,42 @@ def field_value(meta: dict[str, Any], key: str) -> Any:
     return value
 
 
+def license_hints(markdown_path: Any) -> dict[str, Any]:
+    """Surface possible reuse statements without deciding that reuse is lawful."""
+    raw = str(markdown_path or "").strip()
+    if not raw:
+        return {
+            "rights_review_status": "pending",
+            "license_statement_candidates": [],
+            "license_urls": [],
+        }
+    path = Path(raw)
+    if not path.exists() or not path.is_file():
+        return {
+            "rights_review_status": "pending",
+            "license_statement_candidates": [],
+            "license_urls": [],
+        }
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    statements: list[str] = []
+    for line in text.splitlines():
+        cleaned = clean(line)
+        if cleaned and LICENSE_LINE_RE.search(cleaned):
+            statements.append(cleaned[:600])
+        if len(statements) >= 6:
+            break
+    urls = list(dict.fromkeys(LICENSE_URL_RE.findall(text)))
+    return {
+        "rights_review_status": "license_hint_found" if statements or urls else "pending",
+        "license_statement_candidates": list(dict.fromkeys(statements)),
+        "license_urls": urls[:6],
+        "instructions": (
+            "These are discovery hints only. Verify the article license, the selected figure's "
+            "credit line, any third-party exclusion, and whether adaptation is permitted."
+        ),
+    }
+
+
 def block_caption(block: dict[str, Any]) -> str:
     parts = []
     for key in ["image_caption", "table_caption", "caption", "text"]:
@@ -91,6 +135,16 @@ def candidate_score(caption: str, source_type: str) -> int:
         ("scheme", 8),
         ("mechanism", 8),
         ("catalytic cycle", 8),
+        ("overview", 7),
+        ("workflow", 7),
+        ("pathway", 6),
+        ("comparison", 5),
+        ("microstructure", 5),
+        ("degradation", 4),
+        ("recycling", 4),
+        ("performance", 4),
+        ("structure", 3),
+        ("process", 3),
         ("proposed", 5),
         ("reaction", 4),
         ("synthesis", 4),
@@ -136,12 +190,22 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
     project = review_root / "review-projects" / project_id
     ids = selected_paper_ids(project)
     papers = []
+    all_candidates: list[dict[str, Any]] = []
     for paper_id in ids:
         meta = metadata(review_root, paper_id)
         if not meta:
-            papers.append({"paper_id": paper_id, "status": "missing_metadata", "candidates": []})
+            papers.append(
+                {
+                    "paper_id": paper_id,
+                    "status": "missing_metadata",
+                    "candidate_count": 0,
+                    "candidates": [],
+                    "top_candidates": [],
+                }
+            )
             continue
         source_paths = meta.get("source_paths") or {}
+        rights_hints = license_hints(source_paths.get("markdown"))
         raw_content_path = str(source_paths.get("content_list") or "").strip()
         raw_extracted_dir = str(source_paths.get("extracted_dir") or "").strip()
         content_path = Path(raw_content_path) if raw_content_path else None
@@ -187,11 +251,13 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                             "source_fragment_paths": fragment_paths,
                             "source_page_hint": f"page {int(block.get('page_idx', 0)) + 1}" if block.get("page_idx") is not None else "",
                             "source_caption_text": caption,
+                            "reuse_rights_hints": rights_hints,
                             "inventory_score": candidate_score(caption, source_type),
-                            "human_reading_hint": "Prefer if this is a reaction scheme, mechanism, catalytic cycle, or scope summary.",
+                            "human_reading_hint": "Prefer when the asset answers a named reader question or compresses a comparison, mechanism, evidence boundary, or process relationship.",
                         }
                     )
         candidates.sort(key=lambda item: item.get("inventory_score", 0), reverse=True)
+        all_candidates.extend(candidates)
         papers.append(
             {
                 "paper_id": paper_id,
@@ -199,11 +265,34 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                 "source_pdf": source_paths.get("pdf"),
                 "markdown": source_paths.get("markdown"),
                 "content_list": source_paths.get("content_list"),
+                "reuse_rights_hints": rights_hints,
                 "candidate_count": len(candidates),
+                "candidates": candidates,
                 "top_candidates": candidates[:12],
             }
         )
-    return {"project_id": project_id, "paper_count": len(ids), "papers": papers}
+    all_candidates.sort(key=lambda item: item.get("inventory_score", 0), reverse=True)
+    return {
+        "project_id": project_id,
+        "paper_count": len(ids),
+        "candidate_count": len(all_candidates),
+        "figure_candidate_count": sum(
+            candidate.get("source_type") in {"image", "chart"}
+            for candidate in all_candidates
+        ),
+        "table_candidate_count": sum(
+            candidate.get("source_type") == "table" for candidate in all_candidates
+        ),
+        "license_hint_candidate_count": sum(
+            (candidate.get("reuse_rights_hints") or {}).get("rights_review_status")
+            == "license_hint_found"
+            for candidate in all_candidates
+        ),
+        # Keep both a flat self-describing view and the per-paper grouping.
+        # Consumers can no longer mistake nested candidates for an empty set.
+        "candidates": all_candidates,
+        "papers": papers,
+    }
 
 
 def parse_args() -> argparse.Namespace:
@@ -224,6 +313,13 @@ def main() -> int:
     write_json(out, inventory)
     print(f"Wrote {out}")
     print(f"Papers: {inventory['paper_count']}")
+    print(
+        "Candidates: "
+        f"{inventory['candidate_count']} total; "
+        f"{inventory['figure_candidate_count']} figures/charts; "
+        f"{inventory['table_candidate_count']} tables; "
+        f"{inventory['license_hint_candidate_count']} with licence hints"
+    )
     return 0
 
 

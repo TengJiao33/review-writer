@@ -3,35 +3,26 @@
   "slug": "angew-chem-int-ed-2024-wang-organocatalytic-enantioselective-1-12addition-of-alkynyl-biphenyl-quinone-methides",
   "title": {
     "value": "Organocatalytic Enantioselective 1,12-Addition of Alkynyl Biphenyl Quinone Methides Formed In Situ",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xing Wang",
-      "Boming Shen",
-      "Meiwen Liu",
-      "Ziyang Wang",
-      "Chang Liu",
-      "Pengfei Li",
-      "Peiyuan Yu",
-      "Wenjun Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Angew. Chem. Int. Ed.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed. 2024",
+    "source": "how_to_cite_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The chemistry of quinone methides formed in situ has been flourishing in recent years. In sharp contrast, the development and utilization of biphenyl quinone methides are rare. In this study, we achieved a remote stereocontrolled 1,12-conjugate addition of biphenyl quinone methides formed in situ for the first time. In the presence of a suitable chiral phosphoric acid, alkynyl biphenyl quinone methides were generated from α-[4-(4-hydroxyphenyl)phenyl]propargyl alcohols, followed by enantioselective 1,12-conjugate addition with indole-2-carboxylates. The strategy enabled the alcohols to serve as efficient allenylation reagents, providing practical access to a broad range of axially chiral allenes bearing a (1,1’-biphenyl)-4-ol unit, which were previously less accessible. Combined with control experiments, density functional theory calculations shed light on the reaction mechanism, indicating that enantioselectivity originates from the nucleophilic addition of alkynyl biphenyl quinone methides. Notably, not only the presence of biphenyl quinone methides as versatile intermediates was confirmed but also organocatalytic enantioselective 1,12-addition was established.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew Chem Int Ed - 2024 - Wang - Organocatalytic Enantioselective 1 12‐Addition of Alkynyl Biphenyl Quinone Methides.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2024-wang-organocatalytic-enantioselective-1-12addition-of-alkynyl-biphenyl-quinone-methides.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P007\\98b5d47a-b70d-4ab4-8de2-6d039f8215a4_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P007"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew-chem-int-ed-2024-wang-organocatalytic-enantioselective-1-12addition-of-alkynyl-biphenyl-quinone-methides"
   },
   "source_file": {
     "pdf_name": "Angew Chem Int Ed - 2024 - Wang - Organocatalytic Enantioselective 1 12‐Addition of Alkynyl Biphenyl Quinone Methides.pdf",
@@ -58,18 +65,15 @@
     "sha256": "fadee041eeecd9de7fa6ac8eb6d873dc32e6481b7630bcb6faa7e0621a80d6a4"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 134,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,29 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "Allowed reaction_type labels do not contain organocatalytic 1,12-conjugate addition of in situ formed alkynyl biphenyl quinone methides; mapped approximately to propargylic substitution and cross-coupling.",
-      "The key activation is dehydration of propargylic alcohols to quinone-methide intermediates, but no matching leaving-group label for hydroxyl/water loss is available, so leaving_group is set to not specified.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.909,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.516,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.79,
-    "human_checked": false
   }
 }

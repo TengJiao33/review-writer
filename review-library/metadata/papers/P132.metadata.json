@@ -3,28 +3,26 @@
   "slug": "2a",
   "title": {
     "value": "A SUGGESTION LOOKING TO THE EXTENSION INTO SPACE OF THE STRUCTURAL FORMULAS AT PRESENT USED IN CHEMISTRY. AND A NOTE UPON THE RELATION BETWEEN THE OPTICAL ACTIVITY AND THE CHEMICAL CONSTITUTION OF ORGANIC COMPOUNDS.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jacobus Henricus van 't Hoff"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1874,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -34,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "I desire to introduce some remarks which may lead to discussion and hope to avail myself of the discussion to give my ideas more definiteness and breadth. Since the starting point for the following communication is found in the chemistry of the carbon compounds, I shall for the present do nothing more than state the points having reference to it.",
-    "source": "content_list_first_paragraph_after_authors",
-    "confidence": 0.68,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\2a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\2a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P132\\01c4e8af-1ba1-4f3c-a076-9f15e9561583_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P132"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\2a"
   },
   "source_file": {
     "pdf_name": "2a.pdf",
@@ -51,18 +65,15 @@
     "sha256": "335f3530a696231e5a7551b98b4cb3b973c68603821ad2b218753364872f1e77"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 132,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -71,42 +82,24 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract is visible in the provided snippets; the abstract field uses the opening paragraph.",
-      "This is a foundational stereochemistry/optical-activity paper rather than a reaction or catalysis study, so several structured tags are set to not specified.",
-      "structured_tag_not_specified_reaction_type",
-      "structured_tag_not_specified_activation_mode",
-      "structured_tag_not_specified_catalyst_system",
-      "structured_tag_not_specified_selectivity_profile",
-      "No evidence of allene chemistry is present in the supplied title/front-matter text, so all allene-specific reaction labels are set to not specified.",
-      "The paper does not appear to contain a modern formal abstract; the abstract field uses the opening paragraph as a proxy.",
       "structured_tag_not_specified_product",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.757,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "historical paper",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

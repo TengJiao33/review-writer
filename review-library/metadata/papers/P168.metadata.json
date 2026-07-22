@@ -3,32 +3,26 @@
   "slug": "47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic",
   "title": {
     "value": "Palladium-Catalyzed Asymmetric Synthesis of Axially Chiral (Allenylmethyl)silanes and Chirality Transfer to Stereogenic Carbon Centers in SE′ Reactions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Masamichi Ogasawara",
-      "Kazuhito Ueyama",
-      "Takashi Nagano",
-      "Yoshiyuki Mizuhata",
-      "Tamio Hayashi"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2003,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2000,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Novel stereoselective reactions of 4-substituted-1-trimethylsilyl-2,3-butadienes ((allenylmethyl)silanes) were developed. The axially chiral (allenylmethyl)silanes were prepared from (3-bromopenta-2,4-dienyl)trimethylsilane by a Pd-catalyzed asymmetric reaction with soft nucleophiles with up to 88% enantioselectivity. The (allenylmethyl)silanes reacted with acetals in the presence of a TiCl4 promoter to give 1,3-diene derivatives via an SE′ pathway. The 1,3-dienyl products have (E)-geometry exclusively, and up to 88% chirality transfer from the axially chiral allenes to the centrally chiral 1,3-dienes was observed in the SE′ reaction.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-(allenylmethyl)silanes-and-chirality-transfer-to-stereogenic.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P168\\4fd4bc84-0de4-4fac-b4d7-4494a76195b4_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P168"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-allenylmethyl-silanes-and-chirality-transfer-to-stereogenic"
   },
   "source_file": {
     "pdf_name": "47b-palladium-catalyzed-asymmetric-synthesis-of-axially-chiral-(allenylmethyl)silanes-and-chirality-transfer-to-stereogenic.pdf",
@@ -55,18 +65,15 @@
     "sha256": "2248867df3e65d749a21448a2e6a8acdc0506da6c478be7eb4bb05a6481b60c1"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 50,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,32 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "low_confidence_abstract",
-      "Paper reports two linked transformations; structured tags prioritize the Pd-catalyzed asymmetric synthesis while noting the downstream SE′ chirality-transfer outcome.",
-      "Controlled-vocabulary substrate labels do not fit the actual precursor well; the paper uses a bromodienylsilane rather than a listed propargylic substrate class.",
-      "Reaction type is mapped approximately to `propargylic substitution and cross-coupling` because the key Pd-catalyzed allene-forming step is an allylic bromodienylsilane substitution not explicitly represented in the label set.",
-      "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.773,
+    "warnings": [
+      "empty_authors",
+      "missing_journal",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "chiral biaryl bisphosphine ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenylmethylsilanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.77,
-    "human_checked": false
   }
 }

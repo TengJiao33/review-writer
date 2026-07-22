@@ -3,26 +3,20 @@
   "slug": "org.-lett.-2023-25-7263",
   "title": {
     "value": "Cobalt-Promoted Electroreductive Cross-Coupling of Prop-2-yn-1-yl Acetates with Chloro(vinyl)silanes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Chong-Hui Xu",
-      "Zhi-Qiang Xiong",
-      "Jing-Hao Qin",
-      "Xin-Hua Xu",
-      "Jin-Heng Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -32,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.orglett.3c02989",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "An electroreductive cross-coupling of prop-2-yn-1-yl acetates with chloro(vinyl)silanes for producing tetrasubstituted silylallenes is developed. The method enables the formation of a new C-Si bond through cathodic reduction to form the silyl radical, radical addition across the C≡C bond, alkenyl anion intermediate formation, and deacetoxylation, and represents a mild, practical route to the synthesis of silylallenes. Mechanistic studies reveal that CoCl2 acts as the mediator to promote the formation of the alkenyl anion intermediate via electron transfer.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "An electroreductive cross-coupling of prop-2-yn-1-yl acetates with chloro(vinyl)silanes for producing tetrasubstituted silylallenes is developed. The method enables the formation of a new C�Si bond through the cathodic reduction formation of the silyl radical, radical addition across the C�C bond, the alkenyl anion intermediate formation, and deacetoxylation and represents a mild, practical route to the synthesis of silylallenes. Mechanistic studies reveal that $\\mathrm { C o C l } _ { 2 }$ acts as the mediator to promote the formation of the alkenyl anion intermediate via electron transfer. O ragnosilicon compounds, especially including silylallenes, are one of the most widespread used functionalities in organic and material synthesis.1 Consequently, considerable efforts have been devoted to the development of efficient methods toward synthesis of these privileged silyl-based architectures.2 Despite impressive progress in the field, methods for the synthesis of silylallenes via direct silylation of functionalized alkynes are much less abundant and still remain a challenging topic due to unfavorable competing alkyne addition reactions and entropic/enthalpic reasons. In 1985, the Hiyama group3 poineered a transition-metal-catalyzed hydrosilylation of 1,3-diynes with hydrosilanes to access silylallenes by introduction of two silyl groups in a single reaction (Scheme 1A-a). However, the reaction suffers from a limted scope of diynes. Subsequently, the Hiyashi group, CuI/Li group, Xu/Loh group, and other groups4 have independently developed a transition-metal-catalyzed hydrosilylation of 1,3- enynes with trichlorosilane, hydrosilanes, or silylboronate for producing highly substituted racemic and enantioenriched allenylsilanes (Scheme 1A-b). Very recently, the Rueping/Yue group reported a new radical strategy to realize nickel-catalyzed three-component electroreductive cross-coupling for the 1,4- silylalkylation of 1,3-enynes via the activation of alkyl bromides to form the alkyl radicals, wherein chlorosilanes serve as the electrophiles to terminate the reaction (Scheme 1A-c).4f Therefore, there is an urgent need to develop new strategies using new devised alkynes beyond diynes and enynes to achieve silylation for assembling silylallenes, especially including tetrasubstituted ones. Alternatively, methods that consist of direct silylation of prop-2-yn-1-yl acetates and their derivatives via deacetoxylation have become a powerful tool to access silylallenes,5 albeit remaining underdeveloped. For example, the Kleij group has established a novel decarboxylative silylation of alkynyl",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2023, 25, 7263.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2023-25-7263.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P089\\05372238-2020-432b-b12a-eaa2b0f8e595_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P089"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2023-25-7263"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2023, 25, 7263.pdf",
@@ -55,18 +65,15 @@
     "sha256": "e6322c123dcd091bb8e9385be97390fcbb632caed6f01b5a29ed9f2a089a0fa3"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 111,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,29 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Author line contained OCR/LaTeX artifacts around Jin-Heng Li and was normalized.",
-      "Abstract contained OCR character artifacts in bond symbols and was lightly normalized.",
-      "structured_tag_not_specified_selectivity_profile",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.8,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "cobalt catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.95,
-    "human_checked": false
   }
 }

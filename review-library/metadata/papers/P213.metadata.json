@@ -1,0 +1,104 @@
+{
+  "paper_id": "P213",
+  "slug": "web-imports-2026-polymer-regulated-silicon-electrolyt-2026-1836323",
+  "title": {
+    "value": "Polymer-regulated silicon–electrolyte interfaces in solid-state lithium-ion batteries: interphase chemistry, stress accommodation, and contact stability",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Xianzheng Liu",
+      "Xinran Li",
+      "Yueyue Yu",
+      "Nashrah Hani Jamadon"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Frontiers in Mechanical Engineering",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fmech.2026.1836323",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Silicon is widely regarded as one of the most promising anode materials for next-generation solid-state lithium-ion batteries because of its ultrahigh theoretical capacity and low lithiation potential. However, its practical application remains hindered by severe volume variation, unstable interphase evolution, and progressive loss of solid–solid contact during cycling. In recent years, polymer electrolytes have emerged not only as ion-conducting media, but also as active regulators of interfacial chemistry, lithiation behavior, stress accommodation, and contact preservation. This mini review discusses recent progress from the perspective of silicon–electrolyte interface stabilization. First, the structural and interfacial challenges of silicon are outlined to clarify why electrolyte design alone cannot solve the silicon problem. Second, electrolyte-driven interphase chemistry is summarized, with emphasis on LiF-rich and Li 2 SO x -rich interphases, chemically anchored interfaces, and regulated lithiation pathways. Third, polymer-enabled mechanical stabilization is examined, including infiltration, self-healing networks, stretchable conductive frameworks, and ceramic/polymer reinfo",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2026-polymer-regulated-silicon-electrolyt-2026-1836323.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2026-polymer-regulated-silicon-electrolyt-2026-1836323.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-polymer-regulated-silicon-electrolyt-2026-1836323\\8a5e799b-72c8-4929-9212-a0251932f6db_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-polymer-regulated-silicon-electrolyt-2026-1836323"
+  },
+  "source_file": {
+    "pdf_name": "2026-polymer-regulated-silicon-electrolyt-2026-1836323.pdf",
+    "relative_pdf_path": "web-imports\\2026-polymer-regulated-silicon-electrolyt-2026-1836323.pdf",
+    "sha256": "9e77d530d45573742c490e1be2b17f55b14a46f9db04e23bdf871ca052e1573e"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 198,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.787,
+    "needs_human_check": true
+  }
+}

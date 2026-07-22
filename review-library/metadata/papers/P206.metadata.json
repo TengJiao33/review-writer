@@ -1,0 +1,104 @@
+{
+  "paper_id": "P206",
+  "slug": "web-imports-2026-position-dependent-carboxyl-function-2026-1892359",
+  "title": {
+    "value": "Position-dependent carboxyl functionalization in covalent organic frameworks for selective photocatalytic CO2 reduction",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Jiaxin Wang",
+      "Chunqiu Han and Liqun Ye"
+    ],
+    "source": "content_list_after_title",
+    "confidence": 0.74,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fchem.2026.1892359",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The excessive emission of $\\mathrm { C O } _ { 2 }$ has intensified global environmental and energy-related challenges, including climate change, carbon-cycle imbalance, and increasing pressure on sustainable energy systems. Converting $\\mathrm { C O } _ { 2 }$ into value-added fuels and chemicals is therefore considered an attractive strategy for simultaneously mitigating greenhouse gas emissions and realizing carbon resource utilization (Sathyanadh et al., 2026; Boubaker et al., 2025; Kumaravel et al., 2020; Vadivel et al., 2024; Dang et al., 2024; Vu et al., 2019). Among different $\\mathrm { C O } _ { 2 }$ conversion routes, photocatalytic $\\mathrm { C O } _ { 2 }$ reduction is particularly promising because it can directly utilize solar energy to drive chemical transformation under mild conditions, offering a sustainable route for solar-to-chemical energy conversion (Bellardita et al., 2021; Inoue et al., 1979; Tjandra et al.,. 2018).",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2026-position-dependent-carboxyl-function-2026-1892359.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2026-position-dependent-carboxyl-function-2026-1892359.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-position-dependent-carboxyl-function-2026-1892359\\3688f8a4-719e-45bf-ba69-6d2e3cb31cb3_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-position-dependent-carboxyl-function-2026-1892359"
+  },
+  "source_file": {
+    "pdf_name": "2026-position-dependent-carboxyl-function-2026-1892359.pdf",
+    "relative_pdf_path": "web-imports\\2026-position-dependent-carboxyl-function-2026-1892359.pdf",
+    "sha256": "06c23ba56753a1357c815491675316d0e26b422f1d12e75873a4d48406fbd837"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 239,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "missing_journal",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.583,
+    "needs_human_check": true
+  }
+}

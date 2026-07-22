@@ -2,30 +2,27 @@
   "paper_id": "P108",
   "slug": "19-angew-chem-int-ed-engl-may-2-1997-mikami-dynamic-kinetic-protonation-of-racemic-allenylmetal-species-for-the",
   "title": {
-    "value": "Dynamic Kinetic Protonation of Racemic Allenylmetal Species for the Asymmetric Synthesis of Allenic Esters",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "19 angew chem int ed engl may 2 1997 mikami dynamic kinetic protonation of racemic allenylmetal species for the",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Koichi Mikami",
-      "Akihiro Yoshida"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1997,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 1994,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -40,11 +37,27 @@
     "confidence": 0.0,
     "human_checked": false
   },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\19-Angew  Chem  Int  Ed  Engl - May 2  1997 - Mikami - Dynamic Kinetic Protonation of Racemic Allenylmetal Species for the.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\19-angew-chem-int-ed-engl-may-2-1997-mikami-dynamic-kinetic-protonation-of-racemic-allenylmetal-species-for-the.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P108\\fc435308-7572-4343-ac68-f4a776f966cf_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P108"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\19-angew-chem-int-ed-engl-may-2-1997-mikami-dynamic-kinetic-protonation-of-racemic-allenylmetal-species-for-the\\fc435308-7572-4343-ac68-f4a776f966cf_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\19-angew-chem-int-ed-engl-may-2-1997-mikami-dynamic-kinetic-protonation-of-racemic-allenylmetal-species-for-the"
   },
   "source_file": {
     "pdf_name": "19-Angew  Chem  Int  Ed  Engl - May 2  1997 - Mikami - Dynamic Kinetic Protonation of Racemic Allenylmetal Species for the.pdf",
@@ -52,18 +65,15 @@
     "sha256": "aace98e14eb8ecafca7d1dc65ead9ac7bebc036cb3fdc1bb9abb17acc2349b21"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 64,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,32 +88,17 @@
     "warnings": [
       "empty_authors",
       "missing_doi",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
       "low_confidence_title",
-      "low_confidence_abstract",
-      "Provided snippets include unrelated neighboring article content before and after the target communication; metadata was extracted only from the title/authors and the matching allenes/palladium/samarium section.",
-      "No dedicated abstract is present in the supplied snippets, so the abstract field is left empty.",
-      "No formal abstract was found in the provided evidence for this communication.",
-      "Provided extracted text includes unrelated neighboring article content; metadata and classification were taken only from the target Mikami/Yoshida article.",
-      "No exact allowed ligand/chiral-source label matches the stoichiometric chiral alcohol proton source, so `not specified` was used.",
-      "The allowed reaction-type list does not contain dynamic kinetic protonation explicitly; the selected label is the closest supported mapping.",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.649,
+    "overall_confidence": 0.259,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "phosphate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "allenylsamarium species",
-      "product": "allenoates",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "propargylic phosphates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.86,
-    "human_checked": false
   }
 }

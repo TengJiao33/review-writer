@@ -1,0 +1,109 @@
+{
+  "paper_id": "P236",
+  "slug": "web-imports-2019-biocatalytic-degradation-efficiency-vs-201900491",
+  "title": {
+    "value": "Biocatalytic Degradation Efficiency of Postconsumer Polyethylene Terephthalate Packaging Determined by Their Polymer Microstructures",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ren Wei",
+      "Daniel Breite",
+      "Chen Song",
+      "Daniel Gräsing",
+      "Tina Ploss",
+      "Patrick Hille",
+      "Ruth Schwerdtfeger",
+      "Jörg Matysik"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2019,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.201900491",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Polyethylene terephthalate (PET) is the most important mass‐produced thermoplastic polyester used as a packaging material. Recently, thermophilic polyester hydrolases such as TfCut2 from Thermobifida fusca have emerged as promising biocatalysts for an eco‐friendly PET recycling process. In this study, postconsumer PET food packaging containers are treated with TfCut2 and show weight losses of more than 50% after 96 h of incubation at 70 °C. Differential scanning calorimetry analysis indicates that the high linear degradation rates observed in the first 72 h of incubation is due to the high hydrolysis susceptibility of the mobile amorphous fraction (MAF) of PET. The physical aging process of PET occurring at 70 °C is shown to gradually convert MAF to polymer microstructures with limited accessibility to enzymatic hydrolysis. Analysis of the chain‐length distribution of degraded PET by nuclear magnetic resonance spectroscopy reveals that MAF is rapidly hydrolyzed via a combinatorial exo‐ and endo‐type degradation mechanism whereas the remaining PET microstructures are slowly degraded only by endo‐type chain scission causing no detectable weight loss. Hence, efficient thermos",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2019-biocatalytic-degradation-efficiency--vs-201900491.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2019-biocatalytic-degradation-efficiency-vs-201900491.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2019-biocatalytic-degradation-efficiency-vs-201900491\\web-imports-2019-biocatalytic-degradation-efficiency-vs-201900491_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2019-biocatalytic-degradation-efficiency-vs-201900491"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 42,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

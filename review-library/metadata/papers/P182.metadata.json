@@ -2,31 +2,27 @@
   "paper_id": "P182",
   "slug": "50a",
   "title": {
-    "value": "A Novel Palladium-Catalyzed Rearrangement of Acetylenic Ketones to Furans",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "A NOVEL PALLADIUM-CATALYZED REARRANGEMENT OF ACETYLENIC KETONES TO FURANS",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Huaiyu Sheng",
-      "Shouyuan Lin",
-      "Yaozeng Huang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1986,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A novel rearrangement of 1-aryl-4-alkyl-2-butyn-1-one in the presence of Pd(dba)2-PPh3 catalyst gave 2,4-substituted furans in moderate yields.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "A novel rearrangement of 1-aryl-4-alkyl-2-butyn-1-one in the presence of $Pd(dba)_{2}-PPh_{3}$ catalyst gave 2,4-substituted furans in moderate yields. In studying palladium-catalyzed $[3+2]$ cycloaddition reaction $^{1,2}$ of methylenecyclopropane with 1-aryl-4-alkyl(or aryl)-2-butyn-1-one compounds $^{3}$, we found that the yields of desired addition products were quite low. Contrary to our expectation, most of acetylenic ketones underwent rearrangement to 2,4-substituted furans. Further experiments showed that the butynones themselves have been cyclized by palladium catalyst according to equation(1). $$ \\mathrm{R} - \\mathrm{C} - \\mathrm{C} \\equiv \\mathrm{C} - \\mathrm{CH} _ {2} - \\mathrm{R} ^ {\\prime} \\quad \\xrightarrow {\\text {Pd(dba)} _ {2} / \\mathrm{PPh} _ {3}} \\quad \\mathrm{R} - \\mathrm{O} - \\mathrm{R} ^ {\\prime} \\tag {1} $$ The experimental conditions and the yields of the products are listed in Tab. 1. Since the preparation of substituted furans is of current interest, various methods have been adopted for this purpose $^{4-8}$. In this paper we present a new route for preparing these compounds, the yields of which were about 40%. In equation 1, when R is aryl group (including heterocyclic aryl), the rearrangement is satisfactory, but when R is simple alkyl group (e.g., R=Me, R'=Pr-n) no substituted furans is obtained. Possible mechanism of this rearrangement is suggested as follows(Eqn.2): By means of palladium-catalyst, the butynones were at first rearranged into allenyl ketones and then cyclized to furans $^{6}$. Whether Palladium participates the allenyl ketone coordination is not sure now. Further mechanistic investigation is in progress. ![](../extracted/50a/images/1d1f55da625394a4313a78b95a39e12278b0688bcc61eee146cc4a2262a9304d.jpg) <details> <summary>chemical</summary> Organic reaction mechanism showing palladium-catalyzed cyclization and subsequent rearrangement to form a ketone product </details> Table 1. Palladium-catalyzed Rearrangement of Butynones $^{a)}$ <table><tr><td>Entry</td><td>Butynone</td><td>hr.</td><td>Substituted furan formed</td><td>M.P. or B.P. $(^{\\circ}C/Torr)$ </td><td>Isolated yield(%)</td></tr><tr><td>1</td><td>Ph-CO-≡-Bu-n</td><td>6</td><td rowspan=\"2\"><img src=\"../extracted/50a/images/824b4295ea328b50ee6a953542828e96eb0611fc5f490ff294b1251d603c73ad.jpg\"/></td><td>104-105/0.7</td><td>44</td></tr><tr><td>2</td><td>Ph-CO-≡-Pr-n</td><td>6</td><td>85-88/1</td><td>48</td></tr><tr><td>3</td><td>p-MeOC $_{6}$ H $_{4}$ -CO-≡-Pr-n</td><td>6</td><td><img src=\"../extracted/50a/images/b63fd0e32a91cf78da8923bc45edc1995de4cf0c52076f6335fee3c8cc543239.jpg\"/></td><td>115-120/0.5</td><td>40</td></tr><tr><td>4</td><td>p-ClC $_{6}$ H $_{4}$ -CO-≡-Pr-n</td><td>8</td><td><img src=\"../extracted/50a/images/a5fbaf4145e2c0cd50298f4e2e668dd362ea82fa5f5e62a101bf6d86343c38a4.jpg\"/></td><td>28-29</td><td>37</td></tr><tr><td>5</td><td>p-MeC $_{6}$ H $_{4}$ -CO-≡-Pr-n</td><td>6</td><td><img src=\"../extracted/50a/images/1a95622ebd15b89c3adc908a2e4382f7827808210af1d406d262a3e776ca85bc.jpg\"/></td><td>88-90/1</td><td>44</td></tr><tr><td>6</td><td></td><td>6</td><td><img src=\"../extracted/50a/images/89573cd2088289c829c547a71ed919056f5562d10a05b17651ab54ea506d07ac.jpg\"/></td><td>43-43.5</td><td>59</td></tr><tr><td>7</td><td>Ph-CH=CH-CO-≡-Pr-n</td><td>6</td><td><img src=\"../extracted/50a/images/be083079598b09c4fe6d5672ae455f51af84e05fd05343283bb2a39109dc9967.jpg\"/></td><td>108-111/0.7</td><td>37</td></tr><tr><td>8</td><td></td><td>6</td><td><img src=\"../extracted/50a/images/67ce9551293f34380c4533c6ba355faccf3d966fce712a90fadb41dd075111ef.jpg\"/></td><td>78-80/0.7</td><td>41</td></tr><tr><td>9</td><td>Ph-CO-≡-CH $_{2}$ -Ph</td><td>7</td><td><img src=\"../extracted/50a/images/6f00254ae8be3540a607a7c3cb39f17031704d2500a26407aaf6f444edee269b.jpg\"/></td><td>87-88</td><td>25</td></tr><tr><td>10</td><td>Ph-CO-≡-CH $_{2}$ -C $_{6}$ H $_{11}$ -c</td><td>12</td><td><img src=\"../extracted/50a/images/7cdcc94359630b66167c3cbd8c7a6f593abe7826d8b584c2ffebdd850c3ac990.jpg\"/></td><td>58-59</td><td>33b)</td></tr><tr><td>11</td><td>Me-CO-≡-Bu-n</td><td>12</td><td></td><td></td><td>0</td></tr></table> a) All the reactions were carried out at $100^{\\circ}$ C for 6-12 hr, under $N_{2}$, and the products were identified by ${}^{1}$ H-nmr, IR and MS. b) Based on the recovered starting material. Typical procedure: To the flask charged with $Pd(dba)_{2}(1-2\\ mol\\%)$, a mixture of 1,4-diphenyl-2-butyn-1-one(1-2 mmol), $PPh_{3}(1-2\\ mol\\%)$ and 1 ml toluene was added under nitrogen. The resulting mixture was heated to $100^{\\circ}C$. The progress of the reaction was followed by TLC(silica gel, eluted with petroleum ether) without any prior concentration or treatment. Spectral and analytical data of the product are as follows: ${}^{1}H-nmr\\;7.8-7.1(m,1OH),6.6(s,2H)$. MS,m/e(%)M $^{+}$ 220(100),191(15),115(43),105(30). ${}^{13}C-nmr\\;107.2,123.8,127.3,128.7,130.9,153.5$. IR,(KBr)3040,1610,1485,1020,795,760,690,670.Calcd. for $C_{16}H_{12}O$ : C,87.24; H,5.49. Found: C,87.57; H,5.31.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\50a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\50a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P182\\79f1d76f-fc01-40fb-89e9-79eddaa59fce_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P182"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\50a"
   },
   "source_file": {
     "pdf_name": "50a.pdf",
@@ -53,18 +65,15 @@
     "sha256": "dc33113946a33d21a7907bc1059153d9919f6e06a7a80b85d79d2b3644e72bb0"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 18,
+      "content_blocks": 0,
       "markdown_chars_used": 5936
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,31 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "year"
+    ],
     "warnings": [
       "empty_authors",
-      "missing_year",
+      "missing_journal",
       "missing_doi",
-      "structured_tag_not_specified_selectivity_profile",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.8,
+    "overall_confidence": 0.307,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "intramolecular cyclization and skeletal reorganization of allenes",
-      "substrate": "ketones"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.92,
-    "human_checked": false
   }
 }

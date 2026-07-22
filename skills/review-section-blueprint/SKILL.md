@@ -1,11 +1,18 @@
 ---
 name: review-section-blueprint
-description: Convert a selected review outline and evidence matrix into a lightweight writing map for a complete review manuscript.
+description: Convert the selected outline and evidence matrix into a concise writing map for the review manuscript.
 ---
 
 # Section Blueprint
 
-Create a lightweight writing map. Do not write manuscript prose.
+Turn the selected outline into one executable `section_blueprint.json`. Keep it concise enough to guide drafting without reproducing the manuscript.
+
+`init_section_blueprint.py` creates a topic-bound scaffold, not scientific
+content. For the general rule pack its generated `review_claims` are explicitly
+marked `editorial_prompt_requires_evidence_authoring`. Reopen the assigned
+sources, replace every prompt with a bounded evidence-backed argument unit, and
+set the root status to `ready_for_drafting` only after this semantic authoring is
+complete. Never draft from initializer prose.
 
 ## Inputs
 
@@ -23,11 +30,15 @@ Read:
 references/rule_packs.json
 ```
 
-Proceed when `matrix_validation.json` has zero blocking issues. Use `portfolio_editorial_review.json` as optional context: its prompts may suggest adding evidence, reusing current sources more effectively, narrowing scope, or accepting the observed condition. Unresolved prompts do not prevent drafting and do not prescribe a corpus size or section structure.
+Start after matrix validation has no blockers. Resolve material portfolio findings by adding evidence, using existing sources more effectively, narrowing scope, or accepting a bounded omission.
 
-## Coverage Map
+Run the whole-review coordinator after authoring or revising the blueprint. A
+topic mismatch, rule-pack leakage, or un-authored initializer prompt keeps work
+in the manuscript loop even when the blueprint file exists.
 
-Add this top-level object to `section_blueprint.json`:
+## Coverage contract
+
+Keep title-defining topics and declared priorities visible:
 
 ```json
 {
@@ -49,7 +60,7 @@ Add this top-level object to `section_blueprint.json`:
 }
 ```
 
-Derive important items from the manuscript title, retrieval query, central question, and explicitly prioritized scope. If evidence is weak or a topic is intentionally excluded, record the decision and update the title when necessary:
+When evidence cannot support a title-defining topic, record the scope decision and update the title if needed:
 
 ```json
 {
@@ -58,17 +69,9 @@ Derive important items from the manuscript title, retrieval query, central quest
 }
 ```
 
-Keep title-defining topics visible in the coverage map. Coverage warnings guide revision without dictating section architecture.
+## Section map
 
-## Editorial brief
-
-Use the portfolio, method cards, and coverage ledger to add an `editorial_brief`. It may include a broad content range, reader questions, thin coverage items, and promising original review assets. These are planning signals, not acceptance thresholds. Do not pad to a number, require every method-card field, or force the same internal pattern on every section.
-
-For substantive sections, make enough material visible for the writer to choose among orientation, representative method depth, cross-method comparison, practical or scope boundaries, and a section-level takeaway. This is a menu, not a paragraph template. A short section can still be right when the evidence or argument warrants it.
-
-## Writing Map
-
-Use only fields that help the manuscript. A minimal section contains:
+Each substantive section needs:
 
 ```text
 section_id
@@ -78,9 +81,7 @@ review_problem
 major_papers
 ```
 
-Optional fields may include suggested claims, comparison axes, figures/tables, transitions, approximate length, or paragraph modes.
-
-Possible paragraph modes include:
+Add claims, comparison axes, evidence, transitions, figures, tables, paragraph modes, or approximate length only when they guide a real writing choice. Common paragraph modes include:
 
 ```text
 comparison
@@ -92,9 +93,17 @@ synthesis
 outlook
 ```
 
-Select paragraph modes and approximate length only when they help plan a section.
+`review_claims` is optional. If it is used and the blueprint is marked
+`ready_for_drafting`, each claim must name the evidence anchors that support it,
+and those anchors must belong to its supporting papers. Do not mark initializer
+prompts or `needs verification` claims as ready. A shorter map with genuine
+claim—evidence links is better than a long list of plausible headings.
 
-## Required Validation
+Use the portfolio and method cards to expose the representative methods, useful comparisons, practical boundaries, and section-level takeaway. Match structure and length to the evidence instead of a fixed paragraph pattern.
+
+Select a domain rule pack only when it fits the topic. The allene rule pack applies to the registered allene and propargylic-chemistry scope, not to general chemistry reviews.
+
+## Validation
 
 Run:
 
@@ -104,11 +113,9 @@ python skills/review-section-blueprint/scripts/validate_blueprint.py \
   --project-id <project_id>
 ```
 
-Resolve structural blockers and unknown paper references, then rerun. Treat missing optional planning detail, uncovered secondary topics, and length estimates as warnings.
+Fix structural blockers and unknown paper references. Coverage and length warnings inform editorial revision.
 
 ## Outputs
-
-Write:
 
 ```text
 01_matrix_outline/section_blueprint.json
@@ -116,3 +123,5 @@ Write:
 01_matrix_outline/blueprint_validation.json
 01_matrix_outline/blueprint_validation.md
 ```
+
+`section_writing_plan.md` is generated directly from the blueprint as its readable view.

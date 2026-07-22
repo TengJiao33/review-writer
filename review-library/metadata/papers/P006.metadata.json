@@ -3,32 +3,26 @@
   "slug": "angew-chem-int-ed-2023-ding-nickelcatalyzed-asymmetric-propargylaryl-crosselectrophile-coupling",
   "title": {
     "value": "Nickel-Catalyzed Asymmetric Propargyl-Aryl Cross-Electrophile Coupling",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Linlin Ding",
-      "Yue Zhao",
-      "Hongjian Lu",
-      "Zhuangzhi Shi",
-      "Minyan Wang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 2023,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Angew. Chem. Int. Ed.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed. 2024",
+    "source": "how_to_cite_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -39,15 +33,31 @@
   },
   "abstract": {
     "value": "Performing asymmetric cross-coupling reactions between propargylic electrophiles and aryl nucleophiles is a well-established method to build enantioenriched benzylic alkynes. Here, a catalytic enantioselective propargyl-aryl cross-coupling between two electrophiles was achieved for the first time in a stereoconvergent manner. Propargylic chlorides were treated with aryl iodides as well as heteroaryl iodides in the presence of a chiral nickel complex, and manganese metal was used as a stoichiometric reductant, allowing for the construction of a propargyl C-aryl bond under mild conditions. An alternative dual nickel/photoredox catalytic protocol was also developed for this crosselectrophile coupling in the absence of a metal reductant. The potential utility of this conversion is demonstrated in the facile construction of stereoenriched bioactive molecule derivatives and medicinal compounds based on the diversity of acetylenic chemistry. Detailed experimental studies have revealed the key mechanistic features of this transformation.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew Chem Int Ed - 2023 - Ding - Nickel‐Catalyzed Asymmetric Propargyl‐Aryl Cross‐Electrophile Coupling.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2023-ding-nickelcatalyzed-asymmetric-propargylaryl-crosselectrophile-coupling.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P006\\cb649003-588e-4e56-9c6f-945f5d1b10da_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P006"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew-chem-int-ed-2023-ding-nickelcatalyzed-asymmetric-propargylaryl-crosselectrophile-coupling"
   },
   "source_file": {
     "pdf_name": "Angew Chem Int Ed - 2023 - Ding - Nickel‐Catalyzed Asymmetric Propargyl‐Aryl Cross‐Electrophile Coupling.pdf",
@@ -55,18 +65,15 @@
     "sha256": "79fe5b95f9e32e1d9b5d80bf9eebf6a5f72234ee21c236ce96639b1a11aeb906"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 190,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Year is ambiguous across provided evidence: front matter cites Angew. Chem. Int. Ed. 2024, while the slug/filename and copyright line suggest 2023. Using 2024 from the visible citation.",
-      "The paper also reports an alternative Ni/photoredox protocol, but the primary tagging reflects the main chiral nickel/Mn reductive coupling system.",
-      "Main products are enantioenriched benzylic alkynes rather than allenes, so product is classified as `not specified` within the allene-focused schema.",
+      "empty_authors",
       "structured_tag_not_specified_product",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.924,
+    "overall_confidence": 0.633,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic halides"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.9,
-    "human_checked": false
   }
 }

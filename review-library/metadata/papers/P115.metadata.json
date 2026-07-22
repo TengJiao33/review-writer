@@ -3,49 +3,61 @@
   "slug": "24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes",
   "title": {
     "value": "Gold-Catalyzed Highly Enantioselective Synthesis of Axially Chiral Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Vanessa Kar-Yan Lo",
-      "Man-Kin Wong",
-      "Chi-Ming Che"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2008,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Synthesis",
-    "source": "filename_inferred",
-    "confidence": 0.6,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2007,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angew. Chem",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/ol702970r",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "Axially chiral allenes are synthesized from chiral propargylamines catalyzed by KAuCl4 in high yields (up to 93% yield) and excellent enantioselectivities (up to 97% ee) in CH3CN at 40 °C. The reaction has been applied to the synthesis of novel allene-modified artemisinin derivatives with the delicate endoperoxide moieties remaining intact. A tentative mechanism regarding gold(I)-catalyzed intramolecular hydride transfer was proposed on the basis of deuterium-labeling experiments and ESI-MS analysis of the reaction mixture.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P115\\2bb799bf-0cfd-4341-ad58-8dfb8ea9ab33_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P115"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes"
   },
   "source_file": {
     "pdf_name": "24a-gold-catalyzed-highly-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
@@ -53,18 +65,15 @@
     "sha256": "4547d190de34dfb6698478d84af97b2c76d299de8a1a8df5c03f14a02088394b"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 49,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,31 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "The `ligand_or_chiral_source` label is assigned from substrate-derived chirality transfer in prolinol-derived chiral propargylamines rather than from a discrete chiral catalyst or ligand.",
-      "`document_scope` is classified as `communication or letter` based on the Organic Letters format and brief article style rather than an explicit front-matter label.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.68,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "gold catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "prolinol-derived and other chiral amine catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylamine formation and allene rearrangement",
-      "substrate": "propargylic amines"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

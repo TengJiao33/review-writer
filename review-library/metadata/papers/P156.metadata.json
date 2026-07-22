@@ -2,24 +2,21 @@
   "paper_id": "P156",
   "slug": "3j-palladium-catalyzed-cyclization-reactions-of-allenes-in-the-presence-of-unsaturated-carbon-carbon-bonds",
   "title": {
-    "value": "Palladium-Catalyzed Cyclization Reactions of Allenes in the Presence of Unsaturated Carbon-Carbon Bonds",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Palladium-Catalyzed Cyclization Reactions of Allenes in the Presence of Unsaturated Carbon−Carbon Bonds",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Juntao Ye",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2014,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 2013,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "CONSPECTUS: Modern synthetic chemists have looked for rapid and efficient ways to construct complex molecules while minimizing synthetic manipulation and maximizing atom-economy. Over the last few decades, researchers have made considerable progress toward these goals by taking full advantage of transition metal catalysis and the diverse reactivities of allenes, functional groups which include two cumulative carbon-carbon double bonds. This Account describes our efforts toward the development of Pd-catalyzed cyclization reactions of allenes in the presence of compounds that contain unsaturated carbon-carbon bonds such as alkenyl halides, simple alkenes, allenes, electron-deficient alkynes, or propargylic carbonates. First, we discuss the coupling-cyclization reactions of allenes bearing a nucleophilic functionality in the presence of alkenyl halides, simple alkenes, functionalized and nonfunctionalized allenes, or electron-deficient alkynes. These processes generally involve a Pd(II)-catalyzed sequence: cyclic nucleopalladation, insertion or nucleopalladation, and β-elimination, reductive elimination, cyclic allylation or protonation. We then focus on Pd(0)-catalyzed cyclization reactions of allenes in the presence of propargylic carbonates. In these transformations, oxidative addition of propargylic carbonates with Pd(0) affords allenylpalladium(II) species, which then react with allenes via insertion or nucleopalladation. These transformations provide easy access to a variety of synthetically versatile monocyclic, dumbbell-type bicyclic, and fused multicyclic compounds. We have also prepared a series of highly enantioenriched products using an axial-to-central chirality transfer strategy. A range of allenes are now readily available, including optically active ones with central and/or axial chirality. Expansion of these reactions to include other types of functionalized allenes, such as allenyl thiols, allenyl hydroxyl amines, and other structures with differing steric and electronic character, could allow access to cyclic skeletons that previously were difficult to prepare. We anticipate that other studies will continue to explore this promising area of synthetic organic chemistry.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3j-palladium-catalyzed-cyclization-reactions-of-allenes-in-the-presence-of-unsaturated-carbon-carbon-bonds.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3j-palladium-catalyzed-cyclization-reactions-of-allenes-in-the-presence-of-unsaturated-carbon-carbon-bonds.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P156\\0a9c488f-2b68-49cb-9483-9c1808eb9c89_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P156"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\3j-palladium-catalyzed-cyclization-reactions-of-allenes-in-the-presence-of-unsaturated-carbon-carbon-bonds"
   },
   "source_file": {
     "pdf_name": "3j-palladium-catalyzed-cyclization-reactions-of-allenes-in-the-presence-of-unsaturated-carbon-carbon-bonds.pdf",
@@ -52,18 +65,15 @@
     "sha256": "ddefea06a2f0b0b1a8356937e7a272296c054833be0c76975eefdf56f92d7fad"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 210,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,33 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "This is a review article covering multiple palladium-catalyzed allene cyclization manifolds, so the structured tags summarize the dominant scope rather than a single reaction.",
-      "The paper is an account covering multiple allene cyclization manifolds and substrate classes; the single substrate and leaving-group labels are generalized to the most explicitly highlighted abstract evidence.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.676,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "account or perspective",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "intramolecular cyclization and skeletal reorganization of allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.8,
-    "human_checked": false
   }
 }

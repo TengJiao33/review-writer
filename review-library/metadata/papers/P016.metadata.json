@@ -3,23 +3,20 @@
   "slug": "sutro-furstner-2024-total-synthesis-of-the-allenic-macrolide-archangiumide",
   "title": {
     "value": "Total Synthesis of the Allenic Macrolide (+)-Archangiumide",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jack L. Sutro",
-      "Alois Fürstner"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Archangiumide is the first known macrolide natural product comprising an endocyclic allene. For the ring strain that this linear substructure might entail, it was planned to unveil the allene at a very late stage of the projected total synthesis; in actual fact, this was achieved as the last step of the longest linear sequence by using an otherwise globally deprotected substrate. This unconventional timing was made possible by a gold-catalyzed rearrangement of a macrocyclic propargyl benzyl ether derivative that uses a PMB group as latent hydride source to unveil the signature cycloallene; the protecting group therefore gains a strategic role beyond its mere safeguarding function. Although the gold-catalyzed reaction per se is stereoablative, the macrocyclic frame of the target was found to impose high selectivity and a stereoconvergent character on the transformation. The required substrate was formed by ring-closing alkyne metathesis (RCAM) with the aid of a new air-stable molybdenum alkylidyne catalyst.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\sutro-fürstner-2024-total-synthesis-of-the-allenic-macrolide-(-)-archangiumide.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\sutro-furstner-2024-total-synthesis-of-the-allenic-macrolide-archangiumide.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P016\\403f7371-0698-4d81-8863-9c2bf9a10910_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P016"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\sutro-furstner-2024-total-synthesis-of-the-allenic-macrolide-archangiumide"
   },
   "source_file": {
     "pdf_name": "sutro-fürstner-2024-total-synthesis-of-the-allenic-macrolide-(-)-archangiumide.pdf",
@@ -52,18 +65,15 @@
     "sha256": "5f533786d14ac78770714220b8fe00263ce8e1fb39335b9f78c40c587e1b8871"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 113,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,31 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "Path hint filename suggests '(-)-archangiumide', but the front matter title clearly states '(+)-Archangiumide'.",
-      "Reaction type is an approximate best-fit label for a gold-catalyzed propargylic ether rearrangement to an allene.",
-      "Document scope could also be viewed as a communication or letter based on journal format, but the paper is classified here by its total-synthesis scope.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.781,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.387,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "gold catalysis",
-      "document_scope": "application or total synthesis paper",
-      "leaving_group": "ether leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-containing natural products",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "propargylic ethers"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

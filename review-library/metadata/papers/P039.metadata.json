@@ -3,30 +3,20 @@
   "slug": "cascade-grignard-addition-propargyl-claisen-rearrangement-for-the-stereoselective-synthesis-of-allene-quaternary",
   "title": {
     "value": "Cascade Grignard Addition: Propargyl Claisen Rearrangement for the Stereoselective Synthesis of α‑Allene Quaternary Centers in Cyclohexanones",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Estefania Armendariz-Gonzalez",
-      "Adi Saputra",
-      "Edward W. Mureka",
-      "Cale M. Locicero",
-      "Gabrielle L. Womble",
-      "Gloria Tan",
-      "Abigail A. Watson",
-      "Frank R. Fronczek",
-      "Rendy Kartika"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -42,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "We report a new method for the enantio- and diastereoselective synthesis of α-allene quaternary centers in fully substituted cyclohexanones at the α-positions. This reaction involves asymmetric 1,2-carbonyl addition to 2-O-propargyl enones using a mixture of Grignard reagents and the PMP-H8-BINOL ligand. The resulting magnesium alkoxide chelate intermediate then activated the propargyl vinyl ether moiety, thereby triggering a cascade propargyl Claisen rearrangement in a diastereoselective manner. The synthetic applications of this method in the context of complex molecules are also demonstrated.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\cascade-grignard-addition-propargyl-claisen-rearrangement-for-the-stereoselective-synthesis-of-α-allene-quaternary.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\cascade-grignard-addition-propargyl-claisen-rearrangement-for-the-stereoselective-synthesis-of-allene-quaternary.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P039\\c4f6e2d4-dbc7-4afe-91a4-2c870f04054d_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P039"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\cascade-grignard-addition-propargyl-claisen-rearrangement-for-the-stereoselective-synthesis-of-allene-quaternary"
   },
   "source_file": {
     "pdf_name": "cascade-grignard-addition-propargyl-claisen-rearrangement-for-the-stereoselective-synthesis-of-α-allene-quaternary.pdf",
@@ -59,18 +65,15 @@
     "sha256": "cfd50adfcba166c85bd2e4e08eae1171ebea49666e0d89ac64704a7e0c0358d9"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 163,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,28 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "The paper's central cascade propargyl Claisen rearrangement does not map cleanly to any provided reaction_type label, so reaction_type was set to 'not specified'.",
-      "structured_tag_not_specified_reaction_type"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.783,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.387,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "communication or letter",
-      "leaving_group": "ether leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "Grignard reagents",
-      "product": "allenic ketones and ethers",
-      "reaction_type": "not specified",
-      "substrate": "propargylic ethers"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

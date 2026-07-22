@@ -11,32 +11,57 @@ from typing import Any
 
 
 METHOD_FIELDS = (
-    "method_family",
-    "substrate_class",
-    "leaving_group",
-    "coupling_partner",
-    "catalyst_system",
-    "activation_mode",
-    "conditions",
-    "product_topology",
+    "study_design",
+    "subject_or_substrate",
+    "intervention_or_method",
+    "comparator",
+    "conditions_or_context",
+    "outcome_or_metric",
+    "main_result",
     "scope",
-    "selectivity",
     "limitations",
     "operational_notes",
     "mechanistic_basis",
 )
 
 ALIASES = {
-    "method_family": ("method_family", "reaction_type", "reaction_summary"),
-    "substrate_class": ("substrate_class", "substrate", "substrate_classes"),
-    "leaving_group": ("leaving_group", "leaving_groups"),
-    "coupling_partner": ("coupling_partner", "coupling_partners"),
-    "catalyst_system": ("catalyst_system", "catalyst_or_method", "catalyst_logic"),
-    "activation_mode": ("activation_mode", "reaction_type"),
-    "conditions": ("conditions", "representative_conditions"),
-    "product_topology": ("product_topology", "product_class", "product", "product_classes"),
+    "study_design": ("study_design", "design", "paper_type", "study_type"),
+    "subject_or_substrate": (
+        "subject_or_substrate",
+        "substrate_class",
+        "substrate",
+        "substrate_classes",
+        "population",
+        "material",
+    ),
+    "intervention_or_method": (
+        "intervention_or_method",
+        "method_family",
+        "method",
+        "reaction_type",
+        "reaction_summary",
+        "catalyst_system",
+        "catalyst_or_method",
+    ),
+    "comparator": ("comparator", "control", "baseline", "coupling_partner"),
+    "conditions_or_context": (
+        "conditions_or_context",
+        "conditions",
+        "representative_conditions",
+        "setting",
+        "activation_mode",
+    ),
+    "outcome_or_metric": (
+        "outcome_or_metric",
+        "outcome",
+        "metric",
+        "endpoint",
+        "selectivity",
+        "product_topology",
+        "product_class",
+    ),
+    "main_result": ("main_result", "result", "effect", "quantitative_result"),
     "scope": ("scope", "scope_summary", "scope_boundaries"),
-    "selectivity": ("selectivity", "selectivity_mode"),
     "limitations": ("limitations", "limitation", "main_limitation", "scope_boundaries"),
     "operational_notes": ("operational_notes", "practical_notes"),
     "mechanistic_basis": ("mechanistic_basis", "mechanism", "mechanistic_evidence"),
@@ -204,7 +229,7 @@ def editorial_issue_rows(
     method_cards: list[dict[str, Any]],
     ledger: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Build a short decision queue without imposing paper or field quotas."""
+    """Build a decision queue for gaps that prevent comparison-ready synthesis."""
     issues: list[dict[str, Any]] = []
     if not role_counts.get("supporting") and not role_counts.get("background"):
         issues.append(
@@ -311,7 +336,7 @@ def merge_editorial_review(path: Path, project_id: str, issues: list[dict[str, A
     return {
         "project_id": project_id,
         "updated_at": utc_now(),
-        "purpose": "Keep reader-facing portfolio questions visible without paper, reference, field quotas, or a completion gate.",
+        "purpose": "Resolve reader-facing portfolio gaps before the pre-writing quality gate.",
         "allowed_statuses": ["pending", "resolved"],
         "status": "pending" if pending else "resolved",
         "pending_decision_ids": pending,
@@ -408,7 +433,7 @@ def report_markdown(
     lines.extend(f"- {name}: {count}" for name, count in sorted(role_counts.items()))
     lines.extend(["", "## Citation roles", ""])
     lines.extend(f"- {name}: {count}" for name, count in sorted(citation_counts.items()))
-    lines.extend(["", "## Editorial opportunities (non-blocking)", ""])
+    lines.extend(["", "## Editorial issues to resolve before the pre-writing quality gate", ""])
     if sparse_cards:
         lines.append(
             f"- {len(sparse_cards)} method cards are still sparse; deepen only fields needed for comparison, method choice, limitations, or reproducibility."
@@ -426,7 +451,7 @@ def report_markdown(
     lines.extend(
         [
             "",
-            "These are editorial prompts, not pass/fail thresholds. Missing fields must remain null rather than being inferred from titles or generic domain knowledge.",
+            "Missing fields must remain null rather than being inferred from titles or generic domain knowledge. The pre-writing quality gate requires enough evidence-traceable cards for the selected review profile.",
             "",
         ]
     )

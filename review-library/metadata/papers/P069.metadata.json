@@ -2,28 +2,21 @@
   "paper_id": "P069",
   "slug": "j.-am.-chem.-soc.-2023-145-4613",
   "title": {
-    "value": "Diverse Alkyl-Silyl Cross-Coupling via Homolysis of Unactivated C(sp3)-O Bonds with the Cooperation of Gold Nanoparticles and Amphoteric Zirconium Oxides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Diverse Alkyl−Silyl Cross-Coupling via Homolysis of Unactivated \\mathsf { C } ( \\mathsf { s p } ^ { 3 } ) −O Bonds with the Cooperation of Gold Nanoparticles and Amphoteric Zirconium Oxides",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Hiroki Miura",
-      "Masafumi Doi",
-      "Yuki Yasui",
-      "Yosuke Masaki",
-      "Hidenori Nishio",
-      "Tetsuya Shishido"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -39,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Since C(sp3)-O bonds are a ubiquitous chemical motif in both natural and artificial organic molecules, the universal transformation of C(sp3)-O bonds will be a key technology for achieving carbon neutrality. We report herein that gold nanoparticles supported on amphoteric metal oxides, namely, ZrO2, efficiently generated alkyl radicals via homolysis of unactivated C(sp3)-O bonds, which consequently promoted C(sp3)-Si bond formation to give diverse organosilicon compounds. A wide array of esters and ethers, which are either commercially available or easily synthesized from alcohols participated in the heterogeneous gold-catalyzed silylation by disilanes to give diverse alkyl-, allyl-, benzyl-, and allenyl silanes in high yields. In addition, this novel reaction technology for C(sp3)-O bond transformation could be applied to the upcycling of polyesters, i.e., the degradation of polyesters and the synthesis of organosilanes were realized concurrently by the unique catalysis of supported gold nanoparticles. Mechanistic studies corroborated the notion that the generation of alkyl radicals is involved in C(sp3)-Si coupling and the cooperation of gold and an acid-base pair on ZrO2 is responsible for the homolysis of stable C(sp3)-O bonds. The high reusability and air tolerance of the heterogeneous gold catalysts as well as a simple, scalable, and green reaction system enabled the practical synthesis of diverse organosilicon compounds.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Since $\\mathrm { C } ( \\mathsf { s p } ^ { 3 } ) \\mathrm { - O }$ bonds are a ubiquitous chemical motif in both natural and artificial organic molecules, the universal transformation of $\\mathrm { C } ( \\mathsf { s p } ^ { 3 } ) \\mathrm { - O }$ bonds will be a key technology for achieving carbon neutrality. We report herein that gold nanoparticles supported on amphoteric metal oxides, namely, $\\mathrm { Z r O } _ { 2 },$ efficiently generated alkyl radicals via homolysis of unactivated $\\mathrm { C } ( \\mathrm { s p } ^ { 3 } ) \\mathrm { - \\dot { O } }$ bonds, which consequently promoted $\\mathrm { C } ( \\mathrm { s p } ^ { 3 } ) { \\mathrm { - } } \\mathrm { S i }$ bond formation to give diverse organosilicon compounds. A wide array of esters and ethers, which are either commercially available or easily synthesized from alcohols participated in the heterogeneous gold-catalyzed silylation by disilanes to give diverse alkyl-, allyl-, benzyl-, and allenyl silanes in high yields. In addition, this novel reaction technology for $\\mathrm { C } ( \\overset { \\cdot } { \\operatorname { s p } } ^ { 3 } ) \\mathrm { - O }$ bond transformation could be applied to the upcycling of polyesters, i.e., the degradation of polyesters and the synthesis of organosilanes were realized concurrently by the unique catalysis of supported gold nanoparticles. Mechanistic studies corroborated the notion that the generation of alkyl radicals is involved in $\\mathrm { C } ( \\mathrm { s p } ^ { 3 } ) \\mathrm { - } \\mathrm { S i }$ coupling and the cooperation of gold and an acid−base pair on $\\mathrm { Z r O } _ { 2 }$ is responsible for the homolysis of stable $\\mathrm { C } ( \\mathrm { s p } ^ { 3 } ) { \\dot { - } } \\mathrm { { O } }$ bonds. The high reusability and air tolerance of the heterogeneous gold catalysts as well as a simple, scalable, and green reaction system enabled the practical synthesis of diverse organosilicon compounds. ![](../extracted/j.-am.-chem.-soc.-2023-145-4613/images/2fbe3009012c9be436c8a237ae154d64fa85d7ce119e1dd54f1b53f37718b9b0.jpg) <details> <summary>chemical</summary> Chemical reaction diagram showing gold (Au) substrate interaction with R-[Si] and [Si]-catalyzed by base and acid sites </details>",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Am. Chem. Soc. 2023, 145, 4613.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-am.-chem.-soc.-2023-145-4613.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P069\\4077bf88-f67d-41a4-8b7f-999993750ff4_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P069"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\j.-am.-chem.-soc.-2023-145-4613"
   },
   "source_file": {
     "pdf_name": "J. Am. Chem. Soc. 2023, 145, 4613.pdf",
@@ -56,18 +65,15 @@
     "sha256": "0cc6af16519d3b69b3eaa298e1bb0348eee9e15155a834b3e8168f54e4f373b2"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 198,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,28 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Paper is broadly about organosilicon cross-coupling rather than exclusively allene synthesis; allene-specific labels rely on limited evidence for allenyl silane products.",
-      "The coupling partner is a disilane, which is not represented in the allowed organometallic_partner label set, so that field is marked not specified.",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.754,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "gold catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.63,
-    "human_checked": false
   }
 }

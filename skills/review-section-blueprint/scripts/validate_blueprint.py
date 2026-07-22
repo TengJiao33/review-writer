@@ -21,6 +21,24 @@ def matrix_ids(matrix: Any) -> set[str]:
     return {str(row.get("paper_id")) for row in rows if isinstance(row, dict) and row.get("paper_id")}
 
 
+def evidence_owners(matrix: Any) -> dict[str, str]:
+    if isinstance(matrix, list):
+        rows = matrix
+    elif isinstance(matrix, dict):
+        rows = matrix.get("papers") or matrix.get("rows") or matrix.get("literature_matrix") or []
+    else:
+        rows = []
+    result: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict) or not row.get("paper_id"):
+            continue
+        paper_id = str(row["paper_id"])
+        for anchor in row.get("evidence_anchors") or []:
+            if isinstance(anchor, dict) and anchor.get("evidence_id"):
+                result[str(anchor["evidence_id"])] = paper_id
+    return result
+
+
 def supporting_ids(claim: dict[str, Any]) -> list[str]:
     raw = claim.get("supporting_papers") or claim.get("papers") or []
     result = []
@@ -37,9 +55,15 @@ def validate(project: Path) -> dict[str, Any]:
     blueprint_path = stage / "section_blueprint.json"
     matrix_path = stage / "literature_matrix.json"
     blueprint = read_json(blueprint_path)
-    known_ids = matrix_ids(read_json(matrix_path))
+    matrix_payload = read_json(matrix_path)
+    known_ids = matrix_ids(matrix_payload)
+    known_evidence = evidence_owners(matrix_payload)
     blockers: list[str] = []
     warnings: list[str] = []
+    drafting_ready = (
+        isinstance(blueprint, dict)
+        and str(blueprint.get("status") or "").strip().lower() == "ready_for_drafting"
+    )
 
     contract = blueprint.get("coverage_contract") if isinstance(blueprint, dict) else None
     if not isinstance(contract, dict):
@@ -111,6 +135,11 @@ def validate(project: Path) -> dict[str, Any]:
                 blockers.append(f"{sid}: claim {index} is not an object")
                 continue
             pids = supporting_ids(claim)
+            evidence_ids = [
+                str(item)
+                for item in claim.get("evidence_ids") or []
+                if str(item).strip()
+            ]
             if not pids:
                 warnings.append(f"{sid}: suggested claim {index} has no supporting papers")
             for pid in pids:
@@ -119,6 +148,32 @@ def validate(project: Path) -> dict[str, Any]:
             claim_type = str(claim.get("claim_type") or "")
             if claim_type in {"comparison", "contrast", "limitation", "mechanism"} and len(set(pids)) < 2:
                 warnings.append(f"{sid}: {claim_type} claim {index} uses fewer than two papers")
+            unknown_evidence = sorted(set(evidence_ids) - set(known_evidence))
+            if unknown_evidence:
+                blockers.append(
+                    f"{sid}: claim {index} references unknown evidence "
+                    + ", ".join(unknown_evidence)
+                )
+            evidence_papers = {
+                known_evidence[evidence_id]
+                for evidence_id in evidence_ids
+                if evidence_id in known_evidence
+            }
+            if evidence_papers - set(pids):
+                blockers.append(
+                    f"{sid}: claim {index} evidence belongs to unlisted papers "
+                    + ", ".join(sorted(evidence_papers - set(pids)))
+                )
+            if drafting_ready:
+                if not str(claim.get("claim") or claim.get("text") or "").strip():
+                    blockers.append(f"{sid}: ready claim {index} has no claim text")
+                if not evidence_ids:
+                    blockers.append(f"{sid}: ready claim {index} has no linked evidence_ids")
+                strength = str(claim.get("evidence_strength") or "").strip().lower()
+                if strength in {"needs verification", "unverified", "placeholder", "tbd"}:
+                    blockers.append(
+                        f"{sid}: ready claim {index} still has unverified evidence strength"
+                    )
 
     if minimum_words and total_target_words and total_target_words < minimum_words:
         warnings.append(
@@ -129,6 +184,7 @@ def validate(project: Path) -> dict[str, Any]:
         "blueprint_path": str(blueprint_path),
         "minimum_manuscript_words": minimum_words,
         "total_target_words": total_target_words,
+        "declared_ready_for_drafting": drafting_ready,
         "blocking_issues": blockers,
         "warnings": warnings,
     }

@@ -2,25 +2,21 @@
   "paper_id": "P051",
   "slug": "adv.-synth.-catal.-2022-364-565",
   "title": {
-    "value": "Rh(I)-Catalyzed Decarboxylative Arylation of Alkynyl Cyclic Carbonates: Divergent Access to Substituted α-Allenols and 1,3-Butadienes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Rh(I)-Catalyzed Decarboxylative Arylation of Alkynyl Cyclic Carbonates: Divergent Access to Substituted α-Allenols and 1,3- Butadienes",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Geetanjali S. Sontakke",
-      "Rahul K. Shukla",
-      "Chandra M. R. Volla"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Rh(I)-catalyzed decarboxylative arylation of alkynyl cyclic carbonates using commercially available and low-toxic aryl boronic acids has been disclosed. Depending on the nature of the cyclic carbonates, the methodology provides a straightforward platform to access either substituted 2,3-allenols or 1,3-butadiene derivatives. Internal alkynyl cyclic carbonates undergo monoarylation to conveniently afford 2,3-allenols with high syn-selectivity for the aryl and hydroxy groups. Whereas, terminal alkynyl carbonates led to the formation of diarylated 1,3-butadiene derivatives having cis-configuration for the two aryl groups via allenyl rhodium(I) alkoxide intermediate. The compatibility of various functional groups allowed to develop a library of diversely functionalized scaffolds with excellent regioselectivity in good yields. Late-stage transformation of a series of natural products highlights the wide applicability of the arylation process. Additionally, scale-up experiments and downstream transformations of α-allenol derivatives into other valuable heterocycles illustrate the efficacy of the protocol.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Rh(I)-catalyzed decarboxylative arylation of alkynyl cyclic carbonates using commercially available and low-toxic aryl boronic acids has been disclosed. Depending on the nature of the cyclic carbonates, the methodology provides a straightforward platform to access either substituted 2,3-allenols or 1,3-butadiene derivatives. Internal alkynyl cyclic carbonates undergo monoarylation to conveniently afford 2,3-allenols with high syn-selectivity for the aryl and hydroxy groups. Whereas, terminal alkynyl carbonates led to the formation of diarylated 1,3-butadiene derivatives having cis-configuration for the two aryl groups via allenyl rhodium(I) alkoxide intermediate. The compatibility of various functional groups allowed to develop a library of diversely functionalized scaffolds with excellent regioselectivity in good yields. Late-stage transformation of a series of natural products highlights the wide applicability of the arylation process. Additionally, scale-up experiments and downstream transformations of α-allenol derivatives into other valuable heterocycles illustrate the efficacy of the protocol. Keywords: Cyclic carbonates; Rhodium; Arylation; Allenols; Butadienes",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv. Synth. Catal. 2022, 364, 565.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv.-synth.-catal.-2022-364-565.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P051\\a5531771-227d-498e-bdf4-69753efe98ca_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P051"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv.-synth.-catal.-2022-364-565"
   },
   "source_file": {
     "pdf_name": "Adv. Synth. Catal. 2022, 364, 565.pdf",
@@ -53,18 +65,15 @@
     "sha256": "72cbfbf2d63c0f68d957c05c9794f32254cc58fbfa8bbf61485b69688416c87a"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 136,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,25 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Minor OCR corrections applied to title spacing and the final author's surname/affiliation marker merge.",
-      "Paper reports divergent formation of α-allenic alcohols and 1,3-butadienes; the single product label prioritizes the allene-focused product branch."
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.92,
+    "overall_confidence": 0.636,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "rhodium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "achiral bisphosphine ligands for chirality transfer",
-      "organometallic_partner": "boranes and boronates",
-      "product": "alpha-allenic alcohols",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

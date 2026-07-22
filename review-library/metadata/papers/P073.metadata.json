@@ -3,31 +3,26 @@
   "slug": "nature-communications-2022-13-3146",
   "title": {
     "value": "Enyne diketones as substrate in asymmetric Nazarov cyclization for construction of chiral allene cyclopentenones",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Shengbiao Tang",
-      "Peng Zhang",
-      "Ying Shao",
-      "Jiangtao Sun"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Nat. Commun.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The Nazarov cyclization is one of the most powerful tools for the stereoselective synthesis of various cyclopentenone scaffolds. Therefore, developing the new classes substrate of Nazarov reaction is an important endeavor in synthetic chemistry. Herein, we report enyne diketones, enables diastereo- and enantioselective construction of chiral allene cyclopentenones in moderate to good yields with good enantioselectivities (up to 97% ee). Importantly, it is a typical example for asymmetric synthesis of cyclopentanones with allene moiety using Nazarov cyclisation. Mechanistic studies indicate that this metal-organo relay catalysis protocol involves a rhodium-catalyzed tandem oxonium ylide formation/[2,3]-sigmatropic rearrangement/reverse benzylic acid rearrangement, followed by organo-catalyzed asymmetric Nazarov cyclization/alkyne-to-allene isomerization to give the final chiral allene cyclopentenones.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "rhodium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\NATURE COMMUNICATIONS  (2022) 13 3146.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nature-communications-2022-13-3146.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P073\\311369a1-c574-4332-a6a2-548d81c21ea8_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P073"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\nature-communications-2022-13-3146"
   },
   "source_file": {
     "pdf_name": "NATURE COMMUNICATIONS  (2022) 13 3146.pdf",
@@ -54,18 +65,15 @@
     "sha256": "73f5e813a56084c57184d4441915afed8f5bae7eda26069a9a9ecdd63af75157"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 149,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,30 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_journal",
-      "low_confidence_abstract",
-      "Catalyst classification compresses a rhodium/organocatalyst relay system into a single allowed label; the chiral organocatalyst class is supported but not fully resolved from the provided excerpts.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.803,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.527,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "rhodium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "prolinol-derived and other chiral amine catalysts",
-      "organometallic_partner": "not specified",
-      "product": "allenic ketones and ethers",
-      "reaction_type": "intramolecular cyclization and skeletal reorganization of allenes",
-      "substrate": "enynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.79,
-    "human_checked": false
   }
 }

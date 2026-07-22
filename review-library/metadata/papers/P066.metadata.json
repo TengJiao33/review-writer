@@ -3,25 +3,20 @@
   "slug": "j.-am.-chem.-soc.-2022-144-12619",
   "title": {
     "value": "Catalytic Asymmetric Axially Chiral Allenyl C−P Bond Formation",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Huanan Wang",
-      "Hui Qian",
-      "Junliang Zhang",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -31,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/jacs.2c04931",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Chiral organophosphorous compounds are very important in catalysis, organic syntheses, and medicinal chemistry. However, catalytic enantioselective protocols for the axially chiral allenyl phosphorus compounds have never been reported. Herein, a palladium-catalyzed enantioselective carbon−phosphorus bond formation reaction affording axially chiral allenyl phosphonates has been developed. The reaction enjoys high yields and ees accommodating a wide range of functional groups. Mechanistic studies have unveiled an overwhelming kinetic resolution process.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Chiral organophosphorous compounds are very important in catalysis, organic syntheses, and medicinal chemistry. However, catalytic enantioselective protocols for the axially chiral allenyl phosphorus compounds have never been reported. Herein, a palladium-catalyzed enantioselective carbon−phosphorus bond formation reaction affording axially chiral allenyl phosphonates has been developed. The reaction enjoys high yields and ees accommodating a wide range of functional groups. Mechanistic studies have unveiled an overwhelming kinetic resolution process. C hiral biaryls1 and allenes2,3 are two very common classes of most important axially chiral compounds. Biaryl bisphosphines have been extensively applied as ligands and catalysts for asymmetric syntheses.4 In addition, although commonly used as Lewis bases,5 some examples of biaryl bisphosphine oxides have also been reported as ligands in transition metal-catalyzed coupling reactions (Scheme 1a, left).6 However, reports on axially chiral allenyl phosphorus compounds are very limited (Scheme 1a, right). Ready and coworkers had identified axially chiral allenylphosphines as ligands and catalysts for asymmetric syntheses.7,8 So far, there has been no report on catalytic asymmetric synthesis of",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Am. Chem. Soc. 2022, 144, 12619.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-am.-chem.-soc.-2022-144-12619.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P066\\fd91043a-58f1-4850-91ca-dd06f4504a37_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P066"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\j.-am.-chem.-soc.-2022-144-12619"
   },
   "source_file": {
     "pdf_name": "J. Am. Chem. Soc. 2022, 144, 12619.pdf",
@@ -54,18 +65,15 @@
     "sha256": "2b9c5e4fa384158e4781288a205d6517e79032358b1c633b57e66fc5a098474a"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 159,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,32 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "The key substrates are propargylic benzoates/carboxylates, but no exact matching substrate label is available in the allowed list, so `substrate` is set to `not specified`.",
-      "The leaving group is primarily benzoate/carboxylate, but no exact benzoate/carboxylate leaving-group label is available in the allowed list, so `leaving_group` is set to `not specified`.",
-      "The chiral ligand is a Trost-type diphosphine ligand, but no exact matching ligand class is available in the allowed list, so `ligand_or_chiral_source` is set to `not specified`.",
-      "The phosphorus coupling partner is an H-phosphonate/phosphite rather than a listed organometallic partner, so `organometallic_partner` is set to `not specified`.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.794,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.9,
-    "human_checked": false
   }
 }

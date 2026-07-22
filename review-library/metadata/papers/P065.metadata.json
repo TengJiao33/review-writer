@@ -3,31 +3,26 @@
   "slug": "eur.-j.-org.-chem.-2023-26-e202300425",
   "title": {
     "value": "Formal Addition of β-Acylalkenyl Anions to Ketones Utilizing [1,2]-Phospha-Brook Rearrangement under Brønsted Base Catalysis",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Azusa Kondoh",
-      "Sena Takada",
-      "Kohei Aita",
-      "Masahiro Terada"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Eur. J. Org. Chem.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A methodology for the formal addition of β-acylalkenyl anions was developed by utilizing the [1,2]-phospha-Brook rearrangement under Brønsted base catalysis. The two-step reaction involves the catalytic addition of α-oxygenated propargyl anions generated via [1,2]-phospha-Brook rearrangement to electron-deficient ketones and subsequent alcoholysis to afford tertiary alcohols having an enone moiety. This is a rare example of a catalytic carbon-carbon bond forming reaction of β-acylalkenyl anion equivalents, providing synthetic building blocks that are otherwise difficult to access.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "</details> ) This Work: Formal Addition of β-Acylalkenyl Anion <details> <summary>chemical</summary> Chemical reaction scheme showing phosphonium cation intermediate 1 reacting with carboxylic acid catalyst 2 to form alcohol 3, and then to form product 4 </details> Scheme 1.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur. J. Org. Chem. 2023, 26, e202300425.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur.-j.-org.-chem.-2023-26-e202300425.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P065\\84008282-da0b-4a86-9043-1d0b9734a738_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P065"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\eur.-j.-org.-chem.-2023-26-e202300425"
   },
   "source_file": {
     "pdf_name": "Eur. J. Org. Chem. 2023, 26, e202300425.pdf",
@@ -54,18 +65,15 @@
     "sha256": "81c621ccc07ab9e053c71981339873d90e930d18bc82da253b6d5f031d5bcfae"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 114,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,29 +84,18 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "Allene classification is based on the allenyl alcohol intermediates described in the body of the paper; the title and abstract emphasize final enone products rather than allenes.",
-      "The catalyst/method and leaving-group labels are approximate mappings from Brønsted base-promoted [1,2]-phospha-Brook rearrangement chemistry to the constrained allene-review label set.",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.77,
+    "overall_confidence": 0.501,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "primary research article",
-      "leaving_group": "phosphate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "alpha-allenic alcohols",
-      "reaction_type": "allenyl-reagent addition to carbonyl compounds",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.72,
-    "human_checked": false
   }
 }

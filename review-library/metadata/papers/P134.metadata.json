@@ -2,25 +2,21 @@
   "paper_id": "P134",
   "slug": "30",
   "title": {
-    "value": "Enantioselective synthesis of allenecarboxylates from phenyl acetates through C–C bond forming reactions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Enantioselective synthesis of allenecarboxylates from phenyl acetates through C\u0003C bond forming reactions",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jiro Yamazaki",
-      "Toshiyuki Watanabe",
-      "Kiyoshi Tanaka"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2001,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A variety of optically active 4,4-disubstituted allenecarboxylic acid methyl esters were prepared from simple α,α-disubstituted phenyl acetate through base treatment of the esters to generate ketenes, followed by successive Horner–Wadsworth–Emmons reaction. The transformation was further developed as a one-pot procedure with satisfactory yields and high enantioselectivity.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\30.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\30.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P134\\a4ec8f27-1429-4690-a2d7-7551f2ffb0fc_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P134"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\30"
   },
   "source_file": {
     "pdf_name": "30.pdf",
@@ -53,18 +65,15 @@
     "sha256": "5f17a38c599c4c530a48ac9436357b52483ce0316a7e569ca894fd0a15a74b18"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 88,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,35 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "The paper uses stoichiometric base and a ZnCl2 additive rather than a clearly defined catalytic system; the required label was mapped to `zinc catlysis` as the closest allowed method label.",
-      "The actual starting materials are α,α-disubstituted phenyl acetates/phenyl esters, which are not available as substrate labels; `ketenes` was selected because they are the explicit in situ precursors in the reported transformation.",
-      "No allowed leaving-group label clearly captures phenoxy departure from phenyl esters, so `not specified` was used.",
-      "The chiral induction arises from homochiral Horner–Wadsworth–Emmons reagents rather than any listed ligand/chiral-source class, so `not specified` was used.",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.689,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "zinc catlysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenoates",
-      "reaction_type": "ketene olefination to allenecarboxylates",
-      "substrate": "ketenes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

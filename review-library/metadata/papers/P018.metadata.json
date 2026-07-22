@@ -3,26 +3,20 @@
   "slug": "xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole",
   "title": {
     "value": "Diversity-Oriented Synthesis of Indole-Fused Polycyclic Scaffolds via Rhodium-Catalyzed NH-Indole-Directed C−H Coupling of 2‑Phenyl‑1H‑indoles with Propargylic Alcohol Derivatives",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Guijiao Xiang",
-      "Yanqiao Wang",
-      "Leipeng Lu",
-      "Xiaofeng Zhang",
-      "Qiufeng Huang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Diversity-oriented synthesis strategy for the efficient assembly of indole-fused polycyclic scaffolds via rhodium-catalyzed NH-indole-directed C−H coupling with propargylic alcohol derivatives in a regioselective manner was developed. Five 2-phenyl-1H-indole-embedded core skeletons were synthesized. In particular, three different indole-fused exo-olefin-containing polycycles were realized, which may be manipulated for further chemistry.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "Diversity-oriented synthesis strategy for the efficient assembly of indole-fused polycyclic scaffolds via rhodiumcatalyzed NH-indole-directed C−H coupling with propargylic alcohol derivatives in a regioselective manner was developed. Five 2- phenyl-1H-indole-embedded core skeletons were synthesized. In particular, three different indole-fused exo-olefin-containing polycycles were realized, which may be manipulated for further chemistry.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P018\\ffd1a02c-64cd-4f87-95ed-c6f2d2d81143_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P018"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole"
   },
   "source_file": {
     "pdf_name": "xiang-et-al-2024-diversity-oriented-synthesis-of-indole-fused-polycyclic-scaffolds-via-rhodium-catalyzed-nh-indole.pdf",
@@ -55,18 +65,15 @@
     "sha256": "0fa3c605aa2fda0bdbe177d503aea7278ab60dbc84d0a1d12753abd89078da0e"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 290,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,27 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Paper reports both allenylation products and downstream allene-derived cyclizations; classification reflects the dominant allene-forming branch using propargylic ester derivatives.",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.771,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "rhodium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "arylallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.76,
-    "human_checked": false
   }
 }

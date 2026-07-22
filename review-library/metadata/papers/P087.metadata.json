@@ -3,28 +3,20 @@
   "slug": "org.-lett.-2023-25-4682",
   "title": {
     "value": "Synthesis of Multisubstituted Allenes by Palladium-Catalyzed Carboetherification of β,γ-Unsaturated Ketoximes with Propargylic Acetates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Shuaijie Wu",
-      "Shuting Zhang",
-      "Jing Sun",
-      "Ying Han",
-      "Yidong Wang",
-      "Chao-Guo Yan",
-      "Lei Wang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -34,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.orglett.3c01561",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "A highly efficient Pd-catalyzed carboetherification reaction of β,γ-unsaturated ketoximes with propargylic acetates is demonstrated. This method provides a practical protocol for accessing the incorporation of an allene moiety into 3,5-disubstituted and 3,5,5-trisubstituted isoxazolines. The salient features of this transformation include a broad substrate scope, good functional group tolerance, an easy scale-up, versatile transformations, and applications in the late-stage modification of drugs.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "A highly efficient Pd-catalyzed carboetherification reaction of $\\beta, \\gamma \\cdot$ -unsaturated ketoximes with propargylic acetates is demonstrated. This method provides a practical protocol for accessing the incorporation of an allene moiety into 3,5-disubstituted and 3,5,5-trisubstituted isoxazolines. The salient features of this transformation include a broad substrate scope, good functional group tolerance, an easy scale-up, versatile transformations, and applications in the late-stage modification of drugs. A products but also are used as versatile building blocks for llenes not only are key structural motifs in natural the synthesis of many bioactive molecules and drugs.1,2 Consequently, the development of new methods for the installation of various multisubstituted allene groups into organic molecules has attracted an enormous amount of attention.3,4 Among many strategies, stable and available propargylic electrophiles were considered fascinating substrates in the construction of multisubstituted allenes. From the viewpoint of reaction design, transition-metal-catalyzed crosscoupling reaction of an array of general nucleophilic coupling partners such as organometallic reagents,5,6 (hetero)arenes,7 terminal alkynes,8 organosilicons,9 and other reagents10 has been well-established. On the contrary, Wang reported an efficient nickel-catalyzed cross-electrophile strategy for the synthesis of multisubstituted allenes using propargylic electrophiles (Scheme 1a).11 Zhou and co-workers developed a palladium-catalyzed three-component allenylation reaction of cyclic alkenes with (hetero)arenes, alcohols, or anilines using propargylic acetates as the electrophiles (Scheme 1b).1 −12 Despite remarkable progress, given the widespread applications of allenylation in the preparation of specialized structural units, these reactions are still urgently needed. Palladium-catalyzed carboheterofunctionalization of alkenes bearing a pendant electrophile with aryl halides has been extensively employed for efficient synthesis of important heterocyclic compounds.13 However, these synthetic methods were still limited to the installation of aryl or alkenyl groups. Very recently, our groups developed a palladium-catalyzed",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2023, 25, 4682.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2023-25-4682.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P087\\e0264711-a950-451e-b1cd-b9969a93d3f1_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P087"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2023-25-4682"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2023, 25, 4682.pdf",
@@ -57,18 +65,15 @@
     "sha256": "e563170b7685814d387ab6f1879b4331935656a98a30662e7c4c38e482e7109c"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 116,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,26 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "structured_tag_not_specified_selectivity_profile",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.79,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

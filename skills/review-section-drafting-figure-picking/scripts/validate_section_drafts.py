@@ -235,6 +235,20 @@ def validate(project: Path) -> dict[str, Any]:
             }
         )
 
+    total_target_words = sum(row["target_words"] for row in section_reports)
+    total_actual_words = sum(row["actual_words"] for row in section_reports)
+    aggregate_target_ratio = (
+        total_actual_words / total_target_words if total_target_words else None
+    )
+    if aggregate_target_ratio is not None and aggregate_target_ratio < 0.8:
+        # Word plans are planning signals, not a licence to pad a weak argument.
+        # Keep a visible warning, but let the author reorganize or shorten the
+        # review when the evidence supports that choice.
+        warnings.append(
+            "draft_word_volume_below_80_percent_of_blueprint_target:"
+            f"{total_actual_words}/{total_target_words}"
+        )
+
     contract = blueprint.get("coverage_contract") or {}
     for dimension in contract.get("dimensions") or []:
         if not isinstance(dimension, dict):
@@ -276,12 +290,24 @@ def validate(project: Path) -> dict[str, Any]:
                 else None,
             }
         )
+        if used_ids and paragraph_count / len(used_ids) >= 4:
+            warnings.append(
+                f"{paper_id}: {paragraph_count} cited paragraphs rely on only "
+                f"{len(used_ids)} evidence anchor(s); inspect claim-to-evidence fit"
+            )
 
     return {
         "project_id": project.name,
         "abstract_words": abstract_words,
         "keyword_count": keyword_count,
         "section_reports": section_reports,
+        "total_target_words": total_target_words,
+        "total_actual_words": total_actual_words,
+        "aggregate_target_ratio": (
+            round(aggregate_target_ratio, 4)
+            if aggregate_target_ratio is not None
+            else None
+        ),
         "cited_paper_ids": sorted(all_cited),
         "evidence_ids": sorted(all_evidence),
         "evidence_usage_by_paper": evidence_usage,

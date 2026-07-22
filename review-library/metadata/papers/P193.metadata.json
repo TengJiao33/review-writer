@@ -2,24 +2,21 @@
   "paper_id": "P193",
   "slug": "7a",
   "title": {
-    "value": "A Novel Allene Synthesis",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "7a",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Peter Rona",
-      "Pierre Crabbé"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1968,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -40,11 +37,27 @@
     "confidence": 0.0,
     "human_checked": false
   },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\7a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\7a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P193\\24364ca0-44fd-4984-99e2-f498db216d0b_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P193"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\7a"
   },
   "source_file": {
     "pdf_name": "7a.pdf",
@@ -52,18 +65,15 @@
     "sha256": "ac8cdb721ae106fdd3a4a927f1fd19c320fb4dd5a961f83a5ce3ee0a2ca2f539"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 46,
+      "content_blocks": 0,
       "markdown_chars_used": 11150
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,39 +83,22 @@
   },
   "quality": {
     "missing_fields": [
-      "abstract"
+      "abstract",
+      "year"
     ],
     "warnings": [
       "empty_authors",
-      "missing_year",
       "missing_journal",
       "missing_doi",
-      "low_confidence_title",
-      "low_confidence_abstract",
-      "No explicit abstract is present in the supplied snippets, so the abstract field is left empty.",
-      "The supplied front matter includes content from a preceding article before the target paper begins.",
-      "No abstract is present in the supplied paper evidence, so the abstract field is left empty.",
-      "The extracted front matter includes text from a preceding communication; metadata and classification were taken only from the 'A Novel Allene Synthesis' section.",
-      "The method uses stoichiometric lithium dialkylcopper reagents; 'copper catalysis' was selected because no more precise allowed label for organocopper mediation is available.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.549,
+    "overall_confidence": 0.114,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "alkylallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

@@ -3,54 +3,70 @@
   "slug": "1-s2.0-s1001841724001360-main",
   "title": {
     "value": "Cu-catalyzed three-component C–S–P coupling for the synthesis of trisubstituted allenyl phosphorothioates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
-      "Bowen Wang",
-      "Longwu Sun",
-      "Qianqian Cao",
-      "Xinzhi Li",
-      "Jianai Chen",
-      "Shizhao Wang",
+      "Bowen Wanga",
+      "Longwu Suna",
+      "Qianqian Caoa",
+      "Xinzhi Lia",
+      "Jianai Chena",
+      "Shizhao Wanga",
       "Miaolin Ke",
       "Fener Chen"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Chin. Chem. Lett. 2024",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "Chinese Chemical Letters",
+    "source": "filename_derived",
+    "confidence": 0.75,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1016/j.cclet.2024.109617",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "A copper-catalyzed three-component reaction involving cyclic carbonates, elemental sulfur, and H-phosphonates is presented. It proceeds with excellent yields and provides an attractive approach for the construction of valuable trisubstituted allenyl phosphorothioates using a one-step strategy. Moreover, this method can be easily adapted to large-scale preparation.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "A copper-catalyzed three-component reaction involving cyclic carbonates, elemental sulfur, and Hphosphonates is presented. It proceeds with excellent yields and provides an attractive approach for the construction of valuable trisubstituted allenyl phosphorothioates using a one-step strategy. Moreover, this method can be easily adapted to large-scale preparation. © 2024 Published by Elsevier B.V. on behalf of Chinese Chemical Society and Institute of Materia Medica, Chinese Academy of Medical Sciences. Allenes extensively exist in numerous natural products, materials, and pharmaceuticals due to their excellent bioactivities and reactivities (Fig. 1a) [1,2]. Among the different classes of allenes, 2,3-allenols are also important building blocks in advanced organic synthesis [3–18] as they provide expeditious routes to a wide range of useful compounds such as 1,3-enynes [19,20], dihydrofurans [21,22], furanone [23,24], dienes [25,26], vinyl epoxides [27,28], and other heterocycles [29–31]. Owing to the versatility of these ubiquitous motifs, substantial efforts have been devoted including the transition metal catalyzed ring opening of propargyl epoxides with organometallic reagents such as Grignard [32,33], organolithium [34], organozinc [35], and organoboron reagent [36]. This methodology has met with considerable success in offering access to a variety of 2,3-allenols via the formation of C–C bonds based on the use of carbon-nucleophiles. Few examples were reported for the preparation of 2,3-allenols via the formation of Cheteroatom (C–Si or C–B, C–P bond) [37–40].",
+    "source": "content_list_abstract_region",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\1-s2.0-S1001841724001360-main.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\1-s2.0-s1001841724001360-main.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P002\\a0986d91-b38e-45bd-a2a1-175ac36f1505_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P002"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1001841724001360-main\\a0986d91-b38e-45bd-a2a1-175ac36f1505_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1001841724001360-main"
   },
   "source_file": {
     "pdf_name": "1-s2.0-S1001841724001360-main.pdf",
@@ -58,18 +74,15 @@
     "sha256": "43a7445c7933dc404313dced81b930740631a13954b62f70dda75cfe0ec15df2"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 83,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -82,26 +95,12 @@
     "warnings": [
       "missing_journal",
       "missing_doi",
-      "The provided markdown abstract region includes introductory discussion after the formal abstract; only the explicit abstract paragraph was retained.",
-      "Author names were normalized by removing affiliation markers and footnote symbols.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.696,
+    "overall_confidence": 0.513,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "trisubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.95,
-    "human_checked": false
   }
 }

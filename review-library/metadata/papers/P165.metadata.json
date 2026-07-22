@@ -3,25 +3,20 @@
   "slug": "45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral",
   "title": {
     "value": "Palladium-Catalyzed Asymmetric Allylic Alkylation of 2,3-Allenyl Acetates Using a Chiral Diaminophosphine Oxide",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Tetsuhiro Nemoto",
-      "Mutsumi Kanematsu",
-      "Shinji Tamura",
-      "Yasumasa Hamada"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2009,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "An enantioselective synthesis of allenes through palladium-catalyzed asymmetric allylic alkylation using a chiral diaminophosphine oxide is described. The asymmetric allylic alkylations proceeded in the presence of a catalytic amount of lithium acetate at 4 °C, affording the chiral allenes in excellent yield with up to 99% ee.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\45-Adv Synth Catal - 2009 - Nemoto - Palladium‐Catalyzed Asymmetric Allylic Alkylation of 2 3‐Allenyl Acetates Using a Chiral.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P165\\80366f6b-7b1b-4cc3-bd36-c70a835ba937_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P165"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\45-adv-synth-catal-2009-nemoto-palladiumcatalyzed-asymmetric-allylic-alkylation-of-2-3allenyl-acetates-using-a-chiral"
   },
   "source_file": {
     "pdf_name": "45-Adv Synth Catal - 2009 - Nemoto - Palladium‐Catalyzed Asymmetric Allylic Alkylation of 2 3‐Allenyl Acetates Using a Chiral.pdf",
@@ -54,18 +65,15 @@
     "sha256": "8c6dd90df80dd60beaf95a191d8edc5251a9fea1a04b6b13894a29d6d6d093d6"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 90,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,26 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.897,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.494,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "phosphite and phosphoramidite ligands",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "allenyl acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.92,
-    "human_checked": false
   }
 }

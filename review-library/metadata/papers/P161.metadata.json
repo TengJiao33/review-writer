@@ -3,25 +3,20 @@
   "slug": "43a",
   "title": {
     "value": "Palladium-Catalyzed Asymmetric Alkylation of 2,3-Alkadienyl Phosphates. Synthesis of Optically Active 2-(2,3-Alkadienyl)malonates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yasushi Imada",
-      "Katsuya Ueno",
-      "Koji Kutsuwa",
-      "Shun-Ichi Murahashi"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2002,
-    "source": "llm_from_journal_header",
-    "confidence": 0.95,
+    "value": 2001,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Asymmetric alkylation of 2,3-alkadienyl phosphates with soft carbon nucleophiles proceeds efficiently in the presence of palladium complex catalyst bearing MeOBIPHEP or BINAP ligand to give optically active functionalized allenes up to 90% ee.",
-    "source": "llm_from_opening_summary_sentence",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\43a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\43a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P161\\ae9ef878-d678-45cd-af42-227f44d0ca0b_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P161"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\43a"
   },
   "source_file": {
     "pdf_name": "43a.pdf",
@@ -54,18 +65,15 @@
     "sha256": "036a55f3127fcd855452badf393bacf30259bdb699144e048b46d72bc02e5c03"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 47,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,31 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract heading is visible; the opening summary sentence was used as the abstract.",
-      "Publication year assigned from the journal header/footer (Chemistry Letters 2002), not the received date (2001).",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.686,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "phosphate leaving groups",
-      "ligand_or_chiral_source": "chiral biaryl bisphosphine ligands",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "allenyl phosphates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.91,
-    "human_checked": false
   }
 }

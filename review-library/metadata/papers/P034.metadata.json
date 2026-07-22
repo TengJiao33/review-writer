@@ -3,29 +3,26 @@
   "slug": "eur-j-org-chem-2024-yan-nicatalyzed-synthesis-of-multisubstituted-allenes-via-reductive-crosscoupling-of",
   "title": {
     "value": "Ni-Catalyzed Synthesis of Multisubstituted Allenes via Reductive Cross-Coupling of Propargylic Acetates with Chlorohydrosilanes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xiaohui Yan",
-      "Hong Deng"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2025,
-    "source": "llm_from_journal_footer",
-    "confidence": 0.96,
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Eur J Org Chem",
-    "source": "filename_prefix",
-    "confidence": 0.55,
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "This paper introduces an innovative strategy for the synthesis of multisubstituted allenes via nickel-catalyzed reductive cross-coupling reactions. The approach utilizes propargylic acetates and chlorosilanes to produce a variety of silyl-substituted allenes. The reaction conditions are notably mild, and the process is characterized by high chemo- and regioselectivity, as well as an impressive substrate scope. Furthermore, the method can be readily extended to the use of chlorogermane and chlorostannane, facilitating the synthesis of germanium- or tin-substituted allenes. This research not only offers a valuable strategy for the preparation of multisubstituted allenes but also significantly broadens the synthetic repertoire for the construction of highly functionalized molecules.",
-    "source": "llm_from_front_matter_fragment_reconstruction",
-    "confidence": 0.84,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur J Org Chem - 2024 - Yan - Ni‐Catalyzed Synthesis of Multisubstituted Allenes via Reductive Cross‐Coupling of.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur-j-org-chem-2024-yan-nicatalyzed-synthesis-of-multisubstituted-allenes-via-reductive-crosscoupling-of.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P034\\a213abb3-b1e7-48a3-a7cc-db273bc76081_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P034"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\eur-j-org-chem-2024-yan-nicatalyzed-synthesis-of-multisubstituted-allenes-via-reductive-crosscoupling-of"
   },
   "source_file": {
     "pdf_name": "Eur J Org Chem - 2024 - Yan - Ni‐Catalyzed Synthesis of Multisubstituted Allenes via Reductive Cross‐Coupling of.pdf",
@@ -52,18 +65,15 @@
     "sha256": "5eda3e2316c1a70c65dc66fc9950b8463423b48c32a5d1d35d22c7615dae3e66"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 115,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,31 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "low_confidence_abstract",
-      "Publication year is ambiguous in the supplied snippets: the footer cites a 2025 journal issue, while the filename and copyright line suggest 2024.",
-      "The abstract was reconstructed from fragmented front-matter text because the supplied abstract snippet is split across blocks.",
-      "Publication year appears as 2025 in the journal footer, while the copyright notice shows 2024.",
-      "Abstract was reconstructed from split OCR/front-matter text and may differ slightly from the publisher-formatted version.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.881,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.527,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.94,
-    "human_checked": false
   }
 }

@@ -2,31 +2,21 @@
   "paper_id": "P025",
   "slug": "adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated",
   "title": {
-    "value": "Organocatalytic Remote-Controlled Enantioselective 1,10-Additions of In Situ Generated Alkynyl 2,4'-Biphenyl Quinone Methides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Organocatalytic Remote-Controlled Enantioselective 1,10-Additions of In Situ Generated Alkynyl 2,40 -Biphenyl Quinone Methides",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Tian Liang",
-      "Meiwen Liu",
-      "Aman Ullah",
-      "Zhibin Yue",
-      "Yan Xia",
-      "Fang Fang",
-      "Pengfei Li",
-      "Shao-Fei Ni",
-      "Wenjun Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -42,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The strategic incorporation of auxiliary groups has recently established α-functionalized alcohols as versatile electrophilic alkylation reagents, enabling remotely controlled conjugate additions. Strikingly, while quinone methide chemistry has been extensively developed, their extended analogues—featuring spatially separated carbonyl and methide units across biphenyl systems—remain unexplored. Building on the prior work with alkynyl 4,4'-biphenyl quinone methides, an organocatalytic remotely controlled enantioselective 1,10-additions of in situ-generated alkynyl 2,4'-biphenyl quinone methides from α-[4-(2-hydroxyphenyl)phenyl]propargyl alcohols with 3-arylindoles and indole-2-carboxylates is reported, affording a broad scope of enantioenriched 3H-pyrrolo[1,2-a]indoles and axially chiral tetrasubstituted allenes, respectively. Combined with control experiments, density functional theory calculations elucidate the reaction mechanism, revealing that the dehydration of α-functionalized alcohols to generate 2,4'-biphenyl quinone methides constitutes the rate-limiting step, while enantioselectivity arises from the nucleophilic addition of alkynyl biphenyl quinone methides. Notably, beyond proving 2,4'-biphenyl quinone methides as competent intermediates, this work breaks new ground by demonstrating their participation in previously unreported stereoselective 1,10-additions.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "The strategic incorporation of auxiliary groups has recently established α-functionalized alcohols as versatile electrophilic alkylation reagents, enabling remotely controlled conjugate additions. Strikingly, while quinone methide chemistry has been extensively developed, their extended analogues—featuring spatially separated carbonyl and methide units across biphenyl systems—remain unexplored. Building on the prior work with alkynyl 4,4 0 -biphenyl quinone methides, an organocatalytic remotely controlled enantioselective 1,10-additions of in situ-generated alkynyl 2,4 0 -biphenyl quinone methides from α-[4-(2- hydroxyphenyl)phenyl]propargyl alcohols with 3-arylindoles and indole-2-carboxylates is reported, affording a broad scope of enantioenriched 3H-pyrrolo[1,2-a]indoles and axially chiral tetrasubstituted allenes, respectively. Combined with control experiments, density functional theory calculations elucidate the reaction mechanism, revealing that the dehydration of α-functionalized alcohols to generate 2,4 0 -biphenyl quinone methides constitutes the rate-limiting step, while enantioselectivity arises from the nucleophilic addition of alkynyl biphenyl quinone methides. Notably, beyond proving 2,4 0 -biphenyl quinone methides as competent intermediates, this work breaks new ground by demonstrating their participation in previously unreported stereoselective 1,10-additions. Keywords: 1,10-additions, 3-arylindoles, indole-2-carboxylates, organocatalysis, quinone methides",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv Synth Catal - 2025 - Liang - Organocatalytic Remote‐Controlled Enantioselective 1 10‐Additions of In Situ Generated.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P025\\52cb004b-fcdb-49ba-b3d7-41647d043175_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P025"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv-synth-catal-2025-liang-organocatalytic-remotecontrolled-enantioselective-1-10additions-of-in-situ-generated"
   },
   "source_file": {
     "pdf_name": "Adv Synth Catal - 2025 - Liang - Organocatalytic Remote‐Controlled Enantioselective 1 10‐Additions of In Situ Generated.pdf",
@@ -59,18 +65,15 @@
     "sha256": "8e90ad4422e153a6c406e2a9d4b4e193bb806ea1abba5d15a68b5c8e4636030a"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 196,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -81,27 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "The paper is divergent, giving both fused heterocycles and allenes; allene classification is assigned from the indole-2-carboxylate branch that affords axially chiral tetrasubstituted allenes.",
-      "The allowed reaction-type labels do not contain a direct match for organocatalytic 1,10-addition via biphenyl quinone methides, so 'propargylic substitution and cross-coupling' is the closest available label.",
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.889,
+    "overall_confidence": 0.611,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.83,
-    "human_checked": false
   }
 }

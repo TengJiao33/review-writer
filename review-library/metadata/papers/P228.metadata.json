@@ -1,0 +1,101 @@
+{
+  "paper_id": "P228",
+  "slug": "angew-chem-int-ed-2016-jia-new-approaches-to-the-synthesis-of-metal-carbenes",
+  "title": {
+    "value": "angew chem int ed 2016 jia new approaches to the synthesis of metal carbenes",
+    "source": "slug_fallback",
+    "confidence": 0.35,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2016,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angew. Chem. Int. Ed.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.201508119",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew-chem-int-ed-2016-jia-new-approaches-to-the-synthesis-of-metal-carbenes.md",
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew-chem-int-ed-2016-jia-new-approaches-to-the-synthesis-of-metal-carbenes"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 0,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [
+      "abstract"
+    ],
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.451,
+    "needs_human_check": true
+  }
+}

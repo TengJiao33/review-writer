@@ -1,11 +1,11 @@
 ---
 name: review-literature-matrix-outline
-description: Read the screened literature, record source-located evidence anchors, and build a coverage-aware outline for an open-form review manuscript.
+description: Read screened literature, record source-located evidence, assess coverage, and build one useful review outline.
 ---
 
 # Literature Matrix and Outline
 
-Create a compact evidence base and one useful manuscript outline.
+Build a compact evidence base and organize it around the review question.
 
 ## Inputs
 
@@ -17,46 +17,46 @@ Read:
 00_discovery/screening_validation.json
 review-library/metadata/papers/<paper_id>.metadata.json
 the linked Markdown for each included paper
-the linked PDF when the Markdown does not resolve the needed detail
+the linked PDF when Markdown is insufficient
 ```
 
-Assign `role_after_reading` as `core`, `supporting`, `background`, or `excluded`. This is the paper's evidence-depth role, not a one-dimensional quality ranking. Add one or more flexible `citation_roles` when useful, such as `landmark`, `method_example`, `comparative_support`, `mechanistic_support`, `limitation`, `context`, or `historical_bridge`. A paper may serve several of these purposes. `chronology_role`, `coverage_tags`, and `intended_use` are optional and belong here, after reading.
+After reading, assign each paper `core`, `supporting`, `background`, or `excluded`. Add useful citation roles such as `landmark`, `method_example`, `comparative_support`, `mechanistic_support`, `limitation`, `context`, and `historical_bridge`. Optional fields include `chronology_role`, `coverage_tags`, and `intended_use`.
 
-Read toward the review argument: identify what the paper changes in the central question, open the passage or figure that establishes it, and note the boundary of that evidence. Let those paper-specific findings determine the anchors instead of beginning from a repeated method/result/mechanism template.
+Read for the argument: identify what the paper changes, locate the passage or figure that establishes it, and note the evidence boundary.
 
 ## Evidence anchors
 
-An evidence anchor keeps the reviewer's concise paraphrase separate from a short verifiable source excerpt. It supplies traceability without prescribing manuscript wording.
+Keep the reviewer note separate from the source wording:
 
 ```json
 {
   "paper_id": "P001",
   "title": "...",
   "role_after_reading": "core",
-  "main_content": "Concise notes useful for synthesis",
+  "main_content": "Concise synthesis notes",
   "intended_use": "optional",
   "evidence_anchors": [
     {
       "evidence_id": "P001-E01",
       "note": "Source-supported information in review-ready language",
-      "source_excerpt": "Short source wording that preserves material qualifiers",
+      "source_excerpt": "Short source wording with material qualifiers",
       "source_path": "review-root-relative or absolute path",
-      "locator": "page, section, figure, table, or paragraph locator",
+      "locator": "page, section, figure, table, or paragraph",
       "source_level": "full_text | abstract | metadata",
-      "evidence_kind": "result, method, mechanism, limitation, context, or another useful label",
+      "evidence_kind": "result | method | mechanism | limitation | context",
       "certainty": "direct | author_interpretation | review_inference | unclear"
     }
   ]
 }
 ```
 
-Core and supporting papers receive at least one full-text anchor, but that is an integrity floor rather than a target. Give every core/supporting anchor a short verbatim source excerpt from the identified location; retain qualifiers such as `may`, `might`, `suggest`, and `possible`. Put paraphrase and interpretation in `note`, never in `source_excerpt`. The validator permits harmless whitespace, line-break, Unicode, and ellipsis normalization but blocks an excerpt that cannot be found in the recorded text or PDF. Evidence depth follows intended use: when one paper supports separate claims about scope, mechanism, selectivity, or limitation, capture the distinct source locations instead of reusing one generic anchor. Do not create extra anchors merely to reach a count. Keep a proposal or review inference labeled at its actual certainty.
+Every core or supporting paper needs a full-text anchor with a short verbatim excerpt. Preserve qualifiers such as `may`, `might`, `suggest`, and `possible`. Put paraphrase in `note`. Add separate anchors when the paper supports materially different claims about scope, mechanism, selectivity, or limitations.
 
-Background papers may supply bounded definitions, historical transitions, or context from an abstract when the claim stays at that level. Promote a paper to supporting and reopen full text when it becomes material to scope, mechanism, selectivity, limitations, priority, or a cross-method judgment. This keeps the corpus broad enough to orient readers without weakening key claims.
+Background papers may support bounded definitions, history, and orientation at the source level available. Reclassify and read the full text when such a paper becomes material to a mechanism, comparison, limitation, priority, or broad judgment.
 
-## Portfolio, method cards, and coverage ledger
+## Portfolio and coverage
 
-After the matrix validator passes its integrity checks, build the editorial views:
+After matrix validation, run:
 
 ```bash
 python skills/review-literature-matrix-outline/scripts/build_review_portfolio.py \
@@ -64,15 +64,18 @@ python skills/review-literature-matrix-outline/scripts/build_review_portfolio.py
   --project-id <project_id>
 ```
 
-`literature_portfolio.json` separates evidence-depth roles from citation uses. `method_cards.json` extracts comparison-ready fields such as substrate class, leaving group, coupling partner, catalyst, activation, conditions, product topology, scope, selectivity, limitations, operational notes, and mechanistic basis. Populate only what was actually read; keep unknown fields `null` instead of filling them from generic chemistry knowledge. Each populated field records the evidence IDs that support it. Deepen the fields that matter to the manuscript rather than forcing every paper into an identical card.
+The builder creates:
 
-`coverage_ledger.json` maps declared topic priorities to candidate papers and labels thin or unmapped areas. Its token mapping is a navigation aid, not semantic proof. Reopen sources before writing, and respond to a gap by adding evidence, narrowing the title, or explaining the omission. Counts and gaps in `portfolio_report.md` are editorial prompts, never progression gates.
+- `literature_portfolio.json`: evidence roles and citation uses.
+- `method_cards.json`: evidence-linked fields for comparison, including materials, conditions, scope, selectivity, limitations, operational details, and mechanistic basis.
+- `coverage_ledger.json`: the topic contract mapped to candidate papers, with thin and missing areas exposed.
+- `portfolio_editorial_review.json`: material choices that need a writing or scope decision.
 
-`portfolio_editorial_review.json` turns material observations into a small set of optional editorial prompts. Record a decision or rationale when it helps the manuscript; unresolved rows remain visible but do not block later stages or release. It is valid to keep a bounded corpus, accept a sparse comparison field, or narrow the scope when that best serves the review. The point is to prevent an accidental thin manuscript, not to impose paper, citation, or method-card quotas. Rerunning the builder preserves decisions for issues that still apply.
+Populate method-card fields only from checked sources and leave unknown values `null`. When coverage is weak, add evidence, narrow the scope or title, or state the omission. These editorial views have no fixed paper, citation, or method-card quotas.
 
 ## Outline
 
-Organize the outline around the central question and available evidence. Useful annotations include section question, assigned papers, comparison axes, important coverage, and expected synthesis. Use a single outline unless genuinely different organizations merit a choice.
+Choose one organization that best answers the central question with the available evidence. Annotate section questions, assigned papers, comparison axes, coverage, and expected synthesis where useful. Create alternatives only when the topic genuinely supports different organizing logics.
 
 Validate:
 
@@ -82,7 +85,7 @@ python skills/review-literature-matrix-outline/scripts/validate_evidence_matrix.
   --project-id <project_id>
 ```
 
-The validator checks schema, unique IDs, source existence, source depth, provenance structure, and verbatim excerpt presence. It does not infer whether the excerpt semantically proves the reviewer's claim; that remains a reading and audit judgment.
+The validator checks schema, IDs, sources, provenance, source depth, and excerpt presence. Semantic support is reviewed during reading and final audit.
 
 ## Outputs
 
@@ -90,7 +93,7 @@ The validator checks schema, unique IDs, source existence, source depth, provena
 01_matrix_outline/paper_reading_notes.json
 01_matrix_outline/literature_matrix.json
 01_matrix_outline/literature_matrix.csv
-01_matrix_outline/outline_options.md (optional)
+01_matrix_outline/outline_options.md (when useful)
 01_matrix_outline/selected_outline.md
 01_matrix_outline/matrix_outline_report.md
 01_matrix_outline/matrix_validation.json

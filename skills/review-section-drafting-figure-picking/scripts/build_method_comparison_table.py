@@ -9,27 +9,25 @@ from typing import Any
 
 
 DEFAULT_FIELDS = [
-    "substrate_class",
-    "coupling_partner",
-    "catalyst_system",
-    "activation_mode",
-    "conditions",
-    "product_topology",
-    "selectivity",
+    "study_design",
+    "subject_or_substrate",
+    "intervention_or_method",
+    "comparator",
+    "conditions_or_context",
+    "outcome_or_metric",
+    "main_result",
     "limitations",
 ]
 
 FIELD_LABELS = {
-    "method_family": "Method family",
-    "substrate_class": "Substrate",
-    "leaving_group": "Leaving group",
-    "coupling_partner": "Partner",
-    "catalyst_system": "Catalyst / ligand",
-    "activation_mode": "Activation",
-    "conditions": "Representative conditions",
-    "product_topology": "Product",
+    "study_design": "Study design",
+    "subject_or_substrate": "Subject / substrate",
+    "intervention_or_method": "Intervention / method",
+    "comparator": "Comparator",
+    "conditions_or_context": "Conditions / context",
+    "outcome_or_metric": "Outcome / metric",
+    "main_result": "Main result",
     "scope": "Scope",
-    "selectivity": "Selectivity",
     "limitations": "Limitations",
     "operational_notes": "Operational notes",
     "mechanistic_basis": "Mechanistic basis",
@@ -50,7 +48,12 @@ def escape_cell(value: Any) -> str:
 
 
 def display_label(card: dict[str, Any]) -> str:
-    value = str(card.get("method_family") or card.get("display_label") or card.get("title") or "Method").strip()
+    value = str(
+        card.get("intervention_or_method")
+        or card.get("display_label")
+        or card.get("title")
+        or "Method"
+    ).strip()
     return value if len(value) <= 90 else value[:87].rstrip() + "…"
 
 

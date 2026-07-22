@@ -3,26 +3,20 @@
   "slug": "36",
   "title": {
     "value": "Phase-transfer-catalysed asymmetric synthesis of tetrasubstituted allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Takuya Hashimoto",
-      "Kazuki Sakata",
-      "Fumiko Tamakuni",
-      "Mark J. Dutton",
-      "Keiji Maruoka"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Allenes are molecules based on three carbons connected by two cumulated carbon–carbon double bonds. Given their axially chiral nature and unique reactivity, substituted allenes have a variety of applications in organic chemistry as key synthetic intermediates and directly as part of biologically active compounds. Although the demands for these motivated many endeavours to make axially chiral, substituted allenes by exercising asymmetric catalysis, the catalytic asymmetric synthesis of fully substituted ones (tetrasubstituted allenes) remained largely an unsolved issue. The fundamental obstacle to solving this conundrum is the lack of a simple synthetic transformation that provides tetrasubstituted allenes in the action of catalysis. We report herein a strategy to overcome this issue by the use of a phase-transfer-catalysed asymmetric functionalization of 1-alkylallene-1,3-dicarboxylates with N-arylsulfonyl imines and benzylic and allylic bromides.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\36.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\36.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P143\\6bce6227-6c89-4bed-aaa8-4c3084ba25c5_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P143"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\36"
   },
   "source_file": {
     "pdf_name": "36.pdf",
@@ -55,18 +65,15 @@
     "sha256": "7b7a6584c77da8ca2f081e7cb9924c35356e6947f70b3d6e2c2672ed19fe4494"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 77,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,30 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.69,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "phase-transfer catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "cinchona-derived and chiral ammonium catalysts",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "intermolecular functionalization of allenes",
-      "substrate": "allenoates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.9,
-    "human_checked": false
   }
 }

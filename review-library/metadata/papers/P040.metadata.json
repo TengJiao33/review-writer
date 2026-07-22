@@ -2,29 +2,21 @@
   "paper_id": "P040",
   "slug": "condition-controlled-divergent-selective-synthesis-of-z-n-vinyl-and-n-allenyl-benzimidazoles-by-pd-or-bi-catalyzed",
   "title": {
-    "value": "Condition-Controlled Divergent Selective Synthesis of (Z)-N-Vinyl and N-Allenyl Benzimidazoles by Pd- or Bi-Catalyzed Direct N-Alkenylation Reactions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Condition-Controlled Divergent Selective Synthesis of (Z)‑N‑Vinyl and N‑Allenyl Benzimidazoles by Pd- or Bi-Catalyzed Direct N‑Alkenylation Reactions",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Guodong Shen",
-      "Kun Bi",
-      "Dehe Wang",
-      "Zhirong Zhao",
-      "Xuan Tang",
-      "Xianqiang Huang",
-      "Xin Lv"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -41,15 +33,31 @@
   },
   "abstract": {
     "value": "We have developed a condition-controlled divergent synthesis of (Z)-N-vinyl and N-allenyl benzimidazoles from 1,1,3-triphenylprop-2-yn-1-ols and benzimidazoles through Pd- or Bi-catalyzed N-alkenylation reactions involving nucleophilic attack and C−C bond cleavage processes. The desired two different kinds of products can be conveniently and selectively synthesized by using this strategy, which features stereospecific synthesis, good functional group tolerance, a broad substrate scope, and high efficiency. The strategy provides significant advantages for the synthesis of biologically and pharmaceutically active imidazoheterocycles.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\condition-controlled-divergent-selective-synthesis-of-(z)-n-vinyl-and-n-allenyl-benzimidazoles-by-pd-or-bi-catalyzed.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\condition-controlled-divergent-selective-synthesis-of-z-n-vinyl-and-n-allenyl-benzimidazoles-by-pd-or-bi-catalyzed.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P040\\aade5cd9-b149-44c2-87b4-90b1f2fe5607_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P040"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\condition-controlled-divergent-selective-synthesis-of-z-n-vinyl-and-n-allenyl-benzimidazoles-by-pd-or-bi-catalyzed"
   },
   "source_file": {
     "pdf_name": "condition-controlled-divergent-selective-synthesis-of-(z)-n-vinyl-and-n-allenyl-benzimidazoles-by-pd-or-bi-catalyzed.pdf",
@@ -57,18 +65,15 @@
     "sha256": "356f19038c21b18c2796cff2a174f785e3489bb9f23c57bc6ffcbf9be370a791"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 187,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "This is a divergent paper covering both N-vinyl and N-allenyl products; the structured tags prioritize the allene-forming branch for allene-library classification.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.786,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenyl amines",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

@@ -3,31 +3,26 @@
   "slug": "26a-1-s2.0-s0040402013011022-main",
   "title": {
     "value": "Studies on ZnBr2-mediated synthesis of axially chiral aryl-substituted allenes from terminal alkynes, aromatic aldehydes and (S)-a,a-diphenylprolinol",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Juntao Ye",
-      "Ruizhi Lü",
-      "Wu Fan",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.88,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Green Chemistry",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The studies on the ZnBr2-mediated synthesis of axially chiral aryl-substituted allenes from terminal alkynes, aromatic aldehydes, and commercially available chiral amine (S)-a,a-diphenylprolinol were conducted. Axially chiral aryl-substituted allenes can be obtained in moderate yields with up to 96% ee.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\26a-1-s2.0-S0040402013011022-main.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\26a-1-s2.0-s0040402013011022-main.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P119\\fb2ec78e-f32f-4298-9830-cdacd2a9a3dc_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P119"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\26a-1-s2.0-s0040402013011022-main"
   },
   "source_file": {
     "pdf_name": "26a-1-s2.0-S0040402013011022-main.pdf",
@@ -54,18 +65,15 @@
     "sha256": "2112140fe267d0adb761d9694638e8751a280d69b9799af804db80b0279401e5"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 96,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,32 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "Author name 'Ruizhi Lu' contains an OCR uncertainty in the source text ('Lu€').",
-      "structured_tag_not_specified_mechanism_type",
-      "Author name 'Ruizhi Lü' was lightly OCR-corrected from distorted front-matter text.",
-      "Document scope is inferred from the first-page discussion emphasizing inability to reproduce a related literature procedure and disclosure of the authors' own observations.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.769,
+    "warnings": [
+      "empty_authors",
+      "missing_journal",
+      "missing_doi",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "zinc catlysis",
-      "document_scope": "reproducibility or verification study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "prolinol-derived and other chiral amine catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "allenation of terminal alkyne",
-      "substrate": "terminal alkynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

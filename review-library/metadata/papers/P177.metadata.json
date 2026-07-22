@@ -2,30 +2,27 @@
   "paper_id": "P177",
   "slug": "4c-1-s2.0-s004040200401645x-main-1",
   "title": {
-    "value": "Synthesis of allenes with organometallic reagents",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Tetrahedron report number 697",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Norbert Krause",
-      "Anja Hoffmann-Röder"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2004,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The use of organometallic reagents for the synthesis of allenes is highly developed, and several fundamentally different methods are now well established. These include transition metal-catalyzed addition and substitution reactions, as well as isomerizations of alkynes to generate allenes with organometallic bases; furthermore, the preparation of allenes from allenyl/propargylmetal reagents and the well-known Doering–Moore–Skattebøl method for converting alkenes into allenes by addition of dihalocarbenes and subsequent insertion reaction should be mentioned here. In contrast to these methods, this report deals with the use of stoichiometric amounts of non-allenic organometallic reagents for the generation of allenic target molecules starting from unsaturated electrophiles.",
-    "source": "content_list_first_paragraph_after_authors",
-    "confidence": 0.68,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4c-1-s2.0-S004040200401645X-main (1).pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4c-1-s2.0-s004040200401645x-main-1.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P177\\5f2bbd21-12f8-44ce-98ff-27c94308ba9f_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P177"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\4c-1-s2.0-s004040200401645x-main-1"
   },
   "source_file": {
     "pdf_name": "4c-1-s2.0-S004040200401645X-main (1).pdf",
@@ -52,18 +65,15 @@
     "sha256": "c92e2dd16c7f27c7657273a1ca39ac8d99dd3c89e6959f41b6c0310612043790"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 359,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,35 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract section was visible in the supplied snippets; the abstract field uses the opening introduction paragraph instead.",
-      "This is a review article, so structured tags are broad review-level classifications rather than a single experimental transformation.",
-      "No formal abstract was visible in the supplied front matter; the abstract field uses the opening introduction paragraph.",
-      "This review spans multiple substrate, organometallic reagent, leaving-group, and reaction classes, so several structured tags are necessarily generalized or marked not specified.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.714,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "comprehensive review",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "not specified",
-      "substrate": "enynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.63,
-    "human_checked": false
   }
 }

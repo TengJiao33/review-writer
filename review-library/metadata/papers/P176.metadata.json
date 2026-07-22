@@ -3,23 +3,20 @@
   "slug": "4b-modern-allene-chemistry-2004-krause-frontmatter",
   "title": {
     "value": "Modern Allene Chemistry",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Norbert Krause",
-      "A. Stephen K. Hashmi"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2004,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -29,9 +26,9 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1002/9783527619573.fmatter",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
@@ -40,11 +37,27 @@
     "confidence": 0.0,
     "human_checked": false
   },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4b-Modern Allene Chemistry - 2004 - Krause - Frontmatter.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4b-modern-allene-chemistry-2004-krause-frontmatter.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P176\\db0b9655-113a-4324-b3e2-88025c6b2715_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P176"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\4b-modern-allene-chemistry-2004-krause-frontmatter"
   },
   "source_file": {
     "pdf_name": "4b-Modern Allene Chemistry - 2004 - Krause - Frontmatter.pdf",
@@ -52,18 +65,15 @@
     "sha256": "982a75842a00847c22402bcfc655b83c666ff46f98b518e95dd71e4576d9ac7c"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 643,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,37 +86,16 @@
       "abstract"
     ],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "Supplied material is book front matter and contents only; no abstract is present in the provided snippets.",
-      "Authors listed are the named editors of the volume rather than chapter-specific authors.",
-      "Structured tags are broad and inferred from the table of contents of this edited review volume.",
-      "No abstract is present in the supplied front matter.",
-      "This record appears to be book front matter for an edited volume, not a single primary research article.",
-      "Specific reaction, substrate, catalyst, leaving-group, and ligand labels are not assigned because the supplied evidence describes a broad multi-topic allene book rather than one focal transformation.",
       "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.619,
+    "overall_confidence": 0.366,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "book or book chapter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

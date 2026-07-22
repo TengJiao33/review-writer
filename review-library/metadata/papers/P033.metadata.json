@@ -2,21 +2,15 @@
   "paper_id": "P033",
   "slug": "eur-j-org-chem-2024-shen-palladiumcatalyzed-intermolecular-5-2-cycloaddition-highly-regioselective-synthesis-of",
   "title": {
-    "value": "Palladium-Catalyzed Intermolecular [5 + 2] Cycloaddition: Highly Regioselective Synthesis of Allene-Containing 2-Benzoxepines",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Palladium-Catalyzed Intermolecular [5 + 2] Cycloaddition: Highly Regioselective Synthesis of Allene-Containing 2- Benzoxepines",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Bingyu Shen",
-      "Aimei Yang",
-      "Xihong Lu",
-      "Zhijun Xin",
-      "Xuehu Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
@@ -26,9 +20,9 @@
     "human_checked": false
   },
   "journal": {
-    "value": "Eur J Org Chem",
-    "source": "filename_prefix",
-    "confidence": 0.55,
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Palladium-catalyzed intermolecular [5 + 2] cycloaddition of propargylic carbonates with benzyl allenyl ethers has been developed for the synthesis of allene-containing 2-benzoxepines. The reaction proceeds by a pathway involving decarboxylative allenylpalladium formation, regioselective intermolecular insertion, and intramolecular nucleophilic attack. In this way, the sequential formation of C-C and C-O bonds results in the generation of a 2-benzoxepine skeleton in a one-pot process.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Herein, we present our efforts on Pd(0)-catalyzed intermolecular [5 + 2] cycloaddition, which provides an ideal and concise approach for synthesizing functionalized 2-benzoxepine frameworks Scheme 1.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur J Org Chem - 2024 - Shen - Palladium‐Catalyzed Intermolecular  5 2  Cycloaddition  Highly Regioselective Synthesis of.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur-j-org-chem-2024-shen-palladiumcatalyzed-intermolecular-5-2-cycloaddition-highly-regioselective-synthesis-of.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P033\\c5302c6d-8780-416c-8da9-1f216948648f_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P033"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\eur-j-org-chem-2024-shen-palladiumcatalyzed-intermolecular-5-2-cycloaddition-highly-regioselective-synthesis-of"
   },
   "source_file": {
     "pdf_name": "Eur J Org Chem - 2024 - Shen - Palladium‐Catalyzed Intermolecular  5 2  Cycloaddition  Highly Regioselective Synthesis of.pdf",
@@ -55,18 +65,15 @@
     "sha256": "e0fa6e2eeb33aa8edcb92be6e8095d13bfa7061201c9c42171369b0aa858f718"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 95,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,28 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "Year is ambiguous in the supplied snippets: journal footers show 2025, while copyright, DOI context, and path hints indicate 2024.",
-      "Publication year is ambiguous in the supplied evidence: the article footer cites Eur. J. Org. Chem. 2025, while copyright and file metadata indicate 2024; year set to 2025 based on the visible citation line.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.729,
+    "overall_confidence": 0.501,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "cycloaddition and annulation of allenes",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.91,
-    "human_checked": false
   }
 }

@@ -3,29 +3,26 @@
   "slug": "23b-one-pot-synthesis-of-1-3-disubstituted-allenes-from-1-alkynes-aldehydes-and-morpholine",
   "title": {
     "value": "One-Pot Synthesis of 1,3-Disubstituted Allenes from 1-Alkynes, Aldehydes, and Morpholine",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jinqiang Kuang",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2010,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": 2009,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Green Chemistry",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Shanghai Key Laboratory of Green Chemistry and Chemical Process, Department of Chemistry, East China Normal Uni ersity, V3663 North Zhongshan Lu, Shanghai 200062, P. R. China and State Key Laboratory of Organometallic Chemistry, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences, 354 Fenglin Lu, Shanghai 200032, P. R. China",
-    "source": "content_list_first_paragraph_after_authors",
-    "confidence": 0.68,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\23b-one-pot-synthesis-of-1-3-disubstituted-allenes-from-1-alkynes-aldehydes-and-morpholine.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\23b-one-pot-synthesis-of-1-3-disubstituted-allenes-from-1-alkynes-aldehydes-and-morpholine.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P113\\1eb38612-c4b0-4851-ad78-3689ef5b5828_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P113"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\23b-one-pot-synthesis-of-1-3-disubstituted-allenes-from-1-alkynes-aldehydes-and-morpholine"
   },
   "source_file": {
     "pdf_name": "23b-one-pot-synthesis-of-1-3-disubstituted-allenes-from-1-alkynes-aldehydes-and-morpholine.pdf",
@@ -52,18 +65,15 @@
     "sha256": "1fe54e026fe323beeaa8ada5acfcee2b9f42d3628d5944d9ac1c4c1c7ab72163"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 37,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,35 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract was present in the supplied snippets; abstract left empty.",
-      "Mechanistic and activation tags are inferred from the proposed mechanism section rather than an abstract.",
-      "structured_tag_not_specified_selectivity_profile",
-      "No formal abstract is visible in the supplied front matter/markdown; abstract field left empty.",
-      "The reaction scope also includes aldehydes as starting materials, but terminal alkynes were selected as the key substrate family for single-label classification.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.756,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "zinc catlysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "1,3-disubstituted allenes",
-      "reaction_type": "propargylamine formation and allene rearrangement",
-      "substrate": "terminal alkynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

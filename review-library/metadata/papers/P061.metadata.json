@@ -2,25 +2,21 @@
   "paper_id": "P061",
   "slug": "chem.-sci.-2023-14-7709",
   "title": {
-    "value": "A Pd-catalyzed highly selective three-component protocol for trisubstituted allenes†",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "chem. sci. 2023 14 7709",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Can Li",
-      "Zhengnan Zhou",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Herein we report the first example of a Pd-catalyzed highly selective three-component reaction of alkynyl-1,4-diol dicarbonates, organoboronic acids, and malonate anions for the efficient synthesis of trisubstituted 2,3-allenyl malonates not readily available by the known protocols. The reaction demonstrates an excellent regio- and chemo-selectivity for both the oxidative addition referring to the two C–O bonds and the subsequent coupling with the nucleophile with a remarkable functional group compatibility. A series of control experiments confirm a unique mechanism involving β-O elimination forming alka-1,2,3-triene and the subsequent insertion of its terminal C=C bond into the Ar-Pd bond.",
-    "source": "llm_from_front_matter_with_minor_ocr_normalization",
-    "confidence": 0.96,
+    "value": "Herein, we report our realization of the rst example of a Pd-catalyzed threecomponent reaction of 2-alkynyl-1,4-diol dicarbonates with organoboronic acids and malonates, affording trisubstituted allenes 4 (ref.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chem. Sci., 2023, 14, 7709–.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chem.-sci.-2023-14-7709.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P061\\ccea0c09-ac1e-424a-ac2a-10dc4931a8c9_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P061"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\chem.-sci.-2023-14-7709"
   },
   "source_file": {
     "pdf_name": "Chem. Sci., 2023, 14, 7709–.pdf",
@@ -53,18 +65,15 @@
     "sha256": "51732154f82d9e5a22b7a5e4de792af192b72b5644ccc9e4655a9065578775b9"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 119,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,24 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
       "low_confidence_abstract"
     ],
-    "overall_confidence": 0.923,
+    "overall_confidence": 0.543,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "boranes and boronates",
-      "product": "trisubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

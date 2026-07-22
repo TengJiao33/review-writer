@@ -2,70 +2,78 @@
   "paper_id": "P200",
   "slug": "8f",
   "title": {
-    "value": "ARE ALLENES FORMED FROM PROPARGYLIC ETHERS THROUGH A SYN OR ANTI DISPLACEMENT?",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "ARE ALLENES FORMED FROM PROPARGYLIC ETHERS THROUGH A SYN OR ANTI DISPLACEMENT ?",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "I. Marek",
-      "P. Mangeney",
-      "A. Alexakis",
-      "J.F. Normant"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 1986,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "J. Am. Chem. Soc.",
-    "source": "filename_inferred",
-    "confidence": 0.6,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2022,
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Tetrahedron Letters",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1016/j.tetlet.2022.153890",
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "The copper catalyzed reaction of Grignard reagents with asymmetric propargylic ethers leads to chiral allenes, with very high optical yield. This reaction proceeds through a syn addition to the triple bond followed by a syn or anti β-elimination, according to the nature of the halogen of the Grignard derivative.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\8f.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\8f.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P200\\d385fa53-8d81-42cc-b092-b8df5bff78e6_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P200"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\8f"
   },
   "source_file": {
     "pdf_name": "8f.pdf",
     "relative_pdf_path": "8f.pdf",
-    "sha256": "ff47599d9c0e8df1f9f058004bcebae408e1ba53bf150895ee8d05fa65dc0f2e"
+    "sha256": "73ef4f42eb087007205b8a9890f774ebca99f571c697056da712560d732325ce"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 36,
+      "content_blocks": 0,
       "markdown_chars_used": 9263
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,30 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.684,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "stereochemical study",
-      "leaving_group": "ether leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "Grignard reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic ethers"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.86,
-    "human_checked": false
   }
 }

@@ -106,6 +106,8 @@ def figure_markdown(figure: dict[str, Any], rel_path: str, index: int, mode: str
     caption = figure.get("caption") or figure.get("source_caption_text") or figure.get("what_it_shows") or ""
     source_title = figure.get("title") or "the cited source paper"
     status = figure.get("status")
+    reuse_rights = figure.get("reuse_rights") if isinstance(figure.get("reuse_rights"), dict) else {}
+    attribution = str(reuse_rights.get("attribution_text") or "").strip()
     if status == "redrawn":
         note = "Redrawn figure verified against the source"
     elif status == "source_verified":
@@ -117,24 +119,32 @@ def figure_markdown(figure: dict[str, Any], rel_path: str, index: int, mode: str
     else:
         note = "Unverified source figure candidate"
     source_clause = f" Source: {source_title}, {label}." if source_title else ""
+    rights_clause = f" {attribution}" if attribution else ""
     return (
         f"\n\n![{label}]({rel_path})\n\n"
-        f"**Figure {index}.** {caption}{source_clause} {note}.\n\n"
+        f"**Figure {index}.** {caption}{source_clause} {note}.{rights_clause}\n\n"
     )
 
 
 def heading_aliases(section_id: str, section_heading: str) -> list[str]:
-    aliases = [str(section_heading or "").strip()]
-    fallback = {
-        "sec1": ["Introduction"],
-        "sec2": ["Foundational methods", "activated propargylic", "Copper-catalyzed substitution"],
-        "sec3": ["Carbonates", "esters"],
-        "sec4": ["Radical", "one-electron", "photoredox"],
-        "sec5": ["Direct transformations", "free propargylic alcohols"],
-        "sec6": ["Organoboron", "organosilicon", "Stereochemical control", "mechanistic comparison"],
+    heading = str(section_heading or "").strip()
+    if not heading:
+        return []
+    # Derive placement aliases only from the project's own blueprint.  The old
+    # fallback silently carried allene-specific headings into every review.
+    without_number = re.sub(r"^\d+[.)]?\s*", "", heading).strip()
+    return list(dict.fromkeys(value for value in (heading, without_number) if value))
+
+
+def blueprint_headings(project: Path) -> dict[str, str]:
+    payload = read_json(project / "01_matrix_outline" / "section_blueprint.json")
+    if not isinstance(payload, dict):
+        return {}
+    return {
+        str(section.get("section_id")): str(section.get("title") or "").strip()
+        for section in payload.get("sections") or []
+        if isinstance(section, dict) and section.get("section_id") and section.get("title")
     }
-    aliases.extend(fallback.get(str(section_id or ""), []))
-    return [a for a in aliases if a]
 
 
 PARAGRAPH_ID_RE = re.compile(r"<!--\s*paragraph_id:\s*([A-Za-z0-9_\-:.]+)\s*-->")
@@ -181,6 +191,7 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
     if not figures:
         raise ValueError("No available figures to insert.")
     selected: list[dict[str, Any]] = []
+    section_headings = blueprint_headings(project)
     section_counts: dict[str, int] = {}
     for figure in figures:
         section_id = str(figure.get("section_id") or "")
@@ -199,7 +210,8 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
         rel = copy_figure(project, figure, index, mode)
         if not rel:
             continue
-        heading = figure.get("section_heading") or ""
+        section_id = str(figure.get("section_id") or "")
+        heading = figure.get("section_heading") or section_headings.get(section_id, "")
         block = figure_markdown(figure, rel, index, mode)
         target_pid = str(figure.get("target_paragraph_id") or "")
         matches: dict[str, bool] = {}

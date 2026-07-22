@@ -82,7 +82,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--pdf",
         type=Path,
-        help="Optional single PDF path. When set, only this file is parsed.",
+        action="append",
+        default=[],
+        help="Optional PDF path. Repeat --pdf to parse an explicit batch instead of scanning the input tree.",
     )
     parser.add_argument(
         "--output-dir",
@@ -253,6 +255,29 @@ def discover_single_job(pdf_path: Path, input_dir: Path, output_dir: Path, force
             data_id=f"001-{slug}"[:96],
         )
     ]
+
+
+def discover_selected_jobs(
+    pdf_paths: List[Path],
+    input_dir: Path,
+    output_dir: Path,
+    force: bool,
+) -> List[ParseJob]:
+    jobs: List[ParseJob] = []
+    seen_paths: set[Path] = set()
+    for pdf_path in pdf_paths:
+        resolved = pdf_path.resolve()
+        if resolved in seen_paths:
+            continue
+        seen_paths.add(resolved)
+        selected = discover_single_job(resolved, input_dir, output_dir, force)
+        if not selected:
+            continue
+        job = selected[0]
+        job.index = len(jobs) + 1
+        job.data_id = f"{job.index:03d}-{job.slug}"[:96]
+        jobs.append(job)
+    return jobs
 
 
 def mineru_headers(token: str) -> Dict[str, str]:
@@ -507,7 +532,7 @@ def main() -> int:
 
     output_dir.mkdir(parents=True, exist_ok=True)
     if args.pdf:
-        jobs = discover_single_job(args.pdf, input_dir, output_dir, args.force)
+        jobs = discover_selected_jobs(args.pdf, input_dir, output_dir, args.force)
     else:
         jobs = discover_jobs(input_dir, output_dir, args.limit, args.force)
     if not jobs:

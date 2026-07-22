@@ -27,6 +27,20 @@ def lower(text: Any) -> str:
     return norm(text).lower()
 
 
+GENERIC_STOPWORDS = {
+    "and", "the", "for", "from", "with", "into", "that", "this", "these", "those",
+    "review", "section", "study", "studies", "using", "based", "between", "through",
+}
+
+
+def content_terms(text: Any) -> set[str]:
+    return {
+        token
+        for token in re.findall(r"[a-z][a-z0-9-]{3,}", lower(text))
+        if token not in GENERIC_STOPWORDS
+    }
+
+
 def figure_score(candidate: dict[str, Any], section: dict[str, Any] | None = None) -> int:
     caption = lower(candidate.get("source_caption_text"))
     label = lower(candidate.get("source_label"))
@@ -41,6 +55,20 @@ def figure_score(candidate: dict[str, Any], section: dict[str, Any] | None = Non
         score -= 5
     if "gram-scale" in caption or "control experiment" in caption:
         score -= 2
+    for term, weight in (
+        ("overview", 6),
+        ("workflow", 6),
+        ("pathway", 6),
+        ("comparison", 5),
+        ("structure", 4),
+        ("performance", 4),
+        ("degradation", 4),
+        ("recycling", 4),
+        ("process", 3),
+        ("design", 3),
+    ):
+        if term in caption:
+            score += weight
     if section:
         section_text = lower(" ".join([section.get("heading", ""), section.get("core_argument", "")]))
         if "radical" in section_text and ("radical" in caption or "photoredox" in caption):
@@ -51,6 +79,8 @@ def figure_score(candidate: dict[str, Any], section: dict[str, Any] | None = Non
             score += 4
         if "mechan" in section_text and "mechanism" in caption:
             score += 4
+        overlap = content_terms(section_text) & content_terms(caption)
+        score += min(12, len(overlap) * 3)
     if candidate.get("source_image_path"):
         score += 4
     return score
@@ -67,9 +97,13 @@ def inventory_by_paper(inventory: dict[str, Any]) -> dict[str, dict[str, Any]]:
 def section_rows(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [row for row in payload if isinstance(row, dict)]
-    if isinstance(payload, dict) and isinstance(payload.get("sections"), list):
-        return [row for row in payload["sections"] if isinstance(row, dict)]
-    raise ValueError("section_tasks.json must be a list or an object with a sections list")
+    if isinstance(payload, dict):
+        for key in ("sections", "tasks"):
+            if isinstance(payload.get(key), list):
+                return [row for row in payload[key] if isinstance(row, dict)]
+    raise ValueError(
+        "section_tasks.json must be a list or an object with a sections/tasks list"
+    )
 
 
 def inferred_figure_need(section: dict[str, Any]) -> str:
@@ -93,7 +127,16 @@ def inferred_figure_need(section: dict[str, Any]) -> str:
         return "selectivity comparison"
     if any(word in text for word in ("substrate scope", "leaving-group", "catalyst")):
         return "scope comparison"
-    return "optional"
+    if any(
+        word in text
+        for word in (
+            "structure", "microstructure", "design", "engineering", "condition", "kinetic",
+            "interface", "process", "pretreatment", "performance", "evidence", "comparison",
+            "taxonomy", "classification", "workflow", "recycling", "degradation",
+        )
+    ):
+        return "editorial review for a source figure, comparison table, or synthesis visual"
+    return "editorial review"
 
 
 def normalized_sections(project: Path, tasks: Any) -> list[dict[str, Any]]:
@@ -116,7 +159,12 @@ def normalized_sections(project: Path, tasks: Any) -> list[dict[str, Any]]:
             or source.get("review_problem")
             or ""
         )
-        allowed = list(row.get("allowed_papers") or source.get("major_papers") or [])
+        allowed = list(
+            row.get("allowed_papers")
+            or row.get("assigned_papers")
+            or source.get("major_papers")
+            or []
+        )
         for subsection in source.get("subsections", []):
             if isinstance(subsection, dict):
                 allowed.extend(subsection.get("major_papers") or [])
@@ -150,7 +198,7 @@ def best_candidate_for_paper(paper: dict[str, Any]) -> dict[str, Any]:
     best.update(
         {
             "status": "selected_best_paper_level_candidate",
-            "why_selected": "Highest-ranked overview, mechanism, scope, or reaction scheme candidate from the MinerU inventory.",
+            "why_selected": "Highest-ranked candidate whose caption and section assignment may answer the section's reader need; editorial and rights review are still required.",
             "manuscript_selected": False,
             "resolution_status": "ready" if best.get("source_image_path") else "needs_source_resolution",
         }
@@ -215,6 +263,15 @@ def build_outputs(
                     "reader_job": "",
                     "placement_rationale": "",
                     "reuse_basis": "",
+                    "reuse_rights": {
+                        "status": "pending",
+                        "basis": "",
+                        "license_url_or_permission_record": "",
+                        "source_locator": "",
+                        "third_party_material_checked": False,
+                        "adaptation": "unchanged",
+                        "attribution_text": "",
+                    },
                     "resolution_status": "ready" if candidate.get("source_image_path") else "needs_source_resolution",
                     "source_page_review_status": "pending",
                 }
@@ -257,9 +314,19 @@ def main() -> int:
     except ValueError as exc:
         raise SystemExit(str(exc)) from exc
     out_dir = project / "02_section_drafting"
-    write_json(out_dir / "paper_figure_candidates.json", paper_level)
+    paper_level_manifest = {
+        "project_id": args.project_id,
+        "inventory_candidate_count": int(inventory.get("candidate_count") or 0),
+        "reviewed_paper_count": len(paper_level),
+        "candidates": paper_level,
+    }
+    write_json(out_dir / "paper_figure_candidates.json", paper_level_manifest)
     write_json(out_dir / "figure_candidates.json", manuscript)
-    print(f"Wrote {out_dir / 'paper_figure_candidates.json'} ({len(paper_level)} records)")
+    print(
+        f"Wrote {out_dir / 'paper_figure_candidates.json'} "
+        f"({paper_level_manifest['inventory_candidate_count']} inventory candidates; "
+        f"{len(paper_level)} paper-level decisions)"
+    )
     print(
         f"Wrote {out_dir / 'figure_candidates.json'} ({len(manuscript)} editorial suggestions; "
         "none are manuscript-selected until explicitly reviewed)"

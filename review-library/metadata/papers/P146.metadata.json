@@ -3,24 +3,20 @@
   "slug": "39b-chemistry-a-european-j-2010-deska-chemoenzymatic-dynamic-kinetic-resolution-of-axially-chiral-allenes",
   "title": {
     "value": "Chemoenzymatic Dynamic Kinetic Resolution of Axially Chiral Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jan Deska",
-      "Carolina del Pozo Ochoa",
-      "Jan-E. B-ckvall"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.94,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2010,
-    "source": "llm_from_journal_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Although racemization is normally an undesired reaction in asymmetric synthesis, its combination with a resolution process is a powerful approach for obtaining enantiomerically pure compounds. Resolution of racemic mixtures by physical or chemical means, and particularly by enzyme catalysis, is still often the method of choice when it comes to the production of optically pure material. However, kinetic resolution of racemates suffers from the limitation of a maximum theoretical yield of 50% for one pure enantiomer. The undesired enantiomer remains as waste and has to be removed from the product in an additional purification step. At this point, controllable and selective racemization protocols come into play as they allow for in situ interconversion of the slow-reacting enantiomer into its mirror image (and vice versa), leading to dynamic kinetic resolution (DKR), where 100% yield together with high enantiomeric purity becomes possible. Based on this strategy, a plethora of novel approaches has arisen over the past decade, combining various different racemization processes with chemical or enzymatic resolution, making DKR a versatile and powerful tool in asymmetric synthesis. Although DKR procedures are well known for centrochiral compounds, dynamic kinetic approaches dealing with axially, planar, or helically chiral substrates are extremely rare. Allenes are an important class of axially chiral compounds and in the present study we report on a novel chemoenzymatic DKR of allenes, in which an NHC-palladium complex is employed as racemization catalyst.",
-    "source": "llm_from_front_matter_opening_paragraphs",
-    "confidence": 0.83,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\39b-Chemistry A European J - 2010 - Deska - Chemoenzymatic Dynamic Kinetic Resolution of Axially Chiral Allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\39b-chemistry-a-european-j-2010-deska-chemoenzymatic-dynamic-kinetic-resolution-of-axially-chiral-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P146\\c9e51d17-812d-4b02-a6d7-3e0389af7123_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P146"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\39b-chemistry-a-european-j-2010-deska-chemoenzymatic-dynamic-kinetic-resolution-of-axially-chiral-allenes"
   },
   "source_file": {
     "pdf_name": "39b-Chemistry A European J - 2010 - Deska - Chemoenzymatic Dynamic Kinetic Resolution of Axially Chiral Allenes.pdf",
@@ -53,18 +65,15 @@
     "sha256": "880940678fac7f2ca8132d6558ff5e84ea660bca8a3bcba21d861f76f0fa7939"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 82,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,35 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract label is visible; abstract field uses the opening summary paragraphs from the front matter.",
-      "Author name 'Jan-E. B-ckvall' contains an OCR artifact in the source text.",
-      "Author name normalized from OCR-corrupted 'B-ckvall' to 'Bäckvall'.",
-      "The taxonomy does not contain a dedicated label for chemoenzymatic dynamic kinetic resolution, so reaction_type was set to 'not specified'.",
-      "The catalyst classification simplifies a dual PPL/NHC-Pd system to 'palladium catalysis' because that is the closest available allowed label.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.726,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.366,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "not specified",
-      "substrate": "allenic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.78,
-    "human_checked": false
   }
 }

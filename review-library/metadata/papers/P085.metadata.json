@@ -3,25 +3,20 @@
   "slug": "org.-lett.-2022-24-6472",
   "title": {
     "value": "Catalyst-Controlled Divergent Reactions of 2,3-Disubstituted Indoles with Propargylic Alcohols: Synthesis of 3H‑Benzo[b]azepines and Axially Chiral Tetrasubstituted Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Chenxiao Qian",
-      "Tingting Huang",
-      "Jianwei Sun",
-      "Pengfei Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Catalyst-controlled divergent reactions of 2,3-disubstituted indoles with propargylic alcohols were developed for the first time. In the presence of TsOH or B(C6F5)3 as catalyst, 2,3-disubstituted indoles reacted smoothly with 3-alkynyl-3-hydroxyisoindolinones to afford 3H-benzo[b]azepines by selective C2(sp2)-C3(sp2) ring expansion of indoles. In contrast, decreasing the catalyst strength (e.g., with chiral phosphoric acid) interrupted the cascade reactions, affording axially chiral tetrasubstituted allenes bearing an adjacent chiral quaternary carbon stereocenter. Control experiments provided insights into the reaction mechanism.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "Catalyst-controlled divergent reactions of 2,3-disubstituted indoles with propargylic alcohols were developed for the first time. In the presence of TsOH or $\\mathrm { B } ( \\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ) _ { 3 }$ as catalyst, 2,3-disubstituted indoles reacted smoothly with 3-alkynyl-3- hydroxyisoindolinones to afford 3H-benzo[b]azepines by selective ${ \\mathsf { C } } 2 { \\bigl ( } \\mathsf { s p } ^ { 2 } { \\bigr ) } { \\mathsf { - C } } 3 { \\bigl ( } \\mathsf { s p } ^ { 2 } { \\bigr ) }$ ring expansion of indoles. In contrast, decreasing the catalyst strength (e.g., with chiral phosphoric acid) interrupted the cascade reactions, affording axially chiral tetrasubstituted allenes bearing an adjacent chiral quaternary carbon stereocenter. Control experiments provided insights into the reaction mechanism. ndole-based heterocycles are important substructures of numerous biological natural products, pharmaceuticals and functional materials.1 The chemistry of indole-based heterocycles has attracted great interest from the scientific community.2 In particular, a plethora of interesting chemistry has been discovered in selective N1-, C2-, and C3- functionalizations of the indole nucleus.3 By contrast, ringexpansion reactions of the indole skeleton via cleavage of the N1−C2/C2−C3 bond have been relatively less explored. Specifically, the [5 + 2] ring-expansion reactions via cleavage of the C2−C3 bond to synthesize 1-benzazepines usually require harsh conditions,4 prefunctionalized starting materials made by several steps,5 or superstoichiometric accelerators.6 In this context, a catalyst-controlled straightforward, mild, economic, and environmentally friendly strategy for the indole [5 + 2] ring-expansion toward 1-benzazepines is highly desirable.7 As important synthons in organic synthesis, propargylic alcohols have been successfully involved in a wide range of organocatalytic reactions.8 For example, Swamy et al. developed a p-toluenesulfonic acid (TsOH) mediated C3- alkenylation of indoles with propargyl alcohols, followed by copper-catalyzed aerobic oxidative ring-expansion/intramolecular electrophilic substitution for the construction of cyclopenta[c]quinolones (Scheme 1A).9 Recently, significant progress has been made in the field of chiral phosphoric acid (CPA) catalyzed reactions of propargylic alcohols via in situ formed quinone methides,10 aza-quinone methides,11 and indole imine methides.12 However, the reactions between propargylic alcohols and 2,3-disubstituted indoles failed to",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2022, 24, 6472.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2022-24-6472.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P085\\b5a31b61-629a-44c2-ab88-008f1f4b260a_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P085"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2022-24-6472"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2022, 24, 6472.pdf",
@@ -54,18 +65,15 @@
     "sha256": "4868333e56ef4929c590ece20b382a1fd82928bd6f500fff8ac3d9cd65774163"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 110,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,27 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Paper reports both non-allene ring-expansion products and allenes; structured tags prioritize the isolated allene-forming chiral phosphoric acid branch, and the product label could also be viewed structurally as tetrasubstituted allenes.",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.786,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.86,
-    "human_checked": false
   }
 }

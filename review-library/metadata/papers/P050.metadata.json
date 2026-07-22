@@ -2,27 +2,21 @@
   "paper_id": "P050",
   "slug": "acs-catal.-2023-13-6787",
   "title": {
-    "value": "Deoxygenative Silylation of C(sp3)-O Bonds with Hydrosilane by Cooperative Catalysis of Gold Nanoparticles and Solid Acids",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Deoxygenative Silylation of C(sp3 )−O Bonds with Hydrosilane by Cooperative Catalysis of Gold Nanoparticles and Solid Acids",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Hiroki Miura",
-      "Yuki Yasui",
-      "Yosuke Masaki",
-      "Masafumi Doi",
-      "Tetsuya Shishido"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Efficient deoxygenative silylation of C(sp3)-O bonds with hydrosilanes by supported Au catalysts is described. Gold nanoparticles supported on TiO2 enabled various hydrosilanes to be used as sources of silyl groups in C-Si cross-coupling reactions. A variety of alkyl acetates and propargyl carbonates participated in the Au-catalyzed reactions to furnish the corresponding alkyl and allenylsilanes in high yields. In addition, Au/TiO2 was also effective for ring-opening silylation of cyclic ethers. A detailed mechanistic investigation corroborated that the title reaction involves the formation of silyl and alkyl radical intermediates, and the cooperation of Au nanoparticles as single-electron transfer catalysts and Lewis acid sites at the surface of metal oxides was responsible for the unusual reactivity of hydrosilanes for specific C(sp3)-Si bond formation.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Efficient deoxygenative silylation of C(sp3 )−O bonds with hydrosilanes by supported Au catalysts is described. Gold nanoparticles supported on TiO enabled various hydrosilanes to be used as sources of silyl groups in C−Si cross-coupling reactions. A variety of alkyl acetates and propargyl carbonates participated in the Au-catalyzed reactions to furnish the corresponding alkyl and allenylsilanes in high yields. In addition, Au/TiO was also effective for ring-opening silylation of cyclic ethers. A detailed mechanistic investigation corroborated that the title reaction involves the formation of silyl and alkyl radical intermediates, and the cooperation of Au nanoparticles as single-electron transfer catalysts and Lewis acid sites at the surface of metal oxides was responsible for the unusual reactivity of hydrosilanes for specific C(sp3 )−Si bond formation. KEYWORDS: gold catalysis, deoxygenative silylation, hydrosilane, cooperative catalysis, organosilicon, silyl radical ![](../extracted/acs-catal.-2023-13-6787/images/b6cad4883d70933b8fc83482b6a3ed93789b6071900e41ed36574b24256cea72.jpg) <details> <summary>chemical</summary> Chemical reaction diagram showing hydrogenation of a gold(II) complex with [Si] and R-OAc, involving SET and 1/2H₂ catalysts </details>",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\ACS Catal. 2023, 13, 6787.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\acs-catal.-2023-13-6787.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P050\\d82f43a7-798c-4a7f-b24d-c43c4c872f0d_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P050"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\acs-catal.-2023-13-6787"
   },
   "source_file": {
     "pdf_name": "ACS Catal. 2023, 13, 6787.pdf",
@@ -55,18 +65,15 @@
     "sha256": "997899a44429506a77efbe339065e896c0e65af272e8b90ca0254119fb3aaf50"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 152,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "The paper covers multiple substrate and product subclasses (alkyl acetates, propargyl carbonates, cyclic ethers; alkylsilanes and allenylsilanes), so structured tags are generalized to the common reaction manifold.",
-      "This paper is broader than allene chemistry; allene-classification labels are assigned from the allenylsilane-forming propargyl carbonate subsection rather than the full organosilicon scope.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.786,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "gold catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.85,
-    "human_checked": false
   }
 }

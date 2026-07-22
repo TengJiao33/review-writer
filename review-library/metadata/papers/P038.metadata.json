@@ -3,53 +3,61 @@
   "slug": "assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-arylation-of-propargylamines-with",
   "title": {
     "value": "Assembly of Diverse Allenes via Activator-Free Palladium-Catalyzed Regioselective γ‑Arylation of Propargylamines with Boronic Acids",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yan Sun",
-      "Ya Pan",
-      "Tao Zhao",
-      "Junwei Li",
-      "Aiguo Gu",
-      "Junhai Huang",
-      "Huangdi Feng"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Green Chemistry",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2025,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "J. Org. Chem. 2025",
+    "source": "cite_this_line",
+    "confidence": 0.7,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.joc.4c02708",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "Controlling the reaction selectivity to achieve a precision synthesis is a constant concern for chemists. Here, we report a palladium-catalyzed deaminative coupling of propargylamines with arylboronic acids to generate allene skeletons. Importantly, this approach allows the regioselective γ-arylation of unactivated propargyl tertiary amines to access various allenes in the absence of amino-activating reagents. We present a wide range of propargylamines and boronic acids and demonstrate the synthetic application of the target products to",
-    "source": "llm_from_front_matter",
-    "confidence": 0.93,
+    "value": "Controlling the reaction selectivity to achieve a precision synthesis is a constant concern for chemists. Here, we report a palladium-catalyzed deaminative coupling of propargylamines with arylboronic acids to generate allene skeletons. Importantly, this approach allows the regioselective γ-arylation of unactivated propargyl tertiary amines to access various allenes in the absence of amino-activating reagents. We present a wide range of propargylamines and boronic acids and demonstrate the synthetic application of the target products to ![](../extracted/assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-arylation-of-propargylamines-with/images/6e26884088f83605b4b22c4bf30a271d99778dec8e49ba76552f7d6ece1c6431.jpg) <details> <summary>chemical</summary> Reaction scheme showing condensation of a pyrrolidine derivative with B(OH)2 under palladium catalyst to form a hydrogenated intermediate, with reagents and examples listed. </details>",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-γ-arylation-of-propargylamines-with.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-arylation-of-propargylamines-with.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P038\\acbb4e0e-a0c2-46c1-af86-4948dc9473e5_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P038"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-arylation-of-propargylamines-with"
   },
   "source_file": {
     "pdf_name": "assembly-of-diverse-allenes-via-activator-free-palladium-catalyzed-regioselective-γ-arylation-of-propargylamines-with.pdf",
@@ -57,18 +65,15 @@
     "sha256": "ed910cc75d1c578e6a5edebce7016547b07b8268b1c6c0c6f008b160cbc2d530"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 172,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Abstract appears truncated in the supplied front-matter snippet.",
-      "Mechanistic and scope tags partly rely on results/discussion snippets beyond the abstract.",
-      "Abstract appears truncated in the supplied front-matter evidence.",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.793,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "boranes and boronates",
-      "product": "trisubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic amines"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

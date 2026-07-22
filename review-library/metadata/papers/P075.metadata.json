@@ -3,38 +3,26 @@
   "slug": "nature-communications-2022-13-4280",
   "title": {
     "value": "Carbodefluorination of fluoroalkyl ketones via a carbene-initiated rearrangement strategy",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Linxuan Li",
-      "Xinyu Zhang",
-      "Yongquan Ning",
-      "Xiaolong Zhang",
-      "Binbin Liu",
-      "Zhansong Zhang",
-      "Paramasivam Sivaguru",
-      "Giuseppe Zanoni",
-      "Shuang Li",
-      "Edward A. Anderson",
-      "Xihe Bi"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Nat. Commun. 2022",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "Nat. Commun.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -44,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The C–F bond cleavage and C–C bond formation (i.e., carbodefluorination) of readily accessible (per)fluoroalkyl groups constitutes an atom-economical and efficient route to partially fluorinated compounds. However, the selective mono-carbodefluorination of trifluoromethyl (CF3) groups remains a challenge, due to the notorious inertness of C–F bond and the risk of overdefluorination arising from C–F bond strength decrease as the defluorination proceeds. Herein, we report a carbene-initiated rearrangement strategy for the carbodefluorination of fluoroalkyl ketones with β,γ-unsaturated alcohols to provide skeletally and functionally diverse α-mono- and α,α-difluoro-γ,δ-unsaturated ketones. The reaction starts with the formation of silver carbenes from fluoroalkyl triftosylhydrazones, followed by nucleophilic attack of a β,γ-unsaturated alcohol to form key silver-coordinated oxonium ylide intermediates, which triggers selective C–F bond cleavage by HF elimination and C–C bond formation through Claisen rearrangement of in situ generated difluorovinyl ether. The origin of chemoselectivity and the reaction mechanism are determined by experimental and DFT calculations. Collectively, this strategy by an intramolecular cascade process offers significant advances over existing stepwise strategies in terms of selectivity, efficiency, functional group tolerance, etc.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Nature Communications  ( 2022) 13 4280.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nature-communications-2022-13-4280.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P075\\3be48e1a-3c8a-4861-afcb-aad337fe8a7d_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P075"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\nature-communications-2022-13-4280"
   },
   "source_file": {
     "pdf_name": "Nature Communications  ( 2022) 13 4280.pdf",
@@ -61,18 +65,15 @@
     "sha256": "f837b92dcabd5ea54c34ad51d03e401a805302ff0966c6dda727c3da0fed6769"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 143,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -81,33 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_journal",
-      "missing_doi",
-      "low_confidence_abstract",
-      "Scope includes multiple product manifolds; structured tags simplify the paper to its dominant carbodefluorination platform.",
-      "Allene classification is based on the propargyl alcohol/allene subsection of the paper; the article overall also emphasizes non-allene carbodefluorination products.",
-      "The allowed reaction-type vocabulary does not exactly capture the carbene-initiated carbodefluorinative Claisen rearrangement, so the closest supported label was selected.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.679,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.399,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "silver catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenic ketones and ethers",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

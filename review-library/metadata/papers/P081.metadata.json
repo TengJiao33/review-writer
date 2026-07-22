@@ -2,28 +2,21 @@
   "paper_id": "P081",
   "slug": "org.-lett.-2022-24-3128",
   "title": {
-    "value": "Iridium(III)-Catalyzed Regioselective B(4)−H Allenylation of o-Carboranes by Ball Milling",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Iridium(III)-Catalyzed Regioselective B(4)−H Allenylation of o‑Carboranes by Ball Milling",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Seohyun Shin",
-      "Kyusik Um",
-      "Gi Hoon Ko",
-      "Gi Uk Han",
-      "Dongwook Kim",
-      "Phil Ho Lee"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -39,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "We disclose an iridium(III)-catalyzed regioselective B(4)-H allenylation of o-carboranes from o-carborane acids and propargyl carbonates under ball-milling conditions. This study sheds light on a novel method to accomplish regioselective B(4)-allenylation of o-carborane that cannot be realized through conventional solution-based reactions. Control experiments, including solution, neat, microwave, and high-temperature reactions, reveal that the B(4)-H allenylation of o-carborane is unique for ball-milling conditions.",
-    "source": "llm_from_front_matter_and_abstract",
-    "confidence": 0.97,
+    "value": "We disclose an iridium(III)-catalyzed regioselective B(4)−H allenylation of o-carboranes from o-carborane acids and propargyl carbonates under ball-milling conditions. This study sheds light on a novel method to accomplish regioselective B(4)- allenylation of o-carborane that cannot be realized through conventional solution-based reactions. Control experiments, including solution, neat, microwave, and high-temperature reactions, reveal that the B(4)−H allenylation of o-carborane is unique for ballmilling conditions. C arboranes are increasingly being applied in various fields,1 including boron neutron capture therapy (BNCT), organometallic and coordination chemistry,2 and supramolecules and materials.3 However, the unique spherical morphology of carboranes renders efficient derivatizations challenging, limiting their use. The establishment of efficient synthetic approaches for the regioselective functionalization of carboranes is necessary to realize the full potential of these unique compounds.4 Generally, functionalization of cage boron is more attractive than that of cage carbon because of the regioselectivity control among 10 cage B−H bonds compared with only two cage C−H bonds. Additionally, the carborane B−H proton is less acidic than the C−H (pKa ∼ 23), making the B−H bond activation followed by carborane functionalization more difficult than C−H bond activation and functionalization.4 In this context, the selective introduction of an allenyl group,5 capable of further functionalization onto ocarborane, is attractive. However, the method to prepare cage carbon-substituted allenes suffers from low yields and narrow substrate scope (Scheme 1a,b).6a−d Recently, Xie and coworkers reported a novel method for cage carbon-substituted allenes through ene reaction of o-carboryne with alkynes (c).6e Moreover, B(3)-allenylation has been demonstrated via a regioselective ene reaction of 1,3-dehydro-o-carborane with an alkyne (d).6f However, to the best of our knowledge, no method of introducing an allenyl group into the B(4) vertex of o-carborane via B−H activation has yet been reported. Recently, we described the first cyclative indenylation and 1,3-dienylation catalyzed by iridium through B(4)−C followed by intramolecular C−C bond formation from o-carborane",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2022, 24, 3128.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2022-24-3128.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P081\\bee67831-527e-42db-9b3e-ddb462cecc07_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P081"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2022-24-3128"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2022, 24, 3128.pdf",
@@ -56,18 +65,15 @@
     "sha256": "3c9d98d4e9dd705f08813818fe65aa3e914836fef9c8bd88466ffb82a20e9f28"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 151,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,27 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Product family was mapped broadly to 'polysubstituted allenes' because the paper's carborane-specific allenyl products do not have a more exact allowed label.",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.79,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "iridium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

@@ -1,0 +1,105 @@
+{
+  "paper_id": "P222",
+  "slug": "web-imports-2022-recent-advances-in-biological-recycl-ering9030098",
+  "title": {
+    "value": "Recent Advances in Biological Recycling of Polyethylene Terephthalate (PET) Plastic Wastes",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ya-Hue Valerie Soong",
+      "Margaret J. Sobkowicz",
+      "Dongming Xie"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Bioengineering",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/bioengineering9030098",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Polyethylene terephthalate (PET) is one of the most commonly used polyester plastics worldwide but is extremely difficult to be hydrolyzed in a natural environment. PET plastic is an inexpensive, lightweight, and durable material, which can readily be molded into an assortment of products that are used in a broad range of applications. Most PET is used for single-use packaging materials, such as disposable consumer items and packaging. Although PET plastics are a valuable resource in many aspects, the proliferation of plastic products in the last several decades have resulted in a negative environmental footprint. The long-term risk of released PET waste in the environment poses a serious threat to ecosystems, food safety, and even human health in modern society. Recycling is one of the most important actions currently available to reduce these impacts. Current clean-up strategies have attempted to alleviate the adverse impacts of PET pollution but are unable to compete with the increasing quantities of PET waste exposed to the environment. In this review paper, current PET recycling methods to improve life cycle and waste management are discussed, which can be further implemented",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2022-recent-advances-in-biological-recycl-ering9030098.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2022-recent-advances-in-biological-recycl-ering9030098.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-recent-advances-in-biological-recycl-ering9030098\\web-imports-2022-recent-advances-in-biological-recycl-ering9030098_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-recent-advances-in-biological-recycl-ering9030098"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 107,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.847,
+    "needs_human_check": true
+  }
+}

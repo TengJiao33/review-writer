@@ -3,34 +3,26 @@
   "slug": "angew.-chem.-int.-ed.-2023-62-e202219064",
   "title": {
     "value": "Copper-Catalysed Rearrangement of Cyclic Ethynylethylene Carbonates: Synthetic Applications and Mechanistic Studies",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Chao Xu",
-      "Hao Zhang",
-      "Shouang Lan",
-      "Jinggong Liu",
-      "Shuang Yang",
-      "Qi Zhang",
-      "Xinqiang Fang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Angew. Chem. Int. Ed.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed. 2023",
+    "source": "how_to_cite_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -41,15 +33,31 @@
   },
   "abstract": {
     "value": "Transition-metal-catalysed reactions of cyclic ethynylethylene carbonates have been intensively studied because of their robustness in new bond formation and diversified molecule construction. Known reaction modes usually involve a substitution step occurring at either the propargylic or terminal alkyne positions. Here, we report an unprecedented reaction pattern in which cyclic ethynylethylene carbonates first undergo a rearrangement to release allenal intermediates, which subsequently react with diverse nucleophiles to furnish synthetically useful allylic and propargylic allenols, phosphorus ylides, and cyclopropylidene ketones through an addition process rather than a substitution pathway. The products enable various further transformations, and mechanistic studies and theoretical calculations reveal that the reaction does not proceed via a semipinacol type [1,2]-hydride shift, but through base-mediated deprotonation as the key step to induce the rearrangement.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew. Chem. Int. Ed. 2023, 62, e202219064.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew.-chem.-int.-ed.-2023-62-e202219064.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P054\\ad121991-31ab-45eb-937f-639fde78b614_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P054"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew.-chem.-int.-ed.-2023-62-e202219064"
   },
   "source_file": {
     "pdf_name": "Angew. Chem. Int. Ed. 2023, 62, e202219064.pdf",
@@ -57,18 +65,15 @@
     "sha256": "5c1a08bafe5977e197f054de5cd4de5f8b3e4d89d69fc2bea03508e440c783ca"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 218,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,26 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "The reaction_type label is an approximate ontology match because the paper's core transformation is a copper-catalyzed rearrangement of propargylic carbonates followed by nucleophilic addition, which is not listed explicitly.",
-      "The organometallic partner classification is based on first-page scope text identifying allylic and propargylic boronates, not on the abstract alone.",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.9,
+    "overall_confidence": 0.633,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "mechanistic study",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "boranes and boronates",
-      "product": "alpha-allenic alcohols",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.74,
-    "human_checked": false
   }
 }

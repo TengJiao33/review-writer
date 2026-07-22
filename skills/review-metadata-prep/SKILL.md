@@ -7,7 +7,7 @@ description: Prepare a MinerU-parsed review-writing paper library for metadata r
 
 Use this skill to implement the writing-preparation stage for a review-writing agent.
 
-The skill assumes PDFs have already been parsed by MinerU and that a `mineru-outputs/manifest.json` exists.
+The normal path assumes PDFs have already been parsed by MinerU and that a `mineru-outputs/manifest.json` exists. With `--discover-from-pdf-root`, the skill also registers repository-derived Markdown plus its JATS XML sidecar when a lawful open repository exposes full text but no directly downloadable PDF.
 
 ## Workflow
 

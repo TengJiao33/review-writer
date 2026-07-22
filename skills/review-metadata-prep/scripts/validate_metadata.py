@@ -113,7 +113,14 @@ def validate_one(path: Path, allowed_labels: dict[str, set[str]]) -> dict[str, A
     if not isinstance(source_paths, dict):
         issues.append("invalid_source_paths")
         source_paths = {}
-    for key in ["pdf", "markdown", "content_list"]:
+    source_documents = [source_paths.get("pdf"), source_paths.get("xml")]
+    if not any(source_documents):
+        issues.append("missing_source_document")
+    for key in ["pdf", "xml"]:
+        value = source_paths.get(key)
+        if value and not Path(value).exists():
+            issues.append(f"source_{key}_not_found")
+    for key in ["markdown", "content_list"]:
         value = source_paths.get(key)
         if not value:
             issues.append(f"missing_source_{key}")

@@ -1,0 +1,106 @@
+{
+  "paper_id": "P220",
+  "slug": "web-imports-2022-accelerated-polyethylene-terephthala-ic-202200503",
+  "title": {
+    "value": "Accelerated Polyethylene Terephthalate (PET) Enzymatic Degradation by Room Temperature Alkali Pre‐treatment for Reduced Polymer Crystallinity",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Sariah Giraldo‐Narcizo",
+      "Nihal Guenani",
+      "Ana María Sánchez‐Pérez",
+      "Antonio Guerrero"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ChemBioChem",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cbic.202200503",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Polyethylene terephthalate (PET) is the most widely employed plastic for single‐use applications. The use of enzymes isolated from microorganisms, such as PETase with the capacity to hydrolyze PET into its monomers, represents a promising method for its sustainable recycling. However, the accessibility of the enzyme to the hydrolysable bonds is an important challenge that needs to be addressed for effective biodegradation of postconsumer PET. Here, we combined an alkali pre‐treatment (25 °C) with PETase incubation (30 °C) with post‐consumed PET bottles. The pre‐treatment modifies the surface of the plastic and decreases its crystallinity enabling the access of the enzyme to the hydrolysable chemical bonds. When the alkali pre‐treatment is incorporated into the enzymatic process the degradation yields increase more than one order of magnitude reaching values comparable to those obtained during heating/cooling cycles. Our results show energetic advantages over other reported pre‐treatments and open new avenues for sustainable PET recycling.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2022-accelerated-polyethylene-terephthala-ic-202200503.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2022-accelerated-polyethylene-terephthala-ic-202200503.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-accelerated-polyethylene-terephthala-ic-202200503\\web-imports-2022-accelerated-polyethylene-terephthala-ic-202200503_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-accelerated-polyethylene-terephthala-ic-202200503"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 41,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:journal"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.847,
+    "needs_human_check": true
+  }
+}

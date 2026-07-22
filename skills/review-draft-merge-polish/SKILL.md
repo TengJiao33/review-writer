@@ -1,11 +1,11 @@
 ---
 name: review-draft-merge-polish
-description: Deterministically merge review sections, assign global citation numbers from stable paper IDs, generate references, and polish prose without changing citation identity.
+description: Merge review sections, assign global citation numbers, generate references, insert verified assets, and polish the assembled manuscript.
 ---
 
 # Draft Merge and Polish
 
-Use a script for fragile assembly. Do not manually concatenate sections or renumber references.
+Use the merge script for citation numbering, reference generation, and asset insertion.
 
 ## Inputs
 
@@ -16,12 +16,12 @@ Read:
 01_matrix_outline/section_blueprint.json
 02_section_drafting/section_drafts.json
 02_section_drafting/figure_candidates.json
-02_section_drafting/method_comparison_table_manifest.json (when its Markdown table is selected)
+02_section_drafting/method_comparison_table_manifest.json (when selected)
 03_figure_redraw/redrawn_figure_manifest.json (when available)
-03_figure_redraw/review_visual_manifest.json (when an original review visual is prepared)
+03_figure_redraw/review_visual_manifest.json (when available)
 ```
 
-## Required Merge
+## Merge
 
 Run:
 
@@ -31,42 +31,37 @@ python skills/review-draft-merge-polish/scripts/merge_review.py \
   --project-id <project_id>
 ```
 
-The script treats section and paragraph metadata as a lightweight envelope. It:
+The script:
 
 ```text
-rejects pre-numbered citations
-rejects Markdown or HTML image embeds in Abstract
-validates paragraph citation IDs against cited_paper_ids when that optional field is present
+rejects pre-numbered citations and images in the Abstract
+checks paragraph citation IDs against cited_paper_ids when supplied
 orders references by first appearance
 replaces [@Pxxx] with global [n] callouts
 generates References and citations.json from the same mapping
 removes paragraph markers from manuscript prose
-inserts selected prepared figures (`source_verified`, `redrawn`, or `original_verified`) and copies figure assets into both draft-stage directories
+inserts verified selected figures and copies their assets
 ```
 
-Do not run a separate hand-written figure insertion step. When source candidates or original visuals are selected, merge fails if no selected image can be inserted. Unverified source candidates remain visible to the final release check; an unchanged MinerU image becomes a formal figure after the figure stage records it as `source_verified`, while an original synthesis requires `original_verified` plus a passed verification status. If the generated comparison table is used, retain its verified manifest and its visible method labels; do not reduce the table to opaque internal paper IDs.
+Selected source figures require `source_verified`; original synthesis visuals require `original_verified` and `verification_status: passed`. Figure insertion uses the recorded `section_heading` and stops when the target heading is unresolved. A selected comparison table keeps its evidence manifest and visible method labels.
 
-Prepared figure rows retain `section_heading`. Figure insertion stops when its target heading is unresolved instead of falling back to Abstract or another convenient heading.
+Resolve citation, parsing, and asset blockers in the structured drafts, then rerun the merge. Keep stable paper IDs in structured data as the source of citation identity.
 
-Resolve citation or parse blockers in the structured draft and rerun. Abstract length, keyword count, uncited transitional prose, and paragraph labels are editorial warnings; an image embedded in Abstract is an asset-placement error. Do not write an ad hoc replacement script.
+## Polish
 
-## Polish Pass
-
-After deterministic merge, polish prose, structure, and transitions while preserving citation identity. Typical targets include:
+Revise the assembled manuscript for:
 
 ```text
-section transitions
+argument and section transitions
 terminology consistency
-redundant sentences
+redundancy
 comparison clarity
-mechanism qualification
+mechanistic qualification
 ```
 
-Do not manually edit citation numbers or reorder References. If prose changes citation order or identity, restore stable `[@Pxxx]` tokens in the structured section data and rerun `merge_review.py`.
+If a prose revision changes citation order or identity, update the stable `[@Pxxx]` tokens in `section_drafts.json` and rerun the merge. Numeric citations and the reference list remain script-generated.
 
 ## Outputs
-
-Write:
 
 ```text
 04_first_draft/first_draft.md

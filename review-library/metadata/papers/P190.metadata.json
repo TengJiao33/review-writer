@@ -2,31 +2,27 @@
   "paper_id": "P190",
   "slug": "51b-angew-chem-int-ed-2011-crouch-palladiumcatalyzed-elimination-isomerization-of-enol-triflates-into-1-3dienes",
   "title": {
-    "value": "Palladium-Catalyzed Elimination/Isomerization of Enol Triflates into 1,3-Dienes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Palladium-Catalyzed Elimination/Isomerization of Enol Triflates into 1,3-Dienes\\*\\*",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Ian T. Crouch",
-      "Timothy Dreier",
-      "Doug E. Frantz"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2011,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "51b-Angew Chem Int Ed",
-    "source": "filename_prefix",
-    "confidence": 0.55,
+    "value": "Angew. Chem. Int. Ed.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The prevalence of 1,3-dienes as substrates in some of the most important transformations in organic synthesis (e.g. Diels–Alder reactions) engenders this class of compounds as highly sought-after raw materials for carbon–carbon bond construction. In addition, nature has incorporated 1,3-dienes into a multitude of biologically active natural products, thus further solidifying the broad interest of this functional group beyond simple methodology development. Nonetheless, despite their pervasiveness and significant efforts from the synthetic community, the stereoselective synthesis of functionalized, highly substituted 1,3-dienes remains a formidable challenge. Our venture into the synthesis of 1,3-dienes began with a program to identify nontraditional reaction manifolds of stereodefined enol triflates because of their ability to act as pluripotent substrates with various catalysts and nucleophiles. In addition, our ability to readily access enol triflates with precise control of the acyclic stereochemistry provides the opportunity to exploit the unique reactivity differences between stereoisomeric starting materials. Herein, we report a conceptually new and mechanistically distinct catalytic reaction of enol triflates that is mediated by a commercially available palladium(0) catalyst en route to substituted 1,3-dienes.",
-    "source": "llm_from_front_matter_opening_paragraphs",
-    "confidence": 0.86,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\51b-Angew Chem Int Ed - 2011 - Crouch - Palladium‐Catalyzed Elimination Isomerization of Enol Triflates into 1 3‐Dienes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\51b-angew-chem-int-ed-2011-crouch-palladiumcatalyzed-elimination-isomerization-of-enol-triflates-into-1-3dienes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P190\\a333e2b0-adda-4273-a902-c302ea2c3c38_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P190"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\51b-angew-chem-int-ed-2011-crouch-palladiumcatalyzed-elimination-isomerization-of-enol-triflates-into-1-3dienes"
   },
   "source_file": {
     "pdf_name": "51b-Angew Chem Int Ed - 2011 - Crouch - Palladium‐Catalyzed Elimination Isomerization of Enol Triflates into 1 3‐Dienes.pdf",
@@ -53,18 +65,15 @@
     "sha256": "237a4144299504c750a1ff76deae15542dd7b2890faee70176d672194e16b3d2"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 74,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,34 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "No distinct abstract section was visible; the abstract field was populated from the article's opening paragraphs.",
-      "No formal abstract was visible in the communication; the abstract field is populated from the opening paragraphs.",
-      "This paper focuses on palladium-catalyzed conversion of enol triflates to 1,3-dienes via a proposed allenoate intermediate, so several allene-specific classification fields are necessarily marked as not specified.",
       "structured_tag_not_specified_product",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.737,
+    "overall_confidence": 0.399,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "tosylate and sulfonate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.78,
-    "human_checked": false
   }
 }

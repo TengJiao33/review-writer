@@ -1,0 +1,110 @@
+{
+  "paper_id": "P225",
+  "slug": "web-imports-2022-low-carbon-footprint-recycling-of-po-sc-202101062",
+  "title": {
+    "value": "Low Carbon Footprint Recycling of Post‐Consumer PET Plastic with a Metagenomic Polyester Hydrolase",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Christian Sonnendecker",
+      "Juliane Oeser",
+      "P. Konstantin Richter",
+      "Patrick Hille",
+      "Ziyue Zhao",
+      "Cornelius Fischer",
+      "Holger Lippold",
+      "Paula Blázquez‐Sánchez"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ChemSusChem",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.202101062",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Earth is flooded with plastics and the need for sustainable recycling strategies for polymers has become increasingly urgent. Enzyme‐based hydrolysis of post‐consumer plastic is an emerging strategy for closed‐loop recycling of polyethylene terephthalate (PET). The polyester hydrolase PHL7, isolated from a compost metagenome, completely hydrolyzes amorphous PET films, releasing 91 mg of terephthalic acid per hour and mg of enzyme. Vertical scanning interferometry shows degradation rates of the PET film of 6.8 μm h −1 . Structural analysis indicates the importance of leucine at position 210 for the extraordinarily high PET‐hydrolyzing activity of PHL7. Within 24 h, 0.6 mg enzyme g PET −1 completely degrades post‐consumer thermoform PET packaging in an aqueous buffer at 70 °C without any energy‐intensive pretreatments. Terephthalic acid recovered from the enzymatic hydrolysate is then used to synthesize virgin PET, demonstrating the potential of polyester hydrolases as catalysts in sustainable PET recycling processes with a low carbon footprint.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2022-low-carbon-footprint-recycling-of-po-sc-202101062.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2022-low-carbon-footprint-recycling-of-po-sc-202101062.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-low-carbon-footprint-recycling-of-po-sc-202101062\\web-imports-2022-low-carbon-footprint-recycling-of-po-sc-202101062_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-low-carbon-footprint-recycling-of-po-sc-202101062"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 85,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.847,
+    "needs_human_check": true
+  }
+}

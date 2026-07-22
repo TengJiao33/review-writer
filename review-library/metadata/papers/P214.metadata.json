@@ -1,0 +1,105 @@
+{
+  "paper_id": "P214",
+  "slug": "web-imports-2022-towards-synthetic-pettrophy-engineer-022-01849-7",
+  "title": {
+    "value": "Towards synthetic PETtrophy: Engineering Pseudomonas putida for concurrent polyethylene terephthalate (PET) monomer metabolism and PET hydrolase expression",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Oliver F. Brandenberg",
+      "Olga T. Schubert",
+      "Leonid Kruglyak"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Microbial Cell Factories",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1186/s12934-022-01849-7",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Background Biocatalysis offers a promising path for plastic waste management and valorization, especially for hydrolysable plastics such as polyethylene terephthalate (PET). Microbial whole-cell biocatalysts for simultaneous PET degradation and growth on PET monomers would offer a one-step solution toward PET recycling or upcycling. We set out to engineer the industry-proven bacterium Pseudomonas putida for (i) metabolism of PET monomers as sole carbon sources, and (ii) efficient extracellular expression of PET hydrolases. We pursued this approach for both PET and the related polyester polybutylene adipate co -terephthalate (PBAT), aiming to learn about the determinants and potential applications of bacterial polyester-degrading biocatalysts. Results P. putida was engineered to metabolize the PET and PBAT monomer terephthalic acid (TA) through genomic integration of four tphII operon genes from Comamonas sp. E6. Efficient cellular TA uptake was enabled by a point mutation in the native P. putida membrane transporter MhpT. Metabolism of the PET and PBAT monomers ethylene glycol and 1,4-butanediol was achieved through adaptive laboratory evolution. We then used fast design-b",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2022-towards-synthetic-pettrophy-engineer--022-01849-7.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2022-towards-synthetic-pettrophy-engineer-022-01849-7.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-towards-synthetic-pettrophy-engineer-022-01849-7\\70a608f3-715a-4cf8-8e20-42cd779e7dbf_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-towards-synthetic-pettrophy-engineer-022-01849-7"
+  },
+  "source_file": {
+    "pdf_name": "2022-towards-synthetic-pettrophy-engineer--022-01849-7.pdf",
+    "relative_pdf_path": "web-imports\\2022-towards-synthetic-pettrophy-engineer--022-01849-7.pdf",
+    "sha256": "2d2df13220d5ba53b447b9b43e5cd7fd30a73083ddfaead6d8e39f4ac4667da8"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 392,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.787,
+    "needs_human_check": true
+  }
+}

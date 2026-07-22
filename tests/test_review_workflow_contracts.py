@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import importlib.util
 import subprocess
@@ -7,6 +8,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from docx import Document
 from pypdf import PdfWriter
@@ -19,6 +21,7 @@ MD2DOCX = REPO / "skills" / "review-export-docx" / "scripts" / "md2docx.py"
 DOCX_AUDIT = REPO / "skills" / "review-export-docx" / "scripts" / "audit_docx.py"
 MATRIX_VALIDATOR = REPO / "skills" / "review-literature-matrix-outline" / "scripts" / "validate_evidence_matrix.py"
 BLUEPRINT_VALIDATOR = REPO / "skills" / "review-section-blueprint" / "scripts" / "validate_blueprint.py"
+BLUEPRINT_INIT = REPO / "skills" / "review-section-blueprint" / "scripts" / "init_section_blueprint.py"
 DRAFT_VALIDATOR = REPO / "skills" / "review-section-drafting-figure-picking" / "scripts" / "validate_section_drafts.py"
 SCREENING_VALIDATOR = REPO / "skills" / "review-topic-paper-discovery" / "scripts" / "validate_screening.py"
 METADATA_PREP = REPO / "skills" / "review-metadata-prep" / "scripts" / "prepare_metadata.py"
@@ -26,7 +29,11 @@ DISCOVER = REPO / "skills" / "review-topic-paper-discovery" / "scripts" / "disco
 FIGURE_SELECTOR = REPO / "skills" / "review-section-drafting-figure-picking" / "scripts" / "select_initial_figure_candidates.py"
 FIGURE_REDRAW = REPO / "skills" / "review-figure-style-redraw" / "scripts" / "redraw_figures.py"
 PROJECT_STATUS = REPO / "skills" / "review-writing-orchestrator" / "scripts" / "project_status.py"
+RUN_AND_RECORD = REPO / "skills" / "review-writing-orchestrator" / "scripts" / "run_and_record.py"
 EXTERNAL_INGEST = REPO / "skills" / "review-topic-paper-discovery" / "scripts" / "ingest_external_papers.py"
+MINERU_PARSER = REPO / "skills" / "mineru-precise-parse-review-writer" / "scripts" / "parse_review_writer_pdfs.py"
+PORTFOLIO_BUILDER = REPO / "skills" / "review-literature-matrix-outline" / "scripts" / "build_review_portfolio.py"
+COMPARISON_TABLE = REPO / "skills" / "review-section-drafting-figure-picking" / "scripts" / "build_method_comparison_table.py"
 
 
 def write_json(path: Path, payload) -> None:
@@ -52,12 +59,198 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self._write_matrix_and_metadata()
         write_json(self.project / "02_section_drafting" / "figure_candidates.json", [])
         write_json(
+            self.project / "02_section_drafting" / "paper_figure_inventory.json",
+            {"candidate_count": 0, "candidates": [], "papers": []},
+        )
+        write_json(
+            self.project / "02_section_drafting" / "paper_figure_candidates.json",
+            {"inventory_candidate_count": 0, "candidates": []},
+        )
+        write_json(
             self.project / "00_discovery" / "screening_validation.json",
             {"blocking_issues": [], "warnings": []},
         )
 
     def tearDown(self) -> None:
         self.temp.cleanup()
+
+    def test_rule_pack_selection_uses_general_default_and_domain_match(self) -> None:
+        spec = importlib.util.spec_from_file_location("blueprint_init", BLUEPRINT_INIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        skill_root = BLUEPRINT_INIT.parents[1]
+
+        self.assertEqual(
+            module.select_rule_pack(skill_root, "enzymatic PET depolymerization")[0],
+            "general",
+        )
+        self.assertEqual(
+            module.select_rule_pack(skill_root, "enantioselective allene synthesis from propargylic alcohols")[0],
+            "allenation",
+        )
+
+    def test_blueprint_ready_status_requires_claim_level_evidence_links(self) -> None:
+        path = self.project / "01_matrix_outline" / "section_blueprint.json"
+        payload = {
+            "status": "ready_for_drafting",
+            "coverage_contract": {"dimensions": []},
+            "sections": [
+                {
+                    "section_id": "sec1",
+                    "title": "Evidence boundary",
+                    "review_claims": [
+                        {
+                            "claim": "The two methods answer different practical questions.",
+                            "claim_type": "comparison",
+                            "supporting_papers": ["P001", "P002"],
+                            "evidence_strength": "needs verification",
+                        }
+                    ],
+                }
+            ],
+        }
+        write_json(path, payload)
+        result = run(BLUEPRINT_VALIDATOR, "--review-root", self.root, "--project-id", self.project_id)
+        self.assertNotEqual(result.returncode, 0)
+        report = json.loads(
+            (self.project / "01_matrix_outline" / "blueprint_validation.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertTrue(any("no linked evidence_ids" in issue for issue in report["blocking_issues"]))
+        self.assertTrue(any("unverified evidence strength" in issue for issue in report["blocking_issues"]))
+
+        claim = payload["sections"][0]["review_claims"][0]
+        claim["evidence_ids"] = ["P001-E01", "P002-E01"]
+        claim["evidence_strength"] = "cross_checked_full_text"
+        write_json(path, payload)
+        result = run(BLUEPRINT_VALIDATOR, "--review-root", self.root, "--project-id", self.project_id)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_metadata_prep_only_slug_does_not_reprocess_the_library(self) -> None:
+        registry = self.root / "review-library" / "registry" / "papers.jsonl"
+        registry.parent.mkdir(parents=True, exist_ok=True)
+        registry.write_text(
+            "".join(
+                json.dumps({"paper_id": paper_id, "source_pdf": f"existing-{paper_id}.pdf"}) + "\n"
+                for paper_id in ("P001", "P002")
+            ),
+            encoding="utf-8",
+        )
+        pdf_root = self.root / "chem_papers"
+        mineru_root = self.root / "mineru-outputs"
+        slugs = []
+        spec = importlib.util.spec_from_file_location("metadata_prep", METADATA_PREP)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        for name in ("first-study.pdf", "second-study.pdf"):
+            pdf = pdf_root / "web-imports" / name
+            pdf.parent.mkdir(parents=True, exist_ok=True)
+            writer = PdfWriter()
+            writer.add_blank_page(width=612, height=792)
+            with pdf.open("wb") as handle:
+                writer.write(handle)
+            relative_stem = str(pdf.relative_to(pdf_root).with_suffix(""))
+            slug = module.slugify_mineru(relative_stem)
+            slugs.append(slug)
+            markdown = mineru_root / "markdown" / f"{slug}.md"
+            markdown.parent.mkdir(parents=True, exist_ok=True)
+            markdown.write_text(
+                f"# {name.removesuffix('.pdf')}\n\nAbstract\n\nA bounded imported study reports a result.\n",
+                encoding="utf-8",
+            )
+            write_json(
+                mineru_root / "extracted" / slug / f"{slug}_content_list.json",
+                [{"type": "text", "text": f"{name} imported study", "page_idx": 0}],
+            )
+
+        result = run(
+            METADATA_PREP,
+            "--review-root",
+            self.root,
+            "--mineru-output",
+            mineru_root,
+            "--pdf-root",
+            pdf_root,
+            "--discover-from-pdf-root",
+            "--append-registry",
+            "--only-slug",
+            slugs[0],
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue((self.root / "review-library" / "metadata" / "papers" / "P003.metadata.json").exists())
+        self.assertFalse((self.root / "review-library" / "metadata" / "papers" / "P004.metadata.json").exists())
+        registry_rows = [json.loads(line) for line in registry.read_text(encoding="utf-8").splitlines()]
+        self.assertEqual([row["paper_id"] for row in registry_rows], ["P001", "P002", "P003"])
+
+    def test_generic_method_cards_produce_a_traceable_comparison_table(self) -> None:
+        matrix_path = self.project / "01_matrix_outline" / "literature_matrix.json"
+        payload = json.loads(matrix_path.read_text(encoding="utf-8"))
+        fields = {
+            "study_design": "controlled primary study",
+            "subject_or_substrate": "propargylic carbonate substrates",
+            "intervention_or_method": "catalytic carbonylation",
+            "conditions_or_context": "reported reaction conditions",
+            "outcome_or_metric": "isolated product yield",
+            "main_result": "representative products were obtained",
+            "limitations": "scope remains bounded",
+        }
+        for row in payload["papers"]:
+            evidence_id = f"{row['paper_id']}-E01"
+            row["method_card"] = {
+                **fields,
+                "method_field_evidence": {
+                    field: [evidence_id]
+                    for field in fields
+                },
+            }
+        write_json(matrix_path, payload)
+        write_json(
+            self.project / "00_discovery" / "topic_contract.json",
+            {
+                "topic": "Comparative catalytic methods",
+                "review_profile": "focused",
+                "central_question": "Which method is useful under which conditions?",
+                "important_coverage": ["method choice"],
+            },
+        )
+        write_json(
+            self.project / "00_discovery" / "selected_discovery_results.json",
+            {
+                "screening_decisions": [
+                    {
+                        "paper_id": row["paper_id"],
+                        "decision": "include",
+                        "portfolio_intent_hint": "core",
+                    }
+                    for row in payload["papers"]
+                ]
+            },
+        )
+        result = run(PORTFOLIO_BUILDER, "--review-root", self.root, "--project-id", self.project_id)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        cards = json.loads(
+            (self.project / "01_matrix_outline" / "method_cards.json").read_text(encoding="utf-8")
+        )["method_cards"]
+        self.assertTrue(all(card["recording_status"] == "recorded_with_field_provenance" for card in cards))
+        self.assertTrue(all("outcome_or_metric" in card["populated_fields"] for card in cards))
+
+        result = run(
+            COMPARISON_TABLE,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+            "--require-traceable",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        table = (
+            self.project / "02_section_drafting" / "method_comparison_table.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Outcome / metric", table)
+        self.assertIn("catalytic carbonylation", table)
 
     def _write_matrix_and_metadata(self) -> None:
         rows = []
@@ -78,7 +271,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         {
                             "evidence_id": f"{paper_id}-E01",
                             "note": "The full text reports the transformation and representative scope.",
-                            "source_excerpt": "The transformation and representative scope are reported.",
+                            "source_excerpt": "The transformation and representative substrate scope are reported with quantified yields and operating conditions.",
                             "source_path": f"review-library/sources/{paper_id}.md",
                             "locator": "Results, paragraph 1",
                             "source_level": "full_text",
@@ -88,7 +281,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         {
                             "evidence_id": f"{paper_id}-E02",
                             "note": "The authors describe the pathway as a mechanistic proposal.",
-                            "source_excerpt": "The pathway is presented as a mechanistic proposal.",
+                            "source_excerpt": "The pathway is presented by the authors as a mechanistic proposal based on intermediate trapping evidence.",
                             "source_path": f"review-library/sources/{paper_id}.md",
                             "locator": "Mechanism, paragraph 1",
                             "source_level": "full_text",
@@ -101,8 +294,8 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             source = self.root / "review-library" / "sources" / f"{paper_id}.md"
             source.parent.mkdir(parents=True, exist_ok=True)
             source.write_text(
-                "# Results\n\nThe transformation and representative scope are reported.\n\n"
-                "# Mechanism\n\nThe pathway is presented as a mechanistic proposal.\n",
+                "# Results\n\nThe transformation and representative substrate scope are reported with quantified yields and operating conditions.\n\n"
+                "# Mechanism\n\nThe pathway is presented by the authors as a mechanistic proposal based on intermediate trapping evidence.\n",
                 encoding="utf-8",
             )
             write_json(
@@ -128,6 +321,28 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             "abstract": abstract,
             "keywords": ["allenes", "propargylic carbonates", "palladium", "nickel", "selectivity"],
         }
+
+    def _source_receipts(self, *evidence_ids: str) -> list[dict]:
+        receipts = []
+        for evidence_id in evidence_ids:
+            paper_id = evidence_id.split("-", 1)[0]
+            source = self.root / "review-library" / "sources" / f"{paper_id}.md"
+            excerpt = (
+                "The pathway is presented by the authors as a mechanistic proposal based on intermediate trapping evidence."
+                if evidence_id.endswith("E02")
+                else "The transformation and representative substrate scope are reported with quantified yields and operating conditions."
+            )
+            receipts.append(
+                {
+                    "paper_id": paper_id,
+                    "evidence_id": evidence_id,
+                    "source_path": str(source),
+                    "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                    "locator": "Mechanism, paragraph 1" if evidence_id.endswith("E02") else "Results, paragraph 1",
+                    "checked_excerpt": excerpt,
+                }
+            )
+        return receipts
 
     def test_legacy_numeric_citations_are_rejected(self) -> None:
         payload = {
@@ -183,6 +398,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             self.project / "00_discovery" / "topic_contract.json",
             {
                 "topic": "Interventions and long-term retention",
+                "review_profile": "focused",
                 "central_question": "Which interventions improve long-term retention?",
                 "important_coverage": ["follow-up duration", "population"],
                 "inclusion_criteria": ["reports a retention outcome"],
@@ -199,6 +415,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                     {
                         "paper_id": "P001",
                         "decision": "include",
+                        "study_type": "primary_research",
                         "relevance_summary": "Reports the outcome named in the central question.",
                         "decision_basis": "Full-text results and the inclusion criterion.",
                     },
@@ -238,6 +455,44 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             "46-Angew Chem Int Ed - 2012 - Wan - Enantioselective Amination.pdf",
         )
         self.assertEqual(abbreviated["value"], "Angew. Chem. Int. Ed.")
+        regenerated = {
+            "title": {"value": "Parsed title", "source": "markdown", "human_checked": False},
+            "doi": {"value": None, "source": "rule_not_found", "human_checked": False},
+            "authors": {"value": ["Parsed Author"], "source": "markdown", "human_checked": False},
+        }
+        existing = {
+            "title": {"value": "Checked title", "source": "manual", "human_checked": True},
+            "doi": {
+                "value": "10.1000/persisted",
+                "source": "external_discovery",
+                "human_checked": False,
+            },
+            "authors": {"value": ["Old Guess"], "source": "markdown", "human_checked": False},
+        }
+        module.preserve_human_checked_fields(regenerated, existing)
+        self.assertEqual(regenerated["title"]["value"], "Checked title")
+        self.assertEqual(regenerated["doi"]["value"], "10.1000/persisted")
+        self.assertEqual(regenerated["authors"]["value"], ["Parsed Author"])
+        orphan_markdown = self.root / "mineru-outputs" / "markdown" / "web-imports-orphan.md"
+        orphan_markdown.parent.mkdir(parents=True, exist_ok=True)
+        orphan_markdown.write_text("# Repository article\n", encoding="utf-8")
+        orphan_xml = self.root / "chem_papers" / "web-imports" / "orphan.jats.xml"
+        orphan_xml.parent.mkdir(parents=True, exist_ok=True)
+        orphan_xml.write_text("<article/>", encoding="utf-8")
+        jobs = module.jobs_from_pdf_root(
+            self.root / "chem_papers",
+            self.root / "mineru-outputs",
+        )
+        self.assertEqual(len(jobs), 1)
+        self.assertEqual(jobs[0]["source_xml"], str(orphan_xml))
+        constrained = module.constrain_structured_tags(
+            {
+                "ligand_or_chiral_source": "enantioselective synthesis",
+                "document_scope": "primary research article",
+            },
+            {key: ["not specified"] for key in module.STRUCTURED_TAG_KEYS},
+        )
+        self.assertTrue(all(value == "not specified" for value in constrained.values()))
 
     def test_discovery_selection_keeps_compact_screening_context(self) -> None:
         sys.path.insert(0, str(DISCOVER.parent))
@@ -277,6 +532,137 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertEqual(paper["abstract"], "Enough context for screening.")
         self.assertEqual(paper["structured_tags"]["catalyst_or_method"], "nickel catalysis")
         self.assertEqual(paper["source_paths"]["markdown"], "paper.md")
+
+    def test_discovery_uses_literal_topic_fallback_outside_allene_domain(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_fallback", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        topic = "Covalent organic frameworks for photocatalytic carbon dioxide reduction"
+        keyword_set = module.build_keyword_set(topic, [])
+        self.assertEqual(keyword_set["agent_keywords"], [])
+        self.assertEqual(keyword_set["merged_keywords"][0]["keyword"], topic)
+        self.assertEqual(keyword_set["merged_keywords"][0]["source"], ["topic_fallback"])
+
+    def test_sulfide_does_not_trigger_propargylic_rules(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_domain", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        solid = module.infer_keywords(
+            "Interphase chemistry at sulfide solid-electrolyte and lithium-metal interfaces",
+            [],
+        )
+        self.assertEqual(solid, [])
+        propargylic = module.infer_keywords("Allene synthesis from propargylic sulfides", [])
+        self.assertIn(
+            "propargylic sulfinates and sulfonates",
+            [row["keyword"] for row in propargylic],
+        )
+
+    def test_crossref_query_and_editorial_filter_are_unbiased(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_crossref", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        with mock.patch.object(
+            module,
+            "crossref_search_items",
+            return_value=[
+                {
+                    "DOI": "10.1039/example/v1/review1",
+                    "title": ["Review for an otherwise relevant paper"],
+                    "type": "peer-review",
+                },
+                {
+                    "DOI": "10.1000/article",
+                    "title": ["PET enzymatic depolymerization"],
+                    "type": "journal-article",
+                    "issued": {"date-parts": [[2024]]},
+                },
+            ],
+        ) as search:
+            rows = module.web_search("PET enzymatic depolymerization", "PET recycling", 8)
+        query = search.call_args.args[0]
+        self.assertNotIn("review paper DOI", query)
+        self.assertEqual([row["doi"] for row in rows], ["10.1000/article"])
+        self.assertNotIn("example@example.com", module.CROSSREF_USER_AGENT)
+
+        captured: list[str] = []
+
+        def fake_request(url: str):
+            captured.append(url)
+            return {"message": {"items": []}}
+
+        with mock.patch.object(module, "crossref_request_json", side_effect=fake_request):
+            module.crossref_search_items("PET depolymerization", 20)
+        self.assertIn("filter=type%3Ajournal-article", captured[0])
+
+    def test_crossref_reference_expansion_recovers_and_locates_cited_work(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_expansion", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        seed = {
+            "DOI": "10.1000/review",
+            "title": ["A review of enzymatic PET depolymerization"],
+            "type": "journal-article",
+            "issued": {"date-parts": [[2023]]},
+            "reference": [
+                {
+                    "DOI": "10.1126/science.aad6359",
+                    "article-title": "A bacterium that degrades and assimilates poly(ethylene terephthalate)",
+                    "year": "2016",
+                }
+            ],
+        }
+        cited = {
+            "DOI": "10.1126/science.aad6359",
+            "title": ["A bacterium that degrades and assimilates poly(ethylene terephthalate)"],
+            "type": "journal-article",
+            "issued": {"date-parts": [[2016]]},
+            "license": [{"URL": "https://creativecommons.org/licenses/by/4.0/"}],
+            "link": [{"URL": "https://example.org/pet.pdf", "content-type": "application/pdf"}],
+        }
+
+        def fake_work(doi: str):
+            return seed if "review" in doi else cited
+
+        with mock.patch.object(module, "crossref_search_items", return_value=[seed]), mock.patch.object(
+            module, "fetch_crossref_work", side_effect=fake_work
+        ), mock.patch.object(module, "fetch_crossref_works", return_value=[cited]):
+            expansion = module.crossref_reference_expansion(
+                "Enzymatic depolymerization of polyethylene terephthalate for chemical recycling",
+                ["PET enzymatic depolymerization"],
+                seed_limit=1,
+                result_limit=5,
+            )
+        self.assertEqual(expansion["status"], "ok")
+        recovered = next(
+            row for row in expansion["results"] if row.get("doi") == "10.1126/science.aad6359"
+        )
+        self.assertEqual(recovered["source"], "crossref_reference_expansion")
+        self.assertEqual(recovered["open_access_pdf_url"], "https://example.org/pet.pdf")
 
     def test_discovery_reads_structured_markdown_topic_contract(self) -> None:
         sys.path.insert(0, str(DISCOVER.parent))
@@ -376,8 +762,11 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 {
                     "external_id": "s2-new",
                     "title": "New Open Allene Paper",
+                    "authors": ["Ada Author"],
                     "doi": "10.1000/new",
                     "year": 2026,
+                    "journal": "Open Chemistry",
+                    "abstract": "A discovery abstract retained for metadata reconciliation.",
                     "open_access_pdf_url": "https://example.org/new.pdf",
                     "source": "semantic_scholar",
                     "keep": True,
@@ -412,6 +801,10 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertEqual(actions["s2-known"], "use_local")
         self.assertEqual(actions["s2-new"], "download_then_mineru")
         self.assertEqual(plan["downloadable_count"], 1)
+        planned_new = next(item for item in plan["items"] if item["paper_key"] == "s2-new")
+        self.assertEqual(planned_new["authors"], ["Ada Author"])
+        self.assertEqual(planned_new["journal"], "Open Chemistry")
+        self.assertIn("discovery abstract", planned_new["abstract"])
 
         spec = importlib.util.spec_from_file_location("review_external_ingest", EXTERNAL_INGEST)
         self.assertIsNotNone(spec)
@@ -420,8 +813,182 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         spec.loader.exec_module(ingest)
         chosen = ingest.select_items(plan, ["s2-new"], 3)
         self.assertEqual([row["paper_key"] for row in chosen], ["s2-new"])
+        explicitly_requested = {
+            "items": [
+                {
+                    "paper_key": f"paper-{index}",
+                    "action": "download_then_mineru",
+                }
+                for index in range(5)
+            ]
+        }
+        chosen = ingest.select_items(
+            explicitly_requested,
+            [f"paper-{index}" for index in range(5)],
+            3,
+        )
+        self.assertEqual(len(chosen), 5)
+        already_imported = {
+            "items": [
+                {
+                    "paper_key": "paper-imported",
+                    "action": "use_local",
+                    "target_pdf_path": "chem_papers/paper-imported.pdf",
+                }
+            ]
+        }
+        self.assertEqual(
+            len(ingest.select_items(already_imported, ["paper-imported"], 3)),
+            1,
+        )
+        self.assertEqual(ingest.select_items(already_imported, [], 3), [])
         with self.assertRaises(ValueError):
             ingest.safe_target(self.root, "../outside.pdf")
+
+        page_only = {
+            "items": [
+                {
+                    "paper_key": "10.1000/page-only",
+                    "title": "Publisher hosted open article",
+                    "year": 2025,
+                    "action": "locate_pdf",
+                    "open_access_full_text_url": "https://publisher.example/article/full",
+                }
+            ]
+        }
+        chosen = ingest.select_items(page_only, [], 3)
+        self.assertEqual([row["paper_key"] for row in chosen], ["10.1000/page-only"])
+        self.assertEqual(
+            ingest.extract_pdf_urls(
+                "https://publisher.example/article/full",
+                '<html><head><meta name="citation_pdf_url" content="/article/file.pdf"></head>'
+                '<body><a href="/article/alternate">Download PDF</a></body></html>',
+            ),
+            [
+                "https://publisher.example/article/file.pdf",
+                "https://publisher.example/article/alternate",
+            ],
+        )
+        response = mock.MagicMock()
+        response.__enter__.return_value = response
+        response.read.return_value = json.dumps(
+            {
+                "resultList": {
+                    "result": [
+                        {
+                            "doi": "10.1000/page-only",
+                            "pmcid": "PMC1234567",
+                            "isOpenAccess": "Y",
+                            "inEPMC": "Y",
+                        }
+                    ]
+                }
+            }
+        ).encode("utf-8")
+        with mock.patch.object(ingest.urllib.request, "urlopen", return_value=response):
+            self.assertEqual(
+                ingest.europe_pmc_article_url("10.1000/page-only", 30),
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC1234567/",
+            )
+        jats_response = mock.MagicMock()
+        jats_response.__enter__.return_value = jats_response
+        jats_response.read.return_value = (
+            b'<article><front><article-meta><article-id pub-id-type="doi">10.1000/page-only</article-id>'
+            b'<title-group><article-title>Repository full text article</article-title></title-group>'
+            b'<abstract><p>Repository abstract with enough source text.</p></abstract>'
+            b'</article-meta></front><body><sec><title>Results</title>'
+            b'<p>The repository provides the complete result paragraph.</p></sec></body></article>'
+        )
+        jats_target = self.root / "chem_papers" / "web-imports" / "repository.pdf"
+        with mock.patch.object(ingest.urllib.request, "urlopen", return_value=jats_response):
+            xml_path, markdown_path = ingest.download_europe_pmc_jats(
+                "https://pmc.ncbi.nlm.nih.gov/articles/PMC1234567/",
+                jats_target,
+                self.root,
+                30,
+            )
+        self.assertTrue(xml_path.exists())
+        self.assertIn("## Results", markdown_path.read_text(encoding="utf-8"))
+        compact_target = ingest.default_target_relative(page_only["items"][0])
+        self.assertTrue(compact_target.endswith(".pdf"))
+        self.assertLessEqual(len(Path(compact_target).stem), 64)
+        batch_targets = [
+            self.root / "chem_papers" / "web-imports" / "one.pdf",
+            self.root / "chem_papers" / "web-imports" / "two.pdf",
+        ]
+        mineru_command = ingest.build_mineru_command(
+            sys.executable,
+            MINERU_PARSER,
+            self.root,
+            batch_targets,
+            7,
+        )
+        self.assertEqual(mineru_command.count("--pdf"), 2)
+        self.assertEqual(mineru_command[mineru_command.index("--batch-size") + 1], "7")
+
+        parser_spec = importlib.util.spec_from_file_location("review_mineru_batch", MINERU_PARSER)
+        self.assertIsNotNone(parser_spec)
+        self.assertIsNotNone(parser_spec.loader)
+        mineru = importlib.util.module_from_spec(parser_spec)
+        sys.modules[parser_spec.name] = mineru
+        try:
+            parser_spec.loader.exec_module(mineru)
+        finally:
+            sys.modules.pop(parser_spec.name, None)
+        for target in batch_targets:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(b"%PDF-1.4\n")
+        selected_jobs = mineru.discover_selected_jobs(
+            [batch_targets[0], batch_targets[1], batch_targets[0]],
+            self.root / "chem_papers",
+            self.root / "mineru-outputs",
+            False,
+        )
+        self.assertEqual([job.index for job in selected_jobs], [1, 2])
+        self.assertEqual(len({job.data_id for job in selected_jobs}), 2)
+
+        metadata_dir = self.root / "review-library" / "metadata" / "papers"
+        registry_path = self.root / "review-library" / "registry" / "papers.jsonl"
+        write_json(
+            metadata_dir / "P900.metadata.json",
+            {
+                "paper_id": "P900",
+                "title": {"value": "A title with C O 2", "confidence": 0.5},
+                "authors": {"value": ["A. Author"], "confidence": 0.8},
+                "year": {"value": 2025, "confidence": 0.7},
+                "journal": {"value": None, "confidence": 0.0},
+                "doi": {"value": "10.1000", "confidence": 0.4},
+                "abstract": {"value": "Abstract", "confidence": 0.8},
+                "structured_tags": {"value": {}, "confidence": 0.0},
+                "extraction": {"notes": []},
+                "quality": {"missing_fields": [], "warnings": ["missing_doi"]},
+            },
+        )
+        registry_path.parent.mkdir(parents=True, exist_ok=True)
+        registry_path.write_text(
+            json.dumps({"paper_id": "P900", "title": "Old", "year": 2025, "doi": None}) + "\n",
+            encoding="utf-8",
+        )
+        repaired, fields = ingest.reconcile_bibliographic_metadata(
+            self.root,
+            "P900",
+            json.loads((metadata_dir / "P900.metadata.json").read_text(encoding="utf-8")),
+            {
+                "title": "A title with CO2",
+                "authors": ["Ada Author", "Ben Researcher"],
+                "year": 2025,
+                "journal": "Open Chemistry",
+                "doi": "https://doi.org/10.1000/example",
+                "abstract": "An externally supplied abstract with bibliographic provenance.",
+            },
+        )
+        self.assertEqual(fields, ["title", "doi", "authors", "journal", "abstract"])
+        self.assertEqual(repaired["doi"]["value"], "10.1000/example")
+        self.assertEqual(repaired["authors"]["value"], ["Ada Author", "Ben Researcher"])
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        self.assertEqual(registry["title"], "A title with CO2")
+        self.assertEqual(registry["doi"], "10.1000/example")
+        self.assertEqual(registry["journal"], "Open Chemistry")
 
     def test_matrix_blocks_missing_source_and_draft_blocks_wrong_evidence_owner(self) -> None:
         matrix_path = self.project / "01_matrix_outline" / "literature_matrix.json"
@@ -553,9 +1120,9 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 "sections": [
                     {
                         "section_id": "sec1",
-                        "title": "1. Mechanistic Pathways",
-                        "section_thesis": "Compare palladium and nickel catalytic pathways.",
-                        "major_papers": ["P001"],
+                        "title": "Polymer Microstructure and Enzymatic Accessibility",
+                        "section_thesis": "Compare how amorphous and crystalline regions affect degradation.",
+                        "major_papers": [],
                     }
                 ]
             },
@@ -564,7 +1131,13 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             self.project / "02_section_drafting" / "section_tasks.json",
             {
                 "project_id": self.project_id,
-                "sections": [{"section_id": "sec1", "title": "1. Mechanistic Pathways"}],
+                "tasks": [
+                    {
+                        "section_id": "sec1",
+                        "title": "Polymer Microstructure and Enzymatic Accessibility",
+                        "assigned_papers": ["P001"],
+                    }
+                ],
             },
         )
         image_path = self.root / "review-library" / "figures" / "P001-scheme.png"
@@ -577,7 +1150,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 {
                     "type": "image",
                     "img_path": image_path.name,
-                    "image_caption": "Scheme 1. Proposed catalytic mechanism",
+                    "image_caption": "Figure 1. Polymer microstructure controls enzymatic degradation",
                     "page_idx": 3,
                 }
             ],
@@ -595,13 +1168,13 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 "papers": [
                     {
                         "paper_id": "P001",
-                        "title": "Palladium Carbonylation",
+                        "title": "Polymer degradation study",
                         "top_candidates": [
                             {
                                 "paper_id": "P001",
-                                "source_label": "Scheme 1",
+                                "source_label": "Figure 1",
                                 "source_type": "image",
-                                "source_caption_text": "Proposed catalytic mechanism",
+                                "source_caption_text": "Polymer microstructure controls enzymatic degradation",
                                 "source_image_path": str(image_path),
                                 "inventory_score": 20,
                             }
@@ -623,9 +1196,21 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         selected = json.loads(
             (self.project / "02_section_drafting" / "figure_candidates.json").read_text(encoding="utf-8")
         )
+        inventory = json.loads(
+            (self.project / "02_section_drafting" / "paper_figure_inventory.json").read_text(encoding="utf-8")
+        )
+        paper_candidates = json.loads(
+            (self.project / "02_section_drafting" / "paper_figure_candidates.json").read_text(encoding="utf-8")
+        )
         self.assertEqual(len(selected), 1)
+        self.assertEqual(inventory["candidate_count"], 1)
+        self.assertEqual(len(inventory["candidates"]), 1)
+        self.assertEqual(len(inventory["papers"][0]["candidates"]), 1)
+        self.assertEqual(paper_candidates["inventory_candidate_count"], 1)
+        self.assertEqual(len(paper_candidates["candidates"]), 1)
         self.assertEqual(selected[0]["section_id"], "sec1")
         self.assertEqual(selected[0]["source_page_review_status"], "pending")
+        self.assertEqual(selected[0]["reuse_rights"]["status"], "pending")
 
     def test_source_figure_requires_and_records_page_completeness_review(self) -> None:
         image_path = self.root / "review-library" / "figures" / "P001-scheme.png"
@@ -638,6 +1223,15 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             "reader_job": "Show the proposed pathway that the surrounding comparison discusses.",
             "placement_rationale": "Place beside the mechanism discussion where its labels are explained.",
             "reuse_basis": "Source figure reused unchanged for internal research review with attribution.",
+            "reuse_rights": {
+                "status": "verified",
+                "basis": "CC BY 4.0",
+                "license_url_or_permission_record": "https://creativecommons.org/licenses/by/4.0/",
+                "source_locator": "Article license statement and Scheme 1 credit line on page 4",
+                "third_party_material_checked": True,
+                "adaptation": "unchanged",
+                "attribution_text": "Reproduced from Example et al. under CC BY 4.0.",
+            },
             "source_label": "Scheme 1",
             "source_page_hint": "page 4",
             "source_caption_text": "(A) Proposed pathway",
@@ -705,6 +1299,134 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         )
         self.assertNotEqual(result.returncode, 0)
 
+    def test_docx_status_requires_a_pdf_rendered_from_docx_and_real_page_images(self) -> None:
+        final_dir = self.project / "05_final_audit"
+        final_dir.mkdir(parents=True, exist_ok=True)
+        (final_dir / "final_draft.md").write_text("# Review\n", encoding="utf-8")
+        (final_dir / "final_draft.docx").write_bytes(b"docx-fixture")
+        (final_dir / "final_draft.pdf").write_bytes(b"pdf-fixture")
+        write_json(final_dir / "format_scan.json", {"blocking_issues": []})
+        write_json(final_dir / "docx_audit.json", {"blocking_issues": [], "render_qa": "passed"})
+        write_json(
+            final_dir / "render_qa_report.json",
+            {
+                "render_status": "passed",
+                "inspection_status": "passed",
+                "renderer": "hand-written-report",
+                "output_pdf": "final_draft.pdf",
+                "page_count": 1,
+            },
+        )
+        spec = importlib.util.spec_from_file_location("review_project_status_render", PROJECT_STATUS)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        stage = next(row for row in module.STAGES if row["id"] == "docx_export")
+        status = module.stage_status(self.project, stage)
+        self.assertFalse(status["complete"])
+        self.assertIn("final_docx_not_canonical_render_input", status["semantic_issues"])
+        self.assertIn("rendered_page_image_count_mismatch", status["semantic_issues"])
+
+        page = final_dir / "rendered_pages" / "page-1.png"
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_bytes(b"png-fixture")
+        write_json(
+            final_dir / "render_qa_report.json",
+            {
+                "input_docx": "final_draft.docx",
+                "output_pdf": "final_draft.pdf",
+                "pages_dir": "rendered_pages",
+                "render_status": "passed",
+                "inspection_status": "passed",
+                "renderer": "fixture-renderer",
+                "page_count": 1,
+                "page_images": ["rendered_pages/page-1.png"],
+            },
+        )
+        status = module.stage_status(self.project, stage)
+        self.assertTrue(status["complete"], status["semantic_issues"])
+
+    def test_run_recorder_verifies_declared_artifacts_but_status_does_not_gate_on_history(self) -> None:
+        artifact = self.project / "00_discovery" / "receipt-probe.txt"
+        result = run(
+            RUN_AND_RECORD,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+            "--stage",
+            "discovery",
+            "--artifact",
+            "00_discovery/receipt-probe.txt",
+            "--",
+            sys.executable,
+            "-c",
+            f"from pathlib import Path; Path({str(artifact)!r}).write_text('recorded', encoding='utf-8')",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        event = json.loads(
+            (self.project / "run_events.jsonl").read_text(encoding="utf-8").splitlines()[-1]
+        )
+        self.assertEqual(event["event_version"], 2)
+        self.assertTrue(event["artifact_receipts"][0]["after"]["exists"])
+        self.assertTrue(event["artifact_receipts"][0]["changed_by_command"])
+        self.assertTrue(event["artifact_receipts"][0]["content_changed_by_command"])
+
+        missing = run(
+            RUN_AND_RECORD,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+            "--stage",
+            "discovery",
+            "--artifact",
+            "00_discovery/not-created.txt",
+            "--",
+            sys.executable,
+            "-c",
+            "print('no artifact created')",
+        )
+        self.assertEqual(missing.returncode, 2)
+        self.assertIn("declared artifact missing", missing.stderr)
+
+        spec = importlib.util.spec_from_file_location("review_project_status_truth", PROJECT_STATUS)
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        placeholder_events = [
+            {
+                "event_version": 2,
+                "project_id": self.project_id,
+                "stage": stage,
+                "started_at": "2026-07-21T00:00:00Z",
+                "finished_at": "2026-07-21T00:00:01Z",
+                "cwd": str(self.root),
+                "command": [sys.executable, "-c", "print('passed')"],
+                "exit_code": 0,
+                "artifact_receipts": [
+                    {"artifact": "probe", "after": {"exists": True}}
+                ],
+            }
+            for stage in ("final_audit", "docx_export")
+        ]
+        (self.project / "run_events.jsonl").write_text(
+            "\n".join(json.dumps(row) for row in placeholder_events) + "\n",
+            encoding="utf-8",
+        )
+        (self.project / "run_record.md").write_text(
+            "Generated from `run_events.jsonl`\n", encoding="utf-8"
+        )
+        issues = module.run_record_issues(
+            self.project,
+            [
+                {"id": "final_audit", "complete": True},
+                {"id": "docx_export", "complete": True},
+            ],
+        )
+        self.assertEqual(issues, [])
+
     def test_reference_metadata_requires_doi_or_journal_locator(self) -> None:
         spec = importlib.util.spec_from_file_location("review_final_audit", AUDIT)
         self.assertIsNotNone(spec)
@@ -725,6 +1447,101 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         metadata["article_number"] = {"value": "104321"}
         write_json(metadata_path, metadata)
         self.assertEqual(module.actual_incomplete_references(self.root, ["P001"], rows), [])
+
+    def test_final_audit_blocks_phantom_table_and_mojibake(self) -> None:
+        spec = importlib.util.spec_from_file_location("review_final_audit_integrity", AUDIT)
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        draft_path = self.project / "04_first_draft" / "first_draft.md"
+        draft_path.parent.mkdir(parents=True, exist_ok=True)
+        base = (
+            "# Review\n\n## Abstract\n\nA bounded abstract.\n\n"
+            "## Keywords\n\npolymer; recycling; evidence\n\n"
+            "## 1. Introduction\n\nTable 1 summarizes the comparison [1]. PET\ufffd values are corrupted.\n\n"
+            "## 2. Conclusion and Outlook\n\nThe comparison remains bounded [1].\n\n"
+            "## References\n\n[1] Example reference.\n"
+        )
+        draft_path.write_text(base, encoding="utf-8")
+        report = module.scan_draft(self.project, "preflight")
+        self.assertIn("manuscript_references_missing_table", report["blocking_issues"])
+        self.assertIn("mojibake_or_replacement_characters_present", report["blocking_issues"])
+
+        with_table = base.replace(
+            "Table 1 summarizes the comparison [1].",
+            "Table 1 summarizes the comparison [1].\n\n| Method | Result |\n|---|---|\n| A | B |",
+        ).replace("PET\ufffd", "PET")
+        draft_path.write_text(with_table, encoding="utf-8")
+        report = module.scan_draft(self.project, "preflight")
+        self.assertNotIn("manuscript_references_missing_table", report["blocking_issues"])
+        self.assertNotIn("mojibake_or_replacement_characters_present", report["blocking_issues"])
+
+    def test_comprehensive_release_has_one_coarse_product_floor(self) -> None:
+        write_json(
+            self.project / "00_discovery" / "topic_contract.json",
+            {"review_profile": "comprehensive", "topic": "A broad review"},
+        )
+        final = self.project / "05_final_audit" / "final_draft.md"
+        final.parent.mkdir(parents=True, exist_ok=True)
+        final.write_text(
+            "# Review\n\n## Abstract\n\nA bounded abstract.\n\n"
+            "**Keywords:** evidence; review; methods\n\n"
+            "## 1. Introduction\n\nA short supported statement [1].\n\n"
+            "## 2. Conclusion and Outlook\n\nA bounded conclusion [1].\n\n"
+            "## References\n\n[1] Example reference.\n",
+            encoding="utf-8",
+        )
+        spec = importlib.util.spec_from_file_location("review_final_audit_floor", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        report = module.scan_draft(self.project, "release")
+        floor_issues = report["delivery_floor_issues"]
+        self.assertEqual(report["review_profile"], "comprehensive")
+        self.assertEqual(len(floor_issues), 4)
+        self.assertTrue(all(issue in report["blocking_issues"] for issue in floor_issues))
+        self.assertTrue(any(":word_like_count:" in issue for issue in floor_issues))
+        self.assertTrue(any(":reference_count:" in issue for issue in floor_issues))
+        self.assertTrue(any(":table_count:" in issue for issue in floor_issues))
+        self.assertTrue(any(":figure_count:" in issue for issue in floor_issues))
+
+        status_spec = importlib.util.spec_from_file_location(
+            "review_project_status_floor", PROJECT_STATUS
+        )
+        status_module = importlib.util.module_from_spec(status_spec)
+        assert status_spec.loader is not None
+        status_spec.loader.exec_module(status_module)
+        stage = next(row for row in status_module.STAGES if row["id"] == "final_audit")
+        status = status_module.stage_status(self.project, stage)
+        self.assertTrue(
+            all(issue in status["semantic_issues"] for issue in floor_issues),
+            status["semantic_issues"],
+        )
+
+    def test_final_audit_catches_inventory_count_mismatch_without_forcing_full_disposition(self) -> None:
+        spec = importlib.util.spec_from_file_location("review_final_audit_figures", AUDIT)
+        self.assertIsNotNone(spec)
+        self.assertIsNotNone(spec.loader)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        write_json(
+            self.project / "02_section_drafting" / "paper_figure_inventory.json",
+            {
+                "candidate_count": 2,
+                "papers": [
+                    {"paper_id": "P001", "candidate_count": 2, "top_candidates": [{}, {}]}
+                ],
+            },
+        )
+        write_json(
+            self.project / "02_section_drafting" / "paper_figure_candidates.json",
+            {"total_inventory_figures": 0, "candidates": []},
+        )
+        issues = module.figure_inventory_consistency_issues(self.project)
+        self.assertIn("paper_figure_candidate_count_mismatch", issues)
+        self.assertNotIn("source_figure_inventory_not_reviewed", issues)
 
     def test_reference_doi_must_match_linked_source_pdf(self) -> None:
         spec = importlib.util.spec_from_file_location("review_final_audit", AUDIT)
@@ -871,34 +1688,59 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         final.write_text(text, encoding="utf-8")
         result = run(AUDIT, "--review-root", self.root, "--project-id", self.project_id, "--phase", "preflight")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        queue = json.loads((final_dir / "semantic_audit_queue.json").read_text(encoding="utf-8"))
+        self.assertEqual(queue["coverage_mode"], "risk_based_with_section_sample")
+        self.assertEqual(
+            set(queue["required_queue_ids"]),
+            {"sec1-p2-a1", "sec2-p1-a1"},
+        )
         write_json(
             final_dir / "semantic_audit.json",
             {
                 "model": "fixture-model",
+                "manuscript_sha256": hashlib.sha256(final.read_bytes()).hexdigest(),
                 "checks": [
                     {
                         "check_id": "A001",
+                        "queue_id": "sec1-p1-a1",
                         "section_id": "sec1",
                         "paragraph_id": "sec1-p1",
                         "text_span": "Palladium carbonylation and nickel electrocarboxylation provide distinct entry points to allenes [@P001; @P002].",
                         "cited_paper_ids": ["P001", "P002"],
                         "evidence_ids": ["P001-E01", "P002-E01"],
+                        "source_receipts": self._source_receipts("P001-E01", "P002-E01"),
                         "source_checked": True,
                         "support_scope": "full",
                         "verdict": "supported",
-                        "comment": "The source reports both transformations and supports the stated comparison.",
+                        "comment": "Both checked excerpts report the transformation, representative substrate scope, quantified yields, and operating conditions; this supports the comparison.",
                     },
                     {
                         "check_id": "A002",
-                        "section_id": "sec2",
-                        "paragraph_id": "sec2-p1",
-                        "text_span": "Both approaches retain limitations in scope and direct mechanistic verification today [@P001; @P002].",
+                        "queue_id": "sec1-p2-a1",
+                        "section_id": "sec1",
+                        "paragraph_id": "sec1-p2",
+                        "text_span": "The proposed pathways should remain qualified because their evidentiary bases differ [@P001; @P002]. CO_2_ incorporation, sp^2^ rehybridization, η1-allenyl binding, and η3-propargyl binding are discussed without converting locants such as C1.",
                         "cited_paper_ids": ["P001", "P002"],
-                        "evidence_ids": ["P001-E01", "P002-E01"],
+                        "evidence_ids": ["P001-E02", "P002-E02"],
+                        "source_receipts": self._source_receipts("P001-E02", "P002-E02"),
                         "source_checked": True,
                         "support_scope": "full",
                         "verdict": "supported",
-                        "comment": "The source describes the stated limitation and its mechanistic boundary.",
+                        "comment": "Both checked excerpts present the pathways as author-proposed mechanisms based on intermediate trapping evidence, which supports qualified wording.",
+                    },
+                    {
+                        "check_id": "A003",
+                        "queue_id": "sec2-p1-a1",
+                        "section_id": "sec2",
+                        "paragraph_id": "sec2-p1",
+                        "text_span": "Both approaches retain limitations in scope and direct mechanistic verification today [@P001; @P002]. H_2_O and S_N2_ notation exercise explicit subscripts.",
+                        "cited_paper_ids": ["P001", "P002"],
+                        "evidence_ids": ["P001-E02", "P002-E02"],
+                        "source_receipts": self._source_receipts("P001-E02", "P002-E02"),
+                        "source_checked": True,
+                        "support_scope": "full",
+                        "verdict": "supported",
+                        "comment": "The checked excerpts label the pathways as mechanistic proposals based on intermediate trapping evidence, preserving the stated verification boundary.",
                     },
                 ],
                 "section_checks": [
@@ -911,6 +1753,20 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         )
         result = run(AUDIT, "--review-root", self.root, "--project-id", self.project_id, "--phase", "release")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+        receipt_checked_payload = json.loads(
+            (final_dir / "semantic_audit.json").read_text(encoding="utf-8")
+        )
+        without_receipts = json.loads(json.dumps(receipt_checked_payload))
+        without_receipts["checks"][0].pop("source_receipts")
+        write_json(final_dir / "semantic_audit.json", without_receipts)
+        result = run(AUDIT, "--review-root", self.root, "--project-id", self.project_id, "--phase", "release")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(
+            "source receipt verification failed for 1 supported checks",
+            result.stdout,
+        )
+        write_json(final_dir / "semantic_audit.json", receipt_checked_payload)
 
         docx = final_dir / "final_draft.docx"
         result = run(MD2DOCX, "--input", final, "--output", docx)
@@ -939,9 +1795,11 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             final_dir / "semantic_audit.json",
             {
                 "model": "fixture-model",
+                "manuscript_sha256": hashlib.sha256(final.read_bytes()).hexdigest(),
                 "checks": [
                     {
                         "check_id": "A001",
+                        "queue_id": "sec1-p1-a1",
                         "section_id": "sec1",
                         "paragraph_id": "sec1-p1",
                         "text_span": "Representative claim from Introduction section reviewed against evidence",
@@ -952,6 +1810,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                     },
                     {
                         "check_id": "A002",
+                        "queue_id": "sec2-p1-a1",
                         "section_id": "sec2",
                         "paragraph_id": "sec2-p1",
                         "text_span": "Both approaches retain limitations in scope and direct mechanistic verification today [@P001; @P002].",
@@ -988,9 +1847,11 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             final_dir / "semantic_audit.json",
             {
                 "model": "fixture-model",
+                "manuscript_sha256": hashlib.sha256(final.read_bytes()).hexdigest(),
                 "checks": [
                     {
                         "check_id": "A001",
+                        "queue_id": "sec1-p1-a1",
                         "section_id": "sec1",
                         "paragraph_id": "sec1-p1",
                         "text_span": "Palladium carbonylation and nickel electrocarboxylation provide distinct entry points to allenes [@P001; @P002].",
@@ -1001,6 +1862,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                     },
                     {
                         "check_id": "A002",
+                        "queue_id": "sec2-p1-a1",
                         "section_id": "sec2",
                         "paragraph_id": "sec2-p1",
                         "text_span": "Both approaches retain limitations in scope and direct mechanistic verification today [@P001; @P002].",
@@ -1039,7 +1901,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("missing_upstream_validation:screening", result.stdout)
 
-    def test_free_form_length_and_paragraph_mix_are_warnings(self) -> None:
+    def test_free_form_paragraph_mix_and_word_plan_shortfall_are_advisory(self) -> None:
         write_json(
             self.project / "01_matrix_outline" / "section_blueprint.json",
             {
@@ -1081,7 +1943,27 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 encoding="utf-8"
             )
         )
+        self.assertFalse(
+            any(
+                issue.startswith("draft_word_volume_below_80_percent_of_blueprint_target:")
+                for issue in report["blocking_issues"]
+            )
+        )
+        self.assertFalse(
+            any("paragraph_type" in issue for issue in report["blocking_issues"])
+        )
+        report = json.loads(
+            (self.project / "02_section_drafting" / "section_draft_validation.json").read_text(
+                encoding="utf-8"
+            )
+        )
         self.assertTrue(any("planning estimate" in warning for warning in report["warnings"]))
+        self.assertTrue(
+            any(
+                warning.startswith("draft_word_volume_below_80_percent_of_blueprint_target:")
+                for warning in report["warnings"]
+            )
+        )
 
     def test_duplicate_template_paragraphs_are_blocked(self) -> None:
         write_json(

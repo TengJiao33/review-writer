@@ -3,30 +3,26 @@
   "slug": "28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of",
   "title": {
     "value": "Palladium-Catalyzed Asymmetric Hydrosilylation of 4-Substituted 1-Buten-3-ynes. Catalytic Asymmetric Synthesis of Axially Chiral Allenylsilanes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Jin Wook Han",
-      "Norihito Tokunaga",
-      "Tamio Hayashi"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2001,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2000,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Allenylsilanes are useful intermediates in organic synthesis, reacting with a variety of electrophiles in a regiospecific manner. For example, the reaction with carbonyl compounds provides a selective route to homopropargylic alcohols. Recently, considerable attention has been paid to the preparation of axially chiral allenylsilanes and their use for the asymmetric synthesis of homopropargylic alcohols. However, to our best knowledge, only one report has appeared on the catalytic asymmetric synthesis of allenylsilanes, which was attained by rhodium-catalyzed asymmetric double hydrosilylation of a 1,3-diyne, giving a 1,3-bis(silyl)-1,2-propadiene derivative of 22% ee. On the other hand, we have continued our studies on the palladium-catalyzed asymmetric hydrosilylation of olefins. High enantioselectivity has been reported for various types of olefins including alkyl-substituted terminal alkenes, cyclic alkenes, styrene derivatives, and 1,3-dienes by use of axially chiral monodentate phosphine ligands. The palladium-catalyzed hydrosilylation of 1,3-dienes with trichlorosilane is unique in that exclusive 1,4-addition takes place, giving allylsilanes with perfect selectivity, probably due to a contribution of π-allylpalladium intermediates. We anticipated that a proper design of the catalytic reaction system would realize the regio- and enantioselective 1,4-addition to 1,3-enynes, giving axially chiral allenylsilanes. Here we report our results that allenylsilanes of up to 90% ee are obtained by the catalytic asymmetric hydrosilylation of 1,3-enynes.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.84,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P126\\a0b044fd-0d64-452f-ba5d-6efbc0a242e5_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P126"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of"
   },
   "source_file": {
     "pdf_name": "28b-palladium-catalyzed-asymmetric-hydrosilylation-of-4-substituted-1-buten-3-ynes-catalytic-asymmetric-synthesis-of.pdf",
@@ -53,18 +65,15 @@
     "sha256": "7bb67389c95b7c47257625d587c19ef8a48d9a32c378de0dbc3ab45a3833de14"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 34,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,32 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract section is shown in the provided snippets; the lead introductory paragraph was used as the abstract.",
-      "Initial rule-extracted year 2000 conflicts with front-matter evidence; using 2001 from the journal header/footer and received/publication dates.",
-      "No explicit abstract was visible in the front matter; the abstract field is taken from the paper's opening summary paragraph.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.783,
+    "warnings": [
+      "empty_authors",
+      "missing_journal",
+      "missing_doi",
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "ferrocenyl and phosphametallocene phosphorus ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "enyne hydrofunctionalization to allenes",
-      "substrate": "enynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.95,
-    "human_checked": false
   }
 }

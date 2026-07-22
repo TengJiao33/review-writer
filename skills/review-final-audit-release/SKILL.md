@@ -1,11 +1,11 @@
 ---
 name: review-final-audit-release
-description: Run deterministic release checks and a topic-driven semantic evidence audit over a complete review manuscript.
+description: Check a complete review for structural integrity, reader utility, semantic support, and release readiness.
 ---
 
 # Final Audit and Release
 
-Complete a deterministic preflight, a reader-utility revision, a semantic evidence review, and a final release scan.
+Audit the assembled manuscript, revise it, and release the checked final draft.
 
 ## Inputs
 
@@ -24,7 +24,7 @@ Read:
 
 ## 1. Preflight
 
-Initialize `05_final_audit/final_draft.md` from the current `04_first_draft/first_draft.md` before substantive audit edits. Preserve the `figures/<name>` links; merge has already copied the same assets into `05_final_audit/figures/`. Do not reconstruct the manuscript or its figures by hand.
+Copy the current `04_first_draft/first_draft.md` to `05_final_audit/final_draft.md`, preserving `figures/<name>` links. Then run:
 
 ```bash
 python skills/review-final-audit-release/scripts/final_audit_scan.py \
@@ -33,13 +33,22 @@ python skills/review-final-audit-release/scripts/final_audit_scan.py \
   --phase preflight
 ```
 
-This checks manuscript structure, citation/reference numbering, metadata alignment, duplicate prose, internal-token leakage, and release formatting. A cited reference needs journal and year plus either a DOI or a usable volume-and-page/article locator; a title-only provider record is not release-ready metadata. Do not clear this blocker by guessing or bulk-patching shared library metadata. When a linked local PDF exposes a DOI in its front matter, the recorded DOI must match it.
+Preflight checks structure, citation and reference numbering, metadata, duplicate prose, internal tokens, asset placement, and release formatting. Each cited reference needs journal and year plus a DOI or a usable volume-and-page/article locator. When the local PDF exposes a DOI, the metadata must match it.
 
-Preflight also writes `semantic_audit_queue.json`. It includes every passage detected as high-risk, then adds a small advisory sample of other cited passages. It supplies paragraph-linked papers and anchors as candidates but deliberately leaves the selected `cited_paper_ids` and `evidence_ids` empty: choose the minimum supporting subset only after opening the linked source. Detection is a prompt to read, not a verdict that the claim is wrong.
+Preflight also writes `semantic_audit_queue.json`. It selects every paragraph
+with an explicit risk signal, number, mechanism claim, or missing provenance,
+plus one representative evidence-bearing paragraph per section. This separates
+whole-draft deterministic provenance checks from selective semantic reading.
+Do not narrow a queue item to one convenient sentence. Select the minimum
+supporting paper and evidence IDs only after opening the linked source, and
+rerun preflight whenever section drafts change so the queue fingerprint remains
+current.
 
-## 2. Reader-utility revision
+Record `manuscript_sha256` in `semantic_audit.json` for the exact `final_draft.md` revision that was checked. Release fails when any required paragraph is missing, the checked span is narrower than the queued paragraph, the queue is stale, or the manuscript changed after review.
 
-Read the assembled manuscript as a reader before narrowing attention to claim-level audit. Initialize a compact review sheet:
+## 2. Reader revision
+
+Initialize the review sheet:
 
 ```bash
 python skills/review-final-audit-release/scripts/init_reader_utility_review.py \
@@ -47,17 +56,15 @@ python skills/review-final-audit-release/scripts/init_reader_utility_review.py \
   --project-id <project_id>
 ```
 
-Use `reader_utility_review.json` or its Markdown view as a lightweight reading aid. Record only the findings and revision actions that materially help; unanswered questions and an unfinished review status remain advisory warnings rather than release blockers. Free-form notes are acceptable when they capture the useful editorial judgment more naturally.
+Read the whole manuscript before auditing isolated claims. Revise missing organizing logic, representative method detail, decision-relevant comparison, recurring boundaries, evidentiary distinctions, and places where a figure or table would compress real complexity. Record only findings that lead to a material revision or explain a deliberate scope choice.
 
-Ask whether the manuscript exposes its organizing logic, representative method details, decision-relevant comparisons, recurring boundaries, evidentiary distinctions, and useful visual or tabular compression. Revise only where the manuscript and evidence benefit. The snapshot counts words, references, images, tables, sections, and available method cards to aid inspection; none is a quota. A concise, well-bounded review may stay concise, and an asset should be added only when it performs a real reader job.
-
-This pass is where content volume should grow through missing explanation, comparison, or boundary analysis—not filler—and where underused supporting/background literature can be brought in for orientation without weakening key-claim standards.
+Counts of words, references, images, tables, sections, and method cards help locate imbalance; they have no fixed targets.
 
 ## 3. Semantic audit
 
-Build the audit from the current topic and manuscript. Concentrate on statements where an error would materially change the review, such as numerical results, causal or mechanistic explanations, comparisons, broad generalizations, priority statements, recommendations, and topic-specific focal points. For a multi-paper synthesis, check whether each cited source supports the whole statement or only part of it, and narrow the wording when needed.
+Prioritize claims whose failure would change the review: numerical results, causal or mechanistic explanations, comparisons, broad generalizations, priority claims, recommendations, and central topic judgments. For multi-paper synthesis, check which part of the sentence each source supports and narrow the wording where needed.
 
-For each selected passage, compare its meaning with the linked evidence anchor and source. `text_span` must be an actual passage from the identified structured paragraph, and the cited papers and evidence IDs must already be linked to that paragraph. This keeps the existing semantic audit honest without adding another audit stage. Record the model judgment:
+Record each queued passage:
 
 ```json
 {
@@ -68,14 +75,24 @@ For each selected passage, compare its meaning with the linked evidence anchor a
       "queue_id": "sec2-p1-a1",
       "section_id": "sec2",
       "paragraph_id": "sec2-p1",
-      "text_span": "Faithful manuscript passage being reviewed",
+      "text_span": "Exact manuscript passage",
       "cited_paper_ids": ["P001", "P002"],
       "evidence_ids": ["P001-E01", "P002-E03"],
+      "source_receipts": [
+        {
+          "paper_id": "P001",
+          "evidence_id": "P001-E01",
+          "source_path": "exact path recorded by the evidence anchor",
+          "source_sha256": "sha256 of the reopened source",
+          "locator": "Results, paragraph 3",
+          "checked_excerpt": "Verbatim passage reopened for this audit"
+        }
+      ],
       "source_checked": true,
-      "support_scope": "full",
+      "support_scope": "full | partial",
       "epistemic_basis": "directly_observed | consistent_with | author_proposed | review_inference",
       "verdict": "supported | needs_revision | unsupported | removed",
-      "comment": "Concise claim-specific basis from the checked source"
+      "comment": "Source fact, qualification, or contradiction that determines the verdict"
     }
   ],
   "changes_made": ["..."],
@@ -83,11 +100,29 @@ For each selected passage, compare its meaning with the linked evidence anchor a
 }
 ```
 
-Select only sources that support the exact `text_span`; use `support_scope: partial` with `needs_revision` when a source supports only part of the claim. Set `source_checked: true` after opening the recorded source location. The comment must state the source fact, qualification, or contradiction that determines the verdict; a list of paper IDs plus “verified” is not an audit rationale. Compare the manuscript's certainty with the source wording: `might`, `possible`, `consistent with`, and an author-proposed mechanism do not support `confirm`, `establish`, or a universal active species without additional evidence. Treat `first`, `only`, `general`, `mature`, `most powerful`, field-wide absence, and cross-system convergence as coverage-dependent claims; bound them to the retained corpus when external calibration is incomplete. `epistemic_basis` records this judgment for readers but does not create another validator gate.
+`text_span` must occur in the identified paragraph. Paper and evidence IDs must
+already be linked to that paragraph. For every evidence ID, record a source
+receipt only after reopening the full text. The scanner verifies the source
+path, current file hash, locator, and verbatim checked excerpt; a Boolean
+`source_checked` without these receipts is not evidence of review. Semantic fit
+cannot be proved by word overlap, so the rationale states the source fact and
+qualification that determine the verdict. Use `partial` with `needs_revision`
+when the source supports only part of the passage.
 
-Revise `05_final_audit/final_draft.md` until every audit item is `supported`, `removed`, or replaced by a newly checked revision. Every queue ID listed in `required_high_risk_queue_ids` must have a disposition; advisory queue items may be replaced when another claim is more consequential. The semantic judgment comes from reading meaning and source context. The scanner verifies evidence IDs, paper ownership, the source-check declaration, and issue closure; it does not turn checked claims into proof that an entire section was verified or require a wording change merely to prove that the audit was active.
+Match certainty to the source. Possibility or author-proposed mechanisms do not establish confirmed or universal conclusions. Claims such as `first`, `only`, `general`, `mature`, field-wide absence, and cross-system convergence require appropriate coverage and scope.
 
-## 4. Release scan
+Revise `05_final_audit/final_draft.md` until each required high-risk queue item is supported, removed, or replaced by a checked revision. The scanner verifies IDs, ownership, source-check declarations, and issue closure; the semantic decision comes from reading the passage and source context.
+
+## 4. Release
+
+For a declared `comprehensive` review, release has one coarse product floor:
+8,000 substantive words, 25 cited references, two real tables, and two real
+non-table figures. Figures may be verified lawful source figures or
+evidence-linked original syntheses. This floor prevents scale regression; it does not prescribe
+section lengths or excuse filler. The topic and evidence should normally drive
+a stronger article and additional useful visuals.
+
+Run:
 
 ```bash
 python skills/review-final-audit-release/scripts/final_audit_scan.py \

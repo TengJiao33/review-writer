@@ -3,49 +3,61 @@
   "slug": "51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes",
   "title": {
     "value": "Pd-Catalyzed Asymmetric β‑Hydride Elimination en Route to Chiral Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Ian T. Crouch",
-      "Robynne K. Neff",
-      "Doug E. Frantz"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "J. Am. Chem. Soc",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ja401606e",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "We wish to report our preliminary results on the discovery and development of a catalytic, asymmetric β-hydride elimination from vinyl Pd(II)- complexes derived from enol triflates to access chiral allenes. To achieve this, we developed a class of chiral phosphite ligands that demonstrate high enantioselectivity, allow access of either allene enantiomer, and are readily synthesized. The methodology is demonstrated on over 20 substrates, and application to the formal asymmetric total synthesis of the natural product, (+)-epibatidine, is also provided.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "We wish to report our preliminary results on the discovery and development of a catalytic, asymmetric β-hydride elimination from vinyl Pd(II)- complexes derived from enol triflates to access chiral allenes. To achieve this, we developed a class of chiral phosphite ligands that demonstrate high enantioselectivity, allow access of either allene enantiomer, and are readily synthesized. The methodology is demonstrated on over 20 substrates, and application to the formal asymmetric total synthesis of the natural product, (+)-epibatidine, is also provided. O rganic chemists are on a perpetual path of discovery to identify new methods for asymmetric synthesis. Histor- Scheme 1. Pd-Catalyzed Pathways to 1,3-Dienes or Allenes from Enol Triflates ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/5138079987038d154903976b37f88bddd22288e0e217d397a89d55b9e1273edb.jpg) <details> <summary>chemical</summary> Reaction mechanism diagram showing 1,3-dienes as terminal products and chiral alenes as terminal products, including catalysts and enantioselectivity analysis. </details> ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/ad17c35f8334571f67bcc3f0301e0144c53a0879219eba548f53a00602df4608.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing conversion of compound 1 to compound 2 using Pd2dba3 catalyst and low enantioselectivities </details> ically, much of this effort has focused on the generation and control of point chirality (i.e., stereogenic centers), and as a result, approaches to engender axial chirality have not been as forthcoming. A perfect example of this unbalanced dichotomy is in the synthesis of chiral allenes. While allenes continue to be a Enantiomeric excesses (ee) and yields reported were determined by quantitative chiral HPLC analysis. b Reaction performed in THF. c Reaction performed in i-PrOAc. d Reaction performed at 35 °C. e Reaction performed at rt. f 2 equiv of base. g 4 equiv of base. h Reaction performed using ligand based on (S)-BINOL instead of (R)-BINOL yielding the opposite enantiomer of 2. Table 1. Selected Optimization Data for the Pd-Catalyzed Asymmetric β-Hydride Elimination of Enol Triflates to Chiral Allenes <table><tr><td>1</td><td>cat. Pd2dba3Hunig&#x27;s basesolventchiral ligand</td><td>2</td></tr></table> <table><tr><td>entry</td><td> $R^{1}$ </td><td> $R^{2}$ </td><td>mol % $Pd_{2}dba_{3}$ ligand</td><td>ee of $2^{a}$ </td><td>yield of $2^{a}$ </td></tr><tr><td>1</td><td>H</td><td></td><td>6%12%</td><td>25%</td><td> $69\\%^{b,d,f}$ </td></tr><tr><td>2</td><td>Ph</td><td>“</td><td>3%6%</td><td>54%</td><td> $69\\%^{b,d,f}$ </td></tr><tr><td>3</td><td></td><td>“</td><td>3%6%</td><td>63%</td><td> $74\\%^{b,d,f}$ </td></tr><tr><td>4</td><td></td><td>“</td><td>3%6%</td><td>65%76%</td><td> $31\\%^{b,d,f}$ $59\\%^{c,d,f}$ </td></tr><tr><td>5</td><td>“</td><td></td><td>5%10%</td><td>85%</td><td> $80\\%^{c,e,g}$ </td></tr><tr><td>6</td><td>“</td><td></td><td>5%10%</td><td> $93\\%^{h}$ </td><td> $81\\%^{c,e,g}$ </td></tr></table> exploited as substrates in a multitude of synthetic methodologies,1 as chiral ligands in asymmetric catalysis,2 and exist as structural motifs in ∼150 natural products (usually in enantioenriched form),3 robust methods to synthesize chiral Received: February 13, 2013 Published: March 14, 2013 Scheme 2. Synthesis of Ligands 4 and 5 ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/31f8f32c94b03a412a852f5d11016be3f2ff05bd6de98e4635e2368833c83f7e.jpg) <details> <summary>chemical</summary> Multi-step organic synthesis reaction scheme showing multi-step transformation from (+)-neomethyl to (S)-3 and then to crude products with specified yields and conditions. </details> allenes directly from prochiral substrates with high stereochemical fidelity are few and far between.4-9 Our own interest in this area was sparked by our ability to exploit stereodefined enol triflates as pluripotent substrates in organic synthesis.10,11 In previous work, we reported the catalytic elimination/isomerization of enol triflates to 1,3-dienes using $\\mathrm { P d } \\big ( \\mathrm { P } ( t \\mathrm { B u } ) _ { 3 } \\big ) _ { 2 }$ as the ideal catalyst.12 A viable mechanism for this reaction involves an initial β-hydride elimination from a cationic vinyl Pd(II)-complex generating the corresponding allene intermediate that subsequently isomerizes to the $^ { 1, 3 - }$ diene product (Scheme 1). We believed that it might be possible to interrupt this catalytic cycle under attenuated reaction conditions to allow the allene to be isolated as the terminal product in these reactions. Scheme 3. Known Limitations of the Methodology ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/b6dd87397e34dbf8400c5dbca0952da0d492ed26fe0402a4059de90590ca6e85.jpg) <details> <summary>chemical</summary> Two reaction schemes showing Pd2dba3-mediated cyclization of compounds 27 and 28 to form products 29 and 28, with yields and enantiomeric excess data. </details> More importantly, we envisioned that this pathway might lead to a viable approach to access enantioenriched allenes using chiral ligands associated with the Pd-catalyst via an asymmetric β-hydride elimination, a reaction that has no precedence in the literature as far as we are aware.13 Our initial experiments began with (E)-enol triflate 1 as our model substrate and $\\mathrm { P d } _ { 2 } \\mathrm { d } \\dot { \\mathbf { b } } \\mathsf { a } _ { 3 }$ as our preferred source of palladium (eq 1). A preliminary survey of ∼60 commercially available chiral phosphorus-based ligands to promote the asymmetric β-hydride elimination en route to chiral allene 2 provided only partial success with respect to enantioselectivity. Fortuitously, however, we were able to determine that several of these ligands were in fact able to induce moderate enantioselectively initially but competing racemization over the course of the reaction was responsible for the observed low enantioselectivity at higher conversions.14 Upon closer inspection, a general trend was noticed in the fact that therate Table 2. Preliminary Scope of the Pd-Catalyzed, Asymmetric β-Hydride Elimination en Route to Chiral Allenesa,b ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/5109fc31c4c2cea231f33e8eec39552176d5de912059be10e46ab296a3d83ba9.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing synthesis of phosphorus-containing compounds with various ligand and enantiomeric excesses, including Pd2dba3 catalysts. </details> a Reported are isolated yields with enantiomeric excess (ee) or diastereomeric excess (de) determined by chiral HPLC analysis. b Absolute configuration assignments are based on the observed optical rotation and application of the rules developed by both Brewster and Lowe for chiral allenes (see ref 16). c Reaction performed with the enantiomer of ligand 4 provided (+)-6 in equal yield and ee (87% yield, 95% ee). Scheme 4. Formal Total Synthesis of (+)-Epibatidine ![](../extracted/51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes/images/65d372c0cb002a2141189d653b280ffbe22ac097ed804f86ee999967a1ec15c4.jpg) <details> <summary>chemical</summary> Multi-step organic synthesis pathway showing palladium-catalyzed cyclization and subsequent reaction with reagents and yields </details> of racemization was slower with phosphite-based ligands than phosphine-based ligands. Thus, we turned our attention to the design of our own chiral phosphite ligands. After an extensive screen of ∼50 novel phosphite ligands, we found ligands based on the BINOL scaffold in combination with menthol-derived alcohols proved most effective. A highly condensed summary of our optimization studies with a selected set of these ligands is provided in Table 1.15 With two chiral phosphite ligands capable of providing either allene enantiomer in high excess (Table 1, entries 5 and 6), we turned our attention to the robust synthesis of these ligands that would facilitate their utility in asymmetric β-hydride eliminations. Their respective syntheses are outlined in Scheme 2. Both routes developed are easily scalable providing multigram quantities of 4 and 5 in 80% and 23% overall yield (respectively) from commercially available starting materials. The applicability of this methodology to a broad range of disubstituted (E)-enol triflates is shown in Table 2. The preferred reaction conditions include using isopropyl acetate as the solvent (0.2 M), 5 mol % Pd dba, 10 mol % chiral ligand, and Hünig’s base (4 equiv) and performing the reaction at room temperature. Under these conditions, the catalytic system tolerates multiple functionalities providing good yields of the corresponding chiral allenes in moderate to excellent enantioselectivities. Absolute configuration assignments in Table 2 are based on the observed optical rotation and application of the rules developed by both Brewster and Lowe for chiral allenes.16 During the course of these studies we did observe differences with respect to substrate specificity between ligands 4 and 5 that we wish to highlight. In general, higher enantioselectivities are obtained using ligand 4 with enol triflates that contain bulky carbonyl groups (compare 6 and 7 for both ligands). In contrast, higher enantioselectivities are observed with ligand 5 with less hindered carbonyl groups (Table 1, entry 5 vs 6). We cannot yet formulate a stereochemical model for these reactions that would rationalize the apparent substrate preferences between the two ligands. Nonetheless, we believe the identification of two highly selective, complementary ligands is an advantage that broadens the scope of viable substrates at this early stage of development. There are several limitations of this methodology that we would like to disclose (Scheme 3). First, the corresponding (Z)-enol triflates do not participate in this reaction. Based on our previous work, we believe this lack of reactivity can be attributed to the internal chelation of the carbonyl group after stereospecific oxidative addition that attenuates the agostic interaction with the β-hydrogens in these cationic Pd(II)- complexes.12 Even the addition of Lewis acids (i.e., TMSOTf) did not recover the reactivity of (Z)-enol triflates as had been observed previously.12 Second, fully substituted (E)-enol triflates such as 28 that would provide trisubstituted chiral allenes are poor substrates for this methodology. In this particular example, we were only able to observe ∼30% conversion to the chiral allene 29 in 20% ee. While we view these as significant limitations that warrant disclosure, we are confident that further optimization will ultimately provide a solution for these substrates. The application of this methodology to the formal asymmetric total synthesis of (+)-epibatidine is shown in Scheme 4.17 Originally discovered in 1976 from the skin extract of the Ecaudorian poison frog, Epipedobates tricolor, interest in epibatidine did not peak until its structure was reported in 1992 along with its exquisite biological activity as a powerful analgesic (∼200× over morphine).18 It is now known that epibatidine is a highly potent agonist at multiple neuronal nicotinic acetylcholine receptor (nAChR) subtypes.19 However, the lack of receptor specificity and dose-limiting toxicity have led to significant efforts to identify analogs that overcome these limitations that still continue today.20 Our approach to (+)-epibatidine began with enol triflate (E)- 30 readily available from the corresponding acetoacetate derivative.10 Catalytic, asymmetric β-hydride elimination using ligand 5 gave(+)-(S)-19 in 75% yield and 96% ee on a 3 mmol scale. A Lewis acid catalyzed Diels−Alder reaction with excess N-Boc pyrrole gave the corresponding endo-product 31 in 57% yield.21 Low-pressure chemoselective hydrogenation followed by ozonolysis yielded β-keto ester 32 in 65% overall yield. Subsequent decarboxylation followed by reprotection gave ketone 33 in 70% yield and 89% ee. Previously, Merck has shown the conversion of racemic 33 to both enantiomers of epibatidine that completes the formal asymmetric total synthesis.22 In summary, we have discovered a Pd-catalyzed, asymmetric β-hydride elimination from enol triflates to access chiral allenes using two optimized phosphite ligands that provide a complementary substrate scope. Extension of this methodology to the formal total synthesis of (+)-epibatidine is also described. Further optimization and application of this catalytic system to additional substrates is currently underway.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\51a-pd-catalyzed-asymmetric-β-hydride-elimination-en-route-to-chiral-allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P189\\277ff172-fb9f-4a55-aee0-38da9d617d0e_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P189"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\51a-pd-catalyzed-asymmetric-hydride-elimination-en-route-to-chiral-allenes"
   },
   "source_file": {
     "pdf_name": "51a-pd-catalyzed-asymmetric-β-hydride-elimination-en-route-to-chiral-allenes.pdf",
@@ -53,18 +65,15 @@
     "sha256": "aae0e1c8f7cc67d417cc28fd559e2c87b9ea990c78fc0785f7216e42f881e772"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 71,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,30 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "Key substrate is enol triflates, which is not an available substrate label in the provided taxonomy; classified as 'not specified'.",
-      "Main transformation is asymmetric β-hydride elimination from enol triflates to allenes, which is not directly represented in the provided reaction-type labels; classified as 'not specified'.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
       "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.694,
+    "overall_confidence": 0.404,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "tosylate and sulfonate leaving groups",
-      "ligand_or_chiral_source": "phosphite and phosphoramidite ligands",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.9,
-    "human_checked": false
   }
 }

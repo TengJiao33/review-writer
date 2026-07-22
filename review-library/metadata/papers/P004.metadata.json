@@ -3,8 +3,8 @@
   "slug": "adv-synth-catal-2023-jaravabarrera-enantiospecific-synthesis-of-1-3disubstituted-allenes-from-propargylic",
   "title": {
     "value": "Enantiospecific Synthesis of 1,3-Disubstituted Allenes from Propargylic Carbonates through a Borylation-1,2-Elimination Process",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -17,22 +17,22 @@
       "Alma Viso",
       "Javier Teresa",
       "Inés Alonso",
-      "Mariola Tortosa"
+      "Mariola Tortosaa"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
-    "value": 2024,
-    "source": "llm_from_front_matter_and_issue_citation",
-    "confidence": 0.78,
+    "value": 2023,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Advanced Synthesis & Catalysis",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Adv Synth Catal",
+    "source": "filename_prefix",
+    "confidence": 0.55,
     "human_checked": false
   },
   "doi": {
@@ -42,16 +42,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "An array of enantioenriched vinyl boronates bearing an allylic carbonate moiety have been prepared through selective hydroboration of propargyl carbonates. Treatment of these vinyl boronates with TBAF in THF affords enantioenriched 1,3-disubstituted allenes through a novel 1,2-anti elimination in good yields and high enantiospecificities.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "An array of enantioenriched vinyl boronates bearing an allylic carbonate moiety have been prepared through selective hydroboration of propargyl carbonates. Treatment of these vinyl boronates with TBAF in THF affords enantioenriched 1,3- disubstituted allenes through a novel 1,2-anti elimination in good yields and high enantiospecificities.",
+    "source": "content_list_inline_abstract",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv Synth Catal - 2023 - Jarava‐Barrera - Enantiospecific Synthesis of 1 3‐Disubstituted Allenes from Propargylic.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv-synth-catal-2023-jaravabarrera-enantiospecific-synthesis-of-1-3disubstituted-allenes-from-propargylic.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P004\\859ca693-2072-4f3a-b243-59814510b447_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P004"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv-synth-catal-2023-jaravabarrera-enantiospecific-synthesis-of-1-3disubstituted-allenes-from-propargylic\\859ca693-2072-4f3a-b243-59814510b447_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv-synth-catal-2023-jaravabarrera-enantiospecific-synthesis-of-1-3disubstituted-allenes-from-propargylic"
   },
   "source_file": {
     "pdf_name": "Adv Synth Catal - 2023 - Jarava‐Barrera - Enantiospecific Synthesis of 1 3‐Disubstituted Allenes from Propargylic.pdf",
@@ -59,18 +75,15 @@
     "sha256": "d048cdc7041860b2a4e39d09d9f2ba9d07c21ff7951537fe2fd8037193ff4fd0"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 107,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -81,28 +94,12 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Publication year is ambiguous in the source: online record shows 2023, while the journal issue footer cites 2024; year set to 2024.",
-      "Some author names in the source include affiliation-marker/OCR artifacts; normalized where obvious.",
-      "Issue citation shows 2024 publication, while the version of record online is dated November 23, 2023.",
-      "Reaction type was mapped to the closest allowed label because the paper's exact transformation is a stepwise borylation-1,2-elimination sequence not listed verbatim.",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.877,
+    "overall_confidence": 0.72,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "boranes and boronates",
-      "product": "1,3-disubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.79,
-    "human_checked": false
   }
 }

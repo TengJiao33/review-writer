@@ -2,28 +2,21 @@
   "paper_id": "P070",
   "slug": "j.-org.-chem.-2022-87-12175",
   "title": {
-    "value": "One-Pot Assembly and Synthetic Applications of Geminal Acyl/Alkoxy Tetrasubstituted Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "One-Pot Assembly and Synthetic Applications of Geminal Acyl/ Alkoxy Tetrasubstituted Allenes",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Benjamin D. Bergstrom",
-      "Garrett Toth-Williams",
-      "Anna Lo",
-      "Jeffrey W. Toman",
-      "James C. Fettinger",
-      "Jared T. Shaw"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -39,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Polysubstituted allenes are useful synthetic intermediates in many applications, offering structural complexity, modularity, and their axial chirality in further transformations. While acyl and alkoxy-substituted allenes are known, there are currently few examples of allenes containing both functionalities and no reports of geminally substituted acyl/alkoxy allenes being isolated and characterized. Herein, we report the synthesis of tetrasubstituted allenes featuring a novel geminal acyl/alkoxy substitution. These unique \"push-pull\" allenes are bench-stable and exhibit interesting reactivity in several applications.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Polysubstituted allenes are useful synthetic intermediates in many applications, offering structural complexity, modularity, and their axial chirality in further transformations. While acyl and alkoxy-substituted allenes are known, there are currently few examples of allenes containing both functionalities and no reports of geminally substituted acyl/alkoxy allenes being isolated and characterized. Herein, we report the synthesis of tetrasubstituted allenes featuring a novel geminal acyl/alkoxy substitution. These unique “push−pull” allenes are bench-stable and exhibit interesting reactivity in several applications.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Org. Chem. 2022, 87, 12175.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-org.-chem.-2022-87-12175.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P070\\cd0cc81a-4c34-4468-8157-d35a09479217_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P070"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\j.-org.-chem.-2022-87-12175"
   },
   "source_file": {
     "pdf_name": "J. Org. Chem. 2022, 87, 12175.pdf",
@@ -56,18 +65,15 @@
     "sha256": "98af17e6feafa94967fd80bda022d15dc4eda17ee8e11b7967eab9d9fd0139c7"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 150,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,27 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "structured_tag_not_specified_selectivity_profile",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.789,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "primary research article",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "organolithium reagents",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "allenyl-reagent addition to carbonyl compounds",
-      "substrate": "propargylic ethers"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

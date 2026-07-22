@@ -2,24 +2,21 @@
   "paper_id": "P191",
   "slug": "5a",
   "title": {
-    "value": "Experimental Demonstration of the Allene Asymmetry",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "5a",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Peter Maitland",
-      "W. H. Mills"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1935,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -40,11 +37,27 @@
     "confidence": 0.0,
     "human_checked": false
   },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\5a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\5a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P191\\ed71484b-83c9-4c6b-94b6-634621645e88_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P191"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\5a"
   },
   "source_file": {
     "pdf_name": "5a.pdf",
@@ -52,18 +65,15 @@
     "sha256": "2abc6187d89e07dd2e00508681db45a75ebf2961afbde4c9a1281f8c143d542e"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 41,
+      "content_blocks": 0,
       "markdown_chars_used": 6139
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,44 +83,23 @@
   },
   "quality": {
     "missing_fields": [
-      "abstract"
+      "abstract",
+      "year"
     ],
     "warnings": [
       "empty_authors",
-      "missing_year",
       "missing_journal",
       "missing_doi",
-      "low_confidence_title",
-      "low_confidence_abstract",
-      "No explicit abstract is present in the provided snippet; abstract left empty.",
-      "The source page contains multiple unrelated articles; metadata was extracted for the section titled 'Experimental Demonstration of the Allene Asymmetry'.",
-      "Some structured tags are inferred from the body text of a short communication rather than an explicit abstract.",
-      "Abstract confidence below 0.50 due to missing abstract in the provided evidence.",
-      "No standalone abstract is present in the source; abstract left blank.",
-      "The substrate label 'propargylic alcohols' is inferred from the described dehydration of alcohol (II) to the allene because the precursor structure is only partially visible.",
-      "The paper uses chiral camphorsulphonic acid, but no exact matching catalyst_or_method label exists in the allowed vocabulary, so 'not specified' was used for that category.",
-      "The main transformation is dehydration to form an allene, but no exact matching reaction_type label exists in the allowed vocabulary, so 'not specified' was used.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.536,
+    "overall_confidence": 0.114,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "stereochemical study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "not specified",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.78,
-    "human_checked": false
   }
 }

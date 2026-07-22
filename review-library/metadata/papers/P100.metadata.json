@@ -3,31 +3,31 @@
   "slug": "14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes",
   "title": {
     "value": "Copper-Catalyzed Enantioselective Synthesis of Axially Chiral Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
       "Hailing Li",
-      "Daniel Müller",
-      "Laure Guénée",
+      "Daniel M€uller",
+      "Laure Gu-en-ee",
       "Alexandre Alexakis"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2012,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "ORGANIC LETTERS",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +37,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A simple copper-catalyzed enantioselective synthesis of axially chiral chloroallenes from the propargylic dichlorides is reported, employing a catalytic amount of easily prepared SimplePhos ligand. Exclusive formation of the desired allenes was observed with good enantioselectivities (ee's 62-96%). Further transformations to trisubstituted allenes or terminal alkynes with a propargylic quaternary carbon center keep a high level of enantiopurity.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Allene compounds have drawn more and more attention as a frequent building block and a versatile intermediate for organic synthesis.1 Among the existing methodologies for their preparation, the copper-mediated 1,3-substitution of carbon nucleophiles on propargylic electrophiles is",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P100\\ba835362-91c6-4fc5-9afd-986dc9844385_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P100"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes\\ba835362-91c6-4fc5-9afd-986dc9844385_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes"
   },
   "source_file": {
     "pdf_name": "14-copper-catalyzed-enantioselective-synthesis-of-axially-chiral-allenes.pdf",
@@ -54,18 +70,15 @@
     "sha256": "c907a026be658e3b066650178e0f75c2a090ac2d187862c58f3528074d71c505"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 58,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,27 +89,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "low_confidence_abstract",
-      "Author names in the source contained OCR artifacts and were normalized.",
-      "Direct products are chloroallenes, so `haloallenes` is also plausible; labeled `axially chiral allenes` because axial chirality is emphasized in the title and abstract.",
-      "The optimized SimplePhos ligand is mapped to `monodentate phosphine-type ligands` from limited front-matter evidence; early screening also involved phosphoramidites."
+      "missing_journal",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.907,
+    "overall_confidence": 0.619,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "Grignard reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic dichlorides"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.79,
-    "human_checked": false
   }
 }

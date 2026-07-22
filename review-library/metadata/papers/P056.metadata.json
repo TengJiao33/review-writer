@@ -3,34 +3,26 @@
   "slug": "asian-j.-org.-chem.-2022-11-e202100724",
   "title": {
     "value": "Organocatalytic Enantioselective Construction of Axially Chiral Tetrasubstituted Allenes via 1,6-Addition of Alkynyl Indole Imine Methides with 2-Substituted Indoles",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yu Wu",
-      "Zhibin Yue",
-      "Chenxiao Qian",
-      "Xuling Chen",
-      "Fushuai Li",
-      "Pengfei Li",
-      "Wenjun Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Asian J. Org. Chem. 2022",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -40,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "An organocatalytic construction of axially chiral tetrasubstituted allenes featuring indole skeletons has been established. With the aid of chiral phosphoric acid, alkynyl indole imine methides were formed in situ from α-(3-indolyl) propargylic alcohols, followed by the asymmetric 1,6-conjugate addition with 2-substituted indoles, furnishing axially chiral indole-containing tetrasubstituted allenes in generally high yields and enantioselectivities.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Asian J. Org. Chem. 2022, 11, e202100724.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\asian-j.-org.-chem.-2022-11-e202100724.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P056\\a20fddda-c4e0-4d0e-bf0a-55742ca27053_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P056"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\asian-j.-org.-chem.-2022-11-e202100724"
   },
   "source_file": {
     "pdf_name": "Asian J. Org. Chem. 2022, 11, e202100724.pdf",
@@ -57,18 +65,15 @@
     "sha256": "b6bfe1dabb3e899e035ececf25eed2169e2a3bad1fe1831c6712e38b0503f0c6"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 81,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,32 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_journal",
-      "missing_doi",
-      "Product labeling is somewhat ambiguous because the paper explicitly targets axially chiral tetrasubstituted allenes; the product was classified as the stereochemically defined family 'axially chiral allenes'.",
-      "The exact transformation is an asymmetric 1,6-conjugate addition to alkynyl indole imine methides generated from propargylic alcohols; because no exact reaction-type label is available, it was mapped to 'propargylic substitution and cross-coupling'.",
-      "No allowed leaving-group label directly matches the in situ activation of propargylic alcohols, so leaving_group was set to 'not specified'.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.679,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.399,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.83,
-    "human_checked": false
   }
 }

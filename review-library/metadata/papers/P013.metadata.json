@@ -2,27 +2,21 @@
   "paper_id": "P013",
   "slug": "d4gc00984c",
   "title": {
-    "value": "Hydride-free reduction of propargyl electrophiles: a nickel-catalyzed photoredox strategy for allene synthesis",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Hydride-free reduction of propargyl electrophiles: a nickel-catalyzed photoredox strategy for allene synthesis†",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Tingjun Hu",
-      "Vincent Fagué",
-      "Didier Bouyssi",
-      "Nuno Monteiro",
-      "Abderrahmane Amgoune"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Herein we report a catalytic reduction of propargyl carbonates to allenes mediated by a nickel molecular catalyst. The catalytic system uses light as the driving force and amine as the sole hydrogen source. Contrary to other catalytic approaches, the process proceeds without the intermediacy of metal hydride species. The commonly observed pathway in transition metal catalyzed reductive processes is replaced by a pathway involving a sequence of electron transfer and proton transfer. Using this catalytic approach, a wide range of allenes could be obtained under mild conditions. Experimental investigations support the dual role of trialkylamine as a reductant and a proton source and have revealed the key mechanistic features of the reaction. A key protodenickelation step of the Ni(II) allenyl intermediate is proposed to account for the reduction process. Finally, we also demonstrate that the selective SN2 reduction process can be also efficiently driven by an electrochemical approach.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Notably, we demonstrate that a trialkylamine plays the roles of both a redox mediator, as a reductive a Universite Lyon 1, Institut de Chimie et Biochimie Moléculaires et Supramoléculaires, UMR 5246 du CNRS, 1, rue Victor Grignard, 69100 Villeurbanne, France.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\d4gc00984c.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\d4gc00984c.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P013\\0657592d-ab77-47e9-8e18-66b8c28acaf1_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P013"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\d4gc00984c"
   },
   "source_file": {
     "pdf_name": "d4gc00984c.pdf",
@@ -55,18 +65,15 @@
     "sha256": "2c0d5117f8c05c6e124902134a657a22f6b70abaf935d351d48105aaa6e6f279"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 137,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,29 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "low_confidence_abstract",
-      "Abstract contained OCR-styled formatting for SN2; normalized to plain text.",
-      "Author affiliation markers and received/accepted boilerplate were removed from the author list.",
-      "Activation mode and mechanism tags are inferred from front-matter mechanistic summary and scope text, not from a dedicated mechanism section only.",
-      "The allowed reaction_type list does not contain a dedicated label for reductive conversion of propargylic carbonates to allenes; mapped to 'propargylic substitution and cross-coupling' as the closest supported category.",
-      "structured_tag_not_specified_organometallic_partner"
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.913,
+    "overall_confidence": 0.619,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

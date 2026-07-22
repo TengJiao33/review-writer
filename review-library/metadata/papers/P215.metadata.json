@@ -1,0 +1,108 @@
+{
+  "paper_id": "P215",
+  "slug": "web-imports-2025-biocatalytic-innovations-in-petase-f-025-07764-x",
+  "title": {
+    "value": "Biocatalytic innovations in PETase for sustainable polyethylene terephthalate plastic recycling",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Apoorva Sherigar",
+      "Janani Sriramakrishnan",
+      "Riyaa Kedar Ganla",
+      "Ritu Raval",
+      "Chuxia Lin",
+      "Subbalaxmi Selvaraj"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Discover Applied Sciences",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1007/s42452-025-07764-x",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Polyethylene terephthalate (PET), a petroleum-derived thermoplastic, has improved human life and driven advancements across various industries. The widespread use, available recycling methods, and accumulation of PET have caused global concerns that affect the ecosystem, biodiversity, and human health. Conventional mechanical and chemical recycling methods are inefficient and produce secondary pollutants and toxic byproducts. Biological PET recycling (BPR) using microorganisms or enzymes as biocatalysts has emerged as an innovative and sustainable solution to this problem. BPR involves the depolymerization of the polymer to its monomers, terephthalic acid (TPA) and ethylene glycol (EG), which can be upcycled into value-added products to promote a circular economy. However, enzymatic depolymerization faces many challenges owing to the recalcitrant nature of plastics and inefficient degradation at ambient temperatures. In addition, the high production costs associated with these processes limit their practical implementation. Recent scientific innovations in genetic engineering, computational mutation studies, and enzyme immobilization techniques have enhanced biodegradation",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2025-biocatalytic-innovations-in-petase-f--025-07764-x.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2025-biocatalytic-innovations-in-petase-f-025-07764-x.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2025-biocatalytic-innovations-in-petase-f-025-07764-x\\c2aea435-d7e9-40bc-96eb-0f87fcf1c59c_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2025-biocatalytic-innovations-in-petase-f-025-07764-x"
+  },
+  "source_file": {
+    "pdf_name": "2025-biocatalytic-innovations-in-petase-f--025-07764-x.pdf",
+    "relative_pdf_path": "web-imports\\2025-biocatalytic-innovations-in-petase-f--025-07764-x.pdf",
+    "sha256": "069e48b0dd9d710b37d8a1a1e69aa44a191a302e8e95e8d04468d5cc3f8d374b"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 343,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.787,
+    "needs_human_check": true
+  }
+}

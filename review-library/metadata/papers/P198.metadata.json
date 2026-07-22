@@ -3,25 +3,20 @@
   "slug": "8d",
   "title": {
     "value": "Synthesis and Absolute Configurations of Halogenoallenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Cornelis J. Elsevier",
-      "Peter Vermeer",
-      "Aharon Gedanken",
-      "Wolfgang Runge"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1985,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -37,35 +32,48 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The highly stereoselective synthesis of 3-methyl-1-halogenoallenes, 3-tert-butyl-1-halogenoallenes, and 1,3-di-tert-butylallene is described. The R absolute configuration is assigned to the levorotatory halogenoallenes by relating them to allenes of known configurations. The configurational assignments are in agreement with (vacuum) circular dichroism data for the tert-butylallenes. The obtained results are used to clarify the hitherto existing confusion in the literature concerning absolute configurations of chloro- and bromoallenes. Further, the signs and magnitudes of the ligand specific parameters for the halogens in the chirality functions approach, used to predict optical rotations of allenes, are discussed. The literature parameter for chlorine is revised and adequate numerical values for those of bromine and iodine are proposed.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\8d.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\8d.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P198\\5126132f-fb09-43e1-80ab-b1a2e3a31e20_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P198"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\8d"
   },
   "source_file": {
     "pdf_name": "8d.pdf",
     "relative_pdf_path": "8d.pdf",
-    "sha256": "26b0951cde84167efe924e8f37ac0b2da79a3d66cd80b78ec35d944c76fd9205"
+    "sha256": "1db22cc9e735f9c20dc262388a6d39ce98313f3383f4c5d7ae326b187630bafe"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 81,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,34 +82,23 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "Supplied markdown/front blocks begin with text from a preceding article; metadata were extracted from the later article header beginning with 'Synthesis and Absolute Configurations of Halogenoallenes'.",
-      "The extracted markdown begins with residual text from a preceding article; metadata were taken from the correctly identified title/front-matter section.",
-      "The available classification label `copper catalysis` is used as the closest match to the paper's stoichiometric Cu(I) halocuprate-mediated method.",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.69,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "stereochemical study",
-      "leaving_group": "mesylate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "haloallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic mesylates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

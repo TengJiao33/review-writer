@@ -3,31 +3,26 @@
   "slug": "nat.-commun.-2022-13-3302",
   "title": {
     "value": "Photo and copper dual catalysis for allene syntheses from propargylic derivatives via one-electron process",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Qi Liu",
-      "Jian Zheng",
-      "Xue Zhang",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Nat. Commun.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Different from the traditional two-electron oxidative addition-transmetalation-reductive elimination coupling strategy, visible light has been successfully integrated into transition metal-catalyzed coupling reaction of propargylic alcohol derivatives, highly selectively forming allenenitriles: specifically speaking, visible light-mediated Cu-catalyzed cyanation of propargylic oxalates has been realized for the general, efficient, and exclusive syntheses of di-, tri-, and tetra-substituted allenenitriles bearing various synthetically versatile functional groups. A set of mechanistic studies, including fluorescence quenching experiments, cyclic voltammetric measurements, radical trapping experiments, control experiments with different photocatalysts, and DFT calculation studies, have proven that the current reaction proceeds via a visible light-induced redox-neutral reductive quenching radical mechanism, which is a completely different approach as compared to the traditional transition metal-catalyzed two-electron oxidative addition processes.",
-    "source": "llm_from_front_matter_and_markdown",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Nat. Commun. 2022, 13, 3302..pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\nat.-commun.-2022-13-3302.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P074\\08a4af78-cc5f-4f48-9d66-d448dc1c5a19_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P074"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\nat.-commun.-2022-13-3302"
   },
   "source_file": {
     "pdf_name": "Nat. Commun. 2022, 13, 3302..pdf",
@@ -54,18 +65,15 @@
     "sha256": "503bac7d1f76581a9633df084ad825ca2440e2ad98cc8aac9ab3840e273727c3"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 110,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,31 +82,18 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_journal",
-      "low_confidence_abstract",
-      "The paper specifically studies propargylic oxalates and allenenitriles, but oxalate-based substrate/leaving-group classes are not explicit options in the controlled vocabulary, so those fields were mapped conservatively.",
-      "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.813,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.527,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

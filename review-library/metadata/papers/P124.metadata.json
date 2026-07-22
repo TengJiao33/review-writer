@@ -3,30 +3,26 @@
   "slug": "27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral",
   "title": {
     "value": "Enantioselective Synthesis of Both Enantiomers of Chiral Allenes Using Chiral N-Methylcamphanyl Piperazine Templates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Mariappan Periasamy",
-      "Polimera Obula Reddy",
-      "Nalluri Sanjeevakumar"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "27c-Eur J Org Chem",
-    "source": "filename_prefix",
-    "confidence": 0.55,
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The reaction of unsubstituted camphanyl-piperazine 4 with ZnCl2, phenylacetylene, and benzaldehyde in toluene gave the corresponding dipropargylamine (i.e., 15) with opposite configurations at the newly formed stereogenic centres, which, upon reaction with ZnI2, resulted in the formation of a racemic mixture of 1,3-diphenyl allene in 45% yield. N-Methylcamphanyl-piperazine regioisomer 5, prepared by selective N-methylation of the NH moiety attached to the stereogenic centre with (S)-configuration, upon reaction with ZnCl2, phenylacetylene, and benzaldehyde in toluene, gave the corresponding propargylamine in 90% yield, with an (S)-configuration at the newly formed stereogenic centre, and upon subsequent reaction with ZnI2, this intermediate gave (R)-1,3-diphenyl allene in 52% yield and with 96% ee. Reaction of N-methylcamphanyl-piperazine isomer 5 with several 1-alkynes and aldehydes in the presence of ZnBr2 gave the corresponding (R)-allenes in 40-75% yield and 79-99% ee. In contrast, regioisomeric N-methylcamphanyl-piperazine 6 reacted with ZnBr2 to give the corresponding (S)-allenes in 38-71% yield and with 79-99% ee. The opposite chiral discriminating abilities of the two NH moieties in camphanyl piperazines was confirmed by single-crystal X-ray analysis of the propargylamines formed. The results are discussed considering mechanisms involving the in situ formation of alkynylzinc halides, followed by diastereoselective addition to chiral iminium ion derivatives to give the corresponding propargylamines, and subsequent conversion to chiral allenes by an intramolecular 1,5-hydrogen shift.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\27c-Eur J Org Chem - 2013 - Periasamy - Enantioselective Synthesis of Both Enantio mers of Chiral Allenes Using Chiral.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P124\\d5d9b94a-98bd-4c1e-a895-93cea91d3485_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P124"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\27c-eur-j-org-chem-2013-periasamy-enantioselective-synthesis-of-both-enantio-mers-of-chiral-allenes-using-chiral"
   },
   "source_file": {
     "pdf_name": "27c-Eur J Org Chem - 2013 - Periasamy - Enantioselective Synthesis of Both Enantio mers of Chiral Allenes Using Chiral.pdf",
@@ -53,18 +65,15 @@
     "sha256": "5a6d70e7507ef89131ed1a83e1c828407b1c4c315913432a992e8c2ded38d362"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 206,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,30 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
-      "low_confidence_abstract",
-      "The substrate label is simplified to terminal alkynes although the method also prominently uses aldehydes and chiral camphanyl-piperazine templates.",
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.891,
+    "overall_confidence": 0.527,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "zinc catlysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "1,3-disubstituted allenes",
-      "reaction_type": "propargylamine formation and allene rearrangement",
-      "substrate": "terminal alkynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

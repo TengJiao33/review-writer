@@ -3,48 +3,61 @@
   "slug": "4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment",
   "title": {
     "value": "Recent Advances in the Catalytic Syntheses of Allenes: A Critical Assessment",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Robynne K. Neff",
-      "Doug E. Frantz"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2014,
-    "source": "llm_from_front_matter_and_issue_citation",
-    "confidence": 0.78,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Chem. Rev.",
-    "source": "filename_inferred",
-    "confidence": 0.6,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2013,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Catalysis",
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/cs401007m",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "The increasing synthetic utility of allenes in organic synthesis combined with their incorporation into a growing list of natural products and active pharmaceutical ingredients has stimulated an intense effort recently to identify efficient catalytic methods for their synthesis. In addition, as the only common functional group in organic chemistry that possesses axial chirality, efforts to discover new asymmetric catalysts for the enantioselective synthesis of axially chiral allenes has intensified as these substrates become more ubiquitous as chiral building blocks for downstream asymmetric methodologies. Nonetheless, despite this intensive effort, the ability to access racemic or chiral allenes from readily available starting materials using catalytic processes has yet to meet the demand of their expanding applications. The focus of this Perspective is to provide a critical assessment on the most recent developments in the field of catalytic syntheses of allenes (2011−2013) highlighting both the advantages and limitations associated with current approaches with a future outlook on the unmet synthetic need that still persists.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "The increasing synthetic utility of allenes in organic synthesis combined with their incorporation into a growing list of natural products and active pharmaceutical ingredients has stimulated an intense effort recently to identify efficient catalytic methods for their synthesis. In addition, as the only common functional group in organic chemistry that possesses axial chirality, efforts to discover new asymmetric catalysts for the enantioselective synthesis of axially chiral allenes has intensified as these substrates become more ubiquitous as chiral building blocks for downstream asymmetric methodologies. Nonetheless, despite this intensive effort, the ability to access racemic or chiral allenes from readily available starting materials using catalytic processes has yet to meet the demand of their expanding applications. The focus of this Perspective is to provide a critical assessment on the most recent developments in the field of catalytic syntheses of allenes (2011−2013) highlighting both the advantages and limitations associated with current approaches with a future outlook on the unmet synthetic need that still persists. KEYWORDS: allenes, catalysis, axial chirality, asymmetric synthesis, chirality transfer",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P181\\b24e9f4f-c21b-4e2a-b2dc-1f821bd7fcda_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P181"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment"
   },
   "source_file": {
     "pdf_name": "4g-recent-advances-in-the-catalytic-syntheses-of-allenes-a-critical-assessment.pdf",
@@ -52,18 +65,15 @@
     "sha256": "1042331681f70c3902cd1ac53386772d2102e7aa242e2432f54c12431b6a9a97"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 145,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,33 +87,13 @@
       "empty_authors",
       "missing_journal",
       "missing_doi",
-      "Publication year is ambiguous in the provided snippets: front matter lists Published December 30, 2013, while the journal citation footer shows ACS Catal. 2014, 4, 519−528.",
-      "Structured tags are review-level and therefore broad, reflecting the scope of multiple methodologies rather than a single transformation.",
-      "Bibliographic year is somewhat ambiguous: the article was published online in December 2013 but appears in ACS Catalysis 2014, 4, 519−528; 2014 was selected as the journal issue year.",
-      "This perspective surveys multiple allene-synthesis platforms, so most reaction-specific classification fields are conservatively set to 'not specified' to avoid over-specific inference.",
       "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
       "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.65,
+    "overall_confidence": 0.404,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "account or perspective",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.8,
-    "human_checked": false
   }
 }

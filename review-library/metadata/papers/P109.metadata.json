@@ -3,48 +3,63 @@
   "slug": "20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols",
   "title": {
     "value": "New and Stereospecific Synthesis of Allenes in a Single Step from Propargylic Alcohols",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
-      "Andrew G. Myers",
-      "Bin Zheng"
+      "Andrew G. Myers and Bin Zheng DiVision of Chemistry and Chemical Engineering"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 1996,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Organic Letters",
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ol303424w",
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "abstract": {
-    "value": "There are few reliable methods for the stereodefined construction of allenes, despite their growing importance in organic synthesis. As part of an earlier study, we developed a three-step procedure for the synthesis of allenes from readily available propargylic alcohols involving (1) mesylate formation, (2) displacement with excess hydrazine, and (3) oxidation with an azodicarboxylate reagent to produce a propargylic diazene intermediate that evolves dinitrogen in a sigmatropic elimination process (e.g., 1 to 3 below). Although this method did provide a stereospecific preparation of allenes, it was lengthy, unsuccessful in the preparation of the important (trimethylsilyl)-substituted allenes, and proceeded in 48-81% yield. We describe herein a new and stereospecific method for the synthesis of allenes from propargylic alcohols that proceeds in a single operation, is efficient, and provides access to a wide range of stereodefined, substituted allenes, to include (trimethylsilyl)-allenes.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.93,
+    "value": "There are few reliable methods for the stereodefined construction of allenes, despite their growing importance in organic synthesis.1 As part of an earlier study, we developed a threestep procedure for the synthesis of allenes from readily available propargylic alcohols involving (1) mesylate formation, (2) displacement with excess hydrazine, and (3) oxidation with an azodicarboxylate reagent to produce a propargylic diazene intermediate that evolves dinitrogen in a sigmatropic elimination process (e.g., 1 f 3 below).2 Although this method did provide a stereospecific preparation of allenes, it was lengthy, unsuccessful in the preparation of the important (trimethylsilyl)- substituted allenes,3 and proceeded in 48-81% yield. We describe herein a new and stereospecific method for the synthesis of allenes from propargylic alcohols that proceeds in a single operation, is efficient, and provides access to a wide range of stereodefined, substituted allenes, to include (trimethylsilyl)- allenes.",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P109\\80c12bf8-0d3a-467e-8a36-795acae73299_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P109"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols\\80c12bf8-0d3a-467e-8a36-795acae73299_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols"
   },
   "source_file": {
     "pdf_name": "20-new-and-stereospecific-synthesis-of-allenes-in-a-single-step-from-propargylic-alcohols.pdf",
@@ -52,18 +67,15 @@
     "sha256": "708b62aca2335e31872cbe76f32058512ec48896c73a81d6740666966b64a8f9"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 38,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,30 +88,14 @@
     "warnings": [
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract is visible in the supplied snippets; abstract field is populated from the opening summary paragraph of this communication.",
-      "The paper uses Mitsunobu reagents and arenesulfonylhydrazine-mediated fragmentation, but no available catalyst_or_method label in the controlled vocabulary fits this noncatalytic method exactly, so 'not specified' was used.",
-      "The product scope includes a range of substituted allenes, including trimethylsilyl-substituted examples, but the title/abstract support only the broad product label 'allenes' with high confidence.",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.68,
+    "overall_confidence": 0.49,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "communication or letter",
-      "leaving_group": "sulfinate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

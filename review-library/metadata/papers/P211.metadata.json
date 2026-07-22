@@ -1,0 +1,107 @@
+{
+  "paper_id": "P211",
+  "slug": "web-imports-2017-accessing-the-bottleneck-in-all-soli-017-01187-y",
+  "title": {
+    "value": "Accessing the bottleneck in all-solid state batteries, lithium-ion transport over the solid-electrolyte-electrode interface",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chuang Yu",
+      "Swapna Ganapathy",
+      "Ernst R. H. van Eck",
+      "Heng Wang",
+      "Shibabrata Basak",
+      "Zhaolong Li",
+      "Marnix Wagemaker"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2017,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-017-01187-y",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Solid-state batteries potentially offer increased lithium-ion battery energy density and safety as required for large-scale production of electrical vehicles. One of the key challenges toward high-performance solid-state batteries is the large impedance posed by the electrode–electrolyte interface. However, direct assessment of the lithium-ion transport across realistic electrode–electrolyte interfaces is tedious. Here we report two-dimensional lithium-ion exchange NMR accessing the spontaneous lithium-ion transport, providing insight on the influence of electrode preparation and battery cycling on the lithium-ion transport over the interface between an argyrodite solid-electrolyte and a sulfide electrode. Interfacial conductivity is shown to depend strongly on the preparation method and demonstrated to drop dramatically after a few electrochemical (dis)charge cycles due to both losses in interfacial contact and increased diffusional barriers. The reported exchange NMR facilitates non-invasive and selective measurement of lithium-ion interfacial transport, providing insight that can guide the electrolyte–electrode interface design for future all-solid-state batteries.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2017-accessing-the-bottleneck-in-all-soli--017-01187-y.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2017-accessing-the-bottleneck-in-all-soli-017-01187-y.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2017-accessing-the-bottleneck-in-all-soli-017-01187-y\\3bb7b9a2-27eb-41a7-9521-793315fbeef8_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2017-accessing-the-bottleneck-in-all-soli-017-01187-y"
+  },
+  "source_file": {
+    "pdf_name": "2017-accessing-the-bottleneck-in-all-soli--017-01187-y.pdf",
+    "relative_pdf_path": "web-imports\\2017-accessing-the-bottleneck-in-all-soli--017-01187-y.pdf",
+    "sha256": "927db4d36b6a961048e706b83d1b0362b8d504d56ef369d4b14a2c79589d6b61"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 182,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.79,
+    "needs_human_check": true
+  }
+}

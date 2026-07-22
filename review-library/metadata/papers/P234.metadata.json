@@ -1,0 +1,101 @@
+{
+  "paper_id": "P234",
+  "slug": "web-imports-2017-microbial-enzymes-for-the-recycling-1-7915-12710",
+  "title": {
+    "value": "Microbial enzymes for the recycling of recalcitrant petroleum‐based plastics: how far are we?",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ren Wei",
+      "Wolfgang Zimmermann"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2017,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Microbial Biotechnology",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1111/1751-7915.12710",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Summary Petroleum‐based plastics have replaced many natural materials in their former applications. With their excellent properties, they have found widespread uses in almost every area of human life. However, the high recalcitrance of many synthetic plastics results in their long persistence in the environment, and the growing amount of plastic waste ending up in landfills and in the oceans has become a global concern. In recent years, a number of microbial enzymes capable of modifying or degrading recalcitrant synthetic polymers have been identified. They are emerging as candidates for the development of biocatalytic plastic recycling processes, by which valuable raw materials can be recovered in an environmentally sustainable way. This review is focused on microbial biocatalysts involved in the degradation of the synthetic plastics polyethylene, polystyrene, polyurethane and polyethylene terephthalate ( PET ). Recent progress in the application of polyester hydrolases for the recovery of PET building blocks and challenges for the application of these enzymes in alternative plastic waste recycling processes will be discussed.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2017-microbial-enzymes-for-the-recycling--1-7915-12710.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2017-microbial-enzymes-for-the-recycling-1-7915-12710.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2017-microbial-enzymes-for-the-recycling-1-7915-12710\\web-imports-2017-microbial-enzymes-for-the-recycling-1-7915-12710_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2017-microbial-enzymes-for-the-recycling-1-7915-12710"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.913,
+    "needs_human_check": true
+  }
+}

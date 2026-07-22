@@ -2,24 +2,21 @@
   "paper_id": "P138",
   "slug": "32a-arylallenes-ii-synthesis-of-diarylallenes-partial-asymmetric-synthesis-of-allenes_1-2",
   "title": {
-    "value": "Arylallenes. II. Synthesis of Diarylallenes. Partial Asymmetric Synthesis of Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Arylallenes. II. Synthesis of Diarylallenes. Partial Asymmetric Synthesis of Allenes ^{*1,2}",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Thomas L. Jacobs",
-      "David Dankner"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1957,
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": 2000,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "1,3-Diphenylallene and 1-(p-biphenyl)-3-phenylallene have been synthesized by prototropic rearrangement of 1,3-diphenylpropyne and 1-(p-biphenyl)-3-phenyl-1-propyne by adsorption on basic alumina. The second of these allenes was also prepared by rearrangement in an inert solvent in the presence of solid alkali. These methods appear to be general for the synthesis of such unstable allenes. A partial asymmetric synthesis of these allenes was accomplished by carrying out the rearrangement with brucine or quinine adsorbed on alumina.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\32a-arylallenes-ii-synthesis-of-diarylallenes-partial-asymmetric-synthesis-of-allenes_1-2.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\32a-arylallenes-ii-synthesis-of-diarylallenes-partial-asymmetric-synthesis-of-allenes_1-2.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P138\\8fa2fd84-e56c-4e82-8e35-06982f8bdf05_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P138"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\32a-arylallenes-ii-synthesis-of-diarylallenes-partial-asymmetric-synthesis-of-allenes_1-2"
   },
   "source_file": {
     "pdf_name": "32a-arylallenes-ii-synthesis-of-diarylallenes-partial-asymmetric-synthesis-of-allenes_1-2.pdf",
@@ -52,18 +65,15 @@
     "sha256": "e60b51bca0ad171db56af53963ce988ce6fd82d5d8c89ba9814cd93615d0a818"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 74,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,33 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "Front matter indicates a 1957 publication context ('Received June 26, 1957' and page headers 'November 1957'); the initial extracted year 2000 appears incorrect.",
-      "Title footnote markers were omitted as non-bibliographic content.",
       "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.677,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "arylallenes",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.83,
-    "human_checked": false
   }
 }

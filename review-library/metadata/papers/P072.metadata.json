@@ -3,25 +3,20 @@
   "slug": "j.-org.-chem.-2023-88-5457",
   "title": {
     "value": "Divergent Cyclizative Approaches of In Situ Formed β‑Keto-Allenes: Chemo- and Regioselective Synthesis of Bicyclic Furans, and Pyrroles",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Liyaqat Ali",
-      "Dandugula Sneha Latha",
-      "Avinash Kumar",
-      "Srinivasarao Yaragorla"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A unified strategy for the construction of bicyclic furans and pyrroles is developed from tert-propargyl alcohols and α-acyl cyclic ketones using an alkaline earth catalyst under solvent-free conditions. The reaction proceeds via the formation of a β-keto allene intermediate, which upon treatment with a tert-amine underwent thermodynamic enol formation and a subsequent annulation to form bicyclic furans. Interestingly, the same allene forms bicyclic pyrrole with primary amines. The reaction shows excellent atom economy as water is the only byproduct formed in bicyclic furans. The generality of the reaction is well established. Gram-scale synthesis and synthetic applications are demonstrated.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "A unified strategy for the construction of bicyclic furans and pyrroles is developed from tert-propargyl alcohols and α- acyl cyclic ketones using an alkaline earth catalyst under solvent-free conditions. The reaction proceeds via the formation of a β-keto allene intermediate, which upon treatment with a tert-amine underwent thermodynamic enol formation and a subsequent annulation to form bicyclic furans. Interestingly, the same allene forms bicyclic pyrrole with primary amines. The reaction shows excellent atom economy as water is the only byproduct formed in bicyclic furans. The generality of the reaction is well established. Gram-scale synthesis and synthetic applications are demonstrated.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Org. Chem. 2023, 88, 5457.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-org.-chem.-2023-88-5457.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P072\\66bdb124-3157-486b-bd41-ddf528a8d97b_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P072"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\j.-org.-chem.-2023-88-5457"
   },
   "source_file": {
     "pdf_name": "J. Org. Chem. 2023, 88, 5457.pdf",
@@ -54,18 +65,15 @@
     "sha256": "eb00477263160bd8cde9041d5101dc93ef6adbece669620ece439dd12f90e94d"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 262,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Mechanistic discussion includes both an early Ca(II)-assisted SN2' proposal and a later proposed SN1/allenyl cation pathway; the mechanism tag follows the later proposed mechanism section.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.79,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "cycloaddition and annulation of allenes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

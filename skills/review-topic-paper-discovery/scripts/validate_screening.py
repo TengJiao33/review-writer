@@ -9,6 +9,16 @@ from typing import Any
 
 
 ALLOWED_DECISIONS = {"include", "exclude", "uncertain"}
+ALLOWED_STUDY_TYPES = {
+    "primary_research",
+    "primary_dataset",
+    "methods_validation",
+    "systematic_review",
+    "review",
+    "perspective",
+    "standard",
+    "other",
+}
 
 
 def read_json(path: Path) -> Any:
@@ -26,6 +36,8 @@ def validate(project: Path) -> dict[str, Any]:
         blockers.append("topic_contract.central_question is missing")
     elif not any(contract.get(field) for field in ("important_coverage", "inclusion_criteria", "exclusion_criteria")):
         warnings.append("topic contract contains a central question but no project-specific criteria")
+    if str(contract.get("review_profile") or "").strip().lower() not in {"focused", "comprehensive"}:
+        blockers.append("topic_contract.review_profile must be focused or comprehensive")
 
     screening = selected.get("screening") if isinstance(selected, dict) else None
     if not isinstance(screening, dict):
@@ -46,6 +58,7 @@ def validate(project: Path) -> dict[str, Any]:
     decisions: dict[str, str] = {}
     intent_by_paper: dict[str, str] = {}
     citation_hints_by_paper: dict[str, list[str]] = {}
+    study_type_by_paper: dict[str, str] = {}
     for index, row in enumerate(rows, start=1):
         if not isinstance(row, dict):
             blockers.append(f"screening_decisions[{index}] is not an object")
@@ -73,6 +86,12 @@ def validate(project: Path) -> dict[str, Any]:
             blockers.append(f"{paper_id}: decision_basis is missing")
         if status == "confirmed" and decision == "uncertain":
             blockers.append(f"{paper_id}: uncertain decision remains after confirmation")
+        if decision == "include":
+            study_type = str(row.get("study_type") or "").strip().lower()
+            if study_type not in ALLOWED_STUDY_TYPES:
+                blockers.append(f"{paper_id}: included paper needs a valid study_type")
+            else:
+                study_type_by_paper[paper_id] = study_type
 
     candidate_ids = {
         str(item) for item in (selected.get("candidate_paper_ids") or []) if str(item).strip()
@@ -96,6 +115,7 @@ def validate(project: Path) -> dict[str, Any]:
     citation_role_counts = Counter(
         role for paper_id in included for role in citation_hints_by_paper.get(paper_id, [])
     )
+    study_type_counts = Counter(study_type_by_paper.get(paper_id, "unrecorded") for paper_id in included)
     if status == "confirmed" and not included:
         warnings.append("screening confirmed with no included papers")
     if included and not any(role in portfolio_counts for role in ("supporting", "background")):
@@ -109,6 +129,7 @@ def validate(project: Path) -> dict[str, Any]:
         "decision_counts": counts,
         "portfolio_intent_counts": dict(portfolio_counts),
         "citation_role_hint_counts": dict(citation_role_counts),
+        "study_type_counts": dict(study_type_counts),
         "blocking_issues": sorted(set(blockers)),
         "warnings": warnings,
     }

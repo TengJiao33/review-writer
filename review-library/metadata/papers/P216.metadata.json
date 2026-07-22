@@ -1,0 +1,108 @@
+{
+  "paper_id": "P216",
+  "slug": "web-imports-2026-polyethylene-terephthalate-degradati-026-00047-5",
+  "title": {
+    "value": "Polyethylene terephthalate degradation by Drosophila melanogaster through heterologous expression of glycosylated polyethylene terephthalate hydrolase (PETase)",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Rikako Sanuki",
+      "Hatsune Minami",
+      "Emi Kawano",
+      "Keita Katsuma",
+      "Toshiyuki Takano-Shimizu-Kouno",
+      "Shosuke Yoshida"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Communications Sustainability",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s44458-026-00047-5",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Polyethylene terephthalate (PET) is one of the most widely used plastics, yet recycling relies on energy-intensive chemical processes with environmental burdens. As an alternative, PET hydrolytic enzymes such as PET hydrolase (PETase) from Piscinibacter sakaiensis have been proposed for biological PET recycling under mild conditions. Inspired by recent studies on plastic degradation by insects, here we explored genetically engineered insects as a platform for PET biodegradation. We heterologously expressed PETase in the fruit fly Drosophila melanogaster , targeting a subset of the intestinal tract and the salivary glands. PETase-expressing flies degraded both a water-soluble PET copolymer in vivo and solid PET in the surrounding environment under alkaline conditions. Notably, the secreted PETase was glycosylated, reducing catalytic activity but enhancing stability and enabling prolonged PET degradation. These findings demonstrate a proof of concept for the application of engineered insects in plastic biodegradation and suggest new directions for sustainable, biology-based recycling technologies.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2026-polyethylene-terephthalate-degradati--026-00047-5.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2026-polyethylene-terephthalate-degradati-026-00047-5.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-polyethylene-terephthalate-degradati-026-00047-5\\7661c128-14a1-4b10-8b29-0d702eb3b287_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2026-polyethylene-terephthalate-degradati-026-00047-5"
+  },
+  "source_file": {
+    "pdf_name": "2026-polyethylene-terephthalate-degradati--026-00047-5.pdf",
+    "relative_pdf_path": "web-imports\\2026-polyethylene-terephthalate-degradati--026-00047-5.pdf",
+    "sha256": "9aad80c775d453045b1f3d8eef6d1fb5c608f3ac626c5f4d08931f3dc464c546"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 191,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.79,
+    "needs_human_check": true
+  }
+}

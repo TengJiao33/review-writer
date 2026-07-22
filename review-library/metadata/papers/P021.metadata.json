@@ -3,26 +3,20 @@
   "slug": "zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic",
   "title": {
     "value": "Synthesis of Multisubstituted 2,3-Allenamides via Palladium-Catalyzed Carbonylation of Propargylic Esters",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Zhi Zhang",
-      "Miao-Miao Ji",
-      "Xiao-Feng Wu",
-      "Yong-Yu He",
-      "Jin-Bao Peng"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -32,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.joc.4c00977",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "2,3-Allenamides are an important class of unsaturated group-substituted carbonyl compounds. A palladium-catalyzed aminocarbonylation of propargyl acetates with amines for the synthesis of tri-/tetrasubstituted 2,3-allenamides has been developed. A broad range of tri-/tetrasubstituted 2,3-allenamides have been prepared from propargyl acetates in good to excellent yields. The reaction featured mild reaction conditions and good functional group tolerance. The applicability of this methodology was further highlighted by the late-stage modification of several natural products and pharmaceuticals.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "2,3-Allenamides are an important class of unsaturated group-substituted carbonyl compounds. A palladiumcatalyzed aminocarbonylation of propargyl acetates with amines for the synthesized tri-/tetrasubstituted 2,3-allenamides has been developed. A broad range of tri-/tetrasubstituted 2,3-allenamides have been prepared from propargyl acetates in good to excellent yields. The reaction featured mild reaction conditions and good functional group tolerance. The applicability of this methodology was further highlighted by the late-stage modification of several natural products and pharmaceuticals. ![](../extracted/zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic/images/aa8d8ded074551dc3a6cecca08702a17c1e1f5cdb4bad0399845e8d5c787d994.jpg) <details> <summary>chemical</summary> Chemical reaction equation showing synthesis of a carbamate derivative from aldehyde and amine under palladium catalysis </details> tri-tetra- substituted products mild reaction conditions broad substrate scope low catalyst loading 37 examples up to 93% yield",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P021\\76f7aa40-2782-4e1b-ab01-371b321fd874_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P021"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic"
   },
   "source_file": {
     "pdf_name": "zhang-et-al-2024-synthesis-of-multisubstituted-2-3-allenamides-via-palladium-catalyzed-carbonylation-of-propargylic.pdf",
@@ -55,18 +65,15 @@
     "sha256": "3735dcabad7af3e5bf5d1c462c8991cbeba71f053def0a02e2d9e7276cc94bfe"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 186,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,27 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "structured_tag_not_specified_selectivity_profile",
-      "Allowed product labels do not include allenamides; product was mapped to the closest supported class, polysubstituted allenes.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.787,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "carbonylative synthesis of allenes and allenoates",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

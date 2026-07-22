@@ -1,6 +1,16 @@
 {
-  "default_rule_pack": "allenation",
+  "default_rule_pack": "general",
   "rule_packs": {
+    "general": {
+      "description": "General evidence-to-review rules for topics without a registered domain pack.",
+      "path": "references/rule_packs/general",
+      "files": [
+        "source-to-review-rules.md",
+        "rewrite-rubric.md",
+        "review-style.md"
+      ],
+      "topic_signals": []
+    },
     "allenation": {
       "description": "Rules for organic chemistry reviews centered on allenation, allene synthesis, propargylic alcohols, and propargylic derivatives.",
       "path": "references/rule_packs/allenation",

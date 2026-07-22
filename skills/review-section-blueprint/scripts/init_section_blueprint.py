@@ -25,8 +25,6 @@ STOPWORDS = {
     "synthesis",
     "review",
     "chemistry",
-    "allene",
-    "allenes",
 }
 
 
@@ -103,7 +101,12 @@ def paper_value(paper: dict[str, Any], key: str) -> str:
     return ""
 
 
-def build_coverage_contract(topic: str, papers: list[dict[str, Any]], axes: list[str]) -> dict[str, Any]:
+def build_allenation_coverage_contract(
+    topic: str,
+    papers: list[dict[str, Any]],
+    axes: list[str],
+    review_profile: str = "focused",
+) -> dict[str, Any]:
     topic_low = (topic or "").lower()
     blobs = {
         str(paper.get("paper_id")): value_text(paper).lower()
@@ -157,8 +160,64 @@ def build_coverage_contract(topic: str, papers: list[dict[str, Any]], axes: list
         if items:
             dimensions.append({"name": dimension_name, "items": items})
     return {
-        "suggested_manuscript_words": 5000,
+        "review_profile": review_profile,
+        "suggested_manuscript_words": 9000 if review_profile == "comprehensive" else 6000,
         "dimensions": dimensions,
+    }
+
+
+def build_coverage_contract(
+    topic: str,
+    papers: list[dict[str, Any]],
+    axes: list[str],
+    review_profile: str = "focused",
+    declared_coverage: list[str] | None = None,
+    coverage_items: list[dict[str, Any]] | None = None,
+    rule_pack: str = "general",
+) -> dict[str, Any]:
+    """Build coverage from the declared question, not a hidden domain template."""
+    if rule_pack == "allenation":
+        return build_allenation_coverage_contract(topic, papers, axes, review_profile)
+
+    ledger = {
+        str(item.get("label") or "").strip().casefold(): item
+        for item in coverage_items or []
+        if isinstance(item, dict) and item.get("label")
+    }
+    requested = [str(item).strip() for item in declared_coverage or [] if str(item).strip()]
+    if not requested:
+        requested = [
+            str(item.get("label")).strip()
+            for item in coverage_items or []
+            if isinstance(item, dict) and item.get("label")
+        ]
+
+    items: list[dict[str, Any]] = []
+    for label in requested:
+        matched = ledger.get(label.casefold(), {})
+        items.append(
+            {
+                "name": label,
+                "required": True,
+                "covered_by": [str(pid) for pid in matched.get("paper_ids") or []],
+                "coverage_status": str(matched.get("status") or "not_yet_assessed"),
+            }
+        )
+    if not items:
+        items = [
+            {
+                "name": str(axis),
+                "required": False,
+                "covered_by": [],
+                "coverage_status": "not_yet_assessed",
+            }
+            for axis in axes
+            if str(axis).strip()
+        ]
+    return {
+        "review_profile": review_profile,
+        "suggested_manuscript_words": 9000 if review_profile == "comprehensive" else 6000,
+        "dimensions": [{"name": "declared_coverage", "items": items}] if items else [],
     }
 
 
@@ -217,8 +276,8 @@ def select_rule_pack(skill_root: Path, topic: str) -> tuple[str, str]:
     try:
         manifest = read_json(manifest_path)
     except Exception:
-        return "allenation", "references/rule_packs/allenation"
-    default = str(manifest.get("default_rule_pack") or "allenation")
+        return "general", "references/rule_packs/general"
+    default = str(manifest.get("default_rule_pack") or "general")
     packs = manifest.get("rule_packs") if isinstance(manifest, dict) else {}
     if not isinstance(packs, dict):
         return default, f"references/rule_packs/{default}"
@@ -306,15 +365,16 @@ def infer_logic(title: str) -> str:
     return "reaction_type"
 
 
-def target_depth(title: str, selected_count: int) -> tuple[int, int]:
+def target_depth(title: str, selected_count: int, review_profile: str = "focused") -> tuple[int, int]:
     low = title.lower()
+    multiplier = 1.35 if review_profile == "comprehensive" else 1.0
     if any(word in low for word in ["introduction", "background"]):
-        return 4, 650
+        return 4, round(650 * multiplier)
     if any(word in low for word in ["conclusion", "outlook", "future"]):
-        return 4, 700
+        return 4, round(700 * multiplier)
     if selected_count >= 6:
-        return 6, 1250
-    return 5, 1000
+        return 6, round(1250 * multiplier)
+    return 5, round(1000 * multiplier)
 
 
 def infer_claim_type(title: str, index: int) -> str:
@@ -375,6 +435,55 @@ def review_problem(title: str, selected: list[dict[str, Any]], dominant_logic: s
         "outlook": "Which limitations are common across the assigned methods, and which are specific to one precursor or catalyst class?",
     }
     return axes.get(dominant_logic, "Which activation mode, substrate class, or product class best explains the papers grouped in this section?")
+
+
+def infer_general_logic(title: str) -> str:
+    low = title.lower()
+    if any(word in low for word in ("introduction", "background", "scope")):
+        return "context"
+    if any(word in low for word in ("mechanism", "pathway", "kinetic", "interaction")):
+        return "mechanism"
+    if any(word in low for word in ("comparison", "compare", "taxonomy", "classification", "landscape")):
+        return "comparison"
+    if any(word in low for word in ("measurement", "evidence", "assay", "evaluation", "metric")):
+        return "evidence_boundary"
+    if any(word in low for word in ("application", "translation", "process", "scale", "practice")):
+        return "application"
+    if any(word in low for word in ("outlook", "challenge", "conclusion", "future", "limitation")):
+        return "outlook"
+    return "synthesis"
+
+
+def general_section_thesis(title: str, dominant_logic: str, central_question: str) -> str:
+    question = central_question.strip() or "the review's central question"
+    if dominant_logic == "context":
+        return f"Define the scope and organizing role of {title!r} in answering: {question}"
+    if dominant_logic == "outlook":
+        return f"Synthesize what the evidence on {title!r} resolves, what remains uncertain, and which next steps follow from named gaps."
+    if dominant_logic == "mechanism":
+        return f"Explain the evidence-backed relationships in {title!r}, separating direct observations, author interpretations, and review inference."
+    if dominant_logic == "comparison":
+        return f"Organize {title!r} around decision-relevant similarities and differences, including where study designs prevent direct ranking."
+    if dominant_logic == "evidence_boundary":
+        return f"Establish what can and cannot be concluded from the measurements and evidence summarized under {title!r}."
+    if dominant_logic == "application":
+        return f"Connect the evidence in {title!r} to practical relevance without turning proposed potential into demonstrated performance."
+    return f"Use the assigned evidence to develop a coherent answer about {title!r}, centered on comparison, explanation, and explicit boundaries."
+
+
+def general_review_problem(title: str, dominant_logic: str) -> str:
+    questions = {
+        "context": "Which distinctions must the reader understand before later comparisons become meaningful?",
+        "mechanism": "Which relationships are directly demonstrated, which are author-proposed, and which remain review-level inference?",
+        "comparison": "Which studies are genuinely comparable, on which variables, and where would a ranking mislead?",
+        "evidence_boundary": "How do measurement choices and evidence depth change the conclusion a reader may draw?",
+        "application": "What practical value is demonstrated, under what conditions, and what remains proposed rather than shown?",
+        "outlook": "Which limitations recur across the evidence, which are context-specific, and what would resolve them?",
+    }
+    return questions.get(
+        dominant_logic,
+        f"What does the evidence on {title!r} collectively establish that no single paper establishes alone?",
+    )
 
 
 def normalize_role(raw: str) -> str:
@@ -451,6 +560,62 @@ def claim_from_papers(section_id: str, title: str, idx: int, papers: list[dict[s
     }
 
 
+def general_claim_from_papers(
+    section_id: str,
+    title: str,
+    idx: int,
+    papers: list[dict[str, Any]],
+    axes: list[str],
+) -> dict[str, Any]:
+    claim_types = ("foundation", "comparison", "mechanism", "limitation")
+    claim_type = claim_types[min(idx, len(claim_types) - 1)]
+    paper_refs = []
+    for paper in papers[:4]:
+        paper_refs.append(
+            {
+                "paper_id": str(paper.get("paper_id")),
+                "role": normalize_role(str(paper.get("role_after_reading") or "")),
+                "use_for": [
+                    key.replace("_", " ")
+                    for key in ("study_design", "main_content", "intended_use", "limitation")
+                    if paper.get(key)
+                ][:3],
+                "caveat": paper_value(paper, "limitation"),
+            }
+        )
+    comparison_axes = [str(axis).replace("_", " ") for axis in axes[:3]] or [
+        "study context",
+        "method or condition",
+        "outcome and evidence boundary",
+    ]
+    prompts = {
+        "foundation": f"Establish the minimum evidence-backed baseline needed to understand {title}, defining terms and scope without importing unsupported background.",
+        "comparison": f"Compare the assigned studies on {', '.join(comparison_axes)}, and state where incompatible contexts prevent direct ranking.",
+        "mechanism": f"Separate directly observed relationships from proposed explanations and review inference when discussing {title}.",
+        "limitation": f"Qualify the apparent generality of {title} by naming source-specific scope, measurement, and evidence boundaries.",
+    }
+    return {
+        "claim_id": f"{section_id}_c{idx + 1}",
+        "claim": prompts[claim_type],
+        "claim_type": claim_type,
+        "status": "editorial_prompt_requires_evidence_authoring",
+        "supporting_papers": paper_refs,
+        "logic_relationship": {
+            "foundation": "foundation_to_synthesis",
+            "comparison": "comparison",
+            "mechanism": "evidence_to_explanation",
+            "limitation": "scope_boundary",
+        }[claim_type],
+        "comparison_axes": comparison_axes,
+        "evidence_strength": "needs verification",
+        "wording_constraints": [
+            "Name the system, condition, and outcome when making a scope or performance claim.",
+            "Preserve source certainty and distinguish direct observation, author interpretation, and review inference.",
+            "Avoid one-paper-one-paragraph narration.",
+        ],
+    }
+
+
 def build_section(
     section: dict[str, str],
     papers: list[dict[str, Any]],
@@ -459,6 +624,9 @@ def build_section(
     method_cards: dict[str, dict[str, Any]],
     prev_title: str,
     next_title: str,
+    central_question: str = "",
+    rule_pack: str = "general",
+    review_profile: str = "focused",
 ) -> dict[str, Any]:
     title = section["title"]
     selected = select_papers(title, papers, notes)
@@ -467,9 +635,10 @@ def build_section(
     claims = []
     for idx in range(claim_count):
         claim_papers = selected[idx * 2 : idx * 2 + 4] or selected[:4]
-        claims.append(claim_from_papers(section["section_id"], title, idx, claim_papers, axes))
-    dominant_logic = infer_logic(title)
-    target_paragraphs, target_words = target_depth(title, len(selected))
+        builder = claim_from_papers if rule_pack == "allenation" else general_claim_from_papers
+        claims.append(builder(section["section_id"], title, idx, claim_papers, axes))
+    dominant_logic = infer_logic(title) if rule_pack == "allenation" else infer_general_logic(title)
+    target_paragraphs, target_words = target_depth(title, len(selected), review_profile)
     title_low = title.lower()
     substantive = not any(term in title_low for term in ("introduction", "conclusion", "outlook", "abstract"))
     paragraph_types = ["context", "synthesis"]
@@ -480,8 +649,16 @@ def build_section(
     return {
         "section_id": section["section_id"],
         "title": title,
-        "section_thesis": section_thesis(title, selected, dominant_logic),
-        "review_problem": review_problem(title, selected, dominant_logic),
+        "section_thesis": (
+            section_thesis(title, selected, dominant_logic)
+            if rule_pack == "allenation"
+            else general_section_thesis(title, dominant_logic, central_question)
+        ),
+        "review_problem": (
+            review_problem(title, selected, dominant_logic)
+            if rule_pack == "allenation"
+            else general_review_problem(title, dominant_logic)
+        ),
         "target_paragraphs": target_paragraphs,
         "target_words": target_words,
         "dominant_logic": dominant_logic,
@@ -491,8 +668,12 @@ def build_section(
         "paragraph_types_suggested": paragraph_types,
         "figure_or_table_needs": [
             {
-                "type": "scheme" if infer_logic(title) != "outlook" else "comparison table",
-                "purpose": "Show the reaction logic, representative precursor/product classes, or comparison axis that anchors this section.",
+                "type": (
+                    "scheme" if rule_pack == "allenation" and dominant_logic != "outlook"
+                    else "comparison table" if dominant_logic in {"comparison", "evidence_boundary", "outlook"}
+                    else "evidence-linked synthesis figure"
+                ),
+                "purpose": "Compress a reader-relevant relationship, comparison, or evidence boundary that would be harder to understand in prose.",
                 "candidate_papers": paper_ids[:3],
             }
         ],
@@ -513,8 +694,8 @@ def build_section(
         },
         "avoid_patterns": [
             "Do not summarize papers in chronological order unless chronology is the section logic.",
-            "Do not collapse distinct activation modes into generic substitution language.",
-            "Do not use broad/generic scope adjectives without substrate boundaries.",
+            "Do not collapse studies with different systems, conditions, or denominators into a single ranking.",
+            "Do not use broad scope adjectives without naming the evidence boundary.",
         ],
     }
 
@@ -562,7 +743,7 @@ def editorial_brief(
             "note": "A planning signal only. Let argument, evidence, tables, and reader needs determine the final length.",
         },
         "reader_questions": [
-            "What are the main method or precursor families, and why is this organization useful?",
+            "What are the main evidence-backed families or organizing categories, and why is this organization useful?",
             "What variables actually distinguish representative methods?",
             "Which methods are comparable, and where would comparison be misleading?",
             "What is directly observed, author-proposed, or inferred by the review?",
@@ -626,7 +807,21 @@ def run(args: argparse.Namespace) -> int:
     if not sections:
         raise SystemExit("No numbered outline sections found in selected_outline.md")
 
-    topic, papers, axes = load_matrix(matrix_path)
+    matrix_topic, papers, axes = load_matrix(matrix_path)
+    topic_contract = read_json(project_dir / "00_discovery" / "topic_contract.json")
+    topic = matrix_topic or (
+        str(topic_contract.get("topic") or "") if isinstance(topic_contract, dict) else ""
+    )
+    central_question = (
+        str(topic_contract.get("central_question") or "")
+        if isinstance(topic_contract, dict)
+        else ""
+    )
+    declared_coverage = (
+        topic_contract.get("important_coverage")
+        if isinstance(topic_contract, dict)
+        else []
+    )
     rule_pack, rule_pack_path = select_rule_pack(skill_root, topic or outline_text)
     notes = load_notes(notes_path)
     portfolio_path = stage_dir / "literature_portfolio.json"
@@ -636,12 +831,28 @@ def run(args: argparse.Namespace) -> int:
         str(row.get("paper_id")): row for row in method_card_rows if row.get("paper_id")
     }
     coverage_items = optional_rows(stage_dir / "coverage_ledger.json", "coverage_items")
+    review_profile = (
+        str(topic_contract.get("review_profile") or "focused").lower()
+        if isinstance(topic_contract, dict)
+        else "focused"
+    )
     blueprint_sections = []
     for idx, section in enumerate(sections):
         prev_title = sections[idx - 1]["title"] if idx > 0 else ""
         next_title = sections[idx + 1]["title"] if idx + 1 < len(sections) else ""
         blueprint_sections.append(
-            build_section(section, papers, axes, notes, method_cards, prev_title, next_title)
+            build_section(
+                section,
+                papers,
+                axes,
+                notes,
+                method_cards,
+                prev_title,
+                next_title,
+                central_question,
+                rule_pack,
+                review_profile,
+            )
         )
 
     blueprint = {
@@ -653,7 +864,16 @@ def run(args: argparse.Namespace) -> int:
         "rule_pack_path": rule_pack_path,
         "created_at": utc_now(),
         "status": "draft_initialization_needs_semantic_review",
-        "coverage_contract": build_coverage_contract(topic, papers, axes),
+        "central_question": central_question,
+        "coverage_contract": build_coverage_contract(
+            topic,
+            papers,
+            axes,
+            review_profile,
+            declared_coverage if isinstance(declared_coverage, list) else [],
+            coverage_items,
+            rule_pack,
+        ),
         "editorial_brief": editorial_brief(
             papers,
             blueprint_sections,

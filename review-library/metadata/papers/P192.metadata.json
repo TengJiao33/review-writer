@@ -2,24 +2,21 @@
   "paper_id": "P192",
   "slug": "5b",
   "title": {
-    "value": "Resolution of an Allene Hydrocarbon into Optical Antipodes by Asymmetric Catalysis.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": "219. Resolution of an Allene Hydrocarbon into Optical Antipodes by Asymmetric Catalysis.",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Peter Maitland",
-      "William H. Mills"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1936,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Of the various structural types of carbon compounds to which van 't Hoff's tetrahedral theory assigns molecular dissymmetry the unsymmetrically substituted allenes have proved the least amenable to experimental investigation. The prediction that enantiomorphism would be shown by allenes of the general formula was made by van 't Hoff in 1875, and many unsuccessful attempts to verify it have been recorded. While the probability of van 't Hoff's view of the configuration of allene was almost universally admitted, the linking of the central carbon atom of the allene triad differs so considerably from the types of linking for which the tetrahedral theory has been shown to hold that its application in this case was necessarily subject to some uncertainty. On account of the difficulty of preparing tetra-arylallenes containing the salt-forming groups required for resolution through combination with optically active acids or bases we tried other methods, and found in asymmetric catalysis a means of obtaining an allene in optically active forms. We therefore selected this compound for investigation and studied its production by catalytic dehydration of αγ-diphenyl-αγ-di-1-naphthylallyl alcohol (II). We found that by the employment of optically active catalysts the dehydration could be conducted asymmetrically, and by this means we were able to isolate the two enantiomorphous forms of the allene.",
-    "source": "llm_from_opening_paragraphs",
-    "confidence": 0.74,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\5b.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\5b.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P192\\2efa95d0-67ec-4236-9413-7f681fe3a067_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P192"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\5b"
   },
   "source_file": {
     "pdf_name": "5b.pdf",
@@ -52,18 +65,15 @@
     "sha256": "d399d6c2d93c4834ebab72db621fcb339d6b730c288949a71aaeb6f86586d3fb"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 166,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -72,37 +82,23 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract was visible; the abstract field reproduces opening article text rather than a journal abstract.",
-      "Abstract appears to be reconstructed from opening paragraphs because this 1936 article predates a modern standalone abstract.",
-      "Several classification categories do not have an exact label for asymmetric dehydration of an allylic alcohol to an allene; conservative `not specified` labels were used where direct support was lacking.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.619,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "stereochemical study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.67,
-    "human_checked": false
   }
 }

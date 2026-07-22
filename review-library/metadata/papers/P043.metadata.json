@@ -3,32 +3,26 @@
   "slug": "d5ob01408e",
   "title": {
     "value": "Palladium-catalyzed asymmetric propargylic sulfonylation of propargyl esters with sulfonyl hydrazides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Zhi-Xiong Ou",
-      "Bu-Hong Zhang",
-      "Jia-Xin Song",
-      "Li-Bo Li",
-      "Xing-Wang Wang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Org. Biomol. Chem.",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "Organic & Biomolecular Chemistry",
+    "source": "doi_derived",
+    "confidence": 0.85,
     "human_checked": false
   },
   "doi": {
@@ -38,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Palladium-catalyzed enantioselective propargylic sulfonylation between racemic propargyl esters and readily available sulfonyl hydrazides with an N-benzylamino-bridged bidentate phosphoramidite (N-Bn-Me-BIPAM) ligand was reported. The corresponding reactions provided a series of enantiomerically rich propargylic sulfones in good yields with high enantioselectivity under mild reaction conditions.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Herein, we reported a bidentate phosphoramidite-Pd complex-catalyzed asymmetric transformation for the synthesis of chiral propargylic sulfones using propargyl esters with commercially available sulfonyl hydrazides.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\d5ob01408e.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\d5ob01408e.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P043\\b00cdf1b-7895-4090-9737-72d1622f85a2_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P043"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\d5ob01408e"
   },
   "source_file": {
     "pdf_name": "d5ob01408e.pdf",
@@ -55,18 +65,15 @@
     "sha256": "f6a79d8ba07e1cdbba8063c9c15934ccca7041fc8d65ced7c0b274830245cf15"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 135,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,29 +84,17 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
-      "low_confidence_abstract",
-      "Main products are propargylic sulfones rather than allenes; product classified as `not specified` because only a minor mechanistic allenyl sulfone byproduct is mentioned.",
-      "Substrate is described as propargyl esters in the title, but text indicates Boc-type decarboxylative activation consistent with propargylic carbonates.",
       "structured_tag_not_specified_product",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.917,
+    "overall_confidence": 0.619,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "phosphite and phosphoramidite ligands",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

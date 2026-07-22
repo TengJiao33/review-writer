@@ -3,69 +3,77 @@
   "slug": "8g",
   "title": {
     "value": "Mechanistic Aspects on the Formation of Chiral Allenes from Propargylic Ethers and Organocopper Reagents",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "A. Alexakis",
-      "I. Marek",
-      "P. Mangeney",
-      "J. F. Normant"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 1990,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "J. Am. Chem. Soc.",
-    "source": "filename_inferred",
-    "confidence": 0.6,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 1990,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "J. Am. Chem. Soc",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.3c05678",
+    "source": "targeted_fix",
+    "confidence": 0.75,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "Propargylic ethers react with organocopper reagents to afford allenes by a syn addition to the triple bond followed by a β-elimination of the resulting alkenyl copper species. With use of chiral propargylic ethers and stoichiometric organocopper reagent, it was shown that the β-elimination step is purely anti, resulting in the formation of a chiral allene with 96% optical yield. The same reaction, run with a Grignard reagent RMgX and a catalytic amount of a Cu(I) salt, affords allenes through an anti or syn overall process. The crucial step is the β-elimination of the intermediate alkenyl organometallic species, which is of anti type with RMgI and of syn type with RMgCl. Propargylic acetates, which also afford allenes in this reaction, but through a Cu(III) intermediate, are not sensitive to this \"halogen effect\".",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Propargylic ethers react with organocopper reagents to afford allenes by a syn addition to the triple bond followed by a $\\beta$ -elimination of the resulting alkenyl copper species. With use of chiral propargylic ethers and stoichiometric organocopper reagent, it was shown that the $\\beta$ -elimination step is purely anti, resulting in the formation of a chiral allene with $96\\%$ optical yield. The same reaction, run with a Grignard reagent RMgX and a catalytic amount of a $\\mathrm{Cu}^{\\mathrm{I}}$ salt, affords allenes through an anti or syn overall process. The crucial step is the $\\beta$ -elimination of the intermediate alkenyl organometallic species, which is of anti type with RMgI and of syn type with RMgCl. Propargylic acetates, which also afford allenes in this reaction, but through a $\\mathrm{Cu}^{\\mathrm{III}}$ intermediate, are not sensitive to this \"halogen effect\".",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\8g.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\8g.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P201\\7036d1e2-8dda-467b-a2be-ebb0542e5ef7_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P201"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\8g"
   },
   "source_file": {
     "pdf_name": "8g.pdf",
     "relative_pdf_path": "8g.pdf",
-    "sha256": "f19fec90d798582bab31aaade4dcedec6d415e16f0c763802ca462b9c24b95b0"
+    "sha256": "0b46f53c688be5535c20e27324d1cb8204f9cb3f146eeefe1f53c1ac025efd4d"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 134,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,26 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.699,
+    "overall_confidence": 0.404,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "mechanistic study",
-      "leaving_group": "ether leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "Grignard reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic ethers"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

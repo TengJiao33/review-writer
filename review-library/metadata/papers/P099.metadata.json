@@ -3,8 +3,8 @@
   "slug": "13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis",
   "title": {
     "value": "Organozinc Reagents in DMSO Solvent: Remarkable Promotion of SN2′ Reaction for Allene Synthesis",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -14,39 +14,55 @@
       "Andrew E. H. Wheatley",
       "Yoshinori Kondo"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2008,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Synthesis",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "J. Am. Chem. Soc",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ol801249w",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "The SN2′ reaction of propargyl mesylates with organozinc reagents was dramatically improved in DMSO solvent, and the stereoselective conversion of chiral substrates was successfully achieved using LiCl-free diorganozinc without the loss of optical purity.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "The $\\bullet _ { \\mathsf { N } } 2 ^ { \\prime }$ reaction of propragyl mesylates with organozinc reagents was dramatically improved in DMSO solvent, and the stereoselective conversion of chiral substrates was successfully achieved using LiCl-free diorganozinc without the loss of optical purity. Organozinc reagents have been widely used as soft nucleophiles in organic synthesis, where the control of the nucleophilicity is highly important for many selective transformations.1 Various methods have been utilized for the promotion of reactivity, and conventionally ate complexation or transmetalation has been employed.1 Meanwhile, allenes have gained attraction as unique functionalities in natural product chemistry2 and as important building blocks in transition metal catalyzed cyclization chemistry.3 In connection with our recent studies on the reactivity control of organozinc reagents,4 we focused our interest on solvent effects for promoting the reactivity of organozinc reagents. In this paper, we report allene synthesis using the dramatic effect of DMSO on the reaction of propargyl electrophiles with organozinc reagents. Solvent is one of the most important parameters in organic reaction. The solvent effects on organometallic reactions have been studied energetically,5 not only in terms of the improvement of solubility of metal salt but also in terms of the change of the oligomeric complex structures,5a,b acceleration of reaction,5c and influencing the reaction selectivity.5 These effects alter according to the physicochemical nature of the solvents (polarity, donor number, and acceptor number, etc.). Therefore, it is considered to be an attractive research subject to investigate the relationship between solvents and reactivity for organometallic reagents. DMSO has long been regarded as an excellent polar solvent for a wide variety of organic reactions6 but has been hitherto thought of as an unlikely solvent for organozinc reactions.7 The synthesis of substituted allenes has been extensively studied,8 and the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction of propargyl electrophiles is one of the important methods by which to achieve this. However, the use of organiczinc reagent as nucleophiles for this $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction9 has been limited due to their poor reactivity, and this has led to organozinc reagents being employed for other modes of allene synthesis instead.10 To clarify solvent effects on the reactivity of organozinc reagents, the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction of propargyl electrophiles with organozinc reagents was investigated using DMSO as a solvent. In our preliminary experiment, the reaction of diethylzinc and 3-phenylpropargyl mesylate (1) in various organic solvents was carried out at room temperature (Table 1). In nonpolar Chemical reaction scheme converting compound 1 to compound 2 using ZnEt2 catalyst under solvent and time conditions Table 1. Solvent Effect on $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ Reaction of ${ \\bf 1 } ^ { a }$ solvents such as $\\mathrm { C H } _ { 2 } \\mathrm { C l } _ { 2 }$ and toluene, the reaction did not proceed at all (Table 1, entries 1 and 2). In polar solvents such as THF and CH3CN, failure to react was again observed (Table 1, entries 3 and 4). To our surprise, in polar and strongly donor solvents such as DMF and DMSO, the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction was dramatically promoted, and the target allene 2 was obtained (Table 1, entries 5 and 6). The best result (90%) was observed when DMSO was employed as solvent. The solvent polarlity $( E _ { \\mathrm { T } } ) ^ { 1 1 }$ of CH3CN (46) is largely similar to those of DMF (43.8) and DMSO (45.0). On the other hand, the donor numbers $( \\mathrm { D N } ) ^ { 1 2 }$ of DMF (26.6) and DMSO (29.8) are higher values than that of $\\mathrm { C H _ { 3 } C N }$ (14.1). The highest DN solvent gave the most excellent result. To examine further the scope and limitations of the procedure, the reactions of other substrates were investigated. 3-Phenyl-1-phenethylpropargyl mesylate (1a) and 3-butyl-1-phenethylpropargyl mesylate (1b) reacted smoothly to give corresponding 1,1,3-trisubstituted allenes 2a and 2b (Table 2, entries 1 and 2). Various substituents on the aromatic ring of the 3-arylpropargyl mesylates (2c h) were also compatible with this allene -synthesis. Substitution with an electron-donating methoxy group is acceptable to the reaction, and the corresponding allene 2c was obtained in good yield (Table 2, entry 3). However, yields of allenes 2d,e were moderate when methyl-substituted substrates 1d,e were utilized (Table 2, entries 4 and 5). The tolerance of the alkoxycarbonyl group (1f), the cyano group (1g), and the bromo substituent (1h) to the allene synthesis is considered to be synthetically important (Table 2, entries 6 8). -The reaction of the substrate with terminal alkyne 1i was also found to be successful, and 1,3-disubstituted allene 2i was selectively obtained in high yield (Table 2, entry 9). It is noteworthy that no deprotonation of the terminal alkyne was observed during the reaction.10a,b The allenylsilyl compound 2j was obtained from the trimethylsilylated substrate 1j using similar reaction conditions (Table 2, entry 10). The high functional group tolerance of this allene synthesis using organozinc reagents in DMSO is considered to offer significant advantages over the use of conventional organometallic nucleophiles.8b Lastly, di-n-butylzinc, prepared from n-butyllithium and zinc chloride, can be used for the reaction, allowing the corresponding allene 2k to be obtained quantitatively (Table 2, entry 11). A functionalized alkylzinc halide has also been employed for this allene synthesis, with ethoxycarbonylpropylzinc bromide prepared using Rieke’s zinc13 having been reacted with 1a in DMSO to give 3 in 57% yield (Scheme 1). To examine the stereochemistry of allene formation, an enantiomerically pure substrate was employed for the reaction. The chiral propargyl mesylate ${ \\pmb 5 } ^ { 1 4 }$ was prepared from (R)-( )- +3-butyn-2-ol and reacted with LiCl-free dibutylzinc15 to give chiral allene 6. The absolute configuration of 6 was determined as (R) by converting 6 to the known chiral furanone ${ \\mathbf { 8 } }, ^ { 1 6 }$ the configuration of which was assigned as (R) with an optical purity of 98% ee (Scheme 2). This fact indicates that the butyl group attacks the triple bond with anti stereochemistry in this S 2′-type reaction and that selectivity is the same as with the conventional organocopper reactions.17 1 H NMR spectra of dimethylzinc in different solvents were measured for the preliminary estimation of the activation mechanism. The methyl signals of dimethylzinc in DMSO and THF at room temperature were observed as sharp singlets at 0.99 ppm (DMSO) and 0.84 ppm (THF), respectively Organic synthesis reaction converting compound 1 to compound 3 using ZnBr and DMSO reagent Scheme 1. Addition of Functionalized Alkylzinc Halide (see Supporting Information). This result suggests that dimethylzinc acts more carbanionically in DMSO by virtue of the stronger solvent donation to zinc. It is known that the coordination of donors to alkylzinc compounds causes higher-field shifts of the alkyl protons in the 1H NMR spectra.18 In conclusion, the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction of propargyl electrophiles with organozinc reagents was dramatically improved in DMSO solvent, and stereoselective conversion of chiral substrate was successfully achieved using LiCl-free diorganozinc. Further investigations on the scope and limitation of these DMSO-promoted organozinc reactions and associated mechanistic studies are underway. Acknowledgment. This work was partly supported by the Grant-in Aid for Scientific Research on Priority Areas “Advanced Molecular Transformations of Carbon Resources” (No.19020005) and “Synergistic Effects for Creation of Functional Molecules” (No.20036007) and other Research Grants (No.19390002) from the Ministry of Education, Science, Sports and Culture, Japan, and a grant from Yamada Science Foundation. Supporting Information Available: Experimental procedures and characterization data for all new compounds. This material is available free of charge via the Internet at http://pubs.acs.org.",
+    "source": "content_list_abstract_region",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P099\\5644c7c5-1067-4c15-8efe-3128d4776362_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P099"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis\\5644c7c5-1067-4c15-8efe-3128d4776362_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis"
   },
   "source_file": {
     "pdf_name": "13-organozinc-reagents-in-dmso-solvent-remarkable-promotion-of-sn2-reaction-for-allene-synthesis.pdf",
@@ -54,18 +70,15 @@
     "sha256": "94938b7e42bbb07fba442b8da1a6394dc6efa18c1fdda28abd58abef71ebdadf"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 62,
       "markdown_chars_used": 12418
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,24 +91,13 @@
     "warnings": [
       "missing_journal",
       "missing_doi",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.687,
+    "overall_confidence": 0.513,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "main-group metal mediation",
-      "document_scope": "communication or letter",
-      "leaving_group": "mesylate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "phenylzinc and alkylzinc reagents",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic mesylates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

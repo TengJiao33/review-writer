@@ -3,8 +3,8 @@
   "slug": "10b",
   "title": {
     "value": "Synthesis of Conjugated Allenes through Copper-Catalyzed γ-Selective and Stereospecific Coupling between Propargylic Phosphates and Aryl- or Alkenylboronates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -14,39 +14,55 @@
       "Hirohisa Ohmiya",
       "Masaya Sawamura"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
-    "value": 2012,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2010,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "ORGANIC LETTERS",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ol2033465",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
     "value": "A Cu-catalyzed γ-selective coupling reaction between propargylic phosphates and aryl- or alkenylboronates afforded aryl- or alkenyl-conjugated allenes. The reaction showed excellent functional group compatibility in both the propargylic substrates and the boronates. The reaction of an enantioenriched propargylic phosphate proceeded with excellent chirality transfer with 1,3-anti stereochemistry to give axially chiral aryl- and alkenylallenes.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\10b.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\10b.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P096\\32501c1a-6247-472f-877e-c732efa6e3d8_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P096"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\10b\\32501c1a-6247-472f-877e-c732efa6e3d8_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\10b"
   },
   "source_file": {
     "pdf_name": "10b.pdf",
@@ -54,18 +70,15 @@
     "sha256": "dedf3e0e82efc470bf2559ebeebfc28c5e4945f1d6b4eeee4adb24b33ea6b824"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 55,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,28 +89,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "Rule-extracted year 2010 conflicts with the front matter; the article header and publication date support 2012.",
-      "Front matter shows the paper was published in Organic Letters (2012); any external journal hint indicating Tetrahedron is inconsistent.",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.807,
+    "overall_confidence": 0.49,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "phosphate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "boranes and boronates",
-      "product": "allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic phosphates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.97,
-    "human_checked": false
   }
 }

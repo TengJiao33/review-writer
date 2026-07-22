@@ -3,25 +3,20 @@
   "slug": "j.-am.-chem.-soc.-2022-144-21022",
   "title": {
     "value": "Nickel-Catalyzed Asymmetric Propargylation for the Synthesis of Axially Chiral 1,3-Disubstituted Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xianghong Xu",
-      "Mingxu Wang",
-      "Lingzi Peng",
-      "Chang Guo"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -32,21 +27,37 @@
   },
   "doi": {
     "value": "10.1021/jacs.2c10863",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "The general enantioselective catalytic synthesis of axially chiral 1,3-disubstituted allenes from readily available racemic propargylic alcohol derivatives remains a long-standing challenge in organic synthesis. Here we report an efficient nickel-catalyzed asymmetric propargylic substitution reaction/Myers rearrangement of racemic propargylic carbonates that furnishes a series of enantioenriched 1,3-disubstituted allenes using newly designed N-sulfonylhydrazone reagents as efficient diazo surrogates. This reaction proved to be remarkably general with regard to substrate scope, affording a diverse range of 1,3-disubstituted allenic compounds in good yields with excellent enantioselectivities. Additionally, applications of this powerful strategy for the enantioselective synthesis of methyl (S)-8-hydroxyocta-5,6-dienoate, (S)-laballenic acid, (S)-phlomic acid, and (S)-Δ9,10-pentacosadiene are described, further highlighting the broad potential of these new reagents for the discovery of novel reactions.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "The general enantioselective catalytic synthesis of axially chiral 1,3-disubstituted allenes from readily available racemic propargylic alcohol derivatives remains a long-standing challenge in organic synthesis. Here we report an efficient nickel-catalyzed asymmetric propargylic substitution reaction/Myers rearrangement of racemic propargylic carbonates that furnishes a series of enantioenriched 1,3-disubstituted allenes using newly designed N-sulfonylhydrazone reagents as efficient diazo surrogates. This reaction proved to be remarkably general with regard to substrate scope, affording a diverse range of 1,3-disubstituted allenic compounds in good yields with excellent enantioselectivities. Additionally, applications of this powerful strategy for the enantioselective synthesis of methyl (S)-8-hydroxyocta-5,6-dienoate, (S)-laballenic acid, (S)-phlomic acid, and (S)-Δ9,10- pentacosadiene are described, further highlighting the broad potential of these new reagents for the discovery of novel reactions. llenes are featured as key structural elements in a diverse range of pharmaceuticals, agrochemicals, natural products, and bioactive small molecules.1 In particular, these cumulated dienes have been recognized as versatile synthetic intermediates in complex chemical syntheses, participating in numerous powerful chemical transformations.2,3 The orthogonal relationship between the neighboring π systems within the allene structure exhibits axial chirality, which has inspired the development of enantioselective synthetic methods.4 In this context, contemporary efforts have focused on devising asymmetric catalytic reactions, including useful asymmetric catalytic approaches based on the transformation of dienes,5 conjugated enynes,6 allenyl acetates,7 vinyl triflates,8 and terminal alkynes9 as well as the isomerization of alkynes.10 To date, the majority of these reports target the synthesis of tri- or tetrasubstituted allenes. Given the synthetic relevance of 1,3-disubstituted alkenes in pharmaceuticals and natural products (Scheme 1A),12 the direct catalytic conversion of propargylic alcohol derivatives to allenes has become a practical synthetic strategy because of the accessibility of these substrates.13,14 Elegant work by the Myers group showed the synthesis of allenes from propargylic alcohols via the reductive transposition of propargylic diazines (Scheme 1B).15 On the other hand, the Mikami group disclosed a dynamic kinetic protonation of racemic allenylmetal species via stoichiometric chiral proton sources for the asymmetric synthesis of allenic esters.16 Very recently, an asymmetric process to generate enantioenriched allenes via copper hydride-catalyzed semireduction of conjugated enynes was described by Buchwald et al.17 Inspired by these elegant synthetic methods, we were curious about the development of broadly useful and convergent strategies for the construction of enantioenriched 1,3-disubstituted allenes from racemic propargylic alcohol derivatives without an additional functional moiety handle in a catalytic and stereoselective manner, which has not been documented to date.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\J. Am. Chem. Soc. 2022, 144, 21022.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\j.-am.-chem.-soc.-2022-144-21022.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P068\\a62f2671-085d-47e7-be45-f2e3c6f03e25_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P068"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\j.-am.-chem.-soc.-2022-144-21022"
   },
   "source_file": {
     "pdf_name": "J. Am. Chem. Soc. 2022, 144, 21022.pdf",
@@ -54,18 +65,15 @@
     "sha256": "c62bb38d5f1a70d505e69fcb865aa2479e1b12b4806be1b9e0933da262454efb"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 174,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,37 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "structured_tag_not_specified_limitation_or_scope_boundary",
-      "structured_tag_not_specified_organometallic_partner"
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.803,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "chiral biaryl bisphosphine ligands",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.96,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "144",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "pages": {
-    "value": "21022-21029",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

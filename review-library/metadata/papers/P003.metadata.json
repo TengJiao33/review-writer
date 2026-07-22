@@ -3,8 +3,8 @@
   "slug": "1-s2.0-s1872206723646248-main",
   "title": {
     "value": "Cobalt‐catalyzed dehalogenative deuterations with D2O",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -18,14 +18,14 @@
       "Xiang-Ping Hu",
       "Qing-An Chen"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -41,16 +41,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The regioselective incorporation of deuterium to organic skeletons has gained ever-growing attention among scientific community. Herein, we present a robust and general protocol for site-specific deuteration through the cobalt catalyzed dehalogenative process. Using D2O as the economical deuterium reagent, we achieved excellent substrate compatibility across a wide collection of organohalides or pseudo-halides, such as aryl, alkenyl, benzyl, allyl, or alkyl halides and propargyl acetates. Preliminary experimental evidences and related DFT calculation are also presented to support a mechanistic scenario involving a Co(I)-C(III)-Co(I) cycle. The generality and potential utilization of this moisture-insensitive catalysis have also been demonstrated by the selective deuterodehalogenation of drug-like candidates, concise synthesis of D-labeled pharmaceutical molecule, as well as the stepwise hydrogen isotope exchange of bioactive compounds.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "The regioselective incorporation of deuterium to organic skeletons has gained ever-growing attention among scientific community. Herein, we present a robust and general protocol for site-specific deuteration through the cobalt catalyzed dehalogenative process. Using D2O as the economical deuterium reagent, we achieved excellent substrate compatibility across a wide collection of organohalides or pseudo-halides, such as aryl, alkenyl, benzyl, allyl, or alkyl halides and propargyl acetates. Preliminary experimental evidences and related DFT calculation are also presented to support a mechanistic scenario involving a Co(I)-C(III)-Co(I) cycle. The generality and potential utilization of this moisture-insensitive catalysis have also been demonstrated by the selective deuterodehalogenation of drug-like candidates, concise synthesis of D-labeled pharmaceutical molecule, as well as the stepwise hydrogen isotope exchange of bioactive compounds. © 2024, Dalian Institute of Chemical Physics, Chinese Academy of Sciences. Published by Elsevier B.V. All rights reserved.",
+    "source": "content_list_abstract_region",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\1-s2.0-S1872206723646248-main.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\1-s2.0-s1872206723646248-main.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P003\\77ca42b7-ea81-48cb-b8c7-7a4a5c138b03_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P003"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1872206723646248-main\\77ca42b7-ea81-48cb-b8c7-7a4a5c138b03_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1872206723646248-main"
   },
   "source_file": {
     "pdf_name": "1-s2.0-S1872206723646248-main.pdf",
@@ -58,18 +74,15 @@
     "sha256": "d634c035c63da0db58d2b9b0bb9ec7280b2a385df6439818781c6c1c50eda8a6"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 134,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -82,26 +95,15 @@
     "warnings": [
       "missing_journal",
       "missing_doi",
-      "This paper is a broad deuterodehalogenation study; allene classification is based specifically on the propargylic acetate to deuterated allene section.",
-      "Ligand classification is somewhat uncertain because both dppf and BINAP are used for the allene-forming reactions.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.676,
+    "overall_confidence": 0.513,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "cobalt catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "chiral biaryl bisphosphine ligands",
-      "organometallic_partner": "not specified",
-      "product": "terminal allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.77,
-    "human_checked": false
   }
 }

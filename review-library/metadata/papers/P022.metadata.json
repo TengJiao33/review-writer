@@ -2,9 +2,9 @@
   "paper_id": "P022",
   "slug": "1-s2.0-s1001841725003559-main",
   "title": {
-    "value": "Nickel-catalyzed electrochemical carboxylation of propargylic esters with CO2 to 2,3-allenoic acids",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Nickel-catalyzed electrochemical carboxylation of propargylic esters with { \\mathrm { C O } } _ { 2 } to 2,3-allenoic acids",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -15,41 +15,57 @@
       "Nan Feng",
       "Ying Sun",
       "Huimin Wang",
-      "Feng Zhou"
+      "Feng Zhou∗"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
     "value": "Chinese Chemical Letters",
-    "source": "source_front_matter_verified",
-    "confidence": 0.95,
+    "source": "filename_derived",
+    "confidence": 0.75,
     "human_checked": false
   },
   "doi": {
     "value": "10.1016/j.cclet.2025.111169",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Here, we report a novel nickel-catalyzed electrochemical carboxylation of propargylic esters with CO2, characterized by the regioselective synthesis of 2,3-allenoic acids rather than propargylic carboxylic acids. Both acyclic propargylic esters and cyclic propargylic carbonates serve as effective substrates, facilitating the synthesis of mono-, di-, tri-, and tetra-substituted 2,3-allenoic acids with broad substrate scope under mild conditions. Mechanistic investigations indicate that the in situ generated Ni(I) complex might serve as the active species to react with propargylic esters, forming the allenyl-Ni(I) complex under electroreductive conditions. A possible γ-selective nucleophilic attack of allenyl-Ni(I) complex on CO2 is likely involved in the formation of the desired 2,3-allenoic acids.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Here, we report a novel nickel-catalyzed electrochemical carboxylation of propargylic esters with ${ \\mathrm { C O } } _ { 2 },$, characterized by the regioselective synthesis of 2,3-allenoic acids rather than propargylic carboxylic acids. Both acyclic propargylic esters and cyclic propargylic carbonates serve as effective substrates, facilitating the synthesis of mono-, di-, tri-, and tetra-substituted 2,3-allenoic acids with broad substrate scope under mild conditions. Mechanistic investigations indicate that the in situ generated Ni(I) complex might serve as the active species to react with propargylic esters, forming the allenyl-Ni(I) complex under electroreductive conditions. A possible γ -selective nucleophilic attack of allenyl-Ni(I) complex on ${ \\mathrm { C O } } _ { 2 }$ is likely involved in the formation of the desired 2,3-allenoic acids. © 2025 Published by Elsevier B.V. on behalf of Chinese Chemical Society and Institute of Materia Medica, Chinese Academy of Medical Sciences. Allenes are common structural motifs in a diverse range of natural products, pharmaceuticals, agrochemicals, and biologically active molecules (Scheme 1a) [1,2]. Their distinctive feature of bearing two cumulated carbon–carbon double bonds make them attractive precursors in various organic transformations [3–8]. The 2,3-allenoic acid, a specific type of functionalized allene that combines the distinctive allenic structure with carboxylic acid functionality, exhibits unique reactivity and biological activities. It can be readily transformed into other allene derivatives, such as allenols, allenals, allenoates, allenamides, and butenolides [9–12]. The effective construction of 2,3-allenoic acids is of great interest, and the conversion of propargylic alcohol derivatives has emerged as a promising synthetic strategy due to the accessibility of these substrates [13–17]. Notable progress has been made in the carboxylation of propargylic alcohols with CO for the construction of 2,3- allenoic acid derivatives [18–28]. Notably, the carboxylation of propargylic alcohol derivatives with ${ \\mathsf { C O } } _ { 2 }$ represents a direct and effective way to construct valuable 2,3-allenoic acids, due to the abundant, nontoxic, and recyclable properties of $\\mathsf C 0 _ { 2 } \\left[ 2 9 - 3 9 \\right]$. However, the thermodynamic stability and kinetic inertness of ${ \\mathsf { C O } } _ { 2 }$ make it difficult to achieve high efficiency under mild reaction conditions [40–42]. Despite this, seminal research from the Ma [43] and Li & Cheng groups [44] has demonstrated the feasibility of this strategy (Scheme 1b). As early as 2015, Ma developed an elegant Zn-mediated carboxylation of 2-alkynyl bromides with ${ \\mathrm { C O } } _ { 2 },$, enabling the synthesis of 2- substituted 2,3-allenoic acids with high efficiency from primary 2- alkynyl bromides [43]. Notably, the carboxylation of secondary 2- alkynyl bromides yielded 3-alkynoic acids rather than 2,3-allenoic acids, likely due to steric effects. In 2023, Li & Cheng reported the carboxylation of propargylic acetates with ${ \\mathsf { C O } } _ { 2 }$ under an electrochemical reductive system, enabling the construction of tetrasubstituted 2,3-allenoic acids under mild conditions [44]. However, likely due to the instability of the radical intermediate, the range of substrates was limited to 3-aryl propargylic acetates, yielding no more than 2-aryl-4,4-dialkyl substituted 2,3-allenoic acids. Despite these advances, both types of reactions are limited to highly reactive substrates and can only yield di- or tetra-substituted $^ { 2, 3 - }$ allenoic acids, respectively. The carboxylation of more challenging materials with CO2 to construct differently (mono-, di-, tri-, and tetra-) substituted 2,3-allenoic acids with good functional group tolerance remains a highly desirable goal. With our continuous interest in ${ \\mathsf { C O } } _ { 2 }$ chemical fixation [45– 54] and propargylic substitution [55,56], and also encouraged by the advances in electro-reductive [57–71] and metal-catalyzed carboxylation of $\\mathrm { C O } _ { 2 } \\ [ 7 2 - 7 7 ]$, we endeavor to develop an electrocatalytic carboxylation of propargylic esters with $\\mathrm { C O } _ { 2 },$ for the diverse construction of differently substituted 2,3-allenoic acids. The combination of electrocatalysis and transition metal catalysis unites the sustainable nature of electrochemistry with the chemo-, regio-, and stereoselective hallmarks of transition metal-catalyzed synthetic methods, thus providing opportunities for the realization of challenging transformations [78–88]. Recently, Guo & Yu reported an elegant enantioselective Ni-electrocatalyzed reductive propargylic carboxylation of propargylic carbonates with ${ \\mathrm { C O } } _ { 2 }$ (Scheme 1c) [89]. The combination of electro-reduction and Ni-catalysis facilitated the transformation of electrophilic allenyl-Ni(II) into nucleophilic allenyl-Ni(I) species, and the subsequent nucleophilic addition to ${ \\mathrm { C O } } _ { 2 }$ yielded the desired propargylic carboxylic acid with high regio- and enantio-selectivity. On the other hand, for Nicatalyzed carboxylation with $\\mathrm { C O } _ { 2 },$ the activity and selectivity of the Ni-complex catalyst can be tuned by modifying the electronic and steric properties of the ligands, thus enabling regiodivergent carboxylation [90,91]. In particular, the ligand-controlled regiodivergent Ni-catalyzed carboxylation of alkenes, allyl esters, allylic alcohols and alkyl halide has been realized [92–96]. Accordingly, Nicatalyzed carboxylation of propargylic esters with ${ \\mathrm { C O } } _ { 2 }$ could not only yield propargylic carboxylic acids but also afford 2,3-allenoic acids via regiodivergent manner (Scheme 1c). However, such transformations have never been studied before. Structural formulas of four compounds: Grasshopper ketone, Cytallene, Adenallene, and Enprostil (a) Representative examples of allene derivatives () Synthesis of 2,3-allenoic acids from ${ \\mathsf { C O } } _ { 2 }$ Reaction scheme showing synthesis of tetra-substituted carboxylic acids using LiCl and Zn under di-substituted conditions, with reagents and products labeled. ) Nickel-catalyzed electro-carboxylation of propargylic esters Reaction scheme for synthesizing α and γ-selective carboxylation using NiBr₂ and Mg catalysts, with yields and enantiomeric excess data Scheme 1. Carboxylation with CO2 to 2,3-allenoic acids. In this context, we envisaged nickel-catalyzed electroreductive carboxylation of propargylic esters with ${ \\mathrm { C O } } _ { 2 }$ would offer a versatile approach to achieve a general and modular catalytic assembly of 2,3-allenoic acids in a regiodivergent manner. Apart from controlling the regioselectivity, avoiding competitive further reductive carboxylation of the allene moiety [97], as well as the application to the synthesis of differently substituted 2,3-allenoic acids, also represent challenges to be overcome to validate this hypothesis. Herein, we present a feasible nickel-catalyzed electro- Organic synthesis reaction scheme showing conversion of compound 1a to products 2a and 3 using NiBr₂, bpy, and Et₄NBF₄ under specified conditions Table 1 Condition optimization. catalytic carboxylation of propargylic esters with ${ \\mathrm { C O } } _ { 2 }$ to produce 2,3-allenoic acids with a broad substrate scope. Not only acyclic propargylic esters but also cyclic propargylic carbonates serve as effective substrates, facilitating the synthesis of mono-, di-, tri-, and tetra-substituted 2,3-allenoic acids effectively under mild conditions (Scheme 1c). Our study began with the nickel-catalyzed electrochemical carboxylation of propargylic ester 1a with ${ \\mathsf { C O } } _ { 2 }$ as a model reaction. Following a series of conditional optimizations (for details, see Section 2 in Supporting information), the target tri-substituted 2,3- allenoic acid 2a was isolated in a 66% yield. The reaction was catalyzed by a NiBr2–bipyridine (bpy) complex under a constant current of 20 mA at room temperature in DMF containing $\\mathrm { E t _ { 4 } N B F _ { 4 } }$ as the electrolyte, with a C paper as the cathode and a Mg plate as the anode (Table 1, entry 1). The screening of electrolytes by varying the cation or counter anion did not yield improved results (entries 2 and 3). Subsequent studies indicated that the choice of electrode materials significantly influenced the reaction. Using a foam Ni as the cathode or an Al plate as the anode resulted in decreased yields of 25% and 41%, respectively (entries 4 and 5). Fortunately, using $\\mathrm { C H } _ { 3 } \\mathrm { C N }$ as the solvent resulted in a marked increase to 93% yield (entry 6). Under these conditions, further screening of Ni salts with Ni(OTf)2 or $\\mathrm { N i C l } _ { 2 }$ as catalysts resulted in decreased yields of 86% and 55%, respectively (entries 7 and 8). The influence of ligands was also studied; changing bpy to 1,10-phenanthroline (phen) or $2, 2 ^ { \\prime } { : } 6 ^ { \\prime }, 2 ^ { \\prime \\prime },$ -terpyridine (tpy) as ligand resulted in inferior 69% and 84% yields, respectively (entries 9 and 10). The reduction in ligand loading likely impaired the dissolution of Ni salt, thus leading to a decreased 74% yield (entry 11). Ultimately, the conditions shown in entry 6 were selected as the optimized reaction conditions for the nickel-catalyzed electro-carboxylation. Notably, under these conditions, the formation of propargylic carboxylic acid was not detected, as only the 2,3-allenoic acid 2a was formed, underscoring the exceptional regioselectivity of this Ni-catalyzed electrochemical carboxylation process. Having established the optimal reaction conditions, we next evaluated the scope of the reaction with respect to propargylic esters (Scheme 2). First, we attempted the synthesis of trisubstituted allenoic acids from propargyl esters. For acetophenonederived propargyl esters, we found that both electron-withdrawing and electron-donating substituents at the para-position on the benzene ring, such as methyl, cyano, phenyl, and fluorine atoms, were suitable for this system, yielding the corresponding 2,4,4- trisubstituted allenoic acids 2a-2e with 46% 93% yield. Similarly, ortho- and meta-fluoro substituted propargylic esters also worked well, delivering 2f and 2g in 98% and 92% yield, respectively. Additionally, various heterocycles, such as naphthyl and piperonyl, were well-tolerated, yielding the corresponding 2,3-allenoic acids 2h and 2i in 54% and 65% yield, respectively. Replacing the methyl group with other substituents, such as trifluoromethyl, n–butyl, and phenyl, resulted in 2,3-allenoic acids 2j-2l with 51% 91% yield. Later, we tried propargylic esters derived from di-alkyl ketones, which also reacted smoothly, yielding 4,4-dialkyl-substituted 2,3- allenoic acids 2m-2p with 42% 63% yield. The construction of 2,2,4-trisubstituted allenoic acids was also attempted, and starting from n-amyl substituted internal propargylic ester 1q, the desired 2,2,4-trisubstituted allenoic acid 2q was obtained smoothly, albeit with a promising 22% yield. Chemical reaction scheme showing synthesis of various substituted compounds from a starting material, with yields and substituent variations listed for each compound. Scheme 2. Substrate scope. Reaction conditions: 1 or 4 (0.2 mmol), Et4NBF4 (0.5 mmol), NiBr2 (0.02 mmol), bpy (0.04 mmol), 4 A˚ MS (200 mg) in 5 mL CH3CN with CO2 balloon in undivided cell with Mg anode and C paper cathode, under constant current of 20 mA at room temperature for 4 h. Isolated yields. a Yield of the corresponding propargylic carboxylic acids, determined by 1H NMR analysis of the crude reaction mixture, using 1,3,5-trimethylbenzene as an internal standard. After successfully synthesizing trisubstituted 2,3-allenoic acids, we further examined the applicability of this system for the construction of tetrasubstituted 2,3-allenoic acids. Satisfactorily, the reaction of propargylic esters derived from di-alkyl, arylalkyl, and di-aryl ketones afforded the corresponding tetrasubstituted 2,3-allenoic acids 2r-2w bearing 2-TMS, 2-methyl, and 2-phenyl substituents with up to 86% yield. This result further demonstrates the broad substrate scope and versatility of this system. Next, we explored the synthesis of di-substituted 2,3-allenoic acids. The carboxylation of terminal propargylic esters derived from aldehydes with ${ \\mathsf { C O } } _ { 2 }$ proceeded smoothly, yielding the desired 2,4-disubstituted 2,3-allenoic acids 2x-2z bearing 4-phenyl, 4-methyl, and 4-n-amyl substituents with 70% 82% yield. Meanwhile, the reaction of internal propargylic esters derived from formaldehyde delivered the 2,2-disubstituted 2,3-allenoic acids 2aa and 2ab with 2-phenyl and 2-n-amyl substituents in 38% and 45% yield, respectively. Gratifyingly, structurally complex propargylic esters derived from drugs such as ibuprofen, gemfibrozil (Lopid), and adapalene also afforded the corresponding 2,4-disubstituted 2,3-allenoic acids 2ad-2af with good yields. Lastly, the construction of the simplest monosubstituted 2,3-allenoic acid was attempted, and the reaction of 2-propynyl benzoate successfully afforded 2,3- butadienoic acid 2ac in 84% yield.",
+    "source": "content_list_abstract_region",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\1-s2.0-S1001841725003559-main.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\1-s2.0-s1001841725003559-main.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P022\\cbf34718-e91a-404d-aa97-022977c14ab6_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P022"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1001841725003559-main\\cbf34718-e91a-404d-aa97-022977c14ab6_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\1-s2.0-s1001841725003559-main"
   },
   "source_file": {
     "pdf_name": "1-s2.0-S1001841725003559-main.pdf",
@@ -57,18 +73,15 @@
     "sha256": "a397b74dad286119629ed810876849415dfe698dc1a427c8a4e051642f83e250"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 107,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,37 +92,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Classification list lacks a generic propargylic ester/benzoate substrate label; substrate and leaving-group tags were mapped to the explicitly supported cyclic propargylic carbonate subset.",
-      "structured_tag_not_specified_organometallic_partner"
+      "missing_journal",
+      "missing_doi",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.819,
+    "overall_confidence": 0.513,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenic carboxylic acids",
-      "reaction_type": "carbonylative synthesis of allenes and allenoates",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "36",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "article_number": {
-    "value": "111169",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

@@ -3,23 +3,20 @@
   "slug": "3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with",
   "title": {
     "value": "Allenes as Three-Carbon Units in Catalytic Cycloadditions: New Opportunities with Transition-Metal Catalysts",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Fernando López",
-      "José Luis Mascareñas"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2011,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2010,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Allenes are very versatile synthetic units that are used in many types of catalytic cycloaddition reactions. Most examples reported so far involve their use as 2C-atom components, whereas their participations as 3C-atom components have been much less frequent. In this concept article, we present an overview of this latter strategy, emphasizing those more recent contributions involving the use of PtII and AuI catalysts, which have uncovered new opportunities in this area.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Allenes are very versatile synthetic units that are used in many types of catalytic cycloaddition reactions. Most examples reported so far involve their use as 2C-atom components, whereas their participations as 3C-atom components have been much less frequent. In this concept article, we present an overview of this latter strategy, emphasizing on those more recent contributions involving the use of $\\mathrm { P t } ^ { \\mathrm { I I } }$ and AuI catalysts, which have uncovered new opportunities in this area. Keywords: allenes · cycloaddition · gold · homogeneous catalysis · synthetic methods",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3h-Chemistry A European J - 2010 - López - Allenes as Three‐Carbon Units in Catalytic Cycloadditions  New Opportunities with.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P154\\2c66c6d0-46b1-457c-a73b-54c8158f79dd_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P154"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\3h-chemistry-a-european-j-2010-lopez-allenes-as-threecarbon-units-in-catalytic-cycloadditions-new-opportunities-with"
   },
   "source_file": {
     "pdf_name": "3h-Chemistry A European J - 2010 - López - Allenes as Three‐Carbon Units in Catalytic Cycloadditions  New Opportunities with.pdf",
@@ -52,18 +65,15 @@
     "sha256": "331104362fa499a9b025498cd974e846d8a381d4df23321b98dcd27c020923e1"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 205,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,33 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Filename/path hint suggests 2010, but the journal front matter and footer indicate a 2011 publication year.",
-      "This is a concept/review article covering multiple catalyst classes; structured tags reflect the dominant emphasis of the review rather than a single experimental transformation.",
-      "The paper is a concept article covering multiple catalyst classes, especially PtII and AuI as well as Lewis acid/base systems; no single allowed catalyst label cleanly captures the full scope, so catalyst_or_method was set to 'not specified'.",
-      "The review discusses several allene substrate families rather than one dominant listed precursor class, so substrate was set to 'not specified'.",
       "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.757,
+    "overall_confidence": 0.483,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "account or perspective",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "cycloaddition and annulation of allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.83,
-    "human_checked": false
   }
 }

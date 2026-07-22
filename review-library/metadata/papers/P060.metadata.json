@@ -3,52 +3,61 @@
   "slug": "chem.-eur.-j.-2023-29-e202203130",
   "title": {
     "value": "Iron-Catalyzed Borylation of Propargylic Acetates for the Synthesis of Multisubstituted Allenylboronates",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Aitor Bermejo-López",
-      "Wei-Jun Kong",
-      "Pedro J. Tortajada",
-      "Daniels Posevins",
-      "Belén Martín-Matute",
-      "Jan-E. Bäckvall"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Chem. Eur. J. 2023",
-    "source": "filename_inferred",
-    "confidence": 0.6,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2023,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemistry - A European Journal",
+    "source": "doi_derived",
+    "confidence": 0.85,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/chem.202203130",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "A novel iron-catalyzed borylation of propargylic acetates leading to allenylboronates has been developed. The method allows the preparation of a variety of di-, tri- and tetrasubstituted allenylboronates at room temperature with good functional group compatibility. Stereochemical studies show that an anti-SN2′ displacement of acetate by boron occurs; this also allows transfer of chirality to yield enantiomerically enriched allenylboronates. The synthetic utility of this protocol was further substantiated by transformations of the obtained allenylboronates including oxidation and propargylation.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "A novel iron-catalyzed borylation of propargylic acetates leading to allenylboronates has been developed. The method allows the preparation of a variety of di-, tri- and tetrasubstituted allenylboronates at room temperature with good functional group compatibility. Stereochemical studies show that an anti-S 2’ displacement of acetate by boron occurs; this also allows transfer of chirality to yield enantiomerically enriched allenylboronates. The synthetic utility of this protocol was further substantiated by transformations of the obtained allenylboronates including oxidation and propargylation.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chem. Eur. J. 2023, 29, e202203130.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chem.-eur.-j.-2023-29-e202203130.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P060\\dad95547-a9da-4a7d-9953-f9adba78d6ef_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P060"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\chem.-eur.-j.-2023-29-e202203130"
   },
   "source_file": {
     "pdf_name": "Chem. Eur. J. 2023, 29, e202203130.pdf",
@@ -56,18 +65,15 @@
     "sha256": "1a8df6fe75c6b8dda62e1eb140bffe0c65de238088b53f4dfdfcee4a3dd8a122"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 103,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,26 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "Copyright notice shows 2022, while the journal issue footer indicates publication year 2023."
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.703,
+    "overall_confidence": 0.404,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "iron catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "boranes and boronates",
-      "product": "allenyl boranes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.98,
-    "human_checked": false
   }
 }

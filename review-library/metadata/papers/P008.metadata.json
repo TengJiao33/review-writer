@@ -3,53 +3,61 @@
   "slug": "eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes",
   "title": {
     "value": "Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Qi Zhang",
-      "Zhongtian Wu",
-      "Yifan Sun",
-      "Xiancheng Qiu",
-      "Huiying Liu",
-      "Xinxin Wu",
-      "Chen Zhu"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Eur J Org Chem",
-    "source": "filename_prefix",
-    "confidence": 0.55,
-    "human_checked": false
-  },
-  "doi": {
-    "value": null,
+    "value": [],
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
+  "year": {
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "J. Org. Chem.",
+    "source": "known_filename_alias",
+    "confidence": 0.78,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/ejoc.202400364",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
   "abstract": {
-    "value": "This work showcases a novel visible-light mediated allenylation protocol employing propargyl sulfides as a pioneering radical trapping methodology. A diverse array of substituted sulfonyl allenes were successfully synthesized under mild conditions with commendable levels of chemo- and regio-selectivity. Mechanistically, this process entails the formation of sulfonyl radicals, their subsequent addition to alkynes, the subsequent elimination of S-centered radicals, and Cl-atom abstraction, thereby facilitating the propagation of this radical chain reaction.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Eur J Org Chem - 2024 - Zhang - Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P008\\820a9b36-605e-40fc-909f-2bc52528d223_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P008"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\eur-j-org-chem-2024-zhang-leveraging-propargyl-sulfides-as-radical-trappers-for-the-synthesis-of-sulfonyl-allenes"
   },
   "source_file": {
     "pdf_name": "Eur J Org Chem - 2024 - Zhang - Leveraging Propargyl Sulfides as Radical Trappers for the Synthesis of Sulfonyl Allenes.pdf",
@@ -57,18 +65,15 @@
     "sha256": "57fa15c9d0173e0d4a6918da7fb5464212ecf7f329f5ff74a60d9052f001fbe3"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 97,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,34 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "Ontology lacks an explicit substrate label for propargylic sulfides, so substrate was set to not specified.",
-      "Reaction type ontology lacks a precise label for visible-light radical allenylation of propargylic sulfides, so reaction_type was set to not specified.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.746,
+    "overall_confidence": 0.399,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "iridium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenyl sulfones",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.74,
-    "human_checked": false
   }
 }

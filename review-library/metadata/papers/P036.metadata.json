@@ -2,29 +2,21 @@
   "paper_id": "P036",
   "slug": "helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl",
   "title": {
-    "value": "Regio- and Stereospecific Copper-Catalyzed SN2′ Substitution Reaction of Propargyl Esters with Polyfluoroaryl Zinc Reagents",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Regio- and Stereospecific Copper-Catalyzed S _ { N ^ { 2 } } \\prime Substitution Reaction of Propargyl Esters with Polyfluoroaryl Zinc Reagents",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Rui-Rui Zhao",
-      "Ji-Chao Huang",
-      "Shi-Qi Liu",
-      "Fu-Dong Lu",
-      "Liang-Qiu Lu",
-      "Zhi-Han Zhang",
-      "Wen-Jing Xiao"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -34,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1002/hlca.202500135",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Copper-catalyzed SN2′ substitution reactions of chiral propargyl compounds provides an efficient synthetic method for chiral allenes that have widespread applications in pharmaceuticals and artificial functional materials. However, compared with the SN2′ reaction catalyzed by palladium, ruthenium, and other noble metals, the development of SN2′ reaction catalyzed by copper is relatively delayed due to its sensitivity to steric hindrance. Herein we reported a highly selective copper-catalyzed SN2′ substitution reaction through the use of weakly nucleophilic zinc reagents. A wide variety of polyfluoroaryl allenes bearing an assortment of functional groups (36 examples) are compatible with this catalysis system. It is worth noting that chiral polyfluoroaryl allenes can also be efficiently constructed from chiral propargyl esters via this SN2′ reaction. A series of mechanism verification experiments and DFT calculations also provide a basis for the reaction mechanism and the stereo-model of chiral transfer. Moreover, the preparation of other valuable polyfluoroarene containing compounds from polyfluoroaryl allenes also proves the synthetic utility of this methodology.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "c) This work: regio- and stereospecific copper-catalyzed S _ { N ^ { 2 } } { } ^ { \\prime } substitution reaction of propargyl esters with polyfluoroaryl zinc reagents",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Helvetica Chimica Acta - 2025 - Zhao - Regio‐ and Stereospecific Copper‐Catalyzed SN2  Substitution Reaction of Propargyl.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P036\\4041c5bf-a599-482d-a101-22b230c4036c_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P036"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\helvetica-chimica-acta-2025-zhao-regio-and-stereospecific-coppercatalyzed-sn2-substitution-reaction-of-propargyl"
   },
   "source_file": {
     "pdf_name": "Helvetica Chimica Acta - 2025 - Zhao - Regio‐ and Stereospecific Copper‐Catalyzed SN2  Substitution Reaction of Propargyl.pdf",
@@ -57,18 +65,15 @@
     "sha256": "028732c9342d897935b9cbc4417b3f26f9b40e51cd4abe9279162ac1c384d5c3"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 209,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,30 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "Allowed substrate and leaving-group labels do not include a generic 'propargyl esters' option, so those categories were set to 'not specified'.",
-      "The organometallic partner label 'phenylzinc and alkylzinc reagents' is the closest allowed match to the paper's polyfluoroaryl zinc reagents.",
       "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.759,
+    "overall_confidence": 0.469,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "phenylzinc and alkylzinc reagents",
-      "product": "arylallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

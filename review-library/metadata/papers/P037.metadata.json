@@ -3,24 +3,20 @@
   "slug": "a-2534-9086",
   "title": {
     "value": "Preparation of 3-Allenyl-4-methylenetetrahydrofurans",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yu-Min Wang",
-      "Yi-Hung Liu",
-      "Shiuh-Tzung Liu"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A novel method for the preparation of 3-allenyl-4-methylenetetrahydrofurans via a Pd-catalyzed enyne cyclization reaction of propargyl 2-en-4-ynyl ethers under Suzuki coupling conditions is disclosed. The reaction proceeds via Pd activation of the terminal alkyne, cyclization, formation of the allenyl moiety, and reductive elimination, leading to the final product. This methodology offers several advantages, such as easy manipulation, mild reaction conditions, and easily accessible starting materials, providing a range of trisubstituted and 1,1-disubstituted allenyl(methylene)furan derivatives.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\a-2534-9086.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\a-2534-9086.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P037\\f09bf14a-40f3-4edc-a407-5073b415f349_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P037"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\a-2534-9086"
   },
   "source_file": {
     "pdf_name": "a-2534-9086.pdf",
@@ -53,18 +65,15 @@
     "sha256": "7ccccce04563d5c03082b777f9cf1118a07a0faecd8e4a6b779b8f12e5d0d412"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 315,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,30 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_journal",
-      "low_confidence_abstract",
-      "Product classification is approximate because the paper reports allenyl tetrahydrofuran heterocycles, which do not map exactly onto the provided product labels.",
-      "Reaction-type classification is approximate because the transformation is described as a Pd-catalyzed enyne cyclization under Suzuki coupling conditions rather than a direct named category in the supplied label set.",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.796,
+    "warnings": [
+      "empty_authors",
+      "missing_journal",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.416,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "boranes and boronates",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "enyne hydrofunctionalization to allenes",
-      "substrate": "enynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.73,
-    "human_checked": false
   }
 }

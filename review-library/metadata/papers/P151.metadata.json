@@ -2,25 +2,21 @@
   "paper_id": "P151",
   "slug": "3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties",
   "title": {
-    "value": "Cross-Coupling/Cyclization Reactions of Two Different Allenic Moieties",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "3e chemistry a european j 2010 alcaide crosscoupling cyclization reactions of two different allenic moieties",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Benito Alcaide",
-      "Pedro Almendros",
-      "Teresa Martínez del Campo"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2010,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The allene moiety represents an excellent building block for allene cross-coupling cyclization reactions, affording heterocyclic skeletons in a single step. This strategy is of particular interest when two different allene derivatives are involved in a series of metal-catalyzed cross-coupling heterocyclization processes. This Concept article is focused on the Pd-catalyzed union of two different allenic moieties, with cyclization of at least one of them by intramolecular cyclometalation. These new, versatile, and highly effective transformations are complex multistep processes leading to potential privileged structures that could find wide applications in related medicinal chemistry.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "The allene moiety represents an excellent building block for allene cross-coupling cyclization reactions, affording heterocyclic skeletons in a single step. This strategy is of particular interest when two different allene derivatives are involved in a series of metal-catalyzed cross-coupling heterocyclization processes. This Concept article is focused on the Pd-catalyzed union of two different allenic moieties, with cyclization of at least one of them by intramolecular cyclometalation. These new, versatile, and highly effective transformations are complex multistep processes leading to potential privileged structures that could find wide applications in related medicinal chemistry. Keywords: allenes · cross-coupling · cyclization · palladium · selectivity",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3e-Chemistry A European J - 2010 - Alcaide - Cross‐Coupling Cyclization Reactions of Two Different Allenic Moieties.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P151\\180d800b-57e0-4db9-b25f-0394666fbc11_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P151"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\3e-chemistry-a-european-j-2010-alcaide-crosscoupling-cyclization-reactions-of-two-different-allenic-moieties"
   },
   "source_file": {
     "pdf_name": "3e-Chemistry A European J - 2010 - Alcaide - Cross‐Coupling Cyclization Reactions of Two Different Allenic Moieties.pdf",
@@ -53,18 +65,15 @@
     "sha256": "3fae3b79cd0eaa4b30be4331b9ecd05d765512f05ce06f41096056b85e7d9b25"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 131,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,30 +86,14 @@
     "warnings": [
       "empty_authors",
       "missing_doi",
-      "low_confidence_title",
-      "Author surname was normalized from OCR-corrupted 'Mart-nez' to 'Martínez'.",
-      "This is a short Concept/overview article spanning several allenic substrate classes, so the substrate label is left as 'not specified' and the reaction-type label is generalized.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title"
     ],
-    "overall_confidence": 0.764,
+    "overall_confidence": 0.407,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "account or perspective",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "intermolecular functionalization of allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.86,
-    "human_checked": false
   }
 }

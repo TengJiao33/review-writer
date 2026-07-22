@@ -2,37 +2,27 @@
   "paper_id": "P012",
   "slug": "d4cc04384g",
   "title": {
-    "value": "Synthesis of vinylidenecyclopropanes via gold(I)-catalyzed cyclopropanation of vinyl arenes with γ-stannylated propargyl esters",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "d4cc04384g",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Hiroto Mori",
-      "Yusuke Ono",
-      "Shota Nakagawa",
-      "Sota Akima",
-      "Miki Murakami",
-      "Toshinobu Korenaga",
-      "Tadashi Nakaji-Hirabayashi",
-      "Mayumi Kyogoku",
-      "Yoshikazu Horino"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Chemical Communications",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Chem. Commun.",
+    "source": "cite_this_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -42,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The reaction of γ-stannylated propargyl esters in the presence of a cationic gold(I) catalyst affords vinylidenecyclopropane derivatives as a mixture of diastereomers. The cis-geometry of the alkenes is almost entirely retained in the product. DFT calculations suggest the involvement of the gold(I)-stabilized propargyl cation as a resonance form of gold(I)-coordinated allenylidene species.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\d4cc04384g.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\d4cc04384g.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P012\\95cda303-be4e-48cc-9118-be2999ea3bad_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P012"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\d4cc04384g"
   },
   "source_file": {
     "pdf_name": "d4cc04384g.pdf",
@@ -59,18 +65,15 @@
     "sha256": "97407c3a1d19a5178299d57759b12af68fb00913b1da27ed3901b809d61c0e8b"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 93,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,32 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "low_confidence_title",
-      "low_confidence_abstract",
-      "No standalone abstract section was detected; the opening summary paragraph beneath the author list was used as the abstract.",
-      "Greek letter γ was normalized from OCR-corrupted title/abstract text.",
-      "The paper centers on vinylidenecyclopropanes; the product and reaction_type labels are mapped to the closest available allene-taxonomy categories rather than an exact named class in the label set.",
-      "The substrate family is described broadly as γ-stannylated propargyl esters, but the closest allowed substrate label is propargylic acetates because the study predominantly uses acetoxy-type propargylic esters.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.896,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.44,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "gold catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "cycloaddition and annulation of allenes",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.72,
-    "human_checked": false
   }
 }

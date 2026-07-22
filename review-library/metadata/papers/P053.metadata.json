@@ -2,36 +2,27 @@
   "paper_id": "P053",
   "slug": "angew.-chem.-int.-ed.-2023-62-e202214838",
   "title": {
-    "value": "Kinetic Resolution of Azaarylethynyl Tertiary Alcohols by Chiral Brønsted Acid Catalysed Phosphine-Mediated Deoxygenation",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "angew. chem. int. ed. 2023 62 e202214838",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Guanghui Wang",
-      "Lulu Li",
-      "Yifeng Jiang",
-      "Xiaowei Zhao",
-      "Xu Ban",
-      "Tianju Shao",
-      "Yanli Yin",
-      "Zhiyong Jiang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Angew. Chem. Int. Ed.",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Angew. Chem. Int. Ed. 2023",
+    "source": "how_to_cite_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A chiral Brønsted acid catalysed phosphine-mediated deoxygenation protocol is reported. This metal-free method provides a precise kinetic resolution platform for azaarylethynyl tertiary alcohols, which are a broad category of biologically and synthetically important azaarene derivatives. In addition to providing an efficient method for the first asymmetric preparation of these tertiary alcohols, the strategy facilitates the construction of azaaryl-functionalized allenes with good to excellent enantioselectivities. The high selectivity factors (s up to 235), broad substrate scope, and ability to convert azaaryl compounds into both chiral tertiary alcohols and allenes robustly underscore the efficiency and promising utility of this method. The practicability is further validated by the successful synthesis of deuterated allenes with high ee values and substantial incorporation of deuterium using inexpensive D2O as the deuterium source.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Angew. Chem. Int. Ed. 2023, 62, e202214838.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\angew.-chem.-int.-ed.-2023-62-e202214838.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P053\\4ca6d412-20be-4322-822d-aa296aa03f00_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P053"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\angew.-chem.-int.-ed.-2023-62-e202214838"
   },
   "source_file": {
     "pdf_name": "Angew. Chem. Int. Ed. 2023, 62, e202214838.pdf",
@@ -58,18 +65,15 @@
     "sha256": "c340a212ad2509fc92d62994dbc82647f35dbf82174ae31ee475863aaf1ab35a"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:39Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 95,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,27 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.921,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.44,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "trisubstituted allenes",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

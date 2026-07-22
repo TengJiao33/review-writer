@@ -3,29 +3,20 @@
   "slug": "31a-iron-porphyrin-catalyzed-olefination-of-ketenes-with-diazoacetate-for-the-enantioselective-synthesis-of-allenes",
   "title": {
     "value": "Iron Porphyrin-Catalyzed Olefination of Ketenes with Diazoacetate for the Enantioselective Synthesis of Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Chuan-Ying Li",
-      "Xiao-Bing Wang",
-      "Xiu-Li Sun",
-      "Yong Tang",
-      "Jun-Cheng Zheng",
-      "Zheng-Hu Xu",
-      "Yong-Gui Zhou",
-      "Li-Xin Dai"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2007,
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": 2006,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "In summary, we have developed an efficient method for the synthesis of allenes under neutral conditions by olefination of ketenes with EDA in the presence of Ph P and catalytic Fe(TCP)- Cl for the first time. We have also realized its asymmetric version and found that, by employing chiral phosphine instead of PPh3, chiral allenes could be synthesized with high enantioselectivities (93 98% ee) in good yields, providing an easy access to optically active allenic esters. In addition, the results described here confirmed that the mechanism involves ylide olefination. The high enantioselectivity, the neutral condition, and the fact that the phosphine could be recovered and reused make the current method potentially useful in organic synthesis.",
-    "source": "llm_from_body_summary_paragraph",
-    "confidence": 0.72,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\31a-iron-porphyrin-catalyzed-olefination-of-ketenes-with-diazoacetate-for-the-enantioselective-synthesis-of-allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\31a-iron-porphyrin-catalyzed-olefination-of-ketenes-with-diazoacetate-for-the-enantioselective-synthesis-of-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P135\\27d22cde-37ec-4b2f-8313-cb4bdd7147d0_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P135"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\31a-iron-porphyrin-catalyzed-olefination-of-ketenes-with-diazoacetate-for-the-enantioselective-synthesis-of-allenes"
   },
   "source_file": {
     "pdf_name": "31a-iron-porphyrin-catalyzed-olefination-of-ketenes-with-diazoacetate-for-the-enantioselective-synthesis-of-allenes.pdf",
@@ -58,18 +65,15 @@
     "sha256": "490f2c9003a20526aacdb33a65f78638a4960b378240d0ed7efed33c40b22a70"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 35,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,34 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract was visible in the supplied snippets; the abstract field uses the article's concluding summary paragraph instead.",
-      "No formal abstract was visible in the supplied paper evidence; abstract left empty.",
-      "A chiral phosphine/diphosphine controls enantioselectivity, but its subtype cannot be mapped unambiguously to the allowed ligand_or_chiral_source labels.",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.66,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "iron catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allenoates",
-      "reaction_type": "ketene olefination to allenecarboxylates",
-      "substrate": "ketenes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.95,
-    "human_checked": false
   }
 }

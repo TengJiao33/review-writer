@@ -3,8 +3,8 @@
   "slug": "16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides",
   "title": {
     "value": "Synthetic Routes to Allenic Acids and Esters and Their Stereospecific Conversion to Butenolides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
@@ -13,20 +13,20 @@
       "Mark A. Wolf",
       "Eli M. Wallace"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
-    "value": 1997,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
-    "value": "Synthesis",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +36,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The synthesis of allenic acids and esters and their conversion to butenolides has been examined in some detail. Racemic butenolides 10 are efficiently prepared from the esters 8 through treatment with BCl3 and exposure of the derived acid 9 to catalytic AgNO3 in acetone. Conversion of the enantioenriched allenylstannane (S)-17 to the acid 18 through lithiation and subsequent carboxylation with CO2 afforded racemic product. The enantioenriched propargylic mesylates 16 and 22 afforded the allenic esters 19 and 23 with inversion of configuration through treatment with Pd(PPh3)4, CO, and the appropriate alcohol in THF. These reactions proceeded with ca. 10% or less of racemization. The allenic esters 23 yielded the iodobutenolides 24 by reaction with IBr. Hydrogenolysis to the butenolide 25 was achieved with Pd(PPh3)4 and Bu3SnH. Alternatively, the allenic acids 27 could be prepared directly from mesylates 22 with Pd(PPh3)4 and CO in aqueous THF. Cyclization to the butenolides 25 was achieved, as before, with catalytic AgNO3.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "The synthesis of allenic acids and esters and their conversion to butenolides has been examined in some detail. Racemic butenolides 10 are efficiently prepared from the esters 8 through treatment with $\\mathbf { B C l _ { 3 } }$ and exposure of the derived acid 9 to catalytic ${ \\bf A g N O _ { 3 } }$ in acetone. Conversion of the enantioenriched allenylstannane (S)-17 to the acid 18 through lithiation and subsequent carboxylation with $\\mathbf { C O _ { 2 } }$ afforded racemic product. The enantioenriched propargylic mesylates 16 and 22 afforded the allenic esters 19 and 23 with inversion of configuration through treatment with $\\mathrm { P d } ( \\mathrm { P h } _ { 3 } \\mathrm { P } ) _ { 4 }$, CO, and the appropriate alcohol in THF. These reactions proceeded with ca. 10% or less of racemization. The allenic esters 23 yielded the iodobutenolides 24 by reaction with IBr. Hydrogenolysis to the butenolide 25 was achieved with Pd(PPh3)4 and $\\mathbf { B u _ { 3 } S n H }.$. Alternatively, the allenic acids 27 could be prepared directly from mesylates 22 with $\\mathbf { P d } ( \\mathbf { P P h } _ { 3 } ) _ { 4 }$ and CO in aqueous THF. Cyclization to the butenolides 25 was achieved, as before, with catalytic ${ \\bf A g N O _ { 3 } }$.",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P104\\8c029334-5e11-4e39-9199-89dd917a0953_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P104"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides\\8c029334-5e11-4e39-9199-89dd917a0953_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides"
   },
   "source_file": {
     "pdf_name": "16-synthetic-routes-to-allenic-acids-and-esters-and-their-stereospecific-conversion-to-butenolides.pdf",
@@ -53,18 +69,15 @@
     "sha256": "27c2c7087a358e40a43dfa03521f989cabdb5ccf27fcc985173d3fc25863f2d4"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 85,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,32 +86,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "year"
+    ],
     "warnings": [
-      "missing_year",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "The paper spans allenic acids, allenic esters, and downstream butenolides; product and reaction tags prioritize the Pd/CO allenoate-forming sequence emphasized in the abstract.",
-      "Silver-catalyzed cyclization to butenolides is also a major component, but catalyst classification selects the central allene-forming palladium step.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.68,
+    "overall_confidence": 0.393,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "mesylate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenoates",
-      "reaction_type": "carbonylative synthesis of allenes and allenoates",
-      "substrate": "propargylic mesylates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.82,
-    "human_checked": false
   }
 }

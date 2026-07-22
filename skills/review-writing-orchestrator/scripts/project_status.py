@@ -3,9 +3,28 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+import re
 from pathlib import Path
 from typing import Any
+
+
+REFERENCE_HEADING_RE = re.compile(
+    r"^\s*#{1,6}\s*(references|reference list|bibliography|cited literature)\s*$",
+    re.I | re.M,
+)
+REFERENCE_ITEM_RE = re.compile(r"^\s*(?:\[(\d+)\]|(\d+)[.)])\s+", re.M)
+TABLE_SEPARATOR_RE = re.compile(
+    r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$",
+    re.M,
+)
+IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
+WORD_RE = re.compile(r"\b[A-Za-z][A-Za-z'-]*\b|[\u4e00-\u9fff]")
+COMPREHENSIVE_DELIVERY_FLOOR = {
+    "word_like_count": 8000,
+    "reference_count": 25,
+    "table_count": 2,
+    "figure_count": 2,
+}
 
 
 STAGES: list[dict[str, Any]] = [
@@ -17,10 +36,7 @@ STAGES: list[dict[str, Any]] = [
         "required": [
             "topic_input.md",
             "topic_contract.json",
-            "keyword_set.draft.json",
-            "combined_results_by_keyword.json",
             "selected_discovery_results.json",
-            "human_check_state.json",
             "screening_validation.json",
         ],
     },
@@ -30,17 +46,9 @@ STAGES: list[dict[str, Any]] = [
         "dir": "01_matrix_outline",
         "skill": "review-literature-matrix-outline",
         "required": [
-            "paper_reading_notes.json",
             "literature_matrix.json",
-            "literature_matrix.csv",
-            "selected_outline.md",
-            "matrix_outline_report.md",
             "matrix_validation.json",
-            "matrix_validation.md",
-            "literature_portfolio.json",
             "method_cards.json",
-            "coverage_ledger.json",
-            "portfolio_report.md",
         ],
     },
     {
@@ -50,9 +58,7 @@ STAGES: list[dict[str, Any]] = [
         "skill": "review-section-blueprint",
         "required": [
             "section_blueprint.json",
-            "section_writing_plan.md",
             "blueprint_validation.json",
-            "blueprint_validation.md",
         ],
     },
     {
@@ -62,11 +68,7 @@ STAGES: list[dict[str, Any]] = [
         "skill": "review-section-drafting-figure-picking",
         "required": [
             "section_drafts.json",
-            "section_drafts.md",
-            "paper_figure_inventory.json",
-            "paper_figure_candidates.json",
             "figure_candidates.json",
-            "section_drafting_report.md",
             "section_draft_validation.json",
         ],
     },
@@ -80,7 +82,6 @@ STAGES: list[dict[str, Any]] = [
             "source_figure_manifest.json",
             "redrawn_figure_manifest.json",
             "figure_fidelity_review.json",
-            "figure_redraw_report.md",
         ],
         "skip_anchor": "skip_reason.md",
     },
@@ -93,8 +94,6 @@ STAGES: list[dict[str, Any]] = [
             "first_draft.md",
             "citations.json",
             "merge_validation.json",
-            "merge_report.md",
-            "remaining_issues.md",
         ],
     },
     {
@@ -104,23 +103,19 @@ STAGES: list[dict[str, Any]] = [
         "skill": "review-final-audit-release",
         "required": [
             "format_scan.json",
-            "format_scan.md",
             "semantic_audit.json",
             "semantic_audit_queue.json",
-            "content_audit_report.md",
-            "format_audit_report.md",
             "final_draft.md",
-            "final_remaining_issues.md",
-            "release_report.md",
         ],
     },
     {
         "id": "docx_export",
-        "name": "DOCX export",
+        "name": "DOCX and PDF export",
         "dir": "05_final_audit",
         "skill": "review-export-docx",
         "required": [
             "final_draft.docx",
+            "final_draft.pdf",
             "docx_audit.json",
             "render_qa_report.json",
         ],
@@ -142,17 +137,42 @@ def discover_projects(review_root: Path) -> list[str]:
     return sorted(p.name for p in root.iterdir() if p.is_dir())
 
 
+def comprehensive_delivery_floor_issues(project: Path) -> list[str]:
+    contract = read_json(project / "00_discovery" / "topic_contract.json")
+    if not isinstance(contract, dict) or str(contract.get("review_profile") or "").lower() != "comprehensive":
+        return []
+    draft = project / "05_final_audit" / "final_draft.md"
+    if not draft.exists():
+        return []
+    text = draft.read_text(encoding="utf-8", errors="ignore")
+    references = REFERENCE_HEADING_RE.search(text)
+    body = text[: references.start()] if references else text
+    reference_tail = text[references.end():] if references else ""
+    metrics = {
+        "word_like_count": len(WORD_RE.findall(body)),
+        "reference_count": len(REFERENCE_ITEM_RE.findall(reference_tail)),
+        "table_count": len(TABLE_SEPARATOR_RE.findall(body)),
+        "figure_count": len(IMAGE_RE.findall(body)),
+    }
+    return [
+        f"comprehensive_delivery_floor:{metric}:{metrics[metric]}/{minimum}"
+        for metric, minimum in COMPREHENSIVE_DELIVERY_FLOOR.items()
+        if metrics[metric] < minimum
+    ]
+
+
 def run_record_issues(project: Path, stages: list[dict[str, Any]]) -> list[str]:
+    """Diagnose an existing execution log without making logging a release gate."""
     record_path = project / "run_record.md"
     events_path = project / "run_events.jsonl"
-    issues = []
-    if not record_path.exists():
-        issues.append("project_run_record_missing")
-    elif "Generated from `run_events.jsonl`" not in record_path.read_text(encoding="utf-8", errors="ignore"):
+    issues: list[str] = []
+    if not record_path.exists() and not events_path.exists():
+        return issues
+    if record_path.exists() and "Generated from `run_events.jsonl`" not in record_path.read_text(encoding="utf-8", errors="ignore"):
         issues.append("project_run_record_not_generated_from_events")
     if not events_path.exists():
-        return issues + ["project_run_events_missing"]
-    events = []
+        return issues + ["run_record_exists_without_run_events"]
+    valid_stages = {stage["id"] for stage in STAGES} | {"status"}
     for line_no, line in enumerate(events_path.read_text(encoding="utf-8", errors="ignore").splitlines(), start=1):
         if not line.strip():
             continue
@@ -166,42 +186,8 @@ def run_record_issues(project: Path, stages: list[dict[str, Any]]) -> list[str]:
             continue
         if str(event.get("project_id") or "") != project.name:
             issues.append(f"run_event_project_mismatch:{line_no}")
-        if str(event.get("stage") or "") not in {stage["id"] for stage in STAGES} | {"status"}:
+        if str(event.get("stage") or "") not in valid_stages:
             issues.append(f"invalid_run_event_stage:{line_no}")
-        parsed_times: dict[str, datetime] = {}
-        for key in ("started_at", "finished_at"):
-            value = str(event.get(key) or "")
-            try:
-                parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
-                if "T" not in value or parsed.tzinfo is None:
-                    raise ValueError("timestamp must include time and timezone")
-                parsed_times[key] = parsed
-            except Exception:
-                issues.append(f"invalid_run_event_timestamp:{line_no}:{key}")
-        if (
-            "started_at" in parsed_times
-            and "finished_at" in parsed_times
-            and parsed_times["finished_at"] < parsed_times["started_at"]
-        ):
-            issues.append(f"run_event_time_order_invalid:{line_no}")
-        if not str(event.get("cwd") or "").strip():
-            issues.append(f"run_event_cwd_missing:{line_no}")
-        if not isinstance(event.get("command"), list) or not event.get("command"):
-            issues.append(f"run_event_command_missing:{line_no}")
-        if not isinstance(event.get("exit_code"), int):
-            issues.append(f"run_event_exit_code_missing:{line_no}")
-        events.append(event)
-    by_stage: dict[str, list[dict[str, Any]]] = {}
-    for event in events:
-        by_stage.setdefault(str(event.get("stage") or ""), []).append(event)
-    for stage in stages:
-        if not stage.get("complete"):
-            continue
-        stage_events = by_stage.get(stage["id"], [])
-        if not stage_events:
-            issues.append(f"run_event_missing_for_completed_stage:{stage['id']}")
-        elif stage_events[-1].get("exit_code") != 0:
-            issues.append(f"last_run_event_failed_for_stage:{stage['id']}")
     return list(dict.fromkeys(issues))
 
 
@@ -396,6 +382,39 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                 semantic_issues.append("docx_page_inspection_not_passed")
             if not render_report.get("renderer"):
                 semantic_issues.append("docx_renderer_identity_missing")
+            rendered_pdf = Path(str(render_report.get("output_pdf") or ""))
+            rendered_docx = Path(str(render_report.get("input_docx") or ""))
+            expected_pdf = (project / "05_final_audit" / "final_draft.pdf").resolve()
+            expected_docx = (project / "05_final_audit" / "final_draft.docx").resolve()
+            if not rendered_pdf.is_absolute():
+                rendered_pdf = (project / "05_final_audit" / rendered_pdf).resolve()
+            if not rendered_docx.is_absolute():
+                rendered_docx = (project / "05_final_audit" / rendered_docx).resolve()
+            if rendered_pdf != expected_pdf:
+                semantic_issues.append("final_pdf_not_canonical_output")
+            if rendered_docx != expected_docx:
+                semantic_issues.append("final_docx_not_canonical_render_input")
+            if not rendered_pdf.exists():
+                semantic_issues.append("rendered_pdf_missing")
+            elif expected_docx.exists() and rendered_pdf.stat().st_mtime < expected_docx.stat().st_mtime:
+                semantic_issues.append("rendered_pdf_older_than_final_docx")
+            if not isinstance(render_report.get("page_count"), int) or render_report.get("page_count", 0) < 1:
+                semantic_issues.append("final_pdf_page_count_missing")
+            page_images = render_report.get("page_images")
+            if not isinstance(page_images, list) or len(page_images) != render_report.get("page_count"):
+                semantic_issues.append("rendered_page_image_count_mismatch")
+                page_images = []
+            missing_page_images = []
+            for raw_path in page_images:
+                page_path = Path(str(raw_path))
+                if not page_path.is_absolute():
+                    page_path = (project / "05_final_audit" / page_path).resolve()
+                if not page_path.exists() or not page_path.is_file():
+                    missing_page_images.append(str(raw_path))
+            if missing_page_images:
+                semantic_issues.append(
+                    f"rendered_page_images_missing:{len(missing_page_images)}"
+                )
         elif "render_qa_report.json" not in missing:
             semantic_issues.append("invalid_render_qa_report")
     if stage["id"] in {"first_draft", "final_audit"}:
@@ -417,6 +436,9 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
             if not has_references:
                 semantic_issues.append("missing_references_section")
         if stage["id"] == "final_audit":
+            for floor_issue in comprehensive_delivery_floor_issues(project):
+                if floor_issue not in semantic_issues:
+                    semantic_issues.append(floor_issue)
             scan = read_json(stage_dir / "format_scan.json")
             if isinstance(scan, dict):
                 blockers = scan.get("blocking_issues") or []
@@ -454,13 +476,6 @@ def summarize(review_root: Path, project_id: str) -> dict[str, Any]:
         }
 
     stages = [stage_status(project, stage) for stage in STAGES]
-    upstream_incomplete = False
-    for stage in stages:
-        if upstream_incomplete and stage["complete"]:
-            stage["complete"] = False
-            stage["semantic_issues"].append("upstream_stage_incomplete")
-        if not stage["complete"]:
-            upstream_incomplete = True
     completed = [s for s in stages if s["complete"]]
     # Skip stages explicitly opted out by the user (skip_reason.md present).
     next_stage = next((s for s in stages if not s["complete"] and not s.get("skipped_by_user")), None)
@@ -517,7 +532,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--require-complete",
         action="store_true",
-        help="Return a non-zero exit code unless every stage and the run record are complete.",
+        help="Return a non-zero exit code unless every core deliverable is complete.",
     )
     return parser.parse_args()
 
@@ -532,7 +547,6 @@ def main() -> int:
     if args.require_complete and (
         not summary.get("exists")
         or summary.get("next_stage") is not None
-        or bool(summary.get("workflow_issues"))
     ):
         return 1
     return 0

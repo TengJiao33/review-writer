@@ -66,6 +66,7 @@ def _markdown_contract(path: Path) -> dict[str, Any]:
     return {
         "manuscript_title": scalar("manuscript_title"),
         "retrieval_query": scalar("retrieval_query"),
+        "review_profile": scalar("review_profile"),
         "central_question": scalar("central_question"),
         "important_coverage": items("important_coverage"),
         "inclusion_criteria": items("inclusion_criteria"),
@@ -172,8 +173,30 @@ def tokenize(text: str) -> list[str]:
     return dedupe([w.lower() for w in re.findall(r"[A-Za-z0-9][A-Za-z0-9'′\\-]*", text or "") if len(w) >= 3])
 
 
+ALLENE_DOMAIN_TERMS = (
+    "allene",
+    "allenes",
+    "allenation",
+    "allenyl",
+    "propargyl",
+    "propargylic",
+)
+
+
+def contains_term(text: str, term: str) -> bool:
+    """Match a token or phrase without allowing arbitrary substring hits."""
+    text = re.sub(r"\bpoly\s*\(\s*([a-z0-9]+)", r"poly\1", text.lower())
+    normalized_text = re.sub(r"[^a-z0-9]+", " ", text).strip()
+    normalized_term = re.sub(r"[^a-z0-9]+", " ", term.lower()).strip()
+    if not normalized_term:
+        return False
+    return bool(re.search(rf"(?:^| ){re.escape(normalized_term)}(?: |$)", normalized_text))
+
+
 def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]:
     text = " ".join([topic] + user_keywords).lower()
+    if not any(contains_term(text, term) for term in ALLENE_DOMAIN_TERMS):
+        return []
     rules = [
         ("nickel catalysis", "catalyst_or_method", ["nickel", "ni-catalyzed", "ni catalyzed"]),
         ("polysubstituted allenes", "product", ["polysubstituted allene", "substituted allene"]),
@@ -185,7 +208,28 @@ def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]
         ("propargylic carbonates", "substrate", ["carbonate"]),
         ("propargylic phosphates", "substrate", ["phosphate"]),
         ("propargylic halides", "substrate", ["bromide"]),
-        ("propargylic sulfinates and sulfonates", "substrate", ["sulfide", "sulfinate", "sulfonate", "tosylate"]),
+        (
+            "propargylic sulfinates and sulfonates",
+            "substrate",
+            [
+                "propargylic sulfide",
+                "propargylic sulfides",
+                "propargyl sulfide",
+                "propargyl sulfides",
+                "propargylic sulfinate",
+                "propargylic sulfinates",
+                "propargyl sulfinate",
+                "propargyl sulfinates",
+                "propargylic sulfonate",
+                "propargylic sulfonates",
+                "propargyl sulfonate",
+                "propargyl sulfonates",
+                "propargylic tosylate",
+                "propargylic tosylates",
+                "propargyl tosylate",
+                "propargyl tosylates",
+            ],
+        ),
         ("propargylic dichlorides", "substrate", ["dichloride", "gem-dichloride"]),
         ("propargylic substitution and cross-coupling", "reaction_type", ["sn2", "substitution"]),
         ("propargylic substitution and cross-coupling", "reaction_type", ["allenylation"]),
@@ -209,7 +253,7 @@ def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]
         # fallback treated a generic topic token such as "catalysis" as a
         # reason to add every metal-catalysis rule, which polluted capped
         # candidate pools before screening could make a relevance decision.
-        if any(n in text for n in needles):
+        if any(contains_term(text, needle) for needle in needles):
             candidates.append({"keyword": kw, "category": category, "reason": "rule expansion from topic/user keywords"})
     return unique_keyword_dicts(candidates)
 
@@ -239,6 +283,14 @@ def build_keyword_set(topic: str, user_keywords: list[str]) -> dict[str, Any]:
                 merged[key]["category"] = item["category"]
         else:
             merged[key] = {"keyword": item["keyword"], "category": item["category"], "source": ["agent"], "keep": True, "reason": item.get("reason", "")}
+    if not agent and topic.lower() not in merged:
+        merged[topic.lower()] = {
+            "keyword": topic,
+            "category": "topic",
+            "source": ["topic_fallback"],
+            "keep": True,
+            "reason": "literal topic fallback because no specialized rule matched",
+        }
     return {
         "user_topic": topic,
         "user_keywords": user_keywords,
@@ -390,89 +442,173 @@ def local_search_by_keyword(
     return grouped
 
 
-def is_supplementary_crossref_record(item: dict[str, Any]) -> bool:
+CROSSREF_USER_AGENT = "review-writer-discovery/0.3"
+
+
+def is_excluded_crossref_record(item: dict[str, Any]) -> bool:
     record_type = str(item.get("type") or "").lower()
     doi = str(item.get("DOI") or "").lower()
     title = " ".join(item.get("title") or []).lower()
+    editorial_title = bool(
+        re.search(
+            r"^(?:peer[ -]?review|review(?:er)? report|review for|decision letter|"
+            r"editor(?:ial)? decision|author response|response to (?:the )?reviewers?)\b",
+            title.strip(),
+        )
+    )
+    editorial_doi = bool(
+        re.search(
+            r"/v\d+/(?:review\d*|decision\d*|response\d*|peer-review\d*)$",
+            doi,
+        )
+    )
     return (
-        record_type == "component"
+        record_type in {"component", "peer-review"}
         or bool(re.search(r"\.s\d+$", doi))
         or "supporting information" in title
         or "supplementary material" in title
+        or editorial_title
+        or editorial_doi
     )
 
 
+def is_supplementary_crossref_record(item: dict[str, Any]) -> bool:
+    """Backward-compatible name for the broader non-article filter."""
+    return is_excluded_crossref_record(item)
+
+
+def crossref_request_json(url: str) -> dict[str, Any]:
+    req = urllib.request.Request(url, headers={"User-Agent": CROSSREF_USER_AGENT})
+    with urllib.request.urlopen(req, context=ssl.create_default_context(), timeout=20) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def crossref_search_items(
+    query: str,
+    rows: int,
+    query_field: str = "query.bibliographic",
+) -> list[dict[str, Any]]:
+    params = {
+        query_field: query,
+        "filter": "type:journal-article",
+        "rows": str(min(max(rows, 1), 100)),
+    }
+    url = "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
+    return list(crossref_request_json(url).get("message", {}).get("items", []))
+
+
+def fetch_crossref_work(doi: str) -> dict[str, Any]:
+    encoded = urllib.parse.quote(_normalized_doi(doi), safe="")
+    return dict(crossref_request_json(f"https://api.crossref.org/works/{encoded}").get("message") or {})
+
+
+def fetch_crossref_works(dois: list[str], batch_size: int = 20) -> list[dict[str, Any]]:
+    """Hydrate arbitrary DOI sets with Crossref's repeatable DOI filter."""
+    normalized = dedupe([_normalized_doi(doi) for doi in dois if _normalized_doi(doi)])
+    works: list[dict[str, Any]] = []
+    for start in range(0, len(normalized), max(batch_size, 1)):
+        batch = normalized[start : start + max(batch_size, 1)]
+        filters = ["type:journal-article", *(f"doi:{doi}" for doi in batch)]
+        params = {"filter": ",".join(filters), "rows": str(len(batch))}
+        url = "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
+        works.extend(crossref_request_json(url).get("message", {}).get("items", []))
+    return works
+
+
+def _crossref_query(keyword: str, topic: str) -> str:
+    if re.sub(r"\s+", " ", keyword).strip().lower() == re.sub(r"\s+", " ", topic).strip().lower():
+        return topic.strip()
+    return f"{keyword} {topic}".strip()
+
+
+def crossref_item_to_result(
+    item: dict[str, Any],
+    keyword: str,
+    topic: str,
+    *,
+    source: str = "crossref",
+    reason: str = "Crossref title/snippet/topic/DOI overlap score",
+) -> dict[str, Any]:
+    title = " ".join(item.get("title") or []) or "(untitled)"
+    container = " ".join(item.get("container-title") or [])
+    abstract = re.sub("<[^>]+>", " ", item.get("abstract") or "")
+    hay = " ".join([title, container, abstract]).lower()
+    topic_terms = tokenize(topic)
+    score = 0.0
+    if keyword.lower() in hay:
+        score += 0.55
+    score += min(sum(1 for term in topic_terms if term in hay) * 0.04, 0.32)
+    if item.get("DOI"):
+        score += 0.08
+    year = None
+    for date_key in ("issued", "published", "published-print", "published-online"):
+        date_parts = item.get(date_key, {}).get("date-parts") or []
+        if date_parts and date_parts[0]:
+            year = date_parts[0][0]
+            break
+    if isinstance(year, int) and year >= 2020:
+        score += 0.05
+    doi = item.get("DOI")
+    link = f"https://doi.org/{doi}" if doi else item.get("URL", "")
+    pdf_links = [
+        str(entry.get("URL") or "").strip()
+        for entry in item.get("link") or []
+        if isinstance(entry, dict)
+        and "pdf" in str(entry.get("content-type") or "").lower()
+        and str(entry.get("URL") or "").strip()
+    ]
+    license_urls = [
+        str(entry.get("URL") or "").strip()
+        for entry in item.get("license") or []
+        if isinstance(entry, dict) and str(entry.get("URL") or "").strip()
+    ]
+    has_open_license = any(
+        "creativecommons.org" in license_url.lower() for license_url in license_urls
+    )
+    resource = item.get("resource") or {}
+    primary_resource = resource.get("primary") if isinstance(resource, dict) else {}
+    primary_url = (
+        str(primary_resource.get("URL") or "").strip()
+        if isinstance(primary_resource, dict)
+        else ""
+    )
+    open_pdf_url = pdf_links[0] if pdf_links and has_open_license else ""
+    open_full_text_url = (open_pdf_url or primary_url) if has_open_license else ""
+    return {
+        "external_id": doi or str(item.get("URL") or ""),
+        "title": title,
+        "authors": format_crossref_authors(item.get("author", [])),
+        "year": year,
+        "journal": container,
+        "doi": doi,
+        "url": link,
+        "abstract": re.sub(r"\s+", " ", abstract).strip()[:1200],
+        "citation_count": item.get("is-referenced-by-count"),
+        "record_type": item.get("type"),
+        "publication_types": [item.get("type")] if item.get("type") else [],
+        "open_access_pdf_url": open_pdf_url,
+        "open_access_full_text_url": open_full_text_url,
+        "publisher_pdf_url_candidate": pdf_links[0] if pdf_links else "",
+        "license_urls": license_urls,
+        "score": round(min(score, 1.0), 4),
+        "reason": reason,
+        "keep": score > 0.15,
+        "source": source,
+    }
+
+
 def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]:
-    query = f"{keyword} {topic} review paper DOI"
+    query = _crossref_query(keyword, topic)
     rows = min(max(limit * 4, 20), 100)
-    url = "https://api.crossref.org/works?" + urllib.parse.urlencode({"query.bibliographic": query, "rows": str(rows)})
-    req = urllib.request.Request(url, headers={"User-Agent": "review-writer-discovery/0.1 (mailto:example@example.com)"})
-    ctx = ssl.create_default_context()
     try:
-        with urllib.request.urlopen(req, context=ctx, timeout=20) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
+        items = crossref_search_items(query, rows)
     except Exception as exc:
         return [{"title": f"WEB_SEARCH_FAILED: {type(exc).__name__}", "url": "", "score": 0, "reason": str(exc), "keep": False}]
-    results = []
-    topic_terms = tokenize(topic)
-    for item in data.get("message", {}).get("items", []):
-        if is_supplementary_crossref_record(item):
+    results: list[dict[str, Any]] = []
+    for item in items:
+        if is_excluded_crossref_record(item):
             continue
-        title = " ".join(item.get("title") or []) or "(untitled)"
-        container = " ".join(item.get("container-title") or [])
-        abstract = re.sub("<[^>]+>", " ", item.get("abstract") or "")
-        hay = " ".join([title, container, abstract]).lower()
-        score = 0.0
-        if keyword.lower() in hay:
-            score += 0.55
-        score += min(sum(1 for term in topic_terms if term in hay) * 0.04, 0.32)
-        if item.get("DOI"):
-            score += 0.08
-        year = None
-        issued = item.get("issued", {}).get("date-parts") or []
-        if issued and issued[0]:
-            year = issued[0][0]
-            if isinstance(year, int) and year >= 2020:
-                score += 0.05
-        doi = item.get("DOI")
-        link = f"https://doi.org/{doi}" if doi else item.get("URL", "")
-        pdf_links = [
-            str(entry.get("URL") or "").strip()
-            for entry in item.get("link") or []
-            if isinstance(entry, dict)
-            and "pdf" in str(entry.get("content-type") or "").lower()
-            and str(entry.get("URL") or "").strip()
-        ]
-        license_urls = [
-            str(entry.get("URL") or "").strip()
-            for entry in item.get("license") or []
-            if isinstance(entry, dict) and str(entry.get("URL") or "").strip()
-        ]
-        has_open_license = any(
-            "creativecommons.org" in license_url.lower() for license_url in license_urls
-        )
-        results.append(
-            {
-                "external_id": doi or str(item.get("URL") or ""),
-                "title": title,
-                "authors": format_crossref_authors(item.get("author", [])),
-                "year": year,
-                "journal": container,
-                "doi": doi,
-                "url": link,
-                "abstract": re.sub(r"\s+", " ", abstract).strip()[:1200],
-                "citation_count": item.get("is-referenced-by-count"),
-                "record_type": item.get("type"),
-                "publication_types": [item.get("type")] if item.get("type") else [],
-                "open_access_pdf_url": pdf_links[0] if pdf_links and has_open_license else "",
-                "publisher_pdf_url_candidate": pdf_links[0] if pdf_links else "",
-                "license_urls": license_urls,
-                "score": round(min(score, 1.0), 4),
-                "reason": "Crossref title/snippet/topic/DOI overlap score",
-                "keep": score > 0.15,
-                "source": "crossref",
-            }
-        )
+        results.append(crossref_item_to_result(item, keyword, topic))
     results.sort(key=lambda r: (r["score"], r.get("year") or 0), reverse=True)
     return results[:limit]
 
@@ -484,6 +620,332 @@ def format_crossref_authors(authors: list[dict[str, Any]]) -> list[str]:
         if name:
             out.append(name)
     return out
+
+
+REVIEW_SEED_RE = re.compile(
+    r"\b(review|perspective|guidelines?|state of the art|recent advances|research progress)\b",
+    re.I,
+)
+
+REFERENCE_SCREEN_STOPWORDS = {
+    "about", "after", "against", "and", "based", "between", "chemical", "chemistry",
+    "control", "effect", "effects", "formation", "from", "materials", "paper", "process",
+    "for", "reaction", "review", "state", "studies", "study", "the", "their",
+    "through", "using", "with",
+}
+
+
+def _reference_screen_terms(topic: str, keywords: list[str]) -> list[str]:
+    return [
+        term
+        for term in tokenize(" ".join([topic] + keywords[:4]))
+        if term not in REFERENCE_SCREEN_STOPWORDS
+    ]
+
+
+def _reference_relevance(title: str, topic: str, keywords: list[str]) -> tuple[float, list[str]]:
+    signal = title.lower()
+    terms = _reference_screen_terms(topic, keywords)
+    hits = dedupe([term for term in terms if contains_term(signal, term)])
+    phrase_hit = any(
+        len(tokenize(keyword)) >= 2 and keyword.lower() in signal
+        for keyword in keywords
+    )
+    score = min(0.12 + len(hits) * 0.09 + (0.28 if phrase_hit else 0.0), 0.95)
+    return score, hits
+
+
+def _reference_stub(reference: dict[str, Any], seed_doi: str) -> dict[str, Any] | None:
+    doi = str(reference.get("DOI") or "").strip()
+    if not doi:
+        return None
+    title = re.sub(r"\s+", " ", str(reference.get("article-title") or "")).strip()
+    return {
+        "doi": doi,
+        "title": title,
+        "journal": str(reference.get("journal-title") or "").strip(),
+        "year": reference.get("year"),
+        "authors": [str(reference.get("author") or "").strip()] if reference.get("author") else [],
+        "cited_by_review_dois": [seed_doi],
+    }
+
+
+def crossref_reference_expansion(
+    topic: str,
+    keywords: list[str],
+    *,
+    seed_limit: int = 2,
+    result_limit: int = 30,
+) -> dict[str, Any]:
+    """Find close reviews, expand deposited references, and screen them by topic."""
+    if result_limit <= 0:
+        return {"status": "disabled", "seed_query": "", "seeds": [], "results": [], "errors": []}
+    seed_basis = keywords[0] if keywords else topic
+    concise_terms = _reference_screen_terms(topic, keywords)[:4]
+    anchor_terms = concise_terms[:2]
+    acronyms = dedupe(re.findall(r"\b[A-Z][A-Z0-9]{1,7}\b", " ".join(keywords)))
+    method_terms = [
+        term
+        for term in _reference_screen_terms(topic, keywords)
+        if term in {"enzyme", "enzymatic", "hydrolase"} or term.endswith("ase")
+    ]
+    seed_queries = dedupe(
+        [
+            f"{seed_basis} review".strip(),
+            f"{' '.join(concise_terms)} review".strip(),
+            f"{' '.join(anchor_terms)} review".strip(),
+            *(
+                f"{acronym} {method_term} guidelines"
+                for acronym in acronyms[:2]
+                for method_term in method_terms[:3]
+            ),
+        ]
+    )
+    seed_query = seed_queries[0]
+    errors: list[str] = []
+    raw_seed_items: list[dict[str, Any]] = []
+    seen_seed_dois: set[str] = set()
+    for index, query in enumerate(seed_queries):
+        try:
+            items = crossref_search_items(
+                query,
+                30,
+                query_field="query.title" if index == 0 else "query.bibliographic",
+            )
+        except Exception as exc:
+            errors.append(f"seed search {query}: {exc}")
+            continue
+        for item in items:
+            doi = _normalized_doi(item.get("DOI"))
+            if doi and doi not in seen_seed_dois:
+                seen_seed_dois.add(doi)
+                raw_seed_items.append(item)
+    if not raw_seed_items and errors:
+        return {
+            "status": "error",
+            "seed_query": seed_query,
+            "seed_queries": seed_queries,
+            "seeds": [],
+            "results": [],
+            "errors": dedupe(errors),
+        }
+
+    seed_candidates: list[dict[str, Any]] = []
+    for item in raw_seed_items:
+        title = " ".join(item.get("title") or [])
+        doi = str(item.get("DOI") or "").strip()
+        relevance, hits = _reference_relevance(title, topic, keywords)
+        anchor_match = all(contains_term(title, term) for term in anchor_terms)
+        guideline_match = "guideline" in title.lower() and len(hits) >= 2
+        if (
+            not doi
+            or is_excluded_crossref_record(item)
+            or not REVIEW_SEED_RE.search(title)
+            or not (anchor_match or guideline_match)
+            or (
+                len(hits) < min(3, len(_reference_screen_terms(topic, keywords)))
+                and not guideline_match
+            )
+        ):
+            continue
+        seed_candidates.append(
+            {
+                "item": item,
+                "relevance": relevance,
+                "hits": hits,
+                "anchor_match": anchor_match,
+                "guideline_match": guideline_match,
+            }
+        )
+    seed_candidates.sort(key=lambda row: row["relevance"], reverse=True)
+
+    detailed_candidates: list[dict[str, Any]] = []
+    detail_pool = seed_candidates[:8]
+    for candidate in seed_candidates:
+        if candidate["guideline_match"] and candidate not in detail_pool:
+            detail_pool.append(candidate)
+    for candidate in detail_pool:
+        doi = str(candidate["item"].get("DOI") or "")
+        try:
+            work = fetch_crossref_work(doi)
+        except Exception as exc:
+            errors.append(f"seed {doi}: {exc}")
+            continue
+        references = list(work.get("reference") or [])
+        doi_references = sum(bool(ref.get("DOI")) for ref in references if isinstance(ref, dict))
+        titled_references = sum(bool(ref.get("article-title")) for ref in references if isinstance(ref, dict))
+        candidate_quality = (
+            float(candidate["relevance"])
+            + min(doi_references / 200.0, 0.35)
+            + min(titled_references / max(doi_references, 1), 1.0) * 0.25
+        )
+        detailed_candidates.append(
+            {
+                **candidate,
+                "work": work,
+                "doi_reference_count": doi_references,
+                "titled_reference_count": titled_references,
+                "candidate_quality": round(candidate_quality, 4),
+            }
+        )
+    detailed_candidates.sort(key=lambda row: row["candidate_quality"], reverse=True)
+    best_quality = detailed_candidates[0]["candidate_quality"] if detailed_candidates else 0.0
+    selected_seeds = [
+        row
+        for row in detailed_candidates
+        if row["candidate_quality"] >= best_quality - 0.12
+    ][: max(seed_limit, 0)]
+    if len(selected_seeds) < max(seed_limit, 0):
+        for row in detailed_candidates:
+            if row.get("guideline_match") and row not in selected_seeds:
+                selected_seeds.append(row)
+                break
+
+    seed_reports: list[dict[str, Any]] = []
+    seed_results: list[dict[str, Any]] = []
+    reference_stubs: dict[str, dict[str, Any]] = {}
+    for selected in selected_seeds:
+        work = selected["work"]
+        seed_doi = str(work.get("DOI") or selected["item"].get("DOI") or "")
+        seed_title = " ".join(work.get("title") or selected["item"].get("title") or [])
+        seed_reports.append(
+            {
+                "doi": seed_doi,
+                "title": seed_title,
+                "topic_term_hits": selected["hits"],
+                "deposited_reference_count": len(work.get("reference") or []),
+                "references_with_doi_count": selected["doi_reference_count"],
+                "references_with_title_count": selected["titled_reference_count"],
+            }
+        )
+        seed_row = crossref_item_to_result(
+            work,
+            seed_basis,
+            topic,
+            source="crossref_review_seed",
+            reason="Close review selected as a reference-expansion seed",
+        )
+        seed_row["keep"] = True
+        seed_row["reference_expansion_role"] = "seed_review"
+        seed_results.append(seed_row)
+        for reference in work.get("reference") or []:
+            if not isinstance(reference, dict):
+                continue
+            stub = _reference_stub(reference, seed_doi)
+            if stub is None:
+                continue
+            key = _normalized_doi(stub["doi"])
+            if key in reference_stubs:
+                reference_stubs[key]["cited_by_review_dois"] = dedupe(
+                    reference_stubs[key]["cited_by_review_dois"] + [seed_doi]
+                )
+            else:
+                reference_stubs[key] = stub
+
+    # Hydrate the bounded reference pool in batches. This gives DOI-only
+    # deposits the same title/OA screen and supplies citation counts for a
+    # small high-impact lane alongside the top lexical matches.
+    try:
+        hydrated_references = fetch_crossref_works(list(reference_stubs)[:300])
+    except Exception as exc:
+        errors.append(f"reference batch hydration: {exc}")
+        hydrated_references = []
+    hydrated_by_doi = {
+        _normalized_doi(work.get("DOI")): work
+        for work in hydrated_references
+        if not is_excluded_crossref_record(work)
+    }
+
+    screened: list[dict[str, Any]] = []
+    for doi, stub in reference_stubs.items():
+        work = hydrated_by_doi.get(doi)
+        title = " ".join(work.get("title") or []) if work else stub["title"]
+        if not title:
+            continue
+        relevance, hits = _reference_relevance(title, topic, keywords)
+        if len(hits) < 2:
+            continue
+        citation_count = work.get("is-referenced-by-count") if work else None
+        try:
+            citation_count = int(citation_count or 0)
+        except (TypeError, ValueError):
+            citation_count = 0
+        screened.append(
+            {
+                "doi": doi,
+                "title": title,
+                "work": work,
+                "reference_relevance": relevance,
+                "topic_term_hits": hits,
+                "cited_by_review_dois": stub["cited_by_review_dois"],
+                "citation_count": citation_count,
+            }
+        )
+    screened.sort(
+        key=lambda row: (row["reference_relevance"], row["citation_count"]),
+        reverse=True,
+    )
+    impact_slots = min(result_limit // 3, 10)
+    topic_slots = max(result_limit - impact_slots, 0)
+    shortlist = screened[:topic_slots]
+    shortlisted_dois = {_normalized_doi(row["doi"]) for row in shortlist}
+    for candidate in sorted(
+        screened,
+        key=lambda row: (row["citation_count"], row["reference_relevance"]),
+        reverse=True,
+    ):
+        doi = _normalized_doi(candidate["doi"])
+        if doi in shortlisted_dois:
+            continue
+        shortlist.append(candidate)
+        shortlisted_dois.add(doi)
+        if len(shortlist) >= result_limit:
+            break
+
+    expanded_results: list[dict[str, Any]] = []
+    for candidate in shortlist:
+        work = candidate.get("work")
+        if not isinstance(work, dict):
+            work = {
+                "DOI": candidate["doi"],
+                "title": [candidate["title"]],
+                "container-title": [candidate.get("journal") or ""],
+                "issued": {"date-parts": [[candidate.get("year")]]} if candidate.get("year") else {},
+            }
+        if is_excluded_crossref_record(work):
+            continue
+        row = crossref_item_to_result(
+            work,
+            seed_basis,
+            topic,
+            source="crossref_reference_expansion",
+            reason="Topic-screened reference from a close review",
+        )
+        row["score"] = max(float(row.get("score") or 0), candidate["reference_relevance"])
+        row["keep"] = True
+        row["reference_expansion_role"] = "cited_candidate"
+        row["cited_by_review_dois"] = candidate["cited_by_review_dois"]
+        row["topic_term_hits"] = candidate["topic_term_hits"]
+        expanded_results.append(row)
+
+    results = merge_external_results(seed_results + expanded_results)
+    if selected_seeds and expanded_results:
+        status = "ok"
+    elif selected_seeds:
+        status = "seeds_found_no_retained_references"
+    else:
+        status = "no_close_review_seed"
+    return {
+        "status": status,
+        "seed_query": seed_query,
+        "seed_queries": seed_queries,
+        "seeds": seed_reports,
+        "unique_deposited_reference_dois": len(reference_stubs),
+        "screened_reference_count": len(screened),
+        "retained_reference_count": len(expanded_results),
+        "results": results,
+        "errors": dedupe(errors),
+    }
 
 
 def semantic_scholar_search(
@@ -616,10 +1078,13 @@ def annotate_external_results(
         if not local_paper_id and title:
             local_paper_id = title_to_local.get(title)
         pdf_url = str(row.get("open_access_pdf_url") or "").strip()
+        full_text_url = str(row.get("open_access_full_text_url") or "").strip()
         if local_paper_id:
             promotion_status = "already_local"
         elif pdf_url:
             promotion_status = "ready_to_download"
+        elif full_text_url:
+            promotion_status = "full_text_located_needs_pdf"
         else:
             promotion_status = "needs_pdf_location"
         annotated.append(
@@ -828,6 +1293,19 @@ def combine_results(local_grouped: list[dict[str, Any]], web_grouped: list[dict[
                 "keep": group.get("keep", True),
                 "local_results": group.get("local_results", []),
                 "web_results": web_map.get(keyword, {}).get("web_results", []),
+            }
+        )
+    local_keywords = {group["keyword"] for group in local_grouped}
+    for group in web_grouped:
+        if group["keyword"] in local_keywords:
+            continue
+        combined.append(
+            {
+                "keyword": group["keyword"],
+                "category": group.get("category", "document_scope"),
+                "keep": group.get("keep", True),
+                "local_results": [],
+                "web_results": group.get("web_results", []),
             }
         )
     return combined
@@ -1054,14 +1532,19 @@ def build_external_ingest_plan(
         external_id = str(row.get("external_id") or _normalized_doi(row.get("doi")) or slugify(title))
         local_paper_id = row.get("local_paper_id")
         pdf_url = str(row.get("open_access_pdf_url") or "").strip()
+        full_text_url = str(row.get("open_access_full_text_url") or "").strip()
         stable_suffix = slugify(external_id)[-12:]
-        target_relative = f"chem_papers/web-imports/{year}-{slugify(title)[:70]}-{stable_suffix}.pdf"
+        # Keep the basename compact enough for MinerU's extracted image paths on Windows.
+        target_relative = f"chem_papers/web-imports/{year}-{slugify(title)[:36]}-{stable_suffix}.pdf"
         if local_paper_id:
             action = "use_local"
             next_step = f"Use managed paper {local_paper_id}; do not download a duplicate."
         elif pdf_url:
             action = "download_then_mineru"
             next_step = "Download the OA PDF, parse that one file with MinerU, then run metadata preparation."
+        elif full_text_url:
+            action = "locate_pdf"
+            next_step = "A licensed publisher full-text page is known; locate its lawful PDF before evidence extraction."
         else:
             action = "locate_pdf"
             next_step = "Locate a lawful full-text PDF before evidence extraction."
@@ -1070,17 +1553,22 @@ def build_external_ingest_plan(
                 "paper_key": external_id,
                 "source": row.get("source"),
                 "title": title,
+                "authors": row.get("authors") or [],
                 "year": row.get("year"),
+                "journal": row.get("journal"),
                 "doi": row.get("doi"),
+                "abstract": row.get("abstract"),
                 "matched_keywords": row.get("matched_keywords") or [row.get("matched_keyword")],
                 "local_paper_id": local_paper_id,
                 "open_access_pdf_url": pdf_url,
+                "open_access_full_text_url": full_text_url,
                 "action": action,
                 "target_pdf_path": target_relative if action == "download_then_mineru" else None,
                 "next_step": next_step,
             }
         )
     actionable = sum(item["action"] == "download_then_mineru" for item in items)
+    located = sum(bool(item.get("open_access_pdf_url") or item.get("open_access_full_text_url")) for item in items)
     if not external_requested:
         status = "disabled"
     elif not items:
@@ -1094,6 +1582,7 @@ def build_external_ingest_plan(
         "status": status,
         "candidate_count": len(items),
         "downloadable_count": actionable,
+        "full_text_located_count": located,
         "items": items,
     }
 
@@ -1173,6 +1662,12 @@ def run(args: argparse.Namespace) -> int:
         "inclusion_criteria": inclusion_criteria,
         "exclusion_criteria": exclusion_criteria,
     }
+    review_profile = str(contract_seed.get("review_profile") or "").strip().lower()
+    if review_profile:
+        topic_contract["review_profile"] = review_profile
+    quality_requirements = contract_seed.get("quality_requirements")
+    if isinstance(quality_requirements, dict):
+        topic_contract["quality_requirements"] = quality_requirements
     manuscript_title = str(contract_seed.get("manuscript_title") or "").strip()
     if manuscript_title:
         topic_contract["manuscript_title"] = manuscript_title
@@ -1210,10 +1705,12 @@ def run(args: argparse.Namespace) -> int:
     if args.local_only and provider_explicit:
         raise SystemExit("--local-only cannot be combined with external provider flags")
     sciatlas_requested = bool(args.sciatlas_search) and not args.local_only
-    crossref_requested = (bool(args.web_search) or not provider_explicit) and not args.local_only
-    semantic_scholar_requested = (
-        bool(args.semantic_scholar_search) or not provider_explicit
+    # Crossref is the credential-free default. Semantic Scholar is an optional
+    # enrichment layer and never replaces the Crossref metadata/OA path.
+    crossref_requested = (
+        bool(args.web_search) or not bool(args.sciatlas_search)
     ) and not args.local_only
+    semantic_scholar_requested = bool(args.semantic_scholar_search) and not args.local_only
     external_requested = sciatlas_requested or crossref_requested or semantic_scholar_requested
     sciatlas_client: SciAtlasClient | None = None
     sciatlas_status = "disabled"
@@ -1326,6 +1823,37 @@ def run(args: argparse.Namespace) -> int:
         if merged:
             external_grouped.append({"keyword": group["keyword"], "web_results": merged})
 
+    reference_expansion: dict[str, Any] = {
+        "status": "disabled",
+        "seed_query": "",
+        "seeds": [],
+        "results": [],
+        "errors": [],
+    }
+    if crossref_requested and args.reference_expansion_limit > 0:
+        reference_expansion = crossref_reference_expansion(
+            topic,
+            [group["keyword"] for group in queried_groups],
+            seed_limit=args.review_seed_limit,
+            result_limit=args.reference_expansion_limit,
+        )
+        expansion_rows = annotate_external_results(
+            reference_expansion.get("results") or [],
+            papers,
+        )
+        reference_expansion["results"] = expansion_rows
+        if expansion_rows:
+            external_grouped.append(
+                {
+                    "keyword": "review reference expansion",
+                    "category": "document_scope",
+                    "web_results": expansion_rows,
+                }
+            )
+            if "crossref_reference_expansion" not in sources_used:
+                sources_used.append("crossref_reference_expansion")
+    write_json(out_dir / "reference_expansion.json", reference_expansion)
+
     if sciatlas_requested and sciatlas_client is None and not (crossref_requested or semantic_scholar_requested):
         external_status = sciatlas_status
     elif external_requested and sources_used:
@@ -1353,6 +1881,11 @@ def run(args: argparse.Namespace) -> int:
         "sources": sources_used,
         "queried_keywords": [group["keyword"] for group in queried_groups] if external_requested else [],
         "external_query_limit": args.external_query_limit,
+        "reference_expansion": {
+            key: value
+            for key, value in reference_expansion.items()
+            if key != "results"
+        },
         "providers": {
             "sciatlas": {
                 "requested": sciatlas_requested,
@@ -1461,7 +1994,7 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Explicitly disable all external coverage providers.",
     )
-    parser.add_argument("--web-search", action="store_true", help="Query Crossref explicitly; Crossref and Semantic Scholar are the default when no provider is named.")
+    parser.add_argument("--web-search", action="store_true", help="Query Crossref explicitly; Crossref is the default when no alternative provider is named.")
     parser.add_argument("--web-limit", type=int, default=8)
     parser.add_argument("--web-delay", type=float, default=0.2)
     parser.add_argument(
@@ -1473,9 +2006,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--semantic-scholar-search",
         action="store_true",
-        help="Query Semantic Scholar metadata and OA-PDF locations.",
+        help="Optionally enrich Crossref results with Semantic Scholar metadata and OA-PDF locations.",
     )
     parser.add_argument("--semantic-scholar-limit", type=int, default=8)
+    parser.add_argument(
+        "--review-seed-limit",
+        type=int,
+        default=2,
+        help="Maximum close reviews used for Crossref reference expansion.",
+    )
+    parser.add_argument(
+        "--reference-expansion-limit",
+        type=int,
+        default=30,
+        help="Maximum topic-screened review references retained; 0 disables expansion.",
+    )
     parser.add_argument(
         "--semantic-scholar-api-key",
         default="",

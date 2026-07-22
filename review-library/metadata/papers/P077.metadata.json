@@ -2,31 +2,27 @@
   "paper_id": "P077",
   "slug": "org.-chem.-front.-2023-10-310",
   "title": {
-    "value": "Cr-catalyzed chiral allenone synthesis via sequential radical–polar crossover and Oppenauer oxidation†",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "org. chem. front. 2023 10 310",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xianrong Zeng",
-      "Feng-Hua Zhang",
-      "Zhaobin Wang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Org. Chem. Front. 2023",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "ORGANIC CHEMISTRY FRONTIERS",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The Nozaki–Hiyama–Kishi (NHK) reaction is a powerful and reliable tool in chiral alcohol synthesis and finds broad application in the total synthesis of biologically important molecules. However, chiral ketone synthesis in NHK reactions remains a prominent challenge. Herein, we describe the chromium-catalyzed enantioconvergent synthesis of chiral 2,3-allenones from readily available aldehydes and racemic propargyl bromides. This method features an unprecedented cascade of Cr-catalyzed asymmetric reductive radical–polar crossover and Oppenauer oxidation, which serves as a new tool for chiral ketone synthesis. Preliminary mechanistic studies provide insights into the reaction process. Kinetic isotope effect studies suggest that the asymmetric addition of an organochromium complex to the aldehyde, instead of the Oppenauer oxidation, might be the rate-determining step.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Herein, we describe the Cr-catalyzed enantioconvergent allenylation reaction from racemic propargylic halides and aldehydes to afford chiral 2,3-allenones (Scheme 1c). To the best of our knowledge, this work represents the unprecedented example of Crcatalyzed chiral ketone synthesis via a RRPCO pathway.",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Chem. Front., 2023, 10, 310.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-chem.-front.-2023-10-310.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P077\\2af33482-f43e-4432-994c-d6d058f8ea60_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P077"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-chem.-front.-2023-10-310"
   },
   "source_file": {
     "pdf_name": "Org. Chem. Front., 2023, 10, 310.pdf",
@@ -53,18 +65,15 @@
     "sha256": "a5728d2c9285f6660e9b4648dfbc60c79e999a3da86db6ae49a96951b1b7026d"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 129,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,29 +84,18 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
-      "low_confidence_abstract",
-      "Central catalysis is chromium, but the allowed `catalyst_or_method` labels contain no chromium option, so `not specified` was used.",
-      "The paper uses both aldehydes and racemic propargyl bromides; `substrate` was classified as the more specific allene-forming precursor family `propargylic halides`.",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.913,
+    "overall_confidence": 0.543,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "primary research article",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenic ketones and ethers",
-      "reaction_type": "allenyl-reagent addition to carbonyl compounds",
-      "substrate": "propargylic halides"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

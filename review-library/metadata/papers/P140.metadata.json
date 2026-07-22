@@ -3,31 +3,26 @@
   "slug": "33",
   "title": {
     "value": "Catalytic Synthesis of Allenes via Isomerization of Alkynes under Phase-Transfer Catalyzed Conditions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Makoto Oku",
-      "Shigeru Arai",
-      "Kimiko Katayama",
-      "Takayuki Shioiri"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2000,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 1998,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Catalytic isomerization of alkynes to allenes under phase-transfer catalyzed conditions is described. Commercially available quaternary ammonium salt such as tetrahexylammonium bromide acts as a very effective promoter to accelerate the reaction under mild conditions.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Catalytic isomerization of alkynes to allenes under phase-transfer catalyzed conditions is described. Commercially available quaternary ammonium salt such as tetrahexylammonium bromide acts as a very effective promoter to accelerate the reaction under mild conditions. Key words: allenes, asymmetric reactions, catalysts, isomerization, phase-transfer Phase-transfer catalysts (PTCs) are one of the most effective classes of reagents to establish a practical process because of their advantages, such as safe, mild conditions and operational simplicity.1 Although PTCs have been used in carbon-carbon and carbon-heteroatom bond forming reactions,2,3 to the best of our knowledge, isomerization reactions promoted by PTCs have not been systematically investigated and its examples are still unknown.4 Moreover, the practical synthesis of allenyl compounds, which are useful building blocks for synthetic organic chemistry, is still an important goal.5 In order to establish the reaction system, we designed substrates 1 which include two propargylic protons. These acidic protons in 1 would be easily abstracted in basic media to be transformed into the corresponding allenes 2, as shown in Scheme 1. The starting materials 1 were easily prepared from the secondary alcohols 3, as shown in Scheme 2.6 ![](../extracted/33/images/b3ca409b2a8478317c1f58a315383c68b2c79581090299d70461aefb061b13f0.jpg) <details> <summary>chemical</summary> Chemical reaction converting compound 1 to compound 2 using PTC, showing structural rearrangement </details> Isomerization to Allenes Scheme 1 ![](../extracted/33/images/5319d34fb95b85be39378357387caa489eaa7c1ce049340c0b28a7515999461f.jpg) <details> <summary>chemical</summary> Organic reaction scheme showing aryl substitution with ethylene glycol under specified conditions </details> Synthesis of Alkynes 1 Scheme 2 At the outset, we began to examine 1a in toluene using tetrahexylammonium bromide (THAB) as a PTC. As expected, the reaction proceeded smoothly to give the desired allene 2a. Moreover this reaction was revealed to be strongly dependent on the basicity of the inorganic salts. For example, weak bases such as ${ \\bf K } _ { 2 } \\mathbf { C O } _ { 3 }$ or LiOH are quite ineffective even in the presence of catalyst (Table 1, entries 1 and 3). On the other hand, KOH did work as a base to afford 2a within 15 min but the reaction did not proceed without THAB even after 72 h (entries 4 and 5).7 Moreover, a catalytic amount of KOH was enough to conduct the reaction, giving 2a in good yield (entry 6). Toluene was the solvent of choice, but in diethyl ether and dichloromethane there was excellent reactivity (entries 7 and 8). Other substrates which included substituted phenyl rings were also successfully converted to the corresponding allenes (Table 2). Table 1 Effect of Base and Solvent ![](../extracted/33/images/388cb9252d2ebe60280fcc52cb41a43301bf08deeb4719dc779a31dc11e94248.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing conversion of compound 1a to (±)-2a using PTC and base reagent </details> <table><tr><td>entry</td><td>base</td><td>PTC</td><td>conditions</td><td>yield of 2a (%)</td></tr><tr><td>1</td><td> $K_{2}CO_{3}$ </td><td>THAB</td><td>PhMe, 21 h</td><td>43</td></tr><tr><td>2</td><td> $K_{2}CO_{3}$ </td><td>none</td><td>PhMe, 45 h</td><td>01)</td></tr><tr><td>3</td><td>LiOH</td><td>THAB</td><td>PhMe, 48 h</td><td>4</td></tr><tr><td>4</td><td>KOH</td><td>THAB</td><td>PhMe, 15 min</td><td>88</td></tr><tr><td>5</td><td>KOH</td><td>none</td><td>PhMe, 72 h</td><td>trace</td></tr><tr><td>6</td><td>KOH</td><td>THAB</td><td>PhMe, 2 h</td><td>842)</td></tr><tr><td>7</td><td>KOH</td><td>THAB</td><td>Et2O, 15 min</td><td>87</td></tr><tr><td>8</td><td>KOH</td><td>THAB</td><td> $CH_{2}Cl_{2}^{3)}$, 15 min</td><td>83</td></tr></table> 1) No reaction occurred. 2) Reaction was carried out with 20 mol % of KOH. 3) Reaction without THAB gave 2a in 55% yield after 48 h. Thus we have succeeded in the catalytic isomerization of alkynes, and we attempted the asymmetric synthesis of allenes utilizing the isomerization reaction. Using chiral quaternary ammonium salts 2a could be obtained as optically active form. After many trials, we have found that the quaternary ammonium salt $4 ^ { 8 }$ gave the best result (35% ee). Absolute configuration was determined by application of the Lowe-Brewster rule9 to be (S) (Scheme 3). Table 2 Synthesis of Allenes 2 ![](../extracted/33/images/8470a24982e2a79fbe02b6782cb60120bf8c2390f7d700e6646c86aea9906454.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing conversion of compound 1 to (±)-2 using THAB and KOH in toluene solvent </details> <table><tr><td>entry</td><td>X</td><td>Ar</td><td>time</td><td>yield of 2 (%)</td></tr><tr><td>1</td><td>H</td><td>Ph</td><td>20 min</td><td>2b : 77</td></tr><tr><td>2</td><td>2-Br</td><td>Ph</td><td>10 min</td><td>2c : 82</td></tr><tr><td>3</td><td>3-Br</td><td>Ph</td><td>15 min</td><td>2d : 81</td></tr><tr><td>4</td><td>3-OMe</td><td>Ph</td><td>60 min</td><td>2e : 77</td></tr><tr><td>5</td><td>H</td><td> $4\\text{-}Br-C_6H_4$ </td><td>60 min</td><td>2a : 84</td></tr><tr><td>6</td><td>4-Br</td><td> $4-Me-C_6H_4$ </td><td>15 min</td><td>2f : 76</td></tr></table> ![](../extracted/33/images/e9ade6aae43caf185c511ca35bac8a45422bfdae59f6a6172df7f84395cd88e2.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing conversion of compound 1a to (+)-2a using PTC 4 and KOH reagent, yielding products 4 and a brominated product with 71% yield and [α]D²⁵ + 221 concentration. </details> Catalytic Asymmetric Synthesis of Allene 2a",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\33.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\33.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P140\\921e616a-94e5-470b-89c4-8955d50a0bae_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P140"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\33"
   },
   "source_file": {
     "pdf_name": "33.pdf",
@@ -54,18 +65,15 @@
     "sha256": "f2405b6d5e8c574a681f044264a549d6de9227e1c611d6225fd3bade791ab0f2"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 35,
+      "content_blocks": 0,
       "markdown_chars_used": 10286
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,30 +84,17 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
-      "Initial metadata journal hint conflicts with the paper footer; the article appears to be published in Synlett, not Tetrahedron.",
-      "The allowed reaction_type labels do not include a simple alkyne-to-allene isomerization label; the paper was mapped to the closest listed category, 'isomerization fragmentation and protonation to allenes'.",
-      "The key reacting substrates are 1,3-diaryl alkynes/internal alkynes, which are not explicitly available in the allowed substrate label list, so substrate was set to 'not specified'.",
       "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.783,
+    "overall_confidence": 0.404,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "phase-transfer catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "cinchona-derived and chiral ammonium catalysts",
-      "organometallic_partner": "not specified",
-      "product": "arylallenes",
-      "reaction_type": "isomerization fragmentation and protonation to allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.8,
-    "human_checked": false
   }
 }

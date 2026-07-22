@@ -2,30 +2,21 @@
   "paper_id": "P041",
   "slug": "d4cc06716a",
   "title": {
-    "value": "Palladium-catalysed alleneamination of γ,δ-unsaturated hydrazones with propargylic acetates: access to tetrahydropyridazines bearing allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.9,
+    "value": "Palladium-catalysed alleneamination of c, d-unsaturated hydrazones with propargylic acetates: access to tetrahydropyridazines bearing allenes†",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Shuaijie Wu",
-      "Shiji Xu",
-      "Yanru He",
-      "Jing Sun",
-      "Wei Jiang",
-      "Chao-Guo Yan",
-      "Weiming Hu",
-      "Lei Wang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "A highly efficient palladium-catalysed alleneamination of γ,δ-unsaturated hydrazones with propargylic acetates has been developed. This novel method was used to synthesize tetrahydropyridazines bearing allene derivatives, and did so in moderate to good yields. This protocol features a simple catalytic system, broad substrate scope, easy scale-up, and versatile transformations.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\d4cc06716a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\d4cc06716a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P041\\5d291d8e-728d-4cc3-9732-f55d0537f6ff_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P041"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\d4cc06716a"
   },
   "source_file": {
     "pdf_name": "d4cc06716a.pdf",
@@ -58,18 +65,15 @@
     "sha256": "4b63a88e0ca31ce559af7e6c068d8b9d15bf59fda710e4558eff78c11d6e0dee"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 73,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,30 +82,18 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "low_confidence_abstract",
-      "Title and abstract appear to contain OCR substitutions for Greek letters in the source; γ,δ notation was normalized from corrupted text.",
-      "structured_tag_not_specified_selectivity_profile",
-      "Title and abstract contained OCR ambiguity for γ,δ-unsaturated; normalized from c,d/g,d based on consistent full-text context.",
-      "structured_tag_not_specified_organometallic_partner"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.909,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.516,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.94,
-    "human_checked": false
   }
 }

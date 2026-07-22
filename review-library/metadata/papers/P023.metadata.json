@@ -3,25 +3,20 @@
   "slug": "adv-synth-catal-2024-ji-regiodivergent-reactions-of-2alkynyl-aziridines-with-grignard-reagents",
   "title": {
     "value": "Regiodivergent Reactions of 2-Alkynyl Aziridines with Grignard Reagents",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Wen-Tao Ji",
-      "A-Nan Ping",
-      "Gaosheng Yang",
-      "Zhuo Chai"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Herein, we report regiodivergent nucleophilic attack of Grignard reagents to 2-alkynyl aziridines. Under the catalysis of a Cu(I)-diphosphine complex, benzylic Grignard reagents add to the carbon-carbon triple bond of the aziridines to deliver α-allenylamines in moderate to excellent yields; the direct addition of the Grignard reagents to the aziridines in the absence of catalyst provided homopropargylic amine derivatives. Both reactions could proceed in highly enantiospecific ways. Further synthetic manipulations of these products enable rapid access to diverse useful heterocyclic molecular scaffolds.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Herein, we report regiodivergent nucleophilic attack of Grignard reagents to 2-alkynyl aziridines. Under the catalysis of a Cu(I)-diphosphine complex, benzylic Grignard reagents add to the carbon-carbon triple bond of the aziridines to deliver α-allenylamines in moderate to excellent yields; the direct addition of the Grignard reagents to the aziridines in the absence of catalyst provided homopropargylic amine derivatives. Both reactions could proceed in highly enantiospecific ways. Further synthetic manipulations of these products enable rapid access to diverse useful heterocyclic molecular scaffolds. Keywords: aziridines; ring opening; Grignard reagents; alkynes; allenes",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv Synth Catal - 2024 - Ji - Regiodivergent Reactions of 2‐Alkynyl Aziridines with Grignard Reagents.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv-synth-catal-2024-ji-regiodivergent-reactions-of-2alkynyl-aziridines-with-grignard-reagents.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P023\\28485edf-bc56-4bb0-8392-dc1015a35ff9_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P023"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv-synth-catal-2024-ji-regiodivergent-reactions-of-2alkynyl-aziridines-with-grignard-reagents"
   },
   "source_file": {
     "pdf_name": "Adv Synth Catal - 2024 - Ji - Regiodivergent Reactions of 2‐Alkynyl Aziridines with Grignard Reagents.pdf",
@@ -54,18 +65,15 @@
     "sha256": "1e2e02558ad858f456c3d046f4b638949ba2a48382f83d544988a1c14556fc43"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 103,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,26 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "Allowed substrate and leaving-group labels do not directly cover 2-alkynyl aziridine ring-opening systems, so those categories were set to not specified.",
+      "empty_authors",
       "structured_tag_not_specified_substrate",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.891,
+    "overall_confidence": 0.611,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "ferrocenyl and phosphametallocene phosphorus ligands",
-      "organometallic_partner": "Grignard reagents",
-      "product": "allenyl amines",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

@@ -3,50 +3,69 @@
   "slug": "15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters",
   "title": {
     "value": "Palladium-Catalyzed Cross-Coupling Reaction of Triorganoindium Reagents with Propargylic Esters",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
       "Ricardo Riveiros",
-      "David Rodríguez",
-      "José Pérez Sestelo",
-      "Luis A. Sarandeses"
+      "David Rodrı´guez",
+      "Jose´ Pe´rez Sestelo",
+      "Luis A. Sarandeses Departamento de Quı´mica Fundamental",
+      "Uni ersidade da Corun˜",
+      "E A Corun˜",
+      "Spain Received January"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
-    "value": 2006,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2004,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": "Org. Lett",
+    "source": "pdf_journal_pattern",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ol060192o",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Triorganoindium reagents (R3In) react with propargylic esters under palladium catalysis via an SN2′ rearrangement to afford allenes in good yields and with high regioselectivity. The reaction proceeds smoothly at room temperature with a variety of R3In (aryl, alkenyl, alkynyl, and methyl). When chiral, nonracemic propargylic esters are employed, the reaction takes place with high anti-stereoselectivity providing allenes with high enantiomeric excess.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Organic synthesis reaction scheme showing palladium-catalyzed coupling with alkyl alkyne and acetic anhydride, yielding 79–96% product Triorganoindium reagents (R In) react with propargylic esters under palladium catalysis via an $\\bullet _ { \\mathsf { N } } 2 ^ { \\prime }$ rearrangement to afford allenes in good yields and with high regioselectivity. The reaction proceeds smoothly at room temperature with a variety of R3In (aryl, alkenyl, alkynyl, and methyl). When chiral, nonracemic propargylic esters are employed, the reaction takes place with high anti-stereoselectivity providing allenes with high enantiomeric excess. Since our discovery in 1999,1 the palladium-catalyzed crosscoupling reaction of indium(III) organometallics with organic halides has been shown to be a useful reaction in organic synthesis.2,3 In this reaction, triorganoindium reagents (R In) can efficiently couple with aryl, alkenyl, benzyl, and acyl halides and triflates under palladium catalysis with high atom economy. The reaction was later extended to other indium organometallics such as tetraorganoindates or allylindium species.4 Recently, we have shown that R3In can be regioselectively coupled with allyl halides and esters under palladium catalysis affording the $S _ { \\mathrm { N } } 2$ product or, under copper catalysis, affording the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ product.5 In this communication, we report the $\\mathrm { S } _ { \\mathrm { N } } \\bar { 2 ^ { \\prime } }$ palladium-catalyzed cross-coupling reaction of triorganoindium compounds with propargylic esters and the utility of this reaction in the synthesis of allenes. The allene functionality is present in natural products6 and is a versatile group in organic synthesis. It can react as either a nucleophile or an electrophile7 and also participate in cycloaddition reactions.8 In addition to these abilities, allenes are chiral compounds, so they are useful intermediates in asymmetric synthesis.9 One of the most important ways to synthesize allenes is by nucleophilic $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ displacement of the leaving group from propargylic halides, esters, or sulfonates. Nevertheless, this reaction has been much less extensively investigated than the corresponding allylic substitution reaction.10 In the propargylic reaction, various types of nucleophiles such as hydrides, halides, and organometals can be employed. Organocopper reagents react stereoselectively with propargylic derivatives via $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ in good yields.11 Other organometals such as Grignard12 or organozinc reagents13 can also be employed for the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ propargylic substitution under transition-metal catalysis.14 To explore the reactivity of triorganoindium reagents toward propargylic substrates, we selected as coupling partners triphenylindium and propargylic esters (acetates, benzoates, and carbonates), easily prepared from the corresponding alcohols. In our first experiment, we tested the reaction conditions developed for the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ copper-catalyzed reaction of R3In with allylic halides and esters.5a In this way, the reaction of Ph3In with the benzoate 1a, using Cu(OTf)2 (15 mol %) and P(OEt)3 (30 mol %) as the catalytic system, failed to produce the allene 2 and most of the starting benzoate was recovered. Alternatively, the use of CuBr SMe2 as catalyst provided the desired allene in low yield (26%). Under these circumstances, we turned our attention toward palladium catalysis. In this case, we observed that the reaction of Ph3In (1.2 equiv) with the propargylic benzoate 1a using Pd2(dba)3 (1 mol %) and PPh3 (4 mol %) as the catalytic system afforded, after 24 h in refluxing THF, the allene 2 in 70% yield with high regioselectivity (only the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ product was detected by NMR, Table 1, entry 1). In the reaction, besides the allene, the formation of biphenyl by reductive homodimerization occurred and some of the starting benzoate 1a was recovered. The nucleophilic addition of Ph In to the ester group was not observed. This encouraging result prompted us to examine new reaction conditions using other catalytic systems and propargylic esters. In subsequent experiments, we observed that the palladium complexes Pd (dba) P(2-Furyl), Pd(PPh ), or Pd(DPEphos)Cl 15 al-‚lowed the reaction at room temperature, in shorter reaction times and with total consumption of the starting benzoate (entries 2 4). In this study, we also found that other -propargylic esters such as acetate 1b or carbonate 1c gave the allene 2 in good yield under the same reaction conditions (entries 5 and 6). In these experiments, we also realized that stoichiometric amounts of Ph3In are necessary to consume totally the propargylic ester. Although the results obtained showed the transfer of more than one phenyl group attached to indium, using lower amounts of Ph3In, the reaction is not complete and afforded higher quantities of biphenyl after 10 h (entries 1 and 4, yields in parentheses). After studying the $\\mathrm { S } _ { \\mathrm { N } } 2 ^ { \\prime }$ reaction of Ph3In with various propargylic esters, we explored the reaction of other triorganoindium reagents (aryl, alkenyl, alkynyl, and alkyl) with the propargylic benzoate 1a and the propargylic acetate 3b.16 The results of this study are shown in Table 2. We found that substituted arylindium reagents such as tri(o-methoxyphenyl)indium reacted efficiently with benzoate 1a affording aryl allene 4 in good yield (Table 2, entry 2). The reaction of alkenylindium reagents, such as trivinylindium, with benzoate 1a also afforded the corresponding alkenyl allene 5 in high yield (Table 2, entry 3). The alkynyl group can be efficiently transferred from indium reagents; tri(phenylethynyl)indium or tris[(trimethylsilyl)ethynyl]indium reacted with benzoate 1a affording the corresponding allenynes 6 and 7, as a nice complement to the copper chemistry developed for the propargylic substitution reaction (Table 2, entries 4 and 5). Unfortunately, the reaction of n-Bu In with benzoate 1a afforded only allene 8, the product of a â-hydride elimination reaction prior to the formation of the carbon carbon bond -by reductive elimination, in 70% yield (Table 2, entry 6). Only the reaction of alkylindium reagents without â-hydrogens such as trimethylindium afforded the desired allene 9 in modest yield (Table 2, entry 7).17 In an analogous way, when the reactions were performed using the propargylic acetate 3b, derived from the propargylic alcohol of cyclohexanone, the corresponding allenes 10 14 were obtained in good yields (Table 2, entries 8 12). Finally, we also studied the asymmetric synthesis of allenes by reaction of R3In with chiral, nonracemic propargylic esters. As mentioned before, the axial chirality of allenes makes them particularly amenable to organic synthesis.9a Additionally, these reactions can be used to test the general mechanism proposed in the palladiumcatalyzed propargylic reaction with organometallic nucleophiles.18",
+    "source": "content_list_abstract_region",
+    "confidence": 0.84,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P102\\493b342f-0ea7-4da4-a3c2-85f3a1238528_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P102"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters\\493b342f-0ea7-4da4-a3c2-85f3a1238528_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters"
   },
   "source_file": {
     "pdf_name": "15b-palladium-catalyzed-cross-coupling-reaction-of-triorganoindium-reagents-with-propargylic-esters.pdf",
@@ -54,18 +73,15 @@
     "sha256": "31a64c56f96ea0f7c88510bbd06bb8c5830158303466df6c52845ab2e004426c"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 59,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,29 +92,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "missing_journal",
       "missing_doi",
-      "Initial rule-extracted metadata contained OCR noise in authors and abstract; values were corrected from the visible front matter.",
-      "Abstract field uses only the explicit abstract paragraph and excludes article body text that bled into the markdown extraction.",
-      "structured_tag_not_specified_mechanism_type",
-      "The paper studies multiple propargylic ester leaving groups (including benzoates, acetates, and carbonates), but the controlled vocabulary lacks a generic 'propargylic esters' label; 'propargylic acetates' and 'acetate leaving groups' were selected as the closest supported listed labels.",
-      "Ligand evidence includes PPh3 and P(2-furyl)3 as monodentate phosphines, but DPEphos also appears; the ligand classification reflects the clearest supported listed option rather than the full ligand scope."
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.79,
+    "overall_confidence": 0.513,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "triorganoindium reagents",
-      "product": "allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

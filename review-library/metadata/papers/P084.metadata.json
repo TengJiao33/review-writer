@@ -3,51 +3,61 @@
   "slug": "org.-lett.-2022-24-637",
   "title": {
     "value": "Ni-Catalyzed Decarboxylative Silylation of Alkynyl Carbonates: Access to Chiral Allenes via Enantiospecific Conversions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Kun Guo",
-      "Qian Zeng",
-      "Alba Villar-Yanez",
-      "Carles Bo",
-      "Arjan W. Kleij"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Org. Lett.",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "value": "2022",
+    "source": "cite_this_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
     "value": "10.1021/acs.orglett.1c04086",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "A Ni-mediated decarboxylative silylation of alkynyl cyclic carbonates used as versatile propargylic surrogates is reported, affording a wide range of highly substituted 2,3- and 3,4-allenol products in good yields. The formal cross-coupling between a tentative intermediate Ni(allenyl) and the silyl reagent was further extended to enantiospecific conversions, providing access to chiral allene synthons. This protocol marks the first Ni-catalyzed propargylic silylation proceeding through an SN2' manifold.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "A Ni-mediated decarboxylative silylation of alkynyl cyclic carbonates used as versatile propargylic surrogates is reported affording a wide range of highly substituted 2,3- and 3,4-allenol products in good yields. The formal cross-coupling between a tentative intermediate Ni(allenyl) and the silyl reagent was further extended to enantiospecific conversions providing access to chiral allene synthons. This protocol marks the first Nicatalyzed propargylic silylation proceeding through an $S _ { \\mathrm { N } } 2 ^ { \\prime }$ manifold. ![](../extracted/org.-lett.-2022-24-637/images/187b13c8da93b7479ae2b6122f1cd7f61389693eec654bb1fa9e985acef6edd1.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing nickel-catalyzed cyclization using Ni(acac)2/ICy·HCl and PhMe2Si-BPin catalysts, yielding a chiral alcohol product with Ni catalyst and 37 examples. </details> P ropargylic substitution reactions are among the mostimportant transformations in organic synthesis allowing the efficient and reliable synthesis of new carbon−carbon and carbon−heteroatom bonds.1 These conversions are typically promoted by transition metal catalysts and have been extended from simple propargylic alcohols featuring terminal alkyne groups to substrates comprising internal alkynes leading to useful synthons such as allenes (Scheme 1a, Nu =",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2022, 24, 637.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2022-24-637.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P084\\9dc957ac-6737-4d4d-abfe-317e8f0283d9_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P084"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2022-24-637"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2022, 24, 637.pdf",
@@ -55,18 +65,15 @@
     "sha256": "8c259f1e9a49f97bad12e8aab7f8641182ebaedea7d391f86a4a58a643a483d7"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 139,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,36 +84,14 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "structured_tag_not_specified_organometallic_partner"
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.794,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenyl silanes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.91,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "24",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "pages": {
-    "value": "637-641",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

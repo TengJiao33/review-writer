@@ -3,26 +3,20 @@
   "slug": "ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary",
   "title": {
     "value": "Ligand-Controlled Preparation of Aryl-Substituted Allenes Enabled by Nickel-Catalyzed Reductive Coupling of Secondary Propargylic Carbonates with Aryl Halides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Ruotong Li",
-      "Jie Hu",
-      "Yonghao Xi",
-      "Hegui Gong",
-      "Weichen Huang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -33,21 +27,37 @@
   },
   "doi": {
     "value": "10.1021/acs.orglett.5c01235",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Herein, we developed a new method for the synthesis of aryl-substituted allenes through a nickel-catalyzed reductive coupling reaction between secondary propargyl carbonates and aryl halides. By employing the dimethyl-1,10-phenanthroline ligand, we achieved a ligand-controlled, regioselective nickel-catalyzed reductive arylation, overcoming the structural limitations of propargyl electrophiles. Notably, this reaction exhibits exceptional functional group compatibility, rendering it particularly suitable for late-stage allenylation modifications of complex molecules.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Herein, we developed a new method for the synthesis of aryl-substituted allenes through a nickel-catalyzed reductive coupling reaction between secondary propargyl carbonates and aryl halides. By employing the dimethyl-1,10-phenanthroline ligand, we achieved a ligand-controlled, regioselective nickel-catalyzed reductive arylation, overcoming the structural limitations of propargyl electrophiles. Notably, this reaction exhibits exceptional functional group compatibility, rendering it particularly suitable for latestage allenylation modifications of complex molecules. A s key cumulated dienes, allenes have attracted attention in biological and chemical properties.1 They are present in naturally occurring bioactive molecules and also serve as versatile building blocks in organic synthesis, facilitating complex molecule construction.1−3 Among the numerous strategies devised for the synthesis of allenes,4 the transitionmetal-catalyzed cross-coupling of propargyl electrophiles with diverse aryl nucleophiles has emerged as a reliable and effective approach to aryl-substituted allenes (Scheme 1A).5 However, this classic approach faces the following challenges: (1) the narrow scope of aryl organometallic nucleophiles; (2) poor regioselectivity between propargylic and allenyl substitution; (3) low functional group compatibilities and application values. As a result, there remains a need to explore more efficient synthetic methods to address the limitations of conventional nucleophile-involved coupling processes. Recently, nickel-catalyzed reductive coupling reactions have gained recognition in both academia and industry as an alternative to traditional coupling reactions. By directly employing stable, readily available organic halides, these reactions simplify synthetic operations, and avoids the need for metal reagent preparations.6 In this context, nickel-catalyzed reductive coupling of propargyl electrophiles with various alkyl electrophiles has been advanced for practical synthesis of alkylsubstituted allenes (Scheme 1B).7 In contrast, preparation of aryl-substituted allenes through similar nickel-catalyzed reduc- tive coupling protocols has been significantly delayed, often plagued by challenges related to 1,3-regioselectivity. As demonstrated by Shi and Wang8 in their Ni-catalyzed reductive arylation of propargylic chloride, 3,3-disubstituted tertiary propargyl electrophiles predominantly yield C1-arylated allenes, whereas 3-monosubstituted secondary propargyl electrophiles tend to produce C3-arylated propargyl products as the major outcome (Scheme 1C).7a,9 According to previous reports,10 formation of a C1-η1 -allenyl−metal species (A) is generally favored over its regioisomeric C3-η1 -propargyl metal analog (P, Scheme 1D). Specifically, In A, the C1 carbon of the allene adopts an sp2 -hybridized configuration, with the nickel center forming a 120° angle relative to both the red sphere and the allene moiety. In contrast, for P, the propargylic C3 carbon is sp3 -hybridized, and the nickel center exhibits a more congested geometry, forming a 109.5° angle with the purple sphere and the alkynyl group. Upon increasing steric bulk at the nickel center, the stability of intermediate P is disproportionately affected due to its inherently crowded structure, thereby shifting the reaction Received: March 27, 2025 Revised: April 8, 2025 Accepted: April 10, 2025 Published: April 15, 2025 ![](../extracted/ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary/images/f136bba08f1253e0a3e6b9c1d0d0acc40d5d895e982796544fa265a0590ae761.jpg)",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P047\\927a8074-62ac-44bb-93ff-80c1317e1122_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P047"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary"
   },
   "source_file": {
     "pdf_name": "ligand-controlled-preparation-of-aryl-substituted-allenes-enabled-by-nickel-catalyzed-reductive-coupling-of-secondary.pdf",
@@ -55,18 +65,15 @@
     "sha256": "548879a70e259bc31a47bc9b7707b3567fec9be8c74a46f5d2efc7ea7a382a00"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 148,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -77,36 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "structured_tag_not_specified_organometallic_partner"
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.801,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "nickel catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "arylallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.95,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "27",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "pages": {
-    "value": "4396-4403",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

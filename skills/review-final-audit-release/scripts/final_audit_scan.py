@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -15,6 +16,21 @@ PLACEHOLDER_RE = re.compile(
 REF_CALLOUT_RE = re.compile(r"\[(\d+(?:\s*[-,]\s*\d+)*)\]")
 REF_ITEM_RE = re.compile(r"^\s*(?:\[(\d+)\]|(\d+)[.)])\s+", re.M)
 IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
+TABLE_SEPARATOR_RE = re.compile(
+    r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$",
+    re.M,
+)
+TABLE_REFERENCE_RE = re.compile(
+    r"(?:\bas\s+(?:shown|summarized|reported|listed|presented)\s+in\s+table\s+(\d+)"
+    r"|\btable\s+(\d+)\)?\s+(?:summarizes|compares|shows|presents|lists|provides|reports|maps|organizes|contrasts))",
+    re.I,
+)
+FIGURE_REFERENCE_RE = re.compile(
+    r"(?:\bas\s+(?:shown|summarized|illustrated|depicted|presented)\s+in\s+(?:figure|fig\.)\s+(\d+)"
+    r"|\b(?:figure|fig\.)\s+(\d+)\)?\s+(?:summarizes|compares|shows|presents|illustrates|depicts|maps|organizes))",
+    re.I,
+)
+MOJIBAKE_RE = re.compile(r"\ufffd|鍙傝€|鈥\S{0,3}|鈭\??")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.M)
 REFERENCES_HEADING_RE = re.compile(
     r"^\s*#{1,6}\s*(references|reference list|bibliography|cited literature|参考文献)\s*$",
@@ -49,6 +65,17 @@ AUDIT_RATIONALE_STOPWORDS = {
     "verified",
 }
 
+# One low-density product floor prevents a comprehensive review from shrinking
+# into a short note after the detailed stage quotas have been removed.  These
+# checks apply only at release and do not prescribe section structure or asset
+# counts above the minimum viable product.
+COMPREHENSIVE_DELIVERY_FLOOR = {
+    "word_like_count": 8000,
+    "reference_count": 25,
+    "table_count": 2,
+    "figure_count": 2,
+}
+
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
@@ -56,6 +83,15 @@ def read_text(path: Path) -> str:
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def declared_review_profile(project: Path) -> str:
+    path = project / "00_discovery" / "topic_contract.json"
+    try:
+        payload = read_json(path)
+    except Exception:
+        return ""
+    return str(payload.get("review_profile") or "").strip().lower() if isinstance(payload, dict) else ""
 
 
 def resolved_portfolio_editorial_issues(project: Path) -> list[str]:
@@ -177,6 +213,63 @@ def reader_utility_review_issues(project: Path) -> list[str]:
     return issues
 
 
+def referenced_artifact_numbers(pattern: re.Pattern[str], text: str) -> list[int]:
+    numbers: set[int] = set()
+    for match in pattern.finditer(text):
+        for group in match.groups():
+            if group and group.isdigit():
+                numbers.add(int(group))
+    return sorted(numbers)
+
+
+def figure_inventory_consistency_issues(project: Path) -> list[str]:
+    """Cross-check deterministic inventory counts against editorial candidate claims."""
+    inventory_path = project / "02_section_drafting" / "paper_figure_inventory.json"
+    candidates_path = project / "02_section_drafting" / "paper_figure_candidates.json"
+    try:
+        inventory = read_json(inventory_path)
+    except Exception:
+        return ["invalid_paper_figure_inventory"]
+    if not isinstance(inventory, dict):
+        return ["invalid_paper_figure_inventory"]
+    papers = inventory.get("papers")
+    if not isinstance(papers, list):
+        return ["invalid_paper_figure_inventory"]
+    actual_count = sum(
+        int(row.get("candidate_count") or 0)
+        for row in papers
+        if isinstance(row, dict)
+    )
+    issues: list[str] = []
+    declared_inventory_count = inventory.get("candidate_count")
+    if isinstance(declared_inventory_count, int) and declared_inventory_count != actual_count:
+        issues.append("paper_figure_inventory_count_mismatch")
+
+    try:
+        candidates = read_json(candidates_path)
+    except Exception:
+        return issues + ["invalid_paper_figure_candidates"]
+    if isinstance(candidates, list):
+        reviewed_rows = candidates
+        claimed_count = None
+    elif isinstance(candidates, dict):
+        reviewed_rows = candidates.get("candidates")
+        claimed_count = candidates.get("inventory_candidate_count")
+        if claimed_count is None:
+            claimed_count = candidates.get("total_inventory_figures")
+    else:
+        return issues + ["invalid_paper_figure_candidates"]
+    if not isinstance(reviewed_rows, list):
+        issues.append("invalid_paper_figure_candidates")
+        reviewed_rows = []
+    if isinstance(claimed_count, int) and claimed_count != actual_count:
+        issues.append("paper_figure_candidate_count_mismatch")
+    # The inventory is a discovery aid, not a queue that must be dispositioned
+    # in full.  Rights and source checks remain mandatory for figures that are
+    # actually selected for use.
+    return list(dict.fromkeys(issues))
+
+
 def upstream_release_issues(project: Path) -> list[str]:
     reports = {
         "screening": project / "00_discovery" / "screening_validation.json",
@@ -266,23 +359,39 @@ def upstream_release_issues(project: Path) -> list[str]:
         prepared = manifest.get("figures") if isinstance(manifest, dict) else None
         if not isinstance(prepared, list):
             prepared = manifest.get("redrawn_figures") if isinstance(manifest, dict) else None
-        usable_source = isinstance(prepared, list) and any(
-            isinstance(item, dict)
-            and (
-                item.get("status") == "redrawn"
-                or (
+        usable_source = False
+        if isinstance(prepared, list):
+            for item in prepared:
+                if not isinstance(item, dict):
+                    continue
+                accepted = item.get("status") == "redrawn" or (
                     item.get("status") == "source_verified"
                     and item.get("verification_status") == "passed"
                 )
-            )
-            and bool(str(item.get("reader_job") or "").strip())
-            and bool(str(item.get("placement_rationale") or "").strip())
-            and (
-                item.get("status") == "redrawn"
-                or bool(str(item.get("reuse_basis") or "").strip())
-            )
-            for item in prepared
-        )
+                rights = item.get("reuse_rights")
+                rights_verified = bool(
+                    isinstance(rights, dict)
+                    and rights.get("status") == "verified"
+                    and str(rights.get("basis") or "").strip()
+                    and str(rights.get("license_url_or_permission_record") or "").strip()
+                    and str(rights.get("source_locator") or "").strip()
+                    and rights.get("third_party_material_checked") is True
+                    and str(rights.get("adaptation") or "").strip()
+                    and str(rights.get("attribution_text") or "").strip()
+                )
+                if accepted and not rights_verified:
+                    issues.append(
+                        "figure_reuse_rights_unverified:"
+                        + str(item.get("figure_id") or item.get("source_label") or "unknown")
+                    )
+                if (
+                    accepted
+                    and rights_verified
+                    and str(item.get("reader_job") or "").strip()
+                    and str(item.get("placement_rationale") or "").strip()
+                    and str(item.get("reuse_basis") or "").strip()
+                ):
+                    usable_source = True
         if not usable_source and not usable_originals:
             issues.append("figure_preparation_incomplete")
     return issues
@@ -349,6 +458,39 @@ def matrix_evidence_owners(rows: dict[str, dict[str, Any]]) -> dict[str, str]:
             if isinstance(anchor, dict) and anchor.get("evidence_id"):
                 owners[str(anchor["evidence_id"])] = paper_id
     return owners
+
+
+def matrix_evidence_records(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    records: dict[str, dict[str, Any]] = {}
+    for paper_id, row in rows.items():
+        for anchor in row.get("evidence_anchors") or []:
+            if not isinstance(anchor, dict) or not anchor.get("evidence_id"):
+                continue
+            evidence_id = str(anchor["evidence_id"])
+            records[evidence_id] = {"paper_id": paper_id, **anchor}
+    return records
+
+
+def source_text_for_audit(path: Path) -> str:
+    if path.suffix.lower() == ".pdf":
+        try:
+            from pypdf import PdfReader
+
+            return "\n".join(page.extract_text() or "" for page in PdfReader(str(path)).pages)
+        except Exception:
+            return ""
+    try:
+        return path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return ""
+
+
+def audit_content_words(value: Any) -> set[str]:
+    return {
+        word.lower()
+        for word in re.findall(r"\b[A-Za-z][A-Za-z'-]*\b|\b\d+(?:\.\d+)?\b", str(value or ""))
+        if len(word) >= 3 and word.lower() not in AUDIT_RATIONALE_STOPWORDS
+    }
 
 
 def drafted_paragraphs(path: Path) -> dict[str, dict[str, Any]]:
@@ -420,7 +562,29 @@ def claim_risk_signals(value: str) -> list[str]:
     return [name for name, pattern in CLAIM_RISK_PATTERNS.items() if pattern.search(value or "")]
 
 
-def semantic_queue(project: Path, limit: int = 6) -> dict[str, Any]:
+def file_sha256(path: Path) -> str:
+    if not path.exists() or not path.is_file():
+        return ""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def paragraph_audit_span(markdown: str) -> str:
+    """Return the complete prose span that must be supported for one paragraph."""
+    prose_lines = []
+    for line in (markdown or "").splitlines():
+        stripped = line.strip()
+        if stripped.startswith("|") or stripped.startswith("!["):
+            continue
+        prose_lines.append(line)
+    prose = STABLE_CITATION_RE.sub("", " ".join(prose_lines))
+    return re.sub(r"\s+", " ", prose).strip()
+
+
+def semantic_queue(project: Path, limit: int | None = None) -> dict[str, Any]:
     paragraph_path = project / "02_section_drafting" / "section_drafts.json"
     matrix_path = project / "01_matrix_outline" / "literature_matrix.json"
     paragraphs = drafted_paragraphs(paragraph_path)
@@ -438,42 +602,29 @@ def semantic_queue(project: Path, limit: int = 6) -> dict[str, Any]:
         "scope": 3,
         "synthesis": 3,
     }
-    high_stakes = re.compile(
-        r"\b(first|only|prove|confirm|demonstrat|mechanis|active species|"
-        r"enantioselect|regioselect|broad scope|limitation|challenge|suggest|"
-        r"universal|generally|common|consensus|elusive|unprecedented)\w*\b|"
-        r"\bacross all\b|\bno (?:general|reported|known)\b",
-        re.I,
-    )
     ranked: list[dict[str, Any]] = []
     for paragraph in paragraphs.values():
         cited_ids = list(dict.fromkeys(paragraph["cited_paper_ids"]))
         evidence_ids = list(dict.fromkeys(paragraph["evidence_ids"]))
-        if not cited_ids:
-            continue
         markdown = paragraph["markdown"]
         risk_signals = claim_risk_signals(markdown)
-        plain = STABLE_CITATION_RE.sub("", markdown)
-        sentences = [
-            re.sub(r"\s+", " ", raw).strip()
-            for raw in re.split(r"(?<=[.!?])\s+", plain)
-            if len(re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", raw)) >= 8
-        ]
-        if not sentences:
-            sentences = [re.sub(r"\s+", " ", plain).strip()]
-        sentences.sort(
-            key=lambda sentence: (
-                bool(high_stakes.search(sentence)),
-                bool(re.search(r"\b\d+(?:\.\d+)?%?\b", sentence)),
-                len(sentence),
-            ),
-            reverse=True,
-        )
+        has_number = bool(re.search(r"\b\d+(?:\.\d+)?%?\b", markdown))
+        text_span = paragraph_audit_span(markdown)
+        if len(re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", text_span)) < 8:
+            continue
         score = type_weight.get(paragraph["paragraph_type"], 1)
         score += min(len(cited_ids), 3)
-        score += int(bool(high_stakes.search(markdown))) * 2
         score += min(len(risk_signals), 3)
-        score += int(bool(re.search(r"\b\d+(?:\.\d+)?%?\b", markdown)))
+        score += int(has_number)
+        audit_reasons = [f"claim_risk:{signal}" for signal in risk_signals]
+        if has_number:
+            audit_reasons.append("numerical_claim")
+        if paragraph["paragraph_type"] == "mechanism":
+            audit_reasons.append("mechanism_claim")
+        if not cited_ids:
+            audit_reasons.append("missing_paragraph_citation")
+        elif not evidence_ids:
+            audit_reasons.append("missing_paragraph_evidence")
         ranked.append(
             {
                 "queue_id": f"{paragraph['paragraph_id']}-a1",
@@ -482,8 +633,15 @@ def semantic_queue(project: Path, limit: int = 6) -> dict[str, Any]:
                 "paragraph_type": paragraph["paragraph_type"],
                 "priority_score": score,
                 "claim_risk_signals": risk_signals,
-                "queue_status": "source_check_required" if evidence_ids else "missing_paragraph_evidence",
-                "text_span": sentences[0],
+                "audit_reasons": audit_reasons,
+                "queue_status": (
+                    "missing_paragraph_citation"
+                    if not cited_ids
+                    else "source_check_required"
+                    if evidence_ids
+                    else "missing_paragraph_evidence"
+                ),
+                "text_span": text_span,
                 # Do not pre-approve every paragraph-level citation for a
                 # narrower sentence.  The semantic reviewer must select the
                 # minimum supporting subset after opening the linked source.
@@ -496,30 +654,64 @@ def semantic_queue(project: Path, limit: int = 6) -> dict[str, Any]:
                 ],
             }
         )
-    ranked.sort(
-        key=lambda row: (row["priority_score"], len(row["text_span"])),
-        reverse=True,
-    )
-    risk_rows = [row for row in ranked if row["claim_risk_signals"]]
-    risk_ids = {row["queue_id"] for row in risk_rows}
-    selected = list(risk_rows)
-    for row in ranked:
-        if row["queue_id"] in risk_ids:
-            continue
-        if len(selected) >= max(1, limit):
-            break
-        selected.append(row)
+    high_risk_rows = [row for row in ranked if row["audit_reasons"]]
+    selected_by_id = {row["queue_id"]: row for row in high_risk_rows}
+    # Add one evidence-bearing paragraph per section.  This samples ordinary
+    # synthesis while avoiding a ritual audit of every paragraph after the
+    # manuscript is already written.
+    sections = list(dict.fromkeys(row["section_id"] for row in ranked))
+    for section_id in sections:
+        candidates = [
+            row
+            for row in ranked
+            if row["section_id"] == section_id
+            and row["queue_status"] == "source_check_required"
+        ]
+        if not candidates:
+            candidates = [row for row in ranked if row["section_id"] == section_id]
+        if candidates:
+            sample = max(candidates, key=lambda row: row["priority_score"])
+            if sample["queue_id"] not in selected_by_id:
+                sample["audit_reasons"].append("section_sample")
+                selected_by_id[sample["queue_id"]] = sample
+    selected = [row for row in ranked if row["queue_id"] in selected_by_id]
+    required_ids = [row["queue_id"] for row in selected]
+    queue_material = [
+        {
+            "queue_id": row["queue_id"],
+            "section_id": row["section_id"],
+            "paragraph_id": row["paragraph_id"],
+            "text_span": row["text_span"],
+            "paragraph_cited_paper_ids": row["paragraph_cited_paper_ids"],
+            "paragraph_evidence_ids": row["paragraph_evidence_ids"],
+        }
+        for row in selected
+    ]
+    queue_fingerprint = hashlib.sha256(
+        json.dumps(queue_material, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    ).hexdigest()
     return {
         "project_id": project.name,
-        "selection_rule": "all paragraphs with explicit high-risk language, then highest-risk cited passages until the advisory sample is filled",
+        "queue_version": 3,
+        "coverage_mode": "risk_based_with_section_sample",
+        "selection_rule": "all paragraphs with explicit risk signals, numbers, mechanism claims, or missing provenance, plus one representative evidence-bearing paragraph per section",
+        "source_draft_sha256": file_sha256(paragraph_path),
+        "queue_fingerprint": queue_fingerprint,
         "candidate_count": len(ranked),
-        "required_high_risk_queue_ids": [row["queue_id"] for row in risk_rows],
+        "selected_count": len(selected),
+        "requested_limit": limit,
+        "limit_policy": "a requested limit never removes required risk or section-sample checks",
+        "required_queue_ids": required_ids,
+        "required_high_risk_queue_ids": [row["queue_id"] for row in high_risk_rows],
         "ready_count": sum(item["queue_status"] == "source_check_required" for item in selected),
         "source_check_required_count": sum(
             item["queue_status"] == "source_check_required" for item in selected
         ),
         "missing_paragraph_evidence_count": sum(
             item["queue_status"] == "missing_paragraph_evidence" for item in selected
+        ),
+        "missing_paragraph_citation_count": sum(
+            item["queue_status"] == "missing_paragraph_citation" for item in selected
         ),
         "items": selected,
     }
@@ -766,11 +958,15 @@ def duplicated_long_paragraphs(text: str) -> list[dict[str, Any]]:
 def semantic_audit_status(
     path: Path,
     required: bool,
+    review_root: Path,
     known_paper_ids: set[str],
     evidence_owners: dict[str, str],
+    evidence_records: dict[str, dict[str, Any]],
     paragraphs_by_id: dict[str, dict[str, Any]],
     required_queue_ids: set[str],
     queue_items_by_id: dict[str, dict[str, Any]],
+    manuscript_sha256: str,
+    manuscript_text: str,
 ) -> tuple[dict[str, Any], list[str]]:
     if not path.exists():
         return {"present": False}, ["semantic_audit.json is missing"] if required else []
@@ -783,12 +979,19 @@ def semantic_audit_status(
         return {"present": True, "valid_json": True}, ["semantic_audit.json must contain an object"]
     if not str(payload.get("model") or "").strip():
         blockers.append("semantic_audit.model is missing")
+    recorded_manuscript_sha256 = str(payload.get("manuscript_sha256") or "").strip().lower()
+    if not recorded_manuscript_sha256:
+        blockers.append("semantic_audit.manuscript_sha256 is missing")
+    elif manuscript_sha256 and recorded_manuscript_sha256 != manuscript_sha256:
+        blockers.append("semantic_audit was completed against a different manuscript revision")
     checks = payload.get("checks")
     if not isinstance(checks, list) or not checks:
         blockers.append("semantic_audit.checks is missing or empty")
         checks = []
     allowed = {"supported", "needs_revision", "unsupported", "removed"}
     covered_queue_ids: set[str] = set()
+    source_text_cache: dict[Path, str] = {}
+    source_receipt_failures: list[dict[str, Any]] = []
     for index, check in enumerate(checks, start=1):
         if not isinstance(check, dict):
             blockers.append(f"semantic_audit check {index} is not an object")
@@ -797,9 +1000,9 @@ def semantic_audit_status(
         if queue_id:
             covered_queue_ids.add(queue_id)
             queued = queue_items_by_id.get(queue_id)
-            if queue_items_by_id and queued is None:
-                blockers.append(f"semantic_audit check {index} references unknown queue item {queue_id}")
-            elif queued is not None:
+            # Authors may audit additional paragraphs beyond the generated
+            # risk sample.  Only generated required items affect coverage.
+            if queued is not None:
                 queued_paragraph = str(queued.get("paragraph_id") or "").strip()
                 queued_section = str(queued.get("section_id") or "").strip()
                 if queued_paragraph and str(check.get("paragraph_id") or "").strip() != queued_paragraph:
@@ -809,6 +1012,12 @@ def semantic_audit_status(
                 if queued_section and str(check.get("section_id") or "").strip() != queued_section:
                     blockers.append(
                         f"semantic_audit check {index} section does not match queue item {queue_id}"
+                    )
+                queued_span = normalized_audit_text(str(queued.get("text_span") or ""))
+                checked_span = normalized_audit_text(str(check.get("text_span") or ""))
+                if queued_span and checked_span != queued_span:
+                    blockers.append(
+                        f"semantic_audit check {index} does not cover the complete queued paragraph {queue_id}"
                     )
         verdict = str(check.get("verdict") or "")
         if verdict not in allowed:
@@ -871,6 +1080,71 @@ def semantic_audit_status(
                 f"semantic_audit check {index} has cited papers without linked evidence: "
                 + ", ".join(sorted(set(cited_ids) - owners))
             )
+        if verdict == "supported":
+            receipt_errors: list[str] = []
+            receipts = check.get("source_receipts")
+            if not isinstance(receipts, list):
+                receipt_errors.append("source_receipts is missing")
+                receipts = []
+            receipt_by_evidence = {
+                str(receipt.get("evidence_id") or ""): receipt
+                for receipt in receipts
+                if isinstance(receipt, dict) and receipt.get("evidence_id")
+            }
+            checked_excerpts: list[str] = []
+            for evidence_id in evidence_ids:
+                anchor = evidence_records.get(evidence_id)
+                receipt = receipt_by_evidence.get(evidence_id)
+                if not isinstance(anchor, dict) or not isinstance(receipt, dict):
+                    receipt_errors.append(f"no source receipt for {evidence_id}")
+                    continue
+                paper_id = str(anchor.get("paper_id") or "")
+                if str(receipt.get("paper_id") or "") != paper_id:
+                    receipt_errors.append(f"source receipt owner mismatch for {evidence_id}")
+                if str(anchor.get("source_level") or "") != "full_text":
+                    receipt_errors.append(f"non-full-text evidence {evidence_id}")
+                anchor_path = Path(str(anchor.get("source_path") or ""))
+                if not anchor_path.is_absolute():
+                    anchor_path = (review_root / anchor_path).resolve()
+                receipt_path = Path(str(receipt.get("source_path") or ""))
+                if not receipt_path.is_absolute():
+                    receipt_path = (review_root / receipt_path).resolve()
+                if receipt_path != anchor_path:
+                    receipt_errors.append(f"source receipt path mismatch for {evidence_id}")
+                if not anchor_path.exists() or not anchor_path.is_file():
+                    receipt_errors.append(f"source receipt file is missing for {evidence_id}")
+                    continue
+                recorded_sha = str(receipt.get("source_sha256") or "").strip().lower()
+                actual_sha = file_sha256(anchor_path)
+                if not recorded_sha or recorded_sha != actual_sha:
+                    receipt_errors.append(f"source receipt hash mismatch for {evidence_id}")
+                locator = str(receipt.get("locator") or "").strip()
+                if not locator:
+                    receipt_errors.append(f"source receipt locator is missing for {evidence_id}")
+                excerpt = str(receipt.get("checked_excerpt") or "").strip()
+                checked_excerpts.append(excerpt)
+                if len(audit_content_words(excerpt)) < 8:
+                    receipt_errors.append(f"checked excerpt is too short for {evidence_id}")
+                source_text = source_text_cache.setdefault(
+                    anchor_path, source_text_for_audit(anchor_path)
+                )
+                normalized_excerpt = re.sub(r"\s+", " ", excerpt).strip().lower()
+                normalized_source = re.sub(r"\s+", " ", source_text).lower()
+                if normalized_excerpt and normalized_excerpt not in normalized_source:
+                    receipt_errors.append(
+                        f"checked excerpt is not found in {evidence_id} source"
+                    )
+            # The scanner can verify paths, hashes, locators, and verbatim
+            # excerpts.  It cannot decide semantic entailment through word
+            # overlap; that judgment belongs to the source-reading audit.
+            if receipt_errors:
+                source_receipt_failures.append(
+                    {
+                        "check_index": index,
+                        "queue_id": queue_id or None,
+                        "errors": list(dict.fromkeys(receipt_errors)),
+                    }
+                )
         if verdict != "removed" and paragraph is not None:
             if section_id and section_id != paragraph["section_id"]:
                 blockers.append(
@@ -881,6 +1155,10 @@ def semantic_audit_status(
             if normalized_span and normalized_span not in normalized_paragraph:
                 blockers.append(
                     f"semantic_audit check {index} text_span is not found in paragraph {paragraph_id}"
+                )
+            if verdict == "supported" and normalized_span not in normalized_audit_text(manuscript_text):
+                blockers.append(
+                    f"semantic_audit check {index} text_span is not found in the audited manuscript revision"
                 )
             extra_citations = sorted(set(cited_ids) - set(paragraph["cited_paper_ids"]))
             if extra_citations:
@@ -894,11 +1172,16 @@ def semantic_audit_status(
                     f"semantic_audit check {index} uses evidence not linked to paragraph {paragraph_id}: "
                     + ", ".join(extra_evidence)
                 )
-    missing_high_risk = sorted(required_queue_ids - covered_queue_ids)
-    if required and missing_high_risk:
+    missing_required = sorted(required_queue_ids - covered_queue_ids)
+    if required and missing_required:
         blockers.append(
-            "semantic_audit does not disposition high-risk queue items: "
-            + ", ".join(missing_high_risk)
+            "semantic_audit does not disposition required queue items: "
+            + ", ".join(missing_required)
+        )
+    if source_receipt_failures:
+        blockers.append(
+            "semantic_audit source receipt verification failed for "
+            f"{len(source_receipt_failures)} supported checks; see structured receipt failures"
         )
     unresolved = payload.get("unresolved_blockers")
     if not isinstance(unresolved, list):
@@ -909,8 +1192,10 @@ def semantic_audit_status(
         "present": True,
         "valid_json": True,
         "check_count": len(checks),
-        "required_high_risk_queue_ids": sorted(required_queue_ids),
-        "covered_high_risk_queue_ids": sorted(required_queue_ids & covered_queue_ids),
+        "required_queue_ids": sorted(required_queue_ids),
+        "covered_queue_ids": sorted(required_queue_ids & covered_queue_ids),
+        "manuscript_sha256": recorded_manuscript_sha256 or None,
+        "source_receipt_failures": source_receipt_failures,
         "unresolved_blockers": unresolved if isinstance(unresolved, list) else None,
     }, blockers
 
@@ -1006,6 +1291,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     matrix_rows = matrix_rows_by_id(project / "01_matrix_outline" / "literature_matrix.json")
     matrix_ids = set(matrix_rows)
     evidence_owners = matrix_evidence_owners(matrix_rows)
+    evidence_records = matrix_evidence_records(matrix_rows)
     citation_ref_numbers: list[int] = []
     citation_paper_ids: list[str] = []
     declared_incomplete_reference_metadata = []
@@ -1035,16 +1321,54 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
 
     references_match, _ = references_tail(text)
     manuscript_body = text[: references_match.start()] if references_match else text
+    markdown_table_count = len(TABLE_SEPARATOR_RE.findall(manuscript_body))
+    manuscript_table_references = referenced_artifact_numbers(
+        TABLE_REFERENCE_RE, manuscript_body
+    )
+    manuscript_figure_references = referenced_artifact_numbers(
+        FIGURE_REFERENCE_RE, manuscript_body
+    )
+    mojibake_hits = [
+        {"line": line_no, "text": line.strip()[:300]}
+        for line_no, line in enumerate(text.splitlines(), start=1)
+        if MOJIBAKE_RE.search(line)
+    ]
+    reader_review_path = project / "05_final_audit" / "reader_utility_review.json"
+    reader_review_text = read_text(reader_review_path) if reader_review_path.exists() else ""
+    reader_review_table_references = referenced_artifact_numbers(
+        TABLE_REFERENCE_RE, reader_review_text
+    )
+    reader_review_figure_references = referenced_artifact_numbers(
+        FIGURE_REFERENCE_RE, reader_review_text
+    )
     word_like_count = len(re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", manuscript_body))
+    review_profile = declared_review_profile(project)
+    delivery_metrics = {
+        "word_like_count": word_like_count,
+        "reference_count": len(listed_refs),
+        "table_count": markdown_table_count,
+        "figure_count": len(image_paths),
+    }
+    delivery_floor = (
+        dict(COMPREHENSIVE_DELIVERY_FLOOR)
+        if review_profile == "comprehensive"
+        else {}
+    )
+    delivery_floor_issues = [
+        f"comprehensive_delivery_floor:{metric}:{delivery_metrics[metric]}/{minimum}"
+        for metric, minimum in delivery_floor.items()
+        if delivery_metrics[metric] < minimum
+    ]
     target_words, blueprint_issues = blueprint_target(project / "01_matrix_outline" / "section_blueprint.json")
     word_target_ratio = round(word_like_count / target_words, 4) if target_words else None
     paragraph_stats = cited_paragraph_stats(text)
     duplicate_paragraphs = duplicated_long_paragraphs(text)
     queue_path = project / "05_final_audit" / "semantic_audit_queue.json"
     queue_payload = read_json(queue_path) if queue_path.exists() else {}
+    expected_queue = semantic_queue(project)
     required_queue_ids = {
         str(item)
-        for item in (queue_payload.get("required_high_risk_queue_ids") if isinstance(queue_payload, dict) else []) or []
+        for item in (queue_payload.get("required_queue_ids") if isinstance(queue_payload, dict) else []) or []
         if str(item).strip()
     }
     queue_items_by_id = {
@@ -1055,13 +1379,17 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     semantic_status, semantic_blockers = semantic_audit_status(
         project / "05_final_audit" / "semantic_audit.json",
         required=phase == "release",
+        review_root=project.parents[1],
         known_paper_ids=matrix_ids,
         evidence_owners=evidence_owners,
+        evidence_records=evidence_records,
         paragraphs_by_id=drafted_paragraphs(
             project / "02_section_drafting" / "section_drafts.json"
         ),
         required_queue_ids=required_queue_ids,
         queue_items_by_id=queue_items_by_id,
+        manuscript_sha256=file_sha256(draft),
+        manuscript_text=text,
     )
 
     issues: list[str] = []
@@ -1129,6 +1457,12 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         add("broken_markdown_image_paths")
     if source_placeholder_mode:
         add("unverified_source_figures_need_preparation")
+    if manuscript_table_references and max(manuscript_table_references) > markdown_table_count:
+        add("manuscript_references_missing_table")
+    if manuscript_figure_references and max(manuscript_figure_references) > len(image_paths):
+        add("manuscript_references_missing_figure")
+    if mojibake_hits:
+        add("mojibake_or_replacement_characters_present")
     if not image_paths and not figures_skipped_with_reason:
         add("draft_has_no_figures", block=False)
     if target_words and word_target_ratio is not None and word_target_ratio < 0.8:
@@ -1138,19 +1472,41 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     if paragraph_stats["cited_paragraph_count"] >= 8 and paragraph_stats["multi_source_ratio"] < 0.2:
         add("paper_listing_pattern_too_few_multi_source_paragraphs", block=False)
     for semantic_issue in semantic_blockers:
-        add("semantic_audit:" + semantic_issue)
+        # Preflight creates or refreshes the queue before semantic review.
+        # A stale audit from an earlier revision is advisory at this phase and
+        # becomes blocking only at release.
+        add("semantic_audit:" + semantic_issue, block=phase == "release")
     if phase == "release":
+        for floor_issue in delivery_floor_issues:
+            add(floor_issue)
         if not queue_path.exists():
             add("missing_semantic_audit_queue")
+        elif not isinstance(queue_payload, dict):
+            add("invalid_semantic_audit_queue")
+        else:
+            if queue_payload.get("queue_version") != expected_queue.get("queue_version"):
+                add("semantic_audit_queue_version_mismatch")
+            if queue_payload.get("queue_fingerprint") != expected_queue.get("queue_fingerprint"):
+                add("semantic_audit_queue_is_stale")
+            if set(queue_payload.get("required_queue_ids") or []) != set(
+                expected_queue.get("required_queue_ids") or []
+            ):
+                add("semantic_audit_queue_coverage_mismatch")
         for portfolio_issue in resolved_portfolio_editorial_issues(project):
             add(portfolio_issue, block=False)
         for reader_issue in reader_utility_review_issues(project):
             add(reader_issue, block=False)
+        if reader_review_table_references and max(reader_review_table_references) > markdown_table_count:
+            add("reader_utility_review_claims_missing_table")
+        if reader_review_figure_references and max(reader_review_figure_references) > len(image_paths):
+            add("reader_utility_review_claims_missing_figure")
         for visual_issue in resolved_visual_plan_issues(project, manuscript_body):
             blocks_selected_asset = visual_issue.startswith(
                 ("comparison_table_not_traceable:", "selected_comparison_table_missing_from_manuscript:")
             )
             add(visual_issue, block=blocks_selected_asset)
+        for inventory_issue in figure_inventory_consistency_issues(project):
+            add(inventory_issue)
         for upstream_issue in upstream_release_issues(project):
             add(upstream_issue)
 
@@ -1161,6 +1517,10 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "target_draft": target,
         "draft_exists": draft.exists(),
         "word_like_count": word_like_count,
+        "review_profile": review_profile or None,
+        "delivery_metrics": delivery_metrics,
+        "delivery_floor": delivery_floor,
+        "delivery_floor_issues": delivery_floor_issues,
         "blueprint_target_words": target_words,
         "word_target_ratio": word_target_ratio,
         "heading_count": len(headings),
@@ -1178,6 +1538,12 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "reference_numbering_contiguous": reference_numbering_contiguous,
         "citations_json_reference_numbers": citation_ref_numbers,
         "image_paths": image_paths,
+        "markdown_table_count": markdown_table_count,
+        "manuscript_table_references": manuscript_table_references,
+        "manuscript_figure_references": manuscript_figure_references,
+        "reader_review_table_references": reader_review_table_references,
+        "reader_review_figure_references": reader_review_figure_references,
+        "mojibake_hits": mojibake_hits,
         "abstract_image_paths": abstract_image_paths,
         "broken_images": broken_images,
         "source_placeholder_mode": source_placeholder_mode,

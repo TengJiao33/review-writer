@@ -3,50 +3,70 @@
   "slug": "15a",
   "title": {
     "value": "Synthesis of optically active allenes using tandem enzyme and palladium-catalysed reactions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
       "Pierre H. Dixneuf",
       "Thierry Guyot",
-      "Mark D. Ness",
-      "Stanley M. Roberts"
+      "Mark D. Nessb and Stanley M. Roberts UMR CNRS",
+      "Universite de Rennes I",
+      "Laboratoire de Chimie de Coordination et Catalyse",
+      "Campus de Beaulieu",
+      "´ Rennes",
+      "France"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
-    "value": 1997,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 2013,
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "journal": {
-    "value": "ACS Catal.",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "Organic Letters",
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/ol402538n",
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "abstract": {
-    "value": "The propargylic carbonates (S)-6 and (R)-9 are converted into the chiral allenes 10, 11, 13 and 14 (ee 82–85%) using organozinc reagents and tetrakis(triphenylphosphine)palladium as catalyst.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.93,
+    "value": "The propargylic carbonates (S)-6 and (R)-9 are converted into the chiral allenes 10, 11, 13 and 14 (ee 82–85%) using organozinc reagents and tetrakis(triphenylphosphine)- palladium as catalyst.",
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\15a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\15a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P101\\824c7e40-3151-49b4-bf6e-016fa7cf63c1_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P101"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\15a\\824c7e40-3151-49b4-bf6e-016fa7cf63c1_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\15a"
   },
   "source_file": {
     "pdf_name": "15a.pdf",
@@ -54,18 +74,15 @@
     "sha256": "4cc59794cae3564ae64c2f70205e8ae7575edcbe863f00fae31a8cd0d278891c"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 39,
       "markdown_chars_used": 10886
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,30 +91,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "year"
+    ],
     "warnings": [
-      "missing_year",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract section was detected; the abstract field uses the lead summary sentence from the first page."
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.694,
+    "overall_confidence": 0.393,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "phenylzinc and alkylzinc reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.96,
-    "human_checked": false
   }
 }

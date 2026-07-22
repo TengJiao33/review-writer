@@ -11,13 +11,7 @@
     "journal",
     "doi",
     "abstract",
-    "keywords",
-    "llm_tags",
-    "human_tags",
-    "topic_category",
-    "reaction_category",
-    "mechanism_category",
-    "application_category",
+    "structured_tags",
     "source_paths",
     "extraction",
     "human_review",
@@ -32,16 +26,7 @@
     "journal": { "$ref": "#/$defs/scored_string_or_null" },
     "doi": { "$ref": "#/$defs/scored_string_or_null" },
     "abstract": { "$ref": "#/$defs/scored_string" },
-    "keywords": { "$ref": "#/$defs/scored_string_array" },
-    "llm_tags": { "$ref": "#/$defs/scored_string_array" },
-    "human_tags": {
-      "type": "array",
-      "items": { "type": "string" }
-    },
-    "topic_category": { "$ref": "#/$defs/scored_string_array" },
-    "reaction_category": { "$ref": "#/$defs/scored_string_array" },
-    "mechanism_category": { "$ref": "#/$defs/scored_string_array" },
-    "application_category": { "$ref": "#/$defs/scored_string_array" },
+    "structured_tags": { "$ref": "#/$defs/scored_structured_tags" },
     "source_paths": {
       "type": "object",
       "required": ["pdf", "markdown", "content_list", "extracted_dir"],
@@ -122,6 +107,38 @@
         "value": {
           "type": "array",
           "items": { "type": "string" }
+        },
+        "source": { "type": "string" },
+        "confidence": { "type": "number" },
+        "human_checked": { "type": "boolean" }
+      }
+    },
+    "scored_structured_tags": {
+      "type": "object",
+      "required": ["value", "source", "confidence", "human_checked"],
+      "properties": {
+        "value": {
+          "type": "object",
+          "required": [
+            "product",
+            "substrate",
+            "catalyst_or_method",
+            "organometallic_partner",
+            "ligand_or_chiral_source",
+            "leaving_group",
+            "reaction_type",
+            "document_scope"
+          ],
+          "properties": {
+            "product": { "type": "string" },
+            "substrate": { "type": "string" },
+            "catalyst_or_method": { "type": "string" },
+            "organometallic_partner": { "type": "string" },
+            "ligand_or_chiral_source": { "type": "string" },
+            "leaving_group": { "type": "string" },
+            "reaction_type": { "type": "string" },
+            "document_scope": { "type": "string" }
+          }
         },
         "source": { "type": "string" },
         "confidence": { "type": "number" },

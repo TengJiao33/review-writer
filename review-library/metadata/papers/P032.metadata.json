@@ -3,27 +3,20 @@
   "slug": "chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote",
   "title": {
     "value": "Organocatalytic Access to C1-Functionalized Indolizines via Remote Stereocontrolled Construction of Axially Chiral Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xuan Zhang",
-      "Xu-Hua Jiang",
-      "Chun-Dong Huang",
-      "Cheng Gao",
-      "Shao-Fei Ni",
-      "Qi-Jian Ni"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_citation_line",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -39,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "We present here a straightforward protocol for the enantioselective synthesis of axially chiral tetrasubstituted allenes enabled by chiral phosphoric acid (CPA)-catalyzed 1,8-addition of indolizines to propargylic alcohols. This strategy achieves enantioselective and regioselective C1-functionalization of indolizines under mild reaction conditions with low catalyst loading, broad functional group tolerance (35 examples), and excellent enantioselectivities (up to 96% ee). Moreover, the scale-up reaction and late-stage C3-functionalizations demonstrated its potential applications. DFT calculations were carried out to clarify the reaction mechanism and the origin of enantio- and regioselective control.",
-    "source": "llm_from_front_matter_comprehensive_summary",
-    "confidence": 0.95,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chinese Journal of Chemistry - 2025 - Zhang - Organocatalytic Access to C1‐Functionalized Indolizines via Remote.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P032\\0800d675-5c7d-4c42-99c2-312596e40479_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P032"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\chinese-journal-of-chemistry-2025-zhang-organocatalytic-access-to-c1functionalized-indolizines-via-remote"
   },
   "source_file": {
     "pdf_name": "Chinese Journal of Chemistry - 2025 - Zhang - Organocatalytic Access to C1‐Functionalized Indolizines via Remote.pdf",
@@ -56,18 +65,15 @@
     "sha256": "725a73e679590e5fcd82e250411fbae19525bc9702422e56324a618889bb9ed2"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 124,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,32 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "missing_doi",
-      "low_confidence_abstract",
-      "No explicit abstract was provided in the snippets; the Comprehensive Summary paragraph was used as an abstract surrogate.",
-      "Reaction type was mapped to the closest available taxonomy label; the paper specifically describes a CPA-catalyzed 1,8-addition of indolizines to propargylic alcohols via in situ generated propargylic para-quinone methides.",
-      "The paper reports axially chiral tetrasubstituted allenes; the single allowed product label selected emphasizes axial chirality rather than substitution pattern.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.763,
+    "warnings": [
+      "empty_authors",
+      "missing_doi",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.366,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.87,
-    "human_checked": false
   }
 }

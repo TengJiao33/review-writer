@@ -1,0 +1,110 @@
+{
+  "paper_id": "P221",
+  "slug": "web-imports-2022-discovery-and-genetic-code-expansion-ie-202203061",
+  "title": {
+    "value": "Discovery and Genetic Code Expansion of a Polyethylene Terephthalate (PET) Hydrolase from the Human Saliva Metagenome for the Degradation and Bio‐Functionalization of PET",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Bhumrapee Eiamthong",
+      "Piyachat Meesawat",
+      "Thanakrit Wongsatit",
+      "Jariya Jitdee",
+      "Raweewan Sangsri",
+      "Maturada Patchsung",
+      "Kanokpol Aphicho",
+      "Surased Suraritdechachai"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie International Edition",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202203061",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract We report a bioinformatic workflow and subsequent discovery of a new polyethylene terephthalate (PET) hydrolase, which we named MG8, from the human saliva metagenome. MG8 has robust PET plastic degradation activities under different temperature and salinity conditions, outperforming several naturally occurring and engineered hydrolases in degrading PET. Moreover, we genetically encoded 2,3‐diaminopropionic acid (DAP) in place of the catalytic serine residue of MG8, thereby converting a PET hydrolase into a covalent binder for bio‐functionalization of PET. We show that MG8(DAP), in conjunction with a split green fluorescent protein system, can be used to attach protein cargos to PET as well as other polyester plastics. The discovery of a highly active PET hydrolase from the human metagenome—currently an underexplored resource for industrial enzyme discovery—as well as the repurposing of such an enzyme into a plastic functionalization tool, should facilitate ongoing efforts to degrade and maximize reusability of PET.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2022-discovery-and-genetic-code-expansion-ie-202203061.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2022-discovery-and-genetic-code-expansion-ie-202203061.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-discovery-and-genetic-code-expansion-ie-202203061\\web-imports-2022-discovery-and-genetic-code-expansion-ie-202203061_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2022-discovery-and-genetic-code-expansion-ie-202203061"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 62,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.847,
+    "needs_human_check": true
+  }
+}

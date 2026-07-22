@@ -1,0 +1,107 @@
+{
+  "paper_id": "P207",
+  "slug": "web-imports-2018-operando-x-ray-photoelectron-spectro-018-04762-z",
+  "title": {
+    "value": "Operando X-ray photoelectron spectroscopy of solid electrolyte interphase formation and evolution in Li2S-P2S5 solid-state electrolytes",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Kevin N. Wood",
+      "K. Xerxes Steirer",
+      "Simon E. Hafner",
+      "Chunmei Ban",
+      "Shriram Santhanagopalan",
+      "Se-Hee Lee",
+      "Glenn Teeter"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2018,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-018-04762-z",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Solid-state electrolytes such as Li 2 S-P 2 S 5 compounds are promising materials that could enable Li metal anodes. However, many solid-state electrolytes are unstable against metallic lithium, and little is known about the chemical evolution of these interfaces during cycling, hindering the rational design of these materials. In this work, operando X-ray photoelectron spectroscopy and real-time in situ Auger electron spectroscopy mapping are developed to probe the formation and evolution of the Li/Li 2 S-P 2 S 5 solid-electrolyte interphase during electrochemical cycling, and to measure individual overpotentials associated with specific interphase constituents. Results for the Li/Li 2 S-P 2 S 5 system reveal that electrochemically driving Li + to the surface leads to phase decomposition into Li 2 S and Li 3 P. Additionally, oxygen contamination within the Li 2 S-P 2 S 5 leads initially to Li 3 PO 4 phase segregation, and subsequently to Li 2 O formation. The spatially non-uniform distribution of these phases, coupled with differences in their ionic conductivities, have important implications for the overall properties and performance of the solid-electrolyte interphase.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\chem_papers\\web-imports\\2018-operando-x-ray-photoelectron-spectro--018-04762-z.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\markdown\\web-imports-2018-operando-x-ray-photoelectron-spectro-018-04762-z.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2018-operando-x-ray-photoelectron-spectro-018-04762-z\\20b6ae3e-49e3-4ff0-a039-7b5c41f47d62_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\extracted\\web-imports-2018-operando-x-ray-photoelectron-spectro-018-04762-z"
+  },
+  "source_file": {
+    "pdf_name": "2018-operando-x-ray-photoelectron-spectro--018-04762-z.pdf",
+    "relative_pdf_path": "web-imports\\2018-operando-x-ray-photoelectron-spectro--018-04762-z.pdf",
+    "sha256": "68413579202ade4c4c366f3b4aaeb1b04fddebd06a496e916a0aad9f5610d79e"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-20T14:57:47Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\.retrieval-bakeoff-20260720\\mineru-outputs\\manifest.json",
+      "content_blocks": 165,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "structured_tag_not_specified_document_scope"
+    ],
+    "overall_confidence": 0.79,
+    "needs_human_check": true
+  }
+}

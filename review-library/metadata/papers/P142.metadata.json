@@ -3,25 +3,20 @@
   "slug": "35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated",
   "title": {
     "value": "Organocatalytic Enantioselective Synthesis of 2,3-Allenoates by Intermolecular Addition of Nitroalkanes to Activated Enynes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Hui Qian",
-      "Xiuzhao Yu",
-      "Junliang Zhang",
-      "Jianwei Sun"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2013,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "fi ffi nitroalkanes to activated enynes for asymmetric synthesis of 2,3-allenoates is described. It is a new addition to the limited available strategies for catalytic asymmetric synthesis of allenoates. Enabled by a new bifunctional catalyst, a range of trisubstituted allenoates can be obtained in excellent chemical and optical purity. These allenoate products with a pendant 2-nitroethyl α-substituent are useful chiral building blocks.",
-    "source": "content_list_inline_abstract",
-    "confidence": 0.84,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P142\\9fda3bb0-8a3a-4339-a565-5c43950f951f_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P142"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated"
   },
   "source_file": {
     "pdf_name": "35-organocatalytic-enantioselective-synthesis-of-2-3-allenoates-by-intermolecular-addition-of-nitroalkanes-to-activated.pdf",
@@ -54,18 +65,15 @@
     "sha256": "7f6abd34d6163deee937b0c122f2da8ef45b9f35526818a4ac54c08fa79e900d"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 84,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,31 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "Abstract opening is OCR-corrupted in the source and has been minimally reconstructed from the provided front matter and body text.",
-      "Abstract text appears OCR-corrupted at the opening; the first phrase was minimally restored from title/front-matter context.",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.681,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "bifunctional organocatalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "cinchona-derived and chiral ammonium catalysts",
-      "organometallic_partner": "not specified",
-      "product": "allenoates",
-      "reaction_type": "conjugate 1,6-addition to enynes",
-      "substrate": "enynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.96,
-    "human_checked": false
   }
 }

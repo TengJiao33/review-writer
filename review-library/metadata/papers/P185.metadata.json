@@ -3,31 +3,26 @@
   "slug": "50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes",
   "title": {
     "value": "Palladium/Acetic Acid Catalyzed Allylation of Some Pronucleophiles with Simple Alkynes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Isao Kadota",
-      "Akinori Shibuya",
-      "Young Soo Gyoung",
-      "Yoshinori Yamamoto"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1998,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": 1995,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -37,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "The palladium-catalyzed allylation of carbon nucleophiles is well-recognized as one of the most powerful synthetic tools for the construction of carbon carbon bonds (eq 1, path A).1",
-    "source": "content_list_first_paragraph_after_authors",
-    "confidence": 0.68,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P185\\190ed6e3-fa5a-43e3-b5e7-75ecff23e2dc_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P185"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes"
   },
   "source_file": {
     "pdf_name": "50d-palladium-acetic-acid-catalyzed-allylation-of-some-pronucleophiles-with-simple-alkynes.pdf",
@@ -54,18 +65,15 @@
     "sha256": "9e9b78b292b0889cf038a2059858e85428a49927a58b10c1ec0fa0a732022669"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 45,
+      "content_blocks": 0,
       "markdown_chars_used": 13185
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -74,37 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No separate abstract was present in the supplied snippets; abstract left empty.",
-      "Supplied rule-extracted year listed 1995, but front matter and journal header support 1998.",
-      "No standalone abstract is visible; JACS communication appears to begin directly with body text, so abstract is recorded as an empty string.",
-      "The paper uses simple alkynes and allylation products, with allene discussed as a proposed intermediate rather than an isolated product; several allene-specific classification categories are therefore marked not specified.",
-      "Ligand classification is based on the explicitly used Pd(PPh3)4 catalyst and inhibited reactions with dppb/dppf; confidence is moderate because no ligand-development focus is present.",
       "structured_tag_not_specified_product",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
       "structured_tag_not_specified_leaving_group",
-      "structured_tag_not_specified_reaction_type"
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.714,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.63,
-    "human_checked": false
   }
 }

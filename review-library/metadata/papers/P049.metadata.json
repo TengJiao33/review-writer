@@ -3,31 +3,20 @@
   "slug": "pd-catalyzed-asymmetric-allenylation-of-secondary-phosphine-oxides-with-enyne-type-propargylic-carbamates-for-the",
   "title": {
     "value": "Pd-Catalyzed Asymmetric Allenylation of Secondary Phosphine Oxides with Enyne-Type Propargylic Carbamates for the Construction of Chiral Allenyl Phosphine Oxides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Yujie Dong",
-      "Nianci Zhang",
-      "Fazhou Yang",
-      "Jinbao Wang",
-      "Bo Wang",
-      "Jun Liu",
-      "Bing Zheng",
-      "Cheng Zhang",
-      "Leijie Zhou",
-      "Hongchao Guo"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -37,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acscatal.5c05571",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Chiral allenyl phosphine oxides represent a significant kind of synthetic target with promising potential for various applications. However, explorations toward their asymmetric synthesis remain scarce, primarily due to the competitive coordination of phosphine oxides with metal catalysts. Herein, we report a Pd-catalyzed enantioselective allenylation of secondary phosphine oxide for the efficient construction of a variety of chiral allenyl phosphine oxides. The success of this reaction arises from the enhanced (bidentate form) coordination of a newly designed, fungicide-inspired enyne-type propargylic carbamate with a chiral Pd complex. This protocol features high yields and enantioselectivities, scalability, and versatile derivatization. Mechanistic studies confirmed the exclusion of a kinetic resolution pathway.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Chiral allenyl phosphine oxides represent a significant kind of synthetic target with promising potential for various applications. However, explorations toward their asymmetric synthesis remain scarce, primarily due to the competitive coordination of phosphine oxides with metal catalysts. Herein, we report a Pd-catalyzed enantioselective allenylation of secondary phosphine oxide for the efficient construction of a variety of chiral allenyl phosphine oxides. The success of this reaction arises from the enhanced (bidentate form) coordination of a newly designed, fungicide-inspired enyne-type propargylic carbamate with a chiral Pd complex. This protocol features high yields and enantioselectivities, scalability, and versatile derivatization. Mechanistic studies confirmed the exclusion of a kinetic resolution pathway. KEYWORDS: asymmetric catalysis, palladium catalysis, phosphine oxide, chiral allene, axial chirality",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\pd-catalyzed-asymmetric-allenylation-of-secondary-phosphine-oxides-with-enyne-type-propargylic-carbamates-for-the.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\pd-catalyzed-asymmetric-allenylation-of-secondary-phosphine-oxides-with-enyne-type-propargylic-carbamates-for-the.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P049\\6901cdf8-00d7-4d65-994e-a25033222f40_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P049"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\pd-catalyzed-asymmetric-allenylation-of-secondary-phosphine-oxides-with-enyne-type-propargylic-carbamates-for-the"
   },
   "source_file": {
     "pdf_name": "pd-catalyzed-asymmetric-allenylation-of-secondary-phosphine-oxides-with-enyne-type-propargylic-carbamates-for-the.pdf",
@@ -60,18 +65,15 @@
     "sha256": "5b3e036d01709ae365856d78014dbe08b7f70fd488a0c4902b9f5b0efe7417b4"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 169,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -82,26 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.799,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbamate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbamates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.94,
-    "human_checked": false
   }
 }

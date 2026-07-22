@@ -3,24 +3,20 @@
   "slug": "44-dynamic-kinetic-asymmetric-allylic-alkylations-of-allenes",
   "title": {
     "value": "Dynamic Kinetic Asymmetric Allylic Alkylations of Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Barry M. Trost",
-      "Daniel R. Fandrick",
-      "Diana C. Dinh"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2005,
-    "source": "llm_from_front_matter_and_publication_header",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -36,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Efficient and atom economic methods for construction of chiral allenes are of significance due to the presence of this core structure in numerous natural and biologically important products, as well as synthetic intermediates for asymmetric synthesis of targets involving chirality transfer. Undoubtedly, the potential in this latter regard has been retarded by the limited accessibility of enantioenriched allenes. Typically, chiral allenes are derived from chiral propargylic alcohols. Only recently has asymmetric catalysis been employed for the construction of allenes. Several limited methods utilize the asymmetric addition of soft nucleophiles to vinyl allyl Pd(II) intermediates accessed through both the oxidative addition of racemic 2,3-alkadienyl phosphates and prochiral vinyl bromides. Our group has been active in related palladium-catalyzed asymmetric allylic alkylations through a dynamic kinetic asymmetric transformation utilizing our ligands. Therefore, we focused our studies on the use of these ligands for the dynamic kinetic asymmetric addition of nucleophiles to allenes, which has led to a general access to allenes of high enantiomeric excess for both carbon- and nitrogen-based nucleophiles. Further, a most unusual dependence of enantioselectivity on base in the case of amine nucleophiles has been uncovered.",
-    "source": "llm_from_opening_paragraph_no_formal_abstract",
-    "confidence": 0.84,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\44-dynamic-kinetic-asymmetric-allylic-alkylations-of-allenes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\44-dynamic-kinetic-asymmetric-allylic-alkylations-of-allenes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P164\\3d3fef38-3e95-4564-bd18-b0a74f46f288_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P164"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\44-dynamic-kinetic-asymmetric-allylic-alkylations-of-allenes"
   },
   "source_file": {
     "pdf_name": "44-dynamic-kinetic-asymmetric-allylic-alkylations-of-allenes.pdf",
@@ -53,18 +65,15 @@
     "sha256": "4114e4c9b33d1c8ad8acf9aee8733225d220b59bf5ffcd56c898676bffff0fde"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 33,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -73,33 +82,20 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract was visible in the supplied snippets; the opening paragraph was used as an abstract-like text.",
-      "No formal abstract was visible in the supplied evidence; the opening introductory paragraph was used as an abstract surrogate.",
-      "The chiral Trost ligand is clearly central, but the available label set does not provide an exact match, so ligand_or_chiral_source was set to not specified.",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.67,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "axially chiral allenes",
-      "reaction_type": "intermolecular functionalization of allenes",
-      "substrate": "allenyl acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

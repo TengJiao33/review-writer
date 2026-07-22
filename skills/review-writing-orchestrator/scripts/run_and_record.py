@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shlex
@@ -90,12 +91,48 @@ def write_markdown(path: Path, project_id: str, events: list[dict[str, Any]]) ->
             lines.append(f"- Note: {event['note']}")
         if event.get("artifacts"):
             lines.append("- Artifacts: " + ", ".join(f"`{item}`" for item in event["artifacts"]))
+        if event.get("artifact_receipts"):
+            lines.append("- Artifact receipts: recorded with hashes and post-command existence checks")
         if event.get("stdout_tail"):
             lines.extend(["", "Output tail:", "", "```text", event["stdout_tail"], "```"])
         if event.get("stderr_tail"):
             lines.extend(["", "Error tail:", "", "```text", event["stderr_tail"], "```"])
         lines.append("")
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
+def file_sha256(path: Path) -> str | None:
+    if not path.exists() or not path.is_file():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def resolve_artifact(project: Path, value: str) -> Path:
+    if not value.strip():
+        raise ValueError("Artifact paths must not be empty")
+    raw = Path(value)
+    candidate = raw.resolve() if raw.is_absolute() else (project / raw).resolve()
+    try:
+        candidate.relative_to(project.resolve())
+    except ValueError as exc:
+        raise ValueError(f"Artifact path escapes the project directory: {value}") from exc
+    return candidate
+
+
+def artifact_state(path: Path) -> dict[str, Any]:
+    exists = path.exists()
+    stat = path.stat() if exists else None
+    return {
+        "exists": exists,
+        "kind": "directory" if exists and path.is_dir() else "file" if exists else None,
+        "size": stat.st_size if stat and path.is_file() else None,
+        "mtime_ns": stat.st_mtime_ns if stat else None,
+        "sha256": file_sha256(path),
+    }
 
 
 def run(args: argparse.Namespace) -> int:
@@ -107,6 +144,11 @@ def run(args: argparse.Namespace) -> int:
         command = command[1:]
     if not command:
         raise SystemExit("A command is required after --")
+    try:
+        artifact_paths = [resolve_artifact(project, value) for value in args.artifact]
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
+    before_states = [artifact_state(path) for path in artifact_paths]
     started_at = utc_now()
     result = subprocess.run(command, cwd=review_root, text=True, capture_output=True, check=False)
     finished_at = utc_now()
@@ -116,8 +158,29 @@ def run(args: argparse.Namespace) -> int:
         print(result.stderr, end="", file=sys.stderr)
     public_command = redact_command(command)
     command_text = subprocess.list2cmdline(public_command) if os.name == "nt" else shlex.join(public_command)
+    receipts = []
+    recording_errors = []
+    for value, path, before in zip(args.artifact, artifact_paths, before_states):
+        after = artifact_state(path)
+        content_changed = any(
+            before.get(key) != after.get(key)
+            for key in ("exists", "kind", "size", "sha256")
+        )
+        receipts.append(
+            {
+                "artifact": value,
+                "resolved_path": str(path),
+                "before": before,
+                "after": after,
+                "changed_by_command": before != after,
+                "content_changed_by_command": content_changed,
+            }
+        )
+        if result.returncode == 0 and not after["exists"]:
+            recording_errors.append(f"declared artifact missing after successful command: {value}")
+    effective_exit_code = 2 if result.returncode == 0 and recording_errors else result.returncode
     event = {
-        "event_version": 1,
+        "event_version": 2,
         "project_id": args.project_id,
         "stage": args.stage,
         "started_at": started_at,
@@ -125,9 +188,12 @@ def run(args: argparse.Namespace) -> int:
         "cwd": str(review_root),
         "command": public_command,
         "command_text": command_text,
-        "exit_code": result.returncode,
+        "command_exit_code": result.returncode,
+        "exit_code": effective_exit_code,
         "note": args.note.strip(),
         "artifacts": args.artifact,
+        "artifact_receipts": receipts,
+        "recording_errors": recording_errors,
         "stdout_tail": result.stdout[-4000:].strip(),
         "stderr_tail": result.stderr[-4000:].strip(),
     }
@@ -135,7 +201,9 @@ def run(args: argparse.Namespace) -> int:
     with events_path.open("a", encoding="utf-8", newline="\n") as handle:
         handle.write(json.dumps(event, ensure_ascii=False) + "\n")
     write_markdown(project / "run_record.md", args.project_id, read_events(events_path))
-    return result.returncode
+    for error in recording_errors:
+        print(error, file=sys.stderr)
+    return effective_exit_code
 
 
 def parse_args() -> argparse.Namespace:

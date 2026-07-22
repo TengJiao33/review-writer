@@ -1,0 +1,108 @@
+{
+  "paper_id": "P237",
+  "slug": "web-imports-2024-computational-redesign-of-a-hydrolas-024-45662-9",
+  "title": {
+    "value": "Computational redesign of a hydrolase for nearly complete PET depolymerization at industrially relevant high-solids loading",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Yinglu Cui",
+      "Yanchun Chen",
+      "Jinyuan Sun",
+      "Tong Zhu",
+      "Hua Pang",
+      "Chunli Li",
+      "Wen-Chao Geng",
+      "Bian Wu"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-024-45662-9",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Biotechnological plastic recycling has emerged as a suitable option for addressing the pollution crisis. A major breakthrough in the biodegradation of poly(ethylene terephthalate) (PET) is achieved by using a LCC variant, which permits 90% conversion at an industrial level. Despite the achievements, its applications have been hampered by the remaining 10% of nonbiodegradable PET. Herein, we address current challenges by employing a computational strategy to engineer a hydrolase from the bacterium HR29. The redesigned variant, TurboPETase, outperforms other well-known PET hydrolases. Nearly complete depolymerization is accomplished in 8 h at a solids loading of 200 g kg −1 . Kinetic and structural analysis suggest that the improved performance may be attributed to a more flexible PET-binding groove that facilitates the targeting of more specific attack sites. Collectively, our results constitute a significant advance in understanding and engineering of industrially applicable polyester hydrolases, and provide guidance for further efforts on other polymer types.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-computational-redesign-of-a-hydrolas--024-45662-9.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-computational-redesign-of-a-hydrolas-024-45662-9.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-computational-redesign-of-a-hydrolas-024-45662-9\\f5081f9f-c7c2-4eea-b500-9d1bf9063959_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-computational-redesign-of-a-hydrolas-024-45662-9"
+  },
+  "source_file": {
+    "pdf_name": "2024-computational-redesign-of-a-hydrolas--024-45662-9.pdf",
+    "relative_pdf_path": "web-imports\\2024-computational-redesign-of-a-hydrolas--024-45662-9.pdf",
+    "sha256": "7c9069759e69b475e7ecc6c61fcb8d718fff2cbddf6b3e4c9cc22a11523aac64"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T13:14:04Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 243,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.839,
+    "needs_human_check": true
+  }
+}

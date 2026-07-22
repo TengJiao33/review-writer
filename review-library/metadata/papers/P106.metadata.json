@@ -3,49 +3,65 @@
   "slug": "17b",
   "title": {
     "value": "Identifying a non-chiral ligand for the efficient chirality transfer in carbonylation of propargylic mesylates†",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
     "value": [
       "Yuli Wang",
-      "Wanli Zhang",
-      "Shengming Ma"
+      "Wanli Zhanga and Shengming $M ^ { star",
+      "}$ Received th May"
     ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "source": "content_list_after_title",
+    "confidence": 0.74,
     "human_checked": false
   },
   "year": {
     "value": 2014,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
     "value": "Organic Chemistry Frontiers",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "doi_derived",
+    "confidence": 0.85,
     "human_checked": false
   },
   "doi": {
     "value": "10.1039/c4qo00151f",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
+    "source": "registry_conflict_fix",
+    "confidence": 0.95,
     "human_checked": false
   },
   "abstract": {
     "value": "Enantioselective synthesis of optically active 2,4-disubstituted 2,3-allenoates has been realized with a very high chirality transfer efficiency using the inexpensive commercially available non-chiral DPEphos in the presence of 100–200 psi of CO at room temperature. The key for the high efficiency of this chirality transfer process has been certified as the matched coordination of Pd with DPEphos forming a relatively stable optically active square planar allenylic Pd(II) complex, which undergoes a facile carbonylation in the presence of 10 equiv. of BnOH and 100–200 psi of CO.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "content_list_first_paragraph_after_authors",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\17b.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\17b.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P106\\1da433d8-c0fc-4ea4-8571-0786c1765009_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P106"
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\17b\\1da433d8-c0fc-4ea4-8571-0786c1765009_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\17b"
   },
   "source_file": {
     "pdf_name": "17b.pdf",
@@ -53,18 +69,15 @@
     "sha256": "8f46cbb22d73e5d5eff50dead55519654d5a0c83e3dff9904bf9b6f6d132e14b"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:23Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
       "content_blocks": 102,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,37 +88,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "low_confidence_abstract",
-      "structured_tag_not_specified_organometallic_partner"
+      "missing_journal",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.931,
+    "overall_confidence": 0.719,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "ligand-development study",
-      "leaving_group": "mesylate leaving groups",
-      "ligand_or_chiral_source": "achiral bisphosphine ligands for chirality transfer",
-      "organometallic_partner": "not specified",
-      "product": "allenoates",
-      "reaction_type": "carbonylative synthesis of allenes and allenoates",
-      "substrate": "propargylic mesylates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.96,
-    "human_checked": false
-  },
-  "volume": {
-    "value": "1",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
-  },
-  "pages": {
-    "value": "807-811",
-    "source": "source_front_matter_verified",
-    "confidence": 0.99,
-    "human_checked": false
   }
 }

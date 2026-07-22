@@ -2,32 +2,27 @@
   "paper_id": "P195",
   "slug": "8a",
   "title": {
-    "value": "Formation of Allenes by Reaction of Lithium Diorganocuprates on Propargylic Acetates - A Mechanistic Approach",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "8a",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "J.L. Luche",
-      "E. Barreiro",
-      "J.M. Dollat",
-      "P. Crabbé"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1975,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "journal": {
-    "value": "Tetrahedron Letters",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
+    "value": null,
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "doi": {
@@ -42,30 +37,43 @@
     "confidence": 0.0,
     "human_checked": false
   },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\8a.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\8a.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P195\\45cf22b0-0df6-4ea0-bf41-5b2e97072782_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P195"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\8a"
   },
   "source_file": {
     "pdf_name": "8a.pdf",
     "relative_pdf_path": "8a.pdf",
-    "sha256": "fe7f22bceedd79ee00fef7e30211c5d5d4976cf9cefde8121319971731581f65"
+    "sha256": "e607e66e959308f138537dc2af327c0bc930cb98d734c4dd87800d37befa8203"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 21,
+      "content_blocks": 0,
       "markdown_chars_used": 8402
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,36 +83,22 @@
   },
   "quality": {
     "missing_fields": [
-      "abstract"
+      "abstract",
+      "year"
     ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
+      "missing_journal",
       "missing_doi",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
       "low_confidence_title",
-      "low_confidence_abstract",
-      "No explicit abstract was present in the provided snippets; abstract left empty.",
-      "Structured tags are derived from the title and body text rather than an abstract.",
-      "The transformation uses stoichiometric organocuprates rather than a catalytic system.",
-      "No formal abstract located in the supplied paper evidence.",
-      "The organometallic partner label is approximate because the reagent is a lithium diorganocuprate and no dedicated organocuprate label exists in the allowed schema.",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.647,
+    "overall_confidence": 0.114,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "mechanistic study",
-      "leaving_group": "acetate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "organolithium reagents",
-      "product": "allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic acetates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.84,
-    "human_checked": false
   }
 }

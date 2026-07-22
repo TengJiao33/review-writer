@@ -3,70 +3,77 @@
   "slug": "9b",
   "title": {
     "value": "On the configurational stability of allenes and butatrienes in the presence of organocopper(I) species",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "H. Westmijze",
-      "I. Nap",
-      "J. Meijer",
-      "H. Kleijn",
-      "P. Vermeer"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 1983,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "Recueil des Travaux Chimiques des Pays-Bas",
+    "source": "targeted_fix",
+    "confidence": 0.75,
     "human_checked": false
   },
   "doi": {
-    "value": null,
+    "value": "10.1002/recl.19831020306",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "",
     "source": "rule_not_found",
     "confidence": 0.0,
     "human_checked": false
   },
-  "abstract": {
-    "value": "Two epimeric steroidal allenes, 1 and 2, have been interconverted by reaction with Me2CuMgCl and Me2CuLi. MeCu could also be used, although in this case the isomerisation was much slower. The 1,4-disubstituted butatrienes 6 and 8 have also been isomerised by means of Me2CuMgCl and MeCu, while the trisubstituted butatriene Z-7 has been isomerised into its geometric isomer using Et2CuMgCl. The isomerisations are thought to proceed through radical anions. In the case of the butatriene series, it is assumed that the carbometallation of the inner double bond by the copper(I) reagents also proceeds through the proposed radical anion intermediates.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\9b.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\9b.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P205\\1a6a5bf5-9215-4150-9ee5-faaa2e92ee8d_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P205"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\9b"
   },
   "source_file": {
     "pdf_name": "9b.pdf",
     "relative_pdf_path": "9b.pdf",
-    "sha256": "2eb223ea26132da727d6d01b310b6c4b86874d180ab5f6dd99d3c44a47ac7fa7"
+    "sha256": "86c61c6fa0c68435a69397c263170ec628c09336984bd93a53d2178f2c399ccb"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T20:56:27Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 78,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -75,36 +82,22 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract",
+      "year"
+    ],
     "warnings": [
-      "missing_year",
+      "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "Source text includes neighboring article content before and after the target paper; metadata was extracted only from the clearly identified target article.",
-      "Author honorific 'Mrs.' was omitted from 'Mrs. I. Nap' to keep named authors only.",
-      "Paper studies both steroidal allenes and butatrienes; the single `product` label prioritizes the configurationally labile allene component.",
-      "Organocopper reagents include both Grignard-derived cuprates and Me2CuLi; `organometallic_partner` reflects the predominant Grignard-derived reagent set in the abstract and body.",
       "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.676,
+    "overall_confidence": 0.19,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "stereochemical study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "Grignard reagents",
-      "product": "axially chiral allenes",
-      "reaction_type": "radical transformations of allenes",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.78,
-    "human_checked": false
   }
 }

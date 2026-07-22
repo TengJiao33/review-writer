@@ -2,26 +2,21 @@
   "paper_id": "P080",
   "slug": "org.-lett.-2022-24-2660",
   "title": {
-    "value": "Synthesis of Allenyl-Bdan via Cu(I)-Catalyzed Borylation of Propargyl Dichlorides",
-    "source": "llm_from_front_matter",
-    "confidence": 0.94,
+    "value": "Synthesis of Allenyl-Bdan via Cu(I)-Catalyzed Borylation of Propargyl -Dichlorides",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Ke-Fan Wu",
-      "Dong-Ting Dai",
-      "Xin-Yue Sun",
-      "Yun-He Xu"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2022,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -31,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/acs.orglett.2c00704",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "A copper-catalyzed borylation of propargyl dichlorides was developed under mild reaction conditions. The corresponding chloro-substituted allenyl-Bdan products were obtained in good yields. The utilities of allenyl-Bdan products were examined by their diverse derivatizations.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "A copper-catalyzed borylation of propargyl dichlorides was developed under mild reaction conditions. The corresponding chloro-substituted allenyl-Bdan products were obtained in good yields. The utilities of allenyl-Bdan products were examined by their diverse derivatizations. T he unique structure of allenes with two cumulated carbon−carbon double bonds enables them to exhibit diverse reactivities in organic transformations (Scheme 1a).1 Among allene derivatives, the allenylboronates are one kind of important reagent due to their wide applications in organic synthesis and material science.2 The traditional methods for the synthesis of allenylboronates usually need equivalent amounts of moisture-sensitive bases such as Grignard reagents",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Lett. 2022, 24, 2660.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-lett.-2022-24-2660.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P080\\64389682-fa6f-411f-a258-09950e633443_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P080"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-lett.-2022-24-2660"
   },
   "source_file": {
     "pdf_name": "Org. Lett. 2022, 24, 2660.pdf",
@@ -54,18 +65,15 @@
     "sha256": "b28b9b6ae2135b7ba7e91688e65ebf187a2fac8f567db24c0ba0e6fe4180c034"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 130,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,27 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "Title appears OCR-damaged in the front matter ('Propargyl -Dichlorides'); 'gem-Dichlorides' was restored from repeated body-text usage of 'propargyl gem-dichlorides'.",
-      "structured_tag_not_specified_selectivity_profile",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.794,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "halide leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "boranes and boronates",
-      "product": "allenyl boranes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic dichlorides"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.96,
-    "human_checked": false
   }
 }

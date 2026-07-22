@@ -3,27 +3,20 @@
   "slug": "chemistry-a-european-j-2025-wei-cobaltcatalyzed-reduction-of-propargyl-alcohols-for-the-synthesis-of-1",
   "title": {
     "value": "Cobalt-Catalyzed Reduction of Propargyl Alcohols for the Synthesis of 1,3-Diarylallenes Under N,N-Ligand and Hydride-free Conditions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Luyao Wei",
-      "Biao Zhu",
-      "Luning Tang",
-      "Zhengyu Han",
-      "Jianwei Sun",
-      "Hai Huang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -33,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1002/chem.202501433",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Allenes are a class of important organic compounds, and their synthesis has always been of great interest. In this article, we have developed a cobalt-catalyzed photoredox strategy, providing an alternative and efficient approach for the synthesis of 1,3-diarylallenes from propargyl alcohols. The reaction utilized organic amines as a hydrogen source to avoid the use of conventional hydride additives and does not require the addition of extra N,N-ligands to activate the cobalt catalyst, achieving a mild reaction condition. As a result, the reaction was able to synthesize the desired 1,3-diarylallene compounds with good yields and functional group compatibility.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "In order to further develop the synthetic methods of allenes and leverage the catalytic advantages of metal cobalt, as well as our recent interesting in transformation of propargyl alcohols.[12] In this paper, we developed a cobaltcatalyzed reduction strategy for propargyl alcohol derivatives, achieving the synthesis of 1,3-diarylallenes (Scheme 1c).",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Chemistry A European J - 2025 - Wei - Cobalt‐Catalyzed Reduction of Propargyl Alcohols for the Synthesis of 1.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chemistry-a-european-j-2025-wei-cobaltcatalyzed-reduction-of-propargyl-alcohols-for-the-synthesis-of-1.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P030\\37305e2e-e2fa-4aec-b237-a5e9113e9108_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P030"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\chemistry-a-european-j-2025-wei-cobaltcatalyzed-reduction-of-propargyl-alcohols-for-the-synthesis-of-1"
   },
   "source_file": {
     "pdf_name": "Chemistry A European J - 2025 - Wei - Cobalt‐Catalyzed Reduction of Propargyl Alcohols for the Synthesis of 1.pdf",
@@ -56,18 +65,15 @@
     "sha256": "d5a45e9677db4e48e2e365673685f73342a2d8aa4ad24239bad7d06471c7cd44"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 97,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -78,28 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "low_confidence_abstract",
-      "structured_tag_not_specified_selectivity_profile",
+      "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_ligand_or_chiral_source"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.769,
+    "overall_confidence": 0.469,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "cobalt catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "carbonate leaving groups",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "arylallenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic carbonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.89,
-    "human_checked": false
   }
 }

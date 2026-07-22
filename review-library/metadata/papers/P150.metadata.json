@@ -3,22 +3,20 @@
   "slug": "3d-electrophilic-addition-and-cyclization-reactions-of-allenes-1",
   "title": {
     "value": "Electrophilic Addition and Cyclization Reactions of Allenes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2009,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -34,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Modern organic synthesis depends on the development of highly selective methods for the efficient construction of potentially useful target molecules. A primary goal in our laboratory is the discovery of new reactions that convert readily available starting materials to complex products with complete control of regio- and stereoselectivity. Allenes are one underused moiety in organic synthesis, because these groups are often thought to be highly reactive. However, many compounds containing the allene group, including natural products and pharmaceuticals, are fairly stable. The chemistry of allenes has been shown to have significant potential in organic synthesis.\n\nElectrophilic additions to allenes have often been considered to be synthetically less attractive due to the lack of efficient control of the regio- and stereoselectivity. However, this Account describes electrophilic reactions of allenes with defined regio- and stereoselectivity developed in our laboratory. Many substituted allenes are readily available from propargylic alcohols. Our work has involved an exploration of the reactions of these allenes with many different electrophiles: halo- or seleno-hydroxylations of allenyl sulfoxides, sulfones, phosphine oxides, carboxylates, sulfides or selenides, butenolides, and arenes, and halo- or seleno-lactonization reactions of allenoic acids and allenoates.\n\nThese reactions have produced a host of new compounds such as stereodefined allylic alcohols, ethers, amides, thiiranes, and lactones. In all these reactions, water acts as a reactant and plays an important role in determining the reaction pathway and the stereoselectivity. The differing electronic properties of the two C=C bonds in these allenes determine the regioselectivity of these reactions. Through mechanistic studies of chirality transfer, isolation and reactivity of cyclic intermediates, 18O-labeling, and substituent effects, we discovered that the E-stereoselectivity of some reactions results from the neighboring group participation of functional groups forming cyclic intermediates. We rationalize Z-stereoselectivity under other conditions by soft Lewis acid-base interactions and steric effects. These electrophilic reactions of allenes are efficient and useful methods for the synthesis of stereodefined alkenes and lactones, useful functionalities for synthesis.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.92,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\3d-electrophilic-addition-and-cyclization-reactions-of-allenes (1).pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\3d-electrophilic-addition-and-cyclization-reactions-of-allenes-1.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P150\\19502f7b-5d8f-4ef6-ad1b-63663bd2448c_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P150"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\3d-electrophilic-addition-and-cyclization-reactions-of-allenes-1"
   },
   "source_file": {
     "pdf_name": "3d-electrophilic-addition-and-cyclization-reactions-of-allenes (1).pdf",
@@ -51,18 +65,15 @@
     "sha256": "edefbfe5657a25deb6f2a36941fe92494c64f7cc5232c6aa7fd3f20e63fce844"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 154,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -71,35 +82,21 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
       "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "Abstract reconstructed from OCRed front-matter conspectus; minor spacing, symbol, and E/Z normalization applied from supplied text.",
-      "This Account surveys multiple allene substrate classes and both addition and cyclization manifolds; substrate, product, and reaction_type labels are therefore approximate best-fit classifications from the allowed list.",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.651,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "account or perspective",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "allene-derived cyclic products",
-      "reaction_type": "intermolecular functionalization of allenes",
-      "substrate": "allenic acids and esters"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.67,
-    "human_checked": false
   }
 }

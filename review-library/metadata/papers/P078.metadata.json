@@ -2,36 +2,27 @@
   "paper_id": "P078",
   "slug": "org.-chem.-front.-2023-10-3662",
   "title": {
-    "value": "Organocatalytic enantioselective reaction of tertiary α-(7-indolyl)methanols with tryptamines",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "org. chem. front. 2023 10 3662",
+    "source": "slug_fallback",
+    "confidence": 0.35,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Zhibin Yue",
-      "Boming Shen",
-      "Jie Cao",
-      "Xuling Chen",
-      "Fang Fang",
-      "Pengfei Li",
-      "Peiyuan Yu",
-      "Wenjun Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2023,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
-    "value": "Org. Chem. Front. 2023",
-    "source": "filename_inferred",
-    "confidence": 0.6,
+    "value": "",
+    "source": "cite_this_line",
+    "confidence": 0.7,
     "human_checked": false
   },
   "doi": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "With the aid of chiral phosphoric acid, enantioselective 1,6-addition of tryptamines to formed alkynyl 7-methylene-7-indoles from tertiary α-(7-indolyl)methanols has been established for the first time, furnishing a broad range of axially chiral tetrasubstituted allenes featuring indole and hexahydropyrrolo[2,3-]indole units in good to high yields and with asymmetric induction. DFT calculations have been carried out to shed light on the reaction mechanism and to understand the origin of stereoselectivity. Importantly, this protocol not only enriches the chemistry of α-(7-indolyl)methanols but also provides an efficient means for the preparation of structurally diverse axially chiral tetrasubstituted allenes.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.95,
+    "value": "Propargylic alcohols have been proven to be versatile building blocks in the field of organic synthesis.9 Notably, functionalized propargylic alcohols have been successfully applied to in situ formation of conjugate systems under acidic conditions, followed by asymmetric organocatalytic additions for the enantioselective construction of axially chiral tetrasubstituted allenes and related products.6d,e,10–13 As a part of our continued interest in the field of organocatalytic asymmetric reactions of functionalized propargylic alcohols,6d,e,10a,12b,c,13a,c here we report a CPA-catalyzed enantioselective reaction of alkynyl 7-methylene-7H-indoles generated in situ from α-(7- indolyl)propargylic alcohols with tryptamines for the asymmetric construction of axially chiral tetrasubstituted allenes bearing indole and hexahydropyrrolo[2,3-b]indole units (Scheme 1BIV).",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Org. Chem. Front., 2023, 10, 3662.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\org.-chem.-front.-2023-10-3662.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P078\\e031bad0-bcbf-4ce0-9ca6-7f6cbbc3cde6_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P078"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\org.-chem.-front.-2023-10-3662"
   },
   "source_file": {
     "pdf_name": "Org. Chem. Front., 2023, 10, 3662.pdf",
@@ -58,18 +65,15 @@
     "sha256": "9b111443841e232edff827c3550f13bf9cc58a246af811487278b3e8e000bd81"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:40Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 110,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -80,28 +84,17 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_journal",
-      "low_confidence_abstract",
-      "Abstract text contains minor OCR artifacts in heterocycle notation; only obvious spacing was normalized.",
+      "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_title",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.92,
+    "overall_confidence": 0.543,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "conjugate 1,6-addition to enynes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.93,
-    "human_checked": false
   }
 }

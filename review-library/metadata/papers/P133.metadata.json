@@ -2,23 +2,21 @@
   "paper_id": "P133",
   "slug": "2b-hvd-hc1j13-345-355-1781612046",
   "title": {
-    "value": "Sur les relations qui existent entre les formules atomiques des corps organiques et le pouvoir rotatoire de leurs dissolutions",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "BULLETIN DE LA SOCIÉTÉ CHIMIQUE DE PARIS.",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "J.-A. Le Bel"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 1874,
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": 2026,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -34,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Pour prévoir si la dissolution d'une substance a ou n'a pas de pouvoir rotatoire, on ne possédait jusqu'à présent aucune règle certaine; on savait seulement que les dérivés d'une substance active sont en général actifs; encore voit-on souvent le pouvoir rotatoire disparaître subitement dans ces dérivés et cela dans les dérivés les plus immédiats, tandis qu'il se conserve dans d'autres dérivés beaucoup plus éloignés. En m'appuyant sur des considérations d'un ordre purement géométrique, je suis arrivé à formuler une règle beaucoup plus générale. Avant d'exposer le raisonnement qui permet d'arriver à cette loi, on présentera les données sur lesquelles il s'appuie, et l'on terminera par une discussion des vérifications que fournit l'état actuel de nos connaissances en chimie.",
-    "source": "llm_from_opening_paragraph",
-    "confidence": 0.72,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\2b-hvd-hc1j13-345-355-1781612046.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\2b-hvd-hc1j13-345-355-1781612046.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P133\\4deb14db-d7e3-48a6-85f4-9452d82e1164_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P133"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\2b-hvd-hc1j13-345-355-1781612046"
   },
   "source_file": {
     "pdf_name": "2b-hvd-hc1j13-345-355-1781612046.pdf",
@@ -51,18 +65,15 @@
     "sha256": "168f89b51369a9275d41ffb3ce8508ee1df02d8cafdd00ced0eae2a21258cf73"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T19:32:24Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:46Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 147,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -71,43 +82,23 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
+    "missing_fields": [
+      "abstract"
+    ],
     "warnings": [
       "empty_authors",
       "missing_journal",
       "missing_doi",
-      "low_confidence_abstract",
-      "No formal abstract is visible in the provided snippets; the opening paragraph was used as an abstract surrogate.",
-      "This is a historical stereochemistry paper rather than a synthetic reaction-method paper, so several structured tags are set to not specified.",
-      "structured_tag_not_specified_reaction_type",
-      "structured_tag_not_specified_activation_mode",
-      "structured_tag_not_specified_catalyst_system",
-      "structured_tag_not_specified_selectivity_profile",
-      "Paper is not an allene-focused article; all allene reaction classification fields are marked 'not specified' except document scope.",
-      "The extracted abstract is an opening paragraph from a historical paper rather than a modern journal abstract.",
       "structured_tag_not_specified_product",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_catalyst_or_method",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.647,
+    "overall_confidence": 0.287,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "not specified",
-      "document_scope": "stereochemical study",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "not specified",
-      "reaction_type": "not specified",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.88,
-    "human_checked": false
   }
 }

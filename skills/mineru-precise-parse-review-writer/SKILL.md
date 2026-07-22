@@ -66,6 +66,15 @@ Parse one specific PDF:
 python3 skills/mineru-precise-parse-review-writer/scripts/parse_review_writer_pdfs.py --pdf chem_papers/1-s2.0-S004040202400526X-main.pdf
 ```
 
+Parse an explicit batch without scanning unrelated PDFs:
+
+```bash
+python3 skills/mineru-precise-parse-review-writer/scripts/parse_review_writer_pdfs.py \
+  --pdf chem_papers/web-imports/paper-1.pdf \
+  --pdf chem_papers/web-imports/paper-2.pdf \
+  --batch-size 10
+```
+
 ## Outputs
 
 The skill writes:

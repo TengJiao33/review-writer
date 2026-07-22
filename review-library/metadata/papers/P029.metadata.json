@@ -3,28 +3,20 @@
   "slug": "chemsuschem-2025-constantin-mechanochemical-aerobic-activation-of-metallic-copper-for-the-synthesis-of-1-4allenynes",
   "title": {
     "value": "Mechanochemical Aerobic Activation of Metallic Copper for the Synthesis of 1,4-Allenynes",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Ana M. Constantin",
-      "Francesco Mele",
-      "Matteo Lanzi",
-      "Giovanni Maestri",
-      "Raimondo Maggi",
-      "Nicola Della Ca’",
-      "Luca Capaldo"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.96,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -40,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Mechanical activation of zero-valent metals is emerging as a new paradigm in sustainable synthesis, opening up a broad swath of chemical space under more practical conditions than solution-phase methods. Contrary to its neighboring elements in the periodic table, copper has been significantly overlooked in this domain, especially for C─C bond formation. Herein, a mechanochemical method for synthesizing >25 previously unreported conjugated allenynes—a valuable scaffold in organic synthesis—is presented through copper-catalyzed homocoupling of propargylic esters. This approach utilizes ball milling to activate inexpensive zero-valent copper under solvent-minimized conditions, sourced from both powders and recycled waste materials, including wires and bolts, into catalytically active CuI species under aerobic conditions. The synthetic utility of the synthesized compounds is showcased through an unprecedented rhodium-catalyzed cyclocarbonylation and a gold-catalyzed cyclization reaction.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.97,
+    "value": "D) This work. Herein, we present the successful development of a coppercatalyzed synthesis of 1,4-allenynes under ball milling conditions (Figure 1D).",
+    "source": "markdown_introduction_ending_summary",
+    "confidence": 0.72,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\ChemSusChem - 2025 - Constantin - Mechanochemical Aerobic Activation of Metallic Copper for the Synthesis of 1 4‐Allenynes.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\chemsuschem-2025-constantin-mechanochemical-aerobic-activation-of-metallic-copper-for-the-synthesis-of-1-4allenynes.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P029\\28a150c4-2688-4d4d-9708-dc4205cffd91_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P029"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\chemsuschem-2025-constantin-mechanochemical-aerobic-activation-of-metallic-copper-for-the-synthesis-of-1-4allenynes"
   },
   "source_file": {
     "pdf_name": "ChemSusChem - 2025 - Constantin - Mechanochemical Aerobic Activation of Metallic Copper for the Synthesis of 1 4‐Allenynes.pdf",
@@ -57,18 +65,15 @@
     "sha256": "bdf7ff193703b29febb2942bd48477d4df697786b7b84eeafaa7353f3d62d2d6"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 114,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -79,28 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
-      "low_confidence_abstract",
-      "Classification uses approximate library labels because the paper centers on 1,4-allenynes from propargylic esters, while the controlled vocabulary lacks explicit 'allenyne', generic 'propargylic ester', and generic carboxylate leaving-group options.",
+      "empty_authors",
+      "structured_tag_not_specified_product",
       "structured_tag_not_specified_organometallic_partner",
       "structured_tag_not_specified_ligand_or_chiral_source",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
     ],
-    "overall_confidence": 0.879,
+    "overall_confidence": 0.597,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "not specified",
-      "organometallic_partner": "not specified",
-      "product": "polysubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "terminal alkynes"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.79,
-    "human_checked": false
   }
 }

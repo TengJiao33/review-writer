@@ -12,6 +12,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -196,6 +197,7 @@ def iter_jobs(manifest: dict[str, Any]) -> list[dict[str, Any]]:
 def jobs_from_pdf_root(pdf_root: Path, mineru_output: Path) -> list[dict[str, Any]]:
     jobs: list[dict[str, Any]] = []
     seen: dict[str, int] = {}
+    discovered_slugs: set[str] = set()
     for index, pdf_path in enumerate(sorted(pdf_root.rglob("*.pdf")), start=1):
         relative_stem = str(pdf_path.relative_to(pdf_root).with_suffix(""))
         base_slug = slugify_mineru(relative_stem)
@@ -206,6 +208,7 @@ def jobs_from_pdf_root(pdf_root: Path, mineru_output: Path) -> list[dict[str, An
         full_md = extracted_dir / "full.md"
         if not markdown_copy.exists() and not full_md.exists():
             continue
+        discovered_slugs.add(slug)
         jobs.append(
             {
                 "pdf_name": pdf_path.name,
@@ -217,6 +220,32 @@ def jobs_from_pdf_root(pdf_root: Path, mineru_output: Path) -> list[dict[str, An
                 "raw_zip": str(mineru_output / "raw_zips" / f"{slug}.zip"),
                 "extracted_dir": str(extracted_dir),
                 "full_md": str(full_md),
+                "markdown_copy": str(markdown_copy),
+            }
+        )
+    markdown_dir = mineru_output / "markdown"
+    xml_by_slug = {
+        slugify_mineru(str(xml_path.relative_to(pdf_root))[: -len(".jats.xml")]): xml_path
+        for xml_path in pdf_root.rglob("*.jats.xml")
+    }
+    for markdown_copy in sorted(markdown_dir.glob("*.md")):
+        slug = markdown_copy.stem
+        if slug in discovered_slugs:
+            continue
+        extracted_dir = mineru_output / "extracted" / slug
+        source_xml = xml_by_slug.get(slug)
+        jobs.append(
+            {
+                "pdf_name": None,
+                "relative_pdf_path": None,
+                "source_xml": str(source_xml) if source_xml else None,
+                "slug": slug,
+                "data_id": f"md-{slug}"[:96],
+                "state": "done",
+                "err_msg": "",
+                "raw_zip": None,
+                "extracted_dir": str(extracted_dir),
+                "full_md": None,
                 "markdown_copy": str(markdown_copy),
             }
         )
@@ -806,6 +835,18 @@ def structured_tags_from_legacy(
     }
 
 
+def constrain_structured_tags(
+    values: dict[str, str],
+    classification_labels: dict[str, list[str]],
+) -> dict[str, str]:
+    constrained: dict[str, str] = {}
+    for key in STRUCTURED_TAG_KEYS:
+        allowed = classification_labels.get(key) or ["not specified"]
+        value = clean_text(str(values.get(key) or "not specified")) or "not specified"
+        constrained[key] = value if value in allowed else "not specified"
+    return constrained
+
+
 def first_or_not_specified(items: list[str]) -> str:
     for item in items:
         item = clean_text(str(item))
@@ -898,6 +939,66 @@ def existing_metadata(path: Path) -> dict[str, Any] | None:
         return None
 
 
+def _jats_text(element: ET.Element | None) -> str:
+    if element is None:
+        return ""
+    return clean_text(" ".join(element.itertext()))
+
+
+def _jats_first(root: ET.Element, local_name: str) -> ET.Element | None:
+    for element in root.iter():
+        if element.tag.rsplit("}", 1)[-1] == local_name:
+            return element
+    return None
+
+
+def extract_jats_metadata(path: Path | None) -> dict[str, Any]:
+    if not path or not path.exists():
+        return {}
+    try:
+        root = ET.fromstring(path.read_bytes())
+    except (ET.ParseError, OSError):
+        return {}
+    result: dict[str, Any] = {
+        "title": _jats_text(_jats_first(root, "article-title")),
+        "abstract": _jats_text(_jats_first(root, "abstract")),
+        "journal": _jats_text(_jats_first(root, "journal-title")),
+    }
+    authors: list[str] = []
+    for contrib in root.iter():
+        if contrib.tag.rsplit("}", 1)[-1] != "contrib":
+            continue
+        if contrib.get("contrib-type") not in {None, "author"}:
+            continue
+        surname = _jats_text(_jats_first(contrib, "surname"))
+        given = _jats_text(_jats_first(contrib, "given-names"))
+        name = " ".join(value for value in (given, surname) if value)
+        if not name:
+            name = _jats_text(_jats_first(contrib, "string-name"))
+        if not name:
+            name = _jats_text(_jats_first(contrib, "collab"))
+        if name:
+            authors.append(name)
+    result["authors"] = dedupe(authors)
+    for article_id in root.iter():
+        if article_id.tag.rsplit("}", 1)[-1] == "article-id" and article_id.get("pub-id-type") == "doi":
+            result["doi"] = re.sub(
+                r"^https?://(?:dx\.)?doi\.org/",
+                "",
+                _jats_text(article_id),
+                flags=re.I,
+            ).lower()
+            break
+    for pub_date in root.iter():
+        if pub_date.tag.rsplit("}", 1)[-1] != "pub-date":
+            continue
+        year_text = _jats_text(_jats_first(pub_date, "year"))
+        if year_text.isdigit() and len(year_text) == 4:
+            result["year"] = int(year_text)
+            break
+    return result
+
+
 def build_metadata(
     paper_id: str,
     job: dict[str, Any],
@@ -906,6 +1007,7 @@ def build_metadata(
     content_path: Path | None,
     existing: dict[str, Any] | None,
     review_root: Path,
+    classification_labels: dict[str, list[str]],
 ) -> tuple[dict[str, Any], list[dict[str, Any]], str, list[dict[str, Any]]]:
     slug = str(job.get("slug") or slugify(job.get("pdf_name") or paper_id))
     blocks = load_blocks(content_path)
@@ -917,6 +1019,20 @@ def build_metadata(
     year = extract_year(md, job.get("pdf_name") or slug)
     doi = extract_doi(md)
     journal = extract_journal(md, job.get("pdf_name") or slug)
+    source_xml = Path(job["source_xml"]).resolve() if job.get("source_xml") else None
+    jats = extract_jats_metadata(source_xml)
+    if jats.get("title") and float(title.get("confidence") or 0) < 0.95:
+        title = scored(jats["title"], "jats_article_title", 0.99)
+    if jats.get("authors"):
+        authors = scored(jats["authors"], "jats_contrib_group", 0.99)
+    if jats.get("abstract"):
+        abstract = scored(jats["abstract"], "jats_abstract", 0.99)
+    if jats.get("year"):
+        year = scored(jats["year"], "jats_pub_date", 0.99)
+    if jats.get("doi"):
+        doi = scored(jats["doi"], "jats_article_id", 0.99)
+    if jats.get("journal"):
+        journal = scored(jats["journal"], "jats_journal_title", 0.99)
     text_for_tags = " ".join(
         [
             str(title.get("value") or ""),
@@ -927,7 +1043,11 @@ def build_metadata(
     )
     tags = infer_tags(text_for_tags)
     topic, reaction, mechanism, application = classify_tags(tags)
-    structured_tags = structured_tags_from_legacy(topic, reaction, mechanism, application)
+    structured_tags = constrain_structured_tags(
+        structured_tags_from_legacy(topic, reaction, mechanism, application),
+        classification_labels,
+    )
+    has_structured_tags = any(value != "not specified" for value in structured_tags.values())
     pdf_hash = sha256_file(pdf_path)
     meta: dict[str, Any] = {
         "paper_id": paper_id,
@@ -938,9 +1058,14 @@ def build_metadata(
         "journal": journal,
         "doi": doi,
         "abstract": abstract,
-        "structured_tags": scored(structured_tags, "rule_keyword_inference_8_category_fallback", 0.45 if tags else 0.0),
+        "structured_tags": scored(
+            structured_tags,
+            "rule_keyword_inference_constrained_to_project_labels",
+            0.45 if tags and has_structured_tags else 0.0,
+        ),
         "source_paths": {
             "pdf": str(pdf_path) if pdf_path else None,
+            "xml": str(source_xml) if source_xml else None,
             "markdown": str(md_path) if md_path else None,
             "content_list": str(content_path) if content_path else None,
             "extracted_dir": str(job.get("extracted_dir")) if job.get("extracted_dir") else None,
@@ -1003,7 +1128,9 @@ def preserve_human_checked_fields(meta: dict[str, Any], existing: dict[str, Any]
     for key, old in existing.items():
         if key in {"paper_id", "slug", "source_paths", "source_file", "extraction", "quality"}:
             continue
-        if isinstance(old, dict) and old.get("human_checked") is True:
+        if isinstance(old, dict) and (
+            old.get("human_checked") is True or old.get("source") == "external_discovery"
+        ):
             meta[key] = old
 
 
@@ -1039,6 +1166,21 @@ def run(args: argparse.Namespace) -> int:
             return 2
         manifest = read_json(manifest_path)
         jobs = iter_jobs(manifest)
+    if args.only_slug:
+        allowed_slugs = {str(value).strip() for value in args.only_slug if str(value).strip()}
+        jobs = [job for job in jobs if str(job.get("slug") or "").strip() in allowed_slugs]
+        missing_slugs = sorted(
+            allowed_slugs - {str(job.get("slug") or "").strip() for job in jobs}
+        )
+        if missing_slugs:
+            print(
+                "ERROR: requested parsed sources were not found: " + ", ".join(missing_slugs),
+                file=sys.stderr,
+            )
+            return 2
+    if not jobs:
+        print("ERROR: no parsed metadata jobs matched the requested sources", file=sys.stderr)
+        return 2
 
     system_prompt = (skill_root / "references" / "metadata_extraction_system.md").read_text(encoding="utf-8")
     api_key = args.api_key or os.environ.get("OPENAI_API_KEY")
@@ -1081,7 +1223,16 @@ def run(args: argparse.Namespace) -> int:
             next_paper_number += 1
         meta_path = out_meta_dir / f"{paper_id}.metadata.json"
         existing = existing_metadata(meta_path)
-        meta, blocks, md, reg_rows = build_metadata(paper_id, job, pdf_path, md_path, cpath, existing, review_root)
+        meta, blocks, md, reg_rows = build_metadata(
+            paper_id,
+            job,
+            pdf_path,
+            md_path,
+            cpath,
+            existing,
+            review_root,
+            classification_labels,
+        )
         if use_llm:
             try:
                 payload = build_llm_payload(meta, blocks, md, system_prompt, model, reasoning_effort, classification_labels)
@@ -1138,6 +1289,12 @@ def parse_args() -> argparse.Namespace:
         "--append-registry",
         action="store_true",
         help="Append or update papers in the existing registry instead of replacing papers.jsonl.",
+    )
+    parser.add_argument(
+        "--only-slug",
+        action="append",
+        default=[],
+        help="Process only the named parsed source slug. Repeat for a bounded append-only import.",
     )
     parser.add_argument("--use-llm", action="store_true")
     parser.add_argument("--model", default="")

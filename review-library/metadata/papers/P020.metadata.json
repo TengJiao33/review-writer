@@ -3,29 +3,20 @@
   "slug": "zeng-et-al-2024-copper-difluorocarbene-enables-catalytic-difluoromethylation",
   "title": {
     "value": "Copper Difluorocarbene Enables Catalytic Difluoromethylation",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Xin Zeng",
-      "Jimin Yang",
-      "Wei Deng",
-      "Xiao-Tian Feng",
-      "Hai-Yang Zhao",
-      "Lanfeng Wei",
-      "Xiao-Song Xue",
-      "Xingang Zhang"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2024,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -41,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Despite the synthetic versatility of difluorocarbene, its high reactivity severely regulates widespread applications of difluorocarbene in organic synthesis. Here, we report a copper difluorocarbene-involved catalytic coupling, representing a new mode of the difluoromethylation reaction. This method allows difluoromethylation of a wide range of readily available allyl/propargyl electrophiles with NaBH3CN and low-cost difluorocarbene precursor BrCF2CO2K, featuring high cost-efficiency, high stereo- and regioselectivities, and high functional group tolerance, even with complex drug-like molecules. Applying the method led to the efficient synthesis of deuterated difluoromethylated compounds of medicinal interest. The resulting difluoromethylated allyl and allenyl products can serve as versatile synthons for diverse transformations, rendering the approach attractive for synthesizing complex fluorinated structures. Experimental mechanistic studies and computational calculations reveal that the formation of a difluoromethylcopper(I) intermediate through the nucleophilic attack of boron hydride on the copper(I) difluorocarbene is the key step in the reaction.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Despite the synthetic versatility of difluorocarbene, its high reactivity severely regulates widespread applications of difluorocarbene in organic synthesis. Here, we report a copper difluorocarbene-involved catalytic coupling, representing a new mode of the difluoromethylation reaction. This method allows difluoromethylation of a wide range of readily available allyl/propargyl electrophiles with NaBH3CN and low-cost difluorocarbene precursor $\\mathrm { B r C F } _ { 2 } \\mathrm { C O } _ { 2 } \\mathrm { K },$ featuring high cost-efficiency, high stereo- and regioselectivities, and high functional group tolerance, even with complex drug-like molecules. Applying the method led to the efficient synthesis of deuterated difluoromethylated compounds of medicinal interest. The resulting difluoromethylated allyl and allenyl products can serve as versatile synthons for diverse transformations, rendering the approach attractive for synthesizing complex fluorinated structures. Experimental mechanistic studies and computational calculations reveal that the formation of a difluoromethylcopper(I) intermediate through the nucleophilic attack of boron hydride on the copper(I) difluorocarbene is the key step in the reaction.",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\zeng-et-al-2024-copper-difluorocarbene-enables-catalytic-difluoromethylation.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\zeng-et-al-2024-copper-difluorocarbene-enables-catalytic-difluoromethylation.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P020\\3f419b13-250a-4895-9563-ee988b81da92_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P020"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\zeng-et-al-2024-copper-difluorocarbene-enables-catalytic-difluoromethylation"
   },
   "source_file": {
     "pdf_name": "zeng-et-al-2024-copper-difluorocarbene-enables-catalytic-difluoromethylation.pdf",
@@ -58,18 +65,15 @@
     "sha256": "46a70f36f8dbf8075c559f2726f4aac493dbdc2621d64583d318da76a35eb170"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-16T11:15:55Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 181,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -80,26 +84,16 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "This paper covers both allyl and allenyl difluoromethylation; the structured allene labels reflect the propargyl-electrophile-to-allene subset discussed in the abstract and scope section.",
-      "structured_tag_not_specified_organometallic_partner"
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.776,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "copper catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "tosylate and sulfonate leaving groups",
-      "ligand_or_chiral_source": "non-phosphorus metal-coordination ligands",
-      "organometallic_partner": "not specified",
-      "product": "allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "propargylic sulfinates and sulfonates"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.78,
-    "human_checked": false
   }
 }

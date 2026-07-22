@@ -3,29 +3,20 @@
   "slug": "dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay",
   "title": {
     "value": "DACH-ZYC-Phos/Pd-Catalyzed Enantioselective Allenylation of Secondary Phosphine Oxides via Ligand Relay",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Zhaoqiang Chen",
-      "Huanan Wang",
-      "Ping Du",
-      "Jiaao Zhao",
-      "Xue Zhang",
-      "Hui Qian",
-      "Junliang Zhang",
-      "Shengming Ma"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -35,22 +26,38 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": "10.1021/jacs.5c07465",
+    "source": "pdf_text_extraction",
+    "confidence": 0.8,
     "human_checked": false
   },
   "abstract": {
-    "value": "Chiral allenyl phosphine oxides hold significant application value in organic synthesis, serving as efficient catalysts, ligands, and versatile synthons. However, the development of transition metal-catalyzed asymmetric synthesis for these compounds remains unexplored, primarily due to the facile tautomerization of phosphine oxides into trivalent R1R2P−OH species, which may severely deactivate transition metal catalysts through strong coordination interactions. Herein, a ligand relay strategy has been applied to address this challenge in the Pd-catalyzed enantioselective coupling reactions of propargylic benzoates and secondary phosphine oxides (SPOs) to afford chiral trisubstituted allenyl phosphine oxides with high ee. The ligand relay protocol involves the initial coordination of a palladium catalyst with readily available triphenylphosphine, followed by dynamic ligand exchange with the stretchable chiral ligand DACH-ZYC-Phos-C1 (L26), while triphenylphosphine does not work as a nonchiral ligand for palladium catalysts in this transformation. Chiral trivalent organophosphines with high ee have been obtained upon the reduction of allenyl phosphine oxides. Mechanistic studies revealed the nature of the kinetic resolution. DFT calculations provide a mechanistic rationale for the observed high enantioselectivity and superior catalytic efficiency, which is governed by the ligand L26 through steric repulsions that selectively destabilize the disfavored oxidative addition transition states.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "Chiral allenyl phosphine oxides hold significant application value in organic synthesis, serving as efficient catalysts, ligands, and versatile synthons. However, the development of transition metal-catalyzed asymmetric synthesis for these compounds remains unexplored, primarily due to the facile tautomerization of phosphine oxides into trivalent R1 R2 P−OH species, which may severely deactivate transition metal catalysts through strong coordination interactions. Herein, a ligand relay strategy has been applied to address this challenge in the Pd-catalyzed enantioselective coupling reactions of propargylic benzoates and secondary phosphine oxides (SPOs) to afford chiral trisubstituted allenyl phosphine oxides with high ee. The ligand relay protocol involves the initial coordination of a palladium catalyst with readily available triphenylphosphine, followed by dynamic ligand exchange with the stretchable chiral ligand DACH-ZYC-Phos-C1 (L26), while PPh does not work as a nonchiral ligand for palladium catalysts in this transformation. Chiral trivalent organophosphines with high ee have been obtained upon the reduction of allenyl phosphine oxides. Mechanistic studies revealed the nature of the kinetic resolution. DFT calculations provide a mechanistic rationale for the observed high enantioselectivity and superior catalytic efficiency, which is governed by the ligand L26 through steric repulsions that selectively destabilize the disfavored oxidative addition transition states. ![](../extracted/dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay/images/e07c9a1b4d372ba8fd8b179430fe9963b810163ef8ce55a8360ca3bfa82fc8aa.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing palladium-catalyzed coupling of rac-1 and 2 with chiral ligand, yielding DACH-ZYC-Phos-C1 with 40 examples and 86-98% ee </details>",
+    "source": "markdown_inline_abstract",
+    "confidence": 0.82,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P044\\cc8156d5-54ac-4d6c-b152-e9852aac7da2_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P044"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay"
   },
   "source_file": {
     "pdf_name": "dach-zyc-phos-pd-catalyzed-enantioselective-allenylation-of-secondary-phosphine-oxides-via-ligand-relay.pdf",
@@ -58,18 +65,15 @@
     "sha256": "9720ece64ee93088f50800a050b653450afb5724b9f2df91d6c8023de54953c7"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 215,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -80,29 +84,15 @@
   "quality": {
     "missing_fields": [],
     "warnings": [
+      "empty_authors",
       "missing_doi",
-      "The starting material is explicitly described as propargylic benzoates, but no exact 'propargylic benzoates' label exists in the allowed substrate list, so 'substrate' was set to 'not specified'.",
-      "The leaving group is explicitly benzoate, but no exact benzoate label exists in the allowed leaving-group list, so 'leaving_group' was set to 'not specified'.",
       "structured_tag_not_specified_substrate",
       "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
     ],
-    "overall_confidence": 0.793,
+    "overall_confidence": 0.504,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "palladium catalysis",
-      "document_scope": "primary research article",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "monodentate phosphine-type ligands",
-      "organometallic_partner": "not specified",
-      "product": "trisubstituted allenes",
-      "reaction_type": "propargylic substitution and cross-coupling",
-      "substrate": "not specified"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.9,
-    "human_checked": false
   }
 }

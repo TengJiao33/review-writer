@@ -2,28 +2,21 @@
   "paper_id": "P024",
   "slug": "adv-synth-catal-2024-kang-organocatalytic-dearomatization-of-naphthols-through-a-1-6conjugated-addition-of-alkynyl",
   "title": {
-    "value": "Organocatalytic Dearomatization of β-Naphthols through a 1,6-Conjugated Addition of Alkynyl 7-Methylene-7H-indoles Formed In Situ",
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": "Organocatalytic Dearomatization of β-Naphthols through a 1,6- Conjugated Addition of Alkynyl 7-Methylene-7H-indoles Formed In Situ",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
     "human_checked": false
   },
   "authors": {
-    "value": [
-      "Shengfu Kang",
-      "Xiaohong Liu",
-      "Yi Zhang",
-      "Fang Fang",
-      "Wenjun Li",
-      "Pengfei Li"
-    ],
-    "source": "llm_from_front_matter",
-    "confidence": 0.99,
+    "value": [],
+    "source": "rule_not_found",
+    "confidence": 0.0,
     "human_checked": false
   },
   "year": {
-    "value": 2025,
-    "source": "llm_from_front_matter_and_footer",
-    "confidence": 0.78,
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
     "human_checked": false
   },
   "journal": {
@@ -39,16 +32,32 @@
     "human_checked": false
   },
   "abstract": {
-    "value": "Organocatalytic dearomatization of β-naphthols has been achieved via a 1,6-conjugated addition of 2-naphthols to alkynyl 7-methylene-7H-indoles in situ generated from α-(7-indolyl)methanols. In the presence of racemic phosphoric acid, a series of tetrasubstituted allenes was obtained in high yields. Particularly, with the aid of chiral phosphoric acid, asymmetric dearomatization of β-naphthols was investigated, affording axially chiral tetrasubstituted allenes with moderate enantioselectivity.",
-    "source": "llm_from_front_matter",
-    "confidence": 0.98,
+    "value": "",
+    "source": "rule_not_found",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
     "human_checked": false
   },
   "source_paths": {
     "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\Adv Synth Catal - 2024 - Kang - Organocatalytic Dearomatization of  ‐Naphthols through a 1 6‐Conjugated Addition of Alkynyl.pdf",
+    "xml": null,
     "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\adv-synth-catal-2024-kang-organocatalytic-dearomatization-of-naphthols-through-a-1-6conjugated-addition-of-alkynyl.md",
-    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P024\\7cd05bbb-ea9c-4a1c-bdfd-c3b4f23c5fde_content_list.json",
-    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\P024"
+    "content_list": null,
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\adv-synth-catal-2024-kang-organocatalytic-dearomatization-of-naphthols-through-a-1-6conjugated-addition-of-alkynyl"
   },
   "source_file": {
     "pdf_name": "Adv Synth Catal - 2024 - Kang - Organocatalytic Dearomatization of  ‐Naphthols through a 1 6‐Conjugated Addition of Alkynyl.pdf",
@@ -56,18 +65,15 @@
     "sha256": "5a84b19360fe41b0ce28ab31e1eb4dfde7805f39007c3f9d5fe982a109c29e59"
   },
   "extraction": {
-    "mode": "llm_8_category_retag",
-    "model": "gpt-5.4",
-    "created_at": "2026-06-17T11:51:29Z",
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-21T08:26:47Z",
     "inputs": {
       "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
-      "content_blocks": 83,
+      "content_blocks": 0,
       "markdown_chars_used": 14000
     },
-    "notes": [
-      "llm_8_category_tags_refreshed",
-      "llm_8_category_tags_refreshed"
-    ]
+    "notes": []
   },
   "human_review": {
     "status": "not_reviewed",
@@ -76,30 +82,19 @@
     "notes": []
   },
   "quality": {
-    "missing_fields": [],
-    "warnings": [
-      "Publication year is ambiguous in the supplied snippets: front matter shows online record in 2024, while journal footers cite Adv. Synth. Catal. 2025, 367, e202401173.",
-      "Year is ambiguous in the source: the article shows 'Version of record online: November 11, 2024' but the journal footer cites 'Adv. Synth. Catal. 2025, 367, e202401173'.",
-      "Reaction type was mapped to the closest available taxonomy label for a dearomative 1,6-addition to in situ generated alkynyl 7-methylene-7H-indoles.",
-      "structured_tag_not_specified_organometallic_partner",
-      "structured_tag_not_specified_leaving_group"
+    "missing_fields": [
+      "abstract"
     ],
-    "overall_confidence": 0.86,
+    "warnings": [
+      "empty_authors",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type",
+      "low_confidence_abstract"
+    ],
+    "overall_confidence": 0.494,
     "needs_human_check": true
-  },
-  "structured_tags": {
-    "value": {
-      "catalyst_or_method": "chiral phosphoric acid catalysis",
-      "document_scope": "communication or letter",
-      "leaving_group": "not specified",
-      "ligand_or_chiral_source": "chiral Brønsted acid and base catalysts",
-      "organometallic_partner": "not specified",
-      "product": "tetrasubstituted allenes",
-      "reaction_type": "conjugate 1,6-addition to enynes",
-      "substrate": "propargylic alcohols"
-    },
-    "source": "llm_from_rules_and_paper_evidence",
-    "confidence": 0.83,
-    "human_checked": false
   }
 }
