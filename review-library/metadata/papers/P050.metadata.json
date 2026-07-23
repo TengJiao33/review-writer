@@ -15,21 +15,21 @@
   },
   "year": {
     "value": 2023,
-    "source": "filename_or_front_matter",
-    "confidence": 0.68,
-    "human_checked": false
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "journal": {
-    "value": "ACS Catal. 2023",
-    "source": "cite_this_line",
-    "confidence": 0.7,
-    "human_checked": false
+    "value": "ACS Catalysis",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/acscatal.3c00973",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "Efficient deoxygenative silylation of C(sp3 )−O bonds with hydrosilanes by supported Au catalysts is described. Gold nanoparticles supported on TiO enabled various hydrosilanes to be used as sources of silyl groups in C−Si cross-coupling reactions. A variety of alkyl acetates and propargyl carbonates participated in the Au-catalyzed reactions to furnish the corresponding alkyl and allenylsilanes in high yields. In addition, Au/TiO was also effective for ring-opening silylation of cyclic ethers. A detailed mechanistic investigation corroborated that the title reaction involves the formation of silyl and alkyl radical intermediates, and the cooperation of Au nanoparticles as single-electron transfer catalysts and Lewis acid sites at the surface of metal oxides was responsible for the unusual reactivity of hydrosilanes for specific C(sp3 )−Si bond formation. KEYWORDS: gold catalysis, deoxygenative silylation, hydrosilane, cooperative catalysis, organosilicon, silyl radical ![](../extracted/acs-catal.-2023-13-6787/images/b6cad4883d70933b8fc83482b6a3ed93789b6071900e41ed36574b24256cea72.jpg) <details> <summary>chemical</summary> Chemical reaction diagram showing hydrogenation of a gold(II) complex with [Si] and R-OAc, involving SET and 1/2H₂ catalysts </details>",
@@ -94,5 +94,17 @@
     ],
     "overall_confidence": 0.504,
     "needs_human_check": true
+  },
+  "volume": {
+    "value": "13",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
+  },
+  "pages": {
+    "value": "6787",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   }
 }

@@ -50,7 +50,7 @@ Keep the reviewer note separate from the source wording:
 }
 ```
 
-Every core or supporting paper needs a full-text anchor with a short verbatim excerpt. Preserve qualifiers such as `may`, `might`, `suggest`, and `possible`. Put paraphrase in `note`. Add separate anchors when the paper supports materially different claims about scope, mechanism, selectivity, or limitations.
+Every core or supporting paper needs a claim-bearing full-text anchor with a short verbatim excerpt and a precise local locator such as page plus figure/table, subsection plus paragraph, or another reproducible passage. Author names, affiliations, titles, acknowledgements, funding text, generic section labels, and front matter are not evidence. Preserve qualifiers such as `may`, `might`, `suggest`, and `possible`. Put paraphrase in `note`. Add separate anchors when the paper supports materially different claims about scope, mechanism, selectivity, or limitations.
 
 Background papers may support bounded definitions, history, and orientation at the source level available. Reclassify and read the full text when such a paper becomes material to a mechanism, comparison, limitation, priority, or broad judgment.
 
@@ -85,7 +85,7 @@ python skills/review-literature-matrix-outline/scripts/validate_evidence_matrix.
   --project-id <project_id>
 ```
 
-The validator checks schema, IDs, sources, provenance, source depth, and excerpt presence. Semantic support is reviewed during reading and final audit.
+The validator checks schema, IDs, sources, provenance, source depth, excerpt presence, precise locators, and obvious front-matter substitutions. Semantic support is still decided by reading during authoring and final audit; a structurally valid anchor is not automatic permission to make a broader claim.
 
 ## Outputs
 

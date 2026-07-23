@@ -91,7 +91,22 @@ python skills/review-export-docx/scripts/render_docx.py \
   --report review-projects/<project_id>/05_final_audit/render_qa_report.json
 ```
 
-Check headings, body rhythm, chemical scripts, reference wrapping, figure-caption adjacency, tables, page breaks, and font substitution. Rerun with `--inspection-status passed --inspected-pages all --inspection-note "..."` after inspection, or use `failed` while a visible defect remains.
+Open the actual page images at readable zoom and check headings, body rhythm,
+chemical scripts, reference wrapping, figure-caption adjacency, source
+attribution, tables, page breaks, and font substitution. Do not create or run a
+helper that merely marks all pages inspected.
+
+After the first render, create a concise inspection JSON from the pages actually
+viewed. Use the page hashes written in `render_qa_report.json`:
+
+```json
+{"pages": [{"page_number": 1, "page_sha256": "...", "verdict": "passed", "observation": "Title, abstract, margins, and first heading are intact; no clipping is visible."}]}
+```
+
+Rerun the render command with `--inspection-file <inspection.json>`. Inline
+`--inspected-pages all` and a single global “passed” note are rejected. If any
+page is `needs_revision`, fix the canonical manuscript or export input,
+rerender, and inspect the changed page set again.
 
 Finally rerun `audit_docx.py` with `--render-qa passed`. Use `--render-qa unavailable` only when neither LibreOffice nor Microsoft Word can render the document. Completion requires `render_qa_report.json` with `inspection_status: passed`.
 

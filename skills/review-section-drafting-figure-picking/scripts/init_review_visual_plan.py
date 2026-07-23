@@ -40,7 +40,6 @@ def first_substantive_section(sections: list[dict[str, Any]]) -> dict[str, Any]:
 def visual_rows(
     sections: list[dict[str, Any]],
     cards: list[dict[str, Any]],
-    coverage: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     usable_cards = [card for card in cards if card.get("paper_id")]
     paper_ids = [str(card["paper_id"]) for card in usable_cards]
@@ -61,29 +60,7 @@ def visual_rows(
         ),
         first,
     )
-    coverage_labels = [str(item.get("label")) for item in coverage if item.get("label")]
     return [
-        {
-            "visual_id": "RV-01",
-            "kind": "original_synthesis_figure",
-            "status": "suggested",
-            "decision_rationale": "",
-            "result_path": "",
-            "verification_note": "",
-            "required": False,
-            "section_id": first_id,
-            "section_heading": first_title,
-            "working_title": "Field map and organizing logic",
-            "reader_job": "Let a reader see the main method or precursor families and the review's comparison axes before entering detail.",
-            "source_paper_ids": paper_ids,
-            "evidence_ids": evidence_ids,
-            "design_prompt": "Create a compact, original taxonomy or route map from verified review categories; do not copy a source figure.",
-            "verification_requirements": [
-                "Every scientific label and relationship is supported by the listed evidence or plainly marked as the review's organizing synthesis.",
-                "Chemical structures, arrows, stereochemistry, and conditions are checked independently if used.",
-                "Caption states that this is an original synthesis based on cited studies.",
-            ],
-        },
         {
             "visual_id": "RT-01",
             "kind": "markdown_comparison_table",
@@ -105,28 +82,6 @@ def visual_rows(
                 "Keep the table selective enough to remain readable.",
             ],
         },
-        {
-            "visual_id": "RV-02",
-            "kind": "original_evidence_map",
-            "status": "suggested",
-            "decision_rationale": "",
-            "result_path": "",
-            "verification_note": "",
-            "required": False,
-            "section_id": str(sections[-1].get("section_id") if sections else first_id),
-            "section_heading": str(sections[-1].get("title") if sections else first_title),
-            "working_title": "Evidence-supported capabilities and open boundaries",
-            "reader_job": "Separate well-supported capabilities from thinly covered or unresolved areas without presenting absence from the corpus as field-wide absence.",
-            "source_paper_ids": paper_ids,
-            "evidence_ids": evidence_ids,
-            "coverage_items": coverage_labels,
-            "design_prompt": "Use an original matrix or landscape; distinguish corpus coverage from scientific confidence.",
-            "verification_requirements": [
-                "Coverage status and scientific certainty use different encodings.",
-                "Unmapped coverage is described as a corpus observation unless externally calibrated.",
-                "Caption names the evidence basis and main limitation of the map.",
-            ],
-        },
     ]
 
 
@@ -136,7 +91,7 @@ def write_markdown(path: Path, project_id: str, visuals: list[dict[str, Any]]) -
         "",
         f"Project: `{project_id}`",
         "",
-        "These are editorial opportunities, not required asset counts. Select, combine, reshape, or skip them according to what genuinely helps the reader.",
+        "This is one evidence-derived starting opportunity, not a ready-made visual quota. The author must identify any other structured display from the manuscript's real comparison needs. Source-paper figures are selected separately and are not replaceable by an automatically generated diagram.",
         "",
     ]
     for visual in visuals:
@@ -161,7 +116,6 @@ def run(args: argparse.Namespace) -> int:
     project = review_root / "review-projects" / args.project_id
     blueprint = read_json(project / "01_matrix_outline" / "section_blueprint.json", {})
     method_cards = read_json(project / "01_matrix_outline" / "method_cards.json", {})
-    ledger = read_json(project / "01_matrix_outline" / "coverage_ledger.json", {})
     sections = rows(blueprint, "sections")
     if not sections:
         raise SystemExit("section_blueprint.json contains no sections")
@@ -169,7 +123,7 @@ def run(args: argparse.Namespace) -> int:
     existing = read_json(plan_path, {})
     prior_rows = rows(existing, "visuals")
     prior_by_id = {str(row.get("visual_id")): row for row in prior_rows if row.get("visual_id")}
-    visuals = visual_rows(sections, rows(method_cards, "method_cards"), rows(ledger, "coverage_items"))
+    visuals = visual_rows(sections, rows(method_cards, "method_cards"))
     for visual in visuals:
         prior = prior_by_id.get(str(visual.get("visual_id")), {})
         for key in ("status", "decision_rationale", "result_path", "verification_note"):
@@ -182,7 +136,7 @@ def run(args: argparse.Namespace) -> int:
         "status": "pending" if pending else "resolved",
         "allowed_decisions": ["selected", "adapted", "combined", "skipped"],
         "pending_visual_ids": pending,
-        "instructions": "Use, reshape, or skip any suggestion that helps the reader. Unresolved suggestions are allowed; no asset count or explanation for every unused idea is required.",
+        "instructions": "Use this table only when it supports a meaningful comparison. Find any additional table or structured display by reading the whole manuscript and naming a distinct reader job; do not duplicate this template or create an original diagram merely to satisfy a count. The comprehensive source-figure portfolio is handled through figure_candidates.json.",
         "visuals": visuals,
     }
     stage = project / "02_section_drafting"
@@ -193,7 +147,7 @@ def run(args: argparse.Namespace) -> int:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Initialize an advisory plan for original review figures and comparison tables.")
+    parser = argparse.ArgumentParser(description="Initialize an advisory plan for evidence-linked structured displays.")
     parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
     return parser.parse_args()

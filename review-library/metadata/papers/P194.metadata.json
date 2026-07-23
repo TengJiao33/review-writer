@@ -2,34 +2,37 @@
   "paper_id": "P194",
   "slug": "7b",
   "title": {
-    "value": "A Novel Synthesis of Substituted Allenes ^{1}",
-    "source": "markdown_first_h1",
-    "confidence": 0.88,
-    "human_checked": false
+    "value": "A Novel Synthesis of Substituted Allenes",
+    "source": "source_pdf_and_official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   },
   "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": [
+      "Rona, Peter",
+      "Crabbe, Pierre"
+    ],
+    "source": "source_pdf_and_official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   },
   "year": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": 1969,
+    "source": "source_pdf_and_official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "Journal of the American Chemical Society",
+    "source": "official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/ja01040a033",
+    "source": "official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   },
   "abstract": {
     "value": "Alkyl allenes were obtained by the reaction of 1-ethynylcycloalkanol acetates with the organocopper reagents, LiMe₂Cu and Li-n-Bu₂Cu. Reactions of steroidal ethynylcarbinol acetates show that the reaction is not stereoselective. The functional group specificity of the organocopper reagents and the scope of the reaction are outlined. Although allenes were characterized long ago as a distinct class of organic compounds, they have received only limited attention from organic chemists. $^{3}$ Even at the present time, the more common synthetic methods for the preparation of alkylallenes present a number of inherent difficulties when applied to complicated polyfunctional molecules. In connection with some studies with the organocopper(I) reagent $^{4,5}$ we observed the ready transformation of ethynylcarbinol acetates to alkyl allenes. In this paper we wish to report full details of our novel allene synthesis, $^{6}$ as well as additional findings obtained recently. The general applicability of the organocopper(I) reagents for the synthesis of alkylallenes 2, from sub- ![](../extracted/7b/images/385f342da75dee671857a524a5c9c974c5951c764beb68fdca718a06e0db1719.jpg) <details> <summary>chemical</summary> Chemical reaction equation showing conversion of compound 1 to compound 2 using Li(R')₂Cu catalyst </details> (1) Publication No. 354 from the Syntex Institute of Steroid Chemistry. For No. 353, see: P. Rona, L. Tökes, J. Tremble, and P. Crabbé, Chem. Commun., 43 (1969). (2) Syntex Postdoctoral Research Fellow, 1967–1968. (3) (a) D. R. Taylor, Chem. Rev., 67, 317 (1967), and references cited therein; (b) K. Griesbaum, Angew. Chem. Int. Ed. Engl., 5, 933 (1966); (c) M. V. Mavrov and V. F. Kucherov, Russ. Chem. Rev., 36, 233 (1967); (d) M. Bertrand, Bull. Soc. Chim. Fr., 3044 (1968); (e) See also: H. Fischer in \"The Chemistry of Alkenes,\" S. Patai, Ed., Interscience Publishers, New York, N. Y., 1964, Chapter 13. (4) This study was stimulated by the reported exchange of halogen by alkyl with this reagent, see: E. J. Corey and G. H. Posner, J. Amer. Chem. Soc., 89, 3911 (1967); 90, 5615 (1968). (5) P. Rona, L. Tökes, J. Tremble, and P. Crabbé, Chem. Commun., 43 (1969). (6) For a preliminary communication, see: P. Rona and P. Crabbé, J. Amer. Chem. Soc., 90, 4733 (1968). stituted ethynylcarbinol acetates 1 was tested by the transformations listed in Table I. These results (Table I) show that secondary, tertiary, and quaternary nonterminal allenes are obtained in fair to high yields by this method. No allenic product could be isolated from the reaction of 1-ethynylcyclohexanol acetate (5), with methyllithium alone, thus the reaction is not effected by the latter reagent. As expected, allenic material was not isolated from the reaction of 1-hexyne with LiMe $_2$ Cu, indicating that an appropriate leaving group is necessary for the formation of the allene system. That the structure of the leaving group is of considerable importance is indicated by the absence of allenic material in the product of reaction 1-ethynylcyclohexanol (9) and lithium dimethylcopper(I). The organocopper(I) compounds reported in organic synthesis (excluding reactions of organomagnesium halides with catalytic amounts of copper compounds present), to our knowledge, are the methyl, ethyl, and butyl derivatives. $^{4,7-9}$ Our findings suggest that the lithium di-n-butylcopper(I) (Li-n-Bu₂Cu) compound behaves in a manner analogous to the LiMe₂Cu reagent. Thus the compound obtained from the reaction of equimolar amounts of n-butyllithium and copper(I) iodide did not react with 1-ethynylcyclohexanol acetate (5), whereas the product of the reaction of 2 mol equiv of n-butyllithium with 1 mol equiv of copper(I) iodide reacted with the substituted ethynylcarbinol acetates 5 and 11 to produce allenes (Table I). (7) H. O. House, W. L. Respess, and G. M. Whitesides, J. Org. Chem., 31, 3128 (1966), and references therein. (8) J. A. Marshall and H. Roebke, ibid., 33, 840 (1968). (9) H. O. House and W. F. Fisher, Jr., ibid., 33, 949 (1968). Table I. Conversion of Ethynylcarbinol Acetates into Allenes <table><tr><td colspan=\"5\"><img src=\"../extracted/7b/images/a245a8182613599f2cbdedd8609e73fd0e3dcce823bda5d4db8ec921499f1f88.jpg\"/></td></tr><tr><td colspan=\"5\"><img src=\"../extracted/7b/images/2c226145b2bb8f8ba8ad14dad172055d69b2ced895ac7cfeab1e2a14abf6d1f5.jpg\"/></td></tr><tr><td rowspan=\"5\"> $[CH_2]_n$ </td><td rowspan=\"5\" colspan=\"2\">Reagent</td><td colspan=\"2\"><img src=\"../extracted/7b/images/8a87d8b8807d6af98ec2153ee88b5df6f2ed6dda613c8d71395995d1666040ce.jpg\"/></td></tr><tr><td colspan=\"2\"><img src=\"../extracted/7b/images/853b0d00fcb1ee7de96c5b912ae93a77db2f1047676f510258ab97aabbffe9ba.jpg\"/></td></tr><tr><td colspan=\"2\">C</td></tr><tr><td colspan=\"2\">C</td></tr><tr><td colspan=\"2\"> $[CH_2]_n$ </td></tr><tr><td><img src=\"../extracted/7b/images/162fb244f07cf2a1df1f65d4dda4e07f2f509963b3f4d189c542c8e222514106.jpg\"/></td><td>LiMe2Cu</td><td>4, n = 4; R2 = H; R3 = Me</td><td>81</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/9559a099d22c32498aacee6a0ef41e9f9186a9dc84394980a9c0adf367ac2818.jpg\"/></td><td>LiMe2Cu</td><td>6, n = 5; R2 = H; R3 = Me</td><td>85</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/c3ba627b3ec5fac3adc51d0084f7cd7bdd07aa8c03e40a1861b296688e915396.jpg\"/></td><td>LiMe2Cu</td><td>8, n = 6; R2 = H; R3 = Me</td><td>82</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/512d68356af20cea397792011da5e842d7ebfb1525f261d8b004f7857cfc9c39.jpg\"/></td><td>Li-n-Bu2Cu</td><td>10, n = 5; R2 = H; R3 = n-Bu</td><td>65</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/70f490fb58256a37884397c85e3bbc59e714a33bd506860d88e1347243672569.jpg\"/></td><td>LiMe2Cu</td><td>12, n = 5; R1 = R2 = Me</td><td>71</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/61d85a05a89c2fd18311cb770e027717f8021fd6fd4dbc9b5879aeac31c04554.jpg\"/></td><td>Li-n-Bu2Cu</td><td>13, n = 5; R1 = Me; R2 = n-Bu</td><td>80</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/eed029719aa517b4c78c9478b64cf93e3d4be8bf66a0f88b66a6b75e218642fe.jpg\"/></td><td>LiMe2Cu</td><td>13, n = 5; R1 = Me; R2 = n-Bu</td><td>47</td><td></td></tr><tr><td><img src=\"../extracted/7b/images/c6c4518de2330ddf239881e981c2b9ccf4d7736c10b228f29290fbbd1ab74eaa.jpg\"/></td><td>LiMe2Cu</td><td></td><td></td><td></td></tr><tr><td colspan=\"2\">15</td><td><img src=\"../extracted/7b/images/9d83f8fd9838cf24564bf12928cce82e7f51ab65ceaafe50468e4d80616e8313.jpg\"/></td><td>38a</td><td></td></tr><tr><td colspan=\"5\">16</td></tr></table> $^{a}$ F. Acree, Jr., and F. B. LaForge, J. Org. Chem., 4, 569 (1939). The low yield of this compound is probably due to its known tendency to polymerize.",
@@ -97,5 +100,17 @@
     ],
     "overall_confidence": 0.307,
     "needs_human_check": true
+  },
+  "volume": {
+    "value": "91",
+    "source": "official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
+  },
+  "pages": {
+    "value": "3289-3292",
+    "source": "official_publisher",
+    "confidence": 0.99,
+    "human_checked": true
   }
 }

@@ -259,7 +259,13 @@ def required_coverage_rows(blueprint: Any) -> list[dict[str, Any]]:
 
 def manuscript_body(text: str) -> str:
     match = REFERENCE_HEADING_RE.search(text)
-    return text[: match.start()] if match else text
+    pseudo = re.search(
+        r"^\s*\*\*(?:references?|reference list|bibliography|figure descriptions?)\*\*\s*:?.*$",
+        text,
+        re.I | re.M,
+    )
+    boundaries = [item.start() for item in (match, pseudo) if item]
+    return text[: min(boundaries)] if boundaries else text
 
 
 def expand_callout(raw: str) -> set[int]:
@@ -473,6 +479,11 @@ def evaluate_project_quality(review_root: Path, project_id: str, phase: str) -> 
                 ),
             }
         )
+        scan = read_json(final_stage / "format_scan.json")
+        scan_metrics = scan.get("delivery_metrics") if isinstance(scan, dict) else {}
+        metrics["verified_source_figure_count"] = int(
+            (scan_metrics or {}).get("source_figure_count") or 0
+        )
         manuscript_metric_requirements = {
             "manuscript_word_count": "minimum_manuscript_words",
             "reference_count": "minimum_references",
@@ -499,15 +510,14 @@ def evaluate_project_quality(review_root: Path, project_id: str, phase: str) -> 
                     "details": manuscript_depth_details,
                 }
             )
-        visual_count = metrics["markdown_table_count"] + metrics["synthesis_figure_count"]
-        if metrics["manuscript_word_count"] >= 6000 and visual_count < 2:
+        if profile == "comprehensive" and metrics["verified_source_figure_count"] < 3:
             risk_signals.append(
                 {
-                    "risk_id": "visual_opportunity",
-                    "summary": "A long review may be easier to use with another purposeful comparison or explanatory visual.",
+                    "risk_id": "source_visual_portfolio",
+                    "summary": "The comprehensive review does not yet use three lawful, verified figures from cited source papers.",
                     "details": [
-                        f"the manuscript contains {metrics['markdown_table_count']} table(s) and "
-                        f"{metrics['synthesis_figure_count']} figure(s); add one only if it compresses a real reader task"
+                        f"verified_source_figure_count is {metrics['verified_source_figure_count']}; "
+                        "retrieve or parse suitable open-reuse sources rather than substituting an automatic diagram"
                     ],
                 }
             )

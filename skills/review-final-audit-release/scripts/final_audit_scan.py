@@ -5,8 +5,12 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts, input_artifact_issues  # noqa: E402
 
 
 PLACEHOLDER_RE = re.compile(
@@ -20,20 +24,19 @@ TABLE_SEPARATOR_RE = re.compile(
     r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$",
     re.M,
 )
-TABLE_REFERENCE_RE = re.compile(
-    r"(?:\bas\s+(?:shown|summarized|reported|listed|presented)\s+in\s+table\s+(\d+)"
-    r"|\btable\s+(\d+)\)?\s+(?:summarizes|compares|shows|presents|lists|provides|reports|maps|organizes|contrasts))",
-    re.I,
-)
-FIGURE_REFERENCE_RE = re.compile(
-    r"(?:\bas\s+(?:shown|summarized|illustrated|depicted|presented)\s+in\s+(?:figure|fig\.)\s+(\d+)"
-    r"|\b(?:figure|fig\.)\s+(\d+)\)?\s+(?:summarizes|compares|shows|presents|illustrates|depicts|maps|organizes))",
-    re.I,
-)
+# Mechanical validation only asks whether prose names the asset.  Requiring one
+# of a small verb list turns natural writing into a password exercise; whether
+# the callout advances the argument remains an editorial reading judgment.
+TABLE_REFERENCE_RE = re.compile(r"\btable\s+(\d+)\b", re.I)
+FIGURE_REFERENCE_RE = re.compile(r"\b(?:figure|fig\.)\s+(\d+)\b", re.I)
 MOJIBAKE_RE = re.compile(r"\ufffd|鍙傝€|鈥\S{0,3}|鈭\??")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.M)
 REFERENCES_HEADING_RE = re.compile(
     r"^\s*#{1,6}\s*(references|reference list|bibliography|cited literature|参考文献)\s*$",
+    re.I | re.M,
+)
+NONCANONICAL_BACKMATTER_RE = re.compile(
+    r"^\s*\*\*(?:references?|reference list|bibliography|figure descriptions?)\*\*\s*:?.*$",
     re.I | re.M,
 )
 ABSTRACT_HEADING_RE = re.compile(r"^\s*#{1,6}\s*abstract\s*$", re.I | re.M)
@@ -73,7 +76,7 @@ COMPREHENSIVE_DELIVERY_FLOOR = {
     "word_like_count": 8000,
     "reference_count": 25,
     "table_count": 2,
-    "figure_count": 2,
+    "source_figure_count": 3,
 }
 
 
@@ -271,6 +274,13 @@ def figure_inventory_consistency_issues(project: Path) -> list[str]:
 
 
 def upstream_release_issues(project: Path) -> list[str]:
+    contract = read_json(project / "00_discovery" / "topic_contract.json") if (
+        project / "00_discovery" / "topic_contract.json"
+    ).exists() else {}
+    require_receipts = (
+        isinstance(contract, dict)
+        and int(contract.get("workflow_contract_version") or 0) >= 2
+    )
     reports = {
         "screening": project / "00_discovery" / "screening_validation.json",
         "matrix": project / "01_matrix_outline" / "matrix_validation.json",
@@ -278,6 +288,31 @@ def upstream_release_issues(project: Path) -> list[str]:
         "section_draft": project / "02_section_drafting" / "section_draft_validation.json",
         "merge": project / "04_first_draft" / "merge_validation.json",
     }
+    required_inputs = {
+        "screening": [
+            project / "00_discovery" / "topic_contract.json",
+            project / "00_discovery" / "selected_discovery_results.json",
+        ],
+        "matrix": [project / "01_matrix_outline" / "literature_matrix.json"],
+        "blueprint": [
+            project / "01_matrix_outline" / "section_blueprint.json",
+            project / "01_matrix_outline" / "literature_matrix.json",
+        ],
+        "section_draft": [
+            project / "02_section_drafting" / "section_drafts.json",
+            project / "02_section_drafting" / "figure_candidates.json",
+            project / "01_matrix_outline" / "section_blueprint.json",
+            project / "01_matrix_outline" / "literature_matrix.json",
+        ],
+        "merge": [
+            project / "02_section_drafting" / "section_drafts.json",
+            project / "01_matrix_outline" / "literature_matrix.json",
+        ],
+    }
+    manuscript = project / "02_section_drafting" / "manuscript.md"
+    if manuscript.exists():
+        required_inputs["section_draft"].append(manuscript)
+        required_inputs["merge"].append(manuscript)
     issues: list[str] = []
     for name, path in reports.items():
         if not path.exists():
@@ -295,6 +330,10 @@ def upstream_release_issues(project: Path) -> list[str]:
         blocker_count = report.get("blocking_issue_count")
         if blockers or (isinstance(blocker_count, int) and blocker_count > 0):
             issues.append(f"upstream_validation_has_blockers:{name}")
+        for receipt_issue in input_artifact_issues(
+            report, project, required_inputs[name], require_receipts=require_receipts
+        ):
+            issues.append(f"upstream_validation_{name}:{receipt_issue}")
 
     figures_path = project / "02_section_drafting" / "figure_candidates.json"
     figures: Any = None
@@ -415,12 +454,194 @@ def references_tail(text: str) -> tuple[re.Match[str] | None, str]:
     return match, text[match.end() :] if match else ""
 
 
+def manuscript_body(text: str) -> tuple[str, list[dict[str, Any]]]:
+    """Return article prose only, stopping before canonical or disguised back matter."""
+    canonical = REFERENCES_HEADING_RE.search(text or "")
+    pseudo = list(NONCANONICAL_BACKMATTER_RE.finditer(text or ""))
+    boundaries = [match.start() for match in pseudo]
+    if canonical:
+        boundaries.append(canonical.start())
+    end = min(boundaries) if boundaries else len(text or "")
+    findings = [
+        {
+            "line": text[: match.start()].count("\n") + 1,
+            "text": match.group(0).strip(),
+        }
+        for match in pseudo
+    ]
+    return (text or "")[:end], findings
+
+
 def reference_numbers(text: str) -> list[int]:
     _, tail = references_tail(text)
     result = []
     for match in REF_ITEM_RE.finditer(tail):
         result.append(int(match.group(1) or match.group(2)))
     return result
+
+
+def verified_source_figure_usage(
+    project: Path,
+    manuscript_image_paths: list[str],
+    cited_paper_ids: set[str],
+    manuscript_text: str = "",
+) -> tuple[int, list[str]]:
+    """Count only source figures that are verified, licensed, inserted, and present."""
+    report_path = next(
+        (
+            path
+            for path in (
+                project / "05_final_audit" / "figure_insertion_report.json",
+                project / "04_first_draft" / "figure_insertion_report.json",
+            )
+            if path.exists()
+        ),
+        None,
+    )
+    manifest_path = project / "03_figure_redraw" / "redrawn_figure_manifest.json"
+    if report_path is None or not manifest_path.exists():
+        return 0, []
+    try:
+        report = read_json(report_path)
+        manifest = read_json(manifest_path)
+    except Exception:
+        return 0, ["invalid_source_figure_provenance"]
+    inserted = report.get("inserted") if isinstance(report, dict) else None
+    figures = manifest.get("figures") if isinstance(manifest, dict) else None
+    if not isinstance(inserted, list) or not isinstance(figures, list):
+        return 0, ["invalid_source_figure_provenance"]
+    by_id = {
+        str(row.get("figure_id")): row
+        for row in figures
+        if isinstance(row, dict) and row.get("figure_id")
+    }
+    comprehensive = declared_review_profile(project) == "comprehensive"
+    inventory_payload = read_json(
+        project / "02_section_drafting" / "paper_figure_inventory.json"
+    ) if (project / "02_section_drafting" / "paper_figure_inventory.json").exists() else {}
+    inventory_rows = inventory_payload.get("candidates") if isinstance(inventory_payload, dict) else []
+    inventory_by_id = {
+        str(item.get("inventory_candidate_id")): item
+        for item in inventory_rows or []
+        if isinstance(item, dict) and item.get("inventory_candidate_id")
+    }
+
+    def resolve_asset(raw: Any, stage: str) -> Path:
+        path = Path(str(raw or ""))
+        if path.is_absolute():
+            return path.resolve()
+        return (project / stage / path).resolve()
+    count = 0
+    issues: list[str] = []
+    counted_ids: set[str] = set()
+    counted_paths: set[str] = set()
+    counted_reader_jobs: set[str] = set()
+    for row in inserted:
+        if not isinstance(row, dict) or row.get("mode") != "source_verified":
+            continue
+        figure_id = str(row.get("figure_id") or "")
+        source = by_id.get(figure_id)
+        if not isinstance(source, dict):
+            issues.append(f"inserted_source_figure_missing_manifest:{figure_id or 'unknown'}")
+            continue
+        rights = source.get("reuse_rights") if isinstance(source.get("reuse_rights"), dict) else {}
+        inserted_path = str(row.get("inserted_path") or "")
+        required = (
+            source.get("status") == "source_verified"
+            and source.get("verification_status") == "passed"
+            and bool(source.get("paper_id"))
+            and str(source.get("paper_id")) in cited_paper_ids
+            and bool(source.get("source_label"))
+            and rights.get("status") == "verified"
+            and bool(str(rights.get("license_url_or_permission_record") or "").strip())
+            and bool(str(rights.get("basis") or "").strip())
+            and bool(str(rights.get("source_locator") or "").strip())
+            and rights.get("third_party_material_checked") is True
+            and rights.get("adaptation") == "unchanged"
+            and bool(str(rights.get("attribution_text") or "").strip())
+            and inserted_path in manuscript_image_paths
+        )
+        if comprehensive:
+            candidate_id = str(source.get("inventory_candidate_id") or "")
+            candidate = inventory_by_id.get(candidate_id)
+            strict_issues: list[str] = []
+            source_type = str(source.get("source_type") or "").strip().lower()
+            source_label = str(source.get("source_label") or "").strip()
+            source_page_index = source.get("source_page_index")
+            source_bbox = source.get("source_bbox")
+            if source_type not in {"image", "chart"}:
+                strict_issues.append("source is not a non-table image/chart candidate")
+            if not re.match(r"^(?:fig(?:ure)?|scheme)\s*[A-Za-z0-9]", source_label, re.I):
+                strict_issues.append("source label is generic or not a figure/scheme label")
+            if not isinstance(source_page_index, int) or source_page_index < 0:
+                strict_issues.append("source page index is invalid")
+            if not (
+                isinstance(source_bbox, list)
+                and len(source_bbox) == 4
+                and all(isinstance(value, (int, float)) for value in source_bbox)
+            ):
+                strict_issues.append("source bounding box is invalid")
+            if not isinstance(candidate, dict):
+                strict_issues.append("unknown inventory candidate")
+            else:
+                for key in (
+                    "paper_id",
+                    "source_label",
+                    "source_caption_text",
+                    "source_pdf_sha256",
+                    "source_page_index",
+                    "source_bbox",
+                ):
+                    if source.get(key) != candidate.get(key):
+                        strict_issues.append(f"{key} differs from inventory")
+            source_pdf = Path(str(source.get("source_pdf") or ""))
+            if not source_pdf.is_absolute():
+                source_pdf = project.parents[1] / source_pdf
+            if not source_pdf.is_file() or file_sha256(source_pdf) != str(
+                source.get("source_pdf_sha256") or ""
+            ):
+                strict_issues.append("source PDF hash is missing or stale")
+            accepted_path = Path(str(source.get("verified_image") or source.get("source_image") or ""))
+            if not accepted_path.is_absolute():
+                accepted_path = project.parents[1] / accepted_path
+            accepted_hash = file_sha256(accepted_path)
+            inserted_asset = resolve_asset(inserted_path, "05_final_audit")
+            inserted_hash = file_sha256(inserted_asset)
+            if not accepted_hash or accepted_hash != str(source.get("accepted_image_sha256") or ""):
+                strict_issues.append("accepted source image hash is missing or stale")
+            if not inserted_hash or inserted_hash != accepted_hash:
+                strict_issues.append("inserted image is not the accepted source image")
+            if str(source.get("source_completeness") or "").lower() != "complete":
+                strict_issues.append("source figure is not recorded as complete")
+            if str(source.get("source_page_review_status") or "").lower() not in {"passed", "verified"}:
+                strict_issues.append("source page review did not pass")
+            reader_job = re.sub(r"\s+", " ", str(source.get("reader_job") or "")).strip().casefold()
+            if not reader_job:
+                strict_issues.append("reader job is missing")
+            elif reader_job in counted_reader_jobs:
+                strict_issues.append("reader job duplicates another source figure")
+            if not str(source.get("placement_rationale") or "").strip():
+                strict_issues.append("placement rationale is missing")
+            callout = str(source.get("manuscript_callout") or "").strip()
+            if not callout or callout not in manuscript_text:
+                strict_issues.append("authored manuscript callout is missing")
+            if strict_issues:
+                required = False
+                issues.append(
+                    f"inserted_source_figure_inventory_mismatch:{figure_id or 'unknown'}:"
+                    + "; ".join(strict_issues)
+                )
+            elif reader_job:
+                counted_reader_jobs.add(reader_job)
+        if required and figure_id not in counted_ids and inserted_path not in counted_paths:
+            count += 1
+            counted_ids.add(figure_id)
+            counted_paths.add(inserted_path)
+        elif required:
+            issues.append(f"duplicate_inserted_source_figure:{figure_id or 'unknown'}")
+        else:
+            issues.append(f"inserted_source_figure_provenance_incomplete:{figure_id or 'unknown'}")
+    return count, list(dict.fromkeys(issues))
 
 
 def detect_references_section(text: str) -> dict[str, Any]:
@@ -541,7 +762,9 @@ CLAIM_RISK_PATTERNS = {
         re.I,
     ),
     "priority_or_absence": re.compile(
-        r"\b(first|only|unprecedented|unique|no (?:general|reported|known)|"
+        r"\b(first (?:report|example|demonstration|method|synthesis|reaction|application)|"
+        r"only (?:known|reported|available|method|example|route|system)|"
+        r"unprecedented|unique|no (?:general|reported|known)|"
         r"(?:largely|rarely|not yet) (?:reported|known|available))\b",
         re.I,
     ),
@@ -553,6 +776,26 @@ CLAIM_RISK_PATTERNS = {
     "maturity_or_superlative": re.compile(
         r"\b(practical maturity|mature platform|single most|most powerful|remarkably broad|"
         r"state of the art|superior platform|highest (?:yield|selectivity|efficiency))\b",
+        re.I,
+    ),
+    "operational_conditions": re.compile(
+        r"\b(optimi[sz]ed conditions?|catalyst loading|electrode|electrolyte|solvent|"
+        r"temperature|reaction time|troubleshoot|scale[- ]?up|gram[- ]scale)\b",
+        re.I,
+    ),
+    "causal_explanation": re.compile(
+        r"\b(due to|arises from|results from|is responsible for|controls?|enables?|"
+        r"drives?|determines?)\b",
+        re.I,
+    ),
+    "practical_or_sustainability": re.compile(
+        r"\b(practical|robust|scalable|safe(?:ty)?|green(?:er)?|sustainab(?:le|ility)|"
+        r"air[- ]tolerant|moisture[- ]tolerant)\b",
+        re.I,
+    ),
+    "scope_generalization": re.compile(
+        r"\b(broad scope|wide scope|broadly applicable|tolerates? a wide|"
+        r"functional[- ]group tolerance|generally applicable)\b",
         re.I,
     ),
 }
@@ -655,10 +898,32 @@ def semantic_queue(project: Path, limit: int | None = None) -> dict[str, Any]:
             }
         )
     high_risk_rows = [row for row in ranked if row["audit_reasons"]]
-    selected_by_id = {row["queue_id"]: row for row in high_risk_rows}
-    # Add one evidence-bearing paragraph per section.  This samples ordinary
-    # synthesis while avoiding a ritual audit of every paragraph after the
-    # manuscript is already written.
+    critical_signals = {
+        "mechanistic_certainty",
+        "priority_or_absence",
+        "field_wide_generalization",
+        "maturity_or_superlative",
+    }
+    mandatory_rows = [
+        row
+        for row in high_risk_rows
+        if critical_signals.intersection(row["claim_risk_signals"])
+    ]
+    selected_by_id = {row["queue_id"]: row for row in mandatory_rows}
+
+    # Preserve diversity across risk types instead of turning every yield or
+    # condition into a compulsory post-hoc checklist.
+    for signal in CLAIM_RISK_PATTERNS:
+        signal_rows = sorted(
+            [row for row in high_risk_rows if signal in row["claim_risk_signals"]],
+            key=lambda row: row["priority_score"],
+            reverse=True,
+        )
+        for row in signal_rows[:2]:
+            selected_by_id.setdefault(row["queue_id"], row)
+
+    # Add one evidence-bearing paragraph per section. This samples ordinary
+    # synthesis while keeping the audit selective.
     sections = list(dict.fromkeys(row["section_id"] for row in ranked))
     for section_id in sections:
         candidates = [
@@ -674,6 +939,11 @@ def semantic_queue(project: Path, limit: int | None = None) -> dict[str, Any]:
             if sample["queue_id"] not in selected_by_id:
                 sample["audit_reasons"].append("section_sample")
                 selected_by_id[sample["queue_id"]] = sample
+    target_count = min(24, max(15, len(sections) * 2)) if ranked else 0
+    for row in sorted(ranked, key=lambda item: item["priority_score"], reverse=True):
+        if len(selected_by_id) >= target_count:
+            break
+        selected_by_id.setdefault(row["queue_id"], row)
     selected = [row for row in ranked if row["queue_id"] in selected_by_id]
     required_ids = [row["queue_id"] for row in selected]
     queue_material = [
@@ -692,17 +962,21 @@ def semantic_queue(project: Path, limit: int | None = None) -> dict[str, Any]:
     ).hexdigest()
     return {
         "project_id": project.name,
-        "queue_version": 3,
-        "coverage_mode": "risk_based_with_section_sample",
-        "selection_rule": "all paragraphs with explicit risk signals, numbers, mechanism claims, or missing provenance, plus one representative evidence-bearing paragraph per section",
+        "queue_version": 4,
+        "coverage_mode": "risk_stratified_with_section_sample",
+        "selection_rule": "critical scope and certainty claims, stratified samples of other risk types, one section sample, then highest-risk items up to a typical 15-24 passage review",
         "source_draft_sha256": file_sha256(paragraph_path),
         "queue_fingerprint": queue_fingerprint,
         "candidate_count": len(ranked),
         "selected_count": len(selected),
         "requested_limit": limit,
-        "limit_policy": "a requested limit never removes required risk or section-sample checks",
+        "limit_policy": "requested limits are advisory; the deterministic stratified sample is preserved",
         "required_queue_ids": required_ids,
-        "required_high_risk_queue_ids": [row["queue_id"] for row in high_risk_rows],
+        "required_high_risk_queue_ids": [
+            row["queue_id"]
+            for row in high_risk_rows
+            if row["queue_id"] in selected_by_id
+        ],
         "ready_count": sum(item["queue_status"] == "source_check_required" for item in selected),
         "source_check_required_count": sum(
             item["queue_status"] == "source_check_required" for item in selected
@@ -721,6 +995,38 @@ def unwrap(value: Any) -> Any:
     if isinstance(value, dict) and "value" in value:
         return value.get("value")
     return value
+
+
+UNTRUSTED_METADATA_SOURCE_RE = re.compile(
+    r"(?:infer|guess|generat|plausible|synthetic|placeholder|fabricat)", re.I
+)
+
+
+def reference_metadata_provenance_issues(
+    review_root: Path,
+    paper_ids: list[str],
+) -> list[dict[str, Any]]:
+    issues: list[dict[str, Any]] = []
+    checked_fields = ("authors", "title", "year", "journal", "doi", "volume", "pages", "article_number")
+    for paper_id in paper_ids:
+        path = review_root / "review-library" / "metadata" / "papers" / f"{paper_id}.metadata.json"
+        try:
+            payload = read_json(path) if path.exists() else {}
+        except Exception:
+            payload = {}
+        if not isinstance(payload, dict):
+            continue
+        untrusted = []
+        for field in checked_fields:
+            record = payload.get(field)
+            if not isinstance(record, dict) or not unwrap(record):
+                continue
+            source = str(record.get("source") or "")
+            if UNTRUSTED_METADATA_SOURCE_RE.search(source):
+                untrusted.append({"field": field, "source": source})
+        if untrusted:
+            issues.append({"paper_id": paper_id, "fields": untrusted})
+    return issues
 
 
 def normalize_doi(value: Any) -> str:
@@ -748,12 +1054,55 @@ def source_dois(pdf_path: Path) -> set[str]:
     }
 
 
+def source_front_matter_text(pdf_path: Path) -> str:
+    try:
+        from pypdf import PdfReader
+
+        reader = PdfReader(str(pdf_path))
+        values = [page.extract_text() or "" for page in reader.pages[:2]]
+        if reader.metadata:
+            values.extend(str(value or "") for value in reader.metadata.values())
+        return re.sub(r"\s+", " ", " ".join(values)).strip()
+    except Exception:
+        return ""
+
+
+def bibliographic_tokens(value: Any) -> list[str]:
+    return [
+        token
+        for token in re.findall(r"[a-z0-9]+", str(value or "").casefold())
+        if len(token) >= 3 and token not in {"the", "and", "for", "with", "from", "using"}
+    ]
+
+
+def author_surnames(value: Any) -> list[str]:
+    if isinstance(value, str):
+        rows = [part.strip() for part in re.split(r";|\band\b", value) if part.strip()]
+    elif isinstance(value, list):
+        rows = value
+    else:
+        rows = []
+    result: list[str] = []
+    for row in rows:
+        if isinstance(row, dict):
+            surname = row.get("family") or row.get("last") or row.get("surname")
+        else:
+            text = str(row).strip()
+            surname = text.split(",", 1)[0] if "," in text else (text.split()[-1] if text else "")
+        normalized = "".join(bibliographic_tokens(surname))
+        if normalized:
+            result.append(normalized)
+    return result
+
+
 def reference_metadata_source_conflicts(
     review_root: Path,
     paper_ids: list[str],
     rows_by_id: dict[str, dict[str, Any]],
+    *,
+    strict_front_matter: bool = False,
 ) -> list[dict[str, Any]]:
-    """Find cited DOI values that disagree with the linked local source PDF."""
+    """Find bibliographic values that disagree with the linked source PDF."""
     conflicts: list[dict[str, Any]] = []
     for paper_id in paper_ids:
         metadata_path = (
@@ -769,24 +1118,133 @@ def reference_metadata_source_conflicts(
                 pass
         row = rows_by_id.get(paper_id) or {}
         recorded_doi = normalize_doi(unwrap(metadata.get("doi")) or row.get("doi"))
-        if not recorded_doi:
-            continue
         source_paths = metadata.get("source_paths")
         raw_pdf = source_paths.get("pdf") if isinstance(source_paths, dict) else None
         if not str(raw_pdf or "").strip():
+            if strict_front_matter:
+                conflicts.append({"paper_id": paper_id, "issue": "source_pdf_missing"})
             continue
         pdf_path = Path(str(raw_pdf)).expanduser()
         if not pdf_path.is_absolute():
             pdf_path = review_root / pdf_path
         if not pdf_path.exists():
+            if strict_front_matter:
+                conflicts.append({"paper_id": paper_id, "issue": "source_pdf_missing"})
             continue
         visible_dois = source_dois(pdf_path)
-        if visible_dois and recorded_doi not in visible_dois:
+        if recorded_doi and visible_dois and recorded_doi not in visible_dois:
             conflicts.append(
                 {
                     "paper_id": paper_id,
                     "recorded_doi": recorded_doi,
                     "source_dois": sorted(visible_dois),
+                    "source_pdf": str(pdf_path),
+                }
+            )
+        if not strict_front_matter:
+            continue
+        front = source_front_matter_text(pdf_path)
+        normalized_front = " ".join(bibliographic_tokens(front))
+        if not normalized_front:
+            conflicts.append(
+                {"paper_id": paper_id, "issue": "source_front_matter_unreadable", "source_pdf": str(pdf_path)}
+            )
+            continue
+        recorded_title = unwrap(metadata.get("title")) or row.get("title")
+        title_tokens = bibliographic_tokens(recorded_title)
+        title_hits = sum(token in normalized_front for token in title_tokens)
+        if title_tokens and title_hits / len(title_tokens) < 0.75:
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "issue": "title_not_supported_by_source_front_matter",
+                    "recorded_title": recorded_title,
+                    "source_pdf": str(pdf_path),
+                }
+            )
+        surnames = author_surnames(unwrap(metadata.get("authors")) or row.get("authors"))
+        checked_surnames = surnames[: min(4, len(surnames))]
+        surname_hits = sum(surname in normalized_front for surname in checked_surnames)
+        if checked_surnames and (
+            checked_surnames[0] not in normalized_front
+            or surname_hits < max(1, (len(checked_surnames) + 1) // 2)
+        ):
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "issue": "authors_not_supported_by_source_front_matter",
+                    "recorded_surnames": checked_surnames,
+                    "source_pdf": str(pdf_path),
+                }
+            )
+        year = str(unwrap(metadata.get("year")) or row.get("year") or "").strip()
+        if year and year not in front:
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "issue": "year_not_supported_by_source_front_matter",
+                    "recorded_year": year,
+                    "source_pdf": str(pdf_path),
+                }
+            )
+        journal_record = metadata.get("journal")
+        journal = unwrap(journal_record) or row.get("journal")
+        journal_tokens = bibliographic_tokens(journal)
+        journal_verified_elsewhere = bool(
+            isinstance(journal_record, dict)
+            and journal_record.get("human_checked") is True
+            and "official" in str(journal_record.get("source") or "").casefold()
+        )
+        visible_tokens = bibliographic_tokens(front)
+        journal_hits = sum(
+            any(
+                visible == token or visible.startswith(token[:4]) or token.startswith(visible[:4])
+                for visible in visible_tokens
+                if len(visible) >= 4
+            )
+            for token in journal_tokens
+        )
+        if journal_tokens and not journal_verified_elsewhere and journal_hits < max(
+            1, (len(journal_tokens) + 1) // 2
+        ):
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "issue": "journal_not_supported_by_source_front_matter",
+                    "recorded_journal": journal,
+                    "source_pdf": str(pdf_path),
+                }
+            )
+        volume_record = metadata.get("volume")
+        volume = str(unwrap(volume_record) or row.get("volume") or "").strip()
+        locator_record = metadata.get("pages") or metadata.get("article_number")
+        locator = str(
+            unwrap(locator_record)
+            or row.get("pages")
+            or row.get("article_number")
+            or ""
+        ).strip()
+        locator_verified_elsewhere = bool(
+            isinstance(locator_record, dict)
+            and locator_record.get("human_checked") is True
+            and "official" in str(locator_record.get("source") or "").casefold()
+        )
+        first_locator = re.split(r"[-–—]", locator)[0].strip()
+        if (
+            volume
+            and first_locator
+            and not locator_verified_elsewhere
+            and not (
+                re.search(rf"(?<!\d){re.escape(volume)}(?!\d)", front)
+                and re.search(rf"(?<!\d){re.escape(first_locator)}(?!\d)", front)
+            )
+        ):
+            conflicts.append(
+                {
+                    "paper_id": paper_id,
+                    "issue": "volume_or_locator_not_supported_by_source_front_matter",
+                    "recorded_volume": volume,
+                    "recorded_locator": locator,
                     "source_pdf": str(pdf_path),
                 }
             )
@@ -796,7 +1254,7 @@ def reference_metadata_source_conflicts(
 def manuscript_reference_metadata_conflicts(
     text: str,
     review_root: Path,
-    paper_ids: list[str],
+    paper_ids_by_number: dict[int, str],
     rows_by_id: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
     """Ensure the delivered reference lines still reflect current verified DOI metadata."""
@@ -810,7 +1268,7 @@ def manuscript_reference_metadata_conflicts(
         lines_by_number[number] = line
 
     conflicts: list[dict[str, Any]] = []
-    for number, paper_id in enumerate(paper_ids, start=1):
+    for number, paper_id in sorted(paper_ids_by_number.items()):
         metadata_path = (
             review_root / "review-library" / "metadata" / "papers" / f"{paper_id}.metadata.json"
         )
@@ -846,7 +1304,11 @@ def manuscript_reference_metadata_conflicts(
 
 def substantive_audit_comment(value: Any) -> bool:
     comment = str(value or "").strip()
-    if len(comment) < 30:
+    if len(comment) < 40 or re.search(
+        r"(?:verified against \d+ anchors?|source verification confirms|checked against (?:the )?source)",
+        comment,
+        re.I,
+    ):
         return False
     normalized = re.sub(r"\bP\d{3}(?:-E\d+)?\b", " ", comment, flags=re.I)
     words = [
@@ -854,7 +1316,19 @@ def substantive_audit_comment(value: Any) -> bool:
         for word in re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", normalized)
         if word.lower() not in AUDIT_RATIONALE_STOPWORDS
     ]
-    return len(set(words)) >= 4
+    return len(set(words)) >= 6
+
+
+QUANTITY_RE = re.compile(
+    r"(?<![A-Za-z0-9])\d+(?:\.\d+)?\s*(?:%|°\s*C|K\b|h\b|hours?\b|min\b|"
+    r"days?\b|mol\s*%|equiv\.?\b|mmol\b|mol\b|mA\b|A\b|V\b|nm\b|"
+    r"mg\b|g\b|mL\b|µL\b|uL\b|M\b)",
+    re.I,
+)
+
+
+def claim_quantities(value: str) -> list[str]:
+    return [re.sub(r"\s+", "", item).casefold() for item in QUANTITY_RE.findall(value or "")]
 
 
 def actual_incomplete_references(
@@ -877,6 +1351,11 @@ def actual_incomplete_references(
                 pass
         row = rows_by_id.get(paper_id) or {}
         missing = []
+        authors = unwrap(metadata.get("authors")) or row.get("authors")
+        if not authors or authors == "Author information unavailable":
+            missing.append("authors")
+        if not str(unwrap(metadata.get("title")) or row.get("title") or "").strip():
+            missing.append("title")
         if not str(unwrap(metadata.get("journal")) or row.get("journal") or "").strip():
             missing.append("journal")
         if not (unwrap(metadata.get("year")) or row.get("year")):
@@ -936,8 +1415,7 @@ def cited_paragraph_stats(text: str) -> dict[str, Any]:
 
 
 def duplicated_long_paragraphs(text: str) -> list[dict[str, Any]]:
-    match, _ = references_tail(text)
-    body = text[: match.start()] if match else text
+    body, _ = manuscript_body(text)
     seen: dict[str, int] = {}
     duplicates: list[dict[str, Any]] = []
     for index, raw in enumerate(re.split(r"\n\s*\n", body), start=1):
@@ -1019,6 +1497,10 @@ def semantic_audit_status(
                     blockers.append(
                         f"semantic_audit check {index} does not cover the complete queued paragraph {queue_id}"
                     )
+        if required and required_queue_ids and queue_id not in required_queue_ids:
+            # Extra checks remain useful working notes, but they do not expand
+            # the deterministic risk sample into a blanket release queue.
+            continue
         verdict = str(check.get("verdict") or "")
         if verdict not in allowed:
             blockers.append(f"semantic_audit check {index} has an invalid verdict")
@@ -1039,7 +1521,7 @@ def semantic_audit_status(
                 f"semantic_audit check {index} has no claim-specific support rationale"
             )
         text_span = str(check.get("text_span") or "").strip()
-        if verdict != "removed" and len(text_span) < 20:
+        if len(text_span) < 20:
             blockers.append(f"semantic_audit check {index} has no substantive text_span")
         elif AUDIT_PLACEHOLDER_RE.search(text_span):
             blockers.append(f"semantic_audit check {index} uses placeholder text_span")
@@ -1052,6 +1534,18 @@ def semantic_audit_status(
             blockers.append(f"semantic_audit check {index} has no paragraph_id")
         if verdict != "removed" and paragraph_id and paragraph is None:
             blockers.append(f"semantic_audit check {index} references unknown paragraph {paragraph_id}")
+        normalized_checked_span = normalized_audit_text(text_span)
+        if verdict == "removed":
+            if normalized_checked_span and normalized_checked_span in normalized_audit_text(manuscript_text):
+                blockers.append(
+                    f"semantic_audit check {index} is marked removed but the audited span remains in the manuscript"
+                )
+            if not substantive_audit_comment(
+                check.get("comment") or check.get("revision_note")
+            ):
+                blockers.append(
+                    f"semantic_audit check {index} has no claim-specific removal rationale"
+                )
         cited_ids = [str(item) for item in check.get("cited_paper_ids") or []]
         if verdict != "removed" and not cited_ids:
             blockers.append(f"semantic_audit check {index} has no cited_paper_ids")
@@ -1134,6 +1628,29 @@ def semantic_audit_status(
                     receipt_errors.append(
                         f"checked excerpt is not found in {evidence_id} source"
                     )
+                anchor_excerpt = re.sub(
+                    r"\s+", " ", str(anchor.get("source_excerpt") or "")
+                ).strip().lower()
+                if anchor_excerpt and not (
+                    anchor_excerpt in normalized_excerpt
+                    or normalized_excerpt in anchor_excerpt
+                ):
+                    anchor_terms = set(audit_content_words(anchor_excerpt))
+                    receipt_terms = set(audit_content_words(normalized_excerpt))
+                    overlap = len(anchor_terms & receipt_terms) / max(1, len(anchor_terms))
+                    if overlap < 0.7:
+                        receipt_errors.append(
+                            f"checked excerpt does not cover the recorded anchor for {evidence_id}"
+                        )
+            claimed_quantities = set(claim_quantities(text_span))
+            checked_quantity_text = " ".join(checked_excerpts)
+            checked_quantities = set(claim_quantities(checked_quantity_text))
+            missing_quantities = sorted(claimed_quantities - checked_quantities)
+            if missing_quantities:
+                receipt_errors.append(
+                    "claim quantities absent from checked excerpts: "
+                    + ", ".join(missing_quantities)
+                )
             # The scanner can verify paths, hashes, locators, and verbatim
             # excerpts.  It cannot decide semantic entailment through word
             # overlap; that judgment belongs to the source-reading audit.
@@ -1210,6 +1727,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         draft = final_path if final_path.exists() else first_path
         target = "final_draft" if draft == final_path and final_path.exists() else "first_draft"
     text = read_text(draft) if draft.exists() else ""
+    article_body, noncanonical_backmatter = manuscript_body(text)
     headings = [{"level": len(m.group(1)), "title": m.group(2).strip()} for m in HEADING_RE.finditer(text)]
     heading_titles = [item["title"] for item in headings]
     duplicate_headings = sorted({title for title in heading_titles if heading_titles.count(title) > 1})
@@ -1224,7 +1742,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         if re.search(r"(?:\*\*)?\s*(?:figure|scheme|table|chart)\s*\d+", line, re.I)
         and RAW_LATEX_COMMAND_RE.search(line)
     ]
-    called_refs = sorted(expand_ref_callouts(text))
+    called_refs = sorted(expand_ref_callouts(article_body))
     listed_sequence = reference_numbers(text)
     listed_refs = sorted(set(listed_sequence))
     missing_listed_refs = sorted(set(called_refs) - set(listed_refs))
@@ -1233,7 +1751,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     expected_sequence = list(range(1, len(listed_sequence) + 1))
     reference_numbering_contiguous = listed_sequence == expected_sequence
 
-    image_paths = [match.group(1) for match in IMAGE_RE.finditer(text)]
+    image_paths = [match.group(1) for match in IMAGE_RE.finditer(article_body)]
     abstract_image_paths: list[str] = []
     abstract_heading = ABSTRACT_HEADING_RE.search(text)
     if abstract_heading:
@@ -1294,6 +1812,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     evidence_records = matrix_evidence_records(matrix_rows)
     citation_ref_numbers: list[int] = []
     citation_paper_ids: list[str] = []
+    citation_paper_by_number: dict[int, str] = {}
     declared_incomplete_reference_metadata = []
     if isinstance(citations_payload, dict):
         entries = citations_payload.get("reference_list") or []
@@ -1301,32 +1820,51 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
             if not isinstance(entry, dict):
                 continue
             if str(entry.get("ref_num") or "").isdigit():
-                citation_ref_numbers.append(int(entry["ref_num"]))
+                ref_num = int(entry["ref_num"])
+                citation_ref_numbers.append(ref_num)
+                if entry.get("paper_id"):
+                    citation_paper_by_number[ref_num] = str(entry["paper_id"])
             if entry.get("paper_id"):
                 citation_paper_ids.append(str(entry["paper_id"]))
         declared_incomplete_reference_metadata = (
             citations_payload.get("incomplete_reference_metadata") or []
         )
-    unknown_cited_papers = sorted(set(citation_paper_ids) - matrix_ids) if matrix_ids else []
+    actual_citation_paper_ids = [
+        citation_paper_by_number[number]
+        for number in called_refs
+        if number in citation_paper_by_number
+    ]
+    unknown_cited_papers = sorted(set(actual_citation_paper_ids) - matrix_ids) if matrix_ids else []
     actual_missing_metadata = actual_incomplete_references(
-        project.parents[1], citation_paper_ids, matrix_rows
+        project.parents[1], actual_citation_paper_ids, matrix_rows
     )
     incomplete_reference_metadata = actual_missing_metadata or declared_incomplete_reference_metadata
     reference_metadata_conflicts = reference_metadata_source_conflicts(
-        project.parents[1], citation_paper_ids, matrix_rows
+        project.parents[1],
+        actual_citation_paper_ids,
+        matrix_rows,
+        strict_front_matter=declared_review_profile(project) == "comprehensive",
     )
     manuscript_reference_conflicts = manuscript_reference_metadata_conflicts(
-        text, project.parents[1], citation_paper_ids, matrix_rows
+        text,
+        project.parents[1],
+        {
+            number: citation_paper_by_number[number]
+            for number in called_refs
+            if number in citation_paper_by_number
+        },
+        matrix_rows,
+    )
+    untrusted_reference_metadata = reference_metadata_provenance_issues(
+        project.parents[1], actual_citation_paper_ids
     )
 
-    references_match, _ = references_tail(text)
-    manuscript_body = text[: references_match.start()] if references_match else text
-    markdown_table_count = len(TABLE_SEPARATOR_RE.findall(manuscript_body))
+    markdown_table_count = len(TABLE_SEPARATOR_RE.findall(article_body))
     manuscript_table_references = referenced_artifact_numbers(
-        TABLE_REFERENCE_RE, manuscript_body
+        TABLE_REFERENCE_RE, article_body
     )
     manuscript_figure_references = referenced_artifact_numbers(
-        FIGURE_REFERENCE_RE, manuscript_body
+        FIGURE_REFERENCE_RE, article_body
     )
     mojibake_hits = [
         {"line": line_no, "text": line.strip()[:300]}
@@ -1341,13 +1879,38 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
     reader_review_figure_references = referenced_artifact_numbers(
         FIGURE_REFERENCE_RE, reader_review_text
     )
-    word_like_count = len(re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", manuscript_body))
+    word_like_count = len(re.findall(r"\b[A-Za-z][A-Za-z'-]*\b", article_body))
+    source_figure_count, source_figure_issues = verified_source_figure_usage(
+        project, image_paths, set(actual_citation_paper_ids), article_body
+    )
     review_profile = declared_review_profile(project)
+    listed_and_called_reference_count = len(set(called_refs) & set(listed_refs))
+    if review_profile == "comprehensive":
+        invalid_reference_papers = {
+            str(item.get("paper_id"))
+            for item in (
+                list(actual_missing_metadata)
+                + list(reference_metadata_conflicts)
+            )
+            if isinstance(item, dict) and item.get("paper_id")
+        }
+        verified_reference_numbers = {
+            number
+            for number, paper_id in citation_paper_by_number.items()
+            if paper_id not in invalid_reference_papers
+        }
+        verified_reference_count = len(
+            set(called_refs) & set(listed_refs) & verified_reference_numbers
+        )
+    else:
+        verified_reference_count = listed_and_called_reference_count
     delivery_metrics = {
         "word_like_count": word_like_count,
-        "reference_count": len(listed_refs),
+        "reference_count": listed_and_called_reference_count,
+        "verified_reference_count": verified_reference_count,
         "table_count": markdown_table_count,
         "figure_count": len(image_paths),
+        "source_figure_count": source_figure_count,
     }
     delivery_floor = (
         dict(COMPREHENSIVE_DELIVERY_FLOOR)
@@ -1355,25 +1918,30 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         else {}
     )
     delivery_floor_issues = [
-        f"comprehensive_delivery_floor:{metric}:{delivery_metrics[metric]}/{minimum}"
+        f"comprehensive_delivery_floor:{metric}:"
+        f"{delivery_metrics['verified_reference_count'] if metric == 'reference_count' else delivery_metrics[metric]}/{minimum}"
         for metric, minimum in delivery_floor.items()
-        if delivery_metrics[metric] < minimum
+        if (
+            delivery_metrics["verified_reference_count"]
+            if metric == "reference_count"
+            else delivery_metrics[metric]
+        ) < minimum
     ]
     target_words, blueprint_issues = blueprint_target(project / "01_matrix_outline" / "section_blueprint.json")
     word_target_ratio = round(word_like_count / target_words, 4) if target_words else None
-    paragraph_stats = cited_paragraph_stats(text)
+    paragraph_stats = cited_paragraph_stats(article_body)
     duplicate_paragraphs = duplicated_long_paragraphs(text)
     queue_path = project / "05_final_audit" / "semantic_audit_queue.json"
     queue_payload = read_json(queue_path) if queue_path.exists() else {}
     expected_queue = semantic_queue(project)
     required_queue_ids = {
         str(item)
-        for item in (queue_payload.get("required_queue_ids") if isinstance(queue_payload, dict) else []) or []
+        for item in expected_queue.get("required_queue_ids") or []
         if str(item).strip()
     }
     queue_items_by_id = {
         str(item.get("queue_id")): item
-        for item in (queue_payload.get("items") if isinstance(queue_payload, dict) else []) or []
+        for item in expected_queue.get("items") or []
         if isinstance(item, dict) and str(item.get("queue_id") or "").strip()
     }
     semantic_status, semantic_blockers = semantic_audit_status(
@@ -1411,6 +1979,8 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         add("editor_paragraph_markers_present")
     if duplicate_paragraphs:
         add("duplicated_long_paragraphs_or_template_padding")
+    if noncanonical_backmatter:
+        add("noncanonical_or_duplicated_backmatter")
     if STABLE_CITATION_RE.search(text):
         add("unresolved_stable_citation_tokens")
     if PAPER_ID_LEAK_RE.search(text):
@@ -1451,16 +2021,27 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         add("reference_metadata_conflicts_with_source")
     if manuscript_reference_conflicts:
         add("reference_list_conflicts_with_verified_metadata")
+    if untrusted_reference_metadata:
+        add(
+            "reference_metadata_uses_inferred_or_generated_values",
+            block=review_profile != "comprehensive" or bool(reference_metadata_conflicts),
+        )
     if abstract_image_paths:
         add("images_embedded_in_abstract")
     if broken_images:
         add("broken_markdown_image_paths")
     if source_placeholder_mode:
         add("unverified_source_figures_need_preparation")
+    for source_figure_issue in source_figure_issues:
+        add(source_figure_issue)
     if manuscript_table_references and max(manuscript_table_references) > markdown_table_count:
         add("manuscript_references_missing_table")
     if manuscript_figure_references and max(manuscript_figure_references) > len(image_paths):
         add("manuscript_references_missing_figure")
+    if markdown_table_count and set(range(1, markdown_table_count + 1)) - set(manuscript_table_references):
+        add("tables_not_used_in_manuscript_argument")
+    if image_paths and set(range(1, len(image_paths) + 1)) - set(manuscript_figure_references):
+        add("figures_not_used_in_manuscript_argument")
     if mojibake_hits:
         add("mojibake_or_replacement_characters_present")
     if not image_paths and not figures_skipped_with_reason:
@@ -1492,19 +2073,15 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
                 expected_queue.get("required_queue_ids") or []
             ):
                 add("semantic_audit_queue_coverage_mismatch")
-        for portfolio_issue in resolved_portfolio_editorial_issues(project):
-            add(portfolio_issue, block=False)
-        for reader_issue in reader_utility_review_issues(project):
-            add(reader_issue, block=False)
         if reader_review_table_references and max(reader_review_table_references) > markdown_table_count:
             add("reader_utility_review_claims_missing_table")
         if reader_review_figure_references and max(reader_review_figure_references) > len(image_paths):
             add("reader_utility_review_claims_missing_figure")
-        for visual_issue in resolved_visual_plan_issues(project, manuscript_body):
-            blocks_selected_asset = visual_issue.startswith(
+        for visual_issue in resolved_visual_plan_issues(project, article_body):
+            if visual_issue.startswith(
                 ("comparison_table_not_traceable:", "selected_comparison_table_missing_from_manuscript:")
-            )
-            add(visual_issue, block=blocks_selected_asset)
+            ):
+                add(visual_issue)
         for inventory_issue in figure_inventory_consistency_issues(project):
             add(inventory_issue)
         for upstream_issue in upstream_release_issues(project):
@@ -1526,6 +2103,7 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "heading_count": len(headings),
         "headings": headings,
         "duplicate_headings": duplicate_headings,
+        "noncanonical_backmatter": noncanonical_backmatter,
         "heading_jumps": heading_jumps,
         "placeholder_hits": placeholder_hits,
         "raw_latex_captions": raw_latex_captions,
@@ -1554,6 +2132,8 @@ def scan_draft(project: Path, phase: str) -> dict[str, Any]:
         "incomplete_reference_metadata": incomplete_reference_metadata,
         "reference_metadata_source_conflicts": reference_metadata_conflicts,
         "manuscript_reference_metadata_conflicts": manuscript_reference_conflicts,
+        "untrusted_reference_metadata": untrusted_reference_metadata,
+        "source_figure_issues": source_figure_issues,
         "paragraph_synthesis": paragraph_stats,
         "duplicate_long_paragraphs": duplicate_paragraphs,
         "semantic_audit": semantic_status,
@@ -1598,6 +2178,23 @@ def main() -> int:
     args = parse_args()
     project = Path(args.review_root).resolve() / "review-projects" / args.project_id
     scan = scan_draft(project, args.phase)
+    audit_inputs = [
+        Path(scan["draft_path"]),
+        project / "01_matrix_outline" / "literature_matrix.json",
+        project / "01_matrix_outline" / "section_blueprint.json",
+        project / "02_section_drafting" / "section_drafts.json",
+        project / "04_first_draft" / "citations.json",
+    ]
+    for optional in (
+        project / "05_final_audit" / "semantic_audit_queue.json",
+        project / "05_final_audit" / "semantic_audit.json",
+        project / "03_figure_redraw" / "redrawn_figure_manifest.json",
+        project / "04_first_draft" / "figure_insertion_report.json",
+        project / "05_final_audit" / "figure_insertion_report.json",
+    ):
+        if optional.exists():
+            audit_inputs.append(optional)
+    attach_input_artifacts(scan, project, audit_inputs)
     audit_dir = project / "05_final_audit"
     write_reports(audit_dir, scan)
     if args.phase == "preflight":

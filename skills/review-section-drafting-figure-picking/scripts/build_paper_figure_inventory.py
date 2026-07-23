@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -17,6 +18,11 @@ LICENSE_LINE_RE = re.compile(
     r"(?:creative commons|\bcc[- ]by\b|open access article|licensed under|copyright|©)",
     re.I,
 )
+OPEN_REUSE_RE = re.compile(
+    r"(?:creative commons|\bcc[- ]by(?:[- ]nc|[- ]sa|[- ]nd)?\b|public domain)",
+    re.I,
+)
+RESTRICTED_REUSE_RE = re.compile(r"all rights reserved", re.I)
 
 
 def read_json(path: Path) -> Any:
@@ -32,6 +38,16 @@ def clean(text: Any) -> str:
     if isinstance(text, list):
         text = " ".join(str(x) for x in text if str(x).strip())
     return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def file_sha256(path: Path | None) -> str:
+    if path is None or not path.is_file():
+        return ""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def selected_paper_ids(project: Path) -> list[str]:
@@ -80,6 +96,7 @@ def license_hints(markdown_path: Any) -> dict[str, Any]:
     if not raw:
         return {
             "rights_review_status": "pending",
+            "reuse_hint_class": "unknown",
             "license_statement_candidates": [],
             "license_urls": [],
         }
@@ -87,6 +104,7 @@ def license_hints(markdown_path: Any) -> dict[str, Any]:
     if not path.exists() or not path.is_file():
         return {
             "rights_review_status": "pending",
+            "reuse_hint_class": "unknown",
             "license_statement_candidates": [],
             "license_urls": [],
         }
@@ -99,8 +117,16 @@ def license_hints(markdown_path: Any) -> dict[str, Any]:
         if len(statements) >= 6:
             break
     urls = list(dict.fromkeys(LICENSE_URL_RE.findall(text)))
+    joined = "\n".join(statements + urls)
+    if OPEN_REUSE_RE.search(joined):
+        hint_class = "open_reuse_candidate"
+    elif RESTRICTED_REUSE_RE.search(joined):
+        hint_class = "restricted"
+    else:
+        hint_class = "unknown"
     return {
         "rights_review_status": "license_hint_found" if statements or urls else "pending",
+        "reuse_hint_class": hint_class,
         "license_statement_candidates": list(dict.fromkeys(statements)),
         "license_urls": urls[:6],
         "instructions": (
@@ -108,6 +134,67 @@ def license_hints(markdown_path: Any) -> dict[str, Any]:
             "credit line, any third-party exclusion, and whether adaptation is permitted."
         ),
     }
+
+
+def crop_spec(
+    source_pdf: Any,
+    page_idx: Any,
+    bbox: Any,
+) -> dict[str, Any] | None:
+    raw_pdf = str(source_pdf or "").strip()
+    if not raw_pdf or not isinstance(page_idx, int):
+        return None
+    if not isinstance(bbox, list) or len(bbox) != 4:
+        return None
+    try:
+        coords = [float(value) for value in bbox]
+    except (TypeError, ValueError):
+        return None
+    if coords[2] <= coords[0] or coords[3] <= coords[1]:
+        return None
+    return {"source_pdf": raw_pdf, "page_index": page_idx, "bbox": coords}
+
+
+def materialize_candidate_image(project: Path, candidate: dict[str, Any]) -> str:
+    """Resolve a missing MinerU image by cropping its recorded PDF page and bbox."""
+    existing = str(candidate.get("source_image_path") or "").strip()
+    if existing and Path(existing).exists():
+        return existing
+    spec = candidate.get("source_crop")
+    if not isinstance(spec, dict):
+        return ""
+    pdf_path = Path(str(spec.get("source_pdf") or ""))
+    if not pdf_path.is_absolute():
+        pdf_path = project.parents[1] / pdf_path
+    if not pdf_path.exists():
+        return ""
+    page_index = spec.get("page_index")
+    bbox = spec.get("bbox")
+    if not isinstance(page_index, int) or not isinstance(bbox, list) or len(bbox) != 4:
+        return ""
+    try:
+        import fitz
+
+        with fitz.open(pdf_path) as document:
+            if page_index < 0 or page_index >= document.page_count:
+                return ""
+            page = document.load_page(page_index)
+            rect = fitz.Rect(*[float(value) for value in bbox]) & page.rect
+            if rect.is_empty or rect.width < 5 or rect.height < 5:
+                return ""
+            digest = hashlib.sha256(
+                f"{pdf_path.resolve()}|{page_index}|{','.join(str(value) for value in bbox)}".encode("utf-8")
+            ).hexdigest()[:16]
+            paper_id = re.sub(r"[^A-Za-z0-9_-]+", "-", str(candidate.get("paper_id") or "paper"))
+            out_dir = project / "02_section_drafting" / "source_figure_crops"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_path = out_dir / f"{paper_id}-p{page_index + 1}-{digest}.png"
+            if not out_path.exists():
+                pixmap = page.get_pixmap(matrix=fitz.Matrix(2.5, 2.5), clip=rect, alpha=False)
+                pixmap.save(out_path)
+    except Exception:
+        return ""
+    return str(out_path.resolve())
 
 
 def block_caption(block: dict[str, Any]) -> str:
@@ -205,6 +292,11 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
             )
             continue
         source_paths = meta.get("source_paths") or {}
+        raw_pdf_path = str(source_paths.get("pdf") or "").strip()
+        source_pdf_path = Path(raw_pdf_path) if raw_pdf_path else None
+        if source_pdf_path is not None and not source_pdf_path.is_absolute():
+            source_pdf_path = review_root / source_pdf_path
+        source_pdf_sha256 = file_sha256(source_pdf_path)
         rights_hints = license_hints(source_paths.get("markdown"))
         raw_content_path = str(source_paths.get("content_list") or "").strip()
         raw_extracted_dir = str(source_paths.get("extracted_dir") or "").strip()
@@ -221,6 +313,11 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                     idx = block_index + 1
                     img_rel = block.get("img_path") or block.get("image_path") or block.get("path")
                     source_image_path = str((extracted_dir / str(img_rel)).resolve()) if img_rel and extracted_dir and extracted_dir.is_dir() else ""
+                    source_crop = crop_spec(
+                        source_paths.get("pdf"),
+                        block.get("page_idx"),
+                        block.get("bbox"),
+                    )
                     fragment_indexes = split_groups.get(block_index, [])
                     fragment_paths = [
                         str((extracted_dir / str(fragment_rel)).resolve())
@@ -236,16 +333,34 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                     source_type = str(block.get("type") or "")
                     candidates.append(
                         {
+                            "inventory_candidate_id": f"{paper_id}-V{block_index + 1:04d}",
                             "paper_id": paper_id,
                             "title": field_value(meta, "title"),
                             "source_label": infer_source_label(caption, len(candidates) + 1, source_type),
                             "source_type": source_type,
                             "source_pdf": source_paths.get("pdf"),
+                            "source_pdf_sha256": source_pdf_sha256,
+                            "source_page_index": block.get("page_idx"),
+                            "source_bbox": block.get("bbox"),
                             "source_content_list": str(content_path),
                             "source_image_path": (
                                 source_image_path
                                 if not fragment_indexes and source_image_path and Path(source_image_path).exists()
                                 else ""
+                            ),
+                            "source_image_sha256": file_sha256(
+                                Path(source_image_path) if source_image_path else None
+                            ),
+                            # Split panels must be reconstructed from the whole
+                            # source page; cropping one MinerU block would create
+                            # a deceptively incomplete figure.
+                            "source_crop": source_crop if not fragment_indexes else None,
+                            "source_resolution_status": (
+                                "extracted_image"
+                                if not fragment_indexes and source_image_path and Path(source_image_path).exists()
+                                else "pdf_crop_available"
+                                if not fragment_indexes and source_crop
+                                else "needs_source_review"
                             ),
                             "source_completeness": "mineru_split" if fragment_indexes else "single_block",
                             "source_fragment_paths": fragment_paths,
@@ -288,6 +403,11 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
             == "license_hint_found"
             for candidate in all_candidates
         ),
+        "open_reuse_hint_candidate_count": sum(
+            (candidate.get("reuse_rights_hints") or {}).get("reuse_hint_class")
+            == "open_reuse_candidate"
+            for candidate in all_candidates
+        ),
         # Keep both a flat self-describing view and the per-paper grouping.
         # Consumers can no longer mistake nested candidates for an empty set.
         "candidates": all_candidates,
@@ -318,7 +438,8 @@ def main() -> int:
         f"{inventory['candidate_count']} total; "
         f"{inventory['figure_candidate_count']} figures/charts; "
         f"{inventory['table_candidate_count']} tables; "
-        f"{inventory['license_hint_candidate_count']} with licence hints"
+        f"{inventory['license_hint_candidate_count']} with licence hints; "
+        f"{inventory['open_reuse_hint_candidate_count']} possible open-reuse candidates"
     )
     return 0
 

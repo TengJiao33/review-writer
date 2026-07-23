@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import hashlib
 import json
 import mimetypes
 import os
@@ -30,6 +31,16 @@ def write_json(path: Path, data: Any) -> None:
 
 def normalize_space(text: str) -> str:
     return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def file_sha256(path: Path | None) -> str:
+    if path is None or not path.is_file():
+        return ""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def normalize_label(text: str) -> str:
@@ -437,6 +448,20 @@ def run(args: argparse.Namespace) -> int:
     figures = data.get("figures") if isinstance(data, dict) else data
     if not isinstance(figures, list):
         raise SystemExit(f"Invalid figure candidates structure: {figures_file}")
+    contract_path = project / "00_discovery" / "topic_contract.json"
+    contract = read_json(contract_path) if contract_path.exists() else {}
+    comprehensive = (
+        isinstance(contract, dict)
+        and str(contract.get("review_profile") or "").lower() == "comprehensive"
+    )
+    inventory_path = project / "02_section_drafting" / "paper_figure_inventory.json"
+    inventory = read_json(inventory_path) if inventory_path.exists() else {}
+    inventory_rows = inventory.get("candidates") if isinstance(inventory, dict) else []
+    inventory_by_id = {
+        str(row.get("inventory_candidate_id")): row
+        for row in inventory_rows or []
+        if isinstance(row, dict) and row.get("inventory_candidate_id")
+    }
     style = {
         "preparation_mode": "source_verified" if args.use_source else "api_redraw",
         "style_name": args.style_name,
@@ -470,6 +495,8 @@ def run(args: argparse.Namespace) -> int:
             selection_issues.append(f"{label}: reader_job is missing")
         if not str(figure.get("placement_rationale") or "").strip():
             selection_issues.append(f"{label}: placement_rationale is missing")
+        if comprehensive and not str(figure.get("manuscript_callout") or "").strip():
+            selection_issues.append(f"{label}: manuscript_callout is missing")
         if not str(figure.get("reuse_basis") or "").strip():
             selection_issues.append(f"{label}: reuse_basis is missing")
         rights = figure.get("reuse_rights")
@@ -492,6 +519,44 @@ def run(args: argparse.Namespace) -> int:
             selection_issues.append(
                 f"{label}: reuse_rights is not verified ({', '.join(missing_rights)})"
             )
+        if comprehensive:
+            source_type = str(figure.get("source_type") or "").strip().lower()
+            source_label = str(figure.get("source_label") or "").strip()
+            source_page_index = figure.get("source_page_index")
+            source_bbox = figure.get("source_bbox")
+            if source_type not in {"image", "chart"}:
+                selection_issues.append(
+                    f"{label}: comprehensive source figures must be non-table image/chart candidates"
+                )
+            if not re.match(r"^(?:fig(?:ure)?|scheme)\s*[A-Za-z0-9]", source_label, re.I):
+                selection_issues.append(
+                    f"{label}: source_label must identify a real figure or scheme, not a generic candidate"
+                )
+            if not isinstance(source_page_index, int) or source_page_index < 0:
+                selection_issues.append(f"{label}: source_page_index is not a valid page index")
+            if not (
+                isinstance(source_bbox, list)
+                and len(source_bbox) == 4
+                and all(isinstance(value, (int, float)) for value in source_bbox)
+            ):
+                selection_issues.append(f"{label}: source_bbox is not a four-number bounding box")
+            candidate_id = str(figure.get("inventory_candidate_id") or "")
+            inventory_row = inventory_by_id.get(candidate_id)
+            if not isinstance(inventory_row, dict):
+                selection_issues.append(f"{label}: inventory_candidate_id is missing or unknown")
+            else:
+                for key in (
+                    "paper_id",
+                    "source_label",
+                    "source_caption_text",
+                    "source_pdf_sha256",
+                    "source_page_index",
+                    "source_bbox",
+                ):
+                    if figure.get(key) != inventory_row.get(key):
+                        selection_issues.append(f"{label}: {key} differs from the inventory")
+            if str(figure.get("source_completeness") or "").lower() != "complete":
+                selection_issues.append(f"{label}: a comprehensive source figure must be complete")
     if selection_issues:
         raise SystemExit(
             "Selected figures need an explicit reader job, placement decision, and reuse basis:\n- "
@@ -506,6 +571,7 @@ def run(args: argparse.Namespace) -> int:
         source_image, notes = resolve_source_image(review_root, figure)
         src_row = {
             "figure_id": figure_id,
+            "inventory_candidate_id": figure.get("inventory_candidate_id"),
             "section_id": figure.get("section_id"),
             "section_heading": figure.get("section_heading"),
             "paper_id": figure.get("paper_id"),
@@ -528,6 +594,7 @@ def run(args: argparse.Namespace) -> int:
         source_rows.append(src_row)
         redraw_row = {
             "figure_id": figure_id,
+            "inventory_candidate_id": figure.get("inventory_candidate_id"),
             "section_id": figure.get("section_id"),
             "section_heading": figure.get("section_heading"),
             "paper_id": figure.get("paper_id"),
@@ -537,6 +604,14 @@ def run(args: argparse.Namespace) -> int:
             "verified_image": None,
             "redrawn_image": None,
             "source_pdf": figure.get("source_pdf"),
+            "source_pdf_sha256": figure.get("source_pdf_sha256"),
+            "source_page_index": figure.get("source_page_index"),
+            "source_bbox": figure.get("source_bbox"),
+            "source_image_sha256": file_sha256(source_image),
+            "source_pdf_sha256": figure.get("source_pdf_sha256"),
+            "source_page_index": figure.get("source_page_index"),
+            "source_bbox": figure.get("source_bbox"),
+            "source_image_sha256": file_sha256(source_image),
             "source_page_hint": figure.get("source_page_hint"),
             "source_caption_text": figure.get("source_caption_text") or notes.get("matched_caption"),
             "source_completeness": figure.get("source_completeness"),
@@ -544,6 +619,8 @@ def run(args: argparse.Namespace) -> int:
             "title": figure.get("title"),
             "reader_job": figure.get("reader_job"),
             "placement_rationale": figure.get("placement_rationale"),
+            "manuscript_callout": figure.get("manuscript_callout"),
+            "manuscript_callout": figure.get("manuscript_callout"),
             "reuse_basis": figure.get("reuse_basis"),
             "reuse_rights": figure.get("reuse_rights"),
             "prompt": None,
@@ -596,6 +673,7 @@ def run(args: argparse.Namespace) -> int:
             verified_path = verified_dir / copied_source.name
             shutil.copy2(copied_source, verified_path)
             redraw_row["verified_image"] = str(verified_path)
+            redraw_row["accepted_image_sha256"] = file_sha256(verified_path)
             redraw_row["status"] = "source_verified"
             redraw_row["verification_status"] = "passed"
             redraw_row["notes"] = figure_note
@@ -640,6 +718,7 @@ def run(args: argparse.Namespace) -> int:
                 )
                 save_redrawn_image(response, out_path)
             redraw_row["redrawn_image"] = str(out_path)
+            redraw_row["accepted_image_sha256"] = file_sha256(out_path)
             redraw_row["status"] = "redrawn"
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, RuntimeError, json.JSONDecodeError) as exc:
             redraw_row["status"] = "failed"

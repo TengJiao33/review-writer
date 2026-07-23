@@ -4,14 +4,27 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import (  # noqa: E402
+    file_sha256,
+    input_artifact_issues,
+    metadata_snapshot_issues,
+)
 
 
 REFERENCE_HEADING_RE = re.compile(
     r"^\s*#{1,6}\s*(references|reference list|bibliography|cited literature)\s*$",
     re.I | re.M,
 )
+NONCANONICAL_BACKMATTER_RE = re.compile(
+    r"^\s*\*\*(?:references?|reference list|bibliography|figure descriptions?)\*\*\s*:?.*$",
+    re.I | re.M,
+)
+REFERENCE_CALLOUT_RE = re.compile(r"\[(\d+(?:\s*[-,]\s*\d+)*)\]")
 REFERENCE_ITEM_RE = re.compile(r"^\s*(?:\[(\d+)\]|(\d+)[.)])\s+", re.M)
 TABLE_SEPARATOR_RE = re.compile(
     r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$",
@@ -23,7 +36,7 @@ COMPREHENSIVE_DELIVERY_FLOOR = {
     "word_like_count": 8000,
     "reference_count": 25,
     "table_count": 2,
-    "figure_count": 2,
+    "source_figure_count": 3,
 }
 
 
@@ -137,6 +150,66 @@ def discover_projects(review_root: Path) -> list[str]:
     return sorted(p.name for p in root.iterdir() if p.is_dir())
 
 
+def expand_reference_callouts(text: str) -> set[int]:
+    refs: set[int] = set()
+    for match in REFERENCE_CALLOUT_RE.finditer(text or ""):
+        for part in re.split(r"\s*,\s*", match.group(1)):
+            if "-" in part:
+                left, right = [piece.strip() for piece in part.split("-", 1)]
+                if left.isdigit() and right.isdigit() and int(left) <= int(right):
+                    refs.update(range(int(left), int(right) + 1))
+            elif part.strip().isdigit():
+                refs.add(int(part.strip()))
+    return refs
+
+
+def verified_source_figure_count(
+    project: Path,
+    image_paths: list[str],
+    cited_paper_ids: set[str],
+) -> int:
+    report = read_json(project / "05_final_audit" / "figure_insertion_report.json")
+    if not isinstance(report, dict):
+        report = read_json(project / "04_first_draft" / "figure_insertion_report.json")
+    manifest = read_json(project / "03_figure_redraw" / "redrawn_figure_manifest.json")
+    inserted = report.get("inserted") if isinstance(report, dict) else []
+    figures = manifest.get("figures") if isinstance(manifest, dict) else []
+    by_id = {
+        str(row.get("figure_id")): row
+        for row in figures or []
+        if isinstance(row, dict) and row.get("figure_id")
+    }
+    count = 0
+    counted_ids: set[str] = set()
+    counted_paths: set[str] = set()
+    for row in inserted or []:
+        if not isinstance(row, dict) or row.get("mode") != "source_verified":
+            continue
+        source = by_id.get(str(row.get("figure_id") or ""))
+        rights = source.get("reuse_rights") if isinstance(source, dict) and isinstance(source.get("reuse_rights"), dict) else {}
+        figure_id = str(row.get("figure_id") or "")
+        inserted_path = str(row.get("inserted_path") or "")
+        if (
+            isinstance(source, dict)
+            and source.get("status") == "source_verified"
+            and source.get("verification_status") == "passed"
+            and str(source.get("paper_id") or "") in cited_paper_ids
+            and str(source.get("source_label") or "").strip()
+            and rights.get("status") == "verified"
+            and str(rights.get("license_url_or_permission_record") or "").strip()
+            and rights.get("third_party_material_checked") is True
+            and rights.get("adaptation") == "unchanged"
+            and str(rights.get("attribution_text") or "").strip()
+            and inserted_path in image_paths
+            and figure_id not in counted_ids
+            and inserted_path not in counted_paths
+        ):
+            count += 1
+            counted_ids.add(figure_id)
+            counted_paths.add(inserted_path)
+    return count
+
+
 def comprehensive_delivery_floor_issues(project: Path) -> list[str]:
     contract = read_json(project / "00_discovery" / "topic_contract.json")
     if not isinstance(contract, dict) or str(contract.get("review_profile") or "").lower() != "comprehensive":
@@ -144,15 +217,50 @@ def comprehensive_delivery_floor_issues(project: Path) -> list[str]:
     draft = project / "05_final_audit" / "final_draft.md"
     if not draft.exists():
         return []
+    scan = read_json(project / "05_final_audit" / "format_scan.json")
+    scan_metrics = scan.get("delivery_metrics") if isinstance(scan, dict) else None
+    if isinstance(scan_metrics, dict) and all(
+        isinstance(scan_metrics.get(metric), int) for metric in COMPREHENSIVE_DELIVERY_FLOOR
+    ):
+        return [
+            f"comprehensive_delivery_floor:{metric}:"
+            f"{scan_metrics.get('verified_reference_count', scan_metrics[metric]) if metric == 'reference_count' else scan_metrics[metric]}/{minimum}"
+            for metric, minimum in COMPREHENSIVE_DELIVERY_FLOOR.items()
+            if (
+                scan_metrics.get("verified_reference_count", scan_metrics[metric])
+                if metric == "reference_count"
+                else scan_metrics[metric]
+            ) < minimum
+        ]
     text = draft.read_text(encoding="utf-8", errors="ignore")
     references = REFERENCE_HEADING_RE.search(text)
-    body = text[: references.start()] if references else text
+    pseudo = NONCANONICAL_BACKMATTER_RE.search(text)
+    boundaries = [match.start() for match in (references, pseudo) if match]
+    body = text[: min(boundaries)] if boundaries else text
     reference_tail = text[references.end():] if references else ""
+    listed = {
+        int(match.group(1) or match.group(2))
+        for match in REFERENCE_ITEM_RE.finditer(reference_tail)
+    }
+    called = expand_reference_callouts(body)
+    citations = read_json(project / "04_first_draft" / "citations.json")
+    cited_paper_ids = {
+        str(row.get("paper_id"))
+        for row in (citations.get("reference_list") if isinstance(citations, dict) else []) or []
+        if isinstance(row, dict)
+        and str(row.get("ref_num") or "").isdigit()
+        and int(row["ref_num"]) in called
+        and row.get("paper_id")
+    }
+    image_paths = [match.group(1) for match in IMAGE_RE.finditer(body)]
     metrics = {
         "word_like_count": len(WORD_RE.findall(body)),
-        "reference_count": len(REFERENCE_ITEM_RE.findall(reference_tail)),
+        "reference_count": len(called & listed),
         "table_count": len(TABLE_SEPARATOR_RE.findall(body)),
-        "figure_count": len(IMAGE_RE.findall(body)),
+        "figure_count": len(image_paths),
+        "source_figure_count": verified_source_figure_count(
+            project, image_paths, cited_paper_ids
+        ),
     }
     return [
         f"comprehensive_delivery_floor:{metric}:{metrics[metric]}/{minimum}"
@@ -195,6 +303,15 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
     stage_dir = project / stage["dir"]
     missing = [name for name in stage["required"] if not (stage_dir / name).exists()]
     semantic_issues: list[str] = []
+    topic_contract = read_json(project / "00_discovery" / "topic_contract.json")
+    comprehensive = (
+        isinstance(topic_contract, dict)
+        and str(topic_contract.get("review_profile") or "").lower() == "comprehensive"
+    )
+    current_integrity_contract = (
+        isinstance(topic_contract, dict)
+        and int(topic_contract.get("workflow_contract_version") or 0) >= 2
+    )
     confirmation_file = stage.get("confirmation_file")
     confirmed = True
     if confirmation_file:
@@ -219,7 +336,56 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
             blocker_count = validation.get("blocking_issue_count")
             if blockers or (isinstance(blocker_count, int) and blocker_count > 0):
                 semantic_issues.append(f"{stage['id']}_validation_has_blockers")
+            validation_inputs = {
+                "discovery": [
+                    project / "00_discovery" / "topic_contract.json",
+                    project / "00_discovery" / "selected_discovery_results.json",
+                ],
+                "matrix_outline": [
+                    project / "01_matrix_outline" / "literature_matrix.json",
+                ],
+                "section_blueprint": [
+                    project / "01_matrix_outline" / "section_blueprint.json",
+                    project / "01_matrix_outline" / "literature_matrix.json",
+                ],
+                "section_drafting": [
+                    project / "02_section_drafting" / "section_drafts.json",
+                    project / "02_section_drafting" / "figure_candidates.json",
+                    project / "01_matrix_outline" / "section_blueprint.json",
+                    project / "01_matrix_outline" / "literature_matrix.json",
+                ],
+                "first_draft": [
+                    project / "02_section_drafting" / "section_drafts.json",
+                    project / "01_matrix_outline" / "literature_matrix.json",
+                ],
+            }.get(stage["id"], [])
+            manuscript = project / "02_section_drafting" / "manuscript.md"
+            if stage["id"] in {"section_drafting", "first_draft"} and manuscript.exists():
+                validation_inputs.append(manuscript)
+            for issue in input_artifact_issues(
+                validation,
+                project,
+                validation_inputs,
+                require_receipts=current_integrity_contract,
+            ):
+                semantic_issues.append(f"{stage['id']}:{issue}")
+    if stage["id"] == "discovery" and current_integrity_contract:
+        selected = read_json(project / "00_discovery" / "selected_discovery_results.json")
+        rows: list[Any] = []
+        if isinstance(selected, list):
+            rows = selected
+        elif isinstance(selected, dict):
+            for key in ("local_papers", "selected_papers", "papers"):
+                if isinstance(selected.get(key), list):
+                    rows.extend(selected[key])
+        paper_ids = [
+            str(row.get("paper_id"))
+            for row in rows
+            if isinstance(row, dict) and row.get("paper_id") and row.get("keep") is not False
+        ]
+        semantic_issues.extend(metadata_snapshot_issues(project.parents[1], project, paper_ids))
     if stage["id"] == "figure_redraw":
+        contract = topic_contract
         skip_anchor = stage_dir / stage.get("skip_anchor", "skip_reason.md")
         skip_active = skip_anchor.exists() and bool(skip_anchor.read_text(encoding="utf-8", errors="ignore").strip())
         candidate_payload = read_json(project / "02_section_drafting" / "figure_candidates.json")
@@ -259,11 +425,13 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
         if selected_visuals and not usable_originals:
             semantic_issues.append("original_visual_preparation_incomplete")
 
-        if skip_active or (not source_selected and not selected_visuals):
+        if comprehensive and skip_active:
+            semantic_issues.append("comprehensive_source_figure_portfolio_cannot_be_skipped")
+        if not comprehensive and (skip_active or (not source_selected and not selected_visuals)):
             # Figure count is editorial. No selected asset means there is no
             # preparation sub-workflow to complete.
             missing = []
-        elif usable_originals:
+        elif usable_originals and not comprehensive:
             # Original synthesis has its own evidence and rendered-asset check;
             # source-redraw artifacts are not prerequisites for this path.
             missing = []
@@ -302,6 +470,74 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                         for f in figures
                     ):
                         semantic_issues.append("no_usable_figures")
+                    if comprehensive:
+                        inventory = read_json(
+                            project / "02_section_drafting" / "paper_figure_inventory.json"
+                        )
+                        inventory_rows = inventory.get("candidates") if isinstance(inventory, dict) else []
+                        inventory_by_id = {
+                            str(item.get("inventory_candidate_id")): item
+                            for item in inventory_rows or []
+                            if isinstance(item, dict) and item.get("inventory_candidate_id")
+                        }
+                        reader_jobs: set[str] = set()
+                        for figure in figures:
+                            if not isinstance(figure, dict) or figure.get("status") != "source_verified":
+                                continue
+                            figure_id = str(figure.get("figure_id") or "unknown")
+                            candidate_id = str(figure.get("inventory_candidate_id") or "")
+                            candidate = inventory_by_id.get(candidate_id)
+                            if not isinstance(candidate, dict):
+                                semantic_issues.append(
+                                    f"source_figure_not_bound_to_inventory:{figure_id}"
+                                )
+                                continue
+                            if any(
+                                figure.get(key) != candidate.get(key)
+                                for key in (
+                                    "paper_id",
+                                    "source_label",
+                                    "source_caption_text",
+                                    "source_pdf_sha256",
+                                    "source_page_index",
+                                    "source_bbox",
+                                )
+                            ):
+                                semantic_issues.append(
+                                    f"source_figure_inventory_mismatch:{figure_id}"
+                                )
+                            source_type = str(figure.get("source_type") or "").strip().lower()
+                            source_label = str(figure.get("source_label") or "").strip()
+                            source_page_index = figure.get("source_page_index")
+                            source_bbox = figure.get("source_bbox")
+                            if (
+                                source_type not in {"image", "chart"}
+                                or not re.match(
+                                    r"^(?:fig(?:ure)?|scheme)\s*[A-Za-z0-9]",
+                                    source_label,
+                                    re.I,
+                                )
+                                or not isinstance(source_page_index, int)
+                                or source_page_index < 0
+                                or not isinstance(source_bbox, list)
+                                or len(source_bbox) != 4
+                                or not all(
+                                    isinstance(value, (int, float)) for value in source_bbox
+                                )
+                            ):
+                                semantic_issues.append(
+                                    f"source_figure_not_a_bound_non_table_figure:{figure_id}"
+                                )
+                            job = re.sub(r"\s+", " ", str(figure.get("reader_job") or "")).casefold().strip()
+                            if not job or job in reader_jobs:
+                                semantic_issues.append(
+                                    f"source_figure_reader_job_missing_or_duplicate:{figure_id}"
+                                )
+                            reader_jobs.add(job)
+                            if not str(figure.get("manuscript_callout") or "").strip():
+                                semantic_issues.append(
+                                    f"source_figure_manuscript_callout_missing:{figure_id}"
+                                )
                 elif not missing:
                     semantic_issues.append("invalid_redrawn_figure_manifest")
             elif not missing:
@@ -398,6 +634,10 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                 semantic_issues.append("rendered_pdf_missing")
             elif expected_docx.exists() and rendered_pdf.stat().st_mtime < expected_docx.stat().st_mtime:
                 semantic_issues.append("rendered_pdf_older_than_final_docx")
+            if expected_docx.exists() and str(render_report.get("input_docx_sha256") or "") != file_sha256(expected_docx):
+                semantic_issues.append("render_report_docx_hash_mismatch")
+            if rendered_pdf.exists() and str(render_report.get("output_pdf_sha256") or "") != file_sha256(rendered_pdf):
+                semantic_issues.append("render_report_pdf_hash_mismatch")
             if not isinstance(render_report.get("page_count"), int) or render_report.get("page_count", 0) < 1:
                 semantic_issues.append("final_pdf_page_count_missing")
             page_images = render_report.get("page_images")
@@ -415,6 +655,43 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                 semantic_issues.append(
                     f"rendered_page_images_missing:{len(missing_page_images)}"
                 )
+            page_artifacts = render_report.get("page_artifacts")
+            if not isinstance(page_artifacts, list) or len(page_artifacts) != render_report.get("page_count"):
+                semantic_issues.append("rendered_page_hash_receipts_missing")
+                page_artifacts = []
+            page_hashes: dict[int, str] = {}
+            for artifact in page_artifacts:
+                if not isinstance(artifact, dict) or not isinstance(artifact.get("page_number"), int):
+                    continue
+                page_number = int(artifact["page_number"])
+                page_path = Path(str(artifact.get("path") or ""))
+                if not page_path.is_absolute():
+                    page_path = (project / "05_final_audit" / page_path).resolve()
+                actual_hash = file_sha256(page_path)
+                recorded_hash = str(artifact.get("sha256") or "")
+                if not actual_hash or actual_hash != recorded_hash:
+                    semantic_issues.append(f"rendered_page_hash_mismatch:{page_number}")
+                page_hashes[page_number] = recorded_hash
+            inspections = render_report.get("page_inspections")
+            if not isinstance(inspections, list) or len(inspections) != render_report.get("page_count"):
+                semantic_issues.append("page_specific_inspection_receipts_missing")
+                inspections = []
+            inspected_numbers: set[int] = set()
+            for inspection in inspections:
+                if not isinstance(inspection, dict) or not isinstance(inspection.get("page_number"), int):
+                    continue
+                page_number = int(inspection["page_number"])
+                inspected_numbers.add(page_number)
+                if str(inspection.get("page_sha256") or "") != page_hashes.get(page_number, ""):
+                    semantic_issues.append(f"page_inspection_hash_mismatch:{page_number}")
+                observation = str(inspection.get("observation") or "").strip()
+                if len(observation) < 30 or len(set(observation.casefold().split())) < 5:
+                    semantic_issues.append(f"page_inspection_observation_missing:{page_number}")
+                if inspection.get("verdict") != "passed":
+                    semantic_issues.append(f"page_inspection_needs_revision:{page_number}")
+            expected_pages = set(range(1, int(render_report.get("page_count") or 0) + 1))
+            if inspected_numbers != expected_pages:
+                semantic_issues.append("page_inspection_coverage_mismatch")
         elif "render_qa_report.json" not in missing:
             semantic_issues.append("invalid_render_qa_report")
     if stage["id"] in {"first_draft", "final_audit"}:
@@ -445,6 +722,26 @@ def stage_status(project: Path, stage: dict[str, Any]) -> dict[str, Any]:
                 for issue in blockers:
                     if issue not in semantic_issues:
                         semantic_issues.append(issue)
+                audit_inputs = [
+                    project / "05_final_audit" / "final_draft.md",
+                    project / "01_matrix_outline" / "literature_matrix.json",
+                    project / "01_matrix_outline" / "section_blueprint.json",
+                    project / "02_section_drafting" / "section_drafts.json",
+                    project / "04_first_draft" / "citations.json",
+                ]
+                for optional in (
+                    project / "05_final_audit" / "semantic_audit_queue.json",
+                    project / "05_final_audit" / "semantic_audit.json",
+                    project / "03_figure_redraw" / "redrawn_figure_manifest.json",
+                    project / "04_first_draft" / "figure_insertion_report.json",
+                    project / "05_final_audit" / "figure_insertion_report.json",
+                ):
+                    if optional.exists():
+                        audit_inputs.append(optional)
+                for issue in input_artifact_issues(
+                    scan, project, audit_inputs, require_receipts=current_integrity_contract
+                ):
+                    semantic_issues.append(f"final_audit:{issue}")
     skip_path = stage_dir / stage.get("skip_anchor", "") if stage.get("skip_anchor") else None
     skipped_by_user = bool(
         skip_path

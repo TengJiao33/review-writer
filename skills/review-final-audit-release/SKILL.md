@@ -33,12 +33,14 @@ python skills/review-final-audit-release/scripts/final_audit_scan.py \
   --phase preflight
 ```
 
-Preflight checks structure, citation and reference numbering, metadata, duplicate prose, internal tokens, asset placement, and release formatting. Each cited reference needs journal and year plus a DOI or a usable volume-and-page/article locator. When the local PDF exposes a DOI, the metadata must match it.
+Preflight checks structure, citation and reference numbering, metadata, duplicate prose, internal tokens, asset placement, and release formatting. Each cited reference needs journal and year plus a DOI or a usable volume-and-page/article locator. For a comprehensive review, title, leading authors, year, and DOI are checked against the linked PDF front matter; an unresolved record does not count toward the 25-reference floor.
 
-Preflight also writes `semantic_audit_queue.json`. It selects every paragraph
-with an explicit risk signal, number, mechanism claim, or missing provenance,
-plus one representative evidence-bearing paragraph per section. This separates
-whole-draft deterministic provenance checks from selective semantic reading.
+Preflight also writes `semantic_audit_queue.json`. It selects critical scope and
+certainty claims, stratified samples of operational, causal, practical, and
+numerical risks, plus one representative evidence-bearing paragraph per
+section. A full review normally yields about 15-24 passages; missing provenance
+remains mandatory. This separates whole-draft deterministic checks from
+selective semantic reading.
 Do not narrow a queue item to one convenient sentence. Select the minimum
 supporting paper and evidence IDs only after opening the linked source, and
 rerun preflight whenever section drafts change so the queue fingerprint remains
@@ -58,7 +60,9 @@ python skills/review-final-audit-release/scripts/init_reader_utility_review.py \
 
 Read the whole manuscript before auditing isolated claims. Revise missing organizing logic, representative method detail, decision-relevant comparison, recurring boundaries, evidentiary distinctions, and places where a figure or table would compress real complexity. Record only findings that lead to a material revision or explain a deliberate scope choice.
 
-Counts of words, references, images, tables, sections, and method cards help locate imbalance; they have no fixed targets.
+Counts of words, references, images, tables, sections, and method cards help
+locate imbalance. The reader-utility and visual-plan sheets are diagnostic
+working views, not approval forms: do not fill pending fields merely to release.
 
 ## 3. Semantic audit
 
@@ -111,16 +115,34 @@ when the source supports only part of the passage.
 
 Match certainty to the source. Possibility or author-proposed mechanisms do not establish confirmed or universal conclusions. Claims such as `first`, `only`, `general`, `mature`, field-wide absence, and cross-system convergence require appropriate coverage and scope.
 
-Revise `05_final_audit/final_draft.md` until each required high-risk queue item is supported, removed, or replaced by a checked revision. The scanner verifies IDs, ownership, source-check declarations, and issue closure; the semantic decision comes from reading the passage and source context.
+For numerical conditions and results, the quantities in a supported passage
+must occur in the reopened checked excerpts. `removed` is a factual disposition:
+the complete queued span must no longer occur in the audited manuscript, and
+the removal rationale must identify the unsupported or overbroad point. Do not
+use `removed` to skip source receipts while leaving the prose unchanged.
+
+Revise the canonical `02_section_drafting/manuscript.md`, then recompile, merge,
+and refresh `05_final_audit/final_draft.md` until each required high-risk queue
+item is supported, removed, or replaced by a checked revision. The scanner
+verifies IDs, ownership, source-check declarations, and issue closure; the
+semantic decision comes from reading the passage and source context.
 
 ## 4. Release
 
 For a declared `comprehensive` review, release has one coarse product floor:
-8,000 substantive words, 25 cited references, two real tables, and two real
-non-table figures. Figures may be verified lawful source figures or
-evidence-linked original syntheses. This floor prevents scale regression; it does not prescribe
-section lengths or excuse filler. The topic and evidence should normally drive
-a stronger article and additional useful visuals.
+8,000 substantive article-body words, 25 references actually called from that
+body, two argument-bearing tables, and three useful unchanged non-table figures from cited
+source papers with verified reuse rights. Original syntheses may be additional
+figures, not substitutes. The body stops at the first canonical or disguised
+backmatter heading, so duplicated reference blocks and figure descriptions
+cannot inflate the result. This floor prevents scale regression; it does not
+prescribe section lengths or excuse filler. The topic and evidence should
+normally drive a stronger article and additional useful visuals.
+
+Release also requires trustworthy reference metadata. Do not infer authors,
+titles, journal details, years, DOIs, pages, or article numbers merely to fill a
+record. Reopen the source or use a reliable bibliographic record; otherwise the
+reference remains unresolved.
 
 Run:
 

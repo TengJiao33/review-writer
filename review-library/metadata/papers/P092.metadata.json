@@ -14,22 +14,22 @@
     "human_checked": false
   },
   "year": {
-    "value": 2021,
-    "source": "filename_or_front_matter",
-    "confidence": 0.68,
-    "human_checked": false
+    "value": 2022,
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "journal": {
     "value": "Tetrahedron",
-    "source": "known_journal_hint",
-    "confidence": 0.72,
-    "human_checked": false
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1016/j.tet.2021.132606",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "CuI-catalyzed decarboxylative phosphonylation of terminal alkyne-substituted cyclic carbonates/carbamates with phosphine oxides has been developed relying on the highly regioselective addition at the aposition of the in situ generated copper-allenylidene intermediates. A series of 4-phosphonyl 2,3-allenols and 4-phosphonyl 2,3-allenamines were smoothly obtained in moderate to excellent yields under mild conditions. The synthetic utility of this methodology was demonstrated by large-scale synthesis and versatile transformations of product. © 2021 Elsevier Ltd. All rights reserved.",
@@ -94,5 +94,17 @@
     ],
     "overall_confidence": 0.507,
     "needs_human_check": true
+  },
+  "volume": {
+    "value": "104",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
+  },
+  "pages": {
+    "value": "132606",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   }
 }

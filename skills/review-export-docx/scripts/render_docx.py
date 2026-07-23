@@ -3,8 +3,10 @@ from __future__ import annotations
 
 import argparse
 import base64
+import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -15,6 +17,16 @@ from typing import Any
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def file_sha256(path: Path) -> str:
+    if not path.is_file():
+        return ""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def run_command(command: list[str]) -> dict[str, Any]:
@@ -128,6 +140,76 @@ def parse_inspected_pages(value: str, page_count: int | None) -> list[int]:
     return pages
 
 
+def load_page_inspections(
+    path: Path | None,
+    page_images: list[str],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    if path is None:
+        return [], []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [], [f"inspection file is invalid: {exc}"]
+    rows = payload.get("pages") if isinstance(payload, dict) else payload
+    if not isinstance(rows, list):
+        return [], ["inspection file must contain a pages list"]
+    expected = {
+        index: file_sha256(Path(image_path))
+        for index, image_path in enumerate(page_images, start=1)
+    }
+    issues: list[str] = []
+    seen: set[int] = set()
+    normalized: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("page_number"), int):
+            issues.append("inspection row has no integer page_number")
+            continue
+        page_number = int(row["page_number"])
+        if page_number in seen:
+            issues.append(f"duplicate inspection for page {page_number}")
+        seen.add(page_number)
+        expected_hash = expected.get(page_number)
+        recorded_hash = str(row.get("page_sha256") or "").lower()
+        if not expected_hash or recorded_hash != expected_hash:
+            issues.append(f"inspection image hash mismatch for page {page_number}")
+        observation = str(row.get("observation") or "").strip()
+        if len(observation) < 30 or len(set(observation.casefold().split())) < 5:
+            issues.append(f"page {page_number} has no page-specific visual observation")
+        verdict = str(row.get("verdict") or "").lower()
+        if verdict not in {"passed", "needs_revision"}:
+            issues.append(f"page {page_number} has an invalid inspection verdict")
+        normalized.append(
+            {
+                "page_number": page_number,
+                "page_sha256": recorded_hash,
+                "verdict": verdict,
+                "observation": observation,
+            }
+        )
+    missing = sorted(set(expected) - seen)
+    if missing:
+        issues.append("uninspected pages: " + ", ".join(map(str, missing)))
+    return sorted(normalized, key=lambda row: row["page_number"]), issues
+
+
+def layout_warnings(pdf: Path, page_images: list[str]) -> list[dict[str, Any]]:
+    """Cheap warning signals; visual judgment remains with the page reviewer."""
+    warnings: list[dict[str, Any]] = []
+    try:
+        from pypdf import PdfReader
+
+        pages = PdfReader(str(pdf)).pages
+        for index, page in enumerate(pages, start=1):
+            text = re.sub(r"\s+", " ", page.extract_text() or "").strip()
+            if 1 < index < len(pages) and len(text) < 120:
+                warnings.append(
+                    {"page": index, "signal": "very_little_extracted_text", "characters": len(text)}
+                )
+    except Exception:
+        pass
+    return warnings
+
+
 def run(args: argparse.Namespace) -> int:
     docx = args.input.resolve()
     pdf = args.output_pdf.resolve()
@@ -153,34 +235,49 @@ def run(args: argparse.Namespace) -> int:
     if rendered:
         page_images, raster_report = rasterize(pdf, pages_dir)
     page_count = pdf_page_count(pdf) if rendered else None
-    inspected_pages = parse_inspected_pages(args.inspected_pages, page_count)
-    inspection_status = args.inspection_status
-    if inspection_status == "passed":
-        if not args.inspection_note.strip():
-            raise SystemExit("--inspection-note is required when inspection status is passed")
-        if page_count is None or inspected_pages != list(range(1, page_count + 1)):
-            raise SystemExit("A passed inspection must record every rendered page with --inspected-pages all")
-    if inspection_status == "failed" and not args.inspection_note.strip():
-        raise SystemExit("--inspection-note is required when inspection status is failed")
+    if args.inspection_status == "passed" or args.inspected_pages.strip().lower() == "all":
+        raise SystemExit(
+            "Inline 'all/passed' inspection is no longer accepted. View every rendered page, "
+            "then provide --inspection-file with one hash-bound observation per page."
+        )
+    inspection_file = args.inspection_file.resolve() if args.inspection_file else None
+    page_inspections, inspection_errors = load_page_inspections(inspection_file, page_images)
+    if inspection_file is None:
+        inspection_status = "pending"
+    elif inspection_errors or any(row["verdict"] != "passed" for row in page_inspections):
+        inspection_status = "failed"
+    else:
+        inspection_status = "passed"
+    page_hashes = [
+        {"page_number": index, "path": image_path, "sha256": file_sha256(Path(image_path))}
+        for index, image_path in enumerate(page_images, start=1)
+    ]
     report = {
         "input_docx": str(docx),
         "output_pdf": str(pdf),
         "pages_dir": str(pages_dir),
         "created_at": utc_now(),
         "renderer": renderer,
+        "input_docx_sha256": file_sha256(docx),
+        "output_pdf_sha256": file_sha256(pdf),
         "render_status": "passed" if rendered and raster_report.get("exit_code") == 0 and page_images else "failed",
         "renderer_attempts": attempts,
         "rasterization": raster_report,
         "page_count": page_count,
         "page_images": page_images,
+        "page_artifacts": page_hashes,
+        "layout_warnings": layout_warnings(pdf, page_images) if rendered else [],
         "inspection_status": inspection_status,
-        "inspected_pages": inspected_pages,
+        "inspection_file": str(inspection_file) if inspection_file else None,
+        "page_inspections": page_inspections,
+        "inspection_errors": inspection_errors,
+        "inspected_pages": [row["page_number"] for row in page_inspections],
         "inspection_note": args.inspection_note.strip(),
     }
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["render_status"] == "passed" else 1
+    return 0 if report["render_status"] == "passed" and not inspection_errors else 1
 
 
 def parse_args() -> argparse.Namespace:
@@ -192,6 +289,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--inspection-status", choices=("pending", "passed", "failed"), default="pending")
     parser.add_argument("--inspected-pages", default="")
     parser.add_argument("--inspection-note", default="")
+    parser.add_argument(
+        "--inspection-file",
+        type=Path,
+        help="JSON file containing one page_number, page_sha256, verdict, and observation per rendered page.",
+    )
     return parser.parse_args()
 
 

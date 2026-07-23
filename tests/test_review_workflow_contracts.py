@@ -34,6 +34,7 @@ EXTERNAL_INGEST = REPO / "skills" / "review-topic-paper-discovery" / "scripts" /
 MINERU_PARSER = REPO / "skills" / "mineru-precise-parse-review-writer" / "scripts" / "parse_review_writer_pdfs.py"
 PORTFOLIO_BUILDER = REPO / "skills" / "review-literature-matrix-outline" / "scripts" / "build_review_portfolio.py"
 COMPARISON_TABLE = REPO / "skills" / "review-section-drafting-figure-picking" / "scripts" / "build_method_comparison_table.py"
+RENDER_DOCX = REPO / "skills" / "review-export-docx" / "scripts" / "render_docx.py"
 
 
 def write_json(path: Path, payload) -> None:
@@ -1299,6 +1300,232 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         )
         self.assertNotEqual(result.returncode, 0)
 
+    def test_figure_selector_recovers_a_missing_extracted_image_from_the_source_pdf(self) -> None:
+        import fitz
+
+        write_json(
+            self.project / "00_discovery" / "selected_discovery_results.json",
+            {"local_papers": [{"paper_id": "P001"}]},
+        )
+        write_json(
+            self.project / "01_matrix_outline" / "section_blueprint.json",
+            {
+                "sections": [
+                    {
+                        "section_id": "sec1",
+                        "title": "Mechanistic pathway comparison",
+                        "section_thesis": "Compare the proposed catalytic pathways.",
+                        "major_papers": [],
+                    }
+                ]
+            },
+        )
+        source_dir = self.root / "review-library" / "sources"
+        source_dir.mkdir(parents=True, exist_ok=True)
+        pdf_path = source_dir / "P001.pdf"
+        with fitz.open() as document:
+            page = document.new_page(width=300, height=200)
+            page.draw_rect(fitz.Rect(50, 50, 250, 150), color=(0, 0, 0))
+            page.insert_text((75, 100), "Catalytic pathway", fontsize=16)
+            document.save(pdf_path)
+        content_path = source_dir / "P001_content_list.json"
+        write_json(
+            content_path,
+            [
+                {
+                    "type": "image",
+                    "img_path": "missing-extraction.png",
+                    "image_caption": "Figure 2. Proposed catalytic pathway",
+                    "page_idx": 0,
+                    "bbox": [50, 50, 250, 150],
+                }
+            ],
+        )
+        markdown_path = source_dir / "P001.md"
+        markdown_path.write_text(
+            "Licensed under Creative Commons CC BY 4.0.\n", encoding="utf-8"
+        )
+        metadata_path = self.root / "review-library" / "metadata" / "papers" / "P001.metadata.json"
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata["source_paths"] = {
+            "pdf": str(pdf_path),
+            "markdown": str(markdown_path),
+            "content_list": str(content_path),
+            "extracted_dir": str(source_dir / "missing-extracted-dir"),
+        }
+        write_json(metadata_path, metadata)
+
+        result = run(
+            FIGURE_SELECTOR,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+            "--max-total",
+            "1",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        selected = json.loads(
+            (self.project / "02_section_drafting" / "figure_candidates.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(len(selected), 1)
+        crop = Path(selected[0]["source_image_path"])
+        self.assertTrue(crop.is_file())
+        self.assertEqual(crop.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(selected[0]["source_resolution_status"], "materialized_pdf_crop")
+        self.assertEqual(selected[0]["source_page_review_status"], "pending")
+
+    def test_source_figure_floor_counts_only_unique_unchanged_figures_from_cited_papers(self) -> None:
+        spec = importlib.util.spec_from_file_location("review_final_audit_source_figures", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+
+        inserted = []
+        figures = []
+        image_paths = []
+        for index in range(1, 4):
+            figure_id = f"F{index:03d}"
+            inserted_path = f"figures/source-{index}.png"
+            image_paths.append(inserted_path)
+            inserted.append(
+                {
+                    "figure_id": figure_id,
+                    "mode": "source_verified",
+                    "inserted_path": inserted_path,
+                }
+            )
+            figures.append(
+                {
+                    "figure_id": figure_id,
+                    "paper_id": "P001",
+                    "source_label": f"Figure {index}",
+                    "status": "source_verified",
+                    "verification_status": "passed",
+                    "reuse_rights": {
+                        "status": "verified",
+                        "basis": "CC BY 4.0",
+                        "license_url_or_permission_record": "https://creativecommons.org/licenses/by/4.0/",
+                        "source_locator": f"Figure {index} credit line",
+                        "third_party_material_checked": True,
+                        "adaptation": "unchanged",
+                        "attribution_text": "Reproduced from the cited paper under CC BY 4.0.",
+                    },
+                }
+            )
+        write_json(
+            self.project / "04_first_draft" / "figure_insertion_report.json",
+            {"inserted": inserted},
+        )
+        manifest_path = self.project / "03_figure_redraw" / "redrawn_figure_manifest.json"
+        write_json(manifest_path, {"figures": figures})
+
+        count, issues = module.verified_source_figure_usage(
+            self.project, image_paths, {"P001"}
+        )
+        self.assertEqual((count, issues), (3, []))
+
+        figures[2]["reuse_rights"]["adaptation"] = "adapted"
+        write_json(manifest_path, {"figures": figures})
+        count, issues = module.verified_source_figure_usage(
+            self.project, image_paths, {"P001"}
+        )
+        self.assertEqual(count, 2)
+        self.assertIn("inserted_source_figure_provenance_incomplete:F003", issues)
+
+        figures[2]["reuse_rights"]["adaptation"] = "unchanged"
+        inserted.append(dict(inserted[0]))
+        write_json(manifest_path, {"figures": figures})
+        write_json(
+            self.project / "04_first_draft" / "figure_insertion_report.json",
+            {"inserted": inserted},
+        )
+        count, issues = module.verified_source_figure_usage(
+            self.project, image_paths, {"P001"}
+        )
+        self.assertEqual(count, 3)
+        self.assertIn("duplicate_inserted_source_figure:F001", issues)
+
+    def test_comprehensive_source_figure_floor_rejects_a_bound_table(self) -> None:
+        spec = importlib.util.spec_from_file_location("review_final_audit_non_table", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+
+        write_json(
+            self.project / "00_discovery" / "topic_contract.json",
+            {"review_profile": "comprehensive"},
+        )
+        source_pdf = self.root / "review-library" / "pdf" / "P001.pdf"
+        source_pdf.parent.mkdir(parents=True, exist_ok=True)
+        source_pdf.write_bytes(b"source pdf fixture")
+        inserted_asset = self.project / "05_final_audit" / "figures" / "source-table.png"
+        inserted_asset.parent.mkdir(parents=True, exist_ok=True)
+        inserted_asset.write_bytes(b"source table image")
+        candidate = {
+            "inventory_candidate_id": "P001-table-1",
+            "paper_id": "P001",
+            "source_label": "Table 1",
+            "source_type": "table",
+            "source_caption_text": "Conditions and yields",
+            "source_pdf_sha256": module.file_sha256(source_pdf),
+            "source_page_index": 2,
+            "source_bbox": [10, 20, 300, 400],
+        }
+        write_json(
+            self.project / "02_section_drafting" / "paper_figure_inventory.json",
+            {"candidates": [candidate]},
+        )
+        source = {
+            **candidate,
+            "figure_id": "F001",
+            "status": "source_verified",
+            "verification_status": "passed",
+            "source_pdf": str(source_pdf),
+            "source_image": str(inserted_asset),
+            "accepted_image_sha256": module.file_sha256(inserted_asset),
+            "source_completeness": "complete",
+            "source_page_review_status": "passed",
+            "reader_job": "Compare reported conditions.",
+            "placement_rationale": "Placed beside the conditions discussion.",
+            "manuscript_callout": "Table 1 provides the source comparison.",
+            "reuse_rights": {
+                "status": "verified",
+                "basis": "CC BY 4.0",
+                "license_url_or_permission_record": "https://creativecommons.org/licenses/by/4.0/",
+                "source_locator": "Table 1 credit line",
+                "third_party_material_checked": True,
+                "adaptation": "unchanged",
+                "attribution_text": "Reproduced under CC BY 4.0.",
+            },
+        }
+        write_json(
+            self.project / "03_figure_redraw" / "redrawn_figure_manifest.json",
+            {"figures": [source]},
+        )
+        write_json(
+            self.project / "05_final_audit" / "figure_insertion_report.json",
+            {
+                "inserted": [
+                    {
+                        "figure_id": "F001",
+                        "mode": "source_verified",
+                        "inserted_path": "figures/source-table.png",
+                    }
+                ]
+            },
+        )
+        count, issues = module.verified_source_figure_usage(
+            self.project,
+            ["figures/source-table.png"],
+            {"P001"},
+            "Table 1 provides the source comparison.",
+        )
+        self.assertEqual(count, 0)
+        self.assertTrue(any("non-table image/chart" in issue for issue in issues))
+
     def test_docx_status_requires_a_pdf_rendered_from_docx_and_real_page_images(self) -> None:
         final_dir = self.project / "05_final_audit"
         final_dir.mkdir(parents=True, exist_ok=True)
@@ -1330,6 +1557,9 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         page = final_dir / "rendered_pages" / "page-1.png"
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_bytes(b"png-fixture")
+        docx_hash = hashlib.sha256((final_dir / "final_draft.docx").read_bytes()).hexdigest()
+        pdf_hash = hashlib.sha256((final_dir / "final_draft.pdf").read_bytes()).hexdigest()
+        page_hash = hashlib.sha256(page.read_bytes()).hexdigest()
         write_json(
             final_dir / "render_qa_report.json",
             {
@@ -1339,8 +1569,25 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                 "render_status": "passed",
                 "inspection_status": "passed",
                 "renderer": "fixture-renderer",
+                "input_docx_sha256": docx_hash,
+                "output_pdf_sha256": pdf_hash,
                 "page_count": 1,
                 "page_images": ["rendered_pages/page-1.png"],
+                "page_artifacts": [
+                    {
+                        "page_number": 1,
+                        "path": "rendered_pages/page-1.png",
+                        "sha256": page_hash,
+                    }
+                ],
+                "page_inspections": [
+                    {
+                        "page_number": 1,
+                        "page_sha256": page_hash,
+                        "verdict": "passed",
+                        "observation": "The single rendered page has a visible title, intact margins, and no clipped content.",
+                    }
+                ],
             },
         )
         status = module.stage_status(self.project, stage)
@@ -1505,7 +1752,8 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertTrue(any(":word_like_count:" in issue for issue in floor_issues))
         self.assertTrue(any(":reference_count:" in issue for issue in floor_issues))
         self.assertTrue(any(":table_count:" in issue for issue in floor_issues))
-        self.assertTrue(any(":figure_count:" in issue for issue in floor_issues))
+        self.assertFalse(any(":figure_count:" in issue for issue in floor_issues))
+        self.assertTrue(any(":source_figure_count:" in issue for issue in floor_issues))
 
         status_spec = importlib.util.spec_from_file_location(
             "review_project_status_floor", PROJECT_STATUS
@@ -1516,9 +1764,44 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         stage = next(row for row in status_module.STAGES if row["id"] == "final_audit")
         status = status_module.stage_status(self.project, stage)
         self.assertTrue(
-            all(issue in status["semantic_issues"] for issue in floor_issues),
+            all(
+                any(
+                    candidate.startswith(issue.rsplit(":", 1)[0] + ":")
+                    for candidate in status["semantic_issues"]
+                )
+                for issue in floor_issues
+            ),
             status["semantic_issues"],
         )
+
+    def test_disguised_backmatter_cannot_inflate_body_or_citation_counts(self) -> None:
+        write_json(
+            self.project / "00_discovery" / "topic_contract.json",
+            {"review_profile": "comprehensive", "topic": "A broad review"},
+        )
+        padding = " ".join(["padding"] * 9000)
+        fake_references = "\n".join(
+            f"[{index}] Fabricated-looking reference entry." for index in range(1, 31)
+        )
+        final = self.project / "05_final_audit" / "final_draft.md"
+        final.parent.mkdir(parents=True, exist_ok=True)
+        final.write_text(
+            "# Review\n\n## Abstract\n\nA bounded abstract.\n\n"
+            "**Keywords:** evidence; review; methods\n\n"
+            "## 1. Introduction\n\nA short supported statement [1].\n\n"
+            "## 2. Conclusion and Outlook\n\nA bounded conclusion [1].\n\n"
+            f"**References**\n\n{padding}\n\n{fake_references}\n\n"
+            f"## References\n\n{fake_references}\n",
+            encoding="utf-8",
+        )
+        spec = importlib.util.spec_from_file_location("review_final_audit_backmatter", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        report = module.scan_draft(self.project, "release")
+        self.assertLess(report["delivery_metrics"]["word_like_count"], 100)
+        self.assertEqual(report["delivery_metrics"]["reference_count"], 1)
+        self.assertIn("noncanonical_or_duplicated_backmatter", report["blocking_issues"])
 
     def test_final_audit_catches_inventory_count_mismatch_without_forcing_full_disposition(self) -> None:
         spec = importlib.util.spec_from_file_location("review_final_audit_figures", AUDIT)
@@ -1575,7 +1858,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             "1. Ada Chemist. Example paper. https://doi.org/10.1000/stale-doi\n"
         )
         delivered = module.manuscript_reference_metadata_conflicts(
-            manuscript, self.root, ["P001"], rows
+            manuscript, self.root, {1: "P001"}, rows
         )
         self.assertEqual(delivered[0]["expected_doi"], "10.1000/source-doi")
 
@@ -1597,7 +1880,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         {
                             "paragraph_id": "sec1-p2",
                             "paragraph_type": "mechanism",
-                            "markdown": "The proposed pathways should remain qualified because their evidentiary bases differ [@P001; @P002]. CO_2_ incorporation, sp^2^ rehybridization, η1-allenyl binding, and η3-propargyl binding are discussed without converting locants such as C1.\n\n| Method | Distinction |\n|---|---|\n| Palladium | Carbonylation |\n| Nickel | Electrocarboxylation |",
+                            "markdown": "The proposed pathways should remain qualified because their evidentiary bases differ [@P001; @P002]. Table 1 compares this method-level distinction explicitly. CO_2_ incorporation, sp^2^ rehybridization, η1-allenyl binding, and η3-propargyl binding are discussed without converting locants such as C1.\n\n| Method | Distinction |\n|---|---|\n| Palladium | Carbonylation |\n| Nickel | Electrocarboxylation |",
                             "cited_paper_ids": ["P001", "P002"],
                             "evidence_ids": ["P001-E02", "P002-E02"],
                         },
@@ -1689,10 +1972,10 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         result = run(AUDIT, "--review-root", self.root, "--project-id", self.project_id, "--phase", "preflight")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         queue = json.loads((final_dir / "semantic_audit_queue.json").read_text(encoding="utf-8"))
-        self.assertEqual(queue["coverage_mode"], "risk_based_with_section_sample")
+        self.assertEqual(queue["coverage_mode"], "risk_stratified_with_section_sample")
         self.assertEqual(
             set(queue["required_queue_ids"]),
-            {"sec1-p2-a1", "sec2-p1-a1"},
+            {"sec1-p1-a1", "sec1-p2-a1", "sec2-p1-a1"},
         )
         write_json(
             final_dir / "semantic_audit.json",
@@ -1719,7 +2002,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
                         "queue_id": "sec1-p2-a1",
                         "section_id": "sec1",
                         "paragraph_id": "sec1-p2",
-                        "text_span": "The proposed pathways should remain qualified because their evidentiary bases differ [@P001; @P002]. CO_2_ incorporation, sp^2^ rehybridization, η1-allenyl binding, and η3-propargyl binding are discussed without converting locants such as C1.",
+                        "text_span": "The proposed pathways should remain qualified because their evidentiary bases differ [@P001; @P002]. Table 1 compares this method-level distinction explicitly. CO_2_ incorporation, sp^2^ rehybridization, η1-allenyl binding, and η3-propargyl binding are discussed without converting locants such as C1.",
                         "cited_paper_ids": ["P001", "P002"],
                         "evidence_ids": ["P001-E02", "P002-E02"],
                         "source_receipts": self._source_receipts("P001-E02", "P002-E02"),
@@ -2019,6 +2302,139 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         result = run(MATRIX_VALIDATOR, "--review-root", self.root, "--project-id", self.project_id)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("boilerplate sentence repeated", result.stdout)
+
+    def test_validation_report_becomes_stale_when_its_input_changes(self) -> None:
+        result = run(
+            MATRIX_VALIDATOR,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        matrix_path = self.project / "01_matrix_outline" / "literature_matrix.json"
+        matrix_path.write_text(matrix_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
+        spec = importlib.util.spec_from_file_location("status_stale_receipt", PROJECT_STATUS)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        stage = next(item for item in module.STAGES if item["id"] == "matrix_outline")
+        status = module.stage_status(self.project, stage)
+        self.assertTrue(
+            any("validation_input_stale" in issue for issue in status["semantic_issues"]),
+            status["semantic_issues"],
+        )
+
+    def test_semantic_removed_verdict_requires_the_span_to_be_absent(self) -> None:
+        spec = importlib.util.spec_from_file_location("audit_removed_contract", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        manuscript = "This unsupported operational claim remains in the manuscript unchanged."
+        audit_path = self.project / "05_final_audit" / "semantic_audit.json"
+        write_json(
+            audit_path,
+            {
+                "model": "fixture-reviewer",
+                "manuscript_sha256": hashlib.sha256(manuscript.encode()).hexdigest(),
+                "checks": [
+                    {
+                        "queue_id": "sec1-p1-a1",
+                        "section_id": "sec1",
+                        "paragraph_id": "sec1-p1",
+                        "text_span": manuscript,
+                        "verdict": "removed",
+                        "comment": "The source does not report this operational condition, so the passage was deleted.",
+                    }
+                ],
+                "unresolved_blockers": [],
+            },
+        )
+        _, blockers = module.semantic_audit_status(
+            audit_path,
+            required=True,
+            review_root=self.root,
+            known_paper_ids=set(),
+            evidence_owners={},
+            evidence_records={},
+            paragraphs_by_id={
+                "sec1-p1": {"section_id": "sec1", "markdown": manuscript, "cited_paper_ids": [], "evidence_ids": []}
+            },
+            required_queue_ids={"sec1-p1-a1"},
+            queue_items_by_id={
+                "sec1-p1-a1": {"section_id": "sec1", "paragraph_id": "sec1-p1", "text_span": manuscript}
+            },
+            manuscript_sha256=hashlib.sha256(manuscript.encode()).hexdigest(),
+            manuscript_text=manuscript,
+        )
+        self.assertTrue(any("marked removed" in issue for issue in blockers), blockers)
+
+    def test_strict_reference_check_compares_title_authors_and_year_to_pdf(self) -> None:
+        import fitz
+
+        pdf = self.root / "review-library" / "sources" / "P001.pdf"
+        pdf.parent.mkdir(parents=True, exist_ok=True)
+        with fitz.open() as document:
+            page = document.new_page()
+            page.insert_text(
+                (72, 90),
+                "A Correct Catalytic Study\nAda Chemist and Lin Researcher\nPublished 2024\n10.1000/correct",
+                fontsize=11,
+            )
+            document.save(pdf)
+        metadata_path = self.root / "review-library" / "metadata" / "papers" / "P001.metadata.json"
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata.update(
+            {
+                "title": {"value": "An Unrelated Fabricated Article"},
+                "authors": {"value": ["Wrong, W."]},
+                "year": {"value": 2021},
+                "doi": {"value": "10.1000/correct"},
+                "source_paths": {"pdf": str(pdf)},
+            }
+        )
+        write_json(metadata_path, metadata)
+        spec = importlib.util.spec_from_file_location("audit_reference_front", AUDIT)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        conflicts = module.reference_metadata_source_conflicts(
+            self.root,
+            ["P001"],
+            {"P001": {}},
+            strict_front_matter=True,
+        )
+        issue_types = {item.get("issue") for item in conflicts}
+        self.assertIn("title_not_supported_by_source_front_matter", issue_types)
+        self.assertIn("authors_not_supported_by_source_front_matter", issue_types)
+        self.assertIn("year_not_supported_by_source_front_matter", issue_types)
+
+    def test_page_inspection_requires_hash_bound_page_specific_observations(self) -> None:
+        spec = importlib.util.spec_from_file_location("render_inspection_contract", RENDER_DOCX)
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        page1 = self.project / "page-1.png"
+        page2 = self.project / "page-2.png"
+        page1.parent.mkdir(parents=True, exist_ok=True)
+        page1.write_bytes(b"page one")
+        page2.write_bytes(b"page two")
+        inspection = self.project / "inspection.json"
+        write_json(
+            inspection,
+            {
+                "pages": [
+                    {
+                        "page_number": 1,
+                        "page_sha256": hashlib.sha256(page1.read_bytes()).hexdigest(),
+                        "verdict": "passed",
+                        "observation": "The opening page shows the complete title and abstract with balanced margins and no clipping.",
+                    }
+                ]
+            },
+        )
+        _, issues = module.load_page_inspections(inspection, [str(page1), str(page2)])
+        self.assertTrue(any("uninspected pages" in issue for issue in issues), issues)
 
 
 if __name__ == "__main__":

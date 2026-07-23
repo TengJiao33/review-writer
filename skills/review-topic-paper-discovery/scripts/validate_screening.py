@@ -3,9 +3,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts  # noqa: E402
 
 
 ALLOWED_DECISIONS = {"include", "exclude", "uncertain"}
@@ -152,6 +156,14 @@ def main() -> int:
         if not required.exists():
             raise SystemExit(f"Missing required input: {required}")
     report = validate(project)
+    attach_input_artifacts(
+        report,
+        project,
+        [
+            project / "00_discovery" / "topic_contract.json",
+            project / "00_discovery" / "selected_discovery_results.json",
+        ],
+    )
     out = project / "00_discovery" / "screening_validation.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote screening validation to {out}")

@@ -4,10 +4,14 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 from insert_figures_into_draft import insert_figures
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts  # noqa: E402
 
 
 STABLE_CITATION_RE = re.compile(r"\[((?:@P\d{3})(?:\s*[;,]\s*@P\d{3})*)\]")
@@ -276,6 +280,11 @@ def main() -> int:
         "paragraph_count": len(paragraph_records),
         "stable_citation_ids": list(dict.fromkeys(cited_ids)),
     }
+    validation_inputs = [section_path, matrix_path]
+    manuscript_source = stage2 / "manuscript.md"
+    if manuscript_source.exists():
+        validation_inputs.append(manuscript_source)
+    attach_input_artifacts(validation, project, validation_inputs)
     stage4.mkdir(parents=True, exist_ok=True)
     write_json(stage4 / "merge_validation.json", validation)
     if blockers:
@@ -331,6 +340,7 @@ def main() -> int:
                 blockers.append("selected figures produced no inserted manuscript images")
     validation["blocking_issues"] = sorted(set(blockers))
     validation["figure_insertion"] = figure_insertion
+    attach_input_artifacts(validation, project, validation_inputs)
     write_json(stage4 / "merge_validation.json", validation)
     if blockers:
         print(f"BLOCKING ISSUES: {len(set(blockers))}")

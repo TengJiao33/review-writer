@@ -1656,6 +1656,7 @@ def run(args: argparse.Namespace) -> int:
     out_dir = project / "00_discovery"
     out_dir.mkdir(parents=True, exist_ok=True)
     topic_contract = {
+        "workflow_contract_version": 2,
         "topic": topic,
         "central_question": central_question,
         "important_coverage": important_coverage,

@@ -15,21 +15,21 @@
   },
   "year": {
     "value": 2023,
-    "source": "filename_or_front_matter",
-    "confidence": 0.68,
-    "human_checked": false
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "journal": {
-    "value": "J. Org. Chem.",
-    "source": "known_filename_alias",
-    "confidence": 0.78,
-    "human_checked": false
+    "value": "European Journal of Organic Chemistry",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1002/ejoc.202300400",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "To the best of our knowledge, there are only a few examples using propargyl alcohols and sulfur nucleophiles in constructing of such molecules.[8] For instance, Yang developed TBHP/TBAImediated preparation of allenyl sulfones.[8a] Wang discovered chiral phosphoric acid (CPA) catalyzed stereoselective synthesis of sulfur-containing tetrasubstituted allenes[8b] and in 2022, Zhang published synthesis of tetrasubstituted allenylorganothiophosphates from propargylic alcohols under catalyst- and additive-free conditions.[8e] Herein, we wish to report an organocatalytic approach towards tetrasubstitut ed allenes bearing sulfur-containing heterocyclic units catalyzed by pentacarboxycyclopentadiene (PCCP) derivatives as Brønsted acid catalysts <details> <summary>chemical</summary> Chemical reaction scheme showing synthesis pathways from Yang, Wang, Zhang, and Mycomycin to Marasin via intermediates and intermediates </details> Figure 1.",
@@ -95,5 +95,17 @@
     ],
     "overall_confidence": 0.501,
     "needs_human_check": true
+  },
+  "volume": {
+    "value": "26",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
+  },
+  "pages": {
+    "value": "e202300400",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   }
 }

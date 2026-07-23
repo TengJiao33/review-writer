@@ -2,10 +2,15 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts  # noqa: E402
 
 
 STABLE_RE = re.compile(r"\[((?:@P\d{3})(?:\s*[;,]\s*@P\d{3})*)\]")
@@ -89,6 +94,25 @@ def validate(project: Path) -> dict[str, Any]:
     evidence_by_id = evidence_details(matrix_payload)
     blockers: list[str] = []
     warnings: list[str] = []
+
+    manuscript_path = stage2 / "manuscript.md"
+    source_artifacts = payload.get("source_artifacts") if isinstance(payload, dict) else None
+    manuscript_receipt = (
+        source_artifacts.get("manuscript") if isinstance(source_artifacts, dict) else None
+    )
+    if manuscript_path.is_file():
+        recorded = (
+            str(manuscript_receipt.get("sha256") or "").lower()
+            if isinstance(manuscript_receipt, dict)
+            else ""
+        )
+        actual = hashlib.sha256(manuscript_path.read_bytes()).hexdigest()
+        if recorded != actual:
+            blockers.append(
+                "section_drafts.json is not compiled from the current canonical manuscript.md"
+            )
+    elif isinstance(source_artifacts, dict):
+        blockers.append("canonical manuscript.md is missing")
 
     figure_payload = read_json(stage2 / "figure_candidates.json")
     if isinstance(figure_payload, dict):
@@ -335,6 +359,16 @@ def main() -> int:
         if not required.exists():
             raise SystemExit(f"Missing required input: {required}")
     report = validate(project)
+    inputs = [
+        project / "02_section_drafting" / "section_drafts.json",
+        project / "02_section_drafting" / "figure_candidates.json",
+        project / "01_matrix_outline" / "section_blueprint.json",
+        project / "01_matrix_outline" / "literature_matrix.json",
+    ]
+    manuscript = project / "02_section_drafting" / "manuscript.md"
+    if manuscript.exists():
+        inputs.append(manuscript)
+    attach_input_artifacts(report, project, inputs)
     out = project / "02_section_drafting" / "section_draft_validation.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote section draft validation to {out}")

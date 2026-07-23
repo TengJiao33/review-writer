@@ -43,9 +43,12 @@ removes paragraph markers from manuscript prose
 inserts verified selected figures and copies their assets
 ```
 
-Selected source figures require `source_verified`; original synthesis visuals require `original_verified` and `verification_status: passed`. Figure insertion uses the recorded `section_heading` and stops when the target heading is unresolved. A selected comparison table keeps its evidence manifest and visible method labels.
+Selected source figures require `source_verified`; original synthesis visuals require `original_verified` and `verification_status: passed`. Figure insertion uses the recorded paragraph or `section_heading` and stops when the target is unresolved. Every inserted figure and table must then be called out in the surrounding prose and used to make an argumentative move; a caption alone does not integrate an asset. A selected comparison table keeps its evidence manifest and visible method labels.
 
-Resolve citation, parsing, and asset blockers in the structured drafts, then rerun the merge. Keep stable paper IDs in structured data as the source of citation identity.
+Resolve citation, parsing, and asset blockers in the canonical
+`02_section_drafting/manuscript.md`, then recompile and rerun the merge. Keep
+stable paper IDs in provenance comments as the source of citation identity;
+never repair `first_draft.md` as an independent prose branch.
 
 ## Polish
 
@@ -59,7 +62,9 @@ comparison clarity
 mechanistic qualification
 ```
 
-If a prose revision changes citation order or identity, update the stable `[@Pxxx]` tokens in `section_drafts.json` and rerun the merge. Numeric citations and the reference list remain script-generated.
+If a prose revision changes citation order or identity, update the stable
+`[@Pxxx]` tokens in `manuscript.md`, recompile, and rerun the merge. Numeric
+citations and the reference list remain script-generated.
 
 ## Outputs
 

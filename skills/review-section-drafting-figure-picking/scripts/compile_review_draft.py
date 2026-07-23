@@ -7,6 +7,7 @@ provenance needed by downstream checks; they are not prose templates.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -23,6 +24,10 @@ STABLE_RE = re.compile(r"\[((?:@P\d{3})(?:\s*[;,]\s*@P\d{3})*)\]")
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def normalized_heading(value: str) -> str:
@@ -207,6 +212,16 @@ def compile_manuscript(manuscript_path: Path, blueprint_path: Path) -> dict[str,
         },
         "sections": sections,
         "source_manuscript": manuscript_path.name,
+        "source_artifacts": {
+            "manuscript": {
+                "path": manuscript_path.name,
+                "sha256": file_sha256(manuscript_path),
+            },
+            "section_blueprint": {
+                "path": blueprint_path.name,
+                "sha256": file_sha256(blueprint_path),
+            },
+        },
     }
 
 

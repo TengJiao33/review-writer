@@ -7,8 +7,10 @@ description: Verify selected source figures, prepare evidence-linked original re
 
 Prepare only figures selected for a defined reader need. The extraction inventory
 is not a checklist: inspect promising candidates, and fully verify only assets
-selected for the manuscript. Available paths are unchanged source reuse,
-original review synthesis, and verified redraw.
+selected for the manuscript. A comprehensive review needs at least three useful,
+unchanged figures from cited source papers with verified reuse rights. Original
+review synthesis and verified redraw may add value, but neither is a shortcut
+around that source-figure portfolio.
 
 ## Inputs
 
@@ -24,9 +26,13 @@ A selected source candidate records:
 
 ```text
 paper_id
+inventory_candidate_id
 source_label
 source_type
 source_pdf
+source_pdf_sha256
+source_page_index
+source_bbox
 source_content_list
 source_image_path
 source_caption_text
@@ -35,6 +41,7 @@ source_page_review_status: pending | passed
 source_verification_note
 reader_job
 placement_rationale
+manuscript_callout
 reuse_basis
 reuse_rights:
   status: verified
@@ -48,9 +55,14 @@ reuse_rights:
 
 The script processes rows marked `manuscript_selected: true` or with editorial status `selected`, `adapted`, or `combined`. It resolves a missing `source_image_path` from paper metadata and `content_list.json` when possible.
 
+For a comprehensive review, only a complete figure bound to its inventory row
+can enter the unchanged-source portfolio. A page screenshot, top-of-page crop,
+wrong caption or label, reconstructed partial panel set, or late hand-made
+image is not the source figure even if the article licence is open.
+
 ## Source reuse
 
-Prefer the MinerU-extracted source figure when it is complete, legible, relevant, and legally reusable. Compare it with the source PDF at readable zoom. Record the source label, page, completeness, content check, and structured reuse rights. A general article licence is not enough when the figure credit line excludes third-party material. Attribution and reuse permission are separate requirements. Use `adaptation: adapted` only when the verified licence or permission allows derivatives.
+Prefer the MinerU-extracted source figure when it is complete, legible, relevant, and legally reusable. When extraction omitted the image, a crop from the recorded PDF page and bounding box may be used to recover a candidate. Compare either form with the whole source page at readable zoom. Record the source label, page, completeness, content check, and structured reuse rights. A general article licence is not enough when the figure credit line excludes third-party material. Attribution and reuse permission are separate requirements. Use `adaptation: adapted` only when the verified licence or permission allows derivatives.
 
 Run:
 
@@ -164,4 +176,7 @@ verified/
 redrawn/
 ```
 
-When a selected figure cannot be resolved or verified, return it to selection. When the manuscript uses no image, create `skip_reason.md` with the editorial reason.
+When a selected figure cannot be resolved or verified, return it to selection.
+For a non-comprehensive review, an image-free manuscript may record its editorial
+reason in `skip_reason.md`. A comprehensive review instead returns to selection,
+source acquisition, or scope definition until its source-figure portfolio is real.

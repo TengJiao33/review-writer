@@ -20,10 +20,10 @@
     "human_checked": false
   },
   "journal": {
-    "value": "",
-    "source": "cite_this_line",
-    "confidence": 0.7,
-    "human_checked": false
+    "value": "Organic Chemistry Frontiers",
+    "source": "doi_lookup",
+    "confidence": 0.9,
+    "human_checked": true
   },
   "doi": {
     "value": "10.1039/d3qo00577a",

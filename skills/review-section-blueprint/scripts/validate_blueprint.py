@@ -3,8 +3,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts  # noqa: E402
 
 
 def read_json(path: Path) -> Any:
@@ -205,6 +209,11 @@ def main() -> int:
         if not required.exists():
             raise SystemExit(f"Missing required input: {required}")
     report = validate(project)
+    attach_input_artifacts(
+        report,
+        project,
+        [stage / "section_blueprint.json", stage / "literature_matrix.json"],
+    )
     (stage / "blueprint_validation.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )

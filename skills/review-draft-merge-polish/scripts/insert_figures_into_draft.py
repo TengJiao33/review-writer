@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -20,6 +21,10 @@ def read_text(path: Path) -> str:
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
+
+
+def file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else ""
 
 
 def load_available_figures(project: Path) -> tuple[str, list[dict[str, Any]]]:
@@ -192,6 +197,7 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
         raise ValueError("No available figures to insert.")
     selected: list[dict[str, Any]] = []
     section_headings = blueprint_headings(project)
+    section_order = {section_id: index for index, section_id in enumerate(section_headings)}
     section_counts: dict[str, int] = {}
     for figure in figures:
         section_id = str(figure.get("section_id") or "")
@@ -199,6 +205,7 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
             continue
         section_counts[section_id] = section_counts.get(section_id, 0) + 1
         selected.append(figure)
+    selected.sort(key=lambda row: section_order.get(str(row.get("section_id") or ""), 10**6))
 
     draft_paths = [first_draft]
     final_draft = project / "05_final_audit" / "final_draft.md"
@@ -207,6 +214,12 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
     texts = {path: read_text(path) for path in draft_paths}
     inserted: list[dict[str, Any]] = []
     for index, figure in enumerate(selected, start=1):
+        manuscript_callout = str(figure.get("manuscript_callout") or "").strip()
+        if manuscript_callout and manuscript_callout not in texts[first_draft]:
+            raise ValueError(
+                f"The authored manuscript_callout for {figure.get('source_label') or index} "
+                "is not present in the first draft. Integrate the figure into the prose before insertion."
+            )
         rel = copy_figure(project, figure, index, mode)
         if not rel:
             continue
@@ -241,10 +254,17 @@ def insert_figures(project: Path, max_per_section: int = 1) -> dict[str, Any]:
         inserted.append(
             {
                 "figure_number": index,
+                "figure_id": figure.get("figure_id"),
+                "inventory_candidate_id": figure.get("inventory_candidate_id"),
                 "section_id": figure.get("section_id"),
                 "paper_id": figure.get("paper_id"),
                 "source_label": figure.get("source_label") or figure.get("visual_id"),
                 "inserted_path": rel,
+                "inserted_sha256": file_sha256(project / "04_first_draft" / rel),
+                "accepted_image_sha256": figure.get("accepted_image_sha256"),
+                "reader_job": figure.get("reader_job"),
+                "placement_rationale": figure.get("placement_rationale"),
+                "manuscript_callout": manuscript_callout,
                 "mode": figure.get("status") or mode,
                 "anchor_mode": anchor_mode,
                 "target_paragraph_id": target_pid,

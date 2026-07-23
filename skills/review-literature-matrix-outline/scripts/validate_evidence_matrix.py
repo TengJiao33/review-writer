@@ -6,15 +6,34 @@ from collections import Counter
 import json
 import math
 import re
+import sys
 import unicodedata
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import attach_input_artifacts  # noqa: E402
 
 
 LIGHTWEIGHT_ROLES = {"background", "candidate", "excluded"}
 KNOWN_ROLES = LIGHTWEIGHT_ROLES | {"core", "supporting"}
 ALLOWED_CERTAINTY = {"direct", "author_interpretation", "review_inference", "unclear"}
 ALLOWED_SOURCE_LEVEL = {"full_text", "abstract", "metadata"}
+FRONT_MATTER_RE = re.compile(
+    r"(?:^\s*#|\bdepartment of\b|\buniversity\b|\bcorresponding author\b|"
+    r"\breceived\b.{0,50}\b(?:revised|accepted)\b|\backnowledg(?:e)?ments?\b|"
+    r"\bfunding\b|\bcopyright\b|\ball rights reserved\b)",
+    re.I,
+)
+GENERIC_LOCATORS = {
+    "full text",
+    "main text",
+    "results",
+    "results and discussion",
+    "discussion",
+    "introduction",
+    "conclusion",
+}
 
 
 def read_json(path: Path) -> Any:
@@ -114,14 +133,14 @@ def validate_anchor(
         if not str(anchor.get(field) or "").strip():
             blockers.append(f"evidence_anchors[{index}].{field} is empty")
     note = str(anchor.get("note") or "").strip()
-    if note and len(note) < 20:
+    if note and word_count(note) < 8:
         warnings.append(f"evidence_anchors[{index}].note is very short")
     source_excerpt = str(anchor.get("source_excerpt") or "").strip()
     if require_source_excerpt and not source_excerpt:
         blockers.append(
             f"evidence_anchors[{index}].source_excerpt is required for core/supporting evidence"
         )
-    elif source_excerpt and len(source_excerpt) < 12:
+    elif source_excerpt and word_count(source_excerpt) < 12:
         warnings.append(f"evidence_anchors[{index}].source_excerpt is very short")
     elif len(source_excerpt) > 700:
         warnings.append(
@@ -160,6 +179,14 @@ def validate_anchor(
             blockers.append(f"evidence_anchors[{index}] labels a shallow locator as full_text")
         else:
             warnings.append(f"evidence_anchors[{index}] uses a shallow locator: {locator}")
+    if require_source_excerpt and locator in GENERIC_LOCATORS:
+        blockers.append(
+            f"evidence_anchors[{index}].locator is too generic; record a page, figure, table, or local passage"
+        )
+    if require_source_excerpt and source_excerpt and FRONT_MATTER_RE.search(source_excerpt):
+        blockers.append(
+            f"evidence_anchors[{index}].source_excerpt is front matter or administrative text, not claim-bearing evidence"
+        )
     if source_level == "full_text" and resolved_source is not None:
         if resolved_source.suffix.lower() not in {".md", ".markdown", ".pdf", ".txt"}:
             blockers.append(f"evidence_anchors[{index}] full_text source is not a text or PDF file")
@@ -355,6 +382,7 @@ def main() -> int:
         "global_warnings": global_warnings,
         "papers": papers,
     }
+    attach_input_artifacts(report, stage_dir.parent, [matrix_path])
     write_report(stage_dir, report)
     print(f"Wrote matrix validation to {stage_dir}")
     if report["blocking_issue_count"]:

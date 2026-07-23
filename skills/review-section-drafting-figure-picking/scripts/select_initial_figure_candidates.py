@@ -7,7 +7,11 @@ import re
 from pathlib import Path
 from typing import Any
 
-from build_paper_figure_inventory import build_inventory
+from build_paper_figure_inventory import (
+    build_inventory,
+    file_sha256,
+    materialize_candidate_image,
+)
 
 
 def read_json(path: Path) -> Any:
@@ -81,9 +85,22 @@ def figure_score(candidate: dict[str, Any], section: dict[str, Any] | None = Non
             score += 4
         overlap = content_terms(section_text) & content_terms(caption)
         score += min(12, len(overlap) * 3)
+    rights = candidate.get("reuse_rights_hints") or {}
+    if rights.get("reuse_hint_class") == "open_reuse_candidate":
+        score += 12
+    elif rights.get("reuse_hint_class") == "restricted":
+        score -= 8
+    if candidate.get("source_type") in {"image", "chart"}:
+        score += 3
     if candidate.get("source_image_path"):
         score += 4
+    elif candidate.get("source_crop"):
+        score += 2
     return score
+
+
+def source_resolvable(candidate: dict[str, Any]) -> bool:
+    return bool(candidate.get("source_image_path") or candidate.get("source_crop"))
 
 
 def inventory_by_paper(inventory: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -183,7 +200,7 @@ def normalized_sections(project: Path, tasks: Any) -> list[dict[str, Any]]:
 
 def best_candidate_for_paper(paper: dict[str, Any]) -> dict[str, Any]:
     candidates = [c for c in paper.get("top_candidates", []) if isinstance(c, dict)]
-    resolved = [candidate for candidate in candidates if candidate.get("source_image_path")]
+    resolved = [candidate for candidate in candidates if source_resolvable(candidate)]
     if resolved:
         candidates = resolved
     candidates.sort(key=lambda c: figure_score(c), reverse=True)
@@ -209,11 +226,14 @@ def best_candidate_for_paper(paper: dict[str, Any]) -> dict[str, Any]:
 def build_outputs(
     project: Path,
     *,
-    max_total: int = 4,
+    max_total: int = 6,
     max_per_section: int = 1,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     inventory = read_json(project / "02_section_drafting" / "paper_figure_inventory.json")
-    tasks = read_json(project / "02_section_drafting" / "section_tasks.json")
+    tasks_path = project / "02_section_drafting" / "section_tasks.json"
+    tasks = read_json(tasks_path) if tasks_path.exists() else read_json(
+        project / "01_matrix_outline" / "section_blueprint.json"
+    )
     by_paper = inventory_by_paper(inventory)
 
     paper_level: list[dict[str, Any]] = []
@@ -228,13 +248,15 @@ def build_outputs(
         if figure_need in {"no", "none", "optional"}:
             continue
         allowed = [str(pid) for pid in section.get("allowed_papers", [])]
+        if not allowed:
+            allowed = list(by_paper)
         pool: list[dict[str, Any]] = []
         for paper_id in allowed:
             paper = by_paper.get(paper_id)
             if not paper:
                 continue
             for candidate in paper.get("top_candidates", []):
-                if isinstance(candidate, dict) and candidate.get("source_image_path"):
+                if isinstance(candidate, dict) and source_resolvable(candidate):
                     row = dict(candidate)
                     row["_score"] = figure_score(row, section)
                     pool.append(row)
@@ -244,9 +266,18 @@ def build_outputs(
             key = (str(candidate.get("paper_id")), str(candidate.get("source_image_path") or candidate.get("source_label")))
             if key in used_keys:
                 continue
+            candidate.pop("_score", None)
+            had_source_image = bool(candidate.get("source_image_path"))
+            resolved_path = materialize_candidate_image(project, candidate)
+            if resolved_path:
+                candidate["source_image_path"] = resolved_path
+                candidate["source_image_sha256"] = file_sha256(Path(resolved_path))
+                if not had_source_image:
+                    candidate["source_resolution_status"] = "materialized_pdf_crop"
+            if not candidate.get("source_image_path"):
+                continue
             used_keys.add(key)
             section_selected += 1
-            candidate.pop("_score", None)
             candidate.update(
                 {
                     "section_id": section.get("section_id"),
@@ -257,11 +288,12 @@ def build_outputs(
                     ),
                     "what_it_shows": candidate.get("source_caption_text") or candidate.get("source_label"),
                     "fits_paragraph_or_claim": section.get("core_argument"),
-                    "recommended_action": "redraw" if candidate.get("source_type") != "table" else "retable",
+                    "recommended_action": "reuse_unchanged" if candidate.get("source_type") != "table" else "retable",
                     "editorial_status": "suggested",
                     "manuscript_selected": False,
                     "reader_job": "",
                     "placement_rationale": "",
+                    "manuscript_callout": "",
                     "reuse_basis": "",
                     "reuse_rights": {
                         "status": "pending",
@@ -289,7 +321,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Select initial paper-level and manuscript figure candidates.")
     parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--project-id", required=True)
-    parser.add_argument("--max-total", type=int, default=4)
+    parser.add_argument("--max-total", type=int, default=6)
     parser.add_argument("--max-per-section", type=int, default=1)
     return parser.parse_args()
 
@@ -347,8 +379,8 @@ def main() -> int:
         print(
             "No manuscript source-figure candidates were selected after rebuilding the MinerU inventory "
             f"({source_candidate_count} candidates; {resolved_candidate_count} resolved top images). "
-            "This is an editorial observation, not a drafting failure; consider the independent review visual plan "
-            "or record a source-reuse skip reason."
+            "A comprehensive review should return to source acquisition or parsing rather than substituting "
+            "an automatically generated review diagram."
         )
     return 0
 

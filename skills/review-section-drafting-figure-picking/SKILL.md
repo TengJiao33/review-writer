@@ -41,7 +41,9 @@ python skills/review-section-drafting-figure-picking/scripts/compile_review_draf
 
 The compiler produces paragraph records with stable paragraph IDs,
 `cited_paper_ids`, `evidence_ids`, and `paragraph_type`. Use the shared compiler
-instead of creating project-specific draft-generation scripts.
+instead of creating project-specific draft-generation scripts. It binds the
+compiled structure to the current manuscript and blueprint hashes. Never edit
+`section_drafts.json` as a second prose source.
 
 Lead with the point a reader needs, use concrete subjects and verbs, and let each
 paragraph make one main move. Remove repeated previews, defensive disclaimers,
@@ -60,11 +62,12 @@ python skills/review-section-drafting-figure-picking/scripts/init_review_visual_
 ```
 
 Choose assets that make the field structure, method choice, evidence boundary,
-or practical comparison clearer than prose. A review may legally reproduce an
-unchanged source figure, adapt one when its licence permits adaptation, or
-create an original synthesis. Original synthesis visuals cite their supporting
-paper and evidence IDs, distinguish corpus coverage from scientific certainty,
-and receive an independent content check.
+or practical comparison clearer than prose. A comprehensive review uses at
+least three useful, unchanged figures from cited source papers when their reuse
+rights are verified. Original synthesis visuals may add value, but they do not
+replace that source-figure portfolio; they cite their supporting paper and
+evidence IDs, distinguish corpus coverage from scientific certainty, and
+receive an independent content check.
 
 Build an evidence-linked comparison table when method cards support one:
 
@@ -81,8 +84,9 @@ then place the verified table where it advances the argument.
 
 ## Source figures
 
-Build the inventory when source figures could serve a real reader need, then
-inspect the small set of promising candidates:
+Build the inventory and select a small source-figure portfolio before sustained
+drafting. This makes visual evidence part of the editorial argument instead of
+an ornament added after the prose:
 
 ```bash
 python skills/review-section-drafting-figure-picking/scripts/build_paper_figure_inventory.py \
@@ -92,13 +96,20 @@ python skills/review-section-drafting-figure-picking/scripts/select_initial_figu
 ```
 
 Do not disposition every extracted image. Select a source figure only when it
-has a specific `reader_job`, `placement_rationale`, and verified `reuse_rights`.
+has a specific `reader_job`, `placement_rationale`, exact
+`manuscript_callout`, and verified `reuse_rights`. Keep its deterministic
+`inventory_candidate_id`, source-PDF hash, page index, bounding box, true source
+label, and full caption unchanged. Three copies of the same reader job do not
+form a useful visual portfolio.
 The inventory surfaces licence statements as hints, not permission. Check the
 article licence, chosen figure credit line, third-party exclusions, adaptation
 rights, and attribution wording. Inspect adjacent MinerU fragments and the
-source page when a labeled figure may have been split. If no source figure is
-suitable, record the reason in `03_figure_redraw/skip_reason.md`; an original
-review visual may still be used.
+source page when a labeled figure may have been split. A crop materialized from
+the recorded PDF page and bounding box is only a candidate: inspect the whole
+page, caption, panel set, and legibility before selection. If the current corpus
+cannot support three lawful and useful source figures for a comprehensive
+review, return to source acquisition or revise scope. A skip note or an original
+diagram is not a substitute for that missing evidence portfolio.
 
 ## Validation
 

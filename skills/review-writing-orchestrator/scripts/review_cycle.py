@@ -9,14 +9,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "_shared"))
+from review_integrity import file_sha256  # noqa: E402
+
 
 LOOP_ORDER = {"evidence": 0, "manuscript": 1, "release": 2}
 EVIDENCE_RISKS = {"evidence_base_depth", "comparison_readiness", "coverage_depth"}
-MANUSCRIPT_RISKS = {"manuscript_depth", "visual_opportunity", "section_depth"}
+MANUSCRIPT_RISKS = {"manuscript_depth", "section_depth", "source_visual_portfolio"}
 
 
 def read_json(path: Path, default: Any = None) -> Any:
@@ -80,6 +84,10 @@ def render_integrity_issues(project: Path, render: Any) -> list[str]:
         issues.append("DOCX rendering did not pass")
     if render.get("inspection_status") != "passed":
         issues.append("rendered-page inspection did not pass")
+    if expected_docx.is_file() and str(render.get("input_docx_sha256") or "") != file_sha256(expected_docx):
+        issues.append("render report is not bound to the current final DOCX")
+    if expected_pdf.is_file() and str(render.get("output_pdf_sha256") or "") != file_sha256(expected_pdf):
+        issues.append("render report is not bound to the current final PDF")
     page_count = render.get("page_count")
     page_images = render.get("page_images")
     if not isinstance(page_count, int) or page_count < 1:
@@ -90,6 +98,32 @@ def render_integrity_issues(project: Path, render: Any) -> list[str]:
     missing_images = [str(raw) for raw in page_images if not resolve(raw).is_file()]
     if missing_images:
         issues.append(f"{len(missing_images)} rendered page image(s) are missing")
+    artifacts = render.get("page_artifacts")
+    inspections = render.get("page_inspections")
+    if not isinstance(artifacts, list) or len(artifacts) != page_count:
+        issues.append("rendered-page hash receipts are missing")
+        artifacts = []
+    hashes = {
+        int(row["page_number"]): str(row.get("sha256") or "")
+        for row in artifacts
+        if isinstance(row, dict) and isinstance(row.get("page_number"), int)
+    }
+    for row in artifacts:
+        if not isinstance(row, dict) or not isinstance(row.get("page_number"), int):
+            continue
+        if file_sha256(resolve(row.get("path"))) != str(row.get("sha256") or ""):
+            issues.append(f"rendered page {row['page_number']} hash is stale")
+    if not isinstance(inspections, list) or len(inspections) != page_count:
+        issues.append("page-specific visual inspection receipts are missing")
+        inspections = []
+    for row in inspections:
+        if not isinstance(row, dict) or not isinstance(row.get("page_number"), int):
+            continue
+        number = int(row["page_number"])
+        if str(row.get("page_sha256") or "") != hashes.get(number, ""):
+            issues.append(f"page {number} inspection is bound to a different image")
+        if row.get("verdict") != "passed" or len(str(row.get("observation") or "").strip()) < 30:
+            issues.append(f"page {number} inspection is incomplete or needs revision")
     if expected_docx.is_file() and expected_pdf.is_file():
         if expected_pdf.stat().st_mtime < expected_docx.stat().st_mtime:
             issues.append("final PDF is older than the final DOCX")
@@ -272,29 +306,50 @@ def artifact_debts(project: Path) -> list[dict[str, Any]]:
         )
 
     inventory = read_json(project / "02_section_drafting" / "paper_figure_inventory.json", {})
-    visual_plan = read_json(project / "02_section_drafting" / "review_visual_plan.json", {})
-    visual_manifest = read_json(project / "03_figure_redraw" / "review_visual_manifest.json", {})
-    candidate_count = int(inventory.get("candidate_count") or 0) if isinstance(inventory, dict) else 0
-    visuals = visual_plan.get("visuals") if isinstance(visual_plan, dict) else []
-    selected = [row for row in visuals or [] if isinstance(row, dict) and row.get("status") in {"selected", "adapted", "combined"}]
-    prepared = [
+    source_candidates_payload = read_json(project / "02_section_drafting" / "figure_candidates.json", [])
+    source_candidates = (
+        source_candidates_payload.get("figures")
+        if isinstance(source_candidates_payload, dict)
+        else source_candidates_payload
+    )
+    source_candidates = [row for row in source_candidates or [] if isinstance(row, dict)]
+    source_selected = [
         row
-        for row in (visual_manifest.get("visuals") or [])
+        for row in source_candidates
+        if row.get("manuscript_selected") is True
+        or str(row.get("editorial_status") or "").lower() in {"selected", "adapted", "combined"}
+    ]
+    source_manifest = read_json(project / "03_figure_redraw" / "redrawn_figure_manifest.json", {})
+    source_prepared = [
+        row
+        for row in (source_manifest.get("figures") or [])
         if isinstance(row, dict)
-        and row.get("status") in {"original_verified", "source_verified", "redrawn"}
+        and row.get("status") == "source_verified"
         and row.get("verification_status") == "passed"
-    ] if isinstance(visual_manifest, dict) else []
-    if candidate_count and visuals and not selected and not prepared:
-        debts.append(
-            debt(
-                "visual_branch_abandoned",
-                "manuscript",
-                "Source and synthesis visual opportunities were found, but none is connected to the manuscript.",
-                [f"inventory_candidates={candidate_count}", f"planned_visuals={len(visuals)}", "selected_visuals=0"],
-                "Choose visuals by reader job, verify reuse or create an original synthesis, and bind each selected asset to a section before merge.",
-                severity="advisory",
+        and isinstance(row.get("reuse_rights"), dict)
+        and row["reuse_rights"].get("status") == "verified"
+        and row["reuse_rights"].get("third_party_material_checked") is True
+        and row["reuse_rights"].get("adaptation") == "unchanged"
+        and str(row["reuse_rights"].get("license_url_or_permission_record") or "").strip()
+        and str(row["reuse_rights"].get("attribution_text") or "").strip()
+    ] if isinstance(source_manifest, dict) else []
+    candidate_count = int(inventory.get("candidate_count") or 0) if isinstance(inventory, dict) else 0
+    contract = read_json(project / "00_discovery" / "topic_contract.json", {})
+    if isinstance(contract, dict) and str(contract.get("review_profile") or "").lower() == "comprehensive":
+        if len(source_prepared) < 3:
+            debts.append(
+                debt(
+                    "source_visual_portfolio",
+                    "manuscript",
+                    "The comprehensive article has not yet prepared three lawful source-paper figures for real reader tasks.",
+                    [
+                        f"inventory_candidates={candidate_count}",
+                        f"editorially_selected={len(source_selected)}",
+                        f"verified_source_figures={len(source_prepared)}",
+                    ],
+                    "Select useful source figures before drafting around them; verify licence, full panels, attribution, and placement. If the corpus lacks lawful choices, return to evidence acquisition.",
+                )
             )
-        )
 
     table_manifest = read_json(project / "02_section_drafting" / "method_comparison_table_manifest.json", {})
     final_scan = read_json(project / "05_final_audit" / "format_scan.json", {})

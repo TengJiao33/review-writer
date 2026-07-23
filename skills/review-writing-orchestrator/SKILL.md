@@ -46,6 +46,10 @@ view, not an approval gate or a mandatory route through the work.
   remain connected.
 - `review_state.json` and Markdown/CSV reports are generated views. Never edit
   them to change the outcome.
+- `02_section_drafting/manuscript.md` is the only prose authoring source.
+  `section_drafts.json`, `first_draft.md`, `final_draft.md`, DOCX, PDF, and
+  validation reports are derived views bound to their current inputs. Revise
+  the manuscript or evidence ledger, then rebuild downstream artifacts.
 
 Do not create experiment-specific Python programs to manufacture screening,
 matrix, draft, audit, or run-history artifacts. Edit the canonical JSON/Markdown
@@ -62,9 +66,9 @@ needs code, improve the shared workflow instead of adding a project-local helper
 - Figures and comparison tables are selected for a defined reader need and verified before merge.
 - Merge assigns numeric citations and builds the reference list. Final audit checks meaning, integrity, and release format before DOCX export.
 
-Validators enforce evidence, citation, artifact, and release integrity. Review-profile expectations expose unusually thin evidence, prose, comparison material, or visuals as a small number of holistic quality risks. A comprehensive review also has one coarse final-product floor to prevent scale regression; there are no per-section quotas. Do not game either diagnostics or the product floor with filler. Resolve the underlying weakness before release. If the user wants a smaller product, declare a new `focused` topic contract before the next run instead of writing an exception inside the run being judged.
+Validators enforce evidence, citation, artifact, and release integrity. Review-profile expectations expose unusually thin evidence, prose, comparison material, or visuals as a small number of holistic quality risks. A comprehensive review has one coarse product contract: at least 8,000 substantive body words, 25 references actually cited in that body, two argument-bearing tables, and three lawful non-table figures reproduced unchanged from cited source papers. Original review diagrams may be useful additions but do not substitute for the source-figure portfolio. There are no per-section quotas. Do not game diagnostics or the product contract with filler, duplicate back matter, citation multiplication, decorative assets, or approval files.
 
-Run `build_review_portfolio.py` after matrix validation and `init_review_visual_plan.py` before drafting. Use their output to find weak coverage, thin comparisons, and useful synthesis opportunities.
+Run `build_review_portfolio.py`, the source-figure inventory and selector, and then `init_review_visual_plan.py` before sustained drafting. Use the source candidates to choose three figures with different reader jobs, verify their rights and complete panels, and draft the surrounding argument with explicit figure callouts. If the retained corpus cannot supply three lawful and useful figures, return to evidence acquisition; do not generate a diagram to bypass the gap.
 
 Run the quality diagnostic with `--phase prewrite` before sustained drafting and
 with `--phase release` before export. Its paper, depth, comparison, and visual
@@ -74,6 +78,17 @@ scope when that is the honest answer, and never manufacture prose, citations,
 tables, or figures merely to move a metric.
 
 QoderWork may make screening decisions from the topic contract and stored source material; the user may also review them in the interface. Record who decided. Unless the run is explicitly local-only, use Crossref coverage and the configured optional providers. Execute the actionable rows in `external_ingest_plan.json` when they fill a relevant evidence gap.
+
+Immediately after screening is fixed and before writing the matrix, run:
+
+```bash
+python skills/review-writing-orchestrator/scripts/snapshot_library_metadata.py \
+  --review-root . --project-id <project_id>
+```
+
+The shared library is read-only during a project run. Bibliographic corrections
+belong in a separately managed ingestion/curation task; never refresh this
+snapshot or edit shared metadata merely to make the current project pass.
 
 ## Execution tools
 
@@ -127,8 +142,8 @@ python skills/review-writing-orchestrator/scripts/project_status.py \
 ```
 
 The strict check covers core validation, evidence and citation integrity,
-selected-asset verification, and DOCX-to-PDF visual QA. Generated Markdown
-reports and command history are not completion criteria. After it succeeds,
+source-asset verification and use, and DOCX-to-PDF visual QA. Generated reports,
+status fields, and command history are never evidence that reading or page inspection occurred. After it succeeds,
 finalize the experiment manifest:
 
 ```bash

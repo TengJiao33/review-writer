@@ -8,28 +8,31 @@
     "human_checked": false
   },
   "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
+    "value": [
+      "Ye, J.",
+      "Ma, S."
+    ],
+    "source": "manual_curation",
+    "confidence": 0.7,
     "human_checked": false
   },
   "year": {
     "value": 2025,
-    "source": "filename_or_front_matter",
-    "confidence": 0.68,
-    "human_checked": false
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "journal": {
-    "value": "J. Org. Chem. 2025",
-    "source": "cite_this_line",
-    "confidence": 0.7,
-    "human_checked": false
+    "value": "Journal of Organic Chemistry",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/acs.joc.4c02516",
+    "source": "source_pdf",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "We have developed a condition-controlled divergent synthesis of (Z)-N-vinyl and N-allenyl benzimidazoles from 1,1,3-triphenylprop-2-yn-1-ols and benzimidazoles through Pd- or Bi-catalyzed N-alkenylation reactions involving nucleophilic attack and C−C bond cleavage processes. The desired two different kinds of products can be conveniently and selectively synthesized by using this strategy, which features stereospecific synthesis, good functional group tolerance, a broad substrate scope, and high efficiency. The strategy provides significant advantages for the synthesis of biologically and pharmaceutically active imidazoheterocycles.",

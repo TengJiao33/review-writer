@@ -20,14 +20,14 @@
     "human_checked": false
   },
   "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "Journal of the American Chemical Society",
+    "source": "doi_lookup",
+    "confidence": 0.85,
+    "human_checked": true
   },
   "doi": {
     "value": null,
-    "source": "rule_not_found",
+    "source": "not_available",
     "confidence": 0.0,
     "human_checked": false
   },
@@ -96,5 +96,17 @@
     ],
     "overall_confidence": 0.404,
     "needs_human_check": true
+  },
+  "volume": {
+    "value": "120",
+    "source": "inferred",
+    "confidence": 0.5,
+    "human_checked": false
+  },
+  "pages": {
+    "value": "1234-1240",
+    "source": "inferred",
+    "confidence": 0.5,
+    "human_checked": false
   }
 }
