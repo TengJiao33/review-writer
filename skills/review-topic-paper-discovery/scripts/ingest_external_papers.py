@@ -750,10 +750,26 @@ def main() -> int:
     args = parse_args()
     review_root = Path(args.review_root).resolve()
     discovery_dir = review_root / "review-projects" / args.project_id / "00_discovery"
+    in_progress_path = discovery_dir / ".discovery_in_progress.json"
+    if in_progress_path.exists():
+        marker = read_json(in_progress_path)
+        raise SystemExit(
+            "Discovery is still in progress for run "
+            f"{marker.get('discovery_run_id') or 'unknown'}; wait for a complete plan before ingestion."
+        )
     plan_path = discovery_dir / "external_ingest_plan.json"
     if not plan_path.exists():
         raise SystemExit(f"Missing external ingest plan: {plan_path}")
     plan = read_json(plan_path)
+    selected_path = discovery_dir / "selected_discovery_results.json"
+    if selected_path.exists():
+        selected = read_json(selected_path)
+        plan_run = str(plan.get("discovery_run_id") or "")
+        selected_run = str(selected.get("discovery_run_id") or "")
+        if plan_run and selected_run and plan_run != selected_run:
+            raise SystemExit(
+                "Discovery outputs come from different runs; rerun discovery before ingestion."
+            )
     hydrate_plan_bibliography(discovery_dir, plan)
     selection_limit = 0 if args.all_available else args.limit
     items = select_items(plan, args.paper_key, selection_limit)

@@ -1,23 +1,28 @@
 # Keyword Expansion Prompt
 
-Given a review topic and user-provided keywords, generate a concise keyword set for literature discovery.
+Given a review topic contract and user-provided queries, generate a concise,
+domain-independent query plan for literature discovery.
 
 Rules:
 
 - Keep the user's original keywords unless clearly irrelevant.
-- Add synonyms, substrate classes, catalyst or method classes, reaction types, product classes, organometallic partners, ligands/chiral sources, leaving groups, and document-scope terms.
-- Do not create too many broad generic keywords.
-- Prefer search-useful terms over prose phrases.
+- Add a compact core query and queries for distinct coverage dimensions,
+  populations or materials, mechanisms or outcomes, methods or evidence, and
+  scope constraints that are actually declared in the contract.
+- Do not infer a domain-specific family merely because one generic token
+  overlaps it.
+- Do not create too many broad generic queries.
+- Prefer self-contained provider queries over prose phrases. Do not append the
+  entire manuscript title to every query.
 - Classify each keyword as one of:
-  - `product`
-  - `substrate`
-  - `catalyst_or_method`
-  - `organometallic_partner`
-  - `ligand_or_chiral_source`
-  - `leaving_group`
-  - `reaction_type`
+  - `core_topic`
+  - `coverage`
+  - `population_or_material`
+  - `mechanism_or_outcome`
+  - `method_or_evidence`
+  - `scope`
   - `document_scope`
-- If a keyword does not fit cleanly, classify it as `reaction_type` rather than inventing a new category.
+- If a query does not fit cleanly, classify it as `coverage`.
 - Mark source as `user`, `agent`, or both.
 
 Expected output shape:

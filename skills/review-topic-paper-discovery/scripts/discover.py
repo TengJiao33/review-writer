@@ -55,23 +55,50 @@ def _markdown_contract(path: Path) -> dict[str, Any]:
         elif current and line and not line.startswith("# "):
             sections[current].append(line)
 
-    def scalar(name: str) -> str:
-        return " ".join(line.lstrip("- ").strip() for line in sections.get(name, [])).strip()
+    def section_lines(*names: str) -> list[str]:
+        for name in names:
+            if sections.get(name):
+                return sections[name]
+        return []
 
-    def items(name: str) -> list[str]:
-        return dedupe(
-            [line[2:].strip() for line in sections.get(name, []) if line.startswith("- ")]
-        )
+    def scalar(*names: str) -> str:
+        return " ".join(
+            line.lstrip("- ").strip() for line in section_lines(*names)
+        ).strip()
+
+    def items(*names: str) -> list[str]:
+        lines = section_lines(*names)
+        if not lines:
+            return []
+        grouped: list[str] = []
+        current_item = ""
+        saw_bullet = any(line.startswith(("- ", "* ")) for line in lines)
+        for line in lines:
+            if line.startswith(("- ", "* ")):
+                if current_item:
+                    grouped.append(current_item)
+                current_item = line[2:].strip()
+            elif saw_bullet and current_item:
+                current_item = f"{current_item} {line.strip()}".strip()
+            elif not saw_bullet:
+                current_item = f"{current_item} {line.strip()}".strip()
+        if current_item:
+            grouped.append(current_item)
+        return dedupe(grouped)
 
     return {
-        "manuscript_title": scalar("manuscript_title"),
-        "retrieval_query": scalar("retrieval_query"),
+        "manuscript_title": scalar("manuscript_title", "title"),
+        "retrieval_query": scalar("retrieval_query", "search_query"),
         "review_profile": scalar("review_profile"),
-        "central_question": scalar("central_question"),
-        "important_coverage": items("important_coverage"),
-        "inclusion_criteria": items("inclusion_criteria"),
-        "exclusion_criteria": items("exclusion_criteria"),
-        "suggested_keywords": items("suggested_retrieval_keywords"),
+        "central_question": scalar("central_question", "review_question"),
+        "important_coverage": items("important_coverage", "coverage"),
+        "inclusion_criteria": items("inclusion_criteria", "inclusion"),
+        "exclusion_criteria": items("exclusion_criteria", "exclusion"),
+        "suggested_keywords": items(
+            "suggested_retrieval_keywords",
+            "retrieval_keywords",
+            "keywords",
+        ),
     }
 
 
@@ -123,6 +150,9 @@ def load_metadata(review_root: Path) -> dict[str, dict[str, Any]]:
     return papers
 
 
+# These are legacy metadata fields, not the vocabulary of the retrieval
+# planner. Generic title/abstract/full-text retrieval must continue to work
+# when a paper comes from a different domain and none of these fields applies.
 STRUCTURED_TAG_KEYS = [
     "product",
     "substrate",
@@ -135,29 +165,39 @@ STRUCTURED_TAG_KEYS = [
 ]
 
 
-def load_classification_rules(review_root: Path) -> dict[str, dict[str, list[str]]]:
+def load_classification_rules(
+    review_root: Path,
+    topic: str = "",
+) -> dict[str, dict[str, list[str]]]:
     labels = {key: {} for key in STRUCTURED_TAG_KEYS}
-    path = review_root / "allene_classification_rules.py"
-    if not path.exists():
-        return labels
-    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-    rules_node = None
-    for node in tree.body:
-        if isinstance(node, ast.Assign):
-            for target in node.targets:
-                if isinstance(target, ast.Name) and target.id == "rules":
-                    rules_node = node.value
-                    break
-        if rules_node is not None:
-            break
-    if rules_node is None:
-        return labels
-    for item in ast.literal_eval(rules_node):
-        if not isinstance(item, tuple) or len(item) < 3:
+    paths = sorted(review_root.glob("*_classification_rules.py"))
+    generic_path = review_root / "classification_rules.py"
+    if generic_path.exists():
+        paths.insert(0, generic_path)
+    for path in paths:
+        domain = path.stem.removesuffix("_classification_rules")
+        if path != generic_path and domain and not contains_term(topic, domain):
             continue
-        label, category, aliases = str(item[0]).strip(), str(item[1]).strip(), item[2]
-        if category in labels and label:
-            labels[category][label] = [str(alias).strip() for alias in aliases if str(alias).strip()]
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+        rules_node = None
+        for node in tree.body:
+            if isinstance(node, ast.Assign):
+                for target in node.targets:
+                    if isinstance(target, ast.Name) and target.id == "rules":
+                        rules_node = node.value
+                        break
+            if rules_node is not None:
+                break
+        if rules_node is None:
+            continue
+        for item in ast.literal_eval(rules_node):
+            if not isinstance(item, tuple) or len(item) < 3:
+                continue
+            label, category, aliases = str(item[0]).strip(), str(item[1]).strip(), item[2]
+            if category in labels and label:
+                labels[category][label] = [
+                    str(alias).strip() for alias in aliases if str(alias).strip()
+                ]
     return labels
 
 
@@ -173,16 +213,6 @@ def tokenize(text: str) -> list[str]:
     return dedupe([w.lower() for w in re.findall(r"[A-Za-z0-9][A-Za-z0-9'′\\-]*", text or "") if len(w) >= 3])
 
 
-ALLENE_DOMAIN_TERMS = (
-    "allene",
-    "allenes",
-    "allenation",
-    "allenyl",
-    "propargyl",
-    "propargylic",
-)
-
-
 def contains_term(text: str, term: str) -> bool:
     """Match a token or phrase without allowing arbitrary substring hits."""
     text = re.sub(r"\bpoly\s*\(\s*([a-z0-9]+)", r"poly\1", text.lower())
@@ -193,68 +223,106 @@ def contains_term(text: str, term: str) -> bool:
     return bool(re.search(rf"(?:^| ){re.escape(normalized_term)}(?: |$)", normalized_text))
 
 
-def infer_keywords(topic: str, user_keywords: list[str]) -> list[dict[str, Any]]:
-    text = " ".join([topic] + user_keywords).lower()
-    if not any(contains_term(text, term) for term in ALLENE_DOMAIN_TERMS):
-        return []
-    rules = [
-        ("nickel catalysis", "catalyst_or_method", ["nickel", "ni-catalyzed", "ni catalyzed"]),
-        ("polysubstituted allenes", "product", ["polysubstituted allene", "substituted allene"]),
-        ("allenes", "product", ["allene", "allenes"]),
-        ("allene synthesis", "reaction_type", ["allene synthesis", "synthesis of allene"]),
-        ("propargylic alcohols", "substrate", ["propargylic alcohol"]),
-        ("propargylic halides", "substrate", ["propargylic derivative", "propargyl halide", "propargyl bromide", "propargylic bromide"]),
-        ("propargylic acetates", "substrate", ["acetate"]),
-        ("propargylic carbonates", "substrate", ["carbonate"]),
-        ("propargylic phosphates", "substrate", ["phosphate"]),
-        ("propargylic halides", "substrate", ["bromide"]),
-        (
-            "propargylic sulfinates and sulfonates",
-            "substrate",
-            [
-                "propargylic sulfide",
-                "propargylic sulfides",
-                "propargyl sulfide",
-                "propargyl sulfides",
-                "propargylic sulfinate",
-                "propargylic sulfinates",
-                "propargyl sulfinate",
-                "propargyl sulfinates",
-                "propargylic sulfonate",
-                "propargylic sulfonates",
-                "propargyl sulfonate",
-                "propargyl sulfonates",
-                "propargylic tosylate",
-                "propargylic tosylates",
-                "propargyl tosylate",
-                "propargyl tosylates",
-            ],
-        ),
-        ("propargylic dichlorides", "substrate", ["dichloride", "gem-dichloride"]),
-        ("propargylic substitution and cross-coupling", "reaction_type", ["sn2", "substitution"]),
-        ("propargylic substitution and cross-coupling", "reaction_type", ["allenylation"]),
-        ("copper catalysis", "catalyst_or_method", ["copper", "cu", "cu(i)", "cu(iii)", "cubr", "cui", "cuoac", "cucl2", "icycucl", "organocopper", "cuprate"]),
-        ("palladium catalysis", "catalyst_or_method", ["palladium", "pd", "pd(0)", "pd(ii)", "palladium species", "propargylpalladium", "allenylpalladium"]),
-        ("zinc-mediated methods", "catalyst_or_method", ["zinc", "zn", "zn(ii)", "zni2", "znbr2", "zncl2", "organozinc"]),
-        ("cadmium-mediated methods", "catalyst_or_method", ["cadmium", "cd", "cd(ii)", "cdi2"]),
-        ("gold catalysis", "catalyst_or_method", ["gold", "au", "au(i)", "au(iii)", "kaucl4", "gold salen complex"]),
-        ("silver-mediated methods", "catalyst_or_method", ["silver", "ag", "ag(i)", "agno3"]),
-        ("rhodium catalysis", "catalyst_or_method", ["rhodium", "rh", "rh(i)", "rhodium complex", "rh/chiral diene complex"]),
-        ("iron catalysis", "catalyst_or_method", ["iron", "fe", "iron-porphyrin", "iron porphyrin", "fe-porphyrin"]),
-        ("copper-zinc bimetallic catalysis", "catalyst_or_method", ["copper-zinc", "copper/zinc", "cu/zn", "cu+/zn2+", "cubr/znbr2", "bimetallic approach", "bimetallic catalysis"]),
-        ("photoredox catalysis", "catalyst_or_method", ["photoredox", "visible-light"]),
-        ("asymmetric synthesis", "reaction_type", ["asymmetric", "enantioselective", "enantiospecific"]),
-        ("radical and single-electron allene synthesis", "reaction_type", ["radical"]),
-        ("Meyer-Schuster rearrangement", "reaction_type", ["meyer-schuster"]),
-    ]
+QUERY_STOPWORDS = {
+    "a", "about", "across", "an", "and", "are", "as", "at", "based", "between",
+    "by", "can", "cannot", "determine", "direct", "do", "does", "effects",
+    "explicit", "fairly", "families", "for", "from", "how", "in", "including",
+    "into", "is", "of", "on", "or", "our", "paper", "ranked", "relevant",
+    "review", "rules", "study", "studies", "such", "that", "the", "their",
+    "these", "this", "through", "to", "toward", "towards", "using", "versus",
+    "via", "what", "when", "where", "which", "with", "without",
+}
+
+
+def compact_query(text: str, max_terms: int = 8) -> str:
+    """Turn a contract phrase into a bounded provider query without a domain lexicon."""
+    normalized = re.sub(r"\([^)]{80,}\)", " ", str(text or ""))
+    terms = re.findall(r"[A-Za-z0-9][A-Za-z0-9+.'鈥瞈/-]*", normalized)
+    kept: list[str] = []
+    seen: set[str] = set()
+    for term in terms:
+        key = term.lower().strip("./")
+        if not key or key in QUERY_STOPWORDS:
+            continue
+        if len(key) < 3 and not any(char.isdigit() for char in key):
+            continue
+        if key in seen:
+            continue
+        seen.add(key)
+        kept.append(term.strip(".,;:"))
+        if len(kept) >= max(max_terms, 1):
+            break
+    return " ".join(kept)
+
+
+def _query_candidate(text: str, category: str, reason: str) -> dict[str, Any] | None:
+    query = compact_query(text)
+    if len(tokenize(query)) < 2:
+        return None
+    return {"keyword": query, "category": category, "reason": reason}
+
+
+def infer_keywords(
+    topic: str,
+    user_keywords: list[str],
+    topic_contract: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    """Build a small, explainable query plan from any topic contract."""
+    contract = topic_contract if isinstance(topic_contract, dict) else {}
     candidates: list[dict[str, Any]] = []
-    for kw, category, needles in rules:
-        # Expand only from an actual rule signal.  The previous token-overlap
-        # fallback treated a generic topic token such as "catalysis" as a
-        # reason to add every metal-catalysis rule, which polluted capped
-        # candidate pools before screening could make a relevance decision.
-        if any(contains_term(text, needle) for needle in needles):
-            candidates.append({"keyword": kw, "category": category, "reason": "rule expansion from topic/user keywords"})
+    title = str(contract.get("manuscript_title") or topic).strip()
+    title_parts = [
+        part.strip()
+        for part in re.split(r"[:;]", title)
+        if len(tokenize(part)) >= 2
+    ]
+    core = _query_candidate(
+        title_parts[0] if title_parts else topic,
+        "core_topic",
+        "compact core query from the declared topic",
+    )
+    if core:
+        candidates.append(core)
+    for coverage in contract.get("important_coverage") or []:
+        row = _query_candidate(
+            str(coverage),
+            "coverage",
+            "coverage query from the topic contract",
+        )
+        if row:
+            candidates.append(row)
+    if len(candidates) < 3:
+        central = str(contract.get("central_question") or "")
+        for clause in re.split(r"[?;]|\.\s+|,\s+(?:and|or)\s+", central):
+            row = _query_candidate(
+                clause,
+                "mechanism_or_outcome",
+                "query from the central question",
+            )
+            if row:
+                candidates.append(row)
+            if len(candidates) >= 4:
+                break
+    if len(candidates) < 3:
+        for criterion in contract.get("inclusion_criteria") or []:
+            row = _query_candidate(
+                str(criterion),
+                "scope",
+                "scope query from an inclusion criterion",
+            )
+            if row:
+                candidates.append(row)
+            if len(candidates) >= 3:
+                break
+    if len(candidates) < 2 and title_parts:
+        for part in title_parts[1:]:
+            row = _query_candidate(
+                part,
+                "coverage",
+                "secondary title clause used to avoid a single-title query",
+            )
+            if row:
+                candidates.append(row)
     return unique_keyword_dicts(candidates)
 
 
@@ -269,11 +337,20 @@ def unique_keyword_dicts(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
-def build_keyword_set(topic: str, user_keywords: list[str]) -> dict[str, Any]:
-    agent = infer_keywords(topic, user_keywords)
+def build_keyword_set(
+    topic: str,
+    user_keywords: list[str],
+    topic_contract: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    agent = infer_keywords(topic, user_keywords, topic_contract)
     merged: dict[str, dict[str, Any]] = {}
     for kw in user_keywords:
-        merged[kw.lower()] = {"keyword": kw, "category": classify_keyword(kw), "source": ["user"], "keep": True}
+        merged[kw.lower()] = {
+            "keyword": kw,
+            "category": classify_keyword(kw),
+            "source": ["user"],
+            "keep": True,
+        }
     for item in agent:
         key = item["keyword"].lower()
         if key in merged:
@@ -283,34 +360,46 @@ def build_keyword_set(topic: str, user_keywords: list[str]) -> dict[str, Any]:
                 merged[key]["category"] = item["category"]
         else:
             merged[key] = {"keyword": item["keyword"], "category": item["category"], "source": ["agent"], "keep": True, "reason": item.get("reason", "")}
-    if not agent and topic.lower() not in merged:
-        merged[topic.lower()] = {
-            "keyword": topic,
-            "category": "topic",
-            "source": ["topic_fallback"],
-            "keep": True,
-            "reason": "literal topic fallback because no specialized rule matched",
-        }
+    warnings: list[str] = []
+    if len(merged) < 3:
+        warnings.append(
+            "The topic contract yielded fewer than three distinct queries; inspect scope fields before relying on coverage."
+        )
     return {
         "user_topic": topic,
         "user_keywords": user_keywords,
         "agent_keywords": agent,
         "merged_keywords": list(merged.values()),
+        "query_plan": {
+            "strategy": "topic_contract_dimensions",
+            "query_count": len(merged),
+            "warnings": warnings,
+        },
         "created_at": utc_now(),
     }
 
 
 def classify_keyword(keyword: str) -> str:
     low = keyword.lower()
-    if any(x in low for x in ["alcohol", "acetate", "carbonate", "phosphate", "sulfide", "bromide", "derivative", "dichloride"]):
-        return "substrate"
-    if any(x in low for x in ["catalysis", "copper", "nickel", "palladium", "photoredox"]):
-        return "catalyst_or_method"
-    if any(x in low for x in ["sn2", "rearrangement", "allenylation", "synthesis"]):
-        return "reaction_type"
-    if "allene" in low:
-        return "product"
-    return "reaction_type"
+    if any(x in low for x in ["review", "perspective", "guideline", "consensus"]):
+        return "document_scope"
+    if any(
+        x in low
+        for x in [
+            "operando", "in situ", "spectroscopy", "microscopy", "tomography",
+            "simulation", "modeling", "measurement", "evidence",
+        ]
+    ):
+        return "method_or_evidence"
+    if any(
+        x in low
+        for x in [
+            "mechanism", "failure", "degradation", "transport", "kinetic",
+            "impedance", "performance", "outcome",
+        ]
+    ):
+        return "mechanism_or_outcome"
+    return "user_query"
 
 
 STRUCTURED_TAG_WEIGHTS = {
@@ -362,12 +451,34 @@ def score_local_paper(
     keyword: str,
     topic_terms: list[str],
     classification_rules: dict[str, dict[str, list[str]]],
+    markdown_cache: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     matched_fields: list[str] = []
     matched_terms: list[str] = []
     reasons: list[str] = []
     raw = 0.0
     direct_raw = 0.0
+    title = str(field_value(meta.get("title"), "") or "")
+    abstract = str(field_value(meta.get("abstract"), "") or "")
+    source_paths = meta.get("source_paths") or {}
+    markdown_path = str(source_paths.get("markdown") or "")
+    cache = markdown_cache if markdown_cache is not None else {}
+    if markdown_path not in cache:
+        cache[markdown_path] = markdown_signal(meta) if markdown_path else ""
+    for field, text, weight in (
+        ("title", title, 5.0),
+        ("abstract", abstract, 3.2),
+        ("full_text", cache.get(markdown_path, ""), 1.6),
+    ):
+        score = match_score(keyword, text)
+        if score <= 0:
+            continue
+        contribution = score * weight
+        raw += contribution
+        direct_raw += contribution
+        matched_fields.append(field)
+        matched_terms.append(keyword)
+        reasons.append(f"{field} matched query")
     for field, weight in STRUCTURED_TAG_WEIGHTS.items():
         text = structured_tag_text(meta, field, classification_rules)
         s = match_score(keyword, text)
@@ -381,18 +492,7 @@ def score_local_paper(
         topic_hits = sum(1 for term in topic_terms if match_score(term, text) > 0)
         if topic_hits and s > 0:
             raw += min(topic_hits * 0.15, 0.9)
-    source_text = " ".join(
-        [
-            str(field_value(meta.get("title"), "")),
-            markdown_signal(meta),
-        ]
-    )
-    source_signal = match_score(keyword, source_text)
-    if source_signal > 0 and direct_raw > 0:
-        raw += min(source_signal * 0.8, 0.8)
-        reasons.append("source text confirms keyword")
     year = field_value(meta.get("year"))
-    source_paths = meta.get("source_paths") or {}
     normalized = min(round(raw / 8.0, 4), 1.0)
     if normalized >= 0.65:
         role = "core_candidate"
@@ -404,7 +504,7 @@ def score_local_paper(
         role = "uncertain"
     return {
         "paper_id": meta.get("paper_id"),
-        "title": field_value(meta.get("title"), ""),
+        "title": title,
         "authors": field_value(meta.get("authors"), []),
         "year": year,
         "journal": field_value(meta.get("journal")),
@@ -430,13 +530,25 @@ def local_search_by_keyword(
     classification_rules: dict[str, dict[str, list[str]]],
 ) -> list[dict[str, Any]]:
     topic_terms = tokenize(topic)
+    markdown_cache: dict[str, str] = {}
     grouped: list[dict[str, Any]] = []
     for kw in keywords:
         if not kw.get("keep", True):
             continue
         keyword = kw["keyword"]
-        results = [score_local_paper(meta, keyword, topic_terms, classification_rules) for meta in papers.values()]
-        results = [r for r in results if r["direct_raw_score"] >= 1.4 and r["score"] >= 0.12]
+        results = [
+            score_local_paper(
+                meta,
+                keyword,
+                topic_terms,
+                classification_rules,
+                markdown_cache,
+            )
+            for meta in papers.values()
+        ]
+        results = [
+            r for r in results if r["direct_raw_score"] >= 1.0 and r["score"] >= 0.12
+        ]
         results.sort(key=lambda r: (r["score"], r["raw_score"], r.get("year") or 0), reverse=True)
         grouped.append({"keyword": keyword, "category": kw.get("category"), "keep": True, "local_results": results})
     return grouped
@@ -516,9 +628,9 @@ def fetch_crossref_works(dois: list[str], batch_size: int = 20) -> list[dict[str
 
 
 def _crossref_query(keyword: str, topic: str) -> str:
-    if re.sub(r"\s+", " ", keyword).strip().lower() == re.sub(r"\s+", " ", topic).strip().lower():
-        return topic.strip()
-    return f"{keyword} {topic}".strip()
+    # Each planned keyword is already a complete query for one contract
+    # dimension. Appending the whole title over-constrains provider search.
+    return re.sub(r"\s+", " ", keyword).strip() or re.sub(r"\s+", " ", topic).strip()
 
 
 def crossref_item_to_result(
@@ -960,7 +1072,7 @@ def semantic_scholar_search(
     unauthenticated pool is shared and may be throttled.  Search is deliberately
     metadata-only; downloading and MinerU parsing are a separate explicit action.
     """
-    query = re.sub(r"[-–—]+", " ", f"{keyword} {topic}")
+    query = re.sub(r"[-–—]+", " ", keyword or topic)
     fields = ",".join(
         [
             "paperId",
@@ -1655,8 +1767,23 @@ def run(args: argparse.Namespace) -> int:
     project = review_root / "review-projects" / project_id
     out_dir = project / "00_discovery"
     out_dir.mkdir(parents=True, exist_ok=True)
+    discovery_run_id = (
+        datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        + f"-{os.getpid()}"
+    )
+    in_progress_path = out_dir / ".discovery_in_progress.json"
+    write_json(
+        in_progress_path,
+        {
+            "project_id": project_id,
+            "discovery_run_id": discovery_run_id,
+            "started_at": utc_now(),
+            "status": "in_progress",
+        },
+    )
     topic_contract = {
         "workflow_contract_version": 2,
+        "discovery_run_id": discovery_run_id,
         "topic": topic,
         "central_question": central_question,
         "important_coverage": important_coverage,
@@ -1694,10 +1821,11 @@ def run(args: argparse.Namespace) -> int:
     topic_lines.extend(["", "## User keywords", ""])
     topic_lines.extend(f"- {kw}" for kw in user_keywords)
     (out_dir / "topic_input.md").write_text("\n".join(topic_lines).rstrip() + "\n", encoding="utf-8")
-    keyword_set = build_keyword_set(topic, user_keywords)
+    keyword_set = build_keyword_set(topic, user_keywords, topic_contract)
+    keyword_set["discovery_run_id"] = discovery_run_id
     write_json(out_dir / "keyword_set.draft.json", keyword_set)
     papers = load_metadata(review_root)
-    classification_rules = load_classification_rules(review_root)
+    classification_rules = load_classification_rules(review_root, topic)
     local_grouped = local_search_by_keyword(papers, keyword_set["merged_keywords"], topic, classification_rules)
     write_json(out_dir / "local_results_by_keyword.json", {"project_id": project_id, "results": local_grouped})
     provider_explicit = bool(
@@ -1929,6 +2057,7 @@ def run(args: argparse.Namespace) -> int:
         topic_contract=topic_contract,
     )
     selected["project_id"] = project_id
+    selected["discovery_run_id"] = discovery_run_id
     selected["candidate_paper_ids"] = [row["paper_id"] for row in selected.get("local_papers", [])]
     selected["topic_contract"] = topic_contract
     selected["screening"] = {
@@ -1950,10 +2079,13 @@ def run(args: argparse.Namespace) -> int:
     ]
     selected["human_confirmed"] = False
     write_json(out_dir / "selected_discovery_results.json", selected)
-    write_json(
-        out_dir / "external_ingest_plan.json",
-        build_external_ingest_plan(project_id, selected.get("web_papers", []), external_requested),
+    ingest_plan = build_external_ingest_plan(
+        project_id,
+        selected.get("web_papers", []),
+        external_requested,
     )
+    ingest_plan["discovery_run_id"] = discovery_run_id
+    write_json(out_dir / "external_ingest_plan.json", ingest_plan)
     write_json(
         out_dir / "human_check_state.json",
         {
@@ -1963,6 +2095,7 @@ def run(args: argparse.Namespace) -> int:
         },
     )
     write_report(out_dir, topic, keyword_set, combined)
+    in_progress_path.unlink(missing_ok=True)
     print(f"Discovery project: {project}")
     print(f"Keyword set: {out_dir / 'keyword_set.draft.json'}")
     print(f"Discovery review: http://127.0.0.1:8765/discovery")

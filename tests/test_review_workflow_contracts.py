@@ -534,7 +534,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         self.assertEqual(paper["structured_tags"]["catalyst_or_method"], "nickel catalysis")
         self.assertEqual(paper["source_paths"]["markdown"], "paper.md")
 
-    def test_discovery_uses_literal_topic_fallback_outside_allene_domain(self) -> None:
+    def test_discovery_builds_generic_contract_queries_outside_allene_domain(self) -> None:
         sys.path.insert(0, str(DISCOVER.parent))
         try:
             spec = importlib.util.spec_from_file_location("review_discover_fallback", DISCOVER)
@@ -545,12 +545,33 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         finally:
             sys.path.pop(0)
         topic = "Covalent organic frameworks for photocatalytic carbon dioxide reduction"
-        keyword_set = module.build_keyword_set(topic, [])
-        self.assertEqual(keyword_set["agent_keywords"], [])
-        self.assertEqual(keyword_set["merged_keywords"][0]["keyword"], topic)
-        self.assertEqual(keyword_set["merged_keywords"][0]["source"], ["topic_fallback"])
+        keyword_set = module.build_keyword_set(
+            topic,
+            [],
+            {
+                "manuscript_title": topic,
+                "central_question": "Which framework structures control activity and selectivity?",
+                "important_coverage": [
+                    "Linker and node chemistry in carbon dioxide reduction.",
+                    "Operando evidence for charge transfer and reaction intermediates.",
+                ],
+            },
+        )
+        self.assertGreaterEqual(len(keyword_set["agent_keywords"]), 3)
+        self.assertEqual(
+            keyword_set["merged_keywords"][0]["category"],
+            "core_topic",
+        )
+        self.assertNotIn(
+            "topic_fallback",
+            {
+                source
+                for row in keyword_set["merged_keywords"]
+                for source in row["source"]
+            },
+        )
 
-    def test_sulfide_does_not_trigger_propargylic_rules(self) -> None:
+    def test_sulfide_topic_gets_generic_queries_not_allene_categories(self) -> None:
         sys.path.insert(0, str(DISCOVER.parent))
         try:
             spec = importlib.util.spec_from_file_location("review_discover_domain", DISCOVER)
@@ -563,12 +584,152 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
         solid = module.infer_keywords(
             "Interphase chemistry at sulfide solid-electrolyte and lithium-metal interfaces",
             [],
+            {
+                "important_coverage": [
+                    "Argyrodite and LGPS cathode interfaces and contact loss.",
+                    "Lithium-metal interphases, voiding, dendrites, and pressure.",
+                ]
+            },
         )
-        self.assertEqual(solid, [])
-        propargylic = module.infer_keywords("Allene synthesis from propargylic sulfides", [])
+        self.assertGreaterEqual(len(solid), 3)
+        self.assertTrue(
+            all(
+                row["category"]
+                in {"core_topic", "coverage", "mechanism_or_outcome", "scope"}
+                for row in solid
+            )
+        )
+        self.assertEqual(
+            module.classify_keyword("sulfide solid electrolyte interface"),
+            "user_query",
+        )
+
+    def test_markdown_topic_contract_accepts_common_headings_and_continuations(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_contract", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        path = self.root / "topic_input.md"
+        path.write_text(
+            "\n".join(
+                [
+                    "# Review Topic",
+                    "## Manuscript Title",
+                    "Interfaces in sulfide batteries",
+                    "## Important Coverage",
+                    "- Cathode interfaces, including coatings,",
+                    "  contact loss, and transport.",
+                    "- Lithium-metal interphases.",
+                    "## Inclusion",
+                    "Include primary interface studies with full text.",
+                    "## Exclusion",
+                    "Exclude liquid-only systems.",
+                ]
+            ),
+            encoding="utf-8",
+        )
+        contract = module.load_topic_contract_file(str(path))
+        self.assertEqual(
+            contract["important_coverage"][0],
+            "Cathode interfaces, including coatings, contact loss, and transport.",
+        )
+        self.assertEqual(
+            contract["inclusion_criteria"],
+            ["Include primary interface studies with full text."],
+        )
+        self.assertEqual(
+            contract["exclusion_criteria"],
+            ["Exclude liquid-only systems."],
+        )
+
+    def test_generic_local_retrieval_does_not_require_chemistry_tags(self) -> None:
+        sys.path.insert(0, str(DISCOVER.parent))
+        try:
+            spec = importlib.util.spec_from_file_location("review_discover_local", DISCOVER)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+        finally:
+            sys.path.pop(0)
+        papers = {
+            "P900": {
+                "paper_id": "P900",
+                "title": {"value": "Operando imaging of lithium metal void formation"},
+                "abstract": {
+                    "value": "Pressure-dependent contact loss at a solid electrolyte interface."
+                },
+                "structured_tags": {
+                    key: "not specified" for key in module.STRUCTURED_TAG_KEYS
+                },
+                "source_paths": {},
+            }
+        }
+        grouped = module.local_search_by_keyword(
+            papers,
+            [
+                {
+                    "keyword": "lithium metal void formation",
+                    "category": "mechanism_or_outcome",
+                    "keep": True,
+                }
+            ],
+            "solid-state battery interfaces",
+            {key: {} for key in module.STRUCTURED_TAG_KEYS},
+        )
+        self.assertEqual(
+            [row["paper_id"] for row in grouped[0]["local_results"]],
+            ["P900"],
+        )
+        self.assertIn("title", grouped[0]["local_results"][0]["matched_fields"])
+
+    def test_external_ingest_rejects_in_progress_or_mixed_discovery_runs(self) -> None:
+        discovery = (
+            self.root
+            / "review-projects"
+            / self.project_id
+            / "00_discovery"
+        )
+        discovery.mkdir(parents=True, exist_ok=True)
+        write_json(
+            discovery / ".discovery_in_progress.json",
+            {"discovery_run_id": "run-active"},
+        )
+        active = run(
+            EXTERNAL_INGEST,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+        )
+        self.assertNotEqual(active.returncode, 0)
+        self.assertIn("Discovery is still in progress", active.stdout + active.stderr)
+
+        (discovery / ".discovery_in_progress.json").unlink()
+        write_json(
+            discovery / "external_ingest_plan.json",
+            {"discovery_run_id": "run-plan", "items": []},
+        )
+        write_json(
+            discovery / "selected_discovery_results.json",
+            {"discovery_run_id": "run-selected"},
+        )
+        mixed = run(
+            EXTERNAL_INGEST,
+            "--review-root",
+            self.root,
+            "--project-id",
+            self.project_id,
+        )
+        self.assertNotEqual(mixed.returncode, 0)
         self.assertIn(
-            "propargylic sulfinates and sulfonates",
-            [row["keyword"] for row in propargylic],
+            "Discovery outputs come from different runs",
+            mixed.stdout + mixed.stderr,
         )
 
     def test_crossref_query_and_editorial_filter_are_unbiased(self) -> None:
@@ -601,6 +762,7 @@ class ReviewWorkflowContractsTest(unittest.TestCase):
             rows = module.web_search("PET enzymatic depolymerization", "PET recycling", 8)
         query = search.call_args.args[0]
         self.assertNotIn("review paper DOI", query)
+        self.assertEqual(query, "PET enzymatic depolymerization")
         self.assertEqual([row["doi"] for row in rows], ["10.1000/article"])
         self.assertNotIn("example@example.com", module.CROSSREF_USER_AGENT)
 

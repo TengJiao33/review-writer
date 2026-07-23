@@ -1,4 +1,4 @@
 interface:
   display_name: "Topic Paper Discovery"
-  short_description: "Retrieve and screen papers for a review topic."
-  default_prompt: "Use $review-topic-paper-discovery to search the local library, screen candidates against the review question, and record the relevance decision."
+  short_description: "Plan, retrieve, and screen review evidence across domains."
+  default_prompt: "Use $review-topic-paper-discovery to derive queries from the topic contract, search local and external sources, and record screening decisions."

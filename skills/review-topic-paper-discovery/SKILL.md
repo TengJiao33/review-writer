@@ -1,6 +1,6 @@
 ---
 name: review-topic-paper-discovery
-description: Start a review project, retrieve candidates from local and external sources, acquire lawful full text, and record topic-based screening decisions.
+description: Start a review project in any scholarly domain, derive a bounded query plan from its topic contract, retrieve candidates from local and external sources, acquire lawful full text, and record topic-based screening decisions.
 ---
 
 # Review Topic Paper Discovery
@@ -16,6 +16,8 @@ Keep the full project scope in one `topic_contract.json` or structured Markdown 
 ```json
 {
   "topic": "...",
+  "manuscript_title": "...",
+  "retrieval_query": "... optional concise query ...",
   "review_profile": "focused | comprehensive",
   "central_question": "...",
   "important_coverage": ["..."],
@@ -26,7 +28,7 @@ Keep the full project scope in one `topic_contract.json` or structured Markdown 
 
 Use `focused` for a deliberately bounded question and `comprehensive` for a broad field or process-chain review. The profile supplies depth expectations and risk signals; it does not prescribe the outline or force filler. QoderWork must not downgrade the profile or narrow the promised scope without explicit user approval.
 
-Criteria may define materials, methods, populations, outcomes, periods, or evidence types. A subject named as mandatory in the exclusion criteria becomes a retrieval prerequisite.
+Criteria may define materials, methods, populations, outcomes, periods, or evidence types. Markdown headings `Inclusion`/`Exclusion` and `Inclusion Criteria`/`Exclusion Criteria` are equivalent; continued lines belong to the preceding bullet. A subject named as mandatory in the exclusion criteria becomes a retrieval prerequisite.
 
 ## Retrieval
 
@@ -41,7 +43,9 @@ python skills/review-topic-paper-discovery/scripts/discover.py \
 
 With `--topic`, pass a retrieval query. Explicit CLI values override the matching fields in the topic file.
 
-Local retrieval uses these structured tags:
+Local retrieval primarily uses title, abstract, managed full text, and any
+available structured metadata. Older chemistry records may additionally use
+these legacy structured tags:
 
 ```text
 product
@@ -54,11 +58,21 @@ reaction_type
 document_scope
 ```
 
-Keyword expansion follows the topic contract. Ranking aggregates matches across the contract and keyword categories. Generic words such as `catalysis` or `synthesis` are insufficient grounds for adding a material or method.
+Query planning is domain-independent. It creates a compact core query and
+bounded queries from the declared coverage, central question, and inclusion
+scope. User queries remain authoritative. Do not manually traverse unrelated
+workspace files to compensate for a weak plan; inspect
+`keyword_set.draft.json.query_plan.warnings` and improve the topic contract or
+the shared planner. Never add a topic-specific vocabulary to the shared
+discoverer.
+
+Ranking aggregates direct title, abstract, full-text, structured-metadata, and
+contract matches. Domain-specific classification rules are optional adapters
+and load only when their named domain occurs in the topic.
 
 The default external path uses Crossref and deposited-reference expansion. Add `--semantic-scholar-search` for Semantic Scholar enrichment, `--sciatlas-search` for a configured SciAtlas service, or `--local-only` for an explicitly bounded offline run. Provider status in `web_results_by_keyword.json` records attempted queries, returned and retained records, and errors separately.
 
-Crossref supplies DOI metadata, licensed full-text locations, and deposited references. The search filters components, supplementary records, peer-review reports, decisions, author responses, and versioned copies before ranking. Reference expansion uses up to two close reviews or guidelines and retains up to 30 topic-relevant references by default. `--external-query-limit` defaults to six expanded keywords.
+Crossref supplies DOI metadata, licensed full-text locations, and deposited references. Each planned query is sent as a complete query; the manuscript title is not appended to every dimension. The search filters components, supplementary records, peer-review reports, decisions, author responses, and versioned copies before ranking. Reference expansion uses up to two close reviews or guidelines and retains up to 30 topic-relevant references by default. `--external-query-limit` defaults to six planned queries.
 
 Use one or two close reviews or perspectives to check missing method families, seminal papers, and search terms. Record useful findings and known gaps in `coverage_calibration.json`. Bound field-wide claims when this comparison remains weak.
 
@@ -69,6 +83,10 @@ use_local
 download_then_mineru
 locate_pdf
 ```
+
+Discovery writes an in-progress marker while rebuilding its outputs. Do not
+start ingestion until the marker is gone. The importer rejects mixed run IDs,
+so a rerun cannot silently combine a new selection with an older plan.
 
 ## Full-text ingestion
 
