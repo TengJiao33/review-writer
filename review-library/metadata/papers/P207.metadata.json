@@ -7,20 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Kevin N. Wood",
-      "K. Xerxes Steirer",
-      "Simon E. Hafner",
-      "Chunmei Ban",
-      "Shriram Santhanagopalan",
-      "Se-Hee Lee",
-      "Glenn Teeter"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2018,
     "source": "filename_or_front_matter",

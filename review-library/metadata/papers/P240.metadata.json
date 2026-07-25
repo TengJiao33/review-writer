@@ -7,16 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Saqib Javed",
-      "Jonas Fisse",
-      "Dieter Vogt"
-    ],
-    "source": "jats_contrib_group",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2023,
     "source": "jats_pub_date",

@@ -235,10 +235,14 @@ def audit(docx_path: Path, markdown_path: Path | None, render_qa: str = "not_run
     if reference_heading_index is None:
         blockers.append("References heading is missing")
     elif not any(
-        paragraph._p.pPr is not None and paragraph._p.pPr.numPr is not None
+        (
+            paragraph._p.pPr is not None
+            and paragraph._p.pPr.numPr is not None
+        )
+        or re.match(r"^\d+\.\s+\S", paragraph.text.strip())
         for paragraph in document.paragraphs[reference_heading_index + 1 :]
     ):
-        blockers.append("References are not represented by real Word numbering")
+        blockers.append("References are not visibly numbered")
 
     return {
         "docx_path": str(docx_path),

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Writing Tools"
+  short_description: "Search the library and inspect review progress."
+  default_prompt: "Use $review-writing-tools as a lightweight toolbox for searching the managed library, inspecting the manuscript, and choosing the next useful writing action."

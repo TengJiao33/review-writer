@@ -7,12 +7,40 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Zhaoqiang",
+      "family": "Chen"
+    },
+    {
+      "given": "Huanan",
+      "family": "Wang"
+    },
+    {
+      "given": "Ping",
+      "family": "Du"
+    },
+    {
+      "given": "Jiaao",
+      "family": "Zhao"
+    },
+    {
+      "given": "Xue",
+      "family": "Zhang"
+    },
+    {
+      "given": "Hui",
+      "family": "Qian"
+    },
+    {
+      "given": "Junliang",
+      "family": "Zhang"
+    },
+    {
+      "given": "and Shengming",
+      "family": "Ma"
+    }
+  ],
   "year": {
     "value": 2025,
     "source": "filename_or_front_matter",

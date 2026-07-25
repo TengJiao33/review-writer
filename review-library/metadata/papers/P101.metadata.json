@@ -7,27 +7,25 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Pierre H. Dixneuf",
-      "Thierry Guyot",
-      "Mark D. Nessb and Stanley M. Roberts UMR CNRS",
-      "Universite de Rennes I",
-      "Laboratoire de Chimie de Coordination et Catalyse",
-      "Campus de Beaulieu",
-      "´ Rennes",
-      "France"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2013,
-    "source": "targeted_fix",
-    "confidence": 0.75,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Pierre H.",
+      "family": "Dixneuf"
+    },
+    {
+      "given": "Thierry",
+      "family": "Guyot"
+    },
+    {
+      "given": "Mark D.",
+      "family": "Ness"
+    },
+    {
+      "given": "Stanley M.",
+      "family": "Roberts"
+    }
+  ],
+  "year": "1997",
   "journal": {
     "value": "Organic Letters",
     "source": "targeted_fix",

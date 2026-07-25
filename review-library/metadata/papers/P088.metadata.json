@@ -7,12 +7,16 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Organocatalytic",
+      "family": "Tandem"
+    },
+    {
+      "given": "Chiral",
+      "family": "Hexacycli"
+    }
+  ],
   "year": {
     "value": 2023,
     "source": "filename_or_front_matter",
@@ -26,10 +30,10 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/acs.orglett.3c02476",
+    "source": "pdf_extraction",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "A novel chiral phosphoric acid-catalyzed tandem regioselective 1,6-addition/double intramolecular nucleophilic addition annulation of the propargylic 3-methyleneindoles in situ generated from α-indolyl propargylic alcohols with 2-indolylmethanols has been developed. The methodology afforded the new chiral trifluoromethyl pentalenobisindoles bearing an all-carbon quaternary stereogenic center in generally good yields with excellent enantioselectivities. ![](../extracted/org.-lett.-2023-25-6654/images/0a71faea0849bae99c1ac3046a81c63f4d94fd59f30a6e3af17e8e8392b41305.jpg) <details> <summary>chemical</summary> Chemical reaction scheme showing synthesis of a substituted tetrahydroquinoline derivative using hexafluorobenzene under CPA conditions </details> B isindole scaffolds are commonly found in various natural1 products that exhibit intriguing biological activities, in which two indole units can be incorporated into fused or open systems. Bisindole alkaloids, in particular, have been a subject of significant attention due to their highly potent biological properties in comparison to monoindole alkaloids.2 On the other hand, pentaleno bisindole compounds have great potential in the field of materials chemistry, especially as liquid crystalline indole materials.3 However, to date, the methods of constructing the pentaleno bisindole skeletons are rather limited, which was prepared by a 2-fold Fischer indole cyclization process that demands the use of stoichiometric amounts of Lewis acid.4 Therefore, it has become an important task to design energy-efficient and “green” catalytic methods that employ easily accessible substrates to synthesize these complex polycyclic bisindole structures. The 2-indolylmethanols have proven to be highly versatile platform molecules in the construction of chiral indole-based scaffolds. These molecules have been effectively employed in catalytic asymmetric C3-electrophilic substitutions, C3-nucleophilicity, and cycloadditions.5 At the same time, the versatility of propargylic alcohols in constructing polycyclic compounds is undeniable.6 However, the majority of reactions result in racemic products due to the difficulty in controlling the stereochemistry of propargylic carbocation species formed in situ from propargylic alcohols. To overcome this challenge, researchers have installed directing groups on propargylic alcohols to generate new reactive intermediates through efficient dehydration. Recent studies have reported the successful construction of axially chiral tetrasubstituted allenes and enantioenriched polycyclic compounds using propargylic (aza)-p-quinone methides7 and propargylic N-acyl imines8 (Scheme 1a). Moreover, propargylic 3-methyleneindoles have been widely used in asymmetric conjugate addition with diverse nucleophiles to construct axially chiral tetrasubstituted allenes due to their excellent electrophilicity (Scheme 1b).9",

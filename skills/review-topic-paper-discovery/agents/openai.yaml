@@ -1,4 +1,4 @@
 interface:
   display_name: "Topic Paper Discovery"
-  short_description: "Plan, retrieve, and screen review evidence across domains."
-  default_prompt: "Use $review-topic-paper-discovery to derive queries from the topic contract, search local and external sources, and record screening decisions."
+  short_description: "Find, acquire, parse, and register lawful full text."
+  default_prompt: "Use $review-topic-paper-discovery to search local and external sources, acquire lawful full text, run MinerU when needed, and add useful papers to the managed library."

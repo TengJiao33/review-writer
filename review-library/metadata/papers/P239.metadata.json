@@ -7,17 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Julio Cesar Soares Sales",
-      "Aline Machado de Castro",
-      "Bernardo Dias Ribeiro",
-      "Maria Alice Zarur Coelho"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "jats_pub_date",

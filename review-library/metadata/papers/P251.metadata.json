@@ -1,0 +1,97 @@
+{
+  "paper_id": "P251",
+  "slug": "web-imports-2025-revealing-the-neglected-role-of-pass-ma-202513090",
+  "title": {
+    "value": "Revealing the Neglected Role of Passivation Layers of Current Collectors for Solid-State Anode-Free Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202513090",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Anode-free sulfide-based all-solid-state lithium metal batteries (ASSLMBs), which eliminate the need for a lithium metal anode during fabrication, offer superior energy density, enhanced safety, and simplified manufacturing. Their performance is largely influenced by the interfacial properties of the current collectors. Although previous studies have investigated the degradation of sulfide electrolytes on commonly used copper (Cu) and stainless steel (SS) current collectors, the impact of spontaneously formed surface oxides, such as copper oxide (Cu<sub>2</sub>O/CuO) and chromium oxide (Cr<sub>2</sub>O<sub>3</sub>), on interfacial stability remains underexplored. This study systematically evaluates the neglected role of passivation layers of both Cu and SS. Results demonstrate that Cu facilitates more stable lithium deposition. Electrochemical impedance spectroscopy (EIS) reveals that interfacial resistance on SS is consistently higher than on Cu during cycling. In-situ X-ray absorption spectroscopy (XAS) and computational modelling confirm the formation of phosphate (PO<sub>4</sub> <sup>3-</sup>) and sulfate (SO<sub>4</sub> <sup>2-</sup>) species at both interfaces, attributed to",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-revealing-the-neglected-role-of-pass-ma-202513090.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-revealing-the-neglected-role-of-pass-ma-202513090.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-the-neglected-role-of-pass-ma-202513090\\web-imports-2025-revealing-the-neglected-role-of-pass-ma-202513090_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-the-neglected-role-of-pass-ma-202513090"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 34,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

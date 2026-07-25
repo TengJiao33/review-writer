@@ -7,16 +7,16 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Yuli Wang",
-      "Wanli Zhanga and Shengming $M ^ { star",
-      "}$ Received th May"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Yuli",
+      "family": "Wang"
+    },
+    {
+      "given": "Wanli Zhanga and Shengming $M ^ {",
+      "family": "star"
+    }
+  ],
   "year": {
     "value": 2014,
     "source": "filename_or_front_matter",

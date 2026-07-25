@@ -7,12 +7,28 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Jiayin",
+      "family": "Zhang"
+    },
+    {
+      "given": "Xihao",
+      "family": "Chang"
+    },
+    {
+      "given": "Xianghong",
+      "family": "Xu"
+    },
+    {
+      "given": "Hongyi",
+      "family": "Wang"
+    },
+    {
+      "given": "Lingzi Peng & Chang",
+      "family": "Guo"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "filename_or_front_matter",

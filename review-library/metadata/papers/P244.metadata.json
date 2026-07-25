@@ -1,0 +1,97 @@
+{
+  "paper_id": "P244",
+  "slug": "web-imports-2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235",
+  "title": {
+    "value": "Li, Na, K, Mg, Zn, Al, and Ca Anode Interface Chemistries Developed by Solid-State Electrolytes.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2023,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202304235",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Solid-state batteries (SSBs) have received significant attention due to their high energy density, reversible cycle life, and safe operations relative to commercial Li-ion batteries using flammable liquid electrolytes. This review presents the fundamentals, structures, thermodynamics, chemistries, and electrochemical kinetics of desirable solid electrolyte interphase (SEI) required to meet the practical requirements of reversible anodes. Theoretical and experimental insights for metal nucleation, deposition, and stripping for the reversible cycling of metal anodes are provided. Ion transport mechanisms and state-of-the-art solid-state electrolytes (SEs) are discussed for realizing high-performance cells. The interface challenges and strategies are also concerned with the integration of SEs, anodes, and cathodes for large-scale SSBs in terms of physical/chemical contacts, space-charge layer, interdiffusion, lattice-mismatch, dendritic growth, chemical reactivity of SEI, current collectors, and thermal instability. The recent innovations for anode interface chemistries developed by SEs are highlighted with monovalent (lithium (Li<sup>+</sup> ), sodium (Na<sup>+</sup> ), potassium (K<",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235\\web-imports-2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-li-na-k-mg-zn-al-and-ca-anode-interf-vs-202304235"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:28Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 227,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

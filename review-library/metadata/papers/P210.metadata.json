@@ -7,20 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Jiangfeng Qian",
-      "Wesley A. Henderson",
-      "Wu Xu",
-      "Priyanka Bhattacharya",
-      "Mark Engelhard",
-      "Oleg Borodin",
-      "Ji-Guang Zhang"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2015,
     "source": "filename_or_front_matter",

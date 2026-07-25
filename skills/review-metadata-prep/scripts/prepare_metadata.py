@@ -310,7 +310,10 @@ def block_texts(blocks: list[dict[str, Any]], max_page: int = 1) -> list[str]:
     for block in blocks:
         if not isinstance(block, dict):
             continue
-        if block.get("page_idx", 999) > max_page:
+        page_index = block.get("page_idx")
+        if not isinstance(page_index, int):
+            page_index = 999
+        if page_index > max_page:
             continue
         if block.get("type") not in {"text", "list", "table", "image", "chart"}:
             continue

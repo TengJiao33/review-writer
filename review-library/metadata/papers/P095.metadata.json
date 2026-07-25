@@ -7,17 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Hirohisa Ohmiya",
-      "Umi Yokobori",
-      "Yusuke Makida",
-      "Masaya Sawamura"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Hirohisa",
+      "family": "Ohmiy"
+    },
+    {
+      "given": "Umi",
+      "family": "Yokobori"
+    },
+    {
+      "given": "Yusuke",
+      "family": "Maki"
+    },
+    {
+      "given": "Masaya",
+      "family": "Sawamur"
+    }
+  ],
   "year": {
     "value": 2005,
     "source": "filename_or_front_matter",

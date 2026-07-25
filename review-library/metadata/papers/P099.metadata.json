@@ -7,17 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Koji Kobayashi",
-      "Hiroshi Naka",
-      "Andrew E. H. Wheatley",
-      "Yoshinori Kondo"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Koji",
+      "family": "Kobayashi"
+    },
+    {
+      "given": "Hiroshi",
+      "family": "Naka"
+    },
+    {
+      "given": "Andrew E. H.",
+      "family": "Wheatley"
+    },
+    {
+      "given": "Yoshinori",
+      "family": "Kondo"
+    }
+  ],
   "year": {
     "value": 2008,
     "source": "filename_or_front_matter",

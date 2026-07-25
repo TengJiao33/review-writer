@@ -1,0 +1,98 @@
+{
+  "paper_id": "P249",
+  "slug": "web-imports-2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033",
+  "title": {
+    "value": "NCM811-Sulfide Electrolyte Interfacial Degradation Mechanisms and Regulation Strategies in All-Solid-State Lithium Battery.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemsuschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.202501033",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The all-solid-state lithium battery (ASSLB) with LiNi<sub>0.8</sub>Co<sub>0.1</sub>Mn<sub>0.1</sub>O<sub>2</sub> (NCM811) cathode and sulfide solid-state electrolyte (SSE) represents a transformative technology, offering enhanced safety and high energy density through the complete elimination of flammable liquid electrolyte and enabling the lithium metal anode. However, its commercialization is fundamentally limited by complex instabilities at the NCM811/sulfide SSE interface, which trigger coupled mechanical, chemical, and electrochemical degradation. The solid/solid interface creates complex dynamic feedback loops: mechanical stress from anisotropic volume changes accelerates interfacial chemical reactions; chemical degradation progressively alters electrochemical behavior; and continuous electrochemical cycling induces further mechanical instability. This multiscale coupling manifests as progressive contact loss, microcracks, detrimental space charge layer, and impedance growth, which collectively compromise performance under demanding conditions. This review establishes a coherent mechanistic framework to understand these highly interdependent degradation pathways, and systemat",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033\\web-imports-2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-ncm811-sulfide-electrolyte-interfaci-sc-202501033"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:28Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 99,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

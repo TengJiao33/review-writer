@@ -7,18 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Ren Wei",
-      "Peter Westh",
-      "Gert Weber",
-      "Lars M. Blank",
-      "Uwe T. Bornscheuer"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2025,
     "source": "filename_or_front_matter",

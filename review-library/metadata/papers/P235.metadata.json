@@ -7,21 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Dominik Danso",
-      "Christel Schmeisser",
-      "Jennifer Chow",
-      "Wolfgang Zimmermann",
-      "Ren Wei",
-      "Christian Leggewie",
-      "Xiangzhen Li",
-      "Terry Hazen"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2018,
     "source": "jats_pub_date",

@@ -1,0 +1,98 @@
+{
+  "paper_id": "P252",
+  "slug": "web-imports-2025-review-on-cathode-electrolyte-interp-vs-202517032",
+  "title": {
+    "value": "Review on Cathode-Electrolyte Interphase for Stabilizing Interfaces in Solid-State Lithium Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202517032",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Solid-state lithium batteries (SSLBs) hold great promise for improving battery safety and achieving higher energy density. Nevertheless, the matching diversity between solid-state electrolytes (SEs) and the paired high-voltage cathodes complicate to understand the formation and failure mechanisms of cathode-electrolyte interphase (CEI). Furthermore, the structural degradation of cathodes and the electrochemical decomposition of SEs during cycling continuously reconfigure the CEI and alter the CEI composition and structure, adding further complexity to its analysis. The limited understanding of these processes hinders the development of effective strategies to address persistent cathode-electrolyte interfacial issues (e.g., high interfacial impedance and contact loss) that shorten SSLB lifetime. A prerequisite for overcoming these challenges is to establish a comprehensive knowledge of CEI properties, which remains elusive and is often underestimated. Therefore, this review provides a comprehensive overview of the mechanisms governing CEI formation and failure, elucidating the complex nature of the interphase. Key challenges related to interfacial stability are discussed in detail,",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-review-on-cathode-electrolyte-interp-vs-202517032.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-review-on-cathode-electrolyte-interp-vs-202517032.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-review-on-cathode-electrolyte-interp-vs-202517032\\web-imports-2025-review-on-cathode-electrolyte-interp-vs-202517032_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-review-on-cathode-electrolyte-interp-vs-202517032"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 107,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "paper_id": "P248",
+  "slug": "web-imports-2025-irreducible-solid-electrolytes-new-p-lett-5c02289",
+  "title": {
+    "value": "Irreducible Solid Electrolytes: New Perspectives on Stabilizing High-Capacity Anodes in Solid-State Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Energy Letters",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsenergylett.5c02289",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Irreducible solid electrolytes (SEs), characterized by non-Li framework ions in their lowest oxidation states, offer intrinsic compatibility with low-reduction-potential, high-capacity negative electrodes, such as lithium metal and silicon. In these SE materials, disorder engineering and vacancy formation reduce lithium-ion diffusion barriers, achieving room-temperature ionic conductivities exceeding 0.1 mS cm<sup>-1</sup>. Experiments and atomistic simulations confirm that irreducible SEs form decomposition-free interfaces with Li metal. Their limited oxidative stability can be addressed by pairing them with an electrolyte layer stable with practical cathodes yet demanding interface compatibility between the two electrolyte layers. Here we highlight key research directions to accelerate irreducible SE transition from laboratory to practical application, including expanding compositional diversity, optimizing interfaces with cathode-facing electrolytes, developing scalable thin-film processing, and exploring compatibility with other low working potential anodes like silicon. Addressing these challenges is essential to unlock the full potential of irreducible SEs for high-energy, lo",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-irreducible-solid-electrolytes-new-p-lett-5c02289.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-irreducible-solid-electrolytes-new-p-lett-5c02289.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-irreducible-solid-electrolytes-new-p-lett-5c02289\\web-imports-2025-irreducible-solid-electrolytes-new-p-lett-5c02289_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-irreducible-solid-electrolytes-new-p-lett-5c02289"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:28Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 40,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

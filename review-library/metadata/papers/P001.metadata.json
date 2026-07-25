@@ -7,17 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Chuan Wu",
-      "Li-Rong Han",
-      "Jin-Song Hou",
-      "Qing-Han Li"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Chuan",
+      "family": "Wu"
+    },
+    {
+      "given": "Li-Rong",
+      "family": "Han"
+    },
+    {
+      "given": "Jin-Song",
+      "family": "Hou"
+    },
+    {
+      "given": "Qing-Han",
+      "family": "Li"
+    }
+  ],
   "year": {
     "value": 2024,
     "source": "markdown_extraction",

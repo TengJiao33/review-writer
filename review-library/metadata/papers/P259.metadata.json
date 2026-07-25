@@ -1,0 +1,98 @@
+{
+  "paper_id": "P259",
+  "slug": "web-imports-2026-exploring-stacking-pressure-induced-9-d5sc09321j",
+  "title": {
+    "value": "Exploring stacking pressure-induced mechanical failure of a Ni-rich cathode in sulfide solid-state batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc09321j",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "All-solid-state lithium batteries (ASSLBs) employing Ni-rich layered oxide cathodes (NRLOs) and sulfide solid-state electrolytes (SSEs) demonstrate high energy density and enhanced safety. However, the impact of stacking pressure on the mechanical failure of NRLOs is not well understood. This study systematically investigates the effect of stacking pressure on the chemo-mechanical degradation of NRLOs in sulfide ASSLBs separately with lithium indium (LiIn) and zero-strain lithium titanate (LTO) as anodes. Through multi-dimensional characterization and electrochemical testing, it is demonstrated that increased stacking pressure compresses interfacial voids and reduces lithium-ion transport resistance, significantly enhancing the performance of sulfide ASSLBs. Nevertheless, excessive stacking pressure induces significant stress concentration during cycling, exacerbating lattice distortion, oxygen release, and the decomposition of the sulfide SSE. These effects contribute to fragmentation of NRLO particles and interlayer cracking of electrodes, ultimately leading to severe capacity fade and increased impedance. The findings provide critical insights for optimizing stacking pressure in",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-exploring-stacking-pressure-induced--9-d5sc09321j.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-exploring-stacking-pressure-induced-9-d5sc09321j.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-exploring-stacking-pressure-induced-9-d5sc09321j\\web-imports-2026-exploring-stacking-pressure-induced-9-d5sc09321j_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-exploring-stacking-pressure-induced-9-d5sc09321j"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 49,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

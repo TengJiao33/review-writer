@@ -1,0 +1,99 @@
+{
+  "paper_id": "P243",
+  "slug": "web-imports-2025-maximizing-areal-capacity-in-all-sol-sami-5c12376",
+  "title": {
+    "value": "Maximizing Areal Capacity in All-Solid-State Li-Ion Batteries Using Single Crystalline Ni-Rich Cathodes and Bromide-Based Argyrodite Solid Electrolytes Under Optimized Stack Pressure",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Applied Materials &amp; Interfaces",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsami.5c12376",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract All-solid-state lithium-ion batteries (ASSLBs) are a promising next-generation energy storage technology for their enhanced safety and high energy density. In this study, we develop high-performance ASSLBs utilizing a Ni-rich single-crystalline NCM811 (SC-NCM811) cathode and a Li 6 PS 5 Br argyrodite solid electrolyte. By optimizing the cathode material and stack pressure, we demonstrate an exceptional areal capacity exceeding 4 mAh/cm 2 with a high cathode loading of ∼21 mg/cm 2. Electrochemical performance comparisons between SC-NCM811 and polycrystalline NCM811 (PC-NCM811) reveal the superior capacity retention and rate performance of SC-NCM811-based ASSLBs, particularly at an optimized stack pressure. Our findings underscore the potential of SC-NCM811 as a highly efficient cathode material for next-generation ASSLBs, offering both increased energy density and operational safety. This work highlights the importance of cathode engineering and pressure optimization in advancing the implementation of ASSLBs. Keywords: all-solid-state lithium batteries, argyrodite ionic conductor, cathode material, cathode loading, high areal, capacity",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-maximizing-areal-capacity-in-all-sol-sami-5c12376.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-maximizing-areal-capacity-in-all-sol-sami-5c12376.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-maximizing-areal-capacity-in-all-sol-sami-5c12376\\web-imports-2025-maximizing-areal-capacity-in-all-sol-sami-5c12376_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-maximizing-areal-capacity-in-all-sol-sami-5c12376"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T04:04:43Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 56,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:journal"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.913,
+    "needs_human_check": true
+  }
+}

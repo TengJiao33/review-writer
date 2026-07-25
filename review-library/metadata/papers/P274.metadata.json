@@ -1,0 +1,105 @@
+{
+  "paper_id": "P274",
+  "slug": "web-imports-2021-nbcl-sub-5-sub-mg-reagent-system-in-ules26123722",
+  "title": {
+    "value": "NbCl<sub>5</sub>-Mg Reagent System in Regio- and Stereoselective Synthesis of (2<i>Z</i>)-Alkenylamines and (3<i>Z</i>)-Alkenylols from Substituted 2-Alkynylamines and 3-Alkynylols.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Kadikova RN",
+      "Gabdullin AM",
+      "Mozgovoj OS",
+      "Ramazanov IR",
+      "Dzhemilev UM"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2021,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules26123722",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The reduction of <i>N</i>,<i>N</i>-disubstituted 2-alkynylamines and substituted 3-alkynylols using the NbCl<sub>5</sub>-Mg reagent system affords the corresponding dideuterated (2<i>Z</i>)-alkenylamine and (3<i>Z</i>)-alkenylol derivatives in high yields in a regio- and stereoselective manner through the deuterolysis (or hydrolysis). The reaction of substituted propargylamines and homopropargylic alcohols with the in situ generated low-valent niobium complex (based on the reaction of NbCl<sub>5</sub> with magnesium metal) is an efficient tool for the synthesis of allylamines and homoallylic alcohols bearing a 1,2-disubstituted double bond. It was found that the well-known approach for the reduction of alkynes based on the use of the TaCl<sub>5</sub>-Mg reagent system does not work for 2-alkynylamines and 3-alkynylols. Thus, this article reveals a difference in the behavior of two reagent systems-NbCl<sub>5</sub>-Mg and TaCl<sub>5</sub>-Mg, in relation to oxygen- and nitrogen-containing alkynes. A regio- and stereoselective method was developed for the synthesis of nitrogen-containing <i>E</i>-β-chlorovinyl sulfides based on the reaction of 2-alkynylamines with three equivalents of",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2021-nbcl-sub-5-sub-mg-reagent-system-in--ules26123722.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2021-nbcl-sub-5-sub-mg-reagent-system-in-ules26123722.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-nbcl-sub-5-sub-mg-reagent-system-in-ules26123722\\web-imports-2021-nbcl-sub-5-sub-mg-reagent-system-in-ules26123722_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-nbcl-sub-5-sub-mg-reagent-system-in-ules26123722"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:41:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 92,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

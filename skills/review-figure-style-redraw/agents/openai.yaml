@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figure Preparation"
-  short_description: "Verify source figures or optionally redraw them."
-  default_prompt: "Use $review-figure-style-redraw to prepare source-verified review figures, using optional redraw only when it adds value."

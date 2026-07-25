@@ -1,0 +1,99 @@
+{
+  "paper_id": "P241",
+  "slug": "web-imports-2024-optimization-strategy-for-metal-lith-202455301009",
+  "title": {
+    "value": "Optimization strategy for metal lithium negative electrode interface in all-solid-state lithium batteries",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2024,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "E3S Web of Conferences",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1051/e3sconf/202455301009",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Lithium metal is a perfect anode material for lithium secondary batteries because of its low redox potential and high specific capacity. In the future, solid-state lithium batteries constructed with embedded lithium anodes, solid-state electrolytes, and lithium metal anodes are anticipated to power electric cars, robots, high-end electronics, aircraft, and other relevant technological industries. However, as a result of the uneven deposition and dissolution of lithium during the charging and discharging process, a large number of dendritic dendrites form on the lithium-electrolyte contact surface and grow along the electrolyte’s direction, ultimately resulting in an internal short circuit that causes the battery to fail. Although the development of lithium dendrites can be substantially inhibited by the use of solid electrolytes with high Young’s modulus, long cycle and safety criteria are still not met. Furthermore, high interfacial resistance and interfacial interaction between lithium metal and solid electrolyte are issues brought on by the solid-solid contact between the two materials, which substantially impedes the creation and use of solid-state lithium-metal batteries. This",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-optimization-strategy-for-metal-lith-202455301009.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-optimization-strategy-for-metal-lith-202455301009.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-optimization-strategy-for-metal-lith-202455301009\\ce49fedd-93d6-44ac-bc30-67f21d7f2653_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-optimization-strategy-for-metal-lith-202455301009"
+  },
+  "source_file": {
+    "pdf_name": "2024-optimization-strategy-for-metal-lith-202455301009.pdf",
+    "relative_pdf_path": "web-imports\\2024-optimization-strategy-for-metal-lith-202455301009.pdf",
+    "sha256": "c2e5d84c44248daa83af1d96454d7534f633cd11826d1498cfabca06d6bcd9c7"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T04:04:43Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 70,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:doi,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.816,
+    "needs_human_check": true
+  }
+}

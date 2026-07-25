@@ -7,12 +7,20 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Vanessa Kar-Yan",
+      "family": "Lo"
+    },
+    {
+      "given": "Man-Kin",
+      "family": "Wong"
+    },
+    {
+      "given": "and Chi-Ming",
+      "family": "Che"
+    }
+  ],
   "year": {
     "value": 2007,
     "source": "filename_or_front_matter",

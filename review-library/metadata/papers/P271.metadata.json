@@ -1,0 +1,100 @@
+{
+  "paper_id": "P271",
+  "slug": "web-imports-2018-scope-and-advances-in-the-catalytic-9-c8ra04481c",
+  "title": {
+    "value": "Scope and advances in the catalytic propargylic substitution reaction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Roy R",
+      "Saha S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2018,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "RSC Advances",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/c8ra04481c",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Nucleophilic displacement of the propargylic alcohol is one of the sought-after methods in the current scenario. The highly nucleophilic alkyne functional moiety along with its considerably acidic terminal hydrogen atom allows the propargylic unit to play a crucial role in organic synthesis by offering a handle for further synthetic transformations. Until 2000, the most fundamental propargylic substitution reaction was the Nicolas reaction, a multi-step transformation, developed in 1972, which involved cobalt as a stoichiometric promoter. Therefore, the direct catalytic substitution of propargylic alcohols was a highly desirable method for development. The pioneering work on the Ru-catalyzed propargylic substitution reaction in 2000 encouraged many researchers to develop several novel catalytic propargylic substitution reactions, which have made rapid progress since then. The purpose of this review is to emphasise the involvement of diverse types of Lewis acid, transition metal and Brønsted acid catalysts in the propargylic substitution reaction and provide an updated summary of the recent developments in this field. The selected examples presented here are the most significant and",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2018-scope-and-advances-in-the-catalytic--9-c8ra04481c.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2018-scope-and-advances-in-the-catalytic-9-c8ra04481c.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2018-scope-and-advances-in-the-catalytic-9-c8ra04481c\\web-imports-2018-scope-and-advances-in-the-catalytic-9-c8ra04481c_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2018-scope-and-advances-in-the-catalytic-9-c8ra04481c"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:33:09Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 688,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

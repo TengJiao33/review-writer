@@ -1,0 +1,104 @@
+{
+  "paper_id": "P283",
+  "slug": "web-imports-2026-click-to-translate-synthesis-of-tran-2-cbic-70420",
+  "title": {
+    "value": "Click to Translate: Synthesis of Trans-Cyclooctene Modified 5' mRNA Caps for Bioorthogonal Activation.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zips N",
+      "Kulko E",
+      "Kath-Schorr S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chembiochem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cbic.70420",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "mRNA translation can be controlled through chemical modification of the 5'-Cap, yet systematic insights into structure-reactivity relationships of bioorthogonally activatable Cap analogues remain limited. Here, we report the synthesis of trans-cyclooctene (TCO)-modified 5' mRNA caps (ZipCaps) and a comparative analysis of distinct TCO isomers. A controlled synthetic strategy enabled access to axial and equatorial derivatives, revealing stereochemical effects on click-to-release reactivity and stability. ZipCap-modified mRNA exhibits reduced translation that can be restored upon tetrazine addition, enabling reversible chemical control of protein expression in cells. In contrast to a recent report describing complete translational suppression, residual translation is observed, highlighting the sensitivity of Cap-dependent translation to structural variations.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-click-to-translate-synthesis-of-tran-2-cbic-70420.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-click-to-translate-synthesis-of-tran-2-cbic-70420.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-click-to-translate-synthesis-of-tran-2-cbic-70420\\web-imports-2026-click-to-translate-synthesis-of-tran-2-cbic-70420_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-click-to-translate-synthesis-of-tran-2-cbic-70420"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:41:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 38,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

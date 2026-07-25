@@ -7,12 +7,36 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Rui-Rui",
+      "family": "Zhao"
+    },
+    {
+      "given": "a Ji-Chao",
+      "family": "Huang"
+    },
+    {
+      "given": "a Shi-Qi",
+      "family": "Liu"
+    },
+    {
+      "given": "a Fu-Dong",
+      "family": "Lu"
+    },
+    {
+      "given": "a Liang-Qiu",
+      "family": "Lu"
+    },
+    {
+      "given": "b Zhi-Han",
+      "family": "Zhang"
+    },
+    {
+      "given": "a and Wen-Jing",
+      "family": "Xiaoa"
+    }
+  ],
   "year": {
     "value": 2025,
     "source": "filename_or_front_matter",

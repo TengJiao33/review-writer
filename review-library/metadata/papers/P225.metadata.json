@@ -7,21 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Christian Sonnendecker",
-      "Juliane Oeser",
-      "P. Konstantin Richter",
-      "Patrick Hille",
-      "Ziyue Zhao",
-      "Cornelius Fischer",
-      "Holger Lippold",
-      "Paula Blázquez‐Sánchez"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "jats_pub_date",

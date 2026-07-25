@@ -1,4 +1,4 @@
 interface:
   display_name: "Review Metadata Prep"
-  short_description: "Prepare and audit paper metadata for review-writing libraries."
-  default_prompt: "Prepare paper metadata, LLM tags, and validation reports for a MinerU-parsed paper library. Use /home/ps/review-writer/view/serve_review_dashboard.py only when human audit UI is needed."
+  short_description: "Register full text and maintain bibliographic metadata."
+  default_prompt: "Use $review-metadata-prep to register parsed papers, extract bibliographic metadata, and report missing or stale source fields for repair from reliable records."

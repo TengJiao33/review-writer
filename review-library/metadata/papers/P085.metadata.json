@@ -7,12 +7,16 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Axially",
+      "family": "Chiral"
+    },
+    {
+      "given": "Tetrasubstituted",
+      "family": "Allenes"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "filename_or_front_matter",
@@ -26,10 +30,10 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/acs.orglett.2c02642",
+    "source": "pdf_extraction",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "Catalyst-controlled divergent reactions of 2,3-disubstituted indoles with propargylic alcohols were developed for the first time. In the presence of TsOH or $\\mathrm { B } ( \\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ) _ { 3 }$ as catalyst, 2,3-disubstituted indoles reacted smoothly with 3-alkynyl-3- hydroxyisoindolinones to afford 3H-benzo[b]azepines by selective ${ \\mathsf { C } } 2 { \\bigl ( } \\mathsf { s p } ^ { 2 } { \\bigr ) } { \\mathsf { - C } } 3 { \\bigl ( } \\mathsf { s p } ^ { 2 } { \\bigr ) }$ ring expansion of indoles. In contrast, decreasing the catalyst strength (e.g., with chiral phosphoric acid) interrupted the cascade reactions, affording axially chiral tetrasubstituted allenes bearing an adjacent chiral quaternary carbon stereocenter. Control experiments provided insights into the reaction mechanism. ndole-based heterocycles are important substructures of numerous biological natural products, pharmaceuticals and functional materials.1 The chemistry of indole-based heterocycles has attracted great interest from the scientific community.2 In particular, a plethora of interesting chemistry has been discovered in selective N1-, C2-, and C3- functionalizations of the indole nucleus.3 By contrast, ringexpansion reactions of the indole skeleton via cleavage of the N1−C2/C2−C3 bond have been relatively less explored. Specifically, the [5 + 2] ring-expansion reactions via cleavage of the C2−C3 bond to synthesize 1-benzazepines usually require harsh conditions,4 prefunctionalized starting materials made by several steps,5 or superstoichiometric accelerators.6 In this context, a catalyst-controlled straightforward, mild, economic, and environmentally friendly strategy for the indole [5 + 2] ring-expansion toward 1-benzazepines is highly desirable.7 As important synthons in organic synthesis, propargylic alcohols have been successfully involved in a wide range of organocatalytic reactions.8 For example, Swamy et al. developed a p-toluenesulfonic acid (TsOH) mediated C3- alkenylation of indoles with propargyl alcohols, followed by copper-catalyzed aerobic oxidative ring-expansion/intramolecular electrophilic substitution for the construction of cyclopenta[c]quinolones (Scheme 1A).9 Recently, significant progress has been made in the field of chiral phosphoric acid (CPA) catalyzed reactions of propargylic alcohols via in situ formed quinone methides,10 aza-quinone methides,11 and indole imine methides.12 However, the reactions between propargylic alcohols and 2,3-disubstituted indoles failed to",

@@ -7,12 +7,40 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Shimin",
+      "family": "Jiang"
+    },
+    {
+      "given": "Sha",
+      "family": "Du"
+    },
+    {
+      "given": "Ruchun",
+      "family": "Yang"
+    },
+    {
+      "given": "Fengyan",
+      "family": "Jin"
+    },
+    {
+      "given": "Zhao-Zhao",
+      "family": "Zhou"
+    },
+    {
+      "given": "Wan-Fa",
+      "family": "Tian"
+    },
+    {
+      "given": "Xian-Rong",
+      "family": "Song"
+    },
+    {
+      "given": "and Qiang",
+      "family": "Xiao"
+    }
+  ],
   "year": {
     "value": 2023,
     "source": "filename_or_front_matter",

@@ -7,16 +7,20 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Mycah R. Uehling",
-      "Samuel T. Marionni",
-      "Gojko Lalic"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Mycah R.",
+      "family": "Uehling"
+    },
+    {
+      "given": "Samuel T.",
+      "family": "Marionni"
+    },
+    {
+      "given": "Gojko",
+      "family": "Lalic"
+    }
+  ],
   "year": {
     "value": 2009,
     "source": "filename_or_front_matter",

@@ -7,21 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Mingna Zheng",
-      "Jinfeng Chen",
-      "Weiliang Dong",
-      "Ren Wei",
-      "Jinyue Chen",
-      "Xiaowen Tang",
-      "Qingzhu Zhang",
-      "Qiao Wang"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2026,
     "source": "filename_or_front_matter",

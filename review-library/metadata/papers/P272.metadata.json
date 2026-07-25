@@ -1,0 +1,104 @@
+{
+  "paper_id": "P272",
+  "slug": "web-imports-2017-organocatalytic-synthesis-of-chiral-5531504e78d2",
+  "title": {
+    "value": "Organocatalytic synthesis of chiral tetrasubstituted allenes from racemic propargylic alcohols",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "D. Qian",
+      "Linlin Wu",
+      "Zhenyang Lin",
+      "Jianwei Sun",
+      "Deyun Qian"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2017,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-017-00251-x",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Although chiral allene preparation via formal SN2’ nucleophilic substitutions of enantioenriched propargylic derivatives or metal-catalyzed reactions of racemic propargylic derivatives has attracted considerable attention and found applications in many areas of research, direct use of propargylic alcohols instead of propargylic derivatives for catalytic asymmetric allene synthesis is unknown. Here, we show that a highly enantioselective synthesis of tetrasubstituted allenes from racemic propargylic alcohols has been realized by organocatalysis with good efficiency (up to 96% yield and 97% ee). The intermolecular C–C and C–S bond formation was achieved efficiently with simultaneous stereocontrol over the axial chirality. Furthermore, an adjacent quaternary stereocenter could also be constructed. Mechanistically, the reaction may involve efficient stereocontrol on the propargylic cation by its chiral counter anion or 1,8-conjugate addition of para-quinone methides. In sharp contrast to previous central chirality construction, this process employs quinone methides for axial chirality construction. Axially chiral allenes that are normally present in natural products, bioactive molecule",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "propargylic alcohols",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2017-organocatalytic-synthesis-of-chiral--5531504e78d2.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2017-organocatalytic-synthesis-of-chiral-5531504e78d2.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2017-organocatalytic-synthesis-of-chiral-5531504e78d2\\web-imports-2017-organocatalytic-synthesis-of-chiral-5531504e78d2_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2017-organocatalytic-synthesis-of-chiral-5531504e78d2"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:41:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 41,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

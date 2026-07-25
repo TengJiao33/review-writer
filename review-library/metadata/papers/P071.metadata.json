@@ -7,12 +7,44 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Fei-Fei",
+      "family": "Zou"
+    },
+    {
+      "given": "Zhen",
+      "family": "Luo"
+    },
+    {
+      "given": "Yu-Ting",
+      "family": "Yang"
+    },
+    {
+      "given": "Xin",
+      "family": "Zhuang"
+    },
+    {
+      "given": "Chuan-Ming",
+      "family": "Hong"
+    },
+    {
+      "given": "Zheng-Qiang",
+      "family": "Liu"
+    },
+    {
+      "given": "Wan-Fang",
+      "family": "Li"
+    },
+    {
+      "given": "Qing-Hua",
+      "family": "Li"
+    },
+    {
+      "given": "Tang-Lin",
+      "family": "Liu"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "filename_or_front_matter",

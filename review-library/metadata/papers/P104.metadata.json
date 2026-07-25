@@ -7,16 +7,20 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "James A. Marshall",
-      "Mark A. Wolf",
-      "Eli M. Wallace"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "James A.",
+      "family": "Marshall"
+    },
+    {
+      "given": "Mark A.",
+      "family": "Wolf"
+    },
+    {
+      "given": "Eli M.",
+      "family": "Wallace"
+    }
+  ],
   "year": {
     "value": null,
     "source": "rule_not_found",

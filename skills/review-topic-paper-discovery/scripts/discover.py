@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import atexit
 import ast
 import json
 import os
@@ -47,9 +48,14 @@ def split_keywords(raw: str) -> list[str]:
 def _markdown_contract(path: Path) -> dict[str, Any]:
     sections: dict[str, list[str]] = {}
     current = ""
+    document_title = ""
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
-        if line.startswith("## "):
+        if line.startswith("# ") and not line.startswith("## "):
+            if not document_title:
+                document_title = line[2:].strip()
+            current = ""
+        elif line.startswith("## "):
             current = re.sub(r"[^a-z0-9]+", "_", line[3:].strip().lower()).strip("_")
             sections.setdefault(current, [])
         elif current and line and not line.startswith("# "):
@@ -86,8 +92,10 @@ def _markdown_contract(path: Path) -> dict[str, Any]:
             grouped.append(current_item)
         return dedupe(grouped)
 
+    manuscript_title = scalar("manuscript_title", "title") or document_title
     return {
-        "manuscript_title": scalar("manuscript_title", "title"),
+        "topic": document_title,
+        "manuscript_title": manuscript_title,
         "retrieval_query": scalar("retrieval_query", "search_query"),
         "review_profile": scalar("review_profile"),
         "central_question": scalar("central_question", "review_question"),
@@ -554,7 +562,96 @@ def local_search_by_keyword(
     return grouped
 
 
-CROSSREF_USER_AGENT = "review-writer-discovery/0.3"
+CROSSREF_USER_AGENT = "review-writer-discovery/0.4"
+EUROPE_PMC_USER_AGENT = "review-writer-discovery/0.4"
+
+
+EXTERNAL_RELEVANCE_STOPWORDS = QUERY_STOPWORDS | {
+    "all",
+    "analysis",
+    "approach",
+    "approaches",
+    "article",
+    "battery",
+    "batteries",
+    "challenge",
+    "challenges",
+    "design",
+    "development",
+    "developments",
+    "effect",
+    "engineering",
+    "material",
+    "materials",
+    "method",
+    "methods",
+    "new",
+    "performance",
+    "practical",
+    "progress",
+    "recent",
+    "research",
+    "strategy",
+    "strategies",
+    "system",
+    "systems",
+}
+
+
+def _relevance_term(value: str) -> str:
+    term = value.lower()
+    if len(term) > 4 and term.endswith("ies"):
+        return term[:-3] + "y"
+    if len(term) > 3 and term.endswith("s") and not term.endswith("ss"):
+        return term[:-1]
+    return term
+
+
+def external_relevance_terms(value: Any) -> set[str]:
+    return {
+        _relevance_term(term)
+        for term in re.findall(r"[a-z0-9]+", str(value or "").lower())
+        if len(term) >= 3 and term not in EXTERNAL_RELEVANCE_STOPWORDS
+    }
+
+
+def external_relevance(
+    keyword: str,
+    topic: str,
+    title: str,
+    abstract: str = "",
+    journal: str = "",
+) -> dict[str, Any]:
+    """Apply one provider-independent topical screen before acquisition."""
+    topic_terms = external_relevance_terms(topic)
+    query_terms = external_relevance_terms(keyword)
+    signal_terms = external_relevance_terms(" ".join([title, abstract, journal]))
+    title_terms = external_relevance_terms(title)
+    topic_hits = sorted(topic_terms & signal_terms)
+    query_hits = sorted(query_terms & signal_terms)
+    title_topic_hits = sorted(topic_terms & title_terms)
+    topic_floor = (
+        1 if 0 < len(topic_terms) <= 2 else min(3, len(topic_terms))
+    )
+    query_floor = (
+        1 if 0 < len(query_terms) <= 2 else min(2, len(query_terms))
+    )
+    passed = bool(
+        len(topic_hits) >= topic_floor
+        and len(query_hits) >= query_floor
+    )
+    topic_ratio = len(topic_hits) / max(len(topic_terms), 1)
+    query_ratio = len(query_hits) / max(len(query_terms), 1)
+    title_ratio = len(title_topic_hits) / max(len(topic_terms), 1)
+    score = min(0.12 + 0.4 * topic_ratio + 0.34 * query_ratio + 0.14 * title_ratio, 1.0)
+    return {
+        "passed": passed,
+        "score": round(score, 4),
+        "topic_hits": topic_hits,
+        "query_hits": query_hits,
+        "topic_floor": topic_floor,
+        "query_floor": query_floor,
+    }
 
 
 def is_excluded_crossref_record(item: dict[str, Any]) -> bool:
@@ -577,6 +674,8 @@ def is_excluded_crossref_record(item: dict[str, Any]) -> bool:
     return (
         record_type in {"component", "peer-review"}
         or bool(re.search(r"\.s\d+$", doi))
+        or "mtgabs" in doi
+        or record_type == "proceedings-article"
         or "supporting information" in title
         or "supplementary material" in title
         or editorial_title
@@ -686,6 +785,7 @@ def crossref_item_to_result(
     )
     open_pdf_url = pdf_links[0] if pdf_links and has_open_license else ""
     open_full_text_url = (open_pdf_url or primary_url) if has_open_license else ""
+    relevance = external_relevance(keyword, topic, title, abstract, container)
     return {
         "external_id": doi or str(item.get("URL") or ""),
         "title": title,
@@ -702,9 +802,10 @@ def crossref_item_to_result(
         "open_access_full_text_url": open_full_text_url,
         "publisher_pdf_url_candidate": pdf_links[0] if pdf_links else "",
         "license_urls": license_urls,
-        "score": round(min(score, 1.0), 4),
+        "score": round(min(max(score, relevance["score"]), 1.0), 4),
         "reason": reason,
-        "keep": score > 0.15,
+        "relevance": relevance,
+        "keep": relevance["passed"],
         "source": source,
     }
 
@@ -722,6 +823,116 @@ def web_search(keyword: str, topic: str, limit: int = 8) -> list[dict[str, Any]]
             continue
         results.append(crossref_item_to_result(item, keyword, topic))
     results.sort(key=lambda r: (r["score"], r.get("year") or 0), reverse=True)
+    return results[:limit]
+
+
+def europe_pmc_search(
+    keyword: str,
+    topic: str,
+    limit: int = 12,
+) -> list[dict[str, Any]]:
+    """Search Europe PMC for immediately ingestible open full text.
+
+    Europe PMC is queried as a discovery provider, not only as a DOI fallback.
+    Broad provider recall is followed by the same topic/query screen used for
+    Crossref, so an unrelated open article cannot enter merely because it is
+    easy to download.
+    """
+    normalized_query = re.sub(r"\s+", " ", keyword or topic).strip()
+    query = f"({normalized_query}) AND OPEN_ACCESS:Y"
+    params = {
+        "query": query,
+        "format": "json",
+        "resultType": "core",
+        "pageSize": str(min(max(limit * 4, 20), 100)),
+    }
+    url = (
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?"
+        + urllib.parse.urlencode(params)
+    )
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": EUROPE_PMC_USER_AGENT},
+    )
+    try:
+        with urllib.request.urlopen(
+            request,
+            context=ssl.create_default_context(),
+            timeout=25,
+        ) as response:
+            payload = json.loads(response.read(8 * 1024 * 1024).decode("utf-8"))
+    except Exception as exc:
+        return [
+            {
+                "title": f"EUROPE_PMC_SEARCH_FAILED: {type(exc).__name__}",
+                "url": "",
+                "score": 0,
+                "reason": str(exc),
+                "keep": False,
+                "source": "europe_pmc",
+            }
+        ]
+
+    results: list[dict[str, Any]] = []
+    for item in (payload.get("resultList") or {}).get("result") or []:
+        pmcid = str(item.get("pmcid") or "").strip().upper()
+        if (
+            not pmcid
+            or str(item.get("isOpenAccess") or "").upper() != "Y"
+            or str(item.get("inEPMC") or "").upper() != "Y"
+        ):
+            continue
+        title = re.sub(r"\s+", " ", str(item.get("title") or "(untitled)")).strip()
+        abstract = re.sub(r"\s+", " ", str(item.get("abstractText") or "")).strip()
+        journal = str(item.get("journalTitle") or "").strip()
+        relevance = external_relevance(keyword, topic, title, abstract, journal)
+        doi = _normalized_doi(item.get("doi"))
+        author_rows = (item.get("authorList") or {}).get("author") or []
+        authors = [
+            str(author.get("fullName") or "").strip()
+            for author in author_rows
+            if isinstance(author, dict) and str(author.get("fullName") or "").strip()
+        ]
+        publication_types = (item.get("pubTypeList") or {}).get("pubType") or []
+        article_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/"
+        repository_url = (
+            "https://www.ebi.ac.uk/europepmc/webservices/rest/"
+            f"{pmcid}/fullTextXML"
+        )
+        results.append(
+            {
+                "external_id": doi or pmcid,
+                "title": title,
+                "authors": authors,
+                "year": int(item["pubYear"]) if str(item.get("pubYear") or "").isdigit() else None,
+                "journal": journal,
+                "doi": doi,
+                "url": f"https://doi.org/{doi}" if doi else article_url,
+                "abstract": abstract[:1200],
+                "citation_count": item.get("citedByCount"),
+                "publication_types": publication_types,
+                "open_access_pdf_url": "",
+                "open_access_full_text_url": article_url,
+                "repository_provider": "europe_pmc",
+                "repository_id": pmcid,
+                "repository_format": "jats_xml",
+                "repository_full_text_url": repository_url,
+                "license": item.get("license"),
+                "score": round(min(relevance["score"] + 0.08, 1.0), 4),
+                "reason": "Europe PMC relevance rank, topic screen, and ingestible OA full text",
+                "relevance": relevance,
+                "keep": relevance["passed"],
+                "source": "europe_pmc",
+            }
+        )
+    results.sort(
+        key=lambda row: (
+            bool(row.get("keep")),
+            row.get("score") or 0,
+            row.get("citation_count") or 0,
+        ),
+        reverse=True,
+    )
     return results[:limit]
 
 
@@ -849,14 +1060,16 @@ def crossref_reference_expansion(
         relevance, hits = _reference_relevance(title, topic, keywords)
         anchor_match = all(contains_term(title, term) for term in anchor_terms)
         guideline_match = "guideline" in title.lower() and len(hits) >= 2
+        partial_anchor = any(contains_term(title, term) for term in anchor_terms)
         if (
             not doi
             or is_excluded_crossref_record(item)
             or not REVIEW_SEED_RE.search(title)
-            or not (anchor_match or guideline_match)
+            or not (anchor_match or guideline_match or partial_anchor)
             or (
-                len(hits) < min(3, len(_reference_screen_terms(topic, keywords)))
+                len(hits) < min(2, len(_reference_screen_terms(topic, keywords)))
                 and not guideline_match
+                and not partial_anchor
             )
         ):
             continue
@@ -1117,6 +1330,7 @@ def semantic_scholar_search(
         abstract = re.sub(r"\s+", " ", str(item.get("abstract") or "")).strip()
         venue = str(item.get("venue") or "").strip()
         haystack = " ".join([title, abstract, venue]).lower()
+        relevance = external_relevance(keyword, topic, title, abstract, venue)
         score = 0.18  # The API response is already relevance-ranked.
         if keyword.lower() in haystack:
             score += 0.45
@@ -1151,9 +1365,10 @@ def semantic_scholar_search(
                 "publication_types": item.get("publicationTypes") or [],
                 "open_access_pdf_url": open_pdf_url,
                 "open_access_status": open_pdf.get("status") if isinstance(open_pdf, dict) else None,
-                "score": round(min(score, 1.0), 4),
+                "score": round(min(max(score, relevance["score"]), 1.0), 4),
                 "reason": "Semantic Scholar relevance rank plus topic/DOI/OA metadata",
-                "keep": True,
+                "relevance": relevance,
+                "keep": relevance["passed"],
                 "source": "semantic_scholar",
             }
         )
@@ -1208,6 +1423,108 @@ def annotate_external_results(
             }
         )
     return annotated
+
+
+def valid_unpaywall_email(value: str) -> bool:
+    email = str(value or "").strip()
+    return bool(
+        re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email)
+        and email.lower() != "research@university.edu"
+    )
+
+
+def unpaywall_location(doi: str, email: str) -> dict[str, Any]:
+    params = urllib.parse.urlencode({"email": email})
+    encoded_doi = urllib.parse.quote(_normalized_doi(doi), safe="")
+    request = urllib.request.Request(
+        f"https://api.unpaywall.org/v2/{encoded_doi}?{params}",
+        headers={"User-Agent": "review-writer-discovery/0.4"},
+    )
+    with urllib.request.urlopen(request, timeout=20) as response:
+        payload = json.loads(response.read(2 * 1024 * 1024).decode("utf-8"))
+    if not payload.get("is_oa"):
+        return {}
+    locations = [
+        payload.get("best_oa_location") or {},
+        *(payload.get("oa_locations") or []),
+    ]
+    for location in locations:
+        if not isinstance(location, dict):
+            continue
+        pdf_url = str(location.get("url_for_pdf") or "").strip()
+        landing_url = str(location.get("url_for_landing_page") or "").strip()
+        if not (pdf_url or landing_url):
+            continue
+        return {
+            "open_access_pdf_url": pdf_url,
+            "open_access_full_text_url": pdf_url or landing_url,
+            "license": location.get("license"),
+            "oa_resolver": "unpaywall",
+            "oa_host_type": location.get("host_type"),
+        }
+    return {}
+
+
+def enrich_grouped_open_access(
+    grouped: list[dict[str, Any]],
+    email: str,
+    limit: int,
+) -> dict[str, Any]:
+    if not email:
+        return {
+            "status": "disabled_missing_email",
+            "attempted": 0,
+            "resolved": 0,
+            "errors": [],
+        }
+    if not valid_unpaywall_email(email):
+        return {
+            "status": "disabled_invalid_email",
+            "attempted": 0,
+            "resolved": 0,
+            "errors": ["UNPAYWALL_EMAIL must be a real contact address, not a placeholder."],
+        }
+    cache: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
+    attempted = 0
+    resolved_dois: set[str] = set()
+    for group in grouped:
+        for row in group.get("web_results") or []:
+            if row.get("open_access_pdf_url") or row.get("repository_full_text_url"):
+                continue
+            doi = _normalized_doi(row.get("doi"))
+            if not doi:
+                continue
+            if doi not in cache:
+                if limit > 0 and attempted >= limit:
+                    continue
+                attempted += 1
+                try:
+                    cache[doi] = unpaywall_location(doi, email)
+                except Exception as exc:
+                    cache[doi] = {}
+                    errors.append(f"{doi}: {type(exc).__name__}: {exc}")
+            location = cache[doi]
+            if not location:
+                continue
+            was_located = bool(
+                row.get("open_access_pdf_url")
+                or row.get("open_access_full_text_url")
+            )
+            row.update(location)
+            row["promotion_status"] = (
+                "ready_to_download"
+                if row.get("open_access_pdf_url")
+                else "full_text_located_needs_pdf"
+            )
+            if not was_located:
+                resolved_dois.add(doi)
+    return {
+        "status": "ok" if not errors else "partial_error",
+        "attempted": attempted,
+        "resolved": len(resolved_dois),
+        "errors": dedupe(errors),
+    }
 
 
 def choose_external_groups(
@@ -1320,6 +1637,21 @@ def _result_dedupe_key(row: dict[str, Any]) -> str:
 
 
 def merge_external_results(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    scalar_fields = (
+        "doi",
+        "url",
+        "abstract",
+        "journal",
+        "year",
+        "open_access_pdf_url",
+        "open_access_full_text_url",
+        "repository_provider",
+        "repository_id",
+        "repository_format",
+        "repository_full_text_url",
+        "license",
+    )
+    list_fields = ("authors", "publication_types", "license_urls")
     merged: dict[str, dict[str, Any]] = {}
     order: list[str] = []
     for row in rows:
@@ -1337,16 +1669,32 @@ def merge_external_results(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if src not in existing.get("sources", []):
             existing.setdefault("sources", []).append(src)
         if (row.get("score") or 0) > (existing.get("score") or 0):
-            # Promote the higher-scoring record while keeping merged source list.
+            # Promote the higher-scoring record without discarding an OA
+            # location contributed by a different metadata provider.
             sources = existing.get("sources", [])
-            merged[key] = {**row, "sources": sources}
+            promoted = {**row, "sources": sources}
+            for field in scalar_fields:
+                if not promoted.get(field) and existing.get(field):
+                    promoted[field] = existing[field]
+            for field in list_fields:
+                promoted[field] = dedupe(
+                    [
+                        *list(promoted.get(field) or []),
+                        *list(existing.get(field) or []),
+                    ]
+                )
+            merged[key] = promoted
             existing = merged[key]
-        if not existing.get("doi") and row.get("doi"):
-            existing["doi"] = row.get("doi")
-        if not existing.get("url") and row.get("url"):
-            existing["url"] = row.get("url")
-        if not existing.get("abstract") and row.get("abstract"):
-            existing["abstract"] = row.get("abstract")
+        for field in scalar_fields:
+            if not existing.get(field) and row.get(field):
+                existing[field] = row[field]
+        for field in list_fields:
+            existing[field] = dedupe(
+                [
+                    *list(existing.get(field) or []),
+                    *list(row.get(field) or []),
+                ]
+            )
     out: list[dict[str, Any]] = []
     for key in order:
         row = merged[key]
@@ -1607,31 +1955,6 @@ def role_rank(role: str | None) -> int:
     return order.get(role or "uncertain", 3)
 
 
-def portfolio_intent_hint(row: dict[str, Any]) -> str:
-    return {
-        "core_candidate": "core",
-        "supporting_candidate": "supporting",
-        "background": "background",
-    }.get(str(row.get("role") or "uncertain"), "needs_reading")
-
-
-def citation_role_hints(row: dict[str, Any]) -> list[str]:
-    hints: list[str] = []
-    role = str(row.get("role") or "uncertain")
-    if role == "core_candidate":
-        hints.append("core_evidence")
-    elif role == "supporting_candidate":
-        hints.append("comparative_support")
-    elif role == "background":
-        hints.append("context")
-    categories = {str(value) for value in row.get("matched_keyword_categories") or []}
-    if "document_scope" in categories:
-        hints.append("field_orientation")
-    if "reaction_type" in categories or "catalyst_or_method" in categories:
-        hints.append("method_example")
-    return list(dict.fromkeys(hints))
-
-
 def build_external_ingest_plan(
     project_id: str,
     web_papers: list[dict[str, Any]],
@@ -1645,12 +1968,21 @@ def build_external_ingest_plan(
         local_paper_id = row.get("local_paper_id")
         pdf_url = str(row.get("open_access_pdf_url") or "").strip()
         full_text_url = str(row.get("open_access_full_text_url") or "").strip()
+        repository_full_text_url = str(
+            row.get("repository_full_text_url") or ""
+        ).strip()
         stable_suffix = slugify(external_id)[-12:]
         # Keep the basename compact enough for MinerU's extracted image paths on Windows.
         target_relative = f"chem_papers/web-imports/{year}-{slugify(title)[:36]}-{stable_suffix}.pdf"
         if local_paper_id:
             action = "use_local"
             next_step = f"Use managed paper {local_paper_id}; do not download a duplicate."
+        elif repository_full_text_url:
+            action = "ingest_repository_full_text"
+            next_step = (
+                "Import the lawful repository full text with provenance; "
+                "do not route structured JATS through MinerU."
+            )
         elif pdf_url:
             action = "download_then_mineru"
             next_step = "Download the OA PDF, parse that one file with MinerU, then run metadata preparation."
@@ -1674,18 +2006,37 @@ def build_external_ingest_plan(
                 "local_paper_id": local_paper_id,
                 "open_access_pdf_url": pdf_url,
                 "open_access_full_text_url": full_text_url,
+                "repository_provider": row.get("repository_provider"),
+                "repository_id": row.get("repository_id"),
+                "repository_format": row.get("repository_format"),
+                "repository_full_text_url": repository_full_text_url,
+                "license": row.get("license"),
                 "action": action,
-                "target_pdf_path": target_relative if action == "download_then_mineru" else None,
+                "target_pdf_path": (
+                    target_relative
+                    if action in {"download_then_mineru", "ingest_repository_full_text"}
+                    else None
+                ),
                 "next_step": next_step,
             }
         )
     actionable = sum(item["action"] == "download_then_mineru" for item in items)
-    located = sum(bool(item.get("open_access_pdf_url") or item.get("open_access_full_text_url")) for item in items)
+    repository_actionable = sum(
+        item["action"] == "ingest_repository_full_text" for item in items
+    )
+    located = sum(
+        bool(
+            item.get("open_access_pdf_url")
+            or item.get("open_access_full_text_url")
+            or item.get("repository_full_text_url")
+        )
+        for item in items
+    )
     if not external_requested:
         status = "disabled"
     elif not items:
         status = "no_candidates"
-    elif actionable:
+    elif actionable or repository_actionable:
         status = "ready"
     else:
         status = "metadata_only"
@@ -1694,6 +2045,8 @@ def build_external_ingest_plan(
         "status": status,
         "candidate_count": len(items),
         "downloadable_count": actionable,
+        "repository_ingestible_count": repository_actionable,
+        "importable_count": actionable + repository_actionable,
         "full_text_located_count": located,
         "items": items,
     }
@@ -1739,6 +2092,11 @@ def _load_dotenv_if_present(review_root: Path) -> None:
 def run(args: argparse.Namespace) -> int:
     review_root = Path(args.review_root).resolve()
     _load_dotenv_if_present(review_root)
+    provider_explicit = bool(
+        args.sciatlas_search or args.web_search or args.semantic_scholar_search
+    )
+    if args.local_only and provider_explicit:
+        raise SystemExit("--local-only cannot be combined with external provider flags")
     contract_seed = load_topic_contract_file(args.topic_contract_file)
     topic = str(
         args.topic
@@ -1781,8 +2139,11 @@ def run(args: argparse.Namespace) -> int:
             "status": "in_progress",
         },
     )
+    def cleanup_discovery_marker() -> None:
+        in_progress_path.unlink(missing_ok=True)
+
+    atexit.register(cleanup_discovery_marker)
     topic_contract = {
-        "workflow_contract_version": 2,
         "discovery_run_id": discovery_run_id,
         "topic": topic,
         "central_question": central_question,
@@ -1828,19 +2189,22 @@ def run(args: argparse.Namespace) -> int:
     classification_rules = load_classification_rules(review_root, topic)
     local_grouped = local_search_by_keyword(papers, keyword_set["merged_keywords"], topic, classification_rules)
     write_json(out_dir / "local_results_by_keyword.json", {"project_id": project_id, "results": local_grouped})
-    provider_explicit = bool(
-        args.sciatlas_search or args.web_search or args.semantic_scholar_search
-    )
-    if args.local_only and provider_explicit:
-        raise SystemExit("--local-only cannot be combined with external provider flags")
     sciatlas_requested = bool(args.sciatlas_search) and not args.local_only
+    europe_pmc_requested = (
+        not args.local_only and not args.no_europe_pmc_search
+    )
     # Crossref is the credential-free default. Semantic Scholar is an optional
     # enrichment layer and never replaces the Crossref metadata/OA path.
     crossref_requested = (
         bool(args.web_search) or not bool(args.sciatlas_search)
     ) and not args.local_only
     semantic_scholar_requested = bool(args.semantic_scholar_search) and not args.local_only
-    external_requested = sciatlas_requested or crossref_requested or semantic_scholar_requested
+    external_requested = (
+        sciatlas_requested
+        or europe_pmc_requested
+        or crossref_requested
+        or semantic_scholar_requested
+    )
     sciatlas_client: SciAtlasClient | None = None
     sciatlas_status = "disabled"
     if sciatlas_requested:
@@ -1864,10 +2228,12 @@ def run(args: argparse.Namespace) -> int:
         "SEMANTIC_SCHOLAR_API_KEY", ""
     )
     semantic_scholar_active = semantic_scholar_requested
+    europe_pmc_active = europe_pmc_requested
     external_grouped: list[dict[str, Any]] = []
     sources_used: list[str] = []
     provider_errors: dict[str, list[str]] = {
         "sciatlas": [],
+        "europe_pmc": [],
         "semantic_scholar": [],
         "crossref": [],
     }
@@ -1883,6 +2249,35 @@ def run(args: argparse.Namespace) -> int:
     queried_groups = choose_external_groups(local_grouped, args.external_query_limit)
     for group in queried_groups:
         rows: list[dict[str, Any]] = []
+        if europe_pmc_active:
+            provider_stats["europe_pmc"]["attempted_queries"] += 1
+            raw_europe_pmc_rows = europe_pmc_search(
+                group["keyword"],
+                topic,
+                args.europe_pmc_limit,
+            )
+            europe_pmc_rows, europe_pmc_errors = split_provider_rows(
+                raw_europe_pmc_rows
+            )
+            rows.extend(europe_pmc_rows)
+            provider_errors["europe_pmc"].extend(europe_pmc_errors)
+            if not europe_pmc_errors:
+                provider_stats["europe_pmc"]["successful_queries"] += 1
+            provider_stats["europe_pmc"]["returned_records"] += len(
+                europe_pmc_rows
+            )
+            provider_stats["europe_pmc"]["retained_records"] += sum(
+                bool(row.get("keep", True)) for row in europe_pmc_rows
+            )
+            if (
+                any(row.get("keep", True) for row in europe_pmc_rows)
+                and "europe_pmc" not in sources_used
+            ):
+                sources_used.append("europe_pmc")
+            if europe_pmc_errors:
+                europe_pmc_active = False
+            if args.web_delay:
+                time.sleep(args.web_delay)
         if sciatlas_client is not None:
             provider_stats["sciatlas"]["attempted_queries"] += 1
             raw_sciatlas_rows = sciatlas_search(
@@ -1981,9 +2376,20 @@ def run(args: argparse.Namespace) -> int:
             )
             if "crossref_reference_expansion" not in sources_used:
                 sources_used.append("crossref_reference_expansion")
+    unpaywall_email = (
+        args.unpaywall_email
+        or os.environ.get("UNPAYWALL_EMAIL", "")
+    )
+    oa_resolution = enrich_grouped_open_access(
+        external_grouped,
+        unpaywall_email,
+        args.oa_resolution_limit,
+    )
     write_json(out_dir / "reference_expansion.json", reference_expansion)
 
-    if sciatlas_requested and sciatlas_client is None and not (crossref_requested or semantic_scholar_requested):
+    if sciatlas_requested and sciatlas_client is None and not (
+        europe_pmc_requested or crossref_requested or semantic_scholar_requested
+    ):
         external_status = sciatlas_status
     elif external_requested and sources_used:
         external_status = "+".join(sources_used)
@@ -2026,6 +2432,15 @@ def run(args: argparse.Namespace) -> int:
                 ),
                 **provider_stats["sciatlas"],
             },
+            "europe_pmc": {
+                "requested": europe_pmc_requested,
+                "status": provider_run_status(
+                    europe_pmc_requested,
+                    provider_stats["europe_pmc"],
+                    provider_errors["europe_pmc"],
+                ),
+                **provider_stats["europe_pmc"],
+            },
             "semantic_scholar": {
                 "requested": semantic_scholar_requested,
                 "status": provider_run_status(
@@ -2045,6 +2460,7 @@ def run(args: argparse.Namespace) -> int:
                 **provider_stats["crossref"],
             },
         },
+        "oa_resolution": oa_resolution,
         "provider_errors": {key: dedupe(values) for key, values in provider_errors.items() if values},
         "results": external_grouped,
     })
@@ -2060,24 +2476,6 @@ def run(args: argparse.Namespace) -> int:
     selected["discovery_run_id"] = discovery_run_id
     selected["candidate_paper_ids"] = [row["paper_id"] for row in selected.get("local_papers", [])]
     selected["topic_contract"] = topic_contract
-    selected["screening"] = {
-        "status": "pending",
-        "decided_by": "unreviewed",
-        "criteria_source": "topic_contract.json",
-    }
-    selected["screening_decisions"] = [
-        {
-            "paper_id": row["paper_id"],
-            "decision": "uncertain",
-            "relevance_summary": "",
-            "decision_basis": "",
-            "portfolio_intent_hint": portfolio_intent_hint(row),
-            "citation_role_hints": citation_role_hints(row),
-            "coverage_tags": list(row.get("important_coverage_hits") or []),
-        }
-        for row in selected.get("local_papers", [])
-    ]
-    selected["human_confirmed"] = False
     write_json(out_dir / "selected_discovery_results.json", selected)
     ingest_plan = build_external_ingest_plan(
         project_id,
@@ -2086,16 +2484,9 @@ def run(args: argparse.Namespace) -> int:
     )
     ingest_plan["discovery_run_id"] = discovery_run_id
     write_json(out_dir / "external_ingest_plan.json", ingest_plan)
-    write_json(
-        out_dir / "human_check_state.json",
-        {
-            "project_id": project_id,
-            "status": "pending",
-            "confirmed_at": None,
-        },
-    )
     write_report(out_dir, topic, keyword_set, combined)
-    in_progress_path.unlink(missing_ok=True)
+    cleanup_discovery_marker()
+    atexit.unregister(cleanup_discovery_marker)
     print(f"Discovery project: {project}")
     print(f"Keyword set: {out_dir / 'keyword_set.draft.json'}")
     print(f"Discovery review: http://127.0.0.1:8765/discovery")
@@ -2132,6 +2523,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--web-limit", type=int, default=8)
     parser.add_argument("--web-delay", type=float, default=0.2)
     parser.add_argument(
+        "--no-europe-pmc-search",
+        action="store_true",
+        help="Disable the default Europe PMC search for ingestible open full text.",
+    )
+    parser.add_argument(
+        "--europe-pmc-limit",
+        type=int,
+        default=12,
+        help="Maximum topic-screened Europe PMC records retained per query.",
+    )
+    parser.add_argument(
         "--external-query-limit",
         type=int,
         default=6,
@@ -2159,6 +2561,17 @@ def parse_args() -> argparse.Namespace:
         "--semantic-scholar-api-key",
         default="",
         help="Optional override for SEMANTIC_SCHOLAR_API_KEY; unauthenticated search is supported.",
+    )
+    parser.add_argument(
+        "--unpaywall-email",
+        default="",
+        help="Optional real contact email for Unpaywall; defaults to UNPAYWALL_EMAIL.",
+    )
+    parser.add_argument(
+        "--oa-resolution-limit",
+        type=int,
+        default=40,
+        help="Maximum unresolved unique DOIs sent to an optional OA resolver.",
     )
     parser.add_argument("--sciatlas-search", action="store_true", help="Query the hosted SciAtlas KG /v1/search per keyword.")
     parser.add_argument("--sciatlas-limit", type=int, default=8)

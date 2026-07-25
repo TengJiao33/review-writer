@@ -7,17 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Mingyu Yang",
-      "Natsumi Yokokawa",
-      "Hirohisa Ohmiya",
-      "Masaya Sawamura"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Mingyu",
+      "family": "Yang"
+    },
+    {
+      "given": "Natsumi",
+      "family": "Yokokawa"
+    },
+    {
+      "given": "Hirohisa",
+      "family": "Ohmiya"
+    },
+    {
+      "given": "Masaya",
+      "family": "Sawamura"
+    }
+  ],
   "year": {
     "value": 2010,
     "source": "filename_or_front_matter",

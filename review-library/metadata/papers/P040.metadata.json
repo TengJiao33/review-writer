@@ -7,15 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Ye, J.",
-      "Ma, S."
-    ],
-    "source": "manual_curation",
-    "confidence": 0.7,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2025,
     "source": "source_pdf",

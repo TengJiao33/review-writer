@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import re
 import subprocess
@@ -10,11 +11,11 @@ import unicodedata
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+import zipfile
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -29,6 +30,10 @@ def write_json(path: Path, payload: Any) -> None:
     temp = path.with_suffix(path.suffix + ".tmp")
     temp.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temp.replace(path)
+
+
+def write_ingest_receipt(path: Path, payload: dict[str, Any]) -> None:
+    write_json(path, payload)
 
 
 def field_value(value: Any) -> Any:
@@ -251,7 +256,7 @@ def reconcile_existing_plan_metadata(
     return reconciled
 
 
-def screening_candidate(
+def discovery_candidate(
     paper_id: str,
     metadata: dict[str, Any],
     item: dict[str, Any],
@@ -274,7 +279,7 @@ def screening_candidate(
     }
 
 
-def reopen_screening_for_promotions(
+def add_promotions_to_candidates(
     discovery_dir: Path,
     promotions: list[tuple[dict[str, Any], str, dict[str, Any]]],
 ) -> list[str]:
@@ -285,63 +290,23 @@ def reopen_screening_for_promotions(
     if not isinstance(selected, dict):
         raise ValueError("selected_discovery_results.json must contain an object")
     local_papers = selected.setdefault("local_papers", [])
-    decisions = selected.setdefault("screening_decisions", [])
-    if not isinstance(local_papers, list) or not isinstance(decisions, list):
-        raise ValueError("selected discovery candidate and screening rows must be lists")
+    if not isinstance(local_papers, list):
+        raise ValueError("selected discovery candidates must be a list")
     existing_ids = {
         str(row.get("paper_id"))
         for row in local_papers
         if isinstance(row, dict) and row.get("paper_id")
     }
-    decision_ids = {
-        str(row.get("paper_id"))
-        for row in decisions
-        if isinstance(row, dict) and row.get("paper_id")
-    }
     promoted_ids: list[str] = []
     for item, paper_id, metadata in promotions:
         if paper_id not in existing_ids:
-            local_papers.append(screening_candidate(paper_id, metadata, item))
+            local_papers.append(discovery_candidate(paper_id, metadata, item))
             existing_ids.add(paper_id)
-        if paper_id not in decision_ids:
-            decisions.append(
-                {
-                    "paper_id": paper_id,
-                    "decision": "uncertain",
-                    "relevance_summary": "",
-                    "decision_basis": "Promoted from external coverage; topic screening required.",
-                    "portfolio_intent_hint": "needs_reading",
-                    "citation_role_hints": ["coverage_candidate"],
-                    "coverage_tags": [],
-                }
-            )
-            decision_ids.add(paper_id)
         promoted_ids.append(paper_id)
     candidate_ids = [str(row.get("paper_id")) for row in local_papers if isinstance(row, dict) and row.get("paper_id")]
     selected["candidate_paper_ids"] = list(dict.fromkeys(candidate_ids))
-    screening = selected.setdefault("screening", {})
-    if not isinstance(screening, dict):
-        screening = {}
-        selected["screening"] = screening
-    screening.update(
-        {
-            "status": "pending",
-            "decided_by": "unreviewed",
-            "external_promotions_pending": list(dict.fromkeys(promoted_ids)),
-        }
-    )
-    selected["human_confirmed"] = False
+    selected["newly_ingested_paper_ids"] = list(dict.fromkeys(promoted_ids))
     write_json(selected_path, selected)
-    write_json(
-        discovery_dir / "human_check_state.json",
-        {
-            "project_id": selected.get("project_id") or discovery_dir.parent.name,
-            "status": "pending",
-            "confirmed_at": None,
-            "reason": "external_papers_promoted_for_screening",
-            "promoted_paper_ids": list(dict.fromkeys(promoted_ids)),
-        },
-    )
     return list(dict.fromkeys(promoted_ids))
 
 
@@ -395,6 +360,23 @@ class PdfLinkParser(HTMLParser):
         self._anchor_text = []
 
 
+class ArticleImageParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.image_urls: dict[str, str] = {}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "img":
+            return
+        values = {str(key).lower(): str(value or "") for key, value in attrs}
+        src = values.get("src", "").strip()
+        if not src:
+            return
+        filename = Path(urllib.parse.urlparse(src).path).name
+        if filename:
+            self.image_urls.setdefault(filename, src)
+
+
 def _looks_like_pdf_url(url: str) -> bool:
     path = urllib.parse.urlparse(str(url or "")).path.lower().rstrip("/")
     return path.endswith(".pdf") or path.endswith("/pdf")
@@ -412,11 +394,105 @@ def extract_pdf_urls(page_url: str, html: str) -> list[str]:
     return urls
 
 
+def europe_pmc_article_images(article_url: str, timeout: int) -> dict[str, str]:
+    request = urllib.request.Request(
+        article_url,
+        headers={"User-Agent": "review-writer-ingest/0.3"},
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        resolved_url = response.geturl()
+        html = response.read(10 * 1024 * 1024).decode("utf-8", errors="replace")
+    parser = ArticleImageParser()
+    parser.feed(html)
+    images: dict[str, str] = {}
+    for filename, raw_url in parser.image_urls.items():
+        absolute = urllib.parse.urljoin(resolved_url, raw_url)
+        host = (urllib.parse.urlparse(absolute).hostname or "").lower()
+        if host.endswith(".nih.gov") or host.endswith(".ncbi.nlm.nih.gov"):
+            images[filename] = absolute
+    return images
+
+
+def download_repository_image(url: str, target: Path, timeout: int) -> None:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "review-writer-ingest/0.3"},
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        payload = response.read(32 * 1024 * 1024)
+    signatures = (
+        b"\xff\xd8\xff",
+        b"\x89PNG\r\n\x1a\n",
+        b"GIF87a",
+        b"GIF89a",
+        b"II*\x00",
+        b"MM\x00*",
+        b"RIFF",
+    )
+    if not payload.startswith(signatures):
+        raise ValueError("repository figure response is not a recognized image")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(payload)
+
+
+def download_europe_pmc_assets(
+    pmcid: str,
+    image_dir: Path,
+    timeout: int,
+) -> tuple[dict[str, Path], str]:
+    archive_url = (
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/"
+        f"{pmcid}/supplementaryFiles"
+    )
+    request = urllib.request.Request(
+        archive_url,
+        headers={"User-Agent": "review-writer-ingest/0.3"},
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        archive_bytes = response.read(128 * 1024 * 1024)
+    assets: dict[str, Path] = {}
+    with zipfile.ZipFile(io.BytesIO(archive_bytes)) as archive:
+        for member in archive.infolist():
+            filename = Path(member.filename).name
+            suffix = Path(filename).suffix.lower()
+            if not filename or suffix not in {
+                ".jpg",
+                ".jpeg",
+                ".png",
+                ".gif",
+                ".tif",
+                ".tiff",
+                ".webp",
+            }:
+                continue
+            safe_name = re.sub(r"[^A-Za-z0-9._-]+", "-", filename)
+            target = image_dir / safe_name
+            payload = archive.read(member)
+            signatures = (
+                b"\xff\xd8\xff",
+                b"\x89PNG\r\n\x1a\n",
+                b"GIF87a",
+                b"GIF89a",
+                b"II*\x00",
+                b"MM\x00*",
+                b"RIFF",
+            )
+            if not payload.startswith(signatures):
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+            assets[filename] = target
+    return assets, archive_url
+
+
 def resolve_pdf_url(page_url: str, timeout: int) -> str:
     parsed = urllib.parse.urlparse(page_url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError(f"unsupported full-text URL: {page_url}")
-    request = urllib.request.Request(page_url, headers={"User-Agent": "review-writer-ingest/0.1"})
+    request = urllib.request.Request(
+        page_url,
+        headers={"User-Agent": "review-writer-ingest/0.3"},
+    )
     with urllib.request.urlopen(request, timeout=timeout) as response:
         resolved_url = response.geturl()
         content_type = str(response.headers.get("Content-Type") or "").lower()
@@ -501,6 +577,19 @@ def download_europe_pmc_jats(
     xml_path.parent.mkdir(parents=True, exist_ok=True)
     markdown_path.parent.mkdir(parents=True, exist_ok=True)
     extracted_dir.mkdir(parents=True, exist_ok=True)
+    image_dir = extracted_dir / "images"
+    try:
+        repository_assets, repository_archive_url = download_europe_pmc_assets(
+            pmcid,
+            image_dir,
+            timeout,
+        )
+    except Exception:
+        repository_assets, repository_archive_url = {}, ""
+    try:
+        article_images = europe_pmc_article_images(article_url, timeout)
+    except Exception:
+        article_images = {}
 
     title = _xml_text(_first_xml_element(root, "article-title")) or slug.replace("-", " ")
     doi = ""
@@ -536,6 +625,31 @@ def download_europe_pmc_jats(
         markdown_lines.extend([f"DOI: {doi}", ""])
         blocks.append({"type": "text", "text": f"DOI: {doi}", "page_idx": 0})
 
+    license_statements: list[str] = []
+    license_urls: list[str] = []
+    for element in root.iter():
+        local_name = element.tag.rsplit("}", 1)[-1]
+        if local_name in {"license-p", "copyright-statement"}:
+            statement = _xml_text(element)
+            if statement and statement not in license_statements:
+                license_statements.append(statement)
+        if local_name == "ext-link":
+            href = str(
+                element.get("{http://www.w3.org/1999/xlink}href") or ""
+            ).strip()
+            if "creativecommons.org/licenses/" in href and href not in license_urls:
+                license_urls.append(href)
+    if license_statements or license_urls:
+        markdown_lines.extend(["## License and reuse notice", ""])
+        for statement in license_statements:
+            markdown_lines.extend([statement, ""])
+            blocks.append({"type": "text", "text": statement, "page_idx": 0})
+        for license_url in license_urls:
+            markdown_lines.extend([license_url, ""])
+            blocks.append(
+                {"type": "text", "text": license_url, "page_idx": 0}
+            )
+
     abstract = _first_xml_element(root, "abstract")
     if abstract is not None:
         abstract_paragraphs = [
@@ -553,6 +667,93 @@ def download_europe_pmc_jats(
                 blocks.append({"type": "text", "text": paragraph, "page_idx": 0})
 
     body = _first_xml_element(root, "body")
+
+    def append_figure(figure: ET.Element) -> None:
+        label = _xml_text(_first_xml_element(figure, "label"))
+        caption = _xml_text(_first_xml_element(figure, "caption"))
+        source_caption = " ".join(
+            value for value in (label, caption) if value
+        ).strip()
+        figure_id = str(figure.get("id") or label or "").strip()
+        graphic_hrefs: list[str] = []
+        for element in figure.iter():
+            if element.tag.rsplit("}", 1)[-1] != "graphic":
+                continue
+            href = str(
+                element.get("{http://www.w3.org/1999/xlink}href") or ""
+            ).strip()
+            if href and href not in graphic_hrefs:
+                graphic_hrefs.append(href)
+        preferred_hrefs = sorted(
+            graphic_hrefs,
+            key=lambda href: (
+                Path(href).suffix.lower() not in {".jpg", ".jpeg", ".png", ".tif", ".tiff"},
+                href,
+            ),
+        )
+        image_relative = ""
+        image_url = ""
+        graphic_href = ""
+        for href in preferred_hrefs:
+            filename = Path(urllib.parse.urlparse(href).path).name
+            candidate_url = article_images.get(filename, "")
+            safe_name = re.sub(r"[^A-Za-z0-9._-]+", "-", filename)
+            relative = Path("images") / safe_name
+            image_path = extracted_dir / relative
+            archived_path = repository_assets.get(filename)
+            if archived_path is not None and archived_path.is_file():
+                image_path = archived_path
+                relative = image_path.relative_to(extracted_dir)
+            elif candidate_url:
+                try:
+                    if not image_path.exists():
+                        download_repository_image(candidate_url, image_path, timeout)
+                except Exception:
+                    continue
+            else:
+                continue
+            image_relative = relative.as_posix()
+            image_url = (
+                candidate_url
+                or (
+                    f"{repository_archive_url}#{urllib.parse.quote(filename)}"
+                    if repository_archive_url
+                    else ""
+                )
+            )
+            graphic_href = href
+            break
+        source_locator = (
+            f"{article_url.rstrip('/')}/figure/{urllib.parse.quote(figure_id)}/"
+            if figure_id
+            else article_url
+        )
+        block: dict[str, Any] = {
+            "type": "image",
+            "img_path": image_relative,
+            "image_path": image_relative,
+            "page_idx": None,
+            "bbox": None,
+            "img_caption": source_caption,
+            "caption": source_caption,
+            "repository_provider": "europe_pmc",
+            "repository_id": pmcid,
+            "repository_figure_id": figure_id,
+            "repository_graphic_href": graphic_href,
+            "repository_image_url": image_url,
+            "source_locator": source_locator,
+            "source_document": str(xml_path),
+        }
+        blocks.append(block)
+        if source_caption:
+            markdown_lines.extend([f"**{source_caption}**", ""])
+        if image_relative:
+            markdown_relative = (
+                Path("..") / "extracted" / slug / image_relative
+            ).as_posix()
+            markdown_lines.extend(
+                [f"![{source_caption or figure_id}]({markdown_relative})", ""]
+            )
 
     def append_section(section: ET.Element, level: int = 2) -> None:
         title_element = next(
@@ -578,6 +779,8 @@ def download_europe_pmc_jats(
             child_name = child.tag.rsplit("}", 1)[-1]
             if child_name == "sec":
                 append_section(child, level + 1)
+            elif child_name == "fig":
+                append_figure(child)
             elif child_name in {"p", "list", "disp-quote", "boxed-text"}:
                 paragraph = _xml_text(child)
                 if paragraph:
@@ -589,6 +792,8 @@ def download_europe_pmc_jats(
             child_name = child.tag.rsplit("}", 1)[-1]
             if child_name == "sec":
                 append_section(child)
+            elif child_name == "fig":
+                append_figure(child)
             elif child_name == "p":
                 paragraph = _xml_text(child)
                 if paragraph:
@@ -665,7 +870,13 @@ def download_pdf(url: str, target: Path, timeout: int) -> str:
         raise ValueError(f"unsupported PDF URL: {url}")
     target.parent.mkdir(parents=True, exist_ok=True)
     temp = target.with_suffix(target.suffix + ".part")
-    request = urllib.request.Request(url, headers={"User-Agent": "review-writer-ingest/0.1"})
+    request = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "review-writer-ingest/0.3",
+            "Accept": "application/pdf,*/*",
+        },
+    )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response, temp.open("wb") as handle:
             first = response.read(8192)
@@ -692,6 +903,7 @@ def select_items(plan: dict[str, Any], paper_keys: list[str], limit: int) -> lis
         if isinstance(row, dict)
         and (
             row.get("action") == "download_then_mineru"
+            or row.get("action") == "ingest_repository_full_text"
             or (row.get("action") == "locate_pdf" and row.get("open_access_full_text_url"))
             or (
                 bool(requested)
@@ -787,6 +999,10 @@ def main() -> int:
     metadata_script = review_root / "skills" / "review-metadata-prep" / "scripts" / "prepare_metadata.py"
     receipt: dict[str, Any] = {
         "project_id": args.project_id,
+        "discovery_run_id": plan.get("discovery_run_id"),
+        "selected_paper_keys": [
+            str(item.get("paper_key") or "") for item in items
+        ],
         "started_at": utc_now(),
         "download_only": args.download_only,
         "all_available": args.all_available,
@@ -795,7 +1011,7 @@ def main() -> int:
         "phase": "downloading",
         "items": [],
         "metadata_status": "not_run",
-        "screening_promotion_status": "not_run",
+        "candidate_update": "not_run",
     }
     parsed_any = False
     failures = 0
@@ -814,26 +1030,62 @@ def main() -> int:
             "promotion_status": "not_run",
         }
         try:
-            source_url = str(item.get("open_access_pdf_url") or "")
-            if not source_url:
-                source_url = resolve_pdf_url(str(item.get("open_access_full_text_url") or ""), args.timeout)
-                record["resolved_pdf_url"] = source_url
-                item["open_access_pdf_url"] = source_url
             item["target_pdf_path"] = target_relative
-            record["source_url"] = source_url
             target = safe_target(review_root, target_relative)
-            if planned_target_relative and planned_target_relative != target_relative:
-                planned_target = safe_target(review_root, planned_target_relative)
-                if planned_target.exists() and not target.exists():
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    planned_target.replace(target)
-                    record["compacted_from_target_pdf_path"] = planned_target_relative
-            if target.exists() and not args.force_download:
-                record["download_status"] = "existing"
+            repository_url = str(item.get("repository_full_text_url") or "").strip()
+            if (
+                repository_url
+                and item.get("repository_provider") == "europe_pmc"
+                and item.get("repository_format") == "jats_xml"
+            ):
+                pmcid = str(item.get("repository_id") or "").strip().upper()
+                article_url = str(item.get("open_access_full_text_url") or "").strip()
+                if not article_url and pmcid:
+                    article_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/"
+                xml_path = target.with_suffix(".jats.xml")
+                markdown_path = expected_markdown_path(review_root, target)
+                if (
+                    xml_path.exists()
+                    and markdown_path.exists()
+                    and not args.force_download
+                ):
+                    record["download_status"] = "existing_jats"
+                else:
+                    xml_path, markdown_path = download_europe_pmc_jats(
+                        article_url,
+                        target,
+                        review_root,
+                        args.timeout,
+                    )
+                    record["download_status"] = "downloaded_jats"
+                record["repository_format"] = "jats_xml"
+                record["repository_source_path"] = str(xml_path)
+                record["expected_markdown_path"] = str(markdown_path)
+                record["source_url"] = repository_url
+                record["repository_provider"] = "europe_pmc"
+                targets_by_key[str(item.get("paper_key"))] = target
             else:
-                download_pdf(source_url, target, args.timeout)
-                record["download_status"] = "downloaded"
-            targets_by_key[str(item.get("paper_key"))] = target
+                source_url = str(item.get("open_access_pdf_url") or "")
+                if not source_url:
+                    source_url = resolve_pdf_url(
+                        str(item.get("open_access_full_text_url") or ""),
+                        args.timeout,
+                    )
+                    record["resolved_pdf_url"] = source_url
+                    item["open_access_pdf_url"] = source_url
+                record["source_url"] = source_url
+                if planned_target_relative and planned_target_relative != target_relative:
+                    planned_target = safe_target(review_root, planned_target_relative)
+                    if planned_target.exists() and not target.exists():
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        planned_target.replace(target)
+                        record["compacted_from_target_pdf_path"] = planned_target_relative
+                if target.exists() and not args.force_download:
+                    record["download_status"] = "existing"
+                else:
+                    download_pdf(source_url, target, args.timeout)
+                    record["download_status"] = "downloaded"
+                targets_by_key[str(item.get("paper_key"))] = target
         except Exception as primary_exc:
             record["primary_error"] = f"{type(primary_exc).__name__}: {primary_exc}"
             try:
@@ -879,7 +1131,10 @@ def main() -> int:
         receipt["items"].append(record)
         receipt["finished_at"] = utc_now()
         receipt["failure_count"] = failures
-        write_json(discovery_dir / "external_ingest_receipt.json", receipt)
+        write_ingest_receipt(
+            discovery_dir / "external_ingest_receipt.json",
+            receipt,
+        )
 
     write_json(plan_path, plan)
     receipt_by_key = {
@@ -924,7 +1179,10 @@ def main() -> int:
                     failures += 1
         receipt["finished_at"] = utc_now()
         receipt["failure_count"] = failures
-        write_json(discovery_dir / "external_ingest_receipt.json", receipt)
+        write_ingest_receipt(
+            discovery_dir / "external_ingest_receipt.json",
+            receipt,
+        )
 
     if parsed_any and not args.skip_metadata and not args.download_only:
         receipt["phase"] = "metadata"
@@ -987,7 +1245,7 @@ def main() -> int:
                 )
                 metadata_after[paper_id] = metadata_row
                 record["local_paper_id"] = paper_id
-                record["promotion_status"] = "ready_for_screening"
+                record["promotion_status"] = "added_to_managed_library"
                 record["bibliographic_reconciled_fields"] = reconciled_fields
                 plan_item = plan_by_key.get(str(item.get("paper_key")))
                 if plan_item is not None:
@@ -995,33 +1253,43 @@ def main() -> int:
                         {
                             "local_paper_id": paper_id,
                             "action": "use_local",
-                            "next_step": f"Screen managed paper {paper_id} against topic_contract.json.",
+                            "next_step": f"Read managed paper {paper_id} against the review question.",
                         }
                     )
                 promotions.append((item, paper_id, metadata_row))
             try:
-                promoted_ids = reopen_screening_for_promotions(discovery_dir, promotions)
+                promoted_ids = add_promotions_to_candidates(discovery_dir, promotions)
                 receipt["promoted_paper_ids"] = promoted_ids
-                receipt["screening_promotion_status"] = (
+                receipt["candidate_update"] = (
                     "completed" if len(promoted_ids) == len(promotions) else "partial"
                 )
             except Exception as exc:
-                receipt["screening_promotion_status"] = f"failed:{type(exc).__name__}"
-                receipt["screening_promotion_error"] = str(exc)
+                receipt["candidate_update"] = f"failed:{type(exc).__name__}"
+                receipt["candidate_update_error"] = str(exc)
                 failures += 1
             remaining_downloads = sum(
                 isinstance(row, dict) and row.get("action") == "download_then_mineru"
                 for row in plan.get("items") or []
             )
+            remaining_repository_imports = sum(
+                isinstance(row, dict)
+                and row.get("action") == "ingest_repository_full_text"
+                for row in plan.get("items") or []
+            )
             remaining_importable = sum(
                 isinstance(row, dict)
                 and row.get("action") != "use_local"
-                and bool(row.get("open_access_pdf_url") or row.get("open_access_full_text_url"))
+                and bool(
+                    row.get("open_access_pdf_url")
+                    or row.get("open_access_full_text_url")
+                    or row.get("repository_full_text_url")
+                )
                 for row in plan.get("items") or []
             )
             plan["downloadable_count"] = remaining_downloads
+            plan["repository_ingestible_count"] = remaining_repository_imports
             plan["importable_count"] = remaining_importable
-            plan["status"] = "ready" if remaining_importable else "screening_update_required"
+            plan["status"] = "ready" if remaining_importable else "ingested_candidates_available"
             write_json(plan_path, plan)
     elif args.download_only:
         receipt["metadata_status"] = "download_only"
@@ -1031,7 +1299,13 @@ def main() -> int:
     receipt["phase"] = "finished"
     receipt["finished_at"] = utc_now()
     receipt["failure_count"] = failures
-    write_json(discovery_dir / "external_ingest_receipt.json", receipt)
+    receipt["remaining_importable_count"] = int(
+        plan.get("importable_count") or 0
+    )
+    write_ingest_receipt(
+        discovery_dir / "external_ingest_receipt.json",
+        receipt,
+    )
     print(json.dumps(receipt, ensure_ascii=False, indent=2))
     return 1 if failures else 0
 

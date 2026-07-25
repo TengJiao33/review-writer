@@ -1,0 +1,98 @@
+{
+  "paper_id": "P264",
+  "slug": "web-imports-2026-interlayer-driven-interfacial-stabil-2-cssc-70673",
+  "title": {
+    "value": "Interlayer-Driven Interfacial Stabilization in Solid Electrolytes for Lithium Batteries: Promises and Challenges.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemsuschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.70673",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Despite major progress in developing solid electrolytes (SEs) with high ionic conductivity, the performance of all-solid-state Li-metal batteries (ASSLBs) remains dominated by interfacial impedance that develops at the electrode-electrolyte interface. Sulfide and halide SEs have emerged as leading candidates for high-energy density ASSLBs owing to their exceptional ionic conductivities, low grain-boundary resistance, and favorable mechanical deformability. However, their practical implementation is still constrained by severe interfacial instabilities with both Li-metal anodes and high-voltage layered oxide cathodes. Interlayer engineering, specifically the incorporation of a functional interlayer between the electrode and SE, has become one of the most effective strategies to mitigate these challenges, enabling suppression of electrolyte decomposition, reduction of space-charge effects, homogenization of Li flux, and stabilization of interphases under high current densities. In this review, we aim to recapitulate the recent developments made in the interlayer-engineering approaches that span over a range of sulfide- and halide-based SE systems, which play a central role as fast Li",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-interlayer-driven-interfacial-stabil-2-cssc-70673.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-interlayer-driven-interfacial-stabil-2-cssc-70673.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-interlayer-driven-interfacial-stabil-2-cssc-70673\\web-imports-2026-interlayer-driven-interfacial-stabil-2-cssc-70673_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-interlayer-driven-interfacial-stabil-2-cssc-70673"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 68,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

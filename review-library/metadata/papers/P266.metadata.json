@@ -1,0 +1,98 @@
+{
+  "paper_id": "P266",
+  "slug": "web-imports-2026-molecular-surface-engineering-of-sul-ma-202515013",
+  "title": {
+    "value": "Molecular Surface Engineering of Sulfide Electrolytes with Enhanced Humidity Tolerance for Robust Lithium Metal All-Solid-State Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202515013",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Solid-state electrolytes (SSEs) enable next-generation batteries due to their intrinsic safety and compatibility with lithium (Li) metal anodes. However, many SSEs, particularly sulfide-based systems, suffer from limited electrochemical stability and high moisture sensitivity. Here, the molecular surface engineering of Li argyrodite SSE, Li<sub>6</sub>PS<sub>5</sub>Cl<sub>0.5</sub>Br<sub>0.5</sub> (LPSClBr), is reported using octadecyl phosphonic acid (OPA) and its lithiated form (Li-OPA) in a single-step coating strategy to stabilize both anode and cathode interfaces. The Li-OPA-coated electrolyte maintains high ionic conductivity (>2.5 mS cm<sup>-1</sup>) and retains >92% of its initial conductivity after 24 h dry room exposure (dew point -50 °C). At 2 wt.% loading, Li-OPA-coated LPSClBr achieves a critical current density of 2.4 mA cm<sup>-1</sup> and supports stable Li plating/stripping for over 400 h at 1.0 mAh cm<sup>-2</sup>. In NCM811 cathode-based all-solid-state cells, it delivers 160 mAh g<sup>-1</sup> at 0.3 C with >99.7% Coulombic efficiency and 85% capacity retention after 100 cycles. In anode-free cell configurations, Li-OPA-modified electrolytes enhance interfacial",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-molecular-surface-engineering-of-sul-ma-202515013.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-molecular-surface-engineering-of-sul-ma-202515013.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-molecular-surface-engineering-of-sul-ma-202515013\\web-imports-2026-molecular-surface-engineering-of-sul-ma-202515013_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-molecular-surface-engineering-of-sul-ma-202515013"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 80,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.91,
+    "needs_human_check": true
+  }
+}

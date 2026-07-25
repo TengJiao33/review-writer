@@ -1,0 +1,98 @@
+{
+  "paper_id": "P253",
+  "slug": "web-imports-2026-comparative-advances-in-sulfide-and-ma-202513255",
+  "title": {
+    "value": "Comparative Advances in Sulfide and Halide Electrolytes for Commercialization of All-Solid-State Lithium Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202513255",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "All-solid-state lithium batteries (ASSBs) outperform lithium-ion batteries (LIBs) in safety, energy density, and thermal stability. Their performance depends on high ionic conductivity, chemical/physical stability, and scalable manufacture of solid electrolytes (SEs). This study compares sulfide- and halide-based SEs, two promising next-generation energy storage options. Soft mechanics permit sulfides with high room-temperature conductivity, low activation energies, and processability, but high-voltage cathode instability, moisture sensitivity, and probable hydrogen sulfide (H<sub>2</sub>S) release. Market prospects are favorable as the industry improves crystallinity and elemental substitution, especially for automotive cells. Chloride-based halides are more environmentally friendly, have adequate voltage stability, and can be used with oxide cathodes without coatings. Despite traditionally low conductivity, high-entropy, and oxyhalide chemistries currently reach 10 mS cm<sup>-1</sup>, and scalable solvent syntheses and dry processing are driving adoption. Mechanical compliance and the use of rare elements (In, Sc) continue to cause integration and cost issues. Composition, micros",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-comparative-advances-in-sulfide-and--ma-202513255.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-comparative-advances-in-sulfide-and-ma-202513255.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-comparative-advances-in-sulfide-and-ma-202513255\\web-imports-2026-comparative-advances-in-sulfide-and-ma-202513255_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-comparative-advances-in-sulfide-and-ma-202513255"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 104,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.91,
+    "needs_human_check": true
+  }
+}

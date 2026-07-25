@@ -7,21 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Felice Quartinello",
-      "Simona Vajnhandl",
-      "Julija Volmajer Valh",
-      "Thomas J. Farmer",
-      "Bojana Vončina",
-      "Alexandra Lobnik",
-      "Enrique Herrero Acero",
-      "Alessandro Pellis"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2017,
     "source": "jats_pub_date",

@@ -7,17 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Hailing Li",
-      "Daniel M€uller",
-      "Laure Gu-en-ee",
-      "Alexandre Alexakis"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Hailing",
+      "family": "Li"
+    },
+    {
+      "given": "Daniel",
+      "family": "M€uller"
+    },
+    {
+      "given": "Laure",
+      "family": "Gu-en-ee"
+    },
+    {
+      "given": "Alexandre",
+      "family": "Alexakis"
+    }
+  ],
   "year": {
     "value": 2012,
     "source": "filename_or_front_matter",

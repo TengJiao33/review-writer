@@ -1,0 +1,97 @@
+{
+  "paper_id": "P261",
+  "slug": "web-imports-2026-inorganic-sodium-solid-state-electro-026-00279-y",
+  "title": {
+    "value": "Inorganic Sodium Solid-State Electrolytes: Progress, Existing Issues, and Solutions Towards High-Performance all Solid-State Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Electrochemical Energy Reviews",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1007/s41918-026-00279-y",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Na-ion batteries (NIBs) have gained attention as a cost-effective option for large-scale energy storage, offering electrochemical properties similar to lithium-ion batteries (LIBs). To improve safety and energy density, solid-state electrolytes (SSEs) are being incorporated into NIBs, paving the way for high-performance all-solid-state sodium-ion batteries (ASSNIBs). This review summarises recent progress in Na-based SSEs, categorised into oxides, sulfides, and halides, with particular emphasis on their crystal structures, ion conduction mechanisms, and electrochemical performance. We then critically examine the key challenges facing ASSNIBs, including low ionic conductivity, unstable electrode/electrolyte interfaces, and the reliance on rare or costly materials. To gain deeper insights into these issues, we highlight advanced characterisation and modelling techniques, including cryogenic electron microscopy, in-situ/operando characterisation, and machine learning approaches-all of which contribute to understanding Na-ion transport mechanisms and interfacial dynamics more comprehensively, and comparing with conventional electrochemical tests, structural characterisation and modelli",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-inorganic-sodium-solid-state-electro--026-00279-y.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-inorganic-sodium-solid-state-electro-026-00279-y.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-inorganic-sodium-solid-state-electro-026-00279-y\\web-imports-2026-inorganic-sodium-solid-state-electro-026-00279-y_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-inorganic-sodium-solid-state-electro-026-00279-y"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 165,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

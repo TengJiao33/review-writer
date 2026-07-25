@@ -1,4 +1,0 @@
-interface:
-  display_name: "Review Writing Orchestrator"
-  short_description: "Coordinate evidence-grounded review writing stages."
-  default_prompt: "Use $review-writing-orchestrator to coordinate the next evidence-grounded review stage and report any integrity blockers."

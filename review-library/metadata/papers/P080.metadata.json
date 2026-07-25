@@ -7,12 +7,20 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Ke-Fan",
+      "family": "Wu"
+    },
+    {
+      "given": "Dong-Ting",
+      "family": "Dai"
+    },
+    {
+      "given": "Xin-Yue",
+      "family": "Sun"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "filename_or_front_matter",

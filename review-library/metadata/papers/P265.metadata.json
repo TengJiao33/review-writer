@@ -1,0 +1,98 @@
+{
+  "paper_id": "P265",
+  "slug": "web-imports-2026-mechanistic-understanding-of-thermal-mrev-5c00621",
+  "title": {
+    "value": "Mechanistic Understanding of Thermal Stability and Safety in Lithium Metal Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Reviews",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.chemrev.5c00621",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "As lithium-ion batteries approach their theoretical capacity limits, lithium metal batteries (LMBs) have emerged as promising candidates for next-generation energy storage, offering substantially higher energy densities. However, their practical deployment remains limited by several interrelated challenges including lithium dendrite growth, parasitic side reactions, unstable solid electrolyte interphases (SEI), and poor cycling stability. While recent advances in electrolyte design, anode architecture, and interfacial engineering have significantly improved electrochemical performance, the thermal stability and safety of LMBs, particularly at the interface and electrode levels, still require extensive investigation. This review provides a comprehensive mechanistic analysis of thermal instability in LMBs, spanning material degradation, interfacial decomposition, and cell-level thermal behavior. We critically examine the roles of lithium metal, liquid- and solid-state electrolytes, and diverse cathode chemistries (e.g., layered oxides, sulfur) in triggering exothermic reaction pathways, gas evolution, and thermal runaway. The complex coupling among electrode-electrolyte interactions,",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-mechanistic-understanding-of-thermal-mrev-5c00621.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-mechanistic-understanding-of-thermal-mrev-5c00621.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-mechanistic-understanding-of-thermal-mrev-5c00621\\web-imports-2026-mechanistic-understanding-of-thermal-mrev-5c00621_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-mechanistic-understanding-of-thermal-mrev-5c00621"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 133,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.91,
+    "needs_human_check": true
+  }
+}

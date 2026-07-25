@@ -7,17 +7,12 @@
     "confidence": 0.86,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "DENG",
-      "You-Qiana GU",
-      "Zhen-Huab MA",
-      "Sheng-Ming"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": null,
     "source": "rule_not_found",

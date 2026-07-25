@@ -7,29 +7,35 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
-  "year": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
-  "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Takuya",
+      "family": "Hashimoto"
+    },
+    {
+      "given": "Kazuki",
+      "family": "Sakata"
+    },
+    {
+      "given": "Fumiko",
+      "family": "Tamakuni"
+    },
+    {
+      "given": "Mark J.",
+      "family": "Dutton"
+    },
+    {
+      "given": "Keiji",
+      "family": "Maruoka"
+    }
+  ],
+  "year": "2013",
+  "journal": "Nature Chemistry",
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1038/nchem.1567",
+    "source": "pdf_extraction",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "",

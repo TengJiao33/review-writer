@@ -1,0 +1,98 @@
+{
+  "paper_id": "P250",
+  "slug": "web-imports-2025-revealing-interfacial-failure-mechan-025-64697-0",
+  "title": {
+    "value": "Revealing interfacial failure mechanism of silicon based all solid state batteries via cryogenic electron microscopy.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-64697-0",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Interfaces are the critical components of all-solid-state batteries, and it is generally believed that high interfacial impedance is the major culprits of battery failure. In this study, the interface impedance has been found not to be a major issue in the batteries comprising Si negative electrode, Li<sub>10</sub>GeP<sub>2</sub>S<sub>12</sub> and Li<sub>10</sub>Si<sub>0.3</sub>PS<sub>6.7</sub>Cl<sub>1.8</sub> electrolytes and LiNi<sub>0.8</sub>Mn<sub>0.1</sub>Co<sub>0.1</sub>O<sub>2</sub> positive electrode. Instead, it is the sustainable interfacial reaction that depletes the active lithium source, causing continuous capacity decay. The interphase layer at the Si/Li<sub>10</sub>Si<sub>0.3</sub>PS<sub>6.7</sub>Cl<sub>1.8</sub> interface comprising nanocrystalline Li<sub>2</sub>S dispersed in an amorphous matrix is thin (with a thickness < 200 nm) and stable, and the battery maintains a good cyclability. In contrast, the interphase layer at the Si/Li<sub>10</sub>GeP<sub>2</sub>S<sub>12</sub> interface is thick with a thickness of 10 μm. Couter-intuitively, despite the thick interfacial layer comprising mainly needle shaped Li<sub>2</sub>S, the interfacial impedance does not increas",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-revealing-interfacial-failure-mechan--025-64697-0.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-revealing-interfacial-failure-mechan-025-64697-0.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-interfacial-failure-mechan-025-64697-0\\web-imports-2025-revealing-interfacial-failure-mechan-025-64697-0_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-interfacial-failure-mechan-025-64697-0"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 69,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

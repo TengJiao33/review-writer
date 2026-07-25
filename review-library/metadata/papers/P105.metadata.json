@@ -7,17 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Yuli Wanga and Shengming Maa",
-      "Received: October",
-      "; Revised: December",
-      "; Published online: February"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Yuli Wanga and Shengming",
+      "family": "Maa"
+    }
+  ],
   "year": {
     "value": 2013,
     "source": "filename_or_front_matter",

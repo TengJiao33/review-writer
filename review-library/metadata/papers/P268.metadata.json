@@ -1,0 +1,97 @@
+{
+  "paper_id": "P268",
+  "slug": "web-imports-2026-polyelectrolyte-complex-coating-for-sc-202502431",
+  "title": {
+    "value": "Polyelectrolyte Complex Coating for Mitigating Decomposition at Argyrodite and Conductive Carbon Interfaces in Solid-State Batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemsuschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.202502431",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Sulfide-based solid electrolyte batteries (SEBs), which are an important type of solid-state battery, show strong potential for commercializing solid-state battery technology in large scale with high energy density. For delivering high capacity, maximum utilization of cathode active materials is a prime criterion, which can be attained using carbon additives to ensure electronic connectivity of all cathode particles. Fibrous carbon additives such as vapor-grown carbon fibers (VGCFs) are often preferred in SEBs. However, degradation of sulfide-based solid electrolytes such as Li<sub>6</sub>PS<sub>5</sub>Cl (LPSCl) at the interfaces with cathode active material and VGCF lowers cell capacity. Coating of carbon surfaces is a viable method to mitigate electrolyte decomposition. Here, we report a new polyelectrolyte-based coating on VGCFs as protective interlayer for LiIn|LPSCl|LPSCl-NCM-VGCF (<sup>LiIn</sup>SEB<sup>NCM</sup>) cells. We use cyclic voltammetry to evaluate oxidation of electrolyte at the VGCF interface along with galvanostatic charge-discharge cycling. The polymer coating decreases argyrodite oxidation at the VGCF|LPSCl interface and improves cycling capacity. An interplay",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "nickel catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-polyelectrolyte-complex-coating-for--sc-202502431.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-polyelectrolyte-complex-coating-for-sc-202502431.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-polyelectrolyte-complex-coating-for-sc-202502431\\web-imports-2026-polyelectrolyte-complex-coating-for-sc-202502431_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-polyelectrolyte-complex-coating-for-sc-202502431"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 81,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "P258",
+  "slug": "web-imports-2026-engineering-a-redox-active-interface-9-d6sc03781j",
+  "title": {
+    "value": "Engineering a redox-active interface for highly reversible aluminum anode-based practical all-solid-state lithium batteries with ultralow N/P ratio.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6sc03781j",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Aluminum is a promising anode for all-solid-state lithium batteries (ASSLBs) owing to its high theoretical capacity (900 mAh g<sup>-1</sup>) and optimal lithiation potential. However, its practical viability with critical N/P ratio and high current density is plagued by mechanochemical failure, sluggish kinetics, and extremely low reversibility. Herein, we construct a redox-active interface (comprising Li<sub>2</sub>S, Li <sub><i>x</i></sub> P, <i>etc.</i>) on the Al anode <i>via</i> the electrochemical activation of a Li<sub>5.4</sub>PS<sub>4.4</sub>Cl<sub>1.6</sub> sulfide electrolyte. This interphase concurrently accelerates Li<sup>+</sup> transport and fortifies interfacial stability. Theoretical modeling establishes the Li<sup>+</sup> binding energy difference (Δ<i>E</i>) as a critical descriptor for interfacial stability; a substantial Δ<i>E</i> strongly confines Li<sup>+</sup> within the anode bulk, effectively preventing parasitic ion migration and interfacial degradation. Consequently, the engineered Al anode delivers near-theoretical capacity and exceptional reversibility. Strikingly, the ASSLBs sustain over 1000 cycles under practically demanding conditions: a low N/P ra",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-engineering-a-redox-active-interface-9-d6sc03781j.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-engineering-a-redox-active-interface-9-d6sc03781j.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-engineering-a-redox-active-interface-9-d6sc03781j\\web-imports-2026-engineering-a-redox-active-interface-9-d6sc03781j_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-engineering-a-redox-active-interface-9-d6sc03781j"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 48,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

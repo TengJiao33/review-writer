@@ -1,0 +1,106 @@
+{
+  "paper_id": "P276",
+  "slug": "web-imports-2022-non-palladium-catalyzed-oxidative-co-2022-909250",
+  "title": {
+    "value": "Non-Palladium-Catalyzed Oxidative Coupling Reactions Using Hypervalent Iodine Reagents.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Shetgaonkar SE",
+      "Raju A",
+      "China H",
+      "Takenaga N",
+      "Dohi T",
+      "Singh FV"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Frontiers in Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fchem.2022.909250",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Transition metal-catalyzed direct oxidative coupling reactions via C-H bond activation have emerged as a straightforward strategy for the construction of complex molecules in organic synthesis. The direct transformation of C-H bonds into carbon-carbon and carbon-heteroatom bonds renders the requirement of prefunctionalization of starting materials and, therefore, represents a more efficient alternative to the traditional cross-coupling reactions. The key to the unprecedented progress made in this area has been the identification of an appropriate oxidant that facilitates oxidation and provides heteroatom ligands at the metal center. In this context, hypervalent iodine compounds have evolved as mainstream reagents particularly because of their excellent oxidizing nature, high electrophilicity, and versatile reactivity. They are environmentally benign reagents, stable, non-toxic, and relatively cheaper than inorganic oxidants. For many years, palladium catalysis has dominated these oxidative coupling reactions, but eventually, other transition metal catalysts such as gold, copper, platinum, iron, etc. were found to be promising alternate catalysts for facilitating such reactions. Thi",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-non-palladium-catalyzed-oxidative-co--2022-909250.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-non-palladium-catalyzed-oxidative-co-2022-909250.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-non-palladium-catalyzed-oxidative-co-2022-909250\\web-imports-2022-non-palladium-catalyzed-oxidative-co-2022-909250_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-non-palladium-catalyzed-oxidative-co-2022-909250"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:41:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 83,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "P269",
+  "slug": "web-imports-2026-revisiting-the-modification-strategi-026-02157-0",
+  "title": {
+    "value": "Revisiting the Modification Strategies of Alloy-Base Anode for Solid-State Lithium-Ion Batteries Through Deconstructing Anode-Interface-Solid Electrolyte.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nano-Micro Letters",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1007/s40820-026-02157-0",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "In recent years, advanced battery systems based on solid electrolytes have become a research hotspot to replace traditional liquid lithium-ion batteries due to their significant advantages in energy storage performance and safety. The alloy anode materials (such as Si, Sn, and P) have attracted much attention due to their significantly higher theoretical capacity than graphite. This article systematically reviews the characteristics, key challenge and the latest progress of alloy-solid-state batteries at the anode and solid electrolyte levels. It is emphasized that through strategies such as structural design, material composite, surface engineering and overall electrode system optimization, the volume expansion problem of alloy materials during the cycling process can be alleviated. Meanwhile, in-depth analyses of the dynamic evolution of the interface of solid electrolytes, the kinetics of lithium-ion transport, and the failure mechanisms and innovative strategies in terms of mechanical properties have also been conducted. In addition, this paper introduces the in-depth analysis of the dynamic mechanism in the lithiation process through advanced in situ characterization technique",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-revisiting-the-modification-strategi--026-02157-0.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-revisiting-the-modification-strategi-026-02157-0.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-revisiting-the-modification-strategi-026-02157-0\\web-imports-2026-revisiting-the-modification-strategi-026-02157-0_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-revisiting-the-modification-strategi-026-02157-0"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 247,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

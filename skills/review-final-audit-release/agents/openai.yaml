@@ -1,4 +1,0 @@
-interface:
-  display_name: "Final Audit Release"
-  short_description: "Audit evidence, citations, repetition, and release safety."
-  default_prompt: "Use $review-final-audit-release to check manuscript evidence, citations, repeated filler, and release integrity before finalization."

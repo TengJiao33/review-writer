@@ -7,12 +7,48 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Shanshan",
+      "family": "Shi"
+    },
+    {
+      "given": "Hu",
+      "family": "Chen"
+    },
+    {
+      "given": "Shiwei",
+      "family": "Yang"
+    },
+    {
+      "given": "Huaze",
+      "family": "Dong"
+    },
+    {
+      "given": "Jinmiao",
+      "family": "Zhu"
+    },
+    {
+      "given": "Bin",
+      "family": "Zheng"
+    },
+    {
+      "given": "Xiaohong",
+      "family": "Wang"
+    },
+    {
+      "given": "Zhaoyang",
+      "family": "Liang"
+    },
+    {
+      "given": "Hongyu",
+      "family": "Ren"
+    },
+    {
+      "given": "and Yuzhen",
+      "family": "Gao"
+    }
+  ],
   "year": {
     "value": 2024,
     "source": "filename_or_front_matter",

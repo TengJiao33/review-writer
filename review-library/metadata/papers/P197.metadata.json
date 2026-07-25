@@ -1,30 +1,19 @@
 {
   "paper_id": "P197",
   "slug": "8c",
-  "title": {
-    "value": "Allenes and Acetylenes. XXI. Leaving-group Effects on the Stereochemistry of Allene-forming Organocuprate Reactions\\*",
-    "source": "markdown_first_h1",
-    "confidence": 0.88,
-    "human_checked": false
-  },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2023,
-    "source": "targeted_fix",
-    "confidence": 0.75,
-    "human_checked": false
-  },
-  "journal": {
-    "value": "Organic & Biomolecular Chemistry",
-    "source": "targeted_fix",
-    "confidence": 0.75,
-    "human_checked": false
-  },
+  "title": "Allenes and Acetylenes. XXI. Leaving-group Effects on the Stereochemistry of Allene-forming Organocuprate Reactions",
+  "authors": [
+    {
+      "given": "Lars-Ingé",
+      "family": "Olsson"
+    },
+    {
+      "given": "Alf",
+      "family": "Claesson"
+    }
+  ],
+  "year": "1973",
+  "journal": "Acta Chemica Scandinavica",
   "doi": {
     "value": "10.1039/d3ob00890d",
     "source": "targeted_fix",

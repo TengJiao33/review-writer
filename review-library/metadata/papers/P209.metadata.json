@@ -7,23 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Hong-Jing Zhu<sup>",
-      "</sup>",
-      "Meng Lu <sup>",
-      "Yi-Rong Wang<sup></sup>",
-      "Su-Juan Yao<sup></sup>",
-      "Mi Zhang<sup></sup>",
-      "Yu-He Kan <sup></sup>",
-      "Jiang Liu <sup></sup>",
-      "Yifa Chen<sup></sup>",
-      "Shun-Li Li<sup></sup> & Ya-Qian Lan <sup></sup>"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2020,
     "source": "external_discovery",

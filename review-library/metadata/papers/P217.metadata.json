@@ -7,21 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Seongjoon Joo",
-      "In Jin Cho",
-      "Hogyun Seo",
-      "Hyeoncheol Francis Son",
-      "Hye-Young Sagong",
-      "Tae Joo Shin",
-      "So Young Choi",
-      "Sang Yup Lee"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2018,
     "source": "filename_or_front_matter",

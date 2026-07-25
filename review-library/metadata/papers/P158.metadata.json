@@ -7,29 +7,27 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
-  "year": {
-    "value": 2012,
-    "source": "filename_or_front_matter",
-    "confidence": 0.68,
-    "human_checked": false
-  },
-  "journal": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Enantioselective",
+      "family": "Synthesis"
+    },
+    {
+      "given": "Axially",
+      "family": "Chiral"
+    },
+    {
+      "given": "Tetrasubstituted",
+      "family": "Allenes"
+    }
+  ],
+  "year": "2012",
+  "journal": "Synthesis",
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1055/s-0032-1317524",
+    "source": "pdf_extraction",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "",

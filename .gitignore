@@ -1,6 +1,7 @@
 /*
 !/.gitignore
 !/README.md
+!/pytest.ini
 !/skills/
 !/skills/**
 !/view/

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Section Drafting Figure Picking"
-  short_description: "Draft evidence-bound sections with stable citations."
-  default_prompt: "Use $review-section-drafting-figure-picking to draft the review from the evidence map with stable paper-ID citations and useful figure selections."

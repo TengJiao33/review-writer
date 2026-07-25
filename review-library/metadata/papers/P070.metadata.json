@@ -7,12 +7,20 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Pot",
+      "family": "Assembly"
+    },
+    {
+      "given": "Synthetic",
+      "family": "Applications"
+    },
+    {
+      "given": "Geminal",
+      "family": "Acyl"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "filename_or_front_matter",
@@ -26,10 +34,10 @@
     "human_checked": false
   },
   "doi": {
-    "value": null,
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
+    "value": "10.1021/acs.joc.2c01322",
+    "source": "pdf_extraction",
+    "confidence": 0.95,
+    "human_checked": true
   },
   "abstract": {
     "value": "Polysubstituted allenes are useful synthetic intermediates in many applications, offering structural complexity, modularity, and their axial chirality in further transformations. While acyl and alkoxy-substituted allenes are known, there are currently few examples of allenes containing both functionalities and no reports of geminally substituted acyl/alkoxy allenes being isolated and characterized. Herein, we report the synthesis of tetrasubstituted allenes featuring a novel geminal acyl/alkoxy substitution. These unique “push−pull” allenes are bench-stable and exhibit interesting reactivity in several applications.",

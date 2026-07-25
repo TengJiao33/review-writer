@@ -7,15 +7,12 @@
     "confidence": 0.99,
     "human_checked": true
   },
-  "authors": {
-    "value": [
-      "Rona, Peter",
-      "Crabbe, Pierre"
-    ],
-    "source": "source_pdf_and_official_publisher",
-    "confidence": 0.99,
-    "human_checked": true
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 1969,
     "source": "source_pdf_and_official_publisher",

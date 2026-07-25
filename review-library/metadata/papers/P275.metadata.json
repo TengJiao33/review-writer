@@ -1,0 +1,105 @@
+{
+  "paper_id": "P275",
+  "slug": "web-imports-2022-enantioselective-cyclopropanation-ca-ules27185805",
+  "title": {
+    "value": "Enantioselective Cyclopropanation Catalyzed by Gold(I)-Carbene Complexes.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Szabo Z",
+      "Ben Ahmed S",
+      "Nagy Z",
+      "Paczal A",
+      "Kotschy A"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules27185805",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The formation of polysubstituted cyclopropane derivatives in the gold(I)-catalyzed reaction of olefins and propargylic esters is a potentially useful transformation to generate diversity, therefore any method in which its stereoselectivity could be controlled is of significant interest. We prepared and tested a series of chiral gold(I)-carbene complexes as a catalyst in this transformation. With a systematic optimization of the reaction conditions, we were able to achieve high enantioselectivity in the test reaction while the <i>cis:trans</i> selectivity of the transformation was independent of the catalyst. Using the optimized conditions, we reacted a series of various olefins and acetylene derivatives to find that, although the reactions proceeded smoothly and the products were usually isolated in good yield and with good to exclusive <i>cis</i> selectivity, the observed enantioselectivity varied greatly and was sometimes moderate at best. We were unable to establish any structure-property relationship, which suggests that for any given reagent combination, one has to identify individually the best catalyst.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "gold catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-enantioselective-cyclopropanation-ca-ules27185805.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-enantioselective-cyclopropanation-ca-ules27185805.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-enantioselective-cyclopropanation-ca-ules27185805\\web-imports-2022-enantioselective-cyclopropanation-ca-ules27185805_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-enantioselective-cyclopropanation-ca-ules27185805"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-24T11:41:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 35,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

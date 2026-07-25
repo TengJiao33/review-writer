@@ -7,18 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Ye-eun Woo",
-      "Kyungha Baik",
-      "Sujin Jeong",
-      "Suhyun Lee",
-      "Jooyoun Kim"
-    ],
-    "source": "jats_contrib_group",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2025,
     "source": "jats_pub_date",

@@ -7,20 +7,24 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Ricardo Riveiros",
-      "David Rodrı´guez",
-      "Jose´ Pe´rez Sestelo",
-      "Luis A. Sarandeses Departamento de Quı´mica Fundamental",
-      "Uni ersidade da Corun˜",
-      "E A Corun˜",
-      "Spain Received January"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Ricardo",
+      "family": "Riveiros"
+    },
+    {
+      "given": "David",
+      "family": "Rodr"
+    },
+    {
+      "given": "Luis A.",
+      "family": "Sarandeses"
+    },
+    {
+      "given": "A.",
+      "family": "Sarandeses"
+    }
+  ],
   "year": {
     "value": 2004,
     "source": "filename_or_front_matter",

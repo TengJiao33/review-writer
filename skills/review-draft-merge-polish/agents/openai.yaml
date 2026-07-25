@@ -1,4 +1,0 @@
-interface:
-  display_name: "Draft Merge Polish"
-  short_description: "Merge review sections and number citations reliably."
-  default_prompt: "Use $review-draft-merge-polish to merge review sections, assign global citation numbers, and generate aligned references."

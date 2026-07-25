@@ -7,14 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Andrew G. Myers and Bin Zheng DiVision of Chemistry and Chemical Engineering"
-    ],
-    "source": "content_list_after_title",
-    "confidence": 0.74,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Andrew G. Myers and Bin Zheng DiVision of Chemistry and Chemical",
+      "family": "Engineering"
+    }
+  ],
   "year": {
     "value": 1996,
     "source": "filename_or_front_matter",

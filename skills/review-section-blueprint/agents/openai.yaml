@@ -1,4 +1,0 @@
-interface:
-  display_name: "Review Section Blueprint"
-  short_description: "Build a lightweight evidence-aware writing map."
-  default_prompt: "Use $review-section-blueprint to create a lightweight writing map from the selected outline and evidence matrix."

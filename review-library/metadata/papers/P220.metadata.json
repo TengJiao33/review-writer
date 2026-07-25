@@ -7,17 +7,12 @@
     "confidence": 0.99,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Sariah Giraldo‐Narcizo",
-      "Nihal Guenani",
-      "Ana María Sánchez‐Pérez",
-      "Antonio Guerrero"
-    ],
-    "source": "jats_contrib_group",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2022,
     "source": "external_discovery",

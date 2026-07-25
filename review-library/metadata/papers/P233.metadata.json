@@ -7,20 +7,12 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [
-      "Patricia Falkenstein",
-      "Daniel Gräsing",
-      "Pavlo Bielytskyi",
-      "Wolfgang Zimmermann",
-      "Jörg Matysik",
-      "Ren Wei",
-      "Chen Song"
-    ],
-    "source": "external_discovery",
-    "confidence": 0.99,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
   "year": {
     "value": 2020,
     "source": "filename_or_front_matter",

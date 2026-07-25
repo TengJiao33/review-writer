@@ -1,0 +1,98 @@
+{
+  "paper_id": "P267",
+  "slug": "web-imports-2026-multi-anion-cation-engineering-enabl-9-d6sc04008j",
+  "title": {
+    "value": "Multi-anion/cation engineering enables fast ion transport and stable interfaces in Zr-based halide electrolytes for all-solid-state batteries.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": [
+    {
+      "given": "A.",
+      "family": "Author"
+    }
+  ],
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6sc04008j",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The Zr-based halide solid-state electrolyte (SE) Li<sub>2</sub>ZrCl<sub>6</sub> (LZC) has emerged as a promising candidate for all-solid-state lithium metal batteries (ASSLBs) due to the natural abundance and low cost of zirconium. However, its relatively low ionic conductivity and insufficient interfacial stability severely limit its practical application. Herein, we propose a synergistic multi-anion and cation co-doping strategy to construct a highly amorphous halide electrolyte, Li<sub>2.25</sub>Zr<sub>0.75</sub>Al<sub>0.25</sub>Cl<sub>4.2</sub>O<sub>0.8</sub>F<sub>0.2</sub>. The incorporation of O<sup>2-</sup> induces substantial amorphization, facilitating Li<sup>+</sup> transport and improving mechanical deformability. Meanwhile, Al<sup>3+</sup> substitution increases Li<sup>+</sup> concentration <i>via</i> charge compensation, further promoting ion transport. In addition, F<sup>-</sup> incorporation enhances oxidative stability and enables the formation of a robust F-rich cathode-electrolyte interphase (CEI), effectively suppressing interfacial side reactions. As a result, the optimized electrolyte exhibits a high ionic conductivity of 1.12 × 10<sup>-3</sup> S cm<sup>-1</sup",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-multi-anion-cation-engineering-enabl-9-d6sc04008j.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-multi-anion-cation-engineering-enabl-9-d6sc04008j.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-multi-anion-cation-engineering-enabl-9-d6sc04008j\\web-imports-2026-multi-anion-cation-engineering-enabl-9-d6sc04008j_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-multi-anion-cation-engineering-enabl-9-d6sc04008j"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-23T08:33:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

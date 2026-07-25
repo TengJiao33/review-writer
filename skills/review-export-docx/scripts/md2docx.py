@@ -155,6 +155,13 @@ def _bounded_figure_size(path: Path, max_width: float, max_height: float = 5.9) 
     return width, width / ratio
 
 
+def _figure_bounds_for_caption(caption_key: str, page_width: float) -> Tuple[float, float]:
+    """Use a compact displayed block for reaction schemes."""
+    if caption_key == "scheme":
+        return min(page_width, 5.25), 3.6
+    return page_width, 5.9
+
+
 def _set_style_font(style, font_name: str, size: float, bold: bool = False, italic: bool = False) -> None:
     style.font.name = font_name
     style.font.size = Pt(size)
@@ -698,6 +705,14 @@ def _create_numbering_definition(doc: Document, ordered: bool, reference: bool =
     abstract_ref = OxmlElement("w:abstractNumId")
     abstract_ref.set(qn("w:val"), str(abstract_id))
     num.append(abstract_ref)
+    if ordered:
+        for level in range(3):
+            override = OxmlElement("w:lvlOverride")
+            override.set(qn("w:ilvl"), str(level))
+            start_override = OxmlElement("w:startOverride")
+            start_override.set(qn("w:val"), "1")
+            override.append(start_override)
+            num.append(override)
     numbering.append(num)
     return num_id
 
@@ -719,16 +734,29 @@ def _apply_numbering(paragraph, num_id: int, level: int = 0) -> None:
 # Table builder
 # ---------------------------------------------------------------------------
 
-def _set_cell_borders(cell) -> None:
+def _set_cell_borders(
+    cell,
+    *,
+    top: bool = False,
+    bottom: bool = False,
+) -> None:
+    """Apply a white three-line-table border treatment."""
     tc = cell._tc
     tcPr = tc.get_or_add_tcPr()
-    for edge in ("top", "left", "bottom", "right"):
+    borders = tcPr.first_child_found_in("w:tcBorders")
+    if borders is None:
+        borders = OxmlElement("w:tcBorders")
+        tcPr.append(borders)
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        for existing in list(borders.findall(qn(f"w:{edge}"))):
+            borders.remove(existing)
         elem = OxmlElement(f"w:{edge}")
-        elem.set(qn("w:val"), "single")
-        elem.set(qn("w:sz"), "4")
+        enabled = (edge == "top" and top) or (edge == "bottom" and bottom)
+        elem.set(qn("w:val"), "single" if enabled else "nil")
+        elem.set(qn("w:sz"), "8" if enabled else "0")
         elem.set(qn("w:space"), "0")
         elem.set(qn("w:color"), "000000")
-        tcPr.append(elem)
+        borders.append(elem)
 
 
 def _set_cell_margins(cell, top: int = 80, start: int = 120, bottom: int = 80, end: int = 120) -> None:
@@ -789,11 +817,8 @@ def _add_table_single(doc: Document, header: List[str], rows: List[List[str]]) -
         cell.paragraphs[0].style = doc.styles[_S["table_body"]]
         apply_runs(cell.paragraphs[0], parse_inline(h),
                    spec_key="table_body", force_bold=True)
-        _set_cell_borders(cell)
+        _set_cell_borders(cell, top=True, bottom=True)
         _set_cell_margins(cell)
-        shading = OxmlElement("w:shd")
-        shading.set(qn("w:fill"), "F4F6F9")
-        cell._tc.get_or_add_tcPr().append(shading)
     for i, row in enumerate(rows):
         for j in range(ncols):
             cell = table.cell(i + 1, j)
@@ -806,7 +831,7 @@ def _add_table_single(doc: Document, header: List[str], rows: List[List[str]]) -
             apply_runs(cell.paragraphs[0],
                        parse_inline(row[j] if j < len(row) else ""),
                        spec_key="table_body")
-            _set_cell_borders(cell)
+            _set_cell_borders(cell, bottom=i == len(rows) - 1)
             _set_cell_margins(cell)
 
 
@@ -845,6 +870,7 @@ class Block:
     level:    int             = 0
     text:     str             = ""
     ordered:  bool            = False
+    list_number: int          = 0
     depth:    int             = 0
     code:     str             = ""
     language: str             = ""
@@ -862,7 +888,7 @@ _NUMBERED_SECTION_HEADING_RE = re.compile(r"^\d+(?:\.\d+)*\.\s+\S")
 _HTML_ANCHOR_RE = re.compile(r"^<a\s+id=[\"']ref-\d+[\"']\s*>\s*</a>\s*$", re.I)
 _HTML_COMMENT_START_RE = re.compile(r"^\s*<!--")
 _UL_RE         = re.compile(r"^(\s*)[-*+]\s+(.*)")
-_OL_RE         = re.compile(r"^(\s*)\d+[.)]\s+(.*)")
+_OL_RE         = re.compile(r"^(\s*)(\d+)[.)]\s+(.*)")
 _FENCE_RE      = re.compile(r"^```(\w*)\s*$")
 _MATH_FENCE_RE = re.compile(r"^\$\$\s*$")
 _IMG_RE        = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$")
@@ -1005,7 +1031,8 @@ def tokenize(md_text: str) -> List[Block]:
         m = _OL_RE.match(line)
         if m:
             blocks.append(Block(kind="list_item", ordered=True,
-                                depth=len(m.group(1)) // 2, text=m.group(2)))
+                                list_number=int(m.group(2)),
+                                depth=len(m.group(1)) // 2, text=m.group(3)))
             i += 1
             continue
 
@@ -1151,7 +1178,7 @@ def convert(
     properties.author = author.strip()
     properties.last_modified_by = author.strip()
     properties.keywords = keywords.strip()
-    properties.comments = "Generated from the release-audited Markdown manuscript."
+    properties.comments = "Generated from the review Markdown manuscript."
     bullet_num_id = _create_numbering_definition(doc, ordered=False)
     ordered_num_id = _create_numbering_definition(doc, ordered=True)
     reference_num_id = _create_numbering_definition(doc, ordered=True, reference=True)
@@ -1250,8 +1277,15 @@ def convert(
             if skipping_source_toc:
                 continue
             if ctx == "references":
-                p = _para(doc, "references", "references", block.text)
-                _apply_numbering(p, reference_num_id, block.depth)
+                number = block.list_number or 1
+                p = _para(
+                    doc,
+                    "references",
+                    "references",
+                    f"{number}. {block.text}",
+                )
+                p.paragraph_format.left_indent = Inches(0.5)
+                p.paragraph_format.first_line_indent = Inches(-0.25)
             else:
                 p = _para(doc, "body", "body", block.text)
                 _apply_numbering(p, ordered_num_id if block.ordered else bullet_num_id, block.depth)
@@ -1284,15 +1318,20 @@ def convert(
                 p = doc.add_paragraph(style=_S["body"])
                 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 p.paragraph_format.keep_with_next = True
+                p.paragraph_format.space_before = Pt(6)
+                p.paragraph_format.space_after = Pt(2)
+                caption_key = _caption_style(block.alt) or "figure"
+                max_width, max_height = _figure_bounds_for_caption(
+                    caption_key, _usable_page_width_inches(doc)
+                )
                 figure_width, figure_height = _bounded_figure_size(
-                    img_path, _usable_page_width_inches(doc)
+                    img_path, max_width, max_height
                 )
                 picture_kwargs = {"width": Inches(figure_width)}
                 if figure_height is not None:
                     picture_kwargs["height"] = Inches(figure_height)
                 p.add_run().add_picture(str(img_path), **picture_kwargs)
                 if block.alt:
-                    caption_key = _caption_style(block.alt) or "figure"
                     _para(doc, caption_key, caption_key, block.alt)
             else:
                 missing_images.append(str(img_path))

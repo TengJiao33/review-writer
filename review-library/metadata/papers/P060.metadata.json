@@ -7,12 +7,16 @@
     "confidence": 0.88,
     "human_checked": false
   },
-  "authors": {
-    "value": [],
-    "source": "rule_not_found",
-    "confidence": 0.0,
-    "human_checked": false
-  },
+  "authors": [
+    {
+      "given": "Catalyzed",
+      "family": "Borylation"
+    },
+    {
+      "given": "Propargylic",
+      "family": "Acetates"
+    }
+  ],
   "year": {
     "value": 2023,
     "source": "filename_or_front_matter",
