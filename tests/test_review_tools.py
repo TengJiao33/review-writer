@@ -703,6 +703,12 @@ class ReviewToolTests(unittest.TestCase):
             "A compact evidence-led abstract.\n\n"
             "## 1. Introduction\n\n"
             "Lead paragraph.\n\nSecond paragraph.\n\n"
+            "Table 1. Representative catalyst performance.\n\n"
+            "| Catalyst | Electrolyte | Operating point | NH_3_ FE (%) | Yield rate | Stability | Ref. |\n"
+            "|---|---|---|---|---|---|---|\n"
+            "| Cu | 0.1 M KOH | -0.4 V vs RHE | 90 | 1 mmol g^-1^ h^-1^ | 10 h | [1] |\n"
+            "| Fe | 0.1 M NaOH | -0.5 V vs RHE | 80 | n.r. | n.r. | [2] |\n\n"
+            "Comparison paragraph.\n\n"
             "## References\n\n1. First paper.\n",
             encoding="utf-8",
         )
@@ -722,6 +728,15 @@ class ReviewToolTests(unittest.TestCase):
         self.assertEqual(body.alignment, WD_ALIGN_PARAGRAPH.JUSTIFY)
         self.assertAlmostEqual(float(body.line_spacing), 1.04, places=2)
         self.assertAlmostEqual(body.first_line_indent.pt, 9.0, places=2)
+        self.assertAlmostEqual(
+            document.styles["Review Body Lead"].paragraph_format.first_line_indent.pt,
+            9.0,
+            places=2,
+        )
+        self.assertEqual(document.styles["Review Figure Caption"].font.name, "Cambria")
+        self.assertEqual(document.styles["Review Figure Caption"].font.size.pt, 8.0)
+        self.assertEqual(document.styles["Review Table Header"].font.name, "Arial")
+        self.assertEqual(document.styles["Review Table Body"].font.name, "Cambria")
 
         self.assertGreaterEqual(len(document.sections), 2)
         column_counts = []
@@ -742,7 +757,30 @@ class ReviewToolTests(unittest.TestCase):
             if paragraph.style.name == "Review Abstract"
         )
         self.assertIsNotNone(abstract._p.pPr.find(qn("w:shd")))
-        self.assertIsNotNone(abstract._p.pPr.find(qn("w:pBdr")))
+        borders = abstract._p.pPr.find(qn("w:pBdr"))
+        self.assertIsNotNone(borders)
+        self.assertTrue(
+            all(borders.find(qn(f"w:{edge}")) is not None for edge in ("top", "left", "right", "bottom"))
+        )
+        self.assertAlmostEqual(abstract.paragraph_format.right_indent.pt, 13.0, places=2)
+
+        lead = next(paragraph for paragraph in document.paragraphs if paragraph.text == "Lead paragraph.")
+        self.assertEqual(lead.style.name, "Review Body Lead")
+        table = document.tables[0]
+        grid = [
+            int(column.get(qn("w:w")) or 0)
+            for column in table._tbl.tblGrid.findall(qn("w:gridCol"))
+        ]
+        self.assertEqual(grid, [1872, 2664, 1512, 1008, 1872, 893, 547])
+        self.assertEqual(
+            table.cell(0, 2).paragraphs[0].alignment,
+            WD_ALIGN_PARAGRAPH.CENTER,
+        )
+        self.assertIsNotNone(table.cell(2, 0)._tc.get_or_add_tcPr().find(qn("w:shd")))
+        comparison = next(
+            paragraph for paragraph in document.paragraphs if paragraph.text == "Comparison paragraph."
+        )
+        self.assertTrue(comparison.paragraph_format.keep_together)
 
         report = audit_module.audit(output, markdown)
         self.assertEqual(report["layout_profile"], "chemvellum_journal")

@@ -36,13 +36,15 @@ It keeps the title and abstract in a full-width opening section, switches the
 review body and references to a compact two-column grid, and temporarily opens
 full-width sections for evidence figures and comparison tables. The original
 `CHEMVELLUM` wordmark uses a compressed serif treatment in deep teal and ink;
-Cambria body text, Arial navigation, restrained pale-teal table/abstract
-treatments, and quiet running furniture provide a portable Word-native journal
-system without copying one publisher's masthead.
+Cambria body text and captions, consistently indented prose, Arial navigation,
+a padded pale-teal abstract panel, deliberate comparison-table columns, and
+quiet running furniture provide a portable Word-native journal system without
+copying one publisher's masthead.
 Figure, Scheme, Chart, and Table prefixes in image alt text become caption
-styles. Markdown tables render as white three-line academic tables. Scheme
-images render as compact centered displays, while ordinary figures may use
-the full text width. Wide tables split into readable continuation tables;
+styles. Markdown tables render as three-line academic tables with a distinct
+header style, content-aware alignment, and subtle row guidance. Scheme images
+render as compact centered displays, while ordinary figures may use the full
+text width. Wide tables split into readable continuation tables;
 header rows repeat after page breaks and body rows stay intact when possible.
 Use explicit chemistry markup when notation is ambiguous:
 

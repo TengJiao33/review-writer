@@ -71,6 +71,7 @@ _S: Dict[str, str] = {
     "figure":       "Review Figure Caption",
     "figure_display":"Review Figure Display",
     "table_title":  "Review Table Caption",
+    "table_header": "Review Table Header",
     "table_body":   "Review Table Body",
     "chart":        "Review Figure Caption",
     "scheme":       "Review Figure Caption",
@@ -101,6 +102,7 @@ _FONT_SPEC: Dict[str, Dict] = {
     "h4":           {"font": "Times New Roman", "size": 10.5, "italic": True},
     "figure":       {"font": "Times New Roman", "size": 9},
     "table_title":  {"font": "Times New Roman", "size": 9},
+    "table_header": {"font": "Times New Roman", "size": 9, "bold": True},
     "table_body":   {"font": "Times New Roman", "size": 9},
     "scheme":       {"font": "Times New Roman", "size": 9},
     "chart":        {"font": "Times New Roman", "size": 9},
@@ -118,6 +120,8 @@ _CHEMVELLUM = {
     "ink": "1E2A2D",
     "muted": "647176",
     "pale": "EAF3F2",
+    "abstract_pale": "E1EEEC",
+    "row_pale": "F7FAFA",
     "rule": "C9D9D7",
     "page_width": 8.5,
     "page_height": 11.0,
@@ -325,6 +329,7 @@ def _configure_academic_document(
         _configure_style(doc, _S["figure"], size=10, alignment=WD_ALIGN_PARAGRAPH.CENTER, after=8, keep_together=True)
         _configure_style(doc, _S["figure_display"], size=12, alignment=WD_ALIGN_PARAGRAPH.CENTER, before=6, after=2, keep_with_next=True, keep_together=True)
         _configure_style(doc, _S["table_title"], size=10, bold=True, before=6, after=4, keep_with_next=True, keep_together=True)
+        _configure_style(doc, _S["table_header"], size=9.5, bold=True, alignment=WD_ALIGN_PARAGRAPH.CENTER)
         _configure_style(doc, _S["table_body"], size=9.5, alignment=WD_ALIGN_PARAGRAPH.LEFT)
         _configure_style(
             doc, _S["references"], size=10, alignment=WD_ALIGN_PARAGRAPH.LEFT,
@@ -352,9 +357,9 @@ def _configure_academic_document(
             font_name="Arial", color=_CHEMVELLUM["muted"],
         )
         _configure_style(
-            doc, _S["abstract"], size=9.5,
-            alignment=WD_ALIGN_PARAGRAPH.JUSTIFY, before=3, after=7,
-            line_spacing=1.06, left_indent=9,
+            doc, _S["abstract"], size=10.0,
+            alignment=WD_ALIGN_PARAGRAPH.JUSTIFY, before=6, after=9,
+            line_spacing=1.10, left_indent=13,
             font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
@@ -371,7 +376,8 @@ def _configure_academic_document(
         _configure_style(
             doc, _S["body_lead"], size=9.5,
             alignment=WD_ALIGN_PARAGRAPH.JUSTIFY, after=1.5,
-            line_spacing=1.04, font_name="Cambria", color=_CHEMVELLUM["ink"],
+            line_spacing=1.04, first_line_indent=9,
+            font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
             doc, _S["list"], size=9.0,
@@ -400,10 +406,10 @@ def _configure_academic_document(
             font_name="Arial", color=_CHEMVELLUM["muted"],
         )
         _configure_style(
-            doc, _S["figure"], size=7.5,
-            alignment=WD_ALIGN_PARAGRAPH.LEFT, after=5,
-            line_spacing=1.0, keep_together=True,
-            font_name="Arial", color=_CHEMVELLUM["ink"],
+            doc, _S["figure"], size=8.0,
+            alignment=WD_ALIGN_PARAGRAPH.LEFT, after=6,
+            line_spacing=1.04, keep_together=True,
+            font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
             doc, _S["figure_display"], size=9.5,
@@ -412,15 +418,20 @@ def _configure_academic_document(
             font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
-            doc, _S["table_title"], size=7.5, bold=True,
-            alignment=WD_ALIGN_PARAGRAPH.LEFT, before=5, after=2,
+            doc, _S["table_title"], size=8.0,
+            alignment=WD_ALIGN_PARAGRAPH.LEFT, before=4, after=2,
             keep_with_next=True, keep_together=True,
-            font_name="Arial", color=_CHEMVELLUM["teal"],
+            font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
-            doc, _S["table_body"], size=7.0,
-            alignment=WD_ALIGN_PARAGRAPH.LEFT, line_spacing=1.0,
+            doc, _S["table_header"], size=7.5, bold=True,
+            alignment=WD_ALIGN_PARAGRAPH.CENTER, line_spacing=1.0,
             font_name="Arial", color=_CHEMVELLUM["ink"],
+        )
+        _configure_style(
+            doc, _S["table_body"], size=7.5,
+            alignment=WD_ALIGN_PARAGRAPH.LEFT, line_spacing=1.0,
+            font_name="Cambria", color=_CHEMVELLUM["ink"],
         )
         _configure_style(
             doc, _S["references"], size=7.5,
@@ -459,6 +470,7 @@ def _configure_academic_document(
         _configure_style(doc, _S["figure"], size=9, alignment=WD_ALIGN_PARAGRAPH.LEFT, after=6, keep_together=True)
         _configure_style(doc, _S["figure_display"], size=11, alignment=WD_ALIGN_PARAGRAPH.CENTER, before=6, after=2, keep_with_next=True, keep_together=True)
         _configure_style(doc, _S["table_title"], size=9, alignment=WD_ALIGN_PARAGRAPH.LEFT, before=6, after=3, keep_with_next=True, keep_together=True)
+        _configure_style(doc, _S["table_header"], size=9, bold=True, alignment=WD_ALIGN_PARAGRAPH.CENTER, line_spacing=1.0)
         _configure_style(doc, _S["table_body"], size=9, alignment=WD_ALIGN_PARAGRAPH.LEFT, line_spacing=1.0)
         _configure_style(
             doc, _S["references"], size=9, alignment=WD_ALIGN_PARAGRAPH.LEFT,
@@ -1067,7 +1079,10 @@ def _apply_caption_runs(paragraph, inline_text: str, spec_key: str) -> None:
         apply_runs(paragraph, parse_inline(inline_text), spec_key=spec_key)
         return
     label, remainder = match.groups()
+    first_label_run = len(paragraph.runs)
     apply_runs(paragraph, parse_inline(label), spec_key=spec_key, force_bold=True)
+    for run in paragraph.runs[first_label_run:]:
+        run.font.color.rgb = RGBColor.from_string(_CHEMVELLUM["teal"])
     if remainder:
         paragraph.add_run(" ")
         apply_runs(paragraph, parse_inline(remainder), spec_key=spec_key)
@@ -1304,6 +1319,57 @@ def _protect_table_orphans(table) -> None:
         _set_row_keep_with_next(table.rows[-2], True)
 
 
+def _table_header_key(raw: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", raw.lower()).strip()
+
+
+def _chemvellum_table_widths(
+    header: List[str],
+    ncols: int,
+    width_inches: float,
+) -> Optional[List[float]]:
+    """Return deliberate widths for common chemistry comparison columns."""
+    semantic_widths = []
+    for raw in (header + [""] * ncols)[:ncols]:
+        key = _table_header_key(raw)
+        if "catalyst" in key or "material" in key:
+            semantic_widths.append(1.30)
+        elif "electrolyte" in key or "medium" in key:
+            semantic_widths.append(1.85)
+        elif "operating" in key or "potential" in key or "current density" in key:
+            semantic_widths.append(1.05)
+        elif "faradaic" in key or re.search(r"(?:^| )fe(?: |$)", key):
+            semantic_widths.append(0.70)
+        elif "yield" in key or "rate" in key:
+            semantic_widths.append(1.30)
+        elif "stability" in key or "duration" in key:
+            semantic_widths.append(0.62)
+        elif key.startswith("ref") or "reference" in key:
+            semantic_widths.append(0.38)
+        else:
+            return None
+    scale = width_inches / sum(semantic_widths)
+    return [width * scale for width in semantic_widths]
+
+
+def _table_column_alignment(header_text: str):
+    key = _table_header_key(header_text)
+    centered_tokens = (
+        "operating",
+        "potential",
+        "current density",
+        "faradaic",
+        "yield",
+        "rate",
+        "stability",
+        "duration",
+        "ref",
+    )
+    if any(token in key for token in centered_tokens) or re.search(r"(?:^| )fe(?: |$)", key):
+        return WD_ALIGN_PARAGRAPH.CENTER
+    return WD_ALIGN_PARAGRAPH.LEFT
+
+
 def _add_table_single(
     doc: Document,
     header: List[str],
@@ -1320,15 +1386,19 @@ def _add_table_single(
     for row in table.rows[1:]:
         _set_table_row_pagination(row)
     content_rows = [header] + rows
-    weights = []
-    for index in range(ncols):
-        longest = max((len(str(row[index])) if index < len(row) else 0 for row in content_rows), default=1)
-        weights.append(max(8, min(longest, 50)))
-    total_weight = sum(weights) or ncols
-    minimum_column_width = 0.62 if layout_profile == "chemvellum_journal" else 0.8
-    widths = [max(minimum_column_width, width_inches * weight / total_weight) for weight in weights]
-    scale = width_inches / sum(widths)
-    widths = [width * scale for width in widths]
+    widths = None
+    if layout_profile == "chemvellum_journal":
+        widths = _chemvellum_table_widths(header, ncols, width_inches)
+    if widths is None:
+        weights = []
+        for index in range(ncols):
+            longest = max((len(str(row[index])) if index < len(row) else 0 for row in content_rows), default=1)
+            weights.append(max(8, min(longest, 50)))
+        total_weight = sum(weights) or ncols
+        minimum_column_width = 0.38 if layout_profile == "chemvellum_journal" else 0.8
+        widths = [max(minimum_column_width, width_inches * weight / total_weight) for weight in weights]
+        scale = width_inches / sum(widths)
+        widths = [width * scale for width in widths]
     dxa_widths = [int(round(width * 1440)) for width in widths]
     table_width_dxa = int(round(width_inches * 1440))
     dxa_widths[-1] += table_width_dxa - sum(dxa_widths)
@@ -1356,14 +1426,15 @@ def _add_table_single(
         cell._tc.get_or_add_tcPr().get_or_add_tcW().set(qn("w:type"), "dxa")
         cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
         cell.text = ""
-        cell.paragraphs[0].style = doc.styles[_S["table_body"]]
+        cell.paragraphs[0].style = doc.styles[_S["table_header"]]
+        cell.paragraphs[0].alignment = _table_column_alignment(h)
         apply_runs(cell.paragraphs[0], parse_inline(h),
-                   spec_key="table_body", force_bold=True)
+                   spec_key="table_header", force_bold=True)
         border_color = _CHEMVELLUM["teal"] if layout_profile == "chemvellum_journal" else "000000"
         _set_cell_borders(cell, top=True, bottom=True, color=border_color)
         if layout_profile == "chemvellum_journal":
             _set_cell_shading(cell, _CHEMVELLUM["pale"])
-            _set_cell_margins(cell, top=55, start=70, bottom=55, end=70)
+            _set_cell_margins(cell, top=60, start=80, bottom=60, end=80)
         else:
             _set_cell_margins(cell)
     for i, row in enumerate(rows):
@@ -1375,6 +1446,9 @@ def _add_table_single(
             cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
             cell.text = ""
             cell.paragraphs[0].style = doc.styles[_S["table_body"]]
+            cell.paragraphs[0].alignment = _table_column_alignment(
+                header[j] if j < len(header) else ""
+            )
             apply_runs(cell.paragraphs[0],
                        parse_inline(row[j] if j < len(row) else ""),
                        spec_key="table_body")
@@ -1385,7 +1459,9 @@ def _add_table_single(
                 color=border_color,
             )
             if layout_profile == "chemvellum_journal":
-                _set_cell_margins(cell, top=45, start=70, bottom=45, end=70)
+                if i % 2 == 1:
+                    _set_cell_shading(cell, _CHEMVELLUM["row_pale"])
+                _set_cell_margins(cell, top=35, start=80, bottom=35, end=80)
             else:
                 _set_cell_margins(cell)
     _protect_table_orphans(table)
@@ -1734,15 +1810,23 @@ def _clear_body(doc: Document) -> None:
 def _decorate_chemvellum_document(doc: Document) -> None:
     for paragraph in doc.paragraphs:
         if paragraph.style.name == _S["abstract"]:
-            _set_paragraph_shading(paragraph, _CHEMVELLUM["pale"])
+            _set_paragraph_shading(paragraph, _CHEMVELLUM["abstract_pale"])
             _set_paragraph_border(
                 paragraph,
                 "left",
                 color=_CHEMVELLUM["teal"],
                 size=14,
-                space=6,
+                space=8,
             )
-            paragraph.paragraph_format.right_indent = Pt(9)
+            for edge in ("top", "right", "bottom"):
+                _set_paragraph_border(
+                    paragraph,
+                    edge,
+                    color=_CHEMVELLUM["abstract_pale"],
+                    size=6,
+                    space=6,
+                )
+            paragraph.paragraph_format.right_indent = Pt(13)
 
 
 # ---------------------------------------------------------------------------
@@ -1803,6 +1887,8 @@ def convert(
     lead_body_next = True
     journal_body_started = False
     journal_columns = 1
+    pending_table_caption: str | None = None
+    keep_next_body_together = False
 
     def insert_toc_once() -> None:
         nonlocal inserted_toc_heading
@@ -1817,6 +1903,9 @@ def convert(
         if block.kind != "list_item":
             regular_list_num_id = None
             regular_list_ordered = None
+        if pending_table_caption is not None and block.kind != "table":
+            _para(doc, "table_title", "table_title", pending_table_caption)
+            pending_table_caption = None
 
         if block.kind == "heading":
             plain_heading = block.text.strip().lower()
@@ -1882,8 +1971,19 @@ def convert(
                 _para(doc, ctx, spec, text)
             else:
                 cap = _caption_style(text)
+                if (
+                    cap == "table_title"
+                    and layout_profile == "chemvellum_journal"
+                    and journal_body_started
+                ):
+                    pending_table_caption = text
+                    lead_body_next = True
+                    continue
                 key = cap if cap else ("body_lead" if lead_body_next else "body")
-                _para(doc, key, key, text)
+                paragraph = _para(doc, key, key, text)
+                if keep_next_body_together and cap is None:
+                    paragraph.paragraph_format.keep_together = True
+                    keep_next_body_together = False
                 lead_body_next = bool(cap)
 
         elif block.kind == "indented_block":
@@ -1960,6 +2060,9 @@ def convert(
             if layout_profile == "chemvellum_journal" and journal_body_started and journal_columns != 1:
                 _add_chemvellum_section(doc, 1)
                 journal_columns = 1
+            if pending_table_caption is not None:
+                _para(doc, "table_title", "table_title", pending_table_caption)
+                pending_table_caption = None
             _add_table(
                 doc,
                 block.header,
@@ -1973,8 +2076,10 @@ def convert(
             )
             if layout_profile == "chemvellum_journal" and journal_body_started and resume_columns == 2:
                 _add_chemvellum_section(doc, 2)
+                doc.paragraphs[-1].paragraph_format.space_before = Pt(4)
                 journal_columns = 2
             lead_body_next = True
+            keep_next_body_together = True
         elif block.kind == "image":
             if skipping_source_toc:
                 continue
@@ -1993,7 +2098,7 @@ def convert(
                     _usable_page_width_inches(doc, layout_profile),
                 )
                 if layout_profile == "chemvellum_journal":
-                    max_height = min(max_height, 4.1)
+                    max_height = min(max_height, 3.7)
                 figure_width, figure_height = _bounded_figure_size(
                     img_path, max_width, max_height
                 )
@@ -2018,6 +2123,8 @@ def convert(
 
     if missing_images:
         raise SystemExit("[md2docx] ERROR: missing images: " + ", ".join(missing_images))
+    if pending_table_caption is not None:
+        _para(doc, "table_title", "table_title", pending_table_caption)
     if inserted_images != expected_images:
         raise SystemExit(
             "[md2docx] ERROR: embedded "
