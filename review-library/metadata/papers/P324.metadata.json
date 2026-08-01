@@ -1,0 +1,96 @@
+{
+  "paper_id": "P324",
+  "slug": "web-imports-2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d",
+  "title": {
+    "value": "Engineering the defects of UiO-66 MOF for an improved catalytic detoxification of CWA simulant: methyl paraoxon.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Balasubramanian S",
+      "Kulandaisamy AJ",
+      "Rayappan JBB"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "RSC Advances",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d4ra04637d",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Exigency in search of an ideal candidate for an effective detoxification of chemical warfare agents is still continuing. Zirconium-based Metal-organic Framework (MOF) UiO-66 has shown a significant detoxification of such toxic chemicals owing to its tunable physio-chemical properties and profuse catalytic sites. In this context, a series of UiO-66 MOFs synthesized by tuning the acidity constant (p<i>K</i> <sub>a</sub>) and concentration of the modulator, synthesis temperature and water molecules was tested for their detoxification efficiency against the simulant 'methyl-paraoxon' at room temperature. Amongst, HCl modulated UiO-66 across the considered synthesis temperature have shown competent catalytic performance in virtue of defects generation within its structure. In addition, the role of catalytic features of UiO-66 obtained by tailoring its defects in enhancing the degradation efficiency has been systematically investigated. The detoxification efficiency of 98.5% with a half-life time of 0.23 min has confirmed the effectiveness of engineered defects in enhancing the catalytic activity of UiO-66 in detoxifying the identified simulant.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d\\web-imports-2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-engineering-the-defects-of-uio-66-mo-9-d4ra04637d"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 68,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

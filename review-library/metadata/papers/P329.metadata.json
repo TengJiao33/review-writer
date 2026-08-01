@@ -1,0 +1,103 @@
+{
+  "paper_id": "P329",
+  "slug": "web-imports-2025-site-selective-ligand-defects-open-u-9-d5sc01194a",
+  "title": {
+    "value": "Site-selective ligand defects open up a Zr-oxo cluster electron transfer pathway for CO&lt;sub&gt;2&lt;/sub&gt; photoreduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Qi Y",
+      "He Y",
+      "Liu Y",
+      "Zhang Z",
+      "Li C",
+      "Meng F",
+      "Wang S",
+      "Chen X",
+      "Shi Z",
+      "Feng S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc01194a",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Whilst defect engineering is a sound approach to enhance CO<sub>2</sub> photoreduction based on metal organic frameworks (MOFs), the underlying mechanisms were not well understood on an atomic scale. This study aims to elucidate the mechanisms at the atomic level, to provide vital insights to enable the design and development of selectively introduced ligand defects to maximize the CO<sub>2</sub> photoreduction capability of a classical MOF UiO-66-NH<sub>2</sub> without the need for co-catalysts, sacrificial agents and photosensitizers. Defect-containing UiO-66-NH<sub>2</sub> (Zr/Ce<sub>0.25</sub>) demonstrates superior charge separation and CO<sub>2</sub> photoreduction than both regular UiO-66-NH<sub>2</sub> (Zr/Ce<sub>0.25</sub>) and UiO-66-NH<sub>2</sub>. The doped Ce is a key contributor to managing the coordination environment of the linkers, enabling the formation of selectively introduced ligand defects. The selective loss of ligands exposes pyramid-shaped activated clusters and facilitates spatial charge separation. As a result, electrons are transferred through Ce-O-Zr and Ce-O<sub>vacancy</sub>-Zr pathways, effectively narrowing the band gap and suppressing photoinduced",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-site-selective-ligand-defects-open-u-9-d5sc01194a.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-site-selective-ligand-defects-open-u-9-d5sc01194a.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-site-selective-ligand-defects-open-u-9-d5sc01194a\\web-imports-2025-site-selective-ligand-defects-open-u-9-d5sc01194a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-site-selective-ligand-defects-open-u-9-d5sc01194a"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

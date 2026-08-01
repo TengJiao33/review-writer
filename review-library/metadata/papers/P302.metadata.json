@@ -1,0 +1,97 @@
+{
+  "paper_id": "P302",
+  "slug": "web-imports-2026-photocatalytic-multicomponent-alkene-9-d6sc00382f",
+  "title": {
+    "value": "Photocatalytic multicomponent alkene dicarbofunctionalization &lt;i&gt;via&lt;/i&gt; PCET/nickel dual catalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Patehebieke Y",
+      "Jansson V",
+      "Öberg J",
+      "Wallentin CJ"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6sc00382f",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Herein we report a synergistic photoredox PCET/nickel dual catalytic strategy that enables three-component alkene dicarbofunctionalization (DCF) using unprotected alcohols as alkyl radical precursors. This transformation merges concerted proton-coupled electron transfer (PCET) activation of alcohols with nickel-catalyzed cross-coupling, achieving sequential Giese addition and C(sp<sup>3</sup>)-C(sp<sup>3</sup>), C(sp<sup>3</sup>)-C(sp<sup>2</sup>) bond formation under visible light and redox-neutral conditions. The method proceeds directly from secondary and tertiary alcohols, exhibits broad functional-group tolerance. Notably, employing a chiral Ni catalyst enables the first enantioselective variant of this type of PCET mediated transformation. This work establishes a general platform for deconstructive alkene difunctionalization from simple alcohol feedstocks, expanding the synthetic reach of PCET in dual catalytic radical chemistry.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-photocatalytic-multicomponent-alkene-9-d6sc00382f.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-photocatalytic-multicomponent-alkene-9-d6sc00382f.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-photocatalytic-multicomponent-alkene-9-d6sc00382f\\web-imports-2026-photocatalytic-multicomponent-alkene-9-d6sc00382f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-photocatalytic-multicomponent-alkene-9-d6sc00382f"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 50,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

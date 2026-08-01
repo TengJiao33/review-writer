@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 
-BLOCKING_FIELDS = ["paper_id", "slug", "title", "authors", "year", "abstract", "source_paths", "structured_tags"]
+BLOCKING_FIELDS = ["paper_id", "slug", "title", "authors", "year", "abstract", "source_paths"]
 WARNING_FIELDS = ["journal", "doi"]
 STRUCTURED_TAG_KEYS = [
     "product",
@@ -23,11 +23,10 @@ STRUCTURED_TAG_KEYS = [
 ]
 
 
-def load_allowed_labels(review_root: Path) -> dict[str, set[str]]:
+def load_allowed_labels(path: Path | None) -> dict[str, set[str]]:
+    if path is None or not path.exists():
+        return {}
     labels = {key: {"not specified"} for key in STRUCTURED_TAG_KEYS}
-    path = review_root / "allene_classification_rules.py"
-    if not path.exists():
-        return labels
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     rules_node = None
     for node in tree.body:
@@ -99,15 +98,12 @@ def validate_one(path: Path, allowed_labels: dict[str, set[str]]) -> dict[str, A
         issues.append("missing_title_value")
     structured = meta.get("structured_tags")
     structured_value = structured.get("value") if isinstance(structured, dict) else None
-    if not isinstance(structured_value, dict):
-        issues.append("missing_structured_tags_value")
-    else:
+    if isinstance(structured_value, dict) and allowed_labels:
         for key in STRUCTURED_TAG_KEYS:
-            if not has_value(structured_value.get(key)):
-                issues.append(f"missing_structured_tag_{key}")
-            elif str(structured_value.get(key)).strip().lower() == "not specified":
-                warnings.append(f"structured_tag_not_specified_{key}")
-            elif str(structured_value.get(key)).strip() not in allowed_labels.get(key, set()):
+            if has_value(structured_value.get(key)) and (
+                str(structured_value.get(key)).strip()
+                not in allowed_labels.get(key, set())
+            ):
                 issues.append(f"invalid_structured_tag_{key}")
     source_paths = meta.get("source_paths") or {}
     if not isinstance(source_paths, dict):
@@ -189,7 +185,11 @@ def run(args: argparse.Namespace) -> int:
         print(f"ERROR: metadata directory not found: {meta_dir}", file=sys.stderr)
         return 2
     paths = sorted(meta_dir.glob("*.metadata.json"))
-    allowed_labels = load_allowed_labels(review_root)
+    allowed_labels = load_allowed_labels(
+        Path(args.classification_rules).resolve()
+        if args.classification_rules
+        else None
+    )
     reports = [validate_one(path, allowed_labels) for path in paths]
     write_reports(review_root, reports)
     failed = sum(1 for r in reports if r["status"] != "ok")
@@ -200,6 +200,11 @@ def run(args: argparse.Namespace) -> int:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate review metadata JSON files.")
     parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
+    parser.add_argument(
+        "--classification-rules",
+        default="",
+        help="Optional project-specific label rules to validate.",
+    )
     return parser.parse_args()
 
 

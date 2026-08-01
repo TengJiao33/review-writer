@@ -1,0 +1,102 @@
+{
+  "paper_id": "P395",
+  "slug": "web-imports-2025-fast-seawater-desalination-driven-by-ie-202506712",
+  "title": {
+    "value": "Fast Seawater Desalination Driven by Efficient Nitrate Reduction via Bimetallic Iron/Zinc Polyphthalocyanine Frameworks.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li M",
+      "Wang W",
+      "Liang M",
+      "Yang Q",
+      "Wang Y",
+      "Guo L",
+      "Yu Z",
+      "Chen F",
+      "Chen Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202506712",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Freshwater scarcity and nitrate contamination in water sources are critical environmental sustainability challenges. We address these two challenges by coupling seawater desalination with electrochemical nitrate reduction (NO<sub>3</sub>RR) via bimetallic Fe/Zn polyphthalocyanine frameworks. They serve as high-performance catalysts for NO<sub>3</sub>RR toward ammonia (NH<sub>3</sub>) production. The efficient NO<sub>3</sub>RR is integrated into an electrocatalytic desalination device, enabling the production of freshwater from seawater and the removal of nitrate from contaminated water. In situ spectroscopic studies and theoretical calculations show that Zn-N<sub>4</sub> units incorporated into the Fe polyphthalocyanine framework modulate Fe-N<sub>4</sub> sites' d-band center to enhance the adsorption of NO<sub>3</sub> <sup>-</sup> and the generation of *H, resulting in 3.22 times higher turnover frequency and highly selective reduction toward NH<sub>3</sub>. The optimized Fe<sub>8</sub>Zn<sub>1</sub>PPc delivered NH<sub>3</sub> Faradic efficiency (>97% over a wide potential range (-0.55 to -0.95 V vs. reversible hydrogen electrode (RHE)), the NH<sub>3</sub> yield rate of 2.68 mmol",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-fast-seawater-desalination-driven-by-ie-202506712.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-fast-seawater-desalination-driven-by-ie-202506712.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-fast-seawater-desalination-driven-by-ie-202506712\\web-imports-2025-fast-seawater-desalination-driven-by-ie-202506712_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-fast-seawater-desalination-driven-by-ie-202506712"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 49,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "P325",
+  "slug": "web-imports-2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125",
+  "title": {
+    "value": "Probing Ce- and Zr-Fumarate Metal-Organic Framework Formation in Aqueous Solutions with In Situ Raman Spectroscopy and Synchrotron X-ray Diffraction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Bercha S",
+      "Rathod S",
+      "Zavorotynska O",
+      "Chavan SM"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Omega",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsomega.4c05125",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The synthesis of Ce-fumarate and Zr-fumarate metal-organic framework (MOF) is monitored for the first time with in situ Raman spectroscopy in custom-built solvothermal reactors. Several synthesis conditions were explored for Ce-fumarate at room temperature. The use of the method for high-temperature synthesis of Zr-fumarate is also demonstrated. In situ Raman monitoring provided insights into both the solution and crystalline phases of the reaction medium, revealing the dynamic interplay among precursors, modulators, and the forming MOF structure. The reaction kinetics was determined by following the characteristic peak at 1666 cm<sup>-1</sup>. The conversion was in good agreement with the reaction kinetics determined via in situ synchrotron powder diffraction. The resulting MOF products were further characterized using ex situ X-ray powder diffraction, scanning electron microscopy, thermogravimetry, and surface area measurements. This study demonstrates a simple and industrially scalable method for monitoring MOF synthesis in situ, which can provide insights into the stages and mechanisms of formation of MOFs and other compounds.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125\\web-imports-2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-probing-ce-and-zr-fumarate-metal-org-mega-4c05125"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 118,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

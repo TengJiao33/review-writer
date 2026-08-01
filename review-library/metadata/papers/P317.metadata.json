@@ -1,0 +1,95 @@
+{
+  "paper_id": "P317",
+  "slug": "web-imports-2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j",
+  "title": {
+    "value": "Electrochemical synthesis of aziridines, pyrrolidines and oxazolines enabled by azo-free alcohol amination.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Hale EA",
+      "Zhu Q"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc03101j",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Although amines and nitrogen-containing heterocycles are prominent scaffolds in bioactive compounds, functional materials, and commodity chemicals, their synthesis and functionalization often suffer from lengthy pre-installation of the appropriate functional groups, employing exotic amination/aziridination reagents and the use of expensive or toxic catalysts. Herein, we developed a mild and economical electrochemical amination method to access aziridine, pyrrolidine and oxazoline motifs from the corresponding amino alcohol substrates. Compared to the classic Mitsunobu reaction, this method exhibits an expanded scope of nucleophiles, including weakly acidic amides and primary amines. Mechanistic studies provided direct evidence for the proposed two-electron oxidation of alcohol and PPh<sub>3</sub> to yield the alkoxyphosphonium cation intermediate. This reaction demonstrates the potential of using electrochemistry to not only replace azo-oxidants in classic Mitsunobu reactions, but also improve the synthetic applicability by overcoming the p<i>K</i> <sub>a</sub> limit due to the azo-derived betaine intermediate.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j\\web-imports-2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-synthesis-of-aziridi-9-d5sc03101j"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:21:57Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 35,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "paper_id": "P296",
+  "slug": "web-imports-2025-generalizing-vinyl-halide-cross-coup-ie-202510715",
+  "title": {
+    "value": "Generalizing Vinyl Halide Cross-Coupling Reactions with Photoredox and Photoredox/Nickel Dual Catalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Das K",
+      "Saha N",
+      "Li Z",
+      "Ghosh I",
+      "König B"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202510715",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Reliable, broadly applicable cross-coupling conditions that deliver the desired products with minimal optimization are essential in pharmaceutical research, where efficient synthesis accelerates lead discovery and late-stage diversification. Although advances like high-throughput additive screening and commercial catalyst/ligand libraries improve prediction in specific systems, a general strategy for vinyl halide cross-coupling across diverse bond-forming reactions remains elusive. Herein, we report a general and highly predictable method for vinyl halide cross-coupling under photoredox conditions, employing two complementary catalytic systems. In the first, the organic photocatalyst 4CzIPN enables efficient coupling with nucleophiles such as thiols, selenols, sulfinate salts, activated alkenes, phosphorus (III), and boron compounds, affording C(sp<sup>2</sup>)─S, ─Se, ─C, ─P, and ─B bonds in high yields. In the second, a dual nickelphotoredox catalytic system facilitates coupling with less reactive nucleophiles, including phosphorus (V), nitrogen, and oxygen. This approach enables seven distinct bond-forming reactions, offering broad electrophile and nucleophile scope, high functi",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-generalizing-vinyl-halide-cross-coup-ie-202510715.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-generalizing-vinyl-halide-cross-coup-ie-202510715.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-generalizing-vinyl-halide-cross-coup-ie-202510715\\web-imports-2025-generalizing-vinyl-halide-cross-coup-ie-202510715_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-generalizing-vinyl-halide-cross-coup-ie-202510715"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 46,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "paper_id": "P368",
+  "slug": "web-imports-2026-operando-cu-aggregation-induced-spin-jacs-6c00705",
+  "title": {
+    "value": "Operando Cu Aggregation-Induced Spin State Modulation in Fe-Cu Single Atom Catalyst for Enhanced Tandem Electrochemical Nitrate Reduction Reaction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Hong S",
+      "Jeong J",
+      "Yoo E",
+      "Shin D",
+      "Yoo S",
+      "Lee E",
+      "Kim H",
+      "Shin H",
+      "Hwang YJ"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.6c00705",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrocatalytic nitrate reduction reaction (NO<sub>3</sub>RR) provides a sustainable pathway to convert excess nitrate into ammonia, yet realizing high selectivity requires a fundamental understanding of dynamic structural changes occuring at active sites during reactions. Here, we investigate how in situ Cu clustering dynamically activates dual catalytic sites in Fe-Cu bimetallic single-atom catalysts (FeCu-N-C) during NO<sub>3</sub>RR, through combined density functional theory calculations and <i>operando</i> spectroscopy. Under reductive potentials, atomically dispersed Cu spontaneously aggregates into nanoclusters that efficiently activate NO<sub>3</sub><sup>-</sup>. Concurrently, Cu clustering induces pronounced structural strain and electronic distortion in adjacent Fe-N<sub><i>x</i></sub> moieties, triggering a spin-state transition in the Fe active site from low-spin to high-spin configuration. This spin modulation dramatically enhances the activity for subsequent NO<sub>2</sub><sup>-</sup> conversion to NH<sub>3</sub>. The synergistic coupling between Cu clusters and spin-modulated Fe establishes a highly effective tandem pathway, yielding superior NO<sub>3</sub>RR a",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-operando-cu-aggregation-induced-spin-jacs-6c00705.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-operando-cu-aggregation-induced-spin-jacs-6c00705.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-operando-cu-aggregation-induced-spin-jacs-6c00705\\web-imports-2026-operando-cu-aggregation-induced-spin-jacs-6c00705_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-operando-cu-aggregation-induced-spin-jacs-6c00705"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 57,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

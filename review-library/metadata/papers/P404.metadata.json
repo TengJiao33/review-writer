@@ -1,0 +1,94 @@
+{
+  "paper_id": "P404",
+  "slug": "web-imports-2025-precise-design-of-nanoclusters-for-e-chem-5c00038",
+  "title": {
+    "value": "Precise Design of Nanoclusters for Efficient Nitrate-to-Ammonia Conversion.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Lu S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Precision Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/prechem.5c00038",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Atomically precise metal nanocluster (MNC) catalysts represent a significant advancement in electrocatalysis, particularly for the electrocatalytic nitrate reduction reaction (eNO<sub>3</sub>RR). Their distinct structural features, which include precisely defined geometric and electronic configurations, enhance catalytic performance. Additionally, low nuclearity MNCs possess unique metallic properties that exhibit various active sites, optimizing the adsorption and conversion of nitrate intermediates. This functionality is vital for improving both reaction kinetics and selectivity during eNO<sub>3</sub>RR. Recent investigations have shown that by precisely adjusting the size, ligand, and composition of these nanoclusters, researchers can achieve specific electrochemical properties beneficial for eNO<sub>3</sub>RR. Capitalizing on their atomically precise nature can significantly enhance the efficiency and sustainability of eNO<sub>3</sub>RR processes. MNCs also offer the flexibility to explore diverse ligands, supporting materials, and integration with other catalytic frameworks to further enhance eNO<sub>3</sub>RR activity. In this Perspective, we aim to consolidate recent advance",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-precise-design-of-nanoclusters-for-e-chem-5c00038.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-precise-design-of-nanoclusters-for-e-chem-5c00038.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-precise-design-of-nanoclusters-for-e-chem-5c00038\\web-imports-2025-precise-design-of-nanoclusters-for-e-chem-5c00038_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-precise-design-of-nanoclusters-for-e-chem-5c00038"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

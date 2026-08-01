@@ -5,6 +5,8 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
+from html import escape
 from pathlib import Path
 from typing import Any
 
@@ -215,40 +217,6 @@ def infer_source_label(caption: str, index: int, source_type: str) -> str:
     return f"{prefix} candidate {index}"
 
 
-def candidate_score(caption: str, source_type: str) -> int:
-    low = caption.lower()
-    score = 0
-    for word, weight in [
-        ("scheme", 8),
-        ("mechanism", 8),
-        ("catalytic cycle", 8),
-        ("overview", 7),
-        ("workflow", 7),
-        ("pathway", 6),
-        ("comparison", 5),
-        ("microstructure", 5),
-        ("degradation", 4),
-        ("recycling", 4),
-        ("performance", 4),
-        ("structure", 3),
-        ("process", 3),
-        ("proposed", 5),
-        ("reaction", 4),
-        ("synthesis", 4),
-        ("scope", 4),
-        ("optimization", 2),
-        ("crystal", -4),
-        ("nmr", -5),
-        ("hrms", -5),
-        ("supporting", -3),
-    ]:
-        if word in low:
-            score += weight
-    if source_type == "table":
-        score += 1
-    return score
-
-
 def split_figure_groups(blocks: list[Any]) -> dict[int, list[int]]:
     figure_indexes = [
         index
@@ -273,6 +241,201 @@ def split_figure_groups(blocks: list[Any]) -> dict[int, list[int]]:
     return groups
 
 
+def local_file_uri(raw: Any) -> str:
+    value = str(raw or "").strip()
+    if not value:
+        return ""
+    path = Path(value)
+    return path.resolve().as_uri() if path.is_file() else ""
+
+
+def browser_preview_path(
+    candidate: dict[str, Any],
+    output: Path,
+) -> tuple[str, str]:
+    """Copy one available preview beside the browser and return its relative path."""
+    source_path = ""
+    preview_note = ""
+    raw_source = str(candidate.get("source_image_path") or "").strip()
+    if raw_source and Path(raw_source).is_file():
+        source_path = raw_source
+        preview_note = "extracted image"
+    fragments = candidate.get("source_fragment_paths")
+    if not source_path and isinstance(fragments, list):
+        for fragment in fragments:
+            raw_fragment = str(fragment or "").strip()
+            if raw_fragment and Path(raw_fragment).is_file():
+                source_path = raw_fragment
+                preview_note = "partial extraction; inspect the complete source page"
+                break
+    if source_path:
+        source = Path(source_path)
+        asset_dir = output.parent / f"{output.stem}_files"
+        asset_dir.mkdir(parents=True, exist_ok=True)
+        candidate_id = re.sub(
+            r"[^A-Za-z0-9_-]+",
+            "-",
+            str(candidate.get("inventory_candidate_id") or "visual"),
+        ).strip("-")
+        digest = hashlib.sha256(str(source.resolve()).encode("utf-8")).hexdigest()[:10]
+        suffix = source.suffix.lower() if source.suffix else ".img"
+        target = asset_dir / f"{candidate_id}-{digest}{suffix}"
+        if not target.exists() or target.stat().st_size != source.stat().st_size:
+            shutil.copy2(source, target)
+        return target.relative_to(output.parent).as_posix(), preview_note
+    remote = str(candidate.get("repository_image_url") or "").strip()
+    if remote.startswith(("https://", "http://")):
+        return remote, "repository preview"
+    return "", "open the source document"
+
+
+def render_browser_html(inventory: dict[str, Any], output: Path) -> None:
+    """Render a source-ordered visual browser without recommending candidates."""
+    project_id = escape(str(inventory.get("project_id") or "review"))
+    sections: list[str] = []
+    for paper in inventory.get("papers") or []:
+        if not isinstance(paper, dict):
+            continue
+        paper_id = escape(str(paper.get("paper_id") or ""))
+        title = escape(str(paper.get("title") or "Untitled paper"))
+        cards: list[str] = []
+        for candidate in paper.get("candidates") or []:
+            if not isinstance(candidate, dict):
+                continue
+            preview_uri, preview_note = browser_preview_path(candidate, output)
+            preview = (
+                f'<img loading="lazy" src="{escape(preview_uri, quote=True)}" '
+                f'alt="{escape(str(candidate.get("source_label") or "source visual"), quote=True)}">'
+                if preview_uri
+                else '<div class="no-preview">No extracted preview</div>'
+            )
+            source_document = local_file_uri(candidate.get("source_document"))
+            page_index = candidate.get("source_page_index")
+            if source_document and isinstance(page_index, int):
+                source_document = f"{source_document}#page={page_index + 1}"
+            source_link = (
+                f'<a href="{escape(source_document, quote=True)}">Open source</a>'
+                if source_document
+                else "<span>Source file unavailable</span>"
+            )
+            rights = candidate.get("reuse_rights_hints") or {}
+            rights_class = escape(str(rights.get("reuse_hint_class") or "unknown"))
+            label = escape(str(candidate.get("source_label") or "Unlabelled visual"))
+            source_type = escape(str(candidate.get("source_type") or "visual"))
+            locator = escape(
+                str(
+                    candidate.get("source_locator")
+                    or candidate.get("source_page_hint")
+                    or ""
+                )
+            )
+            caption = escape(str(candidate.get("source_caption_text") or "No caption extracted."))
+            search_text = escape(
+                " ".join(
+                    [
+                        str(paper.get("paper_id") or ""),
+                        str(paper.get("title") or ""),
+                        str(candidate.get("source_label") or ""),
+                        str(candidate.get("source_type") or ""),
+                        str(candidate.get("source_caption_text") or ""),
+                    ]
+                ).lower(),
+                quote=True,
+            )
+            cards.append(
+                f"""
+                <article class="candidate" data-search="{search_text}">
+                  <div class="preview">{preview}</div>
+                  <div class="candidate-body">
+                    <div class="badges">
+                      <span>{source_type}</span><span>{locator or "locator pending"}</span>
+                      <span>rights: {rights_class}</span>
+                    </div>
+                    <h3>{label}</h3>
+                    <p>{caption}</p>
+                    <p class="preview-note">{escape(preview_note)}</p>
+                    <div class="links">{source_link}</div>
+                  </div>
+                </article>
+                """
+            )
+        sections.append(
+            f"""
+            <section class="paper" data-paper="{paper_id}">
+              <h2>{paper_id} · {title}</h2>
+              <p class="paper-count">{len(cards)} extracted visual candidates, shown in source order.</p>
+              <div class="grid">{''.join(cards) if cards else '<p>No extracted candidates.</p>'}</div>
+            </section>
+            """
+        )
+
+    document = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source visual browser · {project_id}</title>
+  <style>
+    :root {{ color-scheme: light; font-family: Arial, sans-serif; }}
+    body {{ margin: 0; background: #f4f5f7; color: #17202a; }}
+    header {{ position: sticky; top: 0; z-index: 2; padding: 18px 24px;
+      background: rgba(255,255,255,.96); border-bottom: 1px solid #d8dde3; }}
+    header h1 {{ margin: 0 0 8px; font-size: 22px; }}
+    header p {{ margin: 4px 0 12px; max-width: 960px; line-height: 1.45; }}
+    input {{ width: min(760px, 92vw); padding: 10px 12px; border: 1px solid #aeb7c2;
+      border-radius: 6px; font-size: 15px; }}
+    main {{ padding: 8px 24px 40px; }}
+    .paper {{ margin: 22px auto 34px; max-width: 1500px; }}
+    .paper h2 {{ margin-bottom: 4px; font-size: 19px; }}
+    .paper-count, .preview-note {{ color: #59636e; }}
+    .grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 16px; }}
+    .candidate {{ display: grid; grid-template-rows: 230px auto; min-width: 0;
+      background: white; border: 1px solid #d8dde3; border-radius: 8px; overflow: hidden; }}
+    .preview {{ display: flex; align-items: center; justify-content: center;
+      background: white; border-bottom: 1px solid #e1e5ea; }}
+    .preview img {{ width: 100%; height: 100%; object-fit: contain; }}
+    .no-preview {{ color: #7a838d; }}
+    .candidate-body {{ padding: 13px 15px 15px; }}
+    .candidate h3 {{ margin: 10px 0 7px; font-size: 17px; }}
+    .candidate p {{ margin: 7px 0; line-height: 1.4; }}
+    .badges {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+    .badges span {{ padding: 3px 7px; border-radius: 999px; background: #edf1f5;
+      font-size: 12px; }}
+    .links a {{ color: #075cba; }}
+    [hidden] {{ display: none !important; }}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Source visual browser · {project_id}</h1>
+    <p>Candidates are grouped by paper and kept in source order. Browse the images and
+    captions directly; no keyword score or automatic recommendation has selected them.
+    Before reuse, open the complete source page and verify scientific fit, readability,
+    credit, and licence.</p>
+    <input id="filter" type="search" placeholder="Filter by paper, caption, label, or visual type">
+  </header>
+  <main>{''.join(sections)}</main>
+  <script>
+    const filter = document.getElementById('filter');
+    filter.addEventListener('input', () => {{
+      const query = filter.value.trim().toLowerCase();
+      document.querySelectorAll('.candidate').forEach(card => {{
+        card.hidden = query && !card.dataset.search.includes(query);
+      }});
+      document.querySelectorAll('.paper').forEach(section => {{
+        const visible = [...section.querySelectorAll('.candidate')].some(card => !card.hidden);
+        section.hidden = query && !visible;
+      }});
+    }});
+  </script>
+</body>
+</html>
+"""
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(document, encoding="utf-8")
+
+
 def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
     project = review_root / "review-projects" / project_id
     ids = selected_paper_ids(project)
@@ -287,7 +450,6 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                     "status": "missing_metadata",
                     "candidate_count": 0,
                     "candidates": [],
-                    "top_candidates": [],
                 }
             )
             continue
@@ -327,7 +489,6 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                 for block_index, block in enumerate(blocks):
                     if not isinstance(block, dict) or block.get("type") not in FIGURE_TYPES:
                         continue
-                    idx = block_index + 1
                     img_rel = block.get("img_path") or block.get("image_path") or block.get("path")
                     source_image_path = str((extracted_dir / str(img_rel)).resolve()) if img_rel and extracted_dir and extracted_dir.is_dir() else ""
                     source_crop = crop_spec(
@@ -405,11 +566,9 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                             ),
                             "source_caption_text": caption,
                             "reuse_rights_hints": rights_hints,
-                            "inventory_score": candidate_score(caption, source_type),
                             "human_reading_hint": "Prefer when the asset answers a named reader question or compresses a comparison, mechanism, evidence boundary, or process relationship.",
                         }
                     )
-        candidates.sort(key=lambda item: item.get("inventory_score", 0), reverse=True)
         all_candidates.extend(candidates)
         papers.append(
             {
@@ -427,10 +586,8 @@ def build_inventory(review_root: Path, project_id: str) -> dict[str, Any]:
                 "reuse_rights_hints": rights_hints,
                 "candidate_count": len(candidates),
                 "candidates": candidates,
-                "top_candidates": candidates[:12],
             }
         )
-    all_candidates.sort(key=lambda item: item.get("inventory_score", 0), reverse=True)
     return {
         "project_id": project_id,
         "paper_count": len(ids),
@@ -467,6 +624,15 @@ def parse_args() -> argparse.Namespace:
         "--output",
         help="Optional output JSON path. Defaults to <project>/assets/paper_figure_inventory.json.",
     )
+    parser.add_argument(
+        "--browser-output",
+        help="Optional HTML browser path. Defaults to <project>/assets/paper_figure_browser.html.",
+    )
+    parser.add_argument(
+        "--no-browser",
+        action="store_true",
+        help="Write only the JSON inventory.",
+    )
     return parser.parse_args()
 
 
@@ -483,7 +649,16 @@ def main() -> int:
     )
     inventory = build_inventory(review_root, args.project_id)
     write_json(out, inventory)
+    browser = (
+        Path(args.browser_output).resolve()
+        if args.browser_output
+        else project / "assets" / "paper_figure_browser.html"
+    )
+    if not args.no_browser:
+        render_browser_html(inventory, browser)
     print(f"Wrote {out}")
+    if not args.no_browser:
+        print(f"Wrote {browser}")
     print(f"Papers: {inventory['paper_count']}")
     print(
         "Candidates: "

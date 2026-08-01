@@ -1,0 +1,103 @@
+{
+  "paper_id": "P420",
+  "slug": "web-imports-2026-multi-modal-characterization-of-nitr-026-70447-7",
+  "title": {
+    "value": "Multi-modal characterization of nitrate reduction nano-catalysts with periodic strain distribution.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Tao Y",
+      "Zheng X",
+      "Huang S",
+      "Liu E",
+      "Lin Y",
+      "Jiang Q",
+      "Yang L",
+      "Drisdell WS",
+      "Xu T",
+      "Yang Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-026-70447-7",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Strain engineering serves as a pivotal strategy to optimize catalytic activity in electrocatalysis. However, the catalyst sizes under industrial conditions are usually large and even beyond nanometer regime. The critical methodological limitations on strain imaging of such catalysts with both large field of view and high spatial resolution obscure the mechanistic understanding of strain-performance correlations. Here, we present an optimized four-dimensional scanning transmission electron microscopy (4D-STEM) method to acquire strain mapping of both bulk and surface across particles up to 500 nm with 0.6 nm spatial resolution and 0.55% precision. We observe the ripple-like periodic strain coupled with elemental fluctuations inside a perovskite-type hydroxide CuCoSn(OH)<sub>6</sub> and find it correlated to electrocatalytic nitrate reduction (NO<sub>3</sub><sup>-</sup>RR) absorption energy to achieve the 92.6% Faradaic efficiency and long-term test over 1000 h at membrane electrode assembly (MEA) for ammonia electrosynthesis. This universal framework design offers a practical method that not only develops an advanced measurement combining multi-modal characterization techniques but",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-multi-modal-characterization-of-nitr--026-70447-7.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-multi-modal-characterization-of-nitr-026-70447-7.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-multi-modal-characterization-of-nitr-026-70447-7\\web-imports-2026-multi-modal-characterization-of-nitr-026-70447-7_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-multi-modal-characterization-of-nitr-026-70447-7"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 103,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

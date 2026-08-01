@@ -1,0 +1,107 @@
+{
+  "paper_id": "P285",
+  "slug": "web-imports-2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934",
+  "title": {
+    "value": "Polysubstituted Imidazoles as LysoTracker Molecules: Their Synthesis via Iodine/H<sub>2</sub>O and Cell-Imaging Studies.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Adhikary S",
+      "Majumder L",
+      "Pakrashy S",
+      "Srinath R",
+      "Mukherjee K",
+      "Mandal C",
+      "Banerji B"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2020,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Omega",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsomega.0c00934",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "An iodine-catalyzed, environmentally benign one-pot methodology has been developed for the synthesis of diverse substituted imidazoles. This transition-metal-free, aerobic, water-mediated cyclization reaction is operationally simple and works well with different amines or aldehydes by multiple C-N bond formations with satisfactory yield. The methodology is regioselective as well as scalable. These imidazole derivatives show excellent fluorescence properties both in the solid and solution phase, which is further extended to live-cell imaging. Due to the suitable fluorescence properties of these scaffolds, lysosome-directing groups are incorporated in two of these derivatized imidazoles to track intracellular lysosomes. Successfully, those molecules show bright blue fluorescence while detecting lysosomes in human or murine cells and can be considered to be rapid lysosome-staining probes.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "copper catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934\\web-imports-2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2020-polysubstituted-imidazoles-as-lysotr-mega-0c00934"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T10:11:59Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 128,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

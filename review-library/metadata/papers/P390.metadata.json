@@ -1,0 +1,102 @@
+{
+  "paper_id": "P390",
+  "slug": "web-imports-2025-dual-function-feco-bimetallic-nanocl-025-01674-0",
+  "title": {
+    "value": "Dual-function FeCo bimetallic nanoclusters for ammonia electrosynthesis from nitrate/nitrite reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Yang M",
+      "Chen M",
+      "Wang Y",
+      "Ma J",
+      "Zhang L",
+      "Hu C",
+      "Zhuo L",
+      "Feng Y",
+      "Liu X"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Communications Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s42004-025-01674-0",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Ammonia (NH<sub>3</sub>) plays a vital role in agriculture and chemical manufacturing, yet its conventional production is energy-intensive and environmentally harmful. Developing cleaner, more efficient alternatives is essential. Here we show a newly developed dual-metal nanocluster catalyst, Fe<sub>2</sub>Co<sub>1</sub>/NC, that effectively converts nitrate and nitrite pollutants into NH<sub>3</sub> through an electrochemical process. This catalyst achieves high NH<sub>3</sub> production rates and Faradaic efficiency, surpassing single-metal Fe/NC and Co/NC catalysts, and remains stable over extended use. When incorporated into nitrate- or nitrite-based zinc batteries, the system enables simultaneous NH<sub>3</sub> production and electricity generation, highlighting its potential for coupled energy recovery and environmental remediation. This work provides valuable design principles for bimetallic nanocluster catalysts and offers a promising strategy for the sustainable conversion of nitrogen-containing waste into useful chemicals.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-dual-function-feco-bimetallic-nanocl--025-01674-0.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-dual-function-feco-bimetallic-nanocl-025-01674-0.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dual-function-feco-bimetallic-nanocl-025-01674-0\\web-imports-2025-dual-function-feco-bimetallic-nanocl-025-01674-0_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dual-function-feco-bimetallic-nanocl-025-01674-0"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 47,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -27,6 +27,25 @@ WORD_RE = re.compile(r"\b[A-Za-z][A-Za-z'’-]*\b")
 PLACEHOLDER_AUTHOR_RE = re.compile(
     r"^(?:a\.?\s+author|unknown|author information unavailable)$", re.I
 )
+AFFILIATION_AUTHOR_RE = re.compile(
+    r"\b(?:department|division|university|institute|laboratory|school|faculty|engineering)\b",
+    re.I,
+)
+TITLE_LIKE_AUTHOR_RE = re.compile(
+    r"\b(?:synthesis|cataly[sz]ed|catalytic|coupling|reaction|mechanis[mt]|"
+    r"chiral|axial|substitut|"
+    r"spectroscop|characteri[sz]ation|electrochemical|photochemical|"
+    r"polymer|nanoparticle|degradation|adsorption|computational|analysis)\w*\b",
+    re.I,
+)
+RAW_LATEX_RE = re.compile(
+    r"\\(?:ce|mathsf|mathrm|text|mathbf|operatorname)\s*\{"
+)
+ABSTRACT_HEADING_RE = re.compile(
+    r"^\s{0,3}(?:#{1,6}\s+|\*\*)Abstract\b",
+    re.I | re.M,
+)
+LEGACY_TILDE_SCRIPT_RE = re.compile(r"~[^~\n]+~")
 
 
 def read_json(path: Path) -> Any:
@@ -89,6 +108,37 @@ def authors_are_placeholder(value: Any) -> bool:
     return not rendered or all(PLACEHOLDER_AUTHOR_RE.match(name) for name in rendered)
 
 
+def rendered_author_names(value: Any) -> list[str]:
+    authors = unwrap(value)
+    if isinstance(authors, (str, dict)):
+        authors = [authors]
+    if not isinstance(authors, list):
+        return []
+    names: list[str] = []
+    for author in authors:
+        if isinstance(author, str):
+            name = author.strip()
+        elif isinstance(author, dict):
+            name = str(
+                author.get("name")
+                or author.get("literal")
+                or author.get("display_name")
+                or " ".join(
+                    part
+                    for part in (
+                        str(author.get("given") or "").strip(),
+                        str(author.get("family") or "").strip(),
+                    )
+                    if part
+                )
+            ).strip()
+        else:
+            name = ""
+        if name:
+            names.append(name)
+    return names
+
+
 def recommended_range(profile: str, usable_sources: int) -> dict[str, int | str]:
     if profile == "focused":
         center = max(2500, min(8000, 1200 + 160 * usable_sources))
@@ -103,7 +153,13 @@ def recommended_range(profile: str, usable_sources: int) -> dict[str, int | str]
     }
 
 
-def inspect(review_root: Path, manuscript: Path, profile: str) -> dict[str, Any]:
+def inspect(
+    review_root: Path,
+    manuscript: Path,
+    profile: str,
+    *,
+    include_word_advisory: bool = False,
+) -> dict[str, Any]:
     text = manuscript.read_text(encoding="utf-8")
     body = GENERATED_REFERENCES_RE.sub("", text)
     visible_body = COMMENT_RE.sub("", body)
@@ -138,9 +194,17 @@ def inspect(review_root: Path, manuscript: Path, profile: str) -> dict[str, Any]
             full_text_ids.append(paper_id)
         if authors_are_placeholder(metadata.get("authors")):
             metadata_warnings.append(f"{paper_id}: missing or placeholder authors")
+        names = rendered_author_names(metadata.get("authors"))
+        if any(AFFILIATION_AUTHOR_RE.search(name) for name in names):
+            metadata_warnings.append(f"{paper_id}: author field includes affiliation text")
+        if any(TITLE_LIKE_AUTHOR_RE.search(name) for name in names):
+            metadata_warnings.append(f"{paper_id}: author field looks title-like")
         for field in ("title", "year"):
             if not unwrap(metadata.get(field)):
                 metadata_warnings.append(f"{paper_id}: missing {field}")
+        title = str(unwrap(metadata.get("title")) or "")
+        if RAW_LATEX_RE.search(title):
+            metadata_warnings.append(f"{paper_id}: title contains raw LaTeX")
         citations.append(
             {
                 "paper_id": paper_id,
@@ -166,14 +230,6 @@ def inspect(review_root: Path, manuscript: Path, profile: str) -> dict[str, Any]
             missing_images.append(path_text)
 
     words = len(WORD_RE.findall(visible_body))
-    target = recommended_range(profile, len(full_text_ids))
-    if words < int(target["low"]):
-        length_observation = "below_advisory_range"
-    elif words > int(target["high"]):
-        length_observation = "above_advisory_range"
-    else:
-        length_observation = "within_advisory_range"
-
     errors = [f"unknown stable citation: {paper_id}" for paper_id in unknown_ids]
     errors.extend(f"missing local image: {path}" for path in missing_images)
     observations: list[str] = []
@@ -188,8 +244,14 @@ def inspect(review_root: Path, manuscript: Path, profile: str) -> dict[str, Any]
         observations.append("no Markdown tables were found")
     if not image_rows:
         observations.append("no Markdown images were found")
+    if profile == "comprehensive" and not ABSTRACT_HEADING_RE.search(visible_body):
+        observations.append("no Abstract heading was found")
+    if LEGACY_TILDE_SCRIPT_RE.search(visible_body):
+        observations.append(
+            "legacy ~...~ chemistry markup was found; use _..._, ^...^, or $\\ce{...}$"
+        )
 
-    return {
+    report = {
         "report_type": "advisory_snapshot",
         "manuscript": str(manuscript.resolve()),
         "profile": profile,
@@ -201,16 +263,17 @@ def inspect(review_root: Path, manuscript: Path, profile: str) -> dict[str, Any]
         "table_count": table_count,
         "image_count": len(image_rows),
         "images": image_rows,
-        "recommended_word_range": target,
-        "length_observation": length_observation,
         "mechanical_errors": errors,
         "metadata_observations": sorted(set(metadata_warnings)),
         "editorial_observations": observations,
         "interpretation": (
-            "Counts and ranges are writing aids. This report is not a quality "
-            "verdict, release state, or semantic review."
+            "Counts are descriptive writing aids. This report is not a quality "
+            "verdict, release state, semantic review, or editorial target."
         ),
     }
+    if include_word_advisory:
+        report["word_advisory"] = recommended_range(profile, len(full_text_ids))
+    return report
 
 
 def parse_args() -> argparse.Namespace:
@@ -224,6 +287,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--profile", choices=("focused", "comprehensive"), default="comprehensive"
     )
+    parser.add_argument(
+        "--include-word-advisory",
+        action="store_true",
+        help=(
+            "Include a source-count-based length reference after substantive "
+            "revision. It is omitted by default so it does not become a drafting target."
+        ),
+    )
     parser.add_argument("--output", help="Optional JSON output path")
     return parser.parse_args()
 
@@ -234,7 +305,12 @@ def main() -> int:
     manuscript = Path(args.input).resolve()
     if not manuscript.is_file():
         raise SystemExit(f"Manuscript not found: {manuscript}")
-    report = inspect(review_root, manuscript, args.profile)
+    report = inspect(
+        review_root,
+        manuscript,
+        args.profile,
+        include_word_advisory=args.include_word_advisory,
+    )
     if args.output:
         output = Path(args.output).resolve()
         output.parent.mkdir(parents=True, exist_ok=True)

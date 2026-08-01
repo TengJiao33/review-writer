@@ -12,6 +12,7 @@ from typing import Any
 
 ALLOWED_KINDS = {"figure", "scheme", "chart", "table"}
 MARKER_TEMPLATE = "<!-- insert:{asset_id} -->"
+PAPER_ID_CITATION_RE = re.compile(r"\[(?:@)?(P\d{3,})\]")
 
 
 def read_json(path: Path) -> Any:
@@ -72,6 +73,10 @@ def strip_repeated_label(label: str, caption: str) -> str:
         count=1,
         flags=re.I,
     ).strip()
+
+
+def normalize_paper_id_citations(text: str) -> str:
+    return PAPER_ID_CITATION_RE.sub(r"[@\1]", text)
 
 
 def validate_row(
@@ -171,6 +176,8 @@ def insert_assets(
         attribution = re.sub(
             r"\s+", " ", str(row.get("attribution") or "")
         ).strip()
+        caption = normalize_paper_id_citations(caption)
+        attribution = normalize_paper_id_citations(attribution)
         alt = f"{label}. {caption}"
         if attribution:
             alt += f" {attribution}"

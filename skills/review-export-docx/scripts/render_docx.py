@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -27,6 +28,13 @@ def file_sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def needs_short_working_path(path: Path) -> bool:
+    value = str(path)
+    return os.name == "nt" and (
+        value.startswith("\\\\?\\") or len(value) >= 240
+    )
 
 
 def run_command(command: list[str]) -> dict[str, Any]:
@@ -150,7 +158,11 @@ def layout_warnings(pdf: Path, page_images: list[str]) -> list[dict[str, Any]]:
 
 def run(args: argparse.Namespace) -> int:
     docx = args.input.resolve()
-    pdf = args.output_pdf.resolve()
+    pdf = (
+        args.output_pdf.resolve()
+        if args.output_pdf is not None
+        else docx.with_suffix(".pdf")
+    )
     report_path = args.report.resolve()
     pages_dir = args.pages_dir.resolve()
     if not docx.exists():
@@ -159,20 +171,34 @@ def run(args: argparse.Namespace) -> int:
         raise SystemExit("--output-pdf must name a .pdf file")
     if pdf.exists():
         pdf.unlink()
+    temporary_workspace = None
+    render_docx = docx
+    render_pdf = pdf
+    if needs_short_working_path(docx) or needs_short_working_path(pdf):
+        temporary_workspace = tempfile.TemporaryDirectory(prefix="review-render-")
+        working_dir = Path(temporary_workspace.name)
+        render_docx = working_dir / "input.docx"
+        render_pdf = working_dir / "output.pdf"
+        shutil.copy2(docx, render_docx)
     attempts = []
     rendered = False
     renderer = None
     for function in (render_with_libreoffice, render_with_word):
-        rendered, attempt = function(docx, pdf)
+        rendered, attempt = function(render_docx, render_pdf)
+        if temporary_workspace is not None:
+            attempt["used_short_working_path"] = True
         attempts.append(attempt)
         if rendered:
             renderer = attempt["renderer"]
             break
+    if rendered and render_pdf != pdf:
+        pdf.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(render_pdf, pdf)
     page_images: list[str] = []
     raster_report: dict[str, Any] = {"available": False, "error": "render failed"}
     if rendered:
-        page_images, raster_report = rasterize(pdf, pages_dir)
-    page_count = pdf_page_count(pdf) if rendered else None
+        page_images, raster_report = rasterize(render_pdf, pages_dir)
+    page_count = pdf_page_count(render_pdf) if rendered else None
     page_hashes = [
         {"page_number": index, "path": image_path, "sha256": file_sha256(Path(image_path))}
         for index, image_path in enumerate(page_images, start=1)
@@ -198,7 +224,9 @@ def run(args: argparse.Namespace) -> int:
         "page_count": page_count,
         "page_images": page_images,
         "page_artifacts": page_hashes,
-        "layout_warnings": layout_warnings(pdf, page_images) if rendered else [],
+        "layout_warnings": (
+            layout_warnings(render_pdf, page_images) if rendered else []
+        ),
         "mechanical_errors": mechanical_errors,
         "note": (
             "This report records conversion and rasterization only. Open and "
@@ -209,13 +237,19 @@ def run(args: argparse.Namespace) -> int:
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
+    if temporary_workspace is not None:
+        temporary_workspace.cleanup()
     return 0 if not mechanical_errors else 1
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Render a review DOCX with LibreOffice or Microsoft Word, then rasterize every page.")
     parser.add_argument("--input", required=True, type=Path)
-    parser.add_argument("--output-pdf", required=True, type=Path)
+    parser.add_argument(
+        "--output-pdf",
+        type=Path,
+        help="Output PDF. Defaults to the DOCX path with a .pdf extension.",
+    )
     parser.add_argument("--pages-dir", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     return parser.parse_args()

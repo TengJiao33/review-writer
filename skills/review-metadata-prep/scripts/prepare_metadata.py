@@ -67,30 +67,6 @@ STRUCTURED_TAG_KEYS = [
     "document_scope",
 ]
 
-DEFAULT_CLASSIFICATION_LABELS = {key: ["not specified"] for key in STRUCTURED_TAG_KEYS}
-
-CHEM_TAG_RULES = {
-    "propargylic alcohols": ["propargylic alcohol", "propargylic alcohols"],
-    "propargylic derivatives": ["propargylic derivative", "propargylic derivatives", "propargyl"],
-    "allenes": ["allene", "allenes", "allenamide", "allenamides"],
-    "substituted allenes": ["substituted allene", "multisubstituted allene", "disubstituted allene"],
-    "copper catalysis": ["copper", "cui", "cu(", "copper-catalyzed"],
-    "nickel catalysis": ["nickel", "ni(", "nickel-catalyzed"],
-    "palladium catalysis": ["palladium", "pd(", "palladium-catalyzed"],
-    "gold catalysis": ["gold", "au(", "gold-catalyzed"],
-    "rhodium catalysis": ["rhodium", "rh(", "rhodium-catalyzed"],
-    "photoredox catalysis": ["photoredox", "visible-light", "light-mediated"],
-    "enantioselective synthesis": ["enantioselective", "enantiospecific", "enantioenriched", "ee"],
-    "cross-electrophile coupling": ["cross-electrophile"],
-    "radical reaction": ["radical", "radicals"],
-    "carbonylation": ["carbonylation"],
-    "C-H activation": ["c-h activation", "ch activation"],
-    "SN2' substitution": ["sn2", "substitution", "displacement"],
-    "mechanism": ["mechanism", "catalytic cycle", "intermediate", "control experiment", "dft"],
-    "total synthesis": ["total synthesis", "natural product"],
-}
-
-
 def utc_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -117,9 +93,9 @@ def load_dotenv(path: Path) -> None:
 
 
 def load_classification_rules(path: Path) -> dict[str, list[str]]:
-    labels = {key: ["not specified"] for key in STRUCTURED_TAG_KEYS}
     if not path.exists():
-        return labels
+        return {}
+    labels = {key: ["not specified"] for key in STRUCTURED_TAG_KEYS}
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     rules_node = None
     for node in tree.body:
@@ -142,8 +118,14 @@ def load_classification_rules(path: Path) -> dict[str, list[str]]:
 
 
 def classification_rules_prompt(labels: dict[str, list[str]]) -> str:
+    if not labels:
+        return (
+            "Optional chemistry descriptors. For each category, use a concise phrase "
+            "supported by the supplied paper, or `not specified`. These descriptors "
+            "aid retrieval and do not define the review topic."
+        )
     lines = [
-        "Allowed allene classification labels. For each category, output exactly one label from its list.",
+        "Project-supplied optional classification labels. For each category, output exactly one label from its list.",
         "Use `not specified` only when no listed label is supported by the supplied paper evidence.",
     ]
     for key in STRUCTURED_TAG_KEYS:
@@ -575,24 +557,6 @@ def extract_journal(md: str, pdf_name: str) -> dict[str, Any]:
     return scored(None, "rule_not_found", 0.0)
 
 
-def infer_tags(text: str) -> list[str]:
-    low = text.lower()
-    tags: list[str] = []
-    for tag, needles in CHEM_TAG_RULES.items():
-        if any(n in low for n in needles):
-            tags.append(tag)
-    return tags
-
-
-def classify_tags(tags: list[str]) -> tuple[list[str], list[str], list[str], list[str]]:
-    topic = [t for t in tags if t in {"propargylic alcohols", "propargylic derivatives", "allenes", "substituted allenes"}]
-    reaction = [t for t in tags if t in {"SN2' substitution", "cross-electrophile coupling", "radical reaction", "carbonylation", "C-H activation"}]
-    reaction += [t for t in tags if "catalysis" in t]
-    mechanism = [t for t in tags if t in {"mechanism", "radical reaction", "photoredox catalysis"}]
-    application = [t for t in tags if t in {"total synthesis", "enantioselective synthesis"}]
-    return dedupe(topic), dedupe(reaction), dedupe(mechanism), dedupe(application)
-
-
 def dedupe(items: list[str]) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
@@ -624,7 +588,7 @@ def build_llm_payload(
     reasoning_effort: str = "",
     classification_labels: dict[str, list[str]] | None = None,
 ) -> dict[str, Any]:
-    classification_labels = classification_labels or DEFAULT_CLASSIFICATION_LABELS
+    classification_labels = classification_labels or {}
     front_blocks = []
     for i, block in enumerate(blocks[:80]):
         text = clean_text(str(block.get("text") or block.get("content") or ""))
@@ -723,7 +687,15 @@ def field_schema(kind: str) -> dict[str, Any]:
 
 
 def structured_tags_schema(classification_labels: dict[str, list[str]] | None = None) -> dict[str, Any]:
-    classification_labels = classification_labels or DEFAULT_CLASSIFICATION_LABELS
+    classification_labels = classification_labels or {}
+    properties: dict[str, Any] = {}
+    for key in STRUCTURED_TAG_KEYS:
+        allowed = classification_labels.get(key)
+        properties[key] = (
+            {"type": "string", "enum": allowed}
+            if allowed
+            else {"type": "string"}
+        )
     return {
         "type": "object",
         "additionalProperties": False,
@@ -733,10 +705,7 @@ def structured_tags_schema(classification_labels: dict[str, list[str]] | None = 
                 "type": "object",
                 "additionalProperties": False,
                 "required": STRUCTURED_TAG_KEYS,
-                "properties": {
-                    key: {"type": "string", "enum": classification_labels.get(key, ["not specified"])}
-                    for key in STRUCTURED_TAG_KEYS
-                },
+                "properties": properties,
             },
             "source": {"type": "string"},
             "confidence": {"type": "number"},
@@ -820,33 +789,15 @@ def normalize_structured_tags(value: Any) -> dict[str, str]:
     return tags
 
 
-def structured_tags_from_legacy(
-    topic: list[str],
-    reaction: list[str],
-    mechanism: list[str],
-    application: list[str],
-) -> dict[str, str]:
-    return {
-        "product": first_or_not_specified([x for x in topic if "allene" in x]),
-        "substrate": first_or_not_specified([x for x in topic if "proparg" in x]),
-        "catalyst_or_method": first_or_not_specified([x for x in reaction if "catalysis" in x]),
-        "organometallic_partner": "not specified",
-        "ligand_or_chiral_source": first_or_not_specified([x for x in application if "enantio" in x]),
-        "leaving_group": "not specified",
-        "reaction_type": first_or_not_specified(reaction),
-        "document_scope": "primary research article",
-    }
-
-
 def constrain_structured_tags(
     values: dict[str, str],
     classification_labels: dict[str, list[str]],
 ) -> dict[str, str]:
     constrained: dict[str, str] = {}
     for key in STRUCTURED_TAG_KEYS:
-        allowed = classification_labels.get(key) or ["not specified"]
+        allowed = classification_labels.get(key)
         value = clean_text(str(values.get(key) or "not specified")) or "not specified"
-        constrained[key] = value if value in allowed else "not specified"
+        constrained[key] = value if not allowed or value in allowed else "not specified"
     return constrained
 
 
@@ -902,10 +853,6 @@ def update_quality(meta: dict[str, Any]) -> None:
     for key in ["journal", "doi"]:
         if not has_value(meta.get(key, {}).get("value")):
             warnings.append(f"missing_{key}")
-    structured = structured_tag_values(meta)
-    for key, value in structured.items():
-        if not value or value.lower() == "not specified":
-            warnings.append(f"structured_tag_not_specified_{key}")
     confidences = []
     for key in [
         "title",
@@ -1036,21 +983,7 @@ def build_metadata(
         doi = scored(jats["doi"], "jats_article_id", 0.99)
     if jats.get("journal"):
         journal = scored(jats["journal"], "jats_journal_title", 0.99)
-    text_for_tags = " ".join(
-        [
-            str(title.get("value") or ""),
-            str(abstract.get("value") or ""),
-            " ".join(keywords.get("value") or []),
-            md[:6000],
-        ]
-    )
-    tags = infer_tags(text_for_tags)
-    topic, reaction, mechanism, application = classify_tags(tags)
-    structured_tags = constrain_structured_tags(
-        structured_tags_from_legacy(topic, reaction, mechanism, application),
-        classification_labels,
-    )
-    has_structured_tags = any(value != "not specified" for value in structured_tags.values())
+    structured_tags = {key: "not specified" for key in STRUCTURED_TAG_KEYS}
     pdf_hash = sha256_file(pdf_path)
     meta: dict[str, Any] = {
         "paper_id": paper_id,
@@ -1063,8 +996,8 @@ def build_metadata(
         "abstract": abstract,
         "structured_tags": scored(
             structured_tags,
-            "rule_keyword_inference_constrained_to_project_labels",
-            0.45 if tags and has_structured_tags else 0.0,
+            "optional_enrichment_not_run",
+            0.0,
         ),
         "source_paths": {
             "pdf": str(pdf_path) if pdf_path else None,
@@ -1190,7 +1123,11 @@ def run(args: argparse.Namespace) -> int:
     model = args.model or os.environ.get("REVIEW_METADATA_MODEL", "gpt-5.4")
     base_url = args.base_url or os.environ.get("OPENAI_BASE_URL", "https://api.openai.com")
     reasoning_effort = args.reasoning_effort or os.environ.get("REVIEW_METADATA_REASONING_EFFORT", "high")
-    classification_labels = load_classification_rules(review_root / "allene_classification_rules.py")
+    classification_labels = (
+        load_classification_rules(Path(args.classification_rules).resolve())
+        if args.classification_rules
+        else {}
+    )
     use_llm = bool(args.use_llm)
     if use_llm and not api_key:
         print("WARN: --use-llm was set but OPENAI_API_KEY is missing; using rules only.", file=sys.stderr)
@@ -1300,6 +1237,14 @@ def parse_args() -> argparse.Namespace:
         help="Process only the named parsed source slug. Repeat for a bounded append-only import.",
     )
     parser.add_argument("--use-llm", action="store_true")
+    parser.add_argument(
+        "--classification-rules",
+        default="",
+        help=(
+            "Optional project-specific Python rules file. Omit it for generic, "
+            "free-text chemistry descriptors."
+        ),
+    )
     parser.add_argument("--model", default="")
     parser.add_argument("--base-url", default="")
     parser.add_argument("--api-key", default="")

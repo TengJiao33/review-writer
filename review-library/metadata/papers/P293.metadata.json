@@ -1,0 +1,97 @@
+{
+  "paper_id": "P293",
+  "slug": "web-imports-2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957",
+  "title": {
+    "value": "Cross-Coupling of Gaseous Alkanes with (Hetero)Aryl Bromides via Dual Nickel/Photoredox Catalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Nair AM",
+      "Martínez-Balart P",
+      "Barbeira-Arán S",
+      "Fañanás-Mastral M"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202416957",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Gaseous alkanes represent the most abundant carbon-based chemical feedstocks in our planet. However, the intrinsic inertness of their C-H bonds has rendered the use of these alkanes very difficult for purposes beyond aerobic combustion and energy intensive processes. Thus, clean and energy-efficient transformations for their use in synthetic organic chemistry are still rare. Here we report a catalytic methodology for the direct cross-coupling of gaseous alkanes with (hetero)aryl bromides through the combination of metallaphotoredox-mediated hydrogen atom transfer and nickel catalysis. This protocol provides an efficient platform for the addition of short alkyl groups into diverse (hetero) aromatic rings, providing a wide range of high-value alkyl(hetero)arenes, and bypassing the longstanding need of using preactivated alkylating agents in C(sp<sup>2</sup>)-C(sp<sup>3</sup>) cross-couplings. The method features high chemoselectivity, regioselectivity and a remarkable functional group tolerance, operates under mild conditions, and exhibits operational simplicity.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957\\web-imports-2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-cross-coupling-of-gaseous-alkanes-wi-ie-202416957"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 36,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

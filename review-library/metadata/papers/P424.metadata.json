@@ -1,0 +1,97 @@
+{
+  "paper_id": "P424",
+  "slug": "web-imports-2026-recent-advances-in-joule-heating-ult-2025-114602",
+  "title": {
+    "value": "Recent advances in joule heating ultrafast technology for electrocatalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhu C",
+      "Zhu D",
+      "Liu F",
+      "Li R"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "iScience",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1016/j.isci.2025.114602",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Joule heating technology, as an ultrafast, efficient, and scalable synthesis strategy, provides a novel approach for the preparation of high-performance electrocatalysts toward various energy conversion systems, such as hydrogen production, metal-air battery, fuel cell, and so on. This review summarizes recent progress in ultrafast synthesis strategy (especially Joule heating technology) for the precise construction of highly active electrocatalysts. First, the principle of Joule heating technology has been discussed. The fundamental electrocatalytic mechanisms, such as hydrogen evolution reaction (HER), oxygen evolution reaction (OER), overall water splitting, nitrate reduction reaction (NO<sub>3</sub>RR), oxygen reduction reaction (ORR), and carbon dioxide reduction reaction (CO<sub>2</sub>RR), are also comprehensively highlighted. The recent advances of electrocatalysts prepared by ultrafast Joule heating technology have been generalized. Furthermore, this review also addresses the inherent limitations of the Joule heating approach and outlines prospects and challenges, aiming to lay a foundation for breakthroughs and applications of Joule heating in electrocatalysis.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-recent-advances-in-joule-heating-ult--2025-114602.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-recent-advances-in-joule-heating-ult-2025-114602.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-recent-advances-in-joule-heating-ult-2025-114602\\web-imports-2026-recent-advances-in-joule-heating-ult-2025-114602_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-recent-advances-in-joule-heating-ult-2025-114602"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 109,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

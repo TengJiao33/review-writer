@@ -1,0 +1,101 @@
+{
+  "paper_id": "P303",
+  "slug": "web-imports-2021-electrochemical-c-h-phosphorylation-021-26960-y",
+  "title": {
+    "value": "Electrochemical C-H phosphorylation of arenes in continuous flow suitable for late-stage functionalization.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Long H",
+      "Huang C",
+      "Zheng YT",
+      "Li ZY",
+      "Jie LH",
+      "Song J",
+      "Zhu S",
+      "Xu HC"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2021,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-021-26960-y",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The development of efficient and sustainable methods for carbon-phosphorus bond formation is of great importance due to the wide application of organophosphorus compounds in chemistry, material sciences and biology. Previous C-H phosphorylation reactions under nonelectrochemical or electrochemical conditions require directing groups, transition metal catalysts, or chemical oxidants and suffer from limited scope. Herein we disclose a catalyst- and external oxidant-free, electrochemical C-H phosphorylation reaction of arenes in continuous flow for the synthesis of aryl phosphorus compounds. The C-P bond is formed through the reaction of arenes with anodically generated P-radical cations, a class of reactive intermediates remained unexplored for synthesis despite intensive studies of P-radicals. The high reactivity of the P-radical cations coupled with the mild conditions of the electrosynthesis ensures not only efficient reactions of arenes of diverse electronic properties but also selective late-stage functionalization of complex natural products and bioactive compounds. The synthetic utility of the electrochemical method is further demonstrated by the continuous production of 55.0",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2021-electrochemical-c-h-phosphorylation---021-26960-y.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2021-electrochemical-c-h-phosphorylation-021-26960-y.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-electrochemical-c-h-phosphorylation-021-26960-y\\web-imports-2021-electrochemical-c-h-phosphorylation-021-26960-y_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-electrochemical-c-h-phosphorylation-021-26960-y"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:09:56Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 30,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

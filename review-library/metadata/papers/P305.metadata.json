@@ -1,0 +1,99 @@
+{
+  "paper_id": "P305",
+  "slug": "web-imports-2023-heterocyclic-electrochemistry-renewa-mega-2c07378",
+  "title": {
+    "value": "Heterocyclic Electrochemistry: Renewable Electricity in the Construction of Heterocycles.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Aslam S",
+      "Sbei N",
+      "Rani S",
+      "Saad M",
+      "Fatima A",
+      "Ahmed N"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2023,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Omega",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsomega.2c07378",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Numerous applications in the realm of biological exploration and drug synthesis can be found in heterocyclic chemistry, which is a vast subject. Many efforts have been developed to further improve the reaction conditions to access this interesting family to prevent employing hazardous ingredients. In this instance, it has been stated that green and environmentally friendly manufacturing methodologies have been introduced to create N-, S-, and O-heterocycles. It appears to be one of the most promising methods to access these types of compounds avoiding use of stoichiometric amounts of oxidizing/reducing species or precious metal catalysts, in which only catalytic amounts are sufficient, and it represent an ideal way of contributing toward the resource economy. Thus, renewable electricity provides clean electrons (oxidant/reductant) that initiate a reaction cascade via producing reactive intermediates that facilitate in building new bonds for valuable chemical transformations. Moreover, electrochemical activation using metals as catalytic mediators has been identified as a more efficient strategy toward selective functionalization. Thus, indirect electrolysis makes the potential rang",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2023-heterocyclic-electrochemistry-renewa-mega-2c07378.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2023-heterocyclic-electrochemistry-renewa-mega-2c07378.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-heterocyclic-electrochemistry-renewa-mega-2c07378\\web-imports-2023-heterocyclic-electrochemistry-renewa-mega-2c07378_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-heterocyclic-electrochemistry-renewa-mega-2c07378"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:09:56Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 277,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

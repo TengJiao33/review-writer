@@ -1,0 +1,104 @@
+{
+  "paper_id": "P375",
+  "slug": "web-imports-2022-breaking-adsorption-energy-scaling-l-022-29926-w",
+  "title": {
+    "value": "Breaking adsorption-energy scaling limitations of electrocatalytic nitrate reduction on intermetallic CuPd nanocubes by machine-learned insights.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Gao Q",
+      "Pillai HS",
+      "Huang Y",
+      "Liu S",
+      "Mu Q",
+      "Han X",
+      "Yan Z",
+      "Zhou H",
+      "He Q",
+      "Xin H",
+      "Zhu H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-022-29926-w",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical nitrate reduction reaction (NO<sub>3</sub>RR) to ammonia is an essential step toward restoring the globally disrupted nitrogen cycle. In search of highly efficient electrocatalysts, tailoring catalytic sites with ligand and strain effects in random alloys is a common approach but remains limited due to the ubiquitous energy-scaling relations. With interpretable machine learning, we unravel a mechanism of breaking adsorption-energy scaling relations through the site-specific Pauli repulsion interactions of the metal d-states with adsorbate frontier orbitals. The non-scaling behavior can be realized on (100)-type sites of ordered B2 intermetallics, in which the orbital overlap between the hollow *N and subsurface metal atoms is significant while the bridge-bidentate *NO<sub>3</sub> is not directly affected. Among those intermetallics predicted, we synthesize monodisperse ordered B2 CuPd nanocubes that demonstrate high performance for NO<sub>3</sub>RR to ammonia with a Faradaic efficiency of 92.5% at -0.5 V<sub>RHE</sub> and a yield rate of 6.25 mol h<sup>-1</sup> g<sup>-1</sup> at -0.6 V<sub>RHE</sub>. This study provides machine-learned design rules besides the d",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-breaking-adsorption-energy-scaling-l--022-29926-w.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-breaking-adsorption-energy-scaling-l-022-29926-w.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-breaking-adsorption-energy-scaling-l-022-29926-w\\web-imports-2022-breaking-adsorption-energy-scaling-l-022-29926-w_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-breaking-adsorption-energy-scaling-l-022-29926-w"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

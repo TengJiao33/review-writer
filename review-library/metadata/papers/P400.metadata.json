@@ -1,0 +1,106 @@
+{
+  "paper_id": "P400",
+  "slug": "web-imports-2025-iron-nanoparticles-on-porous-carbon-vs-202514504",
+  "title": {
+    "value": "Iron Nanoparticles on Porous Carbon Discs: Electrocatalysts with Over 30% Energy Efficiencies for the Production of Ammonia from Nitrate.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Park D",
+      "Choi J",
+      "Shim JY",
+      "Kim YK",
+      "Park J",
+      "Kang CW",
+      "Park SY",
+      "An TY",
+      "Lim H",
+      "Surendran S",
+      "Ko KC",
+      "Sim U",
+      "Son SU"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202514504",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Disc-shaped precursor materials (Fe-HBD) are prepared by the complexation of iron with 2,5-dihydroxy-1,4-benzoquinone. Through the carbonization of Fe-HBD at 700 °C, Fe nanoparticles on carbon disc matrixes (CD@Fe-700) are synthesized. The CD@Fe-700 with a high surface area of 424 m<sup>2</sup> g<sup>-1</sup> and micro/mesoporosity showed promising electrocatalytic performance in the nitrate reduction reaction (NO<sub>3</sub>RR) to ammonia with ammonia yield rates of 1.8-13.5 mg h<sup>-1</sup> cm<sup>-2</sup> at overpotentials of -0.2--0.6 V (vs. RHE), reaching energy efficiencies up to 32.6-34.7%.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-iron-nanoparticles-on-porous-carbon--vs-202514504.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-iron-nanoparticles-on-porous-carbon-vs-202514504.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-iron-nanoparticles-on-porous-carbon-vs-202514504\\web-imports-2025-iron-nanoparticles-on-porous-carbon-vs-202514504_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-iron-nanoparticles-on-porous-carbon-vs-202514504"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 72,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

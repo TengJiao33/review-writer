@@ -1,0 +1,99 @@
+{
+  "paper_id": "P313",
+  "slug": "web-imports-2025-electrochemical-deamination-function-9-d5sc05603a",
+  "title": {
+    "value": "Electrochemical deamination functionalization via C-N bond cleavage and radical formation.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zou Z",
+      "Dong J",
+      "Shi Y",
+      "Chen W",
+      "Zhang W",
+      "Wang Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc05603a",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The C-N bond cleavage of amines has gained attention in the scientific community due to its numerous synthetic applications. In traditional methods, the requirements for toxic oxidants and costly catalysts affect their cost-effectiveness and sustainability. However, recent advances in synthetic organic electrochemistry allow for the <i>in situ</i> activation of C-N bonds, affording different functionalizations under mild reaction conditions with a shorter reaction time. In light of the ever-increasing importance of electrosynthesis spanning most disciplines of the chemical sciences, we review recent developments in electrochemically promoted radical deamination functionalization over the past decade (from 2015 to 2025). Special emphasis is put on various electrochemical transformation paths and proposed mechanisms.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrochemical-deamination-function-9-d5sc05603a.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrochemical-deamination-function-9-d5sc05603a.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-deamination-function-9-d5sc05603a\\web-imports-2025-electrochemical-deamination-function-9-d5sc05603a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-deamination-function-9-d5sc05603a"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:17:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 119,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

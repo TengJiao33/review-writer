@@ -1,0 +1,109 @@
+{
+  "paper_id": "P367",
+  "slug": "web-imports-2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840",
+  "title": {
+    "value": "Embedded Fe-Cu Pairs Enable Tandem Nitrate-to-Ammonia Electroreduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Liu Y",
+      "Zhang X",
+      "Feizpoor S",
+      "Chen HC",
+      "Li L",
+      "Zuo Y",
+      "Tian S",
+      "Liu M",
+      "Hu W",
+      "Humayun M",
+      "Huo K",
+      "Lv C",
+      "Pang Y",
+      "Wang D",
+      "Wang X",
+      "Wang C"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202514840",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical nitrate reduction (e-NO<sub>3</sub>RR) to ammonia (NH<sub>3</sub>) represents a transformative technology that seamlessly integrates environmental remediation with resource regeneration. This approach is crucial for restoring equilibrium in the global nitrogen cycling, advancing green chemistry, and accelerating the transition toward a sustainable circular economy. However, under pH-neutral conditions, the simultaneous occurrence of two competing reactions (Hydrogen Evolution Reaction and NO<sub>3</sub>RR) at the same active sites results in considerable interference, significantly limiting the catalytic efficiency and selectivity. Here a Fe-Cu pair (Cu-N<sub>3</sub>/Fe<sub>3</sub>-N<sub>8</sub>) electrocatalyst is meticulously designed, achieving a NH<sub>3</sub> production rate of 18.83 mg∙h<sup>‒1</sup>∙mg<sub>cat</sub> <sup>‒1</sup> at -0.65 V versus the reversible hydrogen electrode (RHE), accompanied with a Faradaic efficiency of 97.1%. This as-prepared Fe-Cu pair overcomes the limitations of conventional bimetallic catalysts, which typically rely on direct atomic coupling. The electron-deficient region formed by Cu-N<sub>3</sub> enhances the adsorption of nit",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840\\web-imports-2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-embedded-fe-cu-pairs-enable-tandem-n-ma-202514840"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 45,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

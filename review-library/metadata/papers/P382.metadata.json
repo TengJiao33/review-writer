@@ -1,0 +1,97 @@
+{
+  "paper_id": "P382",
+  "slug": "web-imports-2024-tandem-electroreduction-of-nitrate-t-vs-202407250",
+  "title": {
+    "value": "Tandem Electroreduction of Nitrate to Ammonia Using a Cobalt–Copper Mixed Single‐Atom/Cluster Catalyst with Synergistic Effects",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Jungwon Suh",
+      "Hyeonuk Choi",
+      "Yujin Kong",
+      "Jihun Oh"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202407250",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Electrochemical conversion of waste nitrate (NO 3 − ) to ammonia (NH 3 ) for environmental applications, such as carbon‐neutral energy sources and hydrogen carriers, is a promising alternative to the energy‐intensive Haber–Bosch process. However, increasing the energy efficiency is limited by the high overpotential and selectivity. Herein, a Co─Cu mixed single‐atom/cluster catalyst (Co─Cu SCC) is demonstrated—with well‐dispersed Co and Cu active sites anchored on a carbon support—that delivers high NH 3 Faradaic efficiency of 91.2% at low potential (–0.3 V vs. RHE) due to synergism between the heterogenous active sites. Electrochemical analyses reveal that Cu in Co─Cu SCC preferentially catalyzes the NO 3 − ‐to‐NO 2 − pathway, whereupon Co catalyzes the NO 2 − ‐to‐NH 3 pathway. This tandem electroreduction bypasses the rate‐determining steps (RDSs) for Co and Cu to lower the reaction energy barrier and surpass scaling relationship limitations. The electrocatalytic performance is amplified by the subnanoscale catalyst to increase the partial current density of NH 3 by 2.3 and 5.4 times compared to those of individual Co, Cu single‐atom/cluster catalysts (Co SCC, Cu SCC), re",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-tandem-electroreduction-of-nitrate-t-vs-202407250.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-tandem-electroreduction-of-nitrate-t-vs-202407250.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-tandem-electroreduction-of-nitrate-t-vs-202407250\\web-imports-2024-tandem-electroreduction-of-nitrate-t-vs-202407250_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-tandem-electroreduction-of-nitrate-t-vs-202407250"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 50,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "paper_id": "P411",
+  "slug": "web-imports-2025-unlocking-a-water-coordination-envir-jacs-5c07066",
+  "title": {
+    "value": "Unlocking a Water Coordination Environment in Co-Based Metal-Organic Frameworks for Advanced Nitrate-to-Ammonia Electroreduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Muthukumar P",
+      "Ullah Z",
+      "Zhang X",
+      "Ullah H",
+      "Liu Y",
+      "Li L",
+      "Tian S",
+      "Zhou X",
+      "Anthony SP",
+      "Zuo Y",
+      "Lv C",
+      "Wang X",
+      "Wang C"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.5c07066",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical nitrate reduction to ammonia (<i>e</i>-NO<sub>3</sub>RR) offers a promising and sustainable alternative to the traditional Haber-Bosch process, enabling decentralized ammonia production under ambient conditions. However, the efficiency of <i>e</i>-NO<sub>3</sub>RR is limited by the sluggish reaction kinetics due to the high activation energy barriers, poor mass transport, and the weaker adsorption affinity of the catalyst surface. In this study, we report the design and synthesis of a stable three-dimensional cobalt-based metal-organic framework (HUST-38), constructed from benzene-1,4-dicarboxylate ligand and DABCO, featuring water coordination within its framework. Impressively, the as-prepared HUST-38 delivers a high NH<sub>3</sub> Faradaic efficiency of 95.7% and a high NH<sub>3</sub> yield rate of 13.38 mg h<sup>-1</sup> mg<sub>cat</sub><sup>-1</sup> at -0.6 V vs RHE, significantly outperforming the control sample of HUST-39 (3.98 mg h<sup>-1</sup> mg<sub>cat</sub><sup>-1</sup>, nonwater coordination) and the mostly reported single-site solid electrocatalysts. Various <i>in situ</i> measurements disclose that the labile solvent coordination in HUST-38 promotes w",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-unlocking-a-water-coordination-envir-jacs-5c07066.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-unlocking-a-water-coordination-envir-jacs-5c07066.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-unlocking-a-water-coordination-envir-jacs-5c07066\\web-imports-2025-unlocking-a-water-coordination-envir-jacs-5c07066_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-unlocking-a-water-coordination-envir-jacs-5c07066"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 52,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

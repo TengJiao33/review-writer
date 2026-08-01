@@ -1,0 +1,105 @@
+{
+  "paper_id": "P410",
+  "slug": "web-imports-2025-two-step-tandem-catalysis-for-high-e-vs-202502262",
+  "title": {
+    "value": "Two-Step Tandem Catalysis for High-Efficiency Ammonia Synthesis Via Nitrate Reduction on Anion-Intercalated CoNi LDH and Cu/Cu&lt;sub&gt;2&lt;/sub&gt;O.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Lin C",
+      "Li W",
+      "Chen H",
+      "Feng J",
+      "Zhu M",
+      "Shi J",
+      "Li M",
+      "Hou B",
+      "Wang Z",
+      "Chen X",
+      "Liu J",
+      "Yan W"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202502262",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Ammonia is essential across industry, agriculture, and as a future carbon-free energy carrier. Electrocatalytic nitrate reduction (NitRR) offers a sustainable path for removing nitrate contaminants from wastewater and groundwater while using abundant nitrate ions as nitrogen sources under eco-friendly conditions. However, the NitRR pathway, which involves sequential reactions, poses challenges in synchronizing the rate of nitrate-to-nitrite conversion with the subsequent reduction of nitrite to ammonia, particularly as the initial reduction step is rate-limiting. This study presents a CoNi layered double hydroxide (LDH) approach to finely control hydrogen radical (*H) supply, paired with Cu/Cu<sub>2</sub>O redox coupling, to achieve optimal rate matching. CoNi LDH is engineered with various anion intercalations (NO<sub>3</sub> <sup>-</sup>, Cl<sup>-</sup>, SO<sub>4</sub> <sup>2-</sup>, MoO<sub>4</sub> <sup>2-</sup>, WO<sub>4</sub> <sup>2-</sup>) to regulate *H capacity. By integrating Cu/Cu<sub>2</sub>O and CoNi LDH, tandem kinetic descriptors, including a volcano curve, are employed to predict rate constants, facilitating ideal kinetic matching for efficient ammonia synthesis. The",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-two-step-tandem-catalysis-for-high-e-vs-202502262.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-two-step-tandem-catalysis-for-high-e-vs-202502262.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-two-step-tandem-catalysis-for-high-e-vs-202502262\\web-imports-2025-two-step-tandem-catalysis-for-high-e-vs-202502262_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-two-step-tandem-catalysis-for-high-e-vs-202502262"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

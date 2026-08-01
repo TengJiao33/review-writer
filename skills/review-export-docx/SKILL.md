@@ -12,18 +12,39 @@ Export whenever the manuscript is ready for layout review.
 ```bash
 python skills/review-export-docx/scripts/md2docx.py \
   --input review-projects/<project_id>/deliverables/review.md \
-  --output review-projects/<project_id>/deliverables/review.docx \
+  --output-dir review-projects/<project_id>/deliverables \
   --author "<author when known>" \
   --subject "Scholarly review manuscript" \
   --keywords "<topic keywords>"
 ```
 
+When `--output` is omitted, the converter uses the manuscript's first
+level-one heading as the DOCX filename. Characters that Windows does not allow
+in filenames are replaced without otherwise shortening the paper title.
+
 The converter supports Markdown headings, tables, images, references, inline
 math, chemical subscripts/superscripts, page numbers, and academic styles.
+Its default `professional_single` layout is a portable Word house style:
+11 pt justified body text with a one-em first-line indent, unindented lead
+paragraphs after headings and displays, left-aligned captions, real body-list
+numbering, stable hanging-indent reference labels, and table orphan protection. Use
+`--layout-profile legacy_report` only when reproducing the previous 12 pt,
+left-aligned, 1.5-spaced report layout is intentional.
+
+Use `--layout-profile chemvellum_journal` for the branded publication layout.
+It keeps the title and abstract in a full-width opening section, switches the
+review body and references to a compact two-column grid, and temporarily opens
+full-width sections for evidence figures and comparison tables. The original
+`CHEMVELLUM` wordmark uses a compressed serif treatment in deep teal and ink;
+Cambria body text, Arial navigation, restrained pale-teal table/abstract
+treatments, and quiet running furniture provide a portable Word-native journal
+system without copying one publisher's masthead.
 Figure, Scheme, Chart, and Table prefixes in image alt text become caption
 styles. Markdown tables render as white three-line academic tables. Scheme
 images render as compact centered displays, while ordinary figures may use
-the full text width. Use explicit chemistry markup when notation is ambiguous:
+the full text width. Wide tables split into readable continuation tables;
+header rows repeat after page breaks and body rows stay intact when possible.
+Use explicit chemistry markup when notation is ambiguous:
 
 ```markdown
 CO_2_
@@ -32,22 +53,31 @@ sp^2^
 $\ce{PdCl_2}$
 ```
 
+Use `_..._` for subscripts and `^...^` for superscripts. The `~...~` form is
+plain text in this converter. Keep paired scripts adjacent, as in
+`g_cat._^-1^` or `NO_3_^−^`; the converter emits one compact Word object with
+stacked sub- and superscripts.
+
 ## PDF and page images
 
 Immediately render the DOCX:
 
 ```bash
 python skills/review-export-docx/scripts/render_docx.py \
-  --input review-projects/<project_id>/deliverables/review.docx \
-  --output-pdf review-projects/<project_id>/deliverables/review.pdf \
+  --input "review-projects/<project_id>/deliverables/<paper title>.docx" \
   --pages-dir review-projects/<project_id>/deliverables/rendered_pages \
   --report review-projects/<project_id>/deliverables/render_report.json
 ```
 
+When `--output-pdf` is omitted, the PDF uses the DOCX stem. The two final
+deliverables therefore share the manuscript title.
+
 Render the PDF from the DOCX so the inspected pages match the editable
-deliverable. Open the rendered page images and inspect every page at readable
-zoom for clipping, blank figures, broken reaction schemes, wrong captions, font
-substitution, table overflow, reference wrapping, and bad page breaks.
+deliverable. Open each rendered page image at readable zoom and inspect the
+page itself for clipping, blank figures, broken reaction schemes, wrong
+captions, font substitution, table overflow, reference wrapping, and bad page
+breaks. A page counts as viewed only after its image has actually been opened;
+report the exact viewed page numbers in the handoff.
 
 `audit_docx.py` is an optional structural diagnostic:
 

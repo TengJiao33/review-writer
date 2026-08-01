@@ -1,0 +1,106 @@
+{
+  "paper_id": "P353",
+  "slug": "web-imports-2025-insights-into-interfacial-water-and-9-d5sc04633e",
+  "title": {
+    "value": "Insights into interfacial water and key intermediates on Cu&lt;sub&gt;95&lt;/sub&gt;Co&lt;sub&gt;5&lt;/sub&gt; aerogels for electrocatalytic nitrate-to-ammonia conversion.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Mu M",
+      "Chen J",
+      "Xue X",
+      "Yang Y",
+      "Qi R",
+      "Wang Y",
+      "Liu D",
+      "Shang L",
+      "Jiang W",
+      "Shao X",
+      "Chen ZJ",
+      "Zhao B",
+      "Song W"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc04633e",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction (NO<sub>3</sub>RR) to ammonia presents a sustainable route for pollutant remediation and green synthesis, yet challenges persist in achieving high efficiency and selectivity. Herein, we report a cobalt-doped copper aerogel (Cu<sub>95</sub>Co<sub>5</sub>) synthesized <i>via</i> one-step co-reduction, demonstrating exceptional NO<sub>3</sub>RR performance with 94.91% faradaic efficiency at -0.6 V and 31.15 mg per mg<sub>cat</sub> per cm<sup>2</sup> per h NH<sub>3</sub> yield at -0.7 V <i>vs.</i> RHE. The system achieves an impressive energy efficiency of 31.03% and enables a record-low ammonia production cost of $0.53 per kg. Multiscale characterization reveals that Co doping induces lattice contraction, optimizes d-band positioning, and enhances interfacial K<sup>+</sup>·H<sub>2</sub>O interactions, collectively promoting water dissociation and *H generation. The combination of <i>operando</i> spectroscopies (SERS, ATR-FTIR, DEMS) and density functional theory (DFT) calculations elucidates a stepwise hydrogenation pathway: *NO<sub>3</sub> → *NO<sub>2</sub> → *NO → *NH<sub>2</sub>OH → *NH<sub>3</sub>, with the rate-determining step (RDS) identified",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-insights-into-interfacial-water-and--9-d5sc04633e.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-insights-into-interfacial-water-and-9-d5sc04633e.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-insights-into-interfacial-water-and-9-d5sc04633e\\web-imports-2025-insights-into-interfacial-water-and-9-d5sc04633e_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-insights-into-interfacial-water-and-9-d5sc04633e"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 51,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

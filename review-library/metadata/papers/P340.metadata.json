@@ -1,0 +1,102 @@
+{
+  "paper_id": "P340",
+  "slug": "web-imports-2026-pd-modified-metal-organic-frameworks-meng-6c03049",
+  "title": {
+    "value": "Pd-Modified Metal Organic Frameworks Synthesized via Mechanochemical Extrusion: Versatile Materials for Suzuki-Miyaura Cross-Coupling and Electrochemical Hydrogen Evolution Reaction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Monaco P",
+      "Trentin O",
+      "Ballesteros-Plata D",
+      "Misia G",
+      "Silvestri A",
+      "Rodríguez-Castellón E",
+      "Selva M",
+      "Perosa A",
+      "Rodríguez-Padrón D"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Sustainable Chemistry & Engineering",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acssuschemeng.6c03049",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Extrusion-based mechanochemistry offers a sustainable route for materials synthesis. Here, we report the preparation of Pd-modified metal-organic frameworks (UiO-66, UiO-66-NH<sub>2</sub>, and MOF-801) via continuous-flow twin-screw extrusion. The resulting amorphous Pd@MOF materials contain quasi-spherical Pd nanoparticles whose dispersion is strongly influenced by the functional groups of the parent MOFs, with UiO-66-NH<sub>2</sub> providing superior stabilization. The catalysts were evaluated in two applications: the Suzuki-Miyaura cross-coupling reaction and the electrochemical hydrogen evolution reaction (HER). Optimization of the Suzuki-Miyaura conditions afforded improved temperature and time parameters compared to literature examples, delivering higher TOFs and meeting CHEM21 First Pass sustainability criteria. A substrate scope analysis, including aryl bromides and chlorides, further confirmed their efficiency, while recycling studies demonstrated catalyst stability. In HER, the highly dispersed Pd nanoparticles maximized active-site availability, with 5Pd@UiO-66-NH<sub>2</sub>-2-200 showing the best performance. The presence of amino groups in the UiO-66-NH<sub>2</sub> su",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-pd-modified-metal-organic-frameworks-meng-6c03049.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-pd-modified-metal-organic-frameworks-meng-6c03049.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-pd-modified-metal-organic-frameworks-meng-6c03049\\web-imports-2026-pd-modified-metal-organic-frameworks-meng-6c03049_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-pd-modified-metal-organic-frameworks-meng-6c03049"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 140,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

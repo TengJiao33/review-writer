@@ -1,0 +1,98 @@
+{
+  "paper_id": "P407",
+  "slug": "web-imports-2025-the-faraday-efficiency-of-nitrate-re-2025-1599613",
+  "title": {
+    "value": "The Faraday efficiency of nitrate reduction reactions and selectivity of final product for electrocatalysts Cu/Co-OH/CF by tuning the content of Co source.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li L",
+      "Wang Q",
+      "Chen Y",
+      "Chen X",
+      "Shi Q"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Frontiers in Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fchem.2025.1599613",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Efficient and selective electrocatalytic reduction of nitrate (NO<sub>3</sub> <sup>-</sup>) to ammonia (NH<sub>3</sub>) is a crucial step in addressing environmental and energy challenges. Here, we present the synthesis and characterization of Cu/CF, Co-OH/CF, and a series of Cu/Co-OH/CF electrocatalysts on copper foam (CF) substrates using a hydrothermal method. These catalysts were utilized as working electrodes for nitrate reduction, resulting in the production of NH<sub>3</sub>. Through X-ray photoelectron spectroscopy (XPS) analysis, we confirm the presence of metallic Cu species and oxidized Co<sup>2+</sup> states in the electrocatalysts, indicating the successful formation of Cu/Co-OH/CF composites. By precisely controlling the quantities of cobalt in the composite, we demonstrate the ability to finely tune the nitrate reduction efficiency and selectivity of the final product. Notably, our findings reveal that the Co-(OH) species in the Cu/Co-OH/CF electrocatalysts play a pivotal role in determining the selectivity of the final product by effectively suppressing the undesired hydrogen evolution reaction. Simultaneously, Cu acts as an active component in the reduction of NO<s",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-the-faraday-efficiency-of-nitrate-re-2025-1599613.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-the-faraday-efficiency-of-nitrate-re-2025-1599613.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-the-faraday-efficiency-of-nitrate-re-2025-1599613\\web-imports-2025-the-faraday-efficiency-of-nitrate-re-2025-1599613_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-the-faraday-efficiency-of-nitrate-re-2025-1599613"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 67,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

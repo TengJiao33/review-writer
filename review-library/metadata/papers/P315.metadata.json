@@ -1,0 +1,96 @@
+{
+  "paper_id": "P315",
+  "slug": "web-imports-2025-comprehensive-perspectives-of-metal-9-d5ra07044a",
+  "title": {
+    "value": "Comprehensive perspectives of metal and metal-free C-H activation approaches in pyrimidines and related heteroarenes: scope, mechanistic insights, and synthetic utility.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Mirfarah A",
+      "Hatami S",
+      "Shiri A"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "RSC Advances",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5ra07044a",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Pyrimidines, fundamental constituents of nucleic acids, pharmaceuticals, and agrochemicals, represent crucial scaffolds in organic synthesis owing to their electron-deficient aromatic character and multifaceted reactivity. This review meticulously assesses three distinct methodologies for the direct activation of C-H bonds in pyrimidines and associated heteroarenes bearing a pyrimidine moiety: transition-metal-catalyzed processes, metal-free techniques, and photochemical approaches. Metal-catalyzed strategies, utilizing catalysts such as palladium, nickel, or copper, facilitate the formation of C-C and C-N bonds with high regioselectivity, exemplified by the C(5)-arylation of 2-amino pyrimidines and the C(7)-H activation in pyrazolo[1,5-<i>a</i>]pyrimidines. Metal-free methodologies, which exploit Minisci-type radical reactions involving persulfates or phosphonium intermediates, provide sustainable functionalization pathways under mild reaction conditions. Photochemical methodologies, incorporating visible-light-driven photocatalysts such as eosin-Y or iridium complexes, facilitate radical-mediated arylations while offering environmental advantages. Through a comprehensive analysis",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-comprehensive-perspectives-of-metal--9-d5ra07044a.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-comprehensive-perspectives-of-metal-9-d5ra07044a.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-comprehensive-perspectives-of-metal-9-d5ra07044a\\web-imports-2025-comprehensive-perspectives-of-metal-9-d5ra07044a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-comprehensive-perspectives-of-metal-9-d5ra07044a"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:21:57Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 270,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

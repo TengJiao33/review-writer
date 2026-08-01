@@ -1,0 +1,103 @@
+{
+  "paper_id": "P405",
+  "slug": "web-imports-2025-reductive-nitrogen-species-activatio-ie-202516909",
+  "title": {
+    "value": "Reductive Nitrogen Species Activation via Pulsed Electrolysis: Recent Advances and Future Prospects.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Torabi K",
+      "Liu R",
+      "Troglauer DL",
+      "Nickel C",
+      "Corea G",
+      "Bai T",
+      "Li D",
+      "Ci L",
+      "Mohazzab BF",
+      "Gao D"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202516909",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical reduction of nitrogen species offers a sustainable route to mitigate environmental nitrogen pollution while enabling the production of value-added chemicals such as ammonia, hydroxylamine, and C─N coupled organonitrogen compounds. However, the practical implementation of conventional potentiostatic methods is hindered by poor product selectivity and competing hydrogen evolution. Pulsed electrolysis has emerged as a transformative strategy to address these challenges by synchronizing catalyst surface dynamics with local microenvironmental changes and reaction kinetics. This mini-review highlights recent advances in pulsed electrolysis for nitrogen species reduction, with a particular focus on how dynamic potentials influence electrocatalyst behavior and the surrounding reaction environment. Key mechanistic insights and cutting-edge research findings are discussed, followed by an outlook on established systems and future directions toward scalable and energy-efficient nitrogen activation.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-reductive-nitrogen-species-activatio-ie-202516909.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-reductive-nitrogen-species-activatio-ie-202516909.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-reductive-nitrogen-species-activatio-ie-202516909\\web-imports-2025-reductive-nitrogen-species-activatio-ie-202516909_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-reductive-nitrogen-species-activatio-ie-202516909"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 76,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

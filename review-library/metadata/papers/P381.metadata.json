@@ -1,0 +1,100 @@
+{
+  "paper_id": "P381",
+  "slug": "web-imports-2024-insights-into-the-origin-of-activity-ules29102261",
+  "title": {
+    "value": "Insights into the Origin of Activity Enhancement via Tuning Electronic Structure of Cu<sub>2</sub>O towards Electrocatalytic Ammonia Synthesis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Kou M",
+      "Yuan Y",
+      "Zhao R",
+      "Wang Y",
+      "Zhao J",
+      "Yuan Q",
+      "Zhao J"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules29102261",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The insight of the activity phase and reaction mechanism is vital for developing high-performance ammonia synthesis electrocatalysts. In this study, the origin of the electronic-dependent activity for the model Cu<sub>2</sub>O catalyst toward ammonia electrosynthesis with nitrate was probed. The modulation of the electronic state and oxygen vacancy content of Cu<sub>2</sub>O was realized by doping with halogen elements (Cl, Br, I). The electrocatalytic experiments showed that the activity of the ammonia production depends strongly on the electronic states in Cu<sub>2</sub>O. With increased electronic state defects in Cu<sub>2</sub>O, the ammonia synthesis performance increased first and then decreased. The Cu<sub>2</sub>O/Br with electronic defects in the middle showed the highest ammonia yield of 11.4 g h<sup>-1</sup> g<sup>-1</sup> at -1.0 V (vs. RHE), indicating that the pattern of change in optimal ammonia activity is consistent with the phenomenon of volcano curves in reaction chemistry. This work highlights a promising route for designing NO<sub>3</sub><sup>-</sup>RR to NH<sub>3</sub> catalysts.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-insights-into-the-origin-of-activity-ules29102261.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-insights-into-the-origin-of-activity-ules29102261.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-insights-into-the-origin-of-activity-ules29102261\\web-imports-2024-insights-into-the-origin-of-activity-ules29102261_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-insights-into-the-origin-of-activity-ules29102261"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 69,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

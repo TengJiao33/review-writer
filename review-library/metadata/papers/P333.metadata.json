@@ -1,0 +1,97 @@
+{
+  "paper_id": "P333",
+  "slug": "web-imports-2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080",
+  "title": {
+    "value": "Defect Engineering in Zr (IV)- and Ti (IV)-Based Metal-Organic Frameworks to Enhance Photocatalytic Properties.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Martinez A",
+      "Pearce E",
+      "Kurowski J",
+      "Kissel DS"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules31071080",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Metal-organic frameworks (MOFs) are unique microporous materials being explored for a wide range of applications. Their porosity and high surface areas can readily be exploited for guest-host interactions, separations, and photochemical catalysis, but many suffer from poor charge separation and fast electron-hole recombination. Introducing structural defects, such as missing linkers or metal nodes, can create unsaturated metal sites and alter band structure, conductivity, and light absorption, improving photocatalytic performance. UiO-66-NH<sub>2</sub> and MIL-125-NH<sub>2</sub> are water-stable, visible-light-absorbing MOFs well suited for photocatalytic degradation of organic dyes. In this work, the influence of defect engineering on photocatalytic properties of MOFs was investigated using formic and acetic acid modulators with UiO-66-NH<sub>2</sub> and variable temperature with MIL-125-NH<sub>2</sub> during synthesis. The resulting materials were characterized by XRD, FTIR and SEM/EDS. Defect states were tracked using N<sub>2</sub> adsorption/BET analysis and UV-Vis spectroscopy. Photocatalytic activity was evaluated by monitoring Rhodamine B (RhB) degradation in aqueous solutio",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080\\web-imports-2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defect-engineering-in-zr-iv-and-ti-i-ules31071080"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 114,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "paper_id": "P385",
+  "slug": "web-imports-2025-carbon-based-catalysts-for-electroch-0-ma18133019",
+  "title": {
+    "value": "Carbon-Based Catalysts for Electrochemical Nitrate Reduction to Ammonia: Design Strategies and Mechanistic Insights.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chen Q",
+      "Deng L",
+      "Zhang J",
+      "Zhang Y",
+      "Zhang L",
+      "Lu S",
+      "Wang Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Materials",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/ma18133019",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical reduction of nitrate to ammonia offers a promising solution for both alleviating nitrate pollution in wastewater and providing a sustainable ammonia source for agriculture use. This review focuses on the role of carbon-based catalysts in electrochemical nitrate reduction to ammonia, emphasizing their potential in addressing environmental pollution and supporting sustainable ammonia production. Carbon materials, known for their abundance, affordability, and eco-friendly properties, are central to this process. The review highlights key strategies for enhancing catalytic performance, including heteroatom doping, the development of porous structures, and the integration of metal/metal oxide nanoparticles. Additionally, it addresses significant challenges such as weak nitrate adsorption, slow reaction kinetics, and competition with the hydrogen evolution reaction. Through the integration of advanced material design, mechanistic insights, and innovative engineering strategies, this review provides valuable guidance for the future design of carbon-based catalysts, paving the way for significant advancements in both nitrate removal and sustainable ammonia synthesis.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-carbon-based-catalysts-for-electroch-0-ma18133019.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-carbon-based-catalysts-for-electroch-0-ma18133019.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-carbon-based-catalysts-for-electroch-0-ma18133019\\web-imports-2025-carbon-based-catalysts-for-electroch-0-ma18133019_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-carbon-based-catalysts-for-electroch-0-ma18133019"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 81,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.849,
+    "needs_human_check": false
+  }
+}

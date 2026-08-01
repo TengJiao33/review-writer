@@ -1,0 +1,103 @@
+{
+  "paper_id": "P389",
+  "slug": "web-imports-2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136",
+  "title": {
+    "value": "Dual-Enzyme-Mimicking Sites in Covalent Organic Frameworks Enable Highly Efficient Relay Electrosynthesis of Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ke SW",
+      "Lv Y",
+      "Gu Y",
+      "Su J",
+      "Tang L",
+      "Fang L",
+      "Yuan S",
+      "Ma J",
+      "Ding M",
+      "Zuo JL"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "JACS Au",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacsau.5c00136",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction poses significant importance in green ammonia synthesis and water denitrification. To date, high-performance nitrate reduction still relies on noble-metal-based catalysts, while transition metal compound and framework catalysts generally suffer from low activities (in terms of turnover frequency values), leading to insufficient ability to rapidly process large amounts of nitrate at the industrial level. To this end, enzyme-mimicking catalytic systems that integrate the high TOF efficiency of enzymatic sites (typically with nonprecious metal centers) into the crystalline, orderly assembled, and porous molecular frameworks hold great theoretical promises, yet the search for any single enzyme-site mimics has failed to overcome current limitations. Herein, we demonstrate the rational design of a series of covalent organic frameworks (COFs) to incorporate periodically alternating metalloporphyrin and metal-bis-(dithiolene), respectively mimicking nitrate reductase and nitrite reductase enzymes, as a dual functional assembly. The dual-enzyme-mimicking Ni-TAPP-Cu boosts the electrocatalytic activity of NO<sub>3</sub>RR to a comparable level to the noble-",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136\\web-imports-2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dual-enzyme-mimicking-sites-in-coval-csau-5c00136"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 45,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

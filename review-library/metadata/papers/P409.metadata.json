@@ -1,0 +1,95 @@
+{
+  "paper_id": "P409",
+  "slug": "web-imports-2025-theoretical-calculations-on-hexagona-ules30244700",
+  "title": {
+    "value": "Theoretical Calculations on Hexagonal-Boron-Nitride-(h-BN)-Supported Single-Atom Cu for the Reduction of Nitrate to Ammonia",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Guoliang Liu",
+      "Cen Hao"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules30244700",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Nitrate (NO3−), as a stable nitrogen-containing compound, has caused serious harm to the ecological environment and human health. To reduce nitrate pollution, the catalytic reduction of nitrate (NO3RR) to ammonia (NH3) is a very promising solution. Recently, single-atom catalysts (SACs) have received extensive attention due to their excellent activity and stability. Here, we study the nitrate catalytic reduction properties of hexagonal-boron-nitride-(h-BN)-supported single-atom Cu systematically and theoretically and compare it with monolayer h-BN. We find that (1) due to the stronger electronegativity of the N atom, Cu atom is preferentially doped at the N top site, resulting in the significant electron rearrangement; (2) the doped Cu atom at the N top site for monolayer h-BN can provide extra 3d-orbital electrons at the Fermi level, which can significantly enhance the conductivity, reduce the bandgap width, and increase the reducibility; (3) the NO3− ion preferentially adsorbs at the hollow site of monolayer h-BN, while the NO3− ion is adsorbed more strongly at the Cu top site of h-BN-supported single-atom Cu due to the abundant d-electron supply from the Cu atom; (4) single-atom",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-theoretical-calculations-on-hexagona-ules30244700.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-theoretical-calculations-on-hexagona-ules30244700.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-theoretical-calculations-on-hexagona-ules30244700\\web-imports-2025-theoretical-calculations-on-hexagona-ules30244700_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-theoretical-calculations-on-hexagona-ules30244700"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 65,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

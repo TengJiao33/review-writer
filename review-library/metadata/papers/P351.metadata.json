@@ -1,0 +1,101 @@
+{
+  "paper_id": "P351",
+  "slug": "web-imports-2025-capturing-copper-single-atom-in-prot-ma-202415632",
+  "title": {
+    "value": "Capturing Copper Single Atom in Proton Donor Stimulated O-End Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zuo Y",
+      "Sun M",
+      "Li T",
+      "Sun L",
+      "Han S",
+      "Chai Y",
+      "Huang B",
+      "Wang X"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202415632",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Ammonia (NH<sub>3</sub>) is vital in global production and energy cycles. Electrocatalytic nitrate reduction (e-NO<sub>3</sub>RR) offers a promising route for nitrogen (N) conversion and NH<sub>3</sub> synthesis, yet it faces challenges like competing reactions and low catalyst activity. This study proposes a synergistic mechanism incorporating a proton donor to mediate O-end e-NO<sub>3</sub>RR, addressing these limitations. A novel method combining ultraviolet radiation reduction, confined synthesis, and microwave treatment was developed to create a model catalyst embedding Cu single atoms on La-based nanoparticles (p-CNCu<sup>s</sup>La<sup>n</sup>-m). DFT analysis emphasizes the critical role of La-based clusters as proton donors in e-NO<sub>3</sub>RR, while in situ characterization reveals an O-end adsorption reduction mechanism. The catalyst achieves a remarkable Faraday efficiency (FE<sub>NH3</sub>) of 97.7%, producing 10.6 mol g<sub>metal</sub> <sup>-1</sup> h<sup>-1</sup> of NH<sub>3</sub>, surpassing most prior studies. In a flow cell, it demonstrated exceptional stability, with only a 9% decrease in current density after 111 hours and a NH<sub>3</sub> production rate of 1.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-capturing-copper-single-atom-in-prot-ma-202415632.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-capturing-copper-single-atom-in-prot-ma-202415632.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-capturing-copper-single-atom-in-prot-ma-202415632\\web-imports-2025-capturing-copper-single-atom-in-prot-ma-202415632_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-capturing-copper-single-atom-in-prot-ma-202415632"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 67,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

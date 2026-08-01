@@ -1,0 +1,103 @@
+{
+  "paper_id": "P373",
+  "slug": "web-imports-2022-splicing-the-active-phases-of-copper-022-28728-4",
+  "title": {
+    "value": "Splicing the active phases of copper/cobalt-based catalysts achieves high-rate tandem electroreduction of nitrate to ammonia",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Wenhui He",
+      "Jian Zhang",
+      "Stefan Dieckhöfer",
+      "Swapnil Varhade",
+      "Ann Cathrin Brix",
+      "Anna Lielpetere",
+      "Sabine Seisel",
+      "João R. C. Junqueira"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-022-28728-4",
+    "source": "markdown_regex",
+    "confidence": 0.9,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Electrocatalytic recycling of waste nitrate (NO 3 − ) to valuable ammonia (NH 3 ) at ambient conditions is a green and appealing alternative to the Haber−Bosch process. However, the reaction requires multi-step electron and proton transfer, making it a grand challenge to drive high-rate NH 3 synthesis in an energy-efficient way. Herein, we present a design concept of tandem catalysts, which involves coupling intermediate phases of different transition metals, existing at low applied overpotentials, as cooperative active sites that enable cascade NO 3 − -to-NH 3 conversion, in turn avoiding the generally encountered scaling relations. We implement the concept by electrochemical transformation of Cu−Co binary sulfides into potential-dependent core−shell Cu/CuO x and Co/CoO phases. Electrochemical evaluation, kinetic studies, and in−situ Raman spectra reveal that the inner Cu/CuO x phases preferentially catalyze NO 3 − reduction to NO 2 − , which is rapidly reduced to NH 3 at the nearby Co/CoO shell. This unique tandem catalyst system leads to a NO 3 − -to-NH 3 Faradaic efficiency of 93.3 ± 2.1% in a wide range of NO 3 − concentrations at pH 13, a high NH 3 yield rate of 1.17",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-splicing-the-active-phases-of-copper--022-28728-4.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-splicing-the-active-phases-of-copper-022-28728-4.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-splicing-the-active-phases-of-copper-022-28728-4\\ae6114ee-9c57-43b6-b954-3bb5c4db905b_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-splicing-the-active-phases-of-copper-022-28728-4"
+  },
+  "source_file": {
+    "pdf_name": "2022-splicing-the-active-phases-of-copper--022-28728-4.pdf",
+    "relative_pdf_path": "web-imports\\2022-splicing-the-active-phases-of-copper--022-28728-4.pdf",
+    "sha256": "e892db775c1aaeeb7f9b2804f3cbbb2588512b102d50594036b357324f8033cd"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 253,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:authors,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "empty_authors"
+    ],
+    "overall_confidence": 0.774,
+    "needs_human_check": true
+  }
+}

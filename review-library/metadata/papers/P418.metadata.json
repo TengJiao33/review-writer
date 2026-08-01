@@ -1,0 +1,112 @@
+{
+  "paper_id": "P418",
+  "slug": "web-imports-2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096",
+  "title": {
+    "value": "Heterophase fcc-hcp-fcc High-Entropy Alloy Nanomaterials with Tailored Electron Divergence for Selective Ammonia Electrosynthesis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Meng X",
+      "Sun M",
+      "Li X",
+      "Chen J",
+      "Wang Y",
+      "Hao F",
+      "Liu F",
+      "Zhao Q",
+      "Guo L",
+      "Xiong Y",
+      "Wang J",
+      "Wang G",
+      "Shao M",
+      "Wang C",
+      "Huang X",
+      "Zhang Q",
+      "Zhao X",
+      "Huang B",
+      "Fan Z"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202521096",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction reaction provides a broad prospect for developing green electrochemical ammonia production and efficient treatment of industrial wastewater rich in nitrate, but poses a challenge to the high activity and stability of electrocatalysts. Herein, we report the versatile and scalable one-pot solvothermal synthesis of a series of RuFeMMnMo (M═CoNi, Co, and Ni) high-entropy alloy (HEA) nanomaterials, possessing a unique face-centered cubic-hexagonal close-packed-face-centered cubic (fcc-hcp-fcc) heterophase. The highly random distribution of multiple metal components and the tunable diversity of metal atomic arrangements can be realized simultaneously. Significantly, RuFeCoNiMnMo HEAs present a high Faradaic efficiency of 99.3 % and a promising yield rate of 83.35 mg h<sup>-1</sup> mg<sub>cat</sub> <sup>-1</sup> toward ammonia production at -0.6 V vs. reversible hydrogen electrode. Ex/in situ characterizations and theoretical calculations have revealed that by high electron coupling of high-entropy effect, heterophase fcc-hcp-fcc RuFeCoNiMnMo HEAs have shown strong electronic modulations with charge redistributions. The positive charges and negative char",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096\\web-imports-2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-heterophase-fcc-hcp-fcc-high-entropy-ma-202521096"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

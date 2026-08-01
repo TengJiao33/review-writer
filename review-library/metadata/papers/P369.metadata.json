@@ -1,0 +1,99 @@
+{
+  "paper_id": "P369",
+  "slug": "web-imports-2026-operando-uv-vis-absorption-spectrosc-atal-5c07326",
+  "title": {
+    "value": "Operando UV/vis Absorption Spectroscopy for Studying the Nitrate to Ammonia Conversion on Cu&lt;sub&gt;2&lt;/sub&gt;O‑Based Electrodes.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Huidobro M",
+      "Romay L",
+      "Perez-Estebanez M",
+      "Heras A",
+      "Perales-Rondon JV",
+      "Colina A"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Catalysis",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acscatal.5c07326",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical conversion of nitrate to ammonia was proposed as a feasible strategy for ammonia production. However, a deep understanding of the reaction mechanism and catalyst transformation is still needed to reach real applications. Herein, operando 2D-UV/vis absorption spectroelectrochemistry (2D-UV/vis SEC) was used to study in detail the reaction dynamics, as well as the transformation of the catalyst for the nitrate reduction to ammonia on Cu<sub>2</sub>O-based electrodes. 2D-UV/vis SEC combines two simultaneous UV/vis absorption spectroelectrochemistry measurements to obtain information on a given system from two different points of view: normal and parallel configurations. The UV/vis signal in the parallel arrangement facilitates tracking of the reduction of nitrate to nitrite, providing kinetic information about the process. Conversely, the UV/vis signal in the normal configuration reveals the transformation of the catalyst, providing more detailed information about the changes occurring on the electrode surface during the reaction. Spectroelectrochemistry responses have shed more light on the kinetics of the process under the operating conditions. The results show t",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-operando-uv-vis-absorption-spectrosc-atal-5c07326.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-operando-uv-vis-absorption-spectrosc-atal-5c07326.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-operando-uv-vis-absorption-spectrosc-atal-5c07326\\web-imports-2026-operando-uv-vis-absorption-spectrosc-atal-5c07326_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-operando-uv-vis-absorption-spectrosc-atal-5c07326"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "paper_id": "P346",
+  "slug": "web-imports-2026-tandem-mechanochemical-engineering-y-9-d5sc07662e",
+  "title": {
+    "value": "Tandem mechanochemical engineering yields highly crystalline metal-organic frameworks.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Tegudeer Z",
+      "Gao WY"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc07662e",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The formation of highly crystalline metal-organic frameworks (MOFs) relies on reversible metal-ligand (M-L) bond formation under conditions that enable defect annealing. While solvothermal synthesis remains the most common method for producing crystalline MOFs, mechanochemical synthesis is emerging as a greener alternative. However, the solid-state nature of mechanochemical reactions-even when assisted by catalytic amounts of liquid additives-limits molecular mobility, thereby impeding defect annealing and crystallization. This work introduces a tandem mechanochemical engineering strategy to achieve highly crystalline MOFs by incorporating a second class of reversible bond formation-imine condensation-alongside traditional M-L coordination. The critical role of cooperative dynamics between M-L and imine reversible bonds is highlighted by systematic investigations using similar high-connectivity ligand analogues featuring irreversible covalent linkages (<i>e.g.</i>, ether, amide, or alkyne), which fail to produce quality crystalline MOF phases under mechanochemical conditions. The synergistic effect of dual reversible bonds addresses sluggish reaction kinetics inherent to solid-stat",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-tandem-mechanochemical-engineering-y-9-d5sc07662e.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-tandem-mechanochemical-engineering-y-9-d5sc07662e.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-tandem-mechanochemical-engineering-y-9-d5sc07662e\\web-imports-2026-tandem-mechanochemical-engineering-y-9-d5sc07662e_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-tandem-mechanochemical-engineering-y-9-d5sc07662e"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:30Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 44,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

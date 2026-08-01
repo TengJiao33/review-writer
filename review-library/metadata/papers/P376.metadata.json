@@ -1,0 +1,99 @@
+{
+  "paper_id": "P376",
+  "slug": "web-imports-2022-electro-synthesis-of-organic-compoun-vs-202205077",
+  "title": {
+    "value": "Electro-Synthesis of Organic Compounds with Heterogeneous Catalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ali T",
+      "Wang H",
+      "Iqbal W",
+      "Bashir T",
+      "Shah R",
+      "Hu Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202205077",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electro-organic synthesis has attracted a lot of attention in pharmaceutical science, medicinal chemistry, and future industrial applications in energy storage and conversion. To date, there has not been a detailed review on electro-organic synthesis with the strategy of heterogeneous catalysis. In this review, the most recent advances in synthesizing value-added chemicals by heterogeneous catalysis are summarized. An overview of electrocatalytic oxidation and reduction processes as well as paired electrocatalysis is provided, and the anodic oxidation of alcohols (monohydric and polyhydric), aldehydes, and amines are discussed. This review also provides in-depth insight into the cathodic reduction of carboxylates, carbon dioxide, CC, C≡C, and reductive coupling reactions. Moreover, the electrocatalytic paired electro-synthesis methods, including parallel paired, sequential divergent paired, and convergent paired electrolysis, are summarized. Additionally, the strategies developed to achieve high electrosynthesis efficiency and the associated challenges are also addressed. It is believed that electro-organic synthesis is a promising direction of organic electrochemistry, offering n",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-electro-synthesis-of-organic-compoun-vs-202205077.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-electro-synthesis-of-organic-compoun-vs-202205077.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-electro-synthesis-of-organic-compoun-vs-202205077\\web-imports-2022-electro-synthesis-of-organic-compoun-vs-202205077_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-electro-synthesis-of-organic-compoun-vs-202205077"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 151,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

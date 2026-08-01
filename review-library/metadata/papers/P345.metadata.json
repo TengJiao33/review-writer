@@ -1,0 +1,96 @@
+{
+  "paper_id": "P345",
+  "slug": "web-imports-2026-synergistic-defect-and-halide-cataly-hc-202500694",
+  "title": {
+    "value": "Synergistic Defect and Halide Catalysis for CO&lt;sub&gt;2&lt;/sub&gt; Cycloaddition on ZIF-8: Mechanistic and Energetic Insights from Density Functional Theory.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chan CW",
+      "Chen HL",
+      "Chen HT"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemphyschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cphc.202500694",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Understanding the mechanism of CO<sub>2</sub> cycloaddition with epoxides under mild conditions is vital for advancing green carbon capture and utilization strategies. This work investigates the catalytic role of a defective ZIF-8 model with Zn-OH-Zn moieties and bromide (Br<sup>-</sup>) assistance in promoting the conversion of CO<sub>2</sub> and propylene oxide into propylene carbonate. Density-functional theory calculations reveal that, in the absence of a catalyst, the reaction proceeds through high activation barriers (52.02 kcal mol<sup>-1</sup> and 59.31 kcal mol<sup>-1</sup> for the α and β pathways, respectively). Upon introducing the Zn-OH-Zn site and Br<sup>-</sup>, the energy barrier for the rate-limiting ring-opening step is drastically lowered to 14.45 kcal mol<sup>-1</sup>, confirming the synergistic effect between Lewis acid/base sites and halide assistance. The calculated reaction energy of -13.89 kcal mol<sup>-1</sup> aligns well with the experimental enthalpy change (-12.64 kcal mol<sup>-1</sup>). This study provides molecular-level insights into the cooperative catalytic mechanism and supports defect-engineering strategies for metal-organic frameworks in CO<sub>",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-synergistic-defect-and-halide-cataly-hc-202500694.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-synergistic-defect-and-halide-cataly-hc-202500694.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-synergistic-defect-and-halide-cataly-hc-202500694\\web-imports-2026-synergistic-defect-and-halide-cataly-hc-202500694_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-synergistic-defect-and-halide-cataly-hc-202500694"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:30Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 46,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

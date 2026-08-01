@@ -1,0 +1,100 @@
+{
+  "paper_id": "P399",
+  "slug": "web-imports-2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h",
+  "title": {
+    "value": "Hydrogen-bond mediated electrocatalytic nitrate reduction to ammonia over metal-organic frameworks with industrial current density.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Fu XX",
+      "Guo H",
+      "Si DH",
+      "Zhu HJ",
+      "Lan YY",
+      "Huang YB",
+      "Cao R"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc02208h",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic reduction of the pollutant nitrate to ammonia (NO<sub>3</sub>RR) using clean energy is being considered as a viable alternative to the Haber-Bosch process for producing industrially valuable ammonia. However, the multi-electron-proton transfer process of the NO<sub>3</sub>RR to ammonia usually leads to poor selectivity and low current density, which still cannot meet the industrial requirements. Stabilizing the key intermediates during the reaction is particularly important for achieving high selectivity in the NO<sub>3</sub>RR towards the production of NH<sub>3</sub>. Herein, we develop a hydrogen bonding strategy to stabilize the key intermediates of the NO<sub>3</sub>RR, which involves the design and synthesis of trinuclear copper(i) cluster-based metal-organic frameworks (MOFs). The methyl groups in the copper-based MOFs (DiMe-Cu<sub>3</sub>-MOF) can regulate the electron density around the Cu<sub>3</sub> site and stabilize the key intermediates, *NO<sub>2</sub>, through hydrogen bonding interaction with methyl groups. Thus, the DiMe-Cu<sub>3</sub>-MOF electrocatalyst delivers a high NH<sub>3</sub> faradaic efficiency (95%) for the NO<sub>3</sub>RR with a high",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h\\web-imports-2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-hydrogen-bond-mediated-electrocataly-9-d5sc02208h"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 38,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

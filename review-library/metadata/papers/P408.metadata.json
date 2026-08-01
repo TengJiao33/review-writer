@@ -1,0 +1,104 @@
+{
+  "paper_id": "P408",
+  "slug": "web-imports-2025-the-key-steps-and-distinct-performan-jacs-5c09199",
+  "title": {
+    "value": "The Key Steps and Distinct Performance Trends of Pyrrolic vs Pyridinic M-N-C Catalysts in Electrocatalytic Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Jiang Q",
+      "Gu M",
+      "Pei S",
+      "Wang T",
+      "Liu F",
+      "Yang X",
+      "Zhang D",
+      "Wu Z",
+      "Wang Y",
+      "Wei L",
+      "Li H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.5c09199",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical nitrate reduction reaction (NO<sub>3</sub>RR) offers a sustainable route for ambient ammonia synthesis. While metal-nitrogen-carbon (M-N-C) single-atom catalysts have emerged as promising candidates for the NO<sub>3</sub>RR, the structure-activity relations underlying their catalytic behavior remain to be elucidated. Through systematic analysis of reported experimental data and pH-field coupled microkinetic modeling on a reversible hydrogen electrode (RHE) scale, we reveal that the coordination-dependent activity originates from distinct scaling relations governed by metal-intermediate interactions. M-N-Pyrrolic catalysts generally demonstrate higher turnover frequencies for ammonia production than M-N-Pyridinic catalysts. Meanwhile, the adsorption and protonation of nitrate, which is a step often dismissed and/or assumed to be simultaneous in many previous reports, are identified to be the rate-determining step (RDS) in the NO<sub>3</sub>RR. Remarkably, our subsequent experimental validation confirms the theoretical predictions under both neutral and alkaline conditions. This study offers a comprehensive mechanistic framework for interpreting the electrocatalyt",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-the-key-steps-and-distinct-performan-jacs-5c09199.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-the-key-steps-and-distinct-performan-jacs-5c09199.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-the-key-steps-and-distinct-performan-jacs-5c09199\\web-imports-2025-the-key-steps-and-distinct-performan-jacs-5c09199_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-the-key-steps-and-distinct-performan-jacs-5c09199"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 67,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "P292",
+  "slug": "web-imports-2025-a-scalable-photo-mechanochemical-pla-025-59358-1",
+  "title": {
+    "value": "A scalable photo-mechanochemical platform for sustainable photoredox catalysis by resonant acoustic mixing.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Kong D",
+      "Yi L",
+      "Nanni A",
+      "Rueping M"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-59358-1",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Photocatalysis has greatly advanced in organic synthesis but still confronts challenges, including light attenuation in reaction media and excessive solvent utilization. These issues lead to inefficiencies, particularly in heterogeneous cloudy mixtures and in scaling-up applications. Integrating photocatalysis with mechanochemistry offers a nascent but promising solution to these challenges. Herein, we present a scalable photo-mechanochemical platform that combines visible-light photocatalysis with Resonant Acoustic Mixing (RAM), enabling efficient cross-coupling reactions under solvent-minimised conditions. This approach demonstrates broad substrate tolerance, accommodating a variety of aryl (hetero) halides and N-, O-, P-, S-nucleophiles. The protocol supports scaling up to 300 mmol, representing a 1500-fold increase, while maintaining exceptionally low catalyst loading and achieving up to 9800 turnover numbers (TON). The generality of this platform is further validated by its applicability to other synthetic transformations.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-a-scalable-photo-mechanochemical-pla--025-59358-1.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-a-scalable-photo-mechanochemical-pla-025-59358-1.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-a-scalable-photo-mechanochemical-pla-025-59358-1\\web-imports-2025-a-scalable-photo-mechanochemical-pla-025-59358-1_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-a-scalable-photo-mechanochemical-pla-025-59358-1"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 32,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

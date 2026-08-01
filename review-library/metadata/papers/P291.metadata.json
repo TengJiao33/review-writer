@@ -1,0 +1,98 @@
+{
+  "paper_id": "P291",
+  "slug": "web-imports-2021-asymmetric-benzylic-c-sp3-h-acylatio-021-23887-2",
+  "title": {
+    "value": "Asymmetric benzylic C(sp3)−H acylation via dual nickel and photoredox catalysis",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Leitao Huan",
+      "Xiaomin Shu",
+      "Weisai Zu",
+      "De Zhong",
+      "Haohua Huo"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2021,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-021-23887-2",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract Asymmetric C(sp 3 )−H functionalization is a persistent challenge in organic synthesis. Here, we report an asymmetric benzylic C−H acylation of alkylarenes employing carboxylic acids as acyl surrogates for the synthesis of α-aryl ketones via nickel and photoredox dual catalysis. This mild yet straightforward protocol transforms a diverse array of feedstock carboxylic acids and simple alkyl benzenes into highly valuable α-aryl ketones with high enantioselectivities. The utility of this method is showcased in the gram-scale synthesis and late-stage modification of medicinally relevant molecules. Mechanistic studies suggest a photocatalytically generated bromine radical can perform benzylic C−H cleavage to activate alkylarenes as nucleophilic coupling partners which can then engage in a nickel-catalyzed asymmetric acyl cross-coupling reaction. This bromine-radical-mediated C−H activation strategy can be also applied to the enantioselective coupling of alkylarenes with chloroformate for the synthesis of chiral α-aryl esters.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2021-asymmetric-benzylic-c-sp3-h-acylatio--021-23887-2.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2021-asymmetric-benzylic-c-sp3-h-acylatio-021-23887-2.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-asymmetric-benzylic-c-sp3-h-acylatio-021-23887-2\\web-imports-2021-asymmetric-benzylic-c-sp3-h-acylatio-021-23887-2_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-asymmetric-benzylic-c-sp3-h-acylatio-021-23887-2"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 33,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

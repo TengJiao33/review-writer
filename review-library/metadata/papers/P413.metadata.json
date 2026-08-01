@@ -1,0 +1,105 @@
+{
+  "paper_id": "P413",
+  "slug": "web-imports-2026-aryl-sulfur-ligand-modulated-silver-026-69385-1",
+  "title": {
+    "value": "Aryl sulfur ligand-modulated silver catalysts with tailored binding affinity for selective nitrate-to-ammonia conversion.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhang L",
+      "Liu Y",
+      "Li L",
+      "Li X",
+      "Song P",
+      "Chen T",
+      "Wu Q",
+      "Seow JZY",
+      "Tang K",
+      "Sun S",
+      "Guo X",
+      "Xu ZJ"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-026-69385-1",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Manipulating the selectivity-determining step in the hydrogenation of nitrogen-containing intermediates is critical to achieving high ammonia selectivity in electrocatalytic nitrate reduction. Here, we propose a molecular interface engineering strategy that functionalized with thiol-anchored aromatic ligands to regulate the interfacial binding affinity and activation of key nitrogen-containing intermediates on silver nanocube surfaces. By systematically varying the electronic properties of the substituents, we identify 4-(methylthio)benzaldehyde as the most effective ligand, increasing the ammonia Faradaic efficiency from 50.8% to 98.9% and achieving a yield rate of 14,366.1 μg h<sup>-1</sup> cm<sub>geo</sub><sup>-2</sup> at -0.63 V versus reversible hydrogen electrode. In situ electrochemical characterizations combined with theoretical simulations further reveal that 4-(methylthio)benzaldehyde modification promotes the activation of weakly hydrogen-bonded water molecules and accelerates the hydrogenation of *HNO intermediates. This targeted modulation of interfacial binding affinity offers an effective strategy for selectivity control in electrocatalytic nitrate reduction. The enh",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-aryl-sulfur-ligand-modulated-silver---026-69385-1.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-aryl-sulfur-ligand-modulated-silver-026-69385-1.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-aryl-sulfur-ligand-modulated-silver-026-69385-1\\web-imports-2026-aryl-sulfur-ligand-modulated-silver-026-69385-1_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-aryl-sulfur-ligand-modulated-silver-026-69385-1"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 81,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

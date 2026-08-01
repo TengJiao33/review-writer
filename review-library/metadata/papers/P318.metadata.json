@@ -1,0 +1,113 @@
+{
+  "paper_id": "P318",
+  "slug": "web-imports-2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f",
+  "title": {
+    "value": "A unified cobalt-electrocatalytic platform for enantio- and stereo-selective C-H and C-F functionalization of gem-difluoromethylene allenes.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Cai J",
+      "Gao X",
+      "Wang C",
+      "Li Y",
+      "Tong X",
+      "Li L",
+      "Qin S",
+      "Yang M",
+      "Li Q",
+      "Wei W",
+      "Ma L",
+      "Wang M",
+      "Liao SY",
+      "Huang Y",
+      "Zhao X",
+      "Wang S",
+      "Zhou Z",
+      "Gao H",
+      "Yi W",
+      "Zeng Z"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6sc02228f",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "While the merger of electrochemistry with enantioselective C-H functionalization has opened new avenues for assembling valuable chiral architectures, the simultaneous cleavage of strong C-H and C-F bonds <i>via</i> asymmetric electrocatalysis has remained elusive. Here, we present a unified electrochemical cobalt-catalyzed strategy that enables tandem enantioselective and stereoselective C-H and C-F functionalization with <i>gem</i>-difluoromethylene allenes, paired with hydrogen evolution. This resource-economic approach provides efficient access to a diverse range of enantiopure (<i>Z</i>)-fluoroalkenyl N-heterocycles bearing phosphorus-centered, axial, planar, and inherent chirality. Integrated experimental and computational mechanistic studies collectively support an unconventional Co(III/I/III/I) catalytic cycle, proceeding <i>via</i> sequential C(sp<sup>2</sup>)-H metalation, allene insertion, reductive elimination, C(sp<sup>3</sup>)-H metalation, alkene isomerization, and β-F elimination.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f\\web-imports-2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-a-unified-cobalt-electrocatalytic-pl-9-d6sc02228f"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:21:57Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 37,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

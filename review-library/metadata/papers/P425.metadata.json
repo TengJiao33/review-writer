@@ -1,0 +1,102 @@
+{
+  "paper_id": "P425",
+  "slug": "web-imports-2026-strong-d-p-orbital-hybridization-in-9-d5sc07183f",
+  "title": {
+    "value": "Strong d-p orbital hybridization in cobalt porphyrin cages promotes electrochemical nitrate reduction to ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Wu Y",
+      "Zhang Y",
+      "Zhao H",
+      "Peng Y",
+      "Ma H",
+      "Kang F",
+      "Li Z",
+      "Liu Y",
+      "Zhang Q"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc07183f",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrocatalytic reduction of nitrate (NO<sub>3</sub>RR) to ammonia presents a viable solution for addressing nitrate pollution and offers an environmentally-friendly, energy-efficient alternative for industrial ammonia synthesis. However, the absence of efficient electrocatalysts impedes its industrial application. In this study, we constructed a porphyrin organic cage (PB-2) through the covalent-bonded self-assembly. Subsequently, metalized porphyrin organic cages, PB-M (M = Co, Ni, Cu), were synthesized <i>via</i> post-modification of PB-2. These PB-M catalysts were utilized to elucidate the reaction pathway and intrinsic structure-performance relationship of the NO<sub>3</sub>RR. Experimental results indicate that PB-Co exhibits the highest activity and ammonia selectivity (FE<sub>NH3</sub> = 95.8 ± 1.06%, NH<sub>3</sub> yield rate = 995.5 ± 28.4 µmol h<sup>-1</sup> mg<sub>cat</sub> <sup>-1</sup>). Theoretical calculations reveal that the d-p orbital hybridization between the Co 3d orbital in PB-Co and the NO<sub>3</sub> <sup>-</sup> 2p orbital is the strongest one. PB-Co possesses a high d-band center of -0.97 eV and high adsorption energies for NO<sub>3</sub> <sup>-</sup>",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-strong-d-p-orbital-hybridization-in--9-d5sc07183f.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-strong-d-p-orbital-hybridization-in-9-d5sc07183f.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-strong-d-p-orbital-hybridization-in-9-d5sc07183f\\web-imports-2026-strong-d-p-orbital-hybridization-in-9-d5sc07183f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-strong-d-p-orbital-hybridization-in-9-d5sc07183f"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 36,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

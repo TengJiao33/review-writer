@@ -1,0 +1,105 @@
+{
+  "paper_id": "P366",
+  "slug": "web-imports-2026-electronic-interaction-at-cu-o-ni-he-vs-202521252",
+  "title": {
+    "value": "Electronic Interaction at Cu-O-Ni Heterointerface Promotes Electrocatalytic Nitrate Reduction to Ammonia and Zinc-Nitrate Battery.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Lv T",
+      "Yang L",
+      "Hong C",
+      "Zhu Y",
+      "Shen J",
+      "Li C",
+      "Taozhi Lv",
+      "Lekuan Yang",
+      "Can Hong",
+      "Yihua Zhu",
+      "Jianhua Shen",
+      "Chunzhong Li"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202521252",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical nitrate-to-ammonia conversion powered by sustainable green electricity is a promising supplement to the traditional Haber-Bosch process, but it remains limited by low NH<sub>3</sub> yield and Faradaic efficiency (FE). Herein, we report the synthesis and performance of a Cu<sub>2</sub>O/Cu(OH)<sub>2</sub>@Ni(OH)<sub>2</sub> heterostructure catalyst. The interface exploits strong electronic interactions between Cu and Ni species, promoting efficient NO<sub>3</sub> <sup>-</sup> adsorption and accelerating in situ water dissociation for hydrogenation steps. In an H-cell, the catalyst achieved an FE of 99.6 % with an NH<sub>3</sub> yield of 1.14 mmol h<sup>-1</sup> mg cat<sup>-1</sup>, while a flow electrolyzer maintained 97.9 % efficiency and 17.13 mmol h<sup>-1</sup> mg cat<sup>-1</sup> at -600 mA cm<sup>-2</sup>. Via density functional theory (DFT) calculations and in situ characterization, the interface uses strong Cu-O-Ni electronic interactions to boost efficient NO<sub>3</sub> <sup>-</sup> adsorption and accelerate in situ water dissociation for hydrogenation steps. When integrated as a cathode into a Zn-NO<sub>3</sub> <sup>-</sup> hybrid battery, the material ser",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-electronic-interaction-at-cu-o-ni-he-vs-202521252.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-electronic-interaction-at-cu-o-ni-he-vs-202521252.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electronic-interaction-at-cu-o-ni-he-vs-202521252\\web-imports-2026-electronic-interaction-at-cu-o-ni-he-vs-202521252_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electronic-interaction-at-cu-o-ni-he-vs-202521252"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 59,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

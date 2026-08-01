@@ -1,0 +1,101 @@
+{
+  "paper_id": "P301",
+  "slug": "web-imports-2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s-025-61639-8",
+  "title": {
+    "value": "Photocatalytic C(sp&lt;sup&gt;3&lt;/sup&gt;)-C(sp&lt;sup&gt;3&lt;/sup&gt;) cross-coupling of carboxylic acids and alkyl halides using a nickel complex and carbon nitride.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "de Vries Ibáñez MM",
+      "Cipriano LA",
+      "Lagostina V",
+      "Olivati A",
+      "Chiesa M",
+      "Petrozza A",
+      "Di Liberto G",
+      "Vilé G"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-61639-8",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Developing robust catalytic methods for constructing C(sp<sup>3</sup>)-C(sp<sup>3</sup>) bonds is critically important for synthesizing a diverse array of drug molecules. However, this type of reaction poses significant challenges from a chemical standpoint due to issues with regioselectivity, functional group tolerance and complex catalyst design. Current metallaphotoredox approaches do not provide a viable solution because they rely on expensive, toxic, and rare iridium-based photocatalysts, severely limiting their widespread application. In this study, we introduce carbon nitride nanosheets as an efficient and sustainable alternative to traditional photocatalysts. When combined with nickel, carbon nitride nanosheets facilitates the cross-coupling of alkyl halides and carboxylic acids. Our results demonstrate a broad substrate scope and highlight the recyclability of the photocatalyst. Density functional theory calculations provide molecular insights into the role of the catalytic system in facilitating photodecarboxylation and subsequent C-C bond formation. This work expands the potential of photoredox chemistry, and offers a novel method for efficient, industrially relevant lig",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s--025-61639-8.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s-025-61639-8.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s-025-61639-8\\web-imports-2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s-025-61639-8_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-photocatalytic-c-sp-lt-sup-gt-3-lt-s-025-61639-8"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 41,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

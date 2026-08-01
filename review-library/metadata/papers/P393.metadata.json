@@ -1,0 +1,102 @@
+{
+  "paper_id": "P393",
+  "slug": "web-imports-2025-evaluating-copper-modified-carbon-co-aenm-5c00510",
+  "title": {
+    "value": "Evaluating Copper-Modified Carbon Composite Nanofiber Electrodes for Electrocatalytic Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Hesterberg Butzlaff A",
+      "Ghanim AH",
+      "Choi YY",
+      "Yan C",
+      "Shan X",
+      "Myung NV",
+      "Werth CJ",
+      "Cwiertny DM",
+      "Mubeen S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Applied Engineering Materials",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsaenm.5c00510",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The increasing urgency to address nitrate (NO<sub>3</sub> <sup>-</sup>) pollution in water sources has intensified research on electrochemical nitrate reduction, a process capable of transforming NO<sub>3</sub> <sup>-</sup> into valuable ammonia (NH<sub>3</sub>) by using renewable electricity. Copper (Cu) catalysts can reduce NO<sub>3</sub> <sup>-</sup>, but their activity and selectivity toward NH<sub>3</sub> can vary based on their structure, reaction environment, and support material. This study examines the efficacy of Cu-modified carbon nanofiber (CNF) supports, tailored through electrospinning, in enhancing the electrocatalytic reduction of NO<sub>3</sub> <sup>-</sup> to NH<sub>3</sub>. Three variants of CNF supports were synthesized: pristine CNFs, CNFs integrated with carbon nanotubes (CNF/CNTs), and CNFs embedded with titanium dioxide nanoparticles (CNF/TiO<sub>2</sub>). Each electrode's physical and electrochemical properties were analyzed before and after Cu electrodeposition. Notably, the CNF/TiO<sub>2</sub>/Cu composites demonstrated a selectivity exceeding 40% for the conversion of NO<sub>3</sub> <sup>-</sup> to NH<sub>3</sub> at neutral pHsignificantly outperforming",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-evaluating-copper-modified-carbon-co-aenm-5c00510.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-evaluating-copper-modified-carbon-co-aenm-5c00510.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-evaluating-copper-modified-carbon-co-aenm-5c00510\\web-imports-2025-evaluating-copper-modified-carbon-co-aenm-5c00510_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-evaluating-copper-modified-carbon-co-aenm-5c00510"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 111,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

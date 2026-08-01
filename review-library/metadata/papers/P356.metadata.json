@@ -1,0 +1,95 @@
+{
+  "paper_id": "P356",
+  "slug": "web-imports-2025-progress-and-challenges-in-the-elect-ules30193910",
+  "title": {
+    "value": "Progress and Challenges in the Electrocatalytic Reduction of Nitrate to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Yin S",
+      "Wang Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Molecules",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/molecules30193910",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The escalating problem of nitrate pollution, coupled with the environmental burden of the Haber-Bosch process, has spurred intense interest in the electrocatalytic nitrate reduction reaction (eNO<sub>3</sub>RR) as a sustainable route for simultaneous wastewater treatment and ammonia production. However, the efficiency and selectivity of eNO<sub>3</sub>RR are hampered by the multi-step proton-coupled electron transfer process and the competing hydrogen evolution reaction. This review provides a comprehensive and critical overview of recent advances in understanding and designing catalysts for eNO<sub>3</sub>RR. We begin by elucidating the fundamental mechanisms and key reaction pathways, followed by a discussion on how critical parameters (e.g., electrolyte microenvironment, applied potential, reactor design) dictate performance. Further discussion of recent advances in catalysts, including single-metal catalysts, alloy catalysts, transition metal compounds, single-atom catalysts, carbon-based non-metal catalysts, and composite catalysts, highlights their significant roles in enhancing both the efficiency and selectivity. A distinctive feature of this review is its consistent critic",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-progress-and-challenges-in-the-elect-ules30193910.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-progress-and-challenges-in-the-elect-ules30193910.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-progress-and-challenges-in-the-elect-ules30193910\\web-imports-2025-progress-and-challenges-in-the-elect-ules30193910_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-progress-and-challenges-in-the-elect-ules30193910"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 179,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

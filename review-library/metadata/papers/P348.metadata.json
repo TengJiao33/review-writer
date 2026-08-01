@@ -1,0 +1,98 @@
+{
+  "paper_id": "P348",
+  "slug": "web-imports-2023-copper-based-electrocatalysts-for-ni-0-ma16114000",
+  "title": {
+    "value": "Copper-Based Electrocatalysts for Nitrate Reduction to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Fang JY",
+      "Fan JL",
+      "Liu SB",
+      "Sun SP",
+      "Lou YY"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2023,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Materials",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/ma16114000",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Ammonia (NH<sub>3</sub>) is a highly important industrial chemical used as fuel and fertilizer. The industrial synthesis of NH<sub>3</sub> relies heavily on the Haber-Bosch route, which accounts for roughly 1.2% of global annual CO<sub>2</sub> emissions. As an alternative route, the electrosynthesis of NH<sub>3</sub> from nitrate anion (NO<sub>3</sub><sup>-</sup>) reduction (NO<sub>3</sub><sup>-</sup>RR) has drawn increasing attention, since NO<sub>3</sub><sup>-</sup>RR from wastewater to produce NH<sub>3</sub> can not only recycle waste into treasure but also alleviate the adverse effects of excessive NO<sub>3</sub><sup>-</sup> contamination in the environment. This review presents contemporary views on the state of the art in electrocatalytic NO<sub>3</sub><sup>-</sup> reduction over Cu-based nanostructured materials, discusses the merits of electrocatalytic performance, and summarizes current advances in the exploration of this technology using different strategies for nanostructured-material modification. The electrocatalytic mechanism of nitrate reduction is also reviewed here, especially with regard to copper-based catalysts.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2023-copper-based-electrocatalysts-for-ni-0-ma16114000.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2023-copper-based-electrocatalysts-for-ni-0-ma16114000.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-copper-based-electrocatalysts-for-ni-0-ma16114000\\web-imports-2023-copper-based-electrocatalysts-for-ni-0-ma16114000_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-copper-based-electrocatalysts-for-ni-0-ma16114000"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 74,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

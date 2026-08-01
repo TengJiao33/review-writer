@@ -1,0 +1,97 @@
+{
+  "paper_id": "P379",
+  "slug": "web-imports-2024-electrifying-energy-and-chemical-tra-atal-4c00365",
+  "title": {
+    "value": "Electrifying Energy and Chemical Transformations with Single-Atom Alloy Nanoparticle Catalysts.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Gao Q",
+      "Han X",
+      "Liu Y",
+      "Zhu H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Catalysis",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acscatal.4c00365",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Single-atom alloys (SAAs) have attracted considerable attention as promising electrocatalysts in reactions central to energy conversion and chemical transformation. In contrast to monometallic nanocrystals and metal alloys, SAAs possess unique and intriguing physicochemical properties, positioning them as ideal model systems for studying structure-property relationships. However, the field is still in its early stages. In this Perspective, we first review and summarize rational synthesis methods and advanced characterization techniques for SAA nanoparticle catalysts. We then emphasize the extensive applications of SAAs in a range of electrocatalytic reactions, including fuel cell reactions, water splitting, and carbon dioxide and nitrate reductions. Finally, we provide insights into existing challenges and prospects associated with the controlled synthesis, characterization, and design of SAA catalysts.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-electrifying-energy-and-chemical-tra-atal-4c00365.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-electrifying-energy-and-chemical-tra-atal-4c00365.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-electrifying-energy-and-chemical-tra-atal-4c00365\\web-imports-2024-electrifying-energy-and-chemical-tra-atal-4c00365_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-electrifying-energy-and-chemical-tra-atal-4c00365"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 83,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

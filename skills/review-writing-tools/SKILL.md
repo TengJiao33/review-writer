@@ -1,18 +1,47 @@
 ---
 name: review-writing-tools
-description: Use a lightweight toolbox to search a managed paper library, inspect a Markdown review, and choose the next useful writing action while keeping editorial judgment with the writer.
+description: Use a lightweight toolbox to search a managed paper library, inspect a Markdown chemistry review, and choose the next useful writing or visual action while keeping editorial judgment with the writer.
 ---
 
 # Review Writing Tools
 
-Write the review in one canonical Markdown manuscript. Use notes, outlines, or
-comparison tables whenever they help the writing.
+Write one canonical Markdown manuscript. Keep optional notes and helper scripts
+inside the review project.
 
-Do not choose a paper count in advance. Use enough relevant full-text sources
-to cover the main approaches, important differences, and representative
-developments in the stated scope. If an obvious route is still missing, keep
-searching; otherwise start writing. Briefly state material coverage limits in
-the manuscript or handoff instead of creating a separate sufficiency record.
+Let the topic and emerging argument shape the literature set. Use the initial
+reading set to establish vocabulary, main approaches, and a useful structure,
+then let drafting expose the next research questions. Before treating the
+evidence base as mature, connect each central claim and major comparison to
+direct full-text sources. Use categories to navigate the topic, not to infer
+evidentiary depth.
+
+A missing historical link, an unresolved disagreement, an unsupported
+comparison, or a section carried mainly by an orientation review creates a
+targeted search. Follow the question into primary studies and later developments,
+then revise the claim or scope as the evidence requires. Treat further search as
+having diminishing value when new targeted searches mostly repeat approaches
+and evidence already understood.
+
+Use roughly 40 genuinely relevant cited sources as a scale cue for a broad,
+comprehensive chemistry review. When the bibliography is much smaller, look
+again for thin method coverage, unsupported comparisons, missing historical
+links, and representative developments. Keep the final number responsive to the
+actual scope and evidence.
+
+Use reviews to learn the vocabulary, history, and neighboring approaches.
+Follow their references to the primary studies needed for specific methods and
+comparisons, and follow later citations when the field has revised the original
+picture. A paper belongs in the manuscript because it contributes to the
+argument. Locally available papers may remain uncited.
+
+Keep navigation lightweight. A few scratch lines may connect approaches to
+direct full-text sources, but the manuscript itself should carry the resulting
+synthesis. State material coverage limits briefly.
+
+A comprehensive review normally contains a title, concise Abstract,
+introduction, thematic synthesis, conclusion, and references. Adapt this shape
+to the subject. Make the Abstract state the main conclusions and a material
+remaining gap, not only list the sections.
 
 ## Available tools
 
@@ -34,39 +63,73 @@ python skills/review-writing-tools/scripts/inspect_review.py \
   --output review-projects/<project_id>/review_snapshot.json
 ```
 
-The snapshot reports:
+The snapshot reports substantive word count, stable citations and local
+full-text resolution, image paths, Markdown tables, missing Abstract or legacy
+chemistry markup, and suspicious cited metadata.
 
-- substantive word count;
-- stable paper citations and whether they resolve locally;
-- how many cited papers have local full text;
-- local image paths and Markdown tables;
-- an advisory word range derived from the number of cited papers with usable
-  local full text.
-
-Word ranges are suggestions, not pass/fail thresholds. For a comprehensive
-review the center is `1500 + 200 * usable_cited_sources`, bounded to
-4,000-12,000 words; the reported range is 80-120% of that center. Focused
-reviews use `1200 + 160 * usable_cited_sources`, bounded to 2,500-8,000 words.
+The default snapshot omits a word target. If the user asks for a length
+reference, or a mature draft appears seriously out of proportion to its
+evidence, add `--include-word-advisory`. Use the result only after substantive
+revision; do not draft toward its lower or upper number.
 
 The inspector returns a non-zero exit code only for broken local mechanics such
-as an unknown stable paper ID or a missing local image. Short prose, few
-figures, few tables, and an imbalanced review remain editorial observations.
+as an unknown stable paper ID or a missing local image. Length, visual density,
+table use, balance, and synthesis remain editorial observations.
 
 ## Writing boundary
 
-Use the tools to locate, count, copy, number, format, and render material. Judge
-claim support, figure reuse, synthesis quality, and page appearance from the
-papers, assets, manuscript, and rendered pages themselves.
+Use tools to locate, copy, number, format, browse, and render material. Judge
+claim support, visual value, synthesis quality, and page appearance from the
+sources, manuscript, and rendered pages.
 
 When evidence is thin, narrow the claim or retrieve more evidence. When a tool
 has a defect, record the issue and make a transparent manual edit.
 
-For reaction-specific statements, re-open the primary full text and check the
-reagents, conditions, starting-material chirality, and whether stereocontrol
-comes from the substrate or catalyst. Do this as part of writing; do not create
-a separate proof file.
+Use search results and abstracts to decide what to read. Base substantive
+claims on full text opened in the current run. Prefer primary evidence for
+specific experimental, measured, mechanistic, or computational claims. Earlier
+summaries may guide navigation, then the source supplies the wording and limits
+of the claim.
 
-For a substantive review, normally include an original synthesis visual when
-it clarifies the literature—for example, a route map, mechanism taxonomy, or
-method-selection diagram. Keep it evidence-based and label it as original;
-do not add a decorative diagram merely to increase the figure count.
+Organize around the questions and differences that matter to the reader.
+Bring together papers that answer, extend, or contest the same question. Let
+sections represent patterns in the literature rather than one paper at a time.
+
+Use comparative labels such as “preferred,” “most general,” “broader,” or
+“superior” only after comparing aligned evidence. Otherwise describe the
+observed difference directly.
+
+For fact-sensitive statements, re-open the most direct source and check the
+identity of the studied system, preparation or operating conditions,
+measurement basis, comparison basis, and source of the reported effect or
+selectivity. Preserve the source's distinction among observation, control
+experiment, calculation, author proposal, and review-level inference. Do this
+while writing; do not create a proof file.
+
+## Visual expression
+
+Choose visual form while reading and drafting, not after the article is
+finished. Browse source visuals when prose would force the reader to reconstruct
+a structure, transformation, apparatus, spatial relationship, sequence,
+measured trend, or comparison. Depending on the subject, useful evidence may
+be a reaction Scheme, spectrum, chromatogram, micrograph, crystal structure,
+phase diagram, apparatus, process flow, computed surface, or data plot.
+
+Use source visuals for concrete evidence. Use a table when aligned values or
+conditions are the point. An original integrative visual may summarize
+cross-paper relationships with verified labels and citations when the model can
+express them accurately. Do not ask the model to redraw detailed chemical
+structures or reaction Schemes.
+
+Once a lawful, useful source visual has been selected for a clear reader
+question, carry it into the manuscript unless later reading shows that it is
+unsuitable. Do not demote all selected visuals to optional enhancement at
+export. Use a table when the reader benefits from seeing methods or cases side
+by side and the compared items share a meaningful basis. Use prose to develop
+mechanism, causation, and context. Let the argument determine whether a table
+is useful and what it contains.
+
+Do not set a figure quota. Reconsider a long, chemically dense stretch that
+contains only prose, but keep it as prose when a visual would not improve
+understanding. A visual earns its place by making an important relationship or
+piece of evidence easier to grasp.

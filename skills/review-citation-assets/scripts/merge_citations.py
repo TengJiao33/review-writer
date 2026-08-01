@@ -2,14 +2,16 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
 
 
 STABLE_CITATION_RE = re.compile(
-    r"\[((?:@P\d{3,})(?:\s*[;,]\s*@P\d{3,})*)\]"
+    r"\[((?:@P\d{3,})(?:\s*[;,]\s*@P\d{3,})*)\\?\]"
 )
 GENERATED_REFERENCES_RE = re.compile(
     r"\n##\s+References\s*\n<!-- generated-references:start -->.*?"
@@ -23,6 +25,25 @@ TRAILING_REFERENCES_HEADING_RE = re.compile(
 PLACEHOLDER_AUTHOR_RE = re.compile(
     r"^(?:a\.?\s+author|unknown|author information unavailable)$", re.I
 )
+AFFILIATION_AUTHOR_RE = re.compile(
+    r"\b(?:department|division|university|institute|laboratory|school|faculty|engineering)\b",
+    re.I,
+)
+TITLE_LIKE_AUTHOR_RE = re.compile(
+    r"\b(?:synthesis|cataly[sz]ed|catalytic|coupling|reaction|mechanis[mt]|"
+    r"chiral|axial|substitut|"
+    r"spectroscop|characteri[sz]ation|electrochemical|photochemical|"
+    r"polymer|nanoparticle|degradation|adsorption|computational|analysis)\w*\b",
+    re.I,
+)
+RAW_LATEX_RE = re.compile(
+    r"\\(?:ce|mathsf|mathrm|text|mathbf|operatorname)\s*\{"
+)
+HTML_TAG_RE = re.compile(r"</?[A-Za-z][^>]*>")
+MARKDOWN_IMAGE_RE = re.compile(
+    r"(!\[(?:\\.|[^\]])*\]\()([^)]+)(\))"
+)
+NON_LOCAL_IMAGE_RE = re.compile(r"^(?:[A-Za-z][A-Za-z0-9+.-]*:|#)")
 
 
 def read_json(path: Path) -> Any:
@@ -33,6 +54,12 @@ def unwrap(value: Any) -> Any:
     if isinstance(value, dict) and "value" in value:
         return value.get("value")
     return value
+
+
+def plain_reference_text(value: Any) -> str:
+    text = html.unescape(str(unwrap(value) or ""))
+    text = HTML_TAG_RE.sub("", text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def stable_ids(text: str) -> list[str]:
@@ -53,9 +80,33 @@ def replace_stable_citations(text: str, order: list[str]) -> str:
             number = number_by_id[paper_id]
             if number not in numbers:
                 numbers.append(number)
-        return "[" + ", ".join(str(number) for number in numbers) + "]"
+        closing = r"\]" if match.group(0).endswith(r"\]") else "]"
+        return "[" + ", ".join(str(number) for number in numbers) + closing
 
     return STABLE_CITATION_RE.sub(replace, text)
+
+
+def rebase_markdown_image_paths(
+    text: str, input_dir: Path, output_dir: Path
+) -> str:
+    """Keep local image links valid when the numbered copy moves directories."""
+
+    def replace(match: re.Match[str]) -> str:
+        raw_target = match.group(2).strip()
+        wrapped = raw_target.startswith("<") and raw_target.endswith(">")
+        target = raw_target[1:-1].strip() if wrapped else raw_target
+        if not target or NON_LOCAL_IMAGE_RE.match(target) or Path(target).is_absolute():
+            return match.group(0)
+        source = (input_dir / target).resolve()
+        try:
+            rebased = Path(os.path.relpath(source, output_dir)).as_posix()
+        except ValueError:
+            rebased = source.as_posix()
+        if wrapped:
+            rebased = f"<{rebased}>"
+        return match.group(1) + rebased + match.group(3)
+
+    return MARKDOWN_IMAGE_RE.sub(replace, text)
 
 
 def author_names(value: Any) -> tuple[list[str], bool]:
@@ -116,13 +167,19 @@ def format_reference(
         authors = "; ".join(names[:3]) + "; et al."
     else:
         authors = "; ".join(names)
-    title = str(unwrap(metadata.get("title")) or "").strip().rstrip(".")
-    journal = str(unwrap(metadata.get("journal")) or "").strip().rstrip(".")
+    if names and any(AFFILIATION_AUTHOR_RE.search(name) for name in names):
+        issues.append("authors_include_affiliation_text")
+    if names and any(TITLE_LIKE_AUTHOR_RE.search(name) for name in names):
+        issues.append("authors_look_title_like")
+    title = plain_reference_text(metadata.get("title")).rstrip(".")
+    journal = plain_reference_text(metadata.get("journal")).rstrip(".")
     year = str(unwrap(metadata.get("year")) or "").strip()
     doi = str(unwrap(metadata.get("doi")) or "").strip()
     if not title:
         issues.append("title_missing")
         title = f"[title unavailable for {paper_id}]"
+    elif RAW_LATEX_RE.search(title):
+        issues.append("title_contains_raw_latex")
     if not journal:
         issues.append("journal_missing")
     if not year:
@@ -204,6 +261,9 @@ def merge(
         return report
 
     numbered = replace_stable_citations(body, order)
+    numbered = rebase_markdown_image_paths(
+        numbered, input_path.parent, output_path.parent
+    )
     if references:
         numbered += (
             "\n\n## References\n\n"

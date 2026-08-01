@@ -1,0 +1,102 @@
+{
+  "paper_id": "P350",
+  "slug": "web-imports-2025-advancing-nitrate-to-ammonia-electro-vs-202508614",
+  "title": {
+    "value": "Advancing Nitrate-to-Ammonia Electrocatalysis: Strategies in Catalyst Design, Electrolyte Engineering, and Performance Evaluation.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Bai J",
+      "Dong Z",
+      "Jiang X",
+      "Zhou Q",
+      "Zhao J",
+      "Mei J",
+      "Tan Z",
+      "Liao T",
+      "Sun Z"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202508614",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical reduction of nitrate for ammonia production not only offers a promising alternative to the traditional Haber-Bosch process, which requires high temperatures and pressures, but also provides an effective solution to the pollution caused by nitrogen-enriched nutrients in drinking water and soil. Nitrate reduction is a complex multielectron, multiproton reaction, leading to multiple reaction pathways and numerous by-products. Moreover, the product distribution and Faradaic efficiency are highly dependent on the applied potential, often resulting in competing reactions, such as the hydrogen evolution reaction, which increase energy consumption. Therefore, the development of low-cost, highly active, highly selective, and scalable electrocatalysts for nitrate reduction is critical to advancing this field. This review highlights recent advances in nitrate reduction electrocatalysis, focusing on catalyst design strategies, reaction environments, and performance evaluation. It also compiles and analyzes a wide range of research examples in the field, discusses current challenges, and offers perspectives on future research directions. This review is aimed to serve as a gu",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-advancing-nitrate-to-ammonia-electro-vs-202508614.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-advancing-nitrate-to-ammonia-electro-vs-202508614.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-advancing-nitrate-to-ammonia-electro-vs-202508614\\web-imports-2025-advancing-nitrate-to-ammonia-electro-vs-202508614_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-advancing-nitrate-to-ammonia-electro-vs-202508614"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 171,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

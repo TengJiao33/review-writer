@@ -1,0 +1,98 @@
+{
+  "paper_id": "P362",
+  "slug": "web-imports-2025-well-defined-cu-precatalysts-indicat-jacs-5c09246",
+  "title": {
+    "value": "Well-Defined Cu Precatalysts Indicate Design Rules for Reactivity in Nitrate Electroreduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Du J",
+      "Loiudice A",
+      "Kumar K",
+      "Zaza L",
+      "Buonsanti R"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.5c09246",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical nitrate reduction reaction (NO<sub>3</sub>RR) to ammonia (NH<sub>3</sub>) is a promising route for sustainable NH<sub>3</sub> synthesis. Cu-based materials are the most used and promising catalysts for this reaction. However, Cu undergoes uncontrollable compositional and structural changes under NO<sub>3</sub>RR conditions, necessitating a deeper understanding of the relationship between precatalyst features, structural evolution, and catalytic performance for the advancement of current catalyst design rules. Here, we exploit well-defined Cu and Cu oxide nanocrystals (NCs) as precatalysts to elucidate these correlations. We find that the size, shape, and oxide content of the Cu precatalysts all play a role in driving structural evolution and, thus, the catalytic behavior during NO<sub>3</sub>RR. In particular, a higher oxide content, an optimized {111}/{100} facet ratio, and the spatial proximity of these facets forming grain boundaries within the active catalysts emerge as key factors to enhance NH<sub>3</sub> selectivity. Among the studied Cu precatalysts, 10 nm Cu spheres integrate these key features, achieving a competitive NH<sub>3</sub> production rate com",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-well-defined-cu-precatalysts-indicat-jacs-5c09246.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-well-defined-cu-precatalysts-indicat-jacs-5c09246.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-well-defined-cu-precatalysts-indicat-jacs-5c09246\\web-imports-2025-well-defined-cu-precatalysts-indicat-jacs-5c09246_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-well-defined-cu-precatalysts-indicat-jacs-5c09246"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 52,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

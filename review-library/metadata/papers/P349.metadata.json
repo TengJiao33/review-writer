@@ -1,0 +1,111 @@
+{
+  "paper_id": "P349",
+  "slug": "web-imports-2023-fe-cu-diatomic-catalysts-for-electro-023-39366-9",
+  "title": {
+    "value": "Fe/Cu diatomic catalysts for electrochemical nitrate reduction to ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhang S",
+      "Wu J",
+      "Zheng M",
+      "Jin X",
+      "Shen Z",
+      "Li Z",
+      "Wang Y",
+      "Wang Q",
+      "Wang X",
+      "Wei H",
+      "Zhang J",
+      "Wang P",
+      "Zhang S",
+      "Yu L",
+      "Dong L",
+      "Zhu Q",
+      "Zhang H",
+      "Lu J"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2023,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-023-39366-9",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical conversion of nitrate to ammonia offers an efficient approach to reducing nitrate pollutants and a potential technology for low-temperature and low-pressure ammonia synthesis. However, the process is limited by multiple competing reactions and NO<sub>3</sub><sup>-</sup> adsorption on cathode surfaces. Here, we report a Fe/Cu diatomic catalyst on holey nitrogen-doped graphene which exhibits high catalytic activities and selectivity for ammonia production. The catalyst enables a maximum ammonia Faradaic efficiency of 92.51% (-0.3 V(RHE)) and a high NH<sub>3</sub> yield rate of 1.08 mmol h<sup>-1</sup> mg<sup>-1</sup> (at - 0.5 V(RHE)). Computational and theoretical analysis reveals that a relatively strong interaction between NO<sub>3</sub><sup>-</sup> and Fe/Cu promotes the adsorption and discharge of NO<sub>3</sub><sup>-</sup> anions. Nitrogen-oxygen bonds are also shown to be weakened due to the existence of hetero-atomic dual sites which lowers the overall reaction barriers. The dual-site and hetero-atom strategy in this work provides a flexible design for further catalyst development and expands the electrocatalytic techniques for nitrate reduction and ammonia sy",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2023-fe-cu-diatomic-catalysts-for-electro--023-39366-9.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2023-fe-cu-diatomic-catalysts-for-electro-023-39366-9.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-fe-cu-diatomic-catalysts-for-electro-023-39366-9\\web-imports-2023-fe-cu-diatomic-catalysts-for-electro-023-39366-9_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2023-fe-cu-diatomic-catalysts-for-electro-023-39366-9"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

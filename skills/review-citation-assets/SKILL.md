@@ -52,9 +52,13 @@ python skills/review-citation-assets/scripts/merge_citations.py \
 
 Numbering follows first appearance. Metadata comes from
 `review-library/metadata/papers/`. Unknown paper IDs stop the conversion.
-Incomplete or placeholder bibliographic metadata is reported for repair from a
-reliable source.
+Incomplete, title-like, affiliation-like, or raw-LaTeX bibliographic fields are
+reported as editing prompts. Repair the records used by the manuscript from
+paper front matter, DOI metadata, or another reliable bibliographic source
+before the final export.
 
-The output Markdown is ready for DOCX conversion. Continue revising the
+Read the generated References section entry by entry. Check author names,
+title, journal, year, DOI or locator, numbering from 1, and a single References
+heading. Then convert the output Markdown to DOCX. Continue revising the
 canonical manuscript rather than treating the numbered copy as a second
 authoring branch.

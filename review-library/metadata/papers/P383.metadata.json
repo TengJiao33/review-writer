@@ -1,0 +1,100 @@
+{
+  "paper_id": "P383",
+  "slug": "web-imports-2025-a-roadmap-for-plasma-enabled-electro-ma-202509784",
+  "title": {
+    "value": "A Roadmap for Plasma-Enabled Electrocatalysis in Urea Production.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Huang J",
+      "Qu Z",
+      "Zhou R",
+      "Sun J",
+      "Zhou R",
+      "Esrafilzadeh D",
+      "Jalili AR"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Materials (Deerfield Beach, Fla.)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/adma.202509784",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Conventional Haber-Bosch/Bosch-Meiser routes link global urea production to fossil fuel-based ammonia, accounting for ≈2% of the world's energy use and ≈1.5% of CO<sub>2</sub> emissions. A modular, fully electrified alternative is charted that cleaves the problem at its natural fault line: a non-thermal plasma first upgrades air to nitrate, then a CO<sub>2</sub>/NO<sub>3</sub> <sup>-</sup> co-electrolyzer stitches the two C─N bonds of urea at ambient conditions. The lens is deliberately cross-disciplinary: every bottleneck is probed with the question, \"Has a cognate field already cracked this?\" If so, how can the solution be mirrored here? Plasma physics contributes to vibrational pumping, power modulated reactors, and in water quenching; CO<sub>2</sub> and nitrate electro-reduction supply relay-site catalyst design, vacancy tuning, and pulsed-bias choreography; flow-battery engineering guides carbonate-resilient gas-diffusion electrodes (GDEs) and zero-gap membrane-electrode assemblies (MEAs); and analytical chemistry adds two-probe assays that unmask false-positive amine/amide signals. Stitching these advances together, techno-economic modeling shows that sub-megajoule plasmas, ≥",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-a-roadmap-for-plasma-enabled-electro-ma-202509784.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-a-roadmap-for-plasma-enabled-electro-ma-202509784.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-a-roadmap-for-plasma-enabled-electro-ma-202509784\\web-imports-2025-a-roadmap-for-plasma-enabled-electro-ma-202509784_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-a-roadmap-for-plasma-enabled-electro-ma-202509784"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 205,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

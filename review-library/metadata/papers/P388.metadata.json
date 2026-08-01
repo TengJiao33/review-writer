@@ -1,0 +1,95 @@
+{
+  "paper_id": "P388",
+  "slug": "web-imports-2025-direct-monitoring-of-reaction-interm-2023-03-019",
+  "title": {
+    "value": "Direct monitoring of reaction intermediates through in situ characterization to promote the selectivity of N-integrated electrocatalytic CO&lt;sub&gt;2&lt;/sub&gt; reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chen Z",
+      "Wang Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Fundamental Research",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1016/j.fmre.2023.03.019",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Energy-intensive chemical manufacturing is one of the largest contributors to global CO<sub>2</sub> emissions. With the vigorous development of renewable energy, the electrocatalytic CO<sub>2</sub> reduction reaction (CO<sub>2</sub>RR) has become a sustainable technology for recycling. To broaden the variety of products, the N-integrated electrocatalytic CO<sub>2</sub>RR (N-CO<sub>2</sub>RR) constructs a new element conversion pathway by introducing nitrogen upon CO<sub>2</sub>RR. However, the product selectivity of N-CO<sub>2</sub>RR is still very low, which seriously restricts its practical application. In recent years, an increasing amount of research has focused on upgrading the performance of N-CO<sub>2</sub>RR. Accurate understanding of its catalytic mechanism, that is, obtaining online information about reaction intermediates by in situ characterization techniques, can guide the optimization of electrocatalytic systems. Currently, this method makes great contributions in the field of electrocatalysis, including N-CO<sub>2</sub>RR mechanism research. This review briefly summarizes the research status and existing reaction intermediates of N-CO<sub>2</sub>RR and explains how t",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-direct-monitoring-of-reaction-interm--2023-03-019.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-direct-monitoring-of-reaction-interm-2023-03-019.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-direct-monitoring-of-reaction-interm-2023-03-019\\web-imports-2025-direct-monitoring-of-reaction-interm-2023-03-019_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-direct-monitoring-of-reaction-interm-2023-03-019"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 96,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

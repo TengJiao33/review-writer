@@ -1,0 +1,95 @@
+{
+  "paper_id": "P322",
+  "slug": "web-imports-2022-structural-analysis-of-molecular-mat-mrev-1c00237",
+  "title": {
+    "value": "Structural Analysis of Molecular Materials Using the Pair Distribution Function.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Terban MW",
+      "Billinge SJL"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Reviews",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.chemrev.1c00237",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "This is a review of atomic pair distribution function (PDF) analysis as applied to the study of molecular materials. The PDF method is a powerful approach to study short- and intermediate-range order in materials on the nanoscale. It may be obtained from total scattering measurements using X-rays, neutrons, or electrons, and it provides structural details when defects, disorder, or structural ambiguities obscure their elucidation directly in reciprocal space. While its uses in the study of inorganic crystals, glasses, and nanomaterials have been recently highlighted, significant progress has also been made in its application to molecular materials such as carbons, pharmaceuticals, polymers, liquids, coordination compounds, composites, and more. Here, an overview of applications toward a wide variety of molecular compounds (organic and inorganic) and systems with molecular components is presented. We then present pedagogical descriptions and tips for further implementation. Successful utilization of the method requires an interdisciplinary consolidation of material preparation, high quality scattering experimentation, data processing, model formulation, and attentive scrutiny of the",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-structural-analysis-of-molecular-mat-mrev-1c00237.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-structural-analysis-of-molecular-mat-mrev-1c00237.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-structural-analysis-of-molecular-mat-mrev-1c00237\\web-imports-2022-structural-analysis-of-molecular-mat-mrev-1c00237_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-structural-analysis-of-molecular-mat-mrev-1c00237"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 326,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

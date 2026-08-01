@@ -1,0 +1,102 @@
+{
+  "paper_id": "P297",
+  "slug": "web-imports-2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k",
+  "title": {
+    "value": "Graphitic carbon nitride/nickel dual catalysis for decarboxylative synthesis of unsymmetrical ketones from keto acids.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Findlay MT",
+      "Lukas F",
+      "Rizzo F",
+      "Liu J",
+      "Martin B",
+      "Allmendinger S",
+      "Furegati M",
+      "Gabriel P",
+      "Noël T"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Green Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5gc03641k",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "We report a sustainable, dual-catalytic system for the synthesis of ketones <i>via</i> decarboxylative cross-coupling of α-keto acids and aryl halides, enabled by graphitic carbon nitride (gCN) and nickel catalysis. The heterogeneous gCN photocatalyst, derived from earth-abundant precursors, facilitates the generation of acyl radicals under light irradiation, which undergo efficient nickel-catalysed cross-coupling to form a diverse array of ketone products. The methodology demonstrates broad substrate scope, including heteroaryl and vinyl halides, and is compatible with a range of functional groups. Our studies revealed and addressed a competing Norrish Type II cleavage pathway, enabling the successful coupling of longer-chain substrates by switching to a 456 nm light source. Oxamic acids were shown to participate under similar conditions to furnish amides. Compared to iridium-based systems, this protocol significantly reduces total carbon release (TCR), and the gCN photocatalyst was readily recycled over 10 runs without loss of activity. This work highlights gCN's potential as a green, reusable alternative for metallaphotoredox cross-couplings.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k\\web-imports-2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-graphitic-carbon-nitride-nickel-dual-9-d5gc03641k"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

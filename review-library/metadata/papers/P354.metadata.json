@@ -1,0 +1,100 @@
+{
+  "paper_id": "P354",
+  "slug": "web-imports-2025-isolated-rhodium-atoms-activate-poro-vs-202411705",
+  "title": {
+    "value": "Isolated Rhodium Atoms Activate Porous TiO<sub>2</sub> for Enhanced Electrocatalytic Conversion of Nitrate to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhao ZL",
+      "Yang S",
+      "Wang S",
+      "Zhang Z",
+      "Zhao L",
+      "Wang Q",
+      "Zhang X"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202411705",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The direct electrochemical reduction of nitrate to ammonia is an efficient and environmentally friendly technology, however, developing electrocatalysts with high activity and selectivity remains a great challenge. Single-atom catalysts demonstrate unique properties and exceptional performance across a range of catalytic reactions, especially those that encompass multi-step processes. Herein, a straightforward and cost-effective approach is introduced for synthesizing single-atom dispersed Rh on porous TiO<sub>2</sub> spheres (Rh<sub>1</sub>-TiO<sub>2</sub>), which functions as an efficient electrocatalyst for the electroreduction of NO<sub>3</sub> <sup>-</sup> to NH<sub>3</sub>. The synthesized Rh<sub>1</sub>-TiO<sub>2</sub> catalyst achieve a maximum NH<sub>3</sub> Faradaic efficiency (FE) of 94.7% and an NH<sub>3</sub> yield rate of 29.98 mg h<sup>-1</sup> mg<sub>cat</sub> <sup>-1</sup> at -0.5 V versus RHE in a 0.1 M KOH+0.1 M KNO<sub>3</sub> electrolyte, significantly outperforming not only undoped TiO<sub>2</sub> but also Ru, Pd, and Ir single-atom doped titania catalysts. Density functional theory calculations reveal that the incorporation of Rh single atom significantly enh",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-isolated-rhodium-atoms-activate-poro-vs-202411705.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-isolated-rhodium-atoms-activate-poro-vs-202411705.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-isolated-rhodium-atoms-activate-poro-vs-202411705\\web-imports-2025-isolated-rhodium-atoms-activate-poro-vs-202411705_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-isolated-rhodium-atoms-activate-poro-vs-202411705"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 43,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

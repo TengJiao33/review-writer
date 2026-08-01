@@ -1,0 +1,108 @@
+{
+  "paper_id": "P295",
+  "slug": "web-imports-2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050",
+  "title": {
+    "value": "Evidence for a Unifying Ni&lt;sup&gt;I&lt;/sup&gt;/Ni&lt;sup&gt;III&lt;/sup&gt; Mechanism in Light-Mediated Cross-Coupling Catalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Anghileri L",
+      "Baunis H",
+      "Bena AR",
+      "Giannoudis C",
+      "Burke JH",
+      "Reischauer S",
+      "Merschjann C",
+      "Wallick RF",
+      "Al Said T",
+      "Adams CE",
+      "Simionato G",
+      "Kovalenko S",
+      "Dell'Amico L",
+      "van der Veen RM",
+      "Pieber B"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.4c16050",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Advances in nickel catalysis have significantly broadened the synthetic chemists' toolbox, particularly through methodologies leveraging paramagnetic nickel species via photoredox catalysis or electrochemistry. Key to these reactions is the oxidation state modulation of nickel via single-electron transfer events. Recent mechanistic studies indicate that C(sp<sup>2</sup>)-heteroatom bond formations proceed through Ni<sup>I</sup>/Ni<sup>III</sup> cycles. Related C(sp<sup>2</sup>)-C(sp<sup>3</sup>) cross-couplings operate via the photocatalytic generation of C-centered radicals and a catalytic cycle that involves Ni<sup>0</sup>, Ni<sup>I</sup>, and Ni<sup>III</sup> species. Here, we show that light-mediated nickel-catalyzed C(sp<sup>2</sup>)-C(sp<sup>3</sup>) bond formations can be carried out without using exogenous photoredox catalysts but with a photoactive ligand. In a pursuit of expanding the scope of C(sp<sup>2</sup>)-heteroatom couplings using donor-acceptor ligands, we identified a photoactive nickel complex capable of catalyzing cross-couplings between aryl halides and benzyltrifluoroborate salts. Mechanistic investigations provide evidence that transmetalation between a phot",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050\\web-imports-2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-evidence-for-a-unifying-ni-lt-sup-gt-jacs-4c16050"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 52,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

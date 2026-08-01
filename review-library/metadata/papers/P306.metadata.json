@@ -1,0 +1,99 @@
+{
+  "paper_id": "P306",
+  "slug": "web-imports-2024-a-review-of-recent-advances-in-elect-bjoc-20-214",
+  "title": {
+    "value": "A review of recent advances in electrochemical and photoelectrochemical late-stage functionalization classified by anodic oxidation, cathodic reduction, and paired electrolysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li N",
+      "Sitdikov R",
+      "Kale AP",
+      "Steverlynck J",
+      "Li B",
+      "Rueping M"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2024,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Beilstein Journal of Organic Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3762/bjoc.20.214",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "With the resurgence of electrosynthesis in organic chemistry, there is a significant increase in the number of routes available for late-stage functionalization (LSF) of drugs. Electrosynthetic methods, which obviate the need for hazardous chemical oxidants or reductants, offer unprecedented control of reactions through the continuous variation of the applied potential and the possibility of combination with photochemical processes. This capability is a substantial advantage for performing electrochemical or photoelectrochemical LSF. Ultimately, these protocols are poised to become a vital component of the medicinal chemist's toolkit. In this review, we discuss electrochemical protocols that have been demonstrated to be applicable for the LSF of pharmaceutical drugs, their derivatives, and natural substrates. We present and analyze representative examples to illustrate the potential of electrochemistry or photoelectrochemistry for the LSF of valuable molecular scaffolds.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2024-a-review-of-recent-advances-in-elect--bjoc-20-214.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2024-a-review-of-recent-advances-in-elect-bjoc-20-214.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-a-review-of-recent-advances-in-elect-bjoc-20-214\\web-imports-2024-a-review-of-recent-advances-in-elect-bjoc-20-214_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2024-a-review-of-recent-advances-in-elect-bjoc-20-214"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:09:56Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 233,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "paper_id": "P364",
+  "slug": "web-imports-2026-beyond-interfacial-structure-ion-tra-chem-5c00534",
+  "title": {
+    "value": "Beyond Interfacial Structure: Ion Transport Mediates Cation Effects in Electrochemical Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Murphy MA",
+      "Fong KD"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Electrochemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acselectrochem.5c00534",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical reduction of nitrate to ammonia integrates wastewater nitrate remediation with sustainable ammonia production. Electrolyte engineering has revealed that the rate of nitrate reduction is sensitive to the identity of the supporting cation, increasing along Li<sup>+</sup> < Na<sup>+</sup> < K<sup>+</sup> < Cs<sup>+</sup>. However, atomistic-level analysis of interfacial structure and mass transport across different electrolytes remains limited, leaving open questions about the physical origins of these specific ion effects. To address this gap, here we use classical molecular dynamics simulations in the constant potential ensemble to model the electric double layer in nitrate-based electrolytes. We assess the conventional hypotheses invoking cation-specific interfacial structure for successful nitrate adsorption and consider diffusion-layer mass transport as an additional origin of specific-ion rate enhancement. While the interfacial structure of the electrolyte is indeed cation-dependent, the thermodynamics of nitrate physisorption are, surprisingly, weakly dependent on the cation identity, as the interfacial electrostatic potential is dominated by water polarization,",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-beyond-interfacial-structure-ion-tra-chem-5c00534.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-beyond-interfacial-structure-ion-tra-chem-5c00534.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-beyond-interfacial-structure-ion-tra-chem-5c00534\\web-imports-2026-beyond-interfacial-structure-ion-tra-chem-5c00534_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-beyond-interfacial-structure-ion-tra-chem-5c00534"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 93,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

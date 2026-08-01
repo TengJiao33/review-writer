@@ -1,0 +1,96 @@
+{
+  "paper_id": "P312",
+  "slug": "web-imports-2025-electrochemical-copper-catalysis-a-t-chem-5c00233",
+  "title": {
+    "value": "Electrochemical Copper Catalysis: A Triple Catalytic System for Transient C(sp2)–H Functionalization through Mediated Electrolysis",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Tsz-Kan Ma",
+      "Callum S. Begg",
+      "James A. Bull"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Electrochemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acselectrochem.5c00233",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract The development of copper-catalyzed C–H functionalization processes is challenging due to the inefficiency of conventional chemical oxidants in regenerating the copper catalyst. This study details the development of a mediated electrosynthetic approach involving triple catalytic cycles in transient C–H functionalization to achieve efficient copper-catalyzed C(sp 2 )–H sulfonylation of benzylamines with sodium sulfinate salts. The triple catalytic system consists of a copper organometallic cycle for C–H functionalization, an aldehyde transient directing group (TDG) as an organocatalyst for imine formation, and a ferrocenium salt as an electrocatalyst. This mediated electrolysis strategy addresses key challenges associated with copper electrochemical C–H activation, including irreversible copper electroplating at the cathode and undesired substrate oxidative degradation. Mechanistic studies, including monitoring the anode operating potential and cyclic voltammetry, provided valuable insights into the mediated electrolysis process and the copper ion reoxidation mechanism to support the mechanistic proposal. This mediated strategy provides a new avenue for developing more efficient copper catalyzed transient C–H functionalization processes enabled by synthetic electrochemistry. Keywords: Electrosynthesis, Transient Directing Group, Copper Catalysis, C−H Functionalization",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrochemical-copper-catalysis-a-t-chem-5c00233.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrochemical-copper-catalysis-a-t-chem-5c00233.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-copper-catalysis-a-t-chem-5c00233\\web-imports-2025-electrochemical-copper-catalysis-a-t-chem-5c00233_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-copper-catalysis-a-t-chem-5c00233"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:17:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 49,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.849,
+    "needs_human_check": false
+  }
+}

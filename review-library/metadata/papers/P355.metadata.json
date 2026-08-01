@@ -1,0 +1,97 @@
+{
+  "paper_id": "P355",
+  "slug": "web-imports-2025-potential-and-time-dependent-operand-sc-202501785",
+  "title": {
+    "value": "Potential- and Time-Dependent Operando X-Ray Absorption Study of Cu&lt;sub&gt;2&lt;/sub&gt;O Microcrystals Transformations during Nitrate Reduction to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Surya RM",
+      "Singh SP",
+      "Beppu K",
+      "Amano F"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemsuschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.202501785",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrochemical nitrate reduction reaction (NO<sub>3</sub>RR) represents a sustainable, carbon-neutral alternative to the Haber-Bosch process for ammonia synthesis. Time-resolved operando X-ray absorption spectroscopy reveals the chemical states and structural evolution of copper(I) oxide microcrystals deposited on carbon fiber (Cu<sub>2</sub>O/C) across a potential range of +0.6 to -0.7 V versus reversible hydrogen electrode (V<sub>RHE</sub>), where nitrate reduction to nitrite and ammonia occurs. Without nitrate, Cu<sub>2</sub>O microcrystals are quickly reduced to metallic Cu(0) aggregates at low reduction potentials (≈0.1 V<sub>RHE</sub>). In contrast, only 29% Cu(0) is observed in 0.1 M NaNO<sub>3</sub> at 0.1 V<sub>RHE</sub>, indicating that nitrate adsorption passivates the surface and promotes selective electron transfer to nitrate, thereby retarding the kinetics of Cu<sub>2</sub>O microcrystals transformation to Cu(0) particles. Ammonia formation initiates at -0.3 V<sub>RHE</sub> in 0.1 M NaNO<sub>3</sub> (pH 13) solution, accompanied by the formation of metallic copper particles for the hydrogenation of the intermediates. The Faradaic efficiency (FE) of ammonia is increas",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-potential-and-time-dependent-operand-sc-202501785.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-potential-and-time-dependent-operand-sc-202501785.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-potential-and-time-dependent-operand-sc-202501785\\web-imports-2025-potential-and-time-dependent-operand-sc-202501785_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-potential-and-time-dependent-operand-sc-202501785"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 51,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

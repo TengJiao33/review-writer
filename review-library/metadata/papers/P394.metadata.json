@@ -1,0 +1,101 @@
+{
+  "paper_id": "P394",
+  "slug": "web-imports-2025-exploration-of-multidimensional-stru-vs-202416053",
+  "title": {
+    "value": "Exploration of Multidimensional Structural Optimization and Regulation Mechanisms: Catalysts and Reaction Environments in Electrochemical Ammonia Synthesis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chu K",
+      "Weng B",
+      "Lu Z",
+      "Ding Y",
+      "Zhang W",
+      "Tan R",
+      "Zheng YM",
+      "Han N"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202416053",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Ammonia (NH<sub>3</sub>) is esteemed for its attributes as a carbon-neutral fuel and hydrogen storage material, due to its high energy density, abundant hydrogen content, and notably higher liquefaction temperature in comparison to hydrogen gas. The primary method for the synthetic generation of NH<sub>3</sub> is the Haber-Bosch process, involving rigorous conditions and resulting in significant global energy consumption and carbon dioxide emissions. To tackle energy and environmental challenges, the exploration of innovative green and sustainable technologies for NH<sub>3</sub> synthesis is imperative. Rapid advances in electrochemical technology have created fresh prospects for researchers in the realm of environmentally friendly NH<sub>3</sub> synthesis. Nevertheless, the intricate intermediate products and sluggish kinetics in the reactions impede the progress of green electrochemical NH<sub>3</sub> synthesis (EAS) technologies. To improve the activity and selectivity of the EAS, which encompasses the electrocatalytic reduction of nitrogen gas, nitrate, and nitric oxide, numerous electrocatalysts and design strategies have been meticulously investigated. Here, this review prima",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-exploration-of-multidimensional-stru-vs-202416053.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-exploration-of-multidimensional-stru-vs-202416053.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-exploration-of-multidimensional-stru-vs-202416053\\web-imports-2025-exploration-of-multidimensional-stru-vs-202416053_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-exploration-of-multidimensional-stru-vs-202416053"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 107,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

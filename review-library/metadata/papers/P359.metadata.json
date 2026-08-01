@@ -1,0 +1,98 @@
+{
+  "paper_id": "P359",
+  "slug": "web-imports-2025-robust-catalyst-assessment-for-the-e-025-01691-z",
+  "title": {
+    "value": "Robust catalyst assessment for the electrocatalytic nitrate reduction reaction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Pathak DK",
+      "Jana R",
+      "Bello R",
+      "White K",
+      "Stoerzinger KA"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Communications Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s42004-025-01691-z",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrocatalytic nitrate reduction reaction (NO 3 RR) can enable distributed conversion of waste to ammonia. Unlike the electrocatalytic dinitrogen reduction reaction, measurements of NO 3 RR often consider a fixed quantity of the nitrate anion in a batch system, presenting unique concerns for measurements of catalytic activity and selectivity. In addition, the sensitivity of kinetics and transport to electrolyte composition—where a diverse range of waste feedstocks are of interest—can have a notable impact on catalyst performance, hindering catalyst comparison. We highlight reaction complexities and advocate best practices for robust measurement of catalyst activity, selectivity, and Faradaic efficiency in this burgeoning field.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-robust-catalyst-assessment-for-the-e--025-01691-z.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-robust-catalyst-assessment-for-the-e-025-01691-z.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-robust-catalyst-assessment-for-the-e-025-01691-z\\web-imports-2025-robust-catalyst-assessment-for-the-e-025-01691-z_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-robust-catalyst-assessment-for-the-e-025-01691-z"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 36,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.849,
+    "needs_human_check": false
+  }
+}

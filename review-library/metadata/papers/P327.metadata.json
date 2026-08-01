@@ -1,0 +1,107 @@
+{
+  "paper_id": "P327",
+  "slug": "web-imports-2025-beyond-density-unveiling-the-trade-o-vs-202510578",
+  "title": {
+    "value": "Beyond Density: Unveiling the Trade-Off in Catalytic Site Optimization Using Defect-Engineered UiO-66.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Han GY",
+      "Ji Y",
+      "Li XY",
+      "Gai Y",
+      "Hou GZ",
+      "Cheng QY",
+      "Zhang Z",
+      "Liu Y",
+      "Wang J",
+      "Van Der Voort P",
+      "Hou G",
+      "Wu XP",
+      "He G",
+      "Feng X"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202510578",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Enhancing intrinsic activity and increasing catalytic site density are two widely employed strategies to improve catalytic performance. Although typically considered independently, their interplay remains poorly understood. Here, two UiO-66 metal-organic frameworks (MOFs) with distinct catalytic site densities-linker-defective UiO-66L and cluster-defective UiO-66C-are synthesized and systematically compared. Despite a higher density of open Zr catalytic sites, UiO-66L exhibited lower catalytic activity than UiO-66C across four model reactions, performing similarly to defect-free UiO-66. Although defect engineering is expected to enlarge pore connectivity, diffusion-ordered spectroscopy (DOSY) and molecular dynamics (MD) simulations surprisingly reveal that UiO-66C exhibits similar diffusion rates to defect-free UiO-66, while UiO-66L shows significantly slower diffusion. This discrepancy is attributed to self-adsorption of reactants at the high-density catalytic sites, which induces local diffusion resistance even in the presence of expanded channels. These findings reveal a performance trade-off between catalytic site density and intrinsic activity, establishing a critical threshol",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-beyond-density-unveiling-the-trade-o-vs-202510578.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-beyond-density-unveiling-the-trade-o-vs-202510578.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-beyond-density-unveiling-the-trade-o-vs-202510578\\web-imports-2025-beyond-density-unveiling-the-trade-o-vs-202510578_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-beyond-density-unveiling-the-trade-o-vs-202510578"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 62,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "paper_id": "P416",
+  "slug": "web-imports-2026-design-of-single-atom-catalysts-anch-vs-202512651",
+  "title": {
+    "value": "Design of Single-Atom Catalysts Anchored in N-Doped Biphenylene Using Symbolic Regression for Electrocatalytic Nitrate Reduction to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Shu Z",
+      "Shi Z",
+      "Jia H",
+      "Xu H",
+      "Xu Z",
+      "Li Z",
+      "Ng MF",
+      "Tan TL",
+      "Huang F",
+      "Cai Y"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202512651",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction (NO<sub>3</sub>RR) presents a synergistic strategy, achieving dual benefits in energy transformation and environmental remediation through a single process. However, the complexity of its reaction pathway and the lack of descriptors impede the rational design of high-performance NO<sub>3</sub>RR electrocatalysts. Herein, employing a series of transition metal doped and nitrogen decorated biphenylene network (TM-C<sub>x</sub>N<sub>y</sub>@BPN), an inclusive recipe toward the stability, reaction mechanism, and activity trend of single atomic catalysts (SACs) for NO<sub>3</sub>RR is proposed by integrating multidimensional insights from coordination environment, thermodynamic and electrochemical stability, Gibbs free energy profiles, electronic properties, and activity descriptors. It is revealed that the NO<sub>3</sub>RR performance of SACs is highly correlated with their local environments. Furthermore, the hybridization between the TM-3d orbitals and 2π* orbitals of NO<sub>3</sub> <sup>-</sup> gives rise to the formation of d-π* orbitals, thus promoting the NO<sub>3</sub> <sup>-</sup> activation. A symbolic regression is designed to capture the hi",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-design-of-single-atom-catalysts-anch-vs-202512651.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-design-of-single-atom-catalysts-anch-vs-202512651.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-design-of-single-atom-catalysts-anch-vs-202512651\\web-imports-2026-design-of-single-atom-catalysts-anch-vs-202512651_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-design-of-single-atom-catalysts-anch-vs-202512651"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 54,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

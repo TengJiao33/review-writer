@@ -1,0 +1,99 @@
+{
+  "paper_id": "P423",
+  "slug": "web-imports-2026-polyoxometalate-as-hydrogen-electron-vs-202520543",
+  "title": {
+    "value": "Polyoxometalate as Hydrogen-Electron Hub in Metal-Organic Complex for Electrocatalytic Nitrate Reduction to Ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Jiang Q",
+      "Wang X",
+      "Tian S",
+      "Pang H",
+      "Song Y",
+      "Ma H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202520543",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction to ammonia (ENRA) is a sustainable strategy for decentralized ammonia synthesis and wastewater purification, but its efficiency in neutral media is limited by slow water dissociation and insufficient active hydrogen (*H) supply. Herein, we address this challenge through the rational design of chain-like polyoxometalate-based metal-organic complexes that feature dinuclear ([M(H<sub>2</sub>O)<sub>2</sub>C<sub>20</sub>O<sub>2</sub>N<sub>4</sub>H<sub>11</sub>]<sub>4</sub>[SiW<sup>VI</sup> <sub>12</sub>O<sub>40</sub>], M-SiW<sub>12</sub>-1D) and trinuclear ([M<sub>1.5</sub>(H<sub>2</sub>O)<sub>2</sub>C<sub>20</sub>O<sub>3</sub>N<sub>4</sub>H<sub>11</sub>]<sub>4</sub>[PW<sup>VI</sup> <sub>7</sub>W<sup>V</sup> <sub>5</sub>O<sub>40</sub>], M-PW<sub>12</sub>-1D) architectures (M = Ni, Co, Fe) that create continuous electron channels. Among them, trinuclear Ni-PW<sub>12</sub>-1D exhibits exceptional ENRA performance in neutral electrolytes, delivering a very high Faradaic efficiency of 95.0% and a remarkable ammonia yield rate of 16.9 mg h<sup>-1</sup> mg<sub>cat.</sub> <sup>-1</sup> at -1.2 V vs. RHE. In situ Fourier-transform infrared spectroscopy, differ",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-polyoxometalate-as-hydrogen-electron-vs-202520543.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-polyoxometalate-as-hydrogen-electron-vs-202520543.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-polyoxometalate-as-hydrogen-electron-vs-202520543\\web-imports-2026-polyoxometalate-as-hydrogen-electron-vs-202520543_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-polyoxometalate-as-hydrogen-electron-vs-202520543"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 50,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

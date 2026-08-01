@@ -1,0 +1,100 @@
+{
+  "paper_id": "P361",
+  "slug": "web-imports-2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950",
+  "title": {
+    "value": "Tiara Ni Clusters for Electrocatalytic Nitrate Reduction to Ammonia with 97% Faradaic Efficiency.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Gu X",
+      "Zhang J",
+      "Guo S",
+      "Zhang Y",
+      "Xu L",
+      "Jin R",
+      "Li G"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of the American Chemical Society",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/jacs.5c04950",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electroreduction of nitrate (NO<sub>3</sub><sup>-</sup>) for sustainable ammonia (NH<sub>3</sub>) production has recently emerged as a green process to solve water contamination and produce valuable chemicals. In this study, we developed Ni<sub>6</sub>@CuFe-LDH composites comprising tiara Ni<sub>6</sub>(SC<sub>2</sub>H<sub>4</sub>COOH)<sub>12</sub> (Ni<sub>6</sub>) clusters anchored on the edges of 2D CuFe-LDH (LDH: layered double hydroxides) nanosheets via electrostatic interactions. The Ni<sub>6</sub>@CuFe-LDH catalyst exhibits high electrochemical performance in nitrate reduction reaction (NO<sub>3</sub>RR). Specifically, the Ni<sub>6</sub>@CuFe-LDH gives rise to an excellent faradaic efficiency of ∼97%, significantly surpassing the ∼73% FE of the pristine CuFe-LDH, with the NH<sub>3</sub> productivity (0.91 mmol mg<sup>-1</sup> h<sup>-1</sup>) being similar to that of the CuFe-LDH. Mechanistic studies reveal that the superior electrocatalysis of Ni<sub>6</sub>-based catalysts is primarily due to the synergistic interaction between Ni<sub>6</sub> clusters and CuFe-LDH, which alters the rate-determining step (RDS) of the desorption of *NH<sub>3</sub> species (for CuFe-LDH) to",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950\\web-imports-2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-tiara-ni-clusters-for-electrocatalyt-jacs-5c04950"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 45,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

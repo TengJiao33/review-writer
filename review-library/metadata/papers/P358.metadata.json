@@ -1,0 +1,108 @@
+{
+  "paper_id": "P358",
+  "slug": "web-imports-2025-revealing-and-modulating-catalyst-re-025-61075-8",
+  "title": {
+    "value": "Revealing and modulating catalyst reconstruction for highly efficient electrosynthesis of ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Shi X",
+      "Huang WH",
+      "Rong J",
+      "Xie M",
+      "Wa Q",
+      "Zhang P",
+      "Wei H",
+      "Zhou H",
+      "Yeh MH",
+      "Pao CW",
+      "Wang J",
+      "Hu Z",
+      "Yu X",
+      "Ma J",
+      "Cheng H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-61075-8",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction (NO<sub>3</sub>RR) is a promising route for sustainable ammonia synthesis under mild conditions. The widely studied Co-based catalysts undergo significant reconstruction due to nitrate oxidation and electric-field reduction during NO<sub>3</sub>RR, leading to activity degradation. To address this issue, we develop a Co<sub>6</sub>Ni<sub>4</sub> heterostructured catalyst that consists of interlaced metallic Co and Ni domains. Operando X-ray absorption spectroscopy and other in-situ characterization techniques, in conjunction with theoretical calculations, demonstrate that Ni domains function as electron reservoir, which transfer electrons to Co and prevent the accumulation of high-valence Co. Besides, the abundant Co/Ni interfaces also facilitate the NO<sub>3</sub>RR process, thereby achieving a NH<sub>3</sub> Faraday efficiency of 99.21%, a NH<sub>3</sub> yield rate of 93.55 mg h<sup>-1</sup> cm<sup>-2</sup>, and a NO<sub>3</sub>RR stability of 120 h. Our analyses delve into the underlying causes of the observed stability of metallic Co in Co<sub>6</sub>Ni<sub>4</sub> and provide compelling evidence that the discrepancy between the adsorption quan",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-revealing-and-modulating-catalyst-re--025-61075-8.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-revealing-and-modulating-catalyst-re-025-61075-8.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-and-modulating-catalyst-re-025-61075-8\\web-imports-2025-revealing-and-modulating-catalyst-re-025-61075-8_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-revealing-and-modulating-catalyst-re-025-61075-8"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 91,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

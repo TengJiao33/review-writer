@@ -1,0 +1,100 @@
+{
+  "paper_id": "P415",
+  "slug": "web-imports-2026-cross-scale-understanding-of-cascade-9-d5sc09063f",
+  "title": {
+    "value": "Cross-scale understanding of cascade electrocatalysis for carbon and nitrogen utilization.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li S",
+      "Pang Y",
+      "Li H",
+      "Yang R",
+      "Jin Z",
+      "Yu G",
+      "Li P"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc09063f",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Cascade electrocatalysis is increasingly being recognized as a promising approach for achieving efficient and selective conversion of carbon and nitrogen resources, in response to critical challenges in energy sustainability and environmental management. Compared to conventional single-site systems, cascade pathways are designed to enable spatial and temporal coordination of multiple reaction steps, through which the generation, migration, and transformation of key intermediates can be precisely controlled. In this review, a multiscale perspective is provided, spanning atomic, sub-nanoscale, nanoscale, and macroscopic dimensions. Recent progress is summarized in several representative strategies, including the use of multiple active sites for relay catalysis, the engineering of crystal facets and heterointerfaces, the application of nanoconfinement, and the implementation of tandem reactor systems. Particular emphasis is placed on their applications in CO<sub>2</sub> reduction, nitrate reduction, and urea electrosynthesis. Moreover, state-of-the-art <i>in situ</i> characterization techniques are highlighted, through which dynamic insights into catalyst evolution and intermediate be",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-cross-scale-understanding-of-cascade-9-d5sc09063f.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-cross-scale-understanding-of-cascade-9-d5sc09063f.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-cross-scale-understanding-of-cascade-9-d5sc09063f\\web-imports-2026-cross-scale-understanding-of-cascade-9-d5sc09063f_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-cross-scale-understanding-of-cascade-9-d5sc09063f"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 84,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

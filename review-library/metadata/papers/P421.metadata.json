@@ -1,0 +1,103 @@
+{
+  "paper_id": "P421",
+  "slug": "web-imports-2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j",
+  "title": {
+    "value": "Nanoscale Ru unlocking nanoneedles assembled into hierarchical CoO microspheres for efficient nitrate-to-ammonia electroconversion.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhao J",
+      "Liu X",
+      "Ren X",
+      "Zhao D",
+      "Li Z",
+      "Kang Q",
+      "Zhang CW",
+      "Hou L",
+      "Wei Q",
+      "Yuan C"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc09240j",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Because of the strong ability of cobalt oxide (CoO) to render active hydrogen (*H) for selective hydrogenation of NO<sub>3</sub> <sup>-</sup>, it is well established as a promising catalyst for the electrocatalytic reduction of NO<sub>3</sub> <sup>-</sup> to ammonia (eRNO<sub>3</sub> <sup>-</sup>-to-NH<sub>3</sub>) for green NH<sub>3</sub> synthesis along with NO<sub>3</sub> <sup>-</sup> pollutant treatment. Unfortunately, its practical application is severely limited by easy agglomeration, weak NO<sub>3</sub> <sup>-</sup> adsorption, and the side reaction of H* coupling, causing the blockage of active sites and low selectivity of NH<sub>3</sub>. For this, we purposefully designed a hetero hybrid electrocatalyst (denoted as CoO-Ru/CC), where nano-dimensional metallic Ru is anchored onto nanoneedles assembled into hierarchical CoO microspheres that are self-supported on carbon cloth (CC). Because of the vertical order open architecture, intrinsic oxygen vacancies, and local electric field in the self-standing CoO-Ru heterostructure, there are abundant active sites, efficient adsorption of NO<sub>3</sub> <sup>-</sup>, weakened N-O bonds, and a reduced reaction energy barrier, as well",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j\\web-imports-2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-nanoscale-ru-unlocking-nanoneedles-a-9-d5sc09240j"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 64,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

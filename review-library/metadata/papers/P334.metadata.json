@@ -1,0 +1,104 @@
+{
+  "paper_id": "P334",
+  "slug": "web-imports-2026-defective-three-dimensional-covalent-026-71137-0",
+  "title": {
+    "value": "Defective three-dimensional covalent organic frameworks for enhanced hydrogen peroxide photosynthesis and organic transformation.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Dong T",
+      "Xu X",
+      "Chen L",
+      "Yang J",
+      "Guo M",
+      "Zhou M",
+      "Xu M",
+      "Xue W",
+      "Ren X",
+      "Li S",
+      "Cheng C"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-026-71137-0",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Covalent organic frameworks with three-dimensional networks and interconnected porous structures show promising advantages for hydrogen peroxide photocatalysis. However, 3D COFs are typically constructed from 3D-oriented knots with less conjugation and insufficient light absorption, which significantly inhibits their performance. Herein, we present a universal defect engineering approach by systematically replacing T<sub>d</sub> knots with trigonal planar ligands and modifying linear linkers with electron-withdrawing/donating groups to achieve simultaneous enhancement of light absorption and precise electronic tuning of 3D donor-acceptor structures. Experimental results and theoretical analysis reveal that the optimized 3D COF with planar ligands induced defects and fluorine functional groups (COF-300-D-F), which achieve an H<sub>2</sub>O<sub>2</sub> production rate of 19.09 mmol g<sup>-1</sup> h<sup>-1</sup> and apparent quantum yield of 11.95% at 400 nm with benzyl alcohol as sacrificial agent. Moreover, the material maintains long-term stability during continuous operation exceeding 96 hours and exhibits high activity in photocatalytic benzylamine coupling reactions.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-defective-three-dimensional-covalent--026-71137-0.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-defective-three-dimensional-covalent-026-71137-0.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defective-three-dimensional-covalent-026-71137-0\\web-imports-2026-defective-three-dimensional-covalent-026-71137-0_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defective-three-dimensional-covalent-026-71137-0"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 117,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

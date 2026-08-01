@@ -1,0 +1,96 @@
+{
+  "paper_id": "P391",
+  "slug": "web-imports-2025-electrocatalytic-c-n-coupling-advanc-sc-202402566",
+  "title": {
+    "value": "Electrocatalytic CN Coupling: Advances in Urea Synthesis and Opportunities for Alternative Products.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ballard-Kyle P",
+      "Hsieh I",
+      "Zhu H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemsuschem",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/cssc.202402566",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Urea is an essential fertilizer produced through the industrial synthesis of ammonia (NH<sub>3</sub>) via the Haber-Bosch process, which contributes ≈1.2% of global annual CO<sub>2</sub> emissions. Electrocatalytic urea synthesis under ambient conditions via CN coupling from CO<sub>2</sub> and nitrogen species such as nitrate (NO<sub>3</sub> <sup>-</sup>), nitrite (NO<sub>2</sub> <sup>-</sup>), nitric oxide (NO), and nitrogen gas (N<sub>2</sub>) has gained interest as a more sustainable route. However, challenges remain due to the unclear reaction pathways for urea formation, competing reactions, and the complexity of the resulting product matrix. This review highlights recent advances in catalyst design, urea quantification, and intermediate identification in the CN coupling reaction for electrocatalytic urea synthesis. Furthermore, this review explores future prospects for industrial CN coupling, considering potential nitrogen and carbon sources and examining alternative CN coupling products, such as amides and amines.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrocatalytic-c-n-coupling-advanc-sc-202402566.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrocatalytic-c-n-coupling-advanc-sc-202402566.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrocatalytic-c-n-coupling-advanc-sc-202402566\\web-imports-2025-electrocatalytic-c-n-coupling-advanc-sc-202402566_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrocatalytic-c-n-coupling-advanc-sc-202402566"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 100,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "paper_id": "P286",
+  "slug": "web-imports-2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444",
+  "title": {
+    "value": "Iron-Catalyzed Nucleophilic Substitution Reactions: An Overview.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Ramamoorthy S",
+      "Ramasubramanian M",
+      "Sivaraj N",
+      "Dohi T",
+      "Singh FV"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Omega",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsomega.6c00444",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Transition metal complexes have become increasingly important as catalysts in organic synthesis. Iron has emerged as an exceptionally versatile, cost-effective, and sustainable catalyst in contemporary organic synthesis owing to its competitive reactivity and selectivity. It efficiently overcomes the limitations of noble metal catalysts and substitutes for precious transition metals. Selective reduction of olefins, alkynes, and carboxylic derivatives as well as cross-coupling reactions involving C-O cleavage have been facilitated the use of iron as a catalyst, enhancing the catalyst scope in addition to the asymmetric synthesis employing chiral iron catalysts.Currently, heterogeneous iron catalysts showcase superior performance and have vast applications in industries, notably as iron-oxide-hybridized support systems such as clay, aluminosilicates, metal oxides, or polymeric matrices, which carbonize metals to perform various catalytic reactions. Among numerous applications, iron-catalyzed nucleophilic substitution processes are particularly significant, as they provide convenient access to C-C, C-N, C-O, and C-S bond formation in an efficient manner under mild and operationally fr",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "palladium catalysis",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444\\web-imports-2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-iron-catalyzed-nucleophilic-substitu-mega-6c00444"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T10:11:59Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 145,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_product",
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "paper_id": "P374",
+  "slug": "web-imports-2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21",
+  "title": {
+    "value": "Electrocatalytic Nitrate Reduction for Selective Ammonia Production: Mechanisms and Prospects",
+    "source": "markdown_first_h1",
+    "confidence": 0.88,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Menghuai Tang"
+    ],
+    "source": "content_list_after_title",
+    "confidence": 0.74,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "filename_or_front_matter",
+    "confidence": 0.68,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "International Journal of Natural Resources and Environmental Studies",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.62051/ijnres.v8n3.21",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction to ammonia driven by renewable energy offers the dual benefits of environmental remediation and sustainable ammonia synthesis. However, this process is a complex multi-electron, multi-proton reaction involving a variety of reaction pathways, making it crucial to understand its mechanism at the molecular level. This review first outlines the necessity and advantages of electrocatalytic nitrate reduction to ammonia, as well as its electrochemical principles and fundamentals. It then focuses on the reaction mechanisms and pathways, along with in situ characterization techniques used to monitor reaction intermediates and identify active sites. Finally, future research directions are proposed, and the applications and economic value in sustainable ammonia synthesis and energy conversion are systematically discussed. This review aims to decode the principles of nitrate reduction to ammonia and provide guidance for the rational design and development of electrocatalysts to achieve a sustainable and efficient nitrogen cycle.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21.pdf",
+    "xml": null,
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21\\bacf6781-2625-4832-9758-bfd043813f58_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21"
+  },
+  "source_file": {
+    "pdf_name": "2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21.pdf",
+    "relative_pdf_path": "web-imports\\2026-electrocatalytic-nitrate-reduction-f-nres-v8n3-21.pdf",
+    "sha256": "1404a7931e48cd4687447dfd3c9ae1d99eec40586c1384f74e4b1a811c700f14"
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:37Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 237,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:doi,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.751,
+    "needs_human_check": false
+  }
+}

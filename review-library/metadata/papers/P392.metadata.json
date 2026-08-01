@@ -1,0 +1,103 @@
+{
+  "paper_id": "P392",
+  "slug": "web-imports-2025-enhanced-nitrate-reduction-performan-nano15100753",
+  "title": {
+    "value": "Enhanced Nitrate Reduction Performance of Cu-Doped Nanoporous Co&lt;sub&gt;2&lt;/sub&gt;P Electrocatalyst.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Huang Y",
+      "Zhang X",
+      "Liang Y",
+      "Jiang H",
+      "Wu S",
+      "Li Z",
+      "Cui Z",
+      "Zhu S",
+      "Gao Z",
+      "Xu W"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nanomaterials",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/nano15100753",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction to ammonia (NO<sub>3</sub>RR) is a promising approach to recycle nitrogen from nitrate pollutants, yet it remains challenged by low Faradaic efficiency and insufficient NH<sub>3</sub> production. Herein, Cu-doped nanoporous Co<sub>2</sub>P (np-Co<sub>2-x</sub>Cu<sub>x</sub>P) is reported as electrocatalyst for NO<sub>3</sub>RR, achieving an ammonia yield rate of 30.6 mg h<sup>-1</sup> cm<sup>-2</sup> with a Faradaic efficiency of 93.4% at -0.3 V vs. RHE. In-situ spectroscopic analyses indicate that Cu incorporation modifies the surface electronic structure, resulting in the promotion of *H adsorption and *NO<sub>2</sub><sup>-</sup> hydrogenation, thereby facilitating efficient ammonia generation.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-enhanced-nitrate-reduction-performan-nano15100753.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-enhanced-nitrate-reduction-performan-nano15100753.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-enhanced-nitrate-reduction-performan-nano15100753\\web-imports-2025-enhanced-nitrate-reduction-performan-nano15100753_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-enhanced-nitrate-reduction-performan-nano15100753"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 35,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

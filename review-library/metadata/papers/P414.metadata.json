@@ -1,0 +1,99 @@
+{
+  "paper_id": "P414",
+  "slug": "web-imports-2026-beyond-sabatier-multiplicate-spillov-vs-202520177",
+  "title": {
+    "value": "Beyond Sabatier: Multiplicate Spillover Phenomena for Manipulating Catalytic Dynamics in Various Electrocatalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Wang D",
+      "Dong Z",
+      "Yao Q",
+      "Dou S",
+      "Mei J",
+      "Sun Z"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202520177",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Spillover phenomenon, which is characterized by the dynamic migration of active species across catalyst surfaces, provides a promising avenue to overcome the limitations dictated by the Sabatier principle in conventional catalysis. This comprehensive review highlights recent progress in multiplicate spillover, including hydrogen, oxygen, hydroxyl, and intermediate spillover, and their critical roles in modulating intermediate adsorption, strengthening interfacial transport, and manipulating catalytic dynamics. Then, various spillover-mediated electrocatalytic reactions, such as hydrogen and oxygen evolution, carbon dioxide and nitrogen reduction, and methanol oxidization reactions, are systematically summarized. Finally, current challenges of different spillover systems are critically assessed and future research directions are briefly outlined. It is expected that this review offers some useful guidance on rational design of high-performance spillover-based electrocatalysts and promote advancement of sustainable energy conversion technologies.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-beyond-sabatier-multiplicate-spillov-vs-202520177.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-beyond-sabatier-multiplicate-spillov-vs-202520177.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-beyond-sabatier-multiplicate-spillov-vs-202520177\\web-imports-2026-beyond-sabatier-multiplicate-spillov-vs-202520177_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-beyond-sabatier-multiplicate-spillov-vs-202520177"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 159,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

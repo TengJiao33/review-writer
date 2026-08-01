@@ -1,0 +1,98 @@
+{
+  "paper_id": "P365",
+  "slug": "web-imports-2026-electrochemical-nitrate-reduction-re-vs-202523422",
+  "title": {
+    "value": "Electrochemical Nitrate Reduction Reaction to Ammonia at Industrial-Level Current Densities.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Cui Z",
+      "Wang H",
+      "Li C",
+      "Peng W",
+      "Liu J"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202523422",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrochemical nitrate reduction reaction (NO<sub>3</sub> <sup>-</sup>RR) represents a promising green synthesis technology, enabling both resource utilization of nitrate (NO<sub>3</sub> <sup>-</sup>) pollutants in wastewater and provision of a sustainable ammonia (NH<sub>3</sub>) source for carbon neutrality. The key challenge in advancing NO<sub>3</sub> <sup>-</sup>RR toward practical application lies in developing catalytic systems that maintain excellent activity, high selectivity, and long-term stability at industrial-level current densities (>300 mA cm<sup>-2</sup>). Although NO<sub>3</sub> <sup>-</sup>RR has been developed to a certain extent, there has yet to be a comprehensive summary and analysis of the advancements in this field at industrial-level current densities up to now. This review begins with an introduction to the mechanism and theoretical basis of NO<sub>3</sub> <sup>-</sup>RR, systematically summarizes and analyzes catalyst design strategies for industrial-level current densities, including alloying methods, in situ derivation strategy, heterostructure construction, doping engineering, and self-supporting electrode fabrication. In addition, the progress o",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-electrochemical-nitrate-reduction-re-vs-202523422.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-electrochemical-nitrate-reduction-re-vs-202523422.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electrochemical-nitrate-reduction-re-vs-202523422\\web-imports-2026-electrochemical-nitrate-reduction-re-vs-202523422_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-electrochemical-nitrate-reduction-re-vs-202523422"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 147,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

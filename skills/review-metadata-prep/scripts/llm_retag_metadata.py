@@ -77,9 +77,9 @@ def retag_one(
     merge_llm(meta, llm_data)
     apply_structured_tags_to_compat_fields(meta)
     meta.setdefault("extraction", {}).setdefault("notes", [])
-    meta["extraction"]["mode"] = "llm_8_category_retag"
+    meta["extraction"]["mode"] = "llm_optional_chemistry_descriptors"
     meta["extraction"]["model"] = model
-    meta["extraction"]["notes"].append("llm_8_category_tags_refreshed")
+    meta["extraction"]["notes"].append("llm_optional_chemistry_descriptors_refreshed")
     update_quality(meta)
     write_json(meta_path, meta)
     return {
@@ -91,7 +91,7 @@ def retag_one(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Refresh existing metadata with LLM-extracted eight-category tags.")
+    parser = argparse.ArgumentParser(description="Refresh existing metadata with optional LLM chemistry descriptors.")
     parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--model", default="")
     parser.add_argument("--base-url", default="")
@@ -101,6 +101,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--sleep-seconds", type=float, default=0.0)
     parser.add_argument("--timeout", type=int, default=120)
+    parser.add_argument(
+        "--classification-rules",
+        default="",
+        help="Optional project-specific label rules. Omit for generic descriptors.",
+    )
     return parser.parse_args()
 
 
@@ -116,7 +121,11 @@ def main() -> int:
         raise SystemExit(f"Missing API key. Pass --api-key, set OPENAI_API_KEY, or write it to {review_root / '.env'}.")
     skill_root = Path(__file__).resolve().parents[1]
     system_prompt = (skill_root / "references" / "metadata_extraction_system.md").read_text(encoding="utf-8")
-    classification_labels = load_classification_rules(review_root / "allene_classification_rules.py")
+    classification_labels = (
+        load_classification_rules(Path(args.classification_rules).resolve())
+        if args.classification_rules
+        else {}
+    )
     meta_dir = review_root / "review-library" / "metadata" / "papers"
     paths = sorted(meta_dir.glob("*.metadata.json"))
     if args.paper_id:

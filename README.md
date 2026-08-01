@@ -10,9 +10,10 @@ Review Writer is a lightweight research-writing toolbox. It provides:
 - stable citation numbering and reference formatting;
 - Markdown to DOCX to PDF export and rendered-page inspection.
 
-It does not impose a stage machine, evidence matrix, blueprint, semantic audit
-queue, fixed word/reference/figure quota, release gate, or finalizer. The model
-writes the manuscript directly and uses only the tools that help.
+The writer controls scope, source selection, synthesis, and visual judgment.
+The tools supply deterministic retrieval, bookkeeping, formatting, and
+rendering. Their reports are concise working aids rather than a stage machine,
+evidence matrix, quota system, or release gate.
 
 Start with [skills/技能工作流说明.md](skills/技能工作流说明.md) and the individual
 `SKILL.md` files.

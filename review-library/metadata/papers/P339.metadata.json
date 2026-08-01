@@ -1,0 +1,101 @@
+{
+  "paper_id": "P339",
+  "slug": "web-imports-2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h",
+  "title": {
+    "value": "Nitrogen vacancies in graphitic carbon nitride and their role in heterogeneous photocatalysis.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Landi A",
+      "Ambrosio F",
+      "Bianchi N",
+      "Loriso M",
+      "Malavasi L",
+      "Profumo A",
+      "Wiktor J",
+      "Peluso A"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Materials Horizons",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6mh00462h",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Graphitic carbon nitride (g-C<sub>3</sub>N<sub>4</sub>) is a promising metal-free photocatalyst whose activity is often enhanced by nitrogen vacancies, though their microscopic role remains unclear. Using advanced <i>ab initio</i> calculations with large periodic supercells, we show that long-range buckling is essential to correctly evaluate defect energetics and thus determine the stability of distinct vacancy configurations. The most stable defects are found to introduce localized in-gap states corresponding to shallow acceptor and deep donor levels. These features explain (i) the experimental red-shifted absorption and (ii) suppressed photoluminescence observed in N-deficient g-C<sub>3</sub>N<sub>4</sub> samples. Most importantly (iii) energy-level alignment at the water-semiconductor interface explains the enhanced photocatalytic reduction and reduced oxidation activity reported experimentally. Overall, our results provide a unified microscopic picture that quantitatively connects defect-induced electronic structure changes and experimental observables, offering a concrete predictive strategy for designing defect engineered carbon nitride and related metal-free photocatalysts.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h\\web-imports-2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-nitrogen-vacancies-in-graphitic-carb-9-d6mh00462h"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 59,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

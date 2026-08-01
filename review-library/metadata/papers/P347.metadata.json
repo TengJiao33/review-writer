@@ -1,0 +1,94 @@
+{
+  "paper_id": "P347",
+  "slug": "web-imports-undated-defect-and-particle-size-engineering-pmc13294897",
+  "title": {
+    "value": "Defect and Particle-Size Engineering as Mechanistic Drivers for Dye Uptake in a Zirconium Metal–Organic Framework",
+    "source": "jats_article_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Karl Thomas Jackson",
+      "Robert H. Lomax",
+      "Fatemeh Parnianchi"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Omega",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acsomega.6c00601",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Precise control over the particle size and defect density of metal–organic frameworks (MOFs) is critical for optimizing their performance in adsorption-based applications. Acid modulation offers a powerful route for tuning structural features in MOFs enabling control over adsorbate–adsorbent interactions. In this study, UiO-66 was synthesized using 75, 150, and 300 equiv of acetic acid relative to zirconium (designated as Z01, Z02, and Z03, respectively) to investigate how defect density and particle size influence dye adsorption mechanisms. Increasing acid concentration produced a direct increase in particle size (190, 330, and 450 nm, respectively) and an inverse trend in dye adsorption capacity across all three probe moleculesmethyl orange, methylene blue, and curcumin. Surface area (950–1160 m 2 /g) and defect levels (0.6–1.1) exhibited a nonlinear dependence on the acid concentration, increasing from 75 to 150 equiv before decreasing at 300 equiv kinetic analysis showing dye- and sample-dependent behavior, with PSO providing the best overall description for MO and MB adsorption, while curcumin exhibited mixed kinetic behavior. Isotherm modeling of methyl orange and methylene blue on Z01 showed nonlinearity in Langmuir fits but strong linearity in Freundlich plots, consistent with heterogeneous surface adsorption. Across all materials, methyl orange exhibited the highest uptake and methylene blue the lowest. Variation of reaction time (6–48 h) had no measurable effect on structural properties or adsorption performance. These results demonstrate that acid-modulated defect and particle-size engineering provide a mechanistic handle for tuning dye adsorption behavior in MOFs, offering a pathway toward rational design of adsorbents with tailored interaction profiles.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\undated-defect-and-particle-size-engineering-pmc13294897.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-undated-defect-and-particle-size-engineering-pmc13294897.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-undated-defect-and-particle-size-engineering-pmc13294897\\web-imports-undated-defect-and-particle-size-engineering-pmc13294897_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-undated-defect-and-particle-size-engineering-pmc13294897"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:30Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 74,
+      "markdown_chars_used": 14000
+    },
+    "notes": []
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.849,
+    "needs_human_check": false
+  }
+}

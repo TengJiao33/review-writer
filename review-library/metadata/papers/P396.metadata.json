@@ -1,0 +1,101 @@
+{
+  "paper_id": "P396",
+  "slug": "web-imports-2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495",
+  "title": {
+    "value": "Graphene Oxide-Anchored Cu-Co Catalysts for Efficient Electrochemical Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Lan H",
+      "Zhang Y",
+      "Ding L",
+      "Li X",
+      "Zhao Z",
+      "Qu Y",
+      "Xia Y",
+      "Chang X"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Materials",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3390/ma18112495",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction to ammonia (ENRA) presents a promising strategy for simultaneous environmental remediation and sustainable ammonia synthesis. In this work, a Cu-Co bimetallic catalyst supported on functionalized reduced graphene oxide (RGO) was systematically designed to achieve efficient and selective ammonia production. Surface oxygen functional groups on graphene oxide (GO) were optimized through alkaline hydrothermal treatments, enhancing the anchoring capacity for metal active sites. Characterization indicated the successful formation of uniform Cu-Co bimetallic heterointerfaces comprising metallic and oxide phases, which significantly improved catalyst stability and performance. Among the studied compositions, Cu<sub>6</sub>Co<sub>4</sub>/RGO exhibited superior catalytic activity, achieving a remarkable ammonia selectivity of 99.86% and a Faradaic efficiency of 96.54% at -0.6 V (vs. RHE). Long-term electrocatalysis demonstrated excellent durability, with over 90% Faradaic efficiency maintained for ammonia production after 20 h of operation. In situ FTIR analysis revealed that introducing Co effectively promoted water dissociation, facilitating hydrogen gene",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495\\web-imports-2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-graphene-oxide-anchored-cu-co-cataly-0-ma18112495"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 64,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

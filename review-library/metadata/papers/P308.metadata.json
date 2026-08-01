@@ -1,0 +1,102 @@
+{
+  "paper_id": "P308",
+  "slug": "web-imports-2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401",
+  "title": {
+    "value": "Electrochemical C4 alkylation of pyridine derivatives: Enhanced regioselectivity via silane assistance.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Yang Z",
+      "Liu X",
+      "Chen YX",
+      "Gao Y",
+      "Xiao X",
+      "Maekawa H",
+      "Zhang T",
+      "Hao XQ",
+      "Song MP"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Science Advances",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1126/sciadv.adz3401",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Pyridine derivatives are valuable biologically active compounds, materials, and ligands; however, traditional methods for site-selective direct functionalization are often hindered by multistep procedures and harsh conditions. Herein, we report the general and efficient electroreductive C4 alkylation of pyridine derivatives with various alkyl bromides with high regioselectivity and good yields. The addition of chlorotrimethylsilane facilitated the in situ formation of an <i>N</i>-trimethylsilyl pyridinium salt, increasing the electron deficiency of the pyridine core and enabling it to preferentially undergo single-electron reduction over alkyl bromides, thereby enhancing both yield and regioselectivity. Furthermore, the C4-alkylated pyridines can undergo subsequent electroreductive C2 alkylation, allowing for the sequential installation of distinct alkyl groups, thereby providing a versatile approach to accessing structurally diverse di- and trifunctionalized pyridines.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401\\web-imports-2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-c4-alkylation-of-pyr-iadv-adz3401"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:09:56Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 35,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

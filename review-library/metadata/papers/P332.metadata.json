@@ -1,0 +1,104 @@
+{
+  "paper_id": "P332",
+  "slug": "web-imports-2026-defect-engineered-nonstoichiometric-026-71358-3",
+  "title": {
+    "value": "Defect-engineered nonstoichiometric perovskite hosting high-activity PdO sites for enhanced hydrocarbon oxidation.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Yu J",
+      "Wang ZQ",
+      "Jiang Y",
+      "Yan J",
+      "Guo Y",
+      "Guo Y",
+      "Wang L",
+      "Wang A",
+      "Dai S",
+      "Gao F",
+      "Zhan W"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-026-71358-3",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Supported noble metal catalysts are central to industrial, environmental, and energy applications, yet precisely constructing active sites with optimized geometry remains a formidable challenge beyond conventional particle size control. Here, we introduce a perovskite-based surface defect engineering strategy that enables atomic-level regulation of noble metal active sites. By tailoring La stoichiometry in LaAlO<sub>3</sub>, we engineer three distinct surface morphologies (planar, stepped, and crater-like) that serve as templates for anchoring and replicating supported PdO nanoparticles. Among these, the step-rich PdO configuration on La<sub>0.9</sub>AlO<sub>3-δ</sub> exhibits the highest methane oxidation activity, with a linear correlation between Pd step-site density and catalytic performance. The enhancement arises from low-coordination Pd atoms at step sites, which form stable Pd-C(CH<sub>3</sub>) covalent bonds and facilitate C-H bond activation, the rate-determining step in methane oxidation. This work establishes a generalizable approach to precisely tailor noble metal active sites through perovskite surface engineering, providing a robust framework for the rational design",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-defect-engineered-nonstoichiometric---026-71358-3.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-defect-engineered-nonstoichiometric-026-71358-3.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defect-engineered-nonstoichiometric-026-71358-3\\web-imports-2026-defect-engineered-nonstoichiometric-026-71358-3_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-defect-engineered-nonstoichiometric-026-71358-3"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 112,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

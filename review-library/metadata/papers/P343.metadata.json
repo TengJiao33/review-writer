@@ -1,0 +1,100 @@
+{
+  "paper_id": "P343",
+  "slug": "web-imports-2026-ruthenium-based-defective-mofs-as-he-meng-5c13124",
+  "title": {
+    "value": "Ruthenium-Based Defective MOFs as Heterogeneous Catalysts for the Hydrogenation of Carbon Dioxide to Formate.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li S",
+      "Shen T",
+      "Leng S",
+      "Bassi A",
+      "Wu D",
+      "Huang Y",
+      "Xu CC"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "ACS Sustainable Chemistry & Engineering",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acssuschemeng.5c13124",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The hydrogenation of carbon dioxide to formic acid has attracted considerable interest for carbon utilization and hydrogen storage. Metal-organic frameworks (MOFs), featuring open coordination sites and tunable pore structures, offer unique advantages for heterogeneous catalysis. Herein, we report the catalytic performance of a series of defect-engineered Ru-MOF catalysts for the hydrogenation of CO<sub>2</sub> to formate. The catalysts were synthesized by partially substituting the organic linker with 3,5-pyridinedicarboxylic acid (PYDC) to introduce controllable defect sites. Among the series, the defective Ru-MOF prepared with an optimal PYDC ratio of 30% used during synthesis (D3-Ru-MOF) exhibits enhanced catalytic performance for CO<sub>2</sub> hydrogenation to formate compared with its nondefective counterpart. After hydrogen pretreatment, D3-Ru-MOF achieves a turnover number (TON) of 1258 at 120 °C over 24 h while maintaining good structural stability. A clear structure-activity relationship was observed with catalytic performance dependent on defect density within the framework. This study demonstrates the effectiveness of defect-engineering in Ru-MOFs for improving CO<sub>",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-ruthenium-based-defective-mofs-as-he-meng-5c13124.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-ruthenium-based-defective-mofs-as-he-meng-5c13124.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-ruthenium-based-defective-mofs-as-he-meng-5c13124\\web-imports-2026-ruthenium-based-defective-mofs-as-he-meng-5c13124_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-ruthenium-based-defective-mofs-as-he-meng-5c13124"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:30Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 62,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

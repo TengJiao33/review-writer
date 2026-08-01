@@ -1,6 +1,6 @@
 ---
 name: review-metadata-prep
-description: Register MinerU or repository full text in the managed paper library, extract bibliographic metadata, validate local paths, and repair paths after a repository move.
+description: Register MinerU or repository full text in a managed chemistry-paper library, extract bibliographic metadata, validate local paths, optionally add project-specific descriptors, and repair paths after a repository move.
 ---
 
 # Review Metadata Tools
@@ -15,6 +15,10 @@ python skills/review-metadata-prep/scripts/prepare_metadata.py \
   --discover-from-pdf-root \
   --append-registry
 ```
+
+The default path extracts general bibliographic metadata and leaves optional
+chemistry descriptors unconstrained. It does not assume a reaction class,
+material family, analytical method, or other review topic.
 
 Validate records and source paths:
 
@@ -32,13 +36,20 @@ python skills/review-metadata-prep/scripts/remap_source_paths.py \
   --write
 ```
 
-Metadata extraction is fallible. Leave unavailable author, title, year,
-journal, DOI, page, or article-number fields empty, then repair them from the
-paper front matter or a reliable bibliographic record.
+Metadata extraction provides a starting record. Leave unavailable author,
+title, year, journal, DOI, page, or article-number fields empty, then repair
+them from the paper front matter or a reliable bibliographic record. Before
+final citation numbering, inspect the records actually cited by the manuscript.
+Correct author fields that contain title fragments or affiliations and titles
+that contain raw LaTeX at their source records.
 
-The legacy eight chemistry tags remain available for older local retrieval, but
-they are optional enrichment and should not control a general-domain review.
-Use LLM retagging only when those tags are genuinely useful:
+Structured chemistry descriptors are optional retrieval aids. Use
+`--use-llm` for concise paper-supported descriptors. Supply
+`--classification-rules <path>` only when the current project genuinely
+benefits from a controlled vocabulary; do not require every topic to define
+one.
+
+For an existing library, refresh optional descriptors with:
 
 ```bash
 python skills/review-metadata-prep/scripts/batch_llm_retag_metadata.py \
@@ -48,4 +59,5 @@ python skills/review-metadata-prep/scripts/batch_llm_retag_metadata.py \
 
 Core outputs are `review-library/registry/papers.jsonl` and
 `review-library/metadata/papers/<paper_id>.metadata.json`. Validation reports
-describe the mechanical completeness of those records.
+describe mechanical completeness; optional descriptors do not decide whether a
+paper may support a review.

@@ -1,0 +1,98 @@
+{
+  "paper_id": "P304",
+  "slug": "web-imports-2022-recent-advances-in-metal-catalyst-an-2022-967501",
+  "title": {
+    "value": "Recent advances in metal catalyst- and oxidant-free electrochemical C-H bond functionalization of nitrogen-containing heterocycles.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Li YN",
+      "Wang B",
+      "Huang YK",
+      "Hu JS",
+      "Sun JN"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2022,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Frontiers in Chemistry",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.3389/fchem.2022.967501",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The C-H functionalization of nitrogen-containing heterocycles has emerged as a powerful strategy for the construction of carbon-carbon (C-C) and carbon-heteroatom (C-X) bonds. In order to achieve efficient and selective C-H functionalization, electrochemical synthesis has attracted increasing attention. Because electrochemical anodic oxidation is ideal for replacing chemical reagents in C-H functionalization reactions. This mini-review summarizes the current knowledge and recent advances since 2017 in the synthetic utility of electrochemical transformations for the C-H functionalization of nitrogen-containing heterocycles.",
+    "source": "jats_abstract",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2022-recent-advances-in-metal-catalyst-an--2022-967501.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2022-recent-advances-in-metal-catalyst-an-2022-967501.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-recent-advances-in-metal-catalyst-an-2022-967501\\web-imports-2022-recent-advances-in-metal-catalyst-an-2022-967501_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2022-recent-advances-in-metal-catalyst-an-2022-967501"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:09:56Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 74,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.849,
+    "needs_human_check": false
+  }
+}

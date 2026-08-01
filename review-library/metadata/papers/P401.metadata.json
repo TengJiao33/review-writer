@@ -1,0 +1,101 @@
+{
+  "paper_id": "P401",
+  "slug": "web-imports-2025-maximized-atom-utilization-in-a-high-025-63317-1",
+  "title": {
+    "value": "Maximized atom utilization in a high-entropy metallene via single atom alloying for boosted nitrate electroreduction to ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhou Y",
+      "Zhang L",
+      "Wang M",
+      "Shen X",
+      "Zhu Z",
+      "Qian T",
+      "Yan C",
+      "Lu J"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-63317-1",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "High-entropy alloys, with their unique structural characteristics and intrinsic properties, have evolved to be one of the most popular catalysts for energy-related applications. However, the geometry of the traditional nanoparticle morphology confines the majority of active atoms to the particle core, deeming them ineffective. In this study, we present a class of two-dimensional high-entropy alloys, namely, high-entropy metallenes, constructed by alloying various single-atom metals in atomically thin layers and reveal their great feasibility for electrocatalytic nitrate reduction to ammonia. Through multimetal interactions, various active centres are formed and sufficiently exposed over the metallene. Each element performs its own duties and jointly lowers the energy barrier of the rate-determining step. As expected, the proof-of-concept PdCuNiCoZn high-entropy metallene delivers satisfactory catalytic performance across wide pH ranges. In particular, in a strongly alkaline electrolyte, a maximum ammonia yield rate of 447 mg h<sup>-1</sup> mg<sup>-1</sup> and a high Faradaic efficiency of 99.0% are achieved.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-maximized-atom-utilization-in-a-high--025-63317-1.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-maximized-atom-utilization-in-a-high-025-63317-1.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-maximized-atom-utilization-in-a-high-025-63317-1\\web-imports-2025-maximized-atom-utilization-in-a-high-025-63317-1_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-maximized-atom-utilization-in-a-high-025-63317-1"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 102,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

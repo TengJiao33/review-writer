@@ -1,0 +1,97 @@
+{
+  "paper_id": "P419",
+  "slug": "web-imports-2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773",
+  "title": {
+    "value": "In Situ Construction of Cu&lt;sup&gt;1+&lt;/sup&gt;/Cu&lt;sup&gt;0&lt;/sup&gt; and Cu&lt;sup&gt;2+&lt;/sup&gt;/Cu&lt;sup&gt;0&lt;/sup&gt; Pairs of Cu-Based Catalysts for Electrocatalytic Nitrate Reduction.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "An S",
+      "Ren J",
+      "Xue Y",
+      "Tian J"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Advanced Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/advs.202517773",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Electrocatalytic nitrate reduction reaction (NO<sub>3</sub>RR) as a sustainable nitrogen cycle regulation strategy provides a new pathway to achieve carbon neutrality goals. In this study, CuO, Cu<sub>2</sub>P<sub>2</sub>O<sub>7</sub> and Cu<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub> (CuPO) are synthesized as pre-catalysts via a sol-gel process for NO<sub>3</sub>RR, in which CuO exhibits excellent NH<sub>3</sub> yields of 8.16 mg h<sup>-1</sup> mg<sub>cat</sub> <sup>-1</sup> (FE = 95.72%, -0.95 V vs. RHE) compared to Cu<sub>2</sub>P<sub>2</sub>O<sub>7</sub> (7.33 mg h<sup>-1</sup>mg<sub>cat</sub> <sup>-1</sup>, 94.88%) and Cu<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub> (6.53 mg h<sup>-1</sup>mg<sub>cat</sub> <sup>-1</sup>, 92.04%). The combination of in situ Raman and XPS spectra reveal that the pre-catalyst surface is reconfigured to form stable active sites of Cu<sup>1+</sup>/Cu<sup>0</sup> (CuO-derived) and Cu<sup>2+</sup>/Cu<sup>0</sup> pairs (CuPO-derived) during the NO<sub>3</sub>RR process. Tracking the evolution of intermediates using online differential electrochemical mass spectrometry (DEMS) spectra and in situ Fourier transform infrared spectroscopy (FT-IR) spectra reveal that",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773\\web-imports-2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-in-situ-construction-of-cu-lt-sup-gt-vs-202517773"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 45,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

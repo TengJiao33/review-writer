@@ -1,0 +1,102 @@
+{
+  "paper_id": "P363",
+  "slug": "web-imports-2026-atomic-scale-redox-potential-mediate-9-d5sc08998k",
+  "title": {
+    "value": "Atomic-scale redox-potential-mediated engineering of 0D/2D Cu-Cu&lt;sub&gt;2&lt;/sub&gt;O/MO &lt;sub&gt;&lt;i&gt;x&lt;/i&gt;&lt;/sub&gt; (OH) &lt;sub&gt;&lt;i&gt;y&lt;/i&gt;&lt;/sub&gt; heterojunctions for efficient nitrate electroreduction to ammonia.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhang T",
+      "Hao T",
+      "Hou X",
+      "Yin Y",
+      "Hu G",
+      "Meng G",
+      "Sun S",
+      "Li H",
+      "Wang B"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc08998k",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The precise construction of zero-dimensional/two-dimensional (0D/2D) heterojunctions is often hindered by interfacial lattice mismatches and uncontrolled phase transitions, limiting their efficacy in electrocatalysis. Herein, we report a widely applicable redox-potential-mediated strategy for the atomically defined fabrication of 0D/2D Cu-Cu<sub>2</sub>O/MO <sub><i>x</i></sub> (OH) <sub><i>y</i></sub> heterojunctions (M = Ni, Fe, Mn, Co, Cr). This approach leverages the inherent differences in standard reduction potentials between Cu and transition metals to drive selective oxidation and ultrasound-assisted hydrolysis of pre-synthesized CuM alloy nanoparticles. This process results <i>in situ</i> phase separation, forming epitaxially embedded Cu-Cu<sub>2</sub>O nanoparticles within ultrathin MO <sub><i>x</i></sub> (OH) <sub><i>y</i></sub> nanosheets. As a proof of concept, the Cu-Cu<sub>2</sub>O/Ni(OH)<sub>2</sub> heterojunction exhibits exceptional performance in the electrocatalytic nitrate reduction reaction (eNITRR), achieving an outstanding ammonia yield rate of 12,974.5 µg cm<sup>-2</sup> h<sup>-1</sup> (at a mass loading of 1 mg cm<sup>-2</sup>) and a Faradaic efficiency of",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-atomic-scale-redox-potential-mediate-9-d5sc08998k.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-atomic-scale-redox-potential-mediate-9-d5sc08998k.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-atomic-scale-redox-potential-mediate-9-d5sc08998k\\web-imports-2026-atomic-scale-redox-potential-mediate-9-d5sc08998k_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-atomic-scale-redox-potential-mediate-9-d5sc08998k"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 73,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

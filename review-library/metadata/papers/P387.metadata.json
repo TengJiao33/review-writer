@@ -1,0 +1,108 @@
+{
+  "paper_id": "P387",
+  "slug": "web-imports-2025-dative-bond-stabilizing-copper-activ-025-66140-w",
+  "title": {
+    "value": "σ-π dative bond stabilizing copper active site drives CO&lt;sub&gt;2&lt;/sub&gt; electrocatalysis to hydrocarbon.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Qian Z",
+      "Han G",
+      "Tan Y",
+      "Ye N",
+      "Wang S",
+      "Lin Z",
+      "Huang Q",
+      "Gu Y",
+      "Guo H",
+      "Liu F",
+      "Wang K",
+      "Li L",
+      "Shang C",
+      "Luo M",
+      "Guo S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-025-66140-w",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Copper-based catalysts are the premier choice for electrochemical reduction of CO<sub>2</sub> (CO<sub>2</sub>RR) into hydrocarbons or oxygenates. However, the facilely structural reconstruction of copper sites during electrolysis poses significant challenges to the long-life electrolytic efficiency. Herein, we leverage the strong σ-π dative bonding between Cu<sup>δ+</sup> and alkyne-based ligands to stabilize copper sites for the prolonged CO<sub>2</sub>RR. We demonstrate the feasibility of taming the electronic structures of copper sites through the tug of war between σ and π backbonding interactions. The optimal copper organic polymer with methoxy group functionalization (OMe-PhCu) exhibits a moderate charge density of copper sites and an intensified local asymmetric charge distribution of coordinative carbon, enhancing the selectivity of methane with a Faradaic efficiency of 68.8% and a partial current density of 324.5 mA cm<sup>-2</sup> in acidic electrolyte. In situ spectra and density functional theory calculations reveal enhanced *CO adsorption and lowered energy barrier for CO<sub>2</sub>RR into methane over OMe-PhCu. Building upon such stable Cu<sup>δ+</sup> sites, we furt",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-dative-bond-stabilizing-copper-activ--025-66140-w.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-dative-bond-stabilizing-copper-activ-025-66140-w.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dative-bond-stabilizing-copper-activ-025-66140-w\\web-imports-2025-dative-bond-stabilizing-copper-activ-025-66140-w_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-dative-bond-stabilizing-copper-activ-025-66140-w"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 102,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

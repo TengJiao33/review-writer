@@ -1,0 +1,102 @@
+{
+  "paper_id": "P288",
+  "slug": "web-imports-2021-deciphering-the-chameleonic-chemistr-mrev-0c00986",
+  "title": {
+    "value": "Deciphering the Chameleonic Chemistry of Allenols: Breaking the Taboo of a Onetime Esoteric Functionality.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Alonso JM",
+      "Almendros P"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2021,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Reviews",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.chemrev.0c00986",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The allene functionality has participated in one of the most exciting voyages in organic chemistry, from chemical curiosities to a recurring building block in modern organic chemistry. In the last decades, a special kind of allene, namely, allenol, has emerged. Allenols, formed by an allene moiety and a hydroxyl functional group with diverse connectivity, have become common building blocks for the synthesis of a wide range of structures and frequent motif in naturally occurring systems. The synergistic effect of the allene and hydroxyl functional groups enables allenols to be considered as a unique and sole functionality exhibiting a special reactivity. This Review summarizes the most significant contributions to the chemistry of allenols that appeared during the past decade, with emphasis on their synthesis, reactivity, and occurrence in natural products.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "allenes",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "primary research article"
+    },
+    "source": "rule_keyword_inference_constrained_to_project_labels",
+    "confidence": 0.45,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2021-deciphering-the-chameleonic-chemistr-mrev-0c00986.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2021-deciphering-the-chameleonic-chemistr-mrev-0c00986.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-deciphering-the-chameleonic-chemistr-mrev-0c00986\\web-imports-2021-deciphering-the-chameleonic-chemistr-mrev-0c00986_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2021-deciphering-the-chameleonic-chemistr-mrev-0c00986"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T12:20:23Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 354,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [
+      "structured_tag_not_specified_substrate",
+      "structured_tag_not_specified_catalyst_or_method",
+      "structured_tag_not_specified_organometallic_partner",
+      "structured_tag_not_specified_ligand_or_chiral_source",
+      "structured_tag_not_specified_leaving_group",
+      "structured_tag_not_specified_reaction_type"
+    ],
+    "overall_confidence": 0.911,
+    "needs_human_check": true
+  }
+}

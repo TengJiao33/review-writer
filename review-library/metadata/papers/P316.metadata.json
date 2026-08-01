@@ -1,0 +1,98 @@
+{
+  "paper_id": "P316",
+  "slug": "web-imports-2025-electrochemical-c-h-functionalizatio-ie-202515252",
+  "title": {
+    "value": "Electrochemical ⍺-C─H Functionalization of Nitramines for Accessing Bifunctional Energetic Heterocycles.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Lee WC",
+      "Novaes LFT",
+      "Ali R",
+      "Wirth T",
+      "Lin S"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202515252",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The synthesis of energetic materials (EMs) often involves hazardous reagents and harsh conditions, raising safety and environmental concerns. We herein present an electrochemical method for the ⍺-C─H azolation of nitramines, enabling the integration of nitramines and various nitrogen-rich azoles as dual energetic components within the same molecule. To enhance the practicality of the overall synthesis, we developed a tandem two-step process that transforms free amines into nitramines using stable and readily available reagents, which was complemented by subsequent electrochemical azolation to complete a streamlined, scalable preparation of bifunctional energetic compounds. Finally, a continuous flow system was employed to further improve the practicality of the electrosynthetic method, which substantially reduced electrolyte usage and increased productivity. Computational and experimental data revealed that the introduction of azoles, particularly those with additional nitro substituents, improves the energy density and thermal stability of nitramines. This work provides a proof of concept that the reported electrochemical azolation reaction may not only offer a safer and more sust",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-electrochemical-c-h-functionalizatio-ie-202515252.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-electrochemical-c-h-functionalizatio-ie-202515252.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-c-h-functionalizatio-ie-202515252\\web-imports-2025-electrochemical-c-h-functionalizatio-ie-202515252_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-electrochemical-c-h-functionalizatio-ie-202515252"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:21:57Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 51,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

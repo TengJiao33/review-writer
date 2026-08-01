@@ -935,7 +935,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--all-available",
         action="store_true",
-        help="Import every selected plan row that already has a direct PDF or licensed full-text page.",
+        help=(
+            "Import every plan row with a direct PDF or licensed full-text page. "
+            "Use after screening every row for relevance; otherwise select rows "
+            "with repeated --paper-key."
+        ),
     )
     parser.add_argument("--timeout", type=int, default=60)
     parser.add_argument(
@@ -1301,6 +1305,16 @@ def main() -> int:
     receipt["failure_count"] = failures
     receipt["remaining_importable_count"] = int(
         plan.get("importable_count") or 0
+    )
+    receipt["literature_set_guidance"] = (
+        "Treat this batch as an orientation and working set. Use reading to "
+        "find the direct primary support needed for central claims and major "
+        "comparisons. Continue targeted discovery while material gaps remain; "
+        "the set may be mature when new searches mainly repeat approaches and "
+        "evidence already understood. For a broad comprehensive review, roughly "
+        "40 genuinely relevant cited sources is a useful scale cue; recheck "
+        "coverage when the emerging bibliography is much smaller, while letting "
+        "the actual scope and evidence determine the final number."
     )
     write_ingest_receipt(
         discovery_dir / "external_ingest_receipt.json",

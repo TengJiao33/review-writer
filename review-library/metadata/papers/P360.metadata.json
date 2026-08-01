@@ -1,0 +1,95 @@
+{
+  "paper_id": "P360",
+  "slug": "web-imports-2025-single-atom-catalyst-for-nitrate-to-ll-202403515",
+  "title": {
+    "value": "Single Atom Catalyst for Nitrate-to-Ammonia Electrochemistry.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Subhadarshini S",
+      "Pumera M"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Small (Weinheim an Der Bergstrasse, Germany)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/smll.202403515",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Various life forms suffer from the negative effects of nitrate when it accumulates in water bodies, which is a major concern in the present day. The removal of nitrate from water bodies is a critical challenge, and the most effective method to achieve that is to change it into ammonia. Ammonia is a clean energy source and a vital input for the fertilizer industry. The Haber-Bosch process, which dominates the industrial production of ammonia, requires a lot of energy. A more sustainable way to produce ammonia is to use nitrate-contaminated water and reduce it to ammonia through electrocatalysis. This review is constituted of amalgamated articles featuring unique conditions that affect the productivity and activity of the transition metal single atom catalyst (TNMSAC) for the electrocatalytic nitrate reduction to ammonia (NRA) reaction. It explores factors such as nitrate ion adsorption, the characteristics of the central electroactive transition metal, the type of coordinating atoms, the impact of potential on stability, and the interplay among single atoms on the selectivity and yield of ammonia gas. In addition, this review also covers advanced concepts such as dual-atom catalysts",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-single-atom-catalyst-for-nitrate-to--ll-202403515.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-single-atom-catalyst-for-nitrate-to-ll-202403515.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-single-atom-catalyst-for-nitrate-to-ll-202403515\\web-imports-2025-single-atom-catalyst-for-nitrate-to-ll-202403515_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-single-atom-catalyst-for-nitrate-to-ll-202403515"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:44Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 83,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,year,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.846,
+    "needs_human_check": false
+  }
+}

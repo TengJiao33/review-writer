@@ -1,0 +1,107 @@
+{
+  "paper_id": "P338",
+  "slug": "web-imports-2026-mapping-the-hierarchical-environment-est-5c14487",
+  "title": {
+    "value": "Mapping the Hierarchical Environmental Transformations of Nanoscale UiO-66 Metal-organic Framework.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Chakraborty S",
+      "Mikulska I",
+      "Dhumal P",
+      "Langford N",
+      "Nehzati S",
+      "Boseley R",
+      "Pham S",
+      "Pfrang C",
+      "Kaur M",
+      "Valsami-Jones E",
+      "Ignatyev K",
+      "Menon D",
+      "Misra SK",
+      "Lynch I"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Environmental Science & Technology",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1021/acs.est.5c14487",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Metal-organic frameworks (MOFs) hold immense potential for applications from separations to catalysis, yet their long-term behavior across real-world environments remains unclear. Here we introduce a hierarchical exposure framework that tracks the structural and chemical transformations in the archetypal zirconium MOF UiO-66 across sequential compartments─atmospheric gases, air, aqueous media and a biological host─and resolves how prior exposures condition or prime subsequent transformations. Using synchrotron-based spectroscopy, we find that oxidative/reactive gases leave the Zr-carboxylate nodes essentially intact, whereas exposure to environmentally relevant aqueous media initiates partial shifts in local Zr coordination and introduces oxygen into the pores─with transformation extent governed by the chemistry of the environmental matrices. Strikingly, acute exposure (24 h) to the water flea <i>Daphnia magna</i> drives profound framework degradation and respeciation to Zr hydroxide species. Microfocus XRF maps show that Zr is highly localized in the animal's digestive tract, and region-specific XANES confirms uniform speciation across its tissues. Our findings establish a paradig",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-mapping-the-hierarchical-environment--est-5c14487.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-mapping-the-hierarchical-environment-est-5c14487.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-mapping-the-hierarchical-environment-est-5c14487\\web-imports-2026-mapping-the-hierarchical-environment-est-5c14487_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-mapping-the-hierarchical-environment-est-5c14487"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 58,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

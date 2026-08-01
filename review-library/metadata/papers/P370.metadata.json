@@ -1,0 +1,106 @@
+{
+  "paper_id": "P370",
+  "slug": "web-imports-2026-reverse-hydrogen-spillover-accelerat-026-69335-x",
+  "title": {
+    "value": "Reverse hydrogen spillover accelerates electrocatalytic nitrate reduction to ammonia on Ru/WO&lt;sub&gt;3-x&lt;/sub&gt; in acidic media.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Zhu W",
+      "Lin YC",
+      "Cong J",
+      "Zhao M",
+      "Li J",
+      "Hao C",
+      "Jia J",
+      "Wang X",
+      "Huang Y",
+      "Lin YG",
+      "Yang G",
+      "Yao F",
+      "Liang H"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Nature Communications",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1038/s41467-026-69335-x",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The electrocatalytic nitrate reduction reaction (NO<sub>3</sub><sup>-</sup>RR) offers a promising route to sustainable ammonia synthesis, potentially replacing the energy-intensive Haber-Bosch process. While often studied in neutral or alkaline media, NO<sub>3</sub><sup>-</sup>RR in acidic conditions is particularly relevant due to widespread industrial acidic nitrate wastewater, yet it remains challenging due to corrosion and dominant hydrogen evolution. To address this, we designed a corrosion-resistant Ru/WO<sub>3-x</sub> heterostructure that spatially separates proton and nitrate adsorption sites. Here, we show that a reverse hydrogen spillover effect, where the WO<sub>3-x</sub> support stores and transports protons to surface Ru active sites, dramatically enhances hydrogenation kinetics and suppresses parasitic hydrogen evolution. This catalyst achieves an ammonia Faradaic efficiency of 94.09% at a high current density of 500 mA cm<sup>-2</sup> and a working potential of 0.026 V vs. reversible hydrogen electrode. Furthermore, we demonstrate a sulfide-nitrate \"batterolyzer\" with a discharge power density of 43.4 mW cm<sup>-2</sup>. This work reveals an effective proton-manageme",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-reverse-hydrogen-spillover-accelerat--026-69335-x.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-reverse-hydrogen-spillover-accelerat-026-69335-x.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-reverse-hydrogen-spillover-accelerat-026-69335-x\\web-imports-2026-reverse-hydrogen-spillover-accelerat-026-69335-x_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-reverse-hydrogen-spillover-accelerat-026-69335-x"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T02:19:45Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 120,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

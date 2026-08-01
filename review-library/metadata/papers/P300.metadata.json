@@ -1,0 +1,100 @@
+{
+  "paper_id": "P300",
+  "slug": "web-imports-2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b",
+  "title": {
+    "value": "PCET-mediated deconstructive cross-coupling of aliphatic alcohols.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Patehebieke Y",
+      "Charaf R",
+      "Pal KB",
+      "Baamonde BM",
+      "Brnovic A",
+      "Hammarström L",
+      "Wallentin CJ"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Chemical Science",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d5sc00737b",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "A practical deconstructive arylation of aliphatic alcohols has been developed using a synergistic photoredox proton-coupled electron transfer (PCET) and nickel dual catalytic system. The method efficiently generates alkyl radicals <i>via</i> concerted PCET-mediated β-scission, enabling the formation of C(sp<sup>3</sup>)-C(sp<sup>2</sup>) bonds between alcohols and aryl halides. Optimization studies revealed a broad functional group tolerance and high chemoselectivity, with good yields even for challenging tertiary alcohol substrates. Mechanistic insights from transient absorption spectroscopy confirmed the dominance of a PCET pathway for radical generation. This strategy expands the utility of alcohols as alkyl radical precursors in cross-coupling reactions, offering a versatile tool for constructing complex molecular architectures.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b\\web-imports-2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-pcet-mediated-deconstructive-cross-c-9-d5sc00737b"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:07:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 55,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

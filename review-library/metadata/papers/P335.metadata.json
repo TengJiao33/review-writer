@@ -1,0 +1,107 @@
+{
+  "paper_id": "P335",
+  "slug": "web-imports-2026-engineering-hierarchical-porosity-in-9-d6ta02595a",
+  "title": {
+    "value": "Engineering hierarchical porosity in MOFs for host-guest chemistry with large organometallic complexes.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Blaschke J",
+      "Asghar M",
+      "Huang Z",
+      "Nagaraju Myakala S",
+      "Naghdi S",
+      "Schachinger T",
+      "Kählig H",
+      "Lanaridi O",
+      "Limbeck A",
+      "Durand J",
+      "Serp P",
+      "Libisch F",
+      "Apaydin DH",
+      "Eder D"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2026,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Journal of Materials Chemistry. a",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1039/d6ta02595a",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "The microporous nature of metal-organic frameworks (MOFs) often limits their capacity to incorporate large molecular guests, such as organometallic catalysts. In this work, we demonstrate a defect-engineering strategy for the Zr-based MOF UiO-66 to generate hierarchical pore structures capable of hosting the bulky Lehn-type complex [Re(bpy-4-COOH)(CO)<sub>3</sub>Cl]. By introducing missing-linker and missing-cluster defects-both during synthesis and through a selective ligand removal (SeLiRe) process-we modulate the framework's pore structure and volume. Using a post-synthetic modification approach, 2,2'-bipyridine-4-carboxylic acid (bpy-4-COOH) is anchored into the MOF structure <i>via</i> solvent-assisted ligand incorporation, followed by complexation with [Re(CO)<sub>5</sub>Cl]. A comprehensive suite of characterization techniques including TGA, Ar-physisorption, STEM-EDX, solid-state NMR, XAS and other spectroscopic methods confirmed the formation and uniform distribution of the Re-complex within the MOF porosity. Our results show that the introduced defects and the associated creation of mesoporosity are essential for successful incorporation of the large Re-complex, while nea",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2026-engineering-hierarchical-porosity-in-9-d6ta02595a.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2026-engineering-hierarchical-porosity-in-9-d6ta02595a.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-engineering-hierarchical-porosity-in-9-d6ta02595a\\web-imports-2026-engineering-hierarchical-porosity-in-9-d6ta02595a_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2026-engineering-hierarchical-porosity-in-9-d6ta02595a"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 77,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

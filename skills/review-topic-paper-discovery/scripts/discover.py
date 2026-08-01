@@ -4,12 +4,14 @@ from __future__ import annotations
 import argparse
 import atexit
 import ast
+import http.client
 import json
 import os
 import re
 import ssl
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -240,6 +242,10 @@ QUERY_STOPWORDS = {
     "these", "this", "through", "to", "toward", "towards", "using", "versus",
     "via", "what", "when", "where", "which", "with", "without",
 }
+TOPIC_ANCHOR_STOPWORDS = {
+    "advance", "advances", "application", "applications", "derivative",
+    "derivatives", "method", "methods", "recent", "review", "synthesis",
+}
 
 
 def compact_query(text: str, max_terms: int = 8) -> str:
@@ -263,6 +269,30 @@ def compact_query(text: str, max_terms: int = 8) -> str:
     return " ".join(kept)
 
 
+def topic_anchor_query(text: str, max_terms: int = 3) -> str:
+    """Keep a few topic-defining terms for high-recall facet queries."""
+    terms = compact_query(
+        text,
+        max_terms=max_terms + len(TOPIC_ANCHOR_STOPWORDS),
+    ).split()
+    specific = [
+        term
+        for term in terms
+        if term.lower().strip("./") not in TOPIC_ANCHOR_STOPWORDS
+    ]
+    return " ".join((specific or terms)[:max(max_terms, 1)])
+
+
+def facet_query_chunks(text: str, terms_per_query: int = 4) -> list[str]:
+    """Split a dense coverage bullet so later method terms remain searchable."""
+    terms = compact_query(text, max_terms=16).split()
+    return [
+        " ".join(terms[start:start + terms_per_query])
+        for start in range(0, len(terms), terms_per_query)
+        if terms[start:start + terms_per_query]
+    ]
+
+
 def _query_candidate(text: str, category: str, reason: str) -> dict[str, Any] | None:
     query = compact_query(text)
     if len(tokenize(query)) < 2:
@@ -279,6 +309,7 @@ def infer_keywords(
     contract = topic_contract if isinstance(topic_contract, dict) else {}
     candidates: list[dict[str, Any]] = []
     title = str(contract.get("manuscript_title") or topic).strip()
+    topic_anchor = topic_anchor_query(title, max_terms=3)
     title_parts = [
         part.strip()
         for part in re.split(r"[:;]", title)
@@ -290,15 +321,18 @@ def infer_keywords(
         "compact core query from the declared topic",
     )
     if core:
+        core["facet_group"] = "core_topic"
         candidates.append(core)
-    for coverage in contract.get("important_coverage") or []:
-        row = _query_candidate(
-            str(coverage),
-            "coverage",
-            "coverage query from the topic contract",
-        )
-        if row:
-            candidates.append(row)
+    for coverage_index, coverage in enumerate(contract.get("important_coverage") or []):
+        for facet in facet_query_chunks(str(coverage)):
+            row = _query_candidate(
+                " ".join(part for part in (topic_anchor, facet) if part),
+                "coverage",
+                "coverage query anchored to the declared topic",
+            )
+            if row:
+                row["facet_group"] = f"coverage_{coverage_index}"
+                candidates.append(row)
     if len(candidates) < 3:
         central = str(contract.get("central_question") or "")
         for clause in re.split(r"[?;]|\.\s+|,\s+(?:and|or)\s+", central):
@@ -352,12 +386,13 @@ def build_keyword_set(
 ) -> dict[str, Any]:
     agent = infer_keywords(topic, user_keywords, topic_contract)
     merged: dict[str, dict[str, Any]] = {}
-    for kw in user_keywords:
+    for keyword_index, kw in enumerate(user_keywords):
         merged[kw.lower()] = {
             "keyword": kw,
             "category": classify_keyword(kw),
             "source": ["user"],
             "keep": True,
+            "facet_group": f"user_{keyword_index}",
         }
     for item in agent:
         key = item["keyword"].lower()
@@ -367,7 +402,14 @@ def build_keyword_set(
             if not merged[key].get("category"):
                 merged[key]["category"] = item["category"]
         else:
-            merged[key] = {"keyword": item["keyword"], "category": item["category"], "source": ["agent"], "keep": True, "reason": item.get("reason", "")}
+            merged[key] = {
+                "keyword": item["keyword"],
+                "category": item["category"],
+                "source": ["agent"],
+                "keep": True,
+                "reason": item.get("reason", ""),
+                "facet_group": item.get("facet_group"),
+            }
     warnings: list[str] = []
     if len(merged) < 3:
         warnings.append(
@@ -558,7 +600,15 @@ def local_search_by_keyword(
             r for r in results if r["direct_raw_score"] >= 1.0 and r["score"] >= 0.12
         ]
         results.sort(key=lambda r: (r["score"], r["raw_score"], r.get("year") or 0), reverse=True)
-        grouped.append({"keyword": keyword, "category": kw.get("category"), "keep": True, "local_results": results})
+        grouped.append(
+            {
+                "keyword": keyword,
+                "category": kw.get("category"),
+                "facet_group": kw.get("facet_group"),
+                "keep": True,
+                "local_results": results,
+            }
+        )
     return grouped
 
 
@@ -631,7 +681,7 @@ def external_relevance(
     query_hits = sorted(query_terms & signal_terms)
     title_topic_hits = sorted(topic_terms & title_terms)
     topic_floor = (
-        1 if 0 < len(topic_terms) <= 2 else min(3, len(topic_terms))
+        1 if 0 < len(topic_terms) <= 2 else min(2, len(topic_terms))
     )
     query_floor = (
         1 if 0 < len(query_terms) <= 2 else min(2, len(query_terms))
@@ -689,9 +739,27 @@ def is_supplementary_crossref_record(item: dict[str, Any]) -> bool:
 
 
 def crossref_request_json(url: str) -> dict[str, Any]:
-    req = urllib.request.Request(url, headers={"User-Agent": CROSSREF_USER_AGENT})
-    with urllib.request.urlopen(req, context=ssl.create_default_context(), timeout=20) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    retryable = (
+        http.client.IncompleteRead,
+        json.JSONDecodeError,
+        ssl.SSLError,
+        TimeoutError,
+        urllib.error.URLError,
+    )
+    for attempt in range(2):
+        req = urllib.request.Request(url, headers={"User-Agent": CROSSREF_USER_AGENT})
+        try:
+            with urllib.request.urlopen(
+                req,
+                context=ssl.create_default_context(),
+                timeout=20,
+            ) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except retryable:
+            if attempt:
+                raise
+            time.sleep(0.5)
+    raise RuntimeError("unreachable Crossref request state")
 
 
 def crossref_search_items(
@@ -958,6 +1026,39 @@ REFERENCE_SCREEN_STOPWORDS = {
 }
 
 
+def review_seed_hints_from_grouped(
+    grouped_results: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Reuse relevant reviews already found by any provider as Crossref seeds."""
+    hints: list[dict[str, Any]] = []
+    seen_dois: set[str] = set()
+    for group in grouped_results:
+        for row in group.get("web_results") or []:
+            if not isinstance(row, dict) or not row.get("keep", True):
+                continue
+            doi = _normalized_doi(row.get("doi") or row.get("external_id"))
+            title = re.sub(r"\s+", " ", str(row.get("title") or "")).strip()
+            publication_types = [
+                str(value)
+                for value in row.get("publication_types") or []
+            ]
+            review_like = bool(REVIEW_SEED_RE.search(title)) or any(
+                "review" in value.lower() for value in publication_types
+            )
+            if not doi or doi in seen_dois or not review_like:
+                continue
+            seen_dois.add(doi)
+            hints.append(
+                {
+                    "DOI": doi,
+                    "title": [title],
+                    "type": "journal-article",
+                    "_review_hint": True,
+                }
+            )
+    return hints
+
+
 def _reference_screen_terms(topic: str, keywords: list[str]) -> list[str]:
     return [
         term
@@ -999,6 +1100,7 @@ def crossref_reference_expansion(
     *,
     seed_limit: int = 2,
     result_limit: int = 30,
+    seed_hints: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Find close reviews, expand deposited references, and screen them by topic."""
     if result_limit <= 0:
@@ -1028,6 +1130,11 @@ def crossref_reference_expansion(
     errors: list[str] = []
     raw_seed_items: list[dict[str, Any]] = []
     seen_seed_dois: set[str] = set()
+    for item in seed_hints or []:
+        doi = _normalized_doi(item.get("DOI"))
+        if doi and doi not in seen_seed_dois:
+            seen_seed_dois.add(doi)
+            raw_seed_items.append(item)
     for index, query in enumerate(seed_queries):
         try:
             items = crossref_search_items(
@@ -1061,10 +1168,13 @@ def crossref_reference_expansion(
         anchor_match = all(contains_term(title, term) for term in anchor_terms)
         guideline_match = "guideline" in title.lower() and len(hits) >= 2
         partial_anchor = any(contains_term(title, term) for term in anchor_terms)
+        review_like = bool(REVIEW_SEED_RE.search(title)) or bool(
+            item.get("_review_hint")
+        )
         if (
             not doi
             or is_excluded_crossref_record(item)
-            or not REVIEW_SEED_RE.search(title)
+            or not review_like
             or not (anchor_match or guideline_match or partial_anchor)
             or (
                 len(hits) < min(2, len(_reference_screen_terms(topic, keywords)))
@@ -1533,9 +1643,27 @@ def choose_external_groups(
 ) -> list[dict[str, Any]]:
     if query_limit <= 0:
         return local_grouped
-    # merged_keywords keeps user terms first; the cap prevents a keyword
-    # expansion from silently becoming dozens of remote API calls.
-    return local_grouped[:query_limit]
+    # Visit each declared facet once before spending remaining calls on the
+    # second chunk of a dense facet. This keeps a technical call cap from
+    # erasing later coverage dimensions.
+    buckets: dict[str, list[dict[str, Any]]] = {}
+    for index, group in enumerate(local_grouped):
+        key = str(group.get("facet_group") or f"query_{index}")
+        buckets.setdefault(key, []).append(group)
+    selected: list[dict[str, Any]] = []
+    depth = 0
+    while len(selected) < query_limit:
+        added = False
+        for rows in buckets.values():
+            if depth < len(rows):
+                selected.append(rows[depth])
+                added = True
+                if len(selected) >= query_limit:
+                    break
+        if not added:
+            break
+        depth += 1
+    return selected
 
 
 
@@ -2355,11 +2483,13 @@ def run(args: argparse.Namespace) -> int:
         "errors": [],
     }
     if crossref_requested and args.reference_expansion_limit > 0:
+        seed_hints = review_seed_hints_from_grouped(external_grouped)
         reference_expansion = crossref_reference_expansion(
             topic,
             [group["keyword"] for group in queried_groups],
             seed_limit=args.review_seed_limit,
             result_limit=args.reference_expansion_limit,
+            seed_hints=seed_hints,
         )
         expansion_rows = annotate_external_results(
             reference_expansion.get("results") or [],
@@ -2536,8 +2666,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--external-query-limit",
         type=int,
-        default=6,
-        help="Maximum expanded keywords sent to each external provider; 0 means no cap.",
+        default=0,
+        help=(
+            "Optional maximum expanded keywords sent to each external provider; "
+            "the default 0 keeps every planned facet."
+        ),
     )
     parser.add_argument(
         "--semantic-scholar-search",

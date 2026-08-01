@@ -1,0 +1,100 @@
+{
+  "paper_id": "P328",
+  "slug": "web-imports-2025-degradation-of-glyphosate-to-benign-ie-202424540",
+  "title": {
+    "value": "Degradation of Glyphosate to Benign N-Formyl Glycine Using MOF-808 Nanocrystals.",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Prada JAP",
+      "Navarro TAH",
+      "Chua SL",
+      "Granados AM",
+      "Pao CW",
+      "Fracaroli AM",
+      "Bedford NM"
+    ],
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie (International Ed. in English)",
+    "source": "jats_journal_title",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202424540",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Glyphosate (N-phosphonomethyl glycine, GPh) is an industrial herbicide used worldwide in modern agricultural practices. With the growing concerns regarding cumulative environmental and health effects, pathways for catalytic GPh degradation to benign products are becoming a pressing societal need. This report demonstrates that Zr-based metal-organic framework (MOF-808) with different crystal sizes and designed defect sites can be employed as an efficient heterogeneous catalyst for the complete degradation of GPh at room temperature. Importantly, the degradation mechanism produces N-formyl glycine and hydroxymethyl-phosphonate, which are largely innocuous chemicals, especially when compared to more common GPh degradation products. Nanocrystalline MOF-808 (nMOF-808) exhibits enhanced reactivity than larger MOF-808 crystals, attributed to the higher coordination of hydroxyl and water molecules to the secondary building units (SBU) as determined using a range of X-ray absorption spectroscopy (XAS) techniques. These studies indicate that the crystal size-dependency in GPh degradation is related to structural modifications on coordinative unsaturated Zr site that promote the fast exchange",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-degradation-of-glyphosate-to-benign--ie-202424540.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-degradation-of-glyphosate-to-benign-ie-202424540.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-degradation-of-glyphosate-to-benign-ie-202424540\\web-imports-2025-degradation-of-glyphosate-to-benign-ie-202424540_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-degradation-of-glyphosate-to-benign-ie-202424540"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-25T17:24:29Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 39,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,authors,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

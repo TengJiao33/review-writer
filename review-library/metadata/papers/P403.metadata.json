@@ -1,0 +1,98 @@
+{
+  "paper_id": "P403",
+  "slug": "web-imports-2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865",
+  "title": {
+    "value": "p‐Type TiO\n                    <sub>2</sub>\n                    Nanotubes: Quantum Confinement and Pt Single Atom Decoration Enable High Selectivity Photocatalytic Nitrate Reduction to Ammonia",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "authors": {
+    "value": [
+      "Hayoon Jung",
+      "Hyesung Kim",
+      "Johannes Will",
+      "Erdmann Spiecker",
+      "Patrik Schmuki"
+    ],
+    "source": "jats_contrib_group",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "year": {
+    "value": 2025,
+    "source": "jats_pub_date",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "journal": {
+    "value": "Angewandte Chemie International Edition",
+    "source": "external_discovery",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "doi": {
+    "value": "10.1002/anie.202415865",
+    "source": "jats_article_id",
+    "confidence": 0.99,
+    "human_checked": false
+  },
+  "abstract": {
+    "value": "Abstract We synthesize p‐type TiO 2 nanotubes that allow band‐gap adjustment by quantum confinement. These tubes therefore enable reductive photocatalytic reactions that are not thermodynamically possible on classic titania photocatalysts. Here, we demonstrate the direct photocatalytic nitrate reduction to ammonia without any need of hole scavengers. The quantum confinement effect (and thus the thermodynamic driving force) can be controlled by the thickness of the nanotube walls. Notably, the use of Pt single atoms as cocatalysts decorated on the TiO 2 nanotubes additionally offers a superior ammonia production and a remarkable enhanced selectivity compared to Pt nanoparticles. Overall, the work not only highlights the potential of size‐controlled modifications of electronic properties in extending the utility of a most classical photocatalyst but also exemplifies its use in technologically relevant reactions.",
+    "source": "external_discovery",
+    "confidence": 0.98,
+    "human_checked": false
+  },
+  "structured_tags": {
+    "value": {
+      "product": "not specified",
+      "substrate": "not specified",
+      "catalyst_or_method": "not specified",
+      "organometallic_partner": "not specified",
+      "ligand_or_chiral_source": "not specified",
+      "leaving_group": "not specified",
+      "reaction_type": "not specified",
+      "document_scope": "not specified"
+    },
+    "source": "optional_enrichment_not_run",
+    "confidence": 0.0,
+    "human_checked": false
+  },
+  "source_paths": {
+    "pdf": null,
+    "xml": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\chem_papers\\web-imports\\2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865.jats.xml",
+    "markdown": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\markdown\\web-imports-2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865.md",
+    "content_list": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865\\web-imports-2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865_content_list.json",
+    "extracted_dir": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\extracted\\web-imports-2025-p-type-tio-sub-2-sub-nanotubes-quant-ie-202415865"
+  },
+  "source_file": {
+    "pdf_name": null,
+    "relative_pdf_path": null,
+    "sha256": null
+  },
+  "extraction": {
+    "mode": "rules",
+    "model": null,
+    "created_at": "2026-07-26T03:54:38Z",
+    "inputs": {
+      "manifest": "D:\\develop\\RA-Internship-Tasks\\local\\qoderwork\\review-writer\\mineru-outputs\\manifest.json",
+      "content_blocks": 42,
+      "markdown_chars_used": 14000
+    },
+    "notes": [
+      "bibliographic_reconciled_from_external_discovery:title,journal,abstract"
+    ]
+  },
+  "human_review": {
+    "status": "not_reviewed",
+    "reviewed_at": null,
+    "reviewer": null,
+    "notes": []
+  },
+  "quality": {
+    "missing_fields": [],
+    "warnings": [],
+    "overall_confidence": 0.847,
+    "needs_human_check": false
+  }
+}

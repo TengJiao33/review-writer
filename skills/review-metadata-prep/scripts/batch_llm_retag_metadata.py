@@ -32,7 +32,10 @@ def has_complete_llm_tags(meta: dict[str, Any]) -> bool:
         if not value:
             return False
     extraction = meta.get("extraction") or {}
-    if extraction.get("mode") == "llm_8_category_retag":
+    if extraction.get("mode") in {
+        "llm_8_category_retag",
+        "llm_optional_chemistry_descriptors",
+    }:
         return True
     source = str(structured.get("source") or "").lower()
     return source.startswith("llm")
@@ -96,7 +99,7 @@ def write_progress(out_dir: Path, reports: list[dict[str, Any]], attempts: dict[
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Batch-refresh metadata with LLM-extracted eight-category tags, three papers per round by default."
+        description="Batch-refresh metadata with optional LLM chemistry descriptors, three papers per round by default."
     )
     parser.add_argument("--review-root", default=str(Path(__file__).resolve().parents[3]))
     parser.add_argument("--model", default="")
@@ -111,6 +114,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sleep-seconds", type=float, default=0.5)
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument("--force", action="store_true", help="Retag papers even if they already have complete LLM tags.")
+    parser.add_argument(
+        "--classification-rules",
+        default="",
+        help="Optional project-specific label rules. Omit for generic descriptors.",
+    )
     return parser.parse_args()
 
 
@@ -132,7 +140,11 @@ def main() -> int:
 
     skill_root = Path(__file__).resolve().parents[1]
     system_prompt = (skill_root / "references" / "metadata_extraction_system.md").read_text(encoding="utf-8")
-    classification_labels = load_classification_rules(review_root / "allene_classification_rules.py")
+    classification_labels = (
+        load_classification_rules(Path(args.classification_rules).resolve())
+        if args.classification_rules
+        else {}
+    )
     meta_dir = review_root / "review-library" / "metadata" / "papers"
     out_dir = review_root / "review-library" / "metadata"
     paths = selected_paths(meta_dir, args.paper_id)
