@@ -1836,7 +1836,7 @@ def convert(
                 and effective_level >= 2
                 and new_ctx not in {"abstract", "keywords", "acks", "supporting", "references"}
             ):
-                _add_chemvellum_section(doc, 2, WD_SECTION.NEW_PAGE)
+                _add_chemvellum_section(doc, 2, WD_SECTION.CONTINUOUS)
                 journal_body_started = True
                 journal_columns = 2
             ctx = new_ctx if new_ctx else "body"
@@ -1993,7 +1993,7 @@ def convert(
                     _usable_page_width_inches(doc, layout_profile),
                 )
                 if layout_profile == "chemvellum_journal":
-                    max_height = min(max_height, 4.75)
+                    max_height = min(max_height, 4.1)
                 figure_width, figure_height = _bounded_figure_size(
                     img_path, max_width, max_height
                 )
@@ -2024,6 +2024,10 @@ def convert(
             f"{inserted_images} of {expected_images} parsed Markdown images"
         )
     if layout_profile == "chemvellum_journal":
+        if journal_body_started and journal_columns == 2:
+            # A final continuous one-column section balances the last pair of
+            # reference columns without adding a cover-like blank page.
+            _add_chemvellum_section(doc, 1)
         _decorate_chemvellum_document(doc)
         _configure_chemvellum_header_footer(doc)
     else:
